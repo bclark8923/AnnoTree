@@ -1,0 +1,9 @@
+[submodule "AnnoTreeLib"]
+	path = AnnoTreeLib
+	url = git://github.com/bclark8923/AnnoTree/AnnoTreeLib
+[submodule "AnnoTree Viewer"]
+	path = AnnoTree Viewer
+	url = git://github.com/bclark8923/AnnoTree/AnnoTree Viewer
+[submodule "AnnoTree Web Viewer"]
+	path = AnnoTree Web Viewer
+	url = git://github.com/bclark8923/AnnoTree/AnnoTree Web Viewer

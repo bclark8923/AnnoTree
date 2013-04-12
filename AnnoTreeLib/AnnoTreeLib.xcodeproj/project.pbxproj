@@ -86,6 +86,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D37C30D41717AC690000A7FC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		D3AAA1F717011FD900954DDF = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +125,7 @@
 		D3AAA20517011FD900954DDF /* AnnoTreeLib */ = {
 			isa = PBXGroup;
 			children = (
+				D37C30D41717AC690000A7FC /* Resources */,
 				D3AAA20817011FD900954DDF /* AnnoTreeLib.h */,
 				D3AAA20A17011FD900954DDF /* AnnoTreeLib.m */,
 				D3AAA22E1701201800954DDF /* AnnoTree.h */,
@@ -417,6 +425,7 @@
 				D3AAA22717011FDA00954DDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D3AAA22817011FDA00954DDF /* Build configuration list for PBXNativeTarget "AnnoTreeLibTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +434,7 @@
 				D3AAA22A17011FDA00954DDF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

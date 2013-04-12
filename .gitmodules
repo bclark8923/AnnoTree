@@ -1,6 +1,6 @@
 [submodule "AnnoTreeLib"]
 	path = AnnoTreeLib
-	url = git://github.com/bclark8923/AnnoTree/AnnoTreeLib
+	url = git://github.com/bclark8923/AnnoTree/AnnoTreeLib.git
 [submodule "AnnoTree Viewer"]
 	path = AnnoTree Viewer
 	url = git://github.com/bclark8923/AnnoTree/AnnoTree Viewer

@@ -19,6 +19,10 @@
 @property (nonatomic, retain) UITapGestureRecognizer *closeGesture;
 @property (nonatomic, retain) UILongPressGestureRecognizer *addTextGesture;
 @property (nonatomic, retain) UIViewController *annoTreeView;
+@property (nonatomic, retain) UIButton *openAnnoTreeButton;
+@property (nonatomic, retain) UIButton *closeAnnoTreeButton;
+@property (nonatomic, retain) NSMutableArray *annotations;
+@property (nonatomic, retain) UIView *annoTreeToolbar;
 
 //+ (AnnoTree *)instance;
 
@@ -32,6 +36,6 @@
 
 - (void)initializeTree;
 
--(UIView*)getAnnoTree;
+-(UIButton*)getAnnoTreeLauncher;
 
 @end

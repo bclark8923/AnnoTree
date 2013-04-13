@@ -8,6 +8,7 @@
 
 #import "AnnoTree.h"
 #import "MyLineDrawingView.h"
+#import "Rectangle.h"
 #import "AnnoTreeUserLaunchViewController.h"
 
 @interface AnnoTree ()
@@ -23,6 +24,10 @@
 @synthesize openGesture;
 @synthesize addTextGesture;
 @synthesize annoTreeView;
+@synthesize openAnnoTreeButton;
+@synthesize closeAnnoTreeButton;
+@synthesize annotations;
+@synthesize annoTreeToolbar;
 
 /*
 + (AnnoTree *)instance
@@ -52,46 +57,94 @@
 
 - (id)init {
     self = [super init];
-    if (self) {
-        //currentAppView = nil;
-        //MainWindow = [[UIApplication sharedApplication] keyWindow];
-        
-        //[[[UIApplication sharedApplication] keyWindow] addSubview:self.view];
-        annoTreeView = [[AnnoTreeUserLaunchViewController alloc] init];
-        
+    if (self) {        
+        /* Initiate the annotation window */
         AnnoTreeWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         AnnoTreeWindow.windowLevel = UIWindowLevelStatusBar;
         AnnoTreeWindow.rootViewController = self;
         AnnoTreeWindow.hidden = YES;
         AnnoTreeWindow.backgroundColor = [UIColor clearColor];
         
+        int space = 35.0;
+        int sizeIcon = 30;
+        
+        
+        /* Gestures for anno tree */
         closeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeTree:)];
         closeGesture.numberOfTapsRequired = 2;
         [closeAnnoTree addGestureRecognizer:closeGesture];
         closeAnnoTree.userInteractionEnabled = YES;
         
-        UIImage *cancelImg = [UIImage imageNamed:@"CloseIconToolbar.png"];
-        UIButton *btnCancel = [UIButton buttonWithType:UIButtonTypeCustom];
-        btnCancel.userInteractionEnabled = YES;
-        [btnCancel setFrame:CGRectMake(100.0,0.0, 35.0, 35.0)];
-        [btnCancel setBackgroundImage:cancelImg forState:UIControlStateNormal];
-        [btnCancel addGestureRecognizer:closeGesture];
-        [self.view addSubview:btnCancel];
-        
-        //openGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openTree:)];
-        //openGesture.numberOfTapsRequired = 2;
-        //openGesture.numberOfTouchesRequired = 1;
-        
         addTextGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(addText:)];
         addTextGesture.minimumPressDuration = 1;
         [AnnoTreeWindow addGestureRecognizer:addTextGesture];
+        
+        openGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openTree:)];
+        openGesture.numberOfTapsRequired = 2;
+        
+        
+        /* Create button to be loaded into user apps views to launch anno tree */
+        UIImage *annoTreeImage = [UIImage imageNamed:@"AnnoTreeLogo.png"];
+        openAnnoTreeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        openAnnoTreeButton.userInteractionEnabled = YES;
+        [openAnnoTreeButton setFrame:CGRectMake(0.0,0.0, sizeIcon, sizeIcon)];
+        [openAnnoTreeButton setBackgroundImage:annoTreeImage forState:UIControlStateNormal];
+        [openAnnoTreeButton addGestureRecognizer:openGesture];
+        [openAnnoTreeButton addTarget:self action:@selector(wasDragged:withEvent:)
+          forControlEvents:UIControlEventTouchDragInside];
+        
+        
+        /* create the toolbar to be loaded */
+        annoTreeToolbar = [[UIView alloc]initWithFrame:CGRectMake(0, 0, sizeIcon, space*5+sizeIcon)];
+        annoTreeToolbar.userInteractionEnabled = YES;
+        
+        Rectangle *toolbarBg = [[Rectangle alloc] initWithFrame:CGRectMake(0,sizeIcon/2, sizeIcon, space*5)];
+        [annoTreeToolbar addSubview:toolbarBg];
+        
+        UIImageView *pencilIconToolbarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,space, sizeIcon, sizeIcon)];
+        UIImage *pencilIconImage = [UIImage imageNamed:@"PencilIconToolbar.png"];
+        pencilIconToolbarImageView.image = pencilIconImage;
+        [annoTreeToolbar addSubview:pencilIconToolbarImageView];
+        
+        UIImageView *textIconToolbarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,space*2, sizeIcon, sizeIcon)];
+        UIImage *textIconImage = [UIImage imageNamed:@"TextIconToolbar.png"];
+        textIconToolbarImageView.image = textIconImage;
+        [annoTreeToolbar addSubview:textIconToolbarImageView];
+        
+        UIImageView *selectIconToolbarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,space*3, sizeIcon, sizeIcon)];
+        UIImage *selectIconImage = [UIImage imageNamed:@"SelectIconToolbar.png"];
+        selectIconToolbarImageView.image = selectIconImage;
+        [annoTreeToolbar addSubview:selectIconToolbarImageView];
+        
+        UIImageView *shareIconToolbarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,space*4, sizeIcon, sizeIcon)];
+        UIImage *shareIconImage = [UIImage imageNamed:@"ShareIconToolbar.png"];
+        shareIconToolbarImageView.image = shareIconImage;
+        [annoTreeToolbar addSubview:shareIconToolbarImageView];
+        
+        UIImageView *annoTreeImageOpenView = [[UIImageView alloc] initWithFrame:openAnnoTreeButton.frame];
+        annoTreeImageOpenView.image = annoTreeImage;
+        [annoTreeToolbar addSubview:annoTreeImageOpenView];
+        
+        UIImage *cancelImg = [UIImage imageNamed:@"CloseIconToolbar.png"];
+        closeAnnoTreeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        closeAnnoTreeButton.userInteractionEnabled = YES;
+        [closeAnnoTreeButton setFrame:CGRectMake(0,space*5, sizeIcon, sizeIcon)];
+        [closeAnnoTreeButton setBackgroundImage:cancelImg forState:UIControlStateNormal];
+        [closeAnnoTreeButton addGestureRecognizer:closeGesture];
+        [annoTreeToolbar addSubview:closeAnnoTreeButton];
+        
+        [self.view addSubview:annoTreeToolbar];
+        
+        
+        /* initiate array to hold the annotations - drawings and text */
+        annotations = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
--(UIView*)getAnnoTree
+-(UIButton*)getAnnoTreeLauncher
 {
-    return annoTreeView.view;
+    return openAnnoTreeButton;
 }
 
 - (void)viewDidLoad
@@ -125,31 +178,31 @@
 - (void) loadTree:(UIViewController*) appView
 {
     [[[UIApplication sharedApplication] keyWindow] bringSubviewToFront:annoTreeView.view];
-    //load view with button for firing up annotations
-    //[self loadFingerDrawing];
-    /*if(currentAppView) {
-        [appView.view addSubview:[[AnnoTreeUserLaunchViewController alloc] init].view];
-        currentAppView = appView;
-    }*/
 }
+
+#define CGRectSetPos( r, x, y ) CGRectMake( x, y, r.size.width, r.size.height )
 
 - (void) openTree:(UIGestureRecognizer*)gr
 {
     AnnoTreeWindow.hidden = NO;
     [AnnoTreeWindow makeKeyAndVisible];
-    
-    //UIView *screenBlock = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    //[AnnoTreeWindow addSubview:screenBlock];
+    [openAnnoTreeButton setHidden:YES];
+    annoTreeToolbar.frame = CGRectSetPos (annoTreeToolbar.frame, openAnnoTreeButton.frame.origin.x, openAnnoTreeButton.frame.origin.y);
     [self loadFingerDrawing];
 }
 
 -(void)closeTree:(UIGestureRecognizer*)gr
 {
     [self removeTree];
+    [openAnnoTreeButton setHidden:NO];
 }
 
 -(void) removeTree
 {
+    for (UIView *drawings in annotations) {
+        [drawings removeFromSuperview];
+    }
+    [annotations removeAllObjects];
     AnnoTreeWindow.hidden = YES;
     [MainWindow makeKeyAndVisible];
 }
@@ -157,7 +210,24 @@
 - (void) loadFingerDrawing
 {
     MyLineDrawingView *drawScreen=[[MyLineDrawingView alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
-     [self.view addSubview:drawScreen];
+    [annotations addObject:drawScreen];
+     [self.view insertSubview:drawScreen belowSubview:annoTreeToolbar];
+}
+
+- (void)wasDragged:(UIButton *)button withEvent:(UIEvent *)event
+{
+	// get the touch
+	UITouch *touch = [[event touchesForView:button] anyObject];
+    
+	// get delta
+	CGPoint previousLocation = [touch previousLocationInView:button];
+	CGPoint location = [touch locationInView:button];
+	CGFloat delta_x = location.x - previousLocation.x;
+	CGFloat delta_y = location.y - previousLocation.y;
+    
+	// move button
+	button.center = CGPointMake(button.center.x + delta_x,
+                                button.center.y + delta_y);
 }
 
 - (void)didReceiveMemoryWarning

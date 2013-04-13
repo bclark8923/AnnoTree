@@ -90,7 +90,8 @@ static const CGFloat kAddressHeight = 26.0f;
     [self updateButtons];
     
     //[[AnnoTree sharedInstance] loadTree:self];
-    [self.view addSubview:[[AnnoTree sharedInstance] getAnnoTree]];
+    [self.view addSubview:[[AnnoTree sharedInstance] getAnnoTreeLauncher]];
+    //[[[UIApplication sharedApplication] keyWindow] bringSubviewToFront:[[AnnoTree sharedInstance] getAnnoTreeLauncher]];
 }
 
 - (void)didReceiveMemoryWarning

@@ -35,7 +35,7 @@
         [btnOpen addTarget:self action:@selector(wasDragged:withEvent:)
          forControlEvents:UIControlEventTouchDragInside];
         
-        [self.view addSubview:btnOpen];
+        //[self.view addSubview:btnOpen];
     }
     return self;
 }

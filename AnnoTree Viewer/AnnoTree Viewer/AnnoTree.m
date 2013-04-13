@@ -121,8 +121,10 @@
         shareIconToolbarImageView.image = shareIconImage;
         [annoTreeToolbar addSubview:shareIconToolbarImageView];
         
-        UIImageView *annoTreeImageOpenView = [[UIImageView alloc] initWithFrame:openAnnoTreeButton.frame];
-        annoTreeImageOpenView.image = annoTreeImage;
+        UIButton *annoTreeImageOpenView = [[UIButton alloc] initWithFrame:openAnnoTreeButton.frame];
+        [annoTreeImageOpenView setBackgroundImage:annoTreeImage forState:UIControlStateNormal];
+        [annoTreeImageOpenView addTarget:self action:@selector(toolbarWasDragged:withEvent:)
+                     forControlEvents:UIControlEventTouchDragInside];
         [annoTreeToolbar addSubview:annoTreeImageOpenView];
         
         UIImage *cancelImg = [UIImage imageNamed:@"CloseIconToolbar.png"];
@@ -214,6 +216,24 @@
      [self.view insertSubview:drawScreen belowSubview:annoTreeToolbar];
 }
 
+- (void)toolbarWasDragged:(UIButton *)button withEvent:(UIEvent *)event
+{
+	// get the touch
+	UITouch *touch = [[event touchesForView:button] anyObject];
+    
+	// get delta
+	CGPoint previousLocation = [touch previousLocationInView:button];
+	CGPoint location = [touch locationInView:button];
+	CGFloat delta_x = location.x - previousLocation.x;
+	CGFloat delta_y = location.y - previousLocation.y;
+    
+	// move open button and toolbar
+	annoTreeToolbar.center = CGPointMake(annoTreeToolbar.center.x + delta_x,
+                                         annoTreeToolbar.center.y + delta_y);
+    openAnnoTreeButton.center = CGPointMake(openAnnoTreeButton.center.x + delta_x,
+                                            openAnnoTreeButton.center.y + delta_y);
+}
+
 - (void)wasDragged:(UIButton *)button withEvent:(UIEvent *)event
 {
 	// get the touch
@@ -225,7 +245,7 @@
 	CGFloat delta_x = location.x - previousLocation.x;
 	CGFloat delta_y = location.y - previousLocation.y;
     
-	// move button
+	// move open button
 	button.center = CGPointMake(button.center.x + delta_x,
                                 button.center.y + delta_y);
 }

@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AnnoTree Viewer/AnnoTree.m"
-         timestampString = "387586688.520816"
+         timestampString = "387588460.528172"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "152"
-         endingLineNumber = "152"
+         startingLineNumber = "154"
+         endingLineNumber = "154"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AnnoTree Viewer/AnnoTree.m"
-         timestampString = "387586688.520816"
+         timestampString = "387588460.528172"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "196"
-         endingLineNumber = "196"
+         startingLineNumber = "198"
+         endingLineNumber = "198"
          landmarkName = "-closeTree:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AnnoTree Viewer/AnnoTree.m"
-         timestampString = "387586688.520816"
+         timestampString = "387588460.528172"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "208"
-         endingLineNumber = "208"
+         startingLineNumber = "210"
+         endingLineNumber = "210"
          landmarkName = "-removeTree"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AnnoTree Viewer/AnnoTree.m"
-         timestampString = "387586688.520816"
+         timestampString = "387588460.528172"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "180"
-         endingLineNumber = "180"
+         startingLineNumber = "182"
+         endingLineNumber = "182"
          landmarkName = "-loadTree:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -157,6 +157,19 @@
          startingLineNumber = "15"
          endingLineNumber = "15"
          landmarkName = "-initWithFrame:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "AnnoTree Viewer/AnnoTree.m"
+         timestampString = "387588578.073468"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "222"
+         endingLineNumber = "222"
+         landmarkName = "-viewWasDragged:withEvent:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

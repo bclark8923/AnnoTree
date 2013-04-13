@@ -89,7 +89,8 @@ static const CGFloat kAddressHeight = 26.0f;
     [self.viewWeb loadRequest:request];
     [self updateButtons];
     
-    [[AnnoTree sharedInstance] loadTree];
+    //[[AnnoTree sharedInstance] loadTree:self];
+    [self.view addSubview:[[AnnoTree sharedInstance] getAnnoTree]];
 }
 
 - (void)didReceiveMemoryWarning

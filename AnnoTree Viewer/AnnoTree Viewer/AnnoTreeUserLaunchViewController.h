@@ -10,4 +10,7 @@
 
 @interface AnnoTreeUserLaunchViewController : UIViewController
 
+@property (nonatomic, retain) UITapGestureRecognizer *openGesture;
+@property (nonatomic, retain) IBOutlet UIButton *annoTreeLogo;
+
 @end

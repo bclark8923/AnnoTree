@@ -30,6 +30,10 @@
 		D3AAA1F617002C4400954DDF /* MyLineDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AAA1F517002C4400954DDF /* MyLineDrawingView.m */; };
 		D3AAA2391701603000954DDF /* libAnnoTree in Resources */ = {isa = PBXBuildFile; fileRef = D3AAA2381701603000954DDF /* libAnnoTree */; };
 		D3AAA23B1701724000954DDF /* AnnoTree.png in Resources */ = {isa = PBXBuildFile; fileRef = D3AAA23A1701724000954DDF /* AnnoTree.png */; };
+		D3D53FDB1717AE5B00552253 /* AnnoTreeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D53FDA1717AE5B00552253 /* AnnoTreeLogo.png */; };
+		D3D53FE31717B0E700552253 /* AnnoTreeUserLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D53FE11717B0E700552253 /* AnnoTreeUserLaunchViewController.m */; };
+		D3D53FE41717B0E700552253 /* AnnoTreeUserLaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D53FE21717B0E700552253 /* AnnoTreeUserLaunchViewController.xib */; };
+		D3D53FE61717B59600552253 /* CloseIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D53FE51717B59600552253 /* CloseIconToolbar.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,11 @@
 		D3AAA1F517002C4400954DDF /* MyLineDrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLineDrawingView.m; sourceTree = "<group>"; };
 		D3AAA2381701603000954DDF /* libAnnoTree */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libAnnoTree; path = "../../../Library/Developer/Xcode/DerivedData/AnnoTreeLib-chacgumndsccjsajgadetmhgvlpa/Build/Products/Debug-iphoneos/libAnnoTree"; sourceTree = "<group>"; };
 		D3AAA23A1701724000954DDF /* AnnoTree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AnnoTree.png; path = ../../Images/AnnoTree.png; sourceTree = "<group>"; };
+		D3D53FDA1717AE5B00552253 /* AnnoTreeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AnnoTreeLogo.png; path = ../../Images/Resources/AnnoTreeLogo.png; sourceTree = "<group>"; };
+		D3D53FE01717B0E700552253 /* AnnoTreeUserLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnoTreeUserLaunchViewController.h; sourceTree = "<group>"; };
+		D3D53FE11717B0E700552253 /* AnnoTreeUserLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnoTreeUserLaunchViewController.m; sourceTree = "<group>"; };
+		D3D53FE21717B0E700552253 /* AnnoTreeUserLaunchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnoTreeUserLaunchViewController.xib; sourceTree = "<group>"; };
+		D3D53FE51717B59600552253 /* CloseIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CloseIconToolbar.png; path = ../../Images/Resources/CloseIconToolbar.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +191,8 @@
 		D3AAA1E41700182B00954DDF /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D3D53FE51717B59600552253 /* CloseIconToolbar.png */,
+				D3D53FDA1717AE5B00552253 /* AnnoTreeLogo.png */,
 				D3AAA23A1701724000954DDF /* AnnoTree.png */,
 				D3AAA1E51700183D00954DDF /* AnnoIcon.png */,
 			);
@@ -197,6 +208,9 @@
 				D3AAA1ED170018EE00954DDF /* AnnoTree.h */,
 				D3AAA1EE170018EE00954DDF /* AnnoTree.m */,
 				D3AAA1EF170018EE00954DDF /* AnnoTree.xib */,
+				D3D53FE01717B0E700552253 /* AnnoTreeUserLaunchViewController.h */,
+				D3D53FE11717B0E700552253 /* AnnoTreeUserLaunchViewController.m */,
+				D3D53FE21717B0E700552253 /* AnnoTreeUserLaunchViewController.xib */,
 			);
 			name = AnnoTree;
 			sourceTree = "<group>";
@@ -282,6 +296,9 @@
 				D3AAA1F1170018EE00954DDF /* AnnoTree.xib in Resources */,
 				D3AAA2391701603000954DDF /* libAnnoTree in Resources */,
 				D3AAA23B1701724000954DDF /* AnnoTree.png in Resources */,
+				D3D53FDB1717AE5B00552253 /* AnnoTreeLogo.png in Resources */,
+				D3D53FE41717B0E700552253 /* AnnoTreeUserLaunchViewController.xib in Resources */,
+				D3D53FE61717B59600552253 /* CloseIconToolbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +338,7 @@
 				D3AAA1C617000FC300954DDF /* WebViewController.m in Sources */,
 				D3AAA1F0170018EE00954DDF /* AnnoTree.m in Sources */,
 				D3AAA1F617002C4400954DDF /* MyLineDrawingView.m in Sources */,
+				D3D53FE31717B0E700552253 /* AnnoTreeUserLaunchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

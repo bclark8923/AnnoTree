@@ -15,8 +15,10 @@
 @property (nonatomic, retain) UIWindow *AnnoTreeWindow;
 @property (nonatomic, retain) UIWindow *MainWindow;
 @property (nonatomic, retain) UITapGestureRecognizer *openGesture;
+@property (nonatomic, retain) IBOutlet UIImageView *closeAnnoTree;
 @property (nonatomic, retain) UITapGestureRecognizer *closeGesture;
 @property (nonatomic, retain) UILongPressGestureRecognizer *addTextGesture;
+@property (nonatomic, retain) UIViewController *annoTreeView;
 
 //+ (AnnoTree *)instance;
 
@@ -26,10 +28,10 @@
 
 - (void)openTree:(UIGestureRecognizer*)gr;
 
-- (void)loadTree;
+- (void)loadTree:(UIViewController*) appView;
 
 - (void)initializeTree;
 
--(UITapGestureRecognizer*)getOpen;
+-(UIView*)getAnnoTree;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "AnnoTree.h"
 #import "MyLineDrawingView.h"
+#import "AnnoTreeUserLaunchViewController.h"
 
 @interface AnnoTree ()
 
@@ -18,8 +19,10 @@
 @synthesize AnnoTreeWindow;
 @synthesize MainWindow;
 @synthesize closeGesture;
+@synthesize closeAnnoTree;
 @synthesize openGesture;
 @synthesize addTextGesture;
+@synthesize annoTreeView;
 
 /*
 + (AnnoTree *)instance
@@ -50,9 +53,11 @@
 - (id)init {
     self = [super init];
     if (self) {
+        //currentAppView = nil;
         //MainWindow = [[UIApplication sharedApplication] keyWindow];
         
         //[[[UIApplication sharedApplication] keyWindow] addSubview:self.view];
+        annoTreeView = [[AnnoTreeUserLaunchViewController alloc] init];
         
         AnnoTreeWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         AnnoTreeWindow.windowLevel = UIWindowLevelStatusBar;
@@ -61,11 +66,20 @@
         AnnoTreeWindow.backgroundColor = [UIColor clearColor];
         
         closeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeTree:)];
-        closeGesture.numberOfTapsRequired = 3;
-        [AnnoTreeWindow addGestureRecognizer:closeGesture];
+        closeGesture.numberOfTapsRequired = 2;
+        [closeAnnoTree addGestureRecognizer:closeGesture];
+        closeAnnoTree.userInteractionEnabled = YES;
         
-        openGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openTree:)];
-        openGesture.numberOfTapsRequired = 3;
+        UIImage *cancelImg = [UIImage imageNamed:@"CloseIconToolbar.png"];
+        UIButton *btnCancel = [UIButton buttonWithType:UIButtonTypeCustom];
+        btnCancel.userInteractionEnabled = YES;
+        [btnCancel setFrame:CGRectMake(100.0,0.0, 35.0, 35.0)];
+        [btnCancel setBackgroundImage:cancelImg forState:UIControlStateNormal];
+        [btnCancel addGestureRecognizer:closeGesture];
+        [self.view addSubview:btnCancel];
+        
+        //openGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openTree:)];
+        //openGesture.numberOfTapsRequired = 2;
         //openGesture.numberOfTouchesRequired = 1;
         
         addTextGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(addText:)];
@@ -75,9 +89,9 @@
     return self;
 }
 
--(UITapGestureRecognizer*)getOpen
+-(UIView*)getAnnoTree
 {
-    return openGesture;
+    return annoTreeView.view;
 }
 
 - (void)viewDidLoad
@@ -108,10 +122,15 @@
 
 - (void)initializeTree {}
 
-- (void) loadTree
+- (void) loadTree:(UIViewController*) appView
 {
+    [[[UIApplication sharedApplication] keyWindow] bringSubviewToFront:annoTreeView.view];
     //load view with button for firing up annotations
     //[self loadFingerDrawing];
+    /*if(currentAppView) {
+        [appView.view addSubview:[[AnnoTreeUserLaunchViewController alloc] init].view];
+        currentAppView = appView;
+    }*/
 }
 
 - (void) openTree:(UIGestureRecognizer*)gr

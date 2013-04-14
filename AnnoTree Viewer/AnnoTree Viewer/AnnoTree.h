@@ -13,28 +13,18 @@
 }
 
 @property (nonatomic, retain) UIWindow *AnnoTreeWindow;
-@property (nonatomic, retain) UIWindow *MainWindow;
-@property (nonatomic, retain) UITapGestureRecognizer *openGesture;
-@property (nonatomic, retain) IBOutlet UIImageView *closeAnnoTree;
-@property (nonatomic, retain) UITapGestureRecognizer *closeGesture;
-@property (nonatomic, retain) UILongPressGestureRecognizer *addTextGesture;
-@property (nonatomic, retain) UIViewController *annoTreeView;
 @property (nonatomic, retain) UIButton *openAnnoTreeButton;
-@property (nonatomic, retain) UIButton *closeAnnoTreeButton;
-@property (nonatomic, retain) NSMutableArray *annotations;
 @property (nonatomic, retain) UIView *annoTreeToolbar;
+@property (nonatomic, retain) NSMutableArray *annotations;
+
+/* Temp */
+@property (nonatomic, retain) UILongPressGestureRecognizer *addTextGesture;
 
 //+ (AnnoTree *)instance;
 
 + (id)sharedInstance;
 
 - (void)loadFingerDrawing;
-
-- (void)openTree:(UIGestureRecognizer*)gr;
-
-- (void)loadTree:(UIViewController*) appView;
-
-- (void)initializeTree;
 
 -(UIButton*)getAnnoTreeLauncher;
 

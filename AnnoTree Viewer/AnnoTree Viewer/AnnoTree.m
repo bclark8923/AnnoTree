@@ -18,32 +18,12 @@
 @implementation AnnoTree
 
 @synthesize AnnoTreeWindow;
-@synthesize MainWindow;
-@synthesize closeGesture;
-@synthesize closeAnnoTree;
-@synthesize openGesture;
-@synthesize addTextGesture;
-@synthesize annoTreeView;
 @synthesize openAnnoTreeButton;
-@synthesize closeAnnoTreeButton;
-@synthesize annotations;
 @synthesize annoTreeToolbar;
+@synthesize annotations;
 
-/*
-+ (AnnoTree *)instance
-{
-    static AnnoTree *instance = nil;
-    
-    @synchronized(self)
-    {
-        if (instance == nil)
-        {
-            instance = [[AnnoTree alloc] init];
-        }
-    }
-    
-    return instance;
-}*/
+/* Temp */
+@synthesize addTextGesture;
 
 + (id)sharedInstance
 {
@@ -65,22 +45,29 @@
         AnnoTreeWindow.hidden = YES;
         AnnoTreeWindow.backgroundColor = [UIColor clearColor];
         
+        /* Space between icons on toolbar */
         int space = 35.0;
+        /* Size of toolbar icons */
         int sizeIcon = 30;
         
         
         /* Gestures for anno tree */
-        closeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeTree:)];
-        closeGesture.numberOfTapsRequired = 2;
-        [closeAnnoTree addGestureRecognizer:closeGesture];
-        closeAnnoTree.userInteractionEnabled = YES;
+        /* Gesture to open anno tree from icon */
+        UITapGestureRecognizer *openGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openTree:)];
+        openGesture.numberOfTapsRequired = 2;
         
+        /* Gesture to close anno tree toolbar from close button */
+        UITapGestureRecognizer *closeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeTree:)];
+        closeGesture.numberOfTapsRequired = 2;
+        
+        /* Gesture to close anno tree toolbar from logo */
+        UITapGestureRecognizer *logoCloseGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeTree:)];
+        logoCloseGesture.numberOfTapsRequired = 2;
+        
+        /* Temp gesture to add text */
         addTextGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(addText:)];
         addTextGesture.minimumPressDuration = 1;
         [AnnoTreeWindow addGestureRecognizer:addTextGesture];
-        
-        openGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openTree:)];
-        openGesture.numberOfTapsRequired = 2;
         
         
         /* Create button to be loaded into user apps views to launch anno tree */
@@ -98,43 +85,53 @@
         annoTreeToolbar = [[UIView alloc]initWithFrame:CGRectMake(0, 0, sizeIcon, space*5+sizeIcon)];
         annoTreeToolbar.userInteractionEnabled = YES;
         
+        /* rectangle background for toolbar */
         Rectangle *toolbarBg = [[Rectangle alloc] initWithFrame:CGRectMake(0,sizeIcon/2, sizeIcon, space*5)];
         [annoTreeToolbar addSubview:toolbarBg];
         
+        /* Pencil Icon for toolbar */
         UIImageView *pencilIconToolbarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,space, sizeIcon, sizeIcon)];
         UIImage *pencilIconImage = [UIImage imageNamed:@"PencilIconToolbar.png"];
         pencilIconToolbarImageView.image = pencilIconImage;
         [annoTreeToolbar addSubview:pencilIconToolbarImageView];
         
+        /* Text Icon for toolbar */
         UIImageView *textIconToolbarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,space*2, sizeIcon, sizeIcon)];
         UIImage *textIconImage = [UIImage imageNamed:@"TextIconToolbar.png"];
         textIconToolbarImageView.image = textIconImage;
         [annoTreeToolbar addSubview:textIconToolbarImageView];
         
+        /* Select Icon for toolbar */
         UIImageView *selectIconToolbarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,space*3, sizeIcon, sizeIcon)];
         UIImage *selectIconImage = [UIImage imageNamed:@"SelectIconToolbar.png"];
         selectIconToolbarImageView.image = selectIconImage;
         [annoTreeToolbar addSubview:selectIconToolbarImageView];
         
+        /* Share Icon for toolbar */
         UIImageView *shareIconToolbarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,space*4, sizeIcon, sizeIcon)];
         UIImage *shareIconImage = [UIImage imageNamed:@"ShareIconToolbar.png"];
         shareIconToolbarImageView.image = shareIconImage;
         [annoTreeToolbar addSubview:shareIconToolbarImageView];
         
+        /* Anno Tree Logo for toolbar*/
         UIButton *annoTreeImageOpenView = [[UIButton alloc] initWithFrame:openAnnoTreeButton.frame];
+        annoTreeImageOpenView.userInteractionEnabled = YES;
         [annoTreeImageOpenView setBackgroundImage:annoTreeImage forState:UIControlStateNormal];
+        [annoTreeImageOpenView addGestureRecognizer:logoCloseGesture];
         [annoTreeImageOpenView addTarget:self action:@selector(toolbarWasDragged:withEvent:)
-                     forControlEvents:UIControlEventTouchDragInside];
+                        forControlEvents:UIControlEventTouchDragInside];
         [annoTreeToolbar addSubview:annoTreeImageOpenView];
         
+        /* Cancel button for toolbar */
         UIImage *cancelImg = [UIImage imageNamed:@"CloseIconToolbar.png"];
-        closeAnnoTreeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButton *closeAnnoTreeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         closeAnnoTreeButton.userInteractionEnabled = YES;
         [closeAnnoTreeButton setFrame:CGRectMake(0,space*5, sizeIcon, sizeIcon)];
         [closeAnnoTreeButton setBackgroundImage:cancelImg forState:UIControlStateNormal];
         [closeAnnoTreeButton addGestureRecognizer:closeGesture];
         [annoTreeToolbar addSubview:closeAnnoTreeButton];
         
+        /* Add toolbar to window */
         [self.view addSubview:annoTreeToolbar];
         
         
@@ -154,68 +151,28 @@
     [super viewDidLoad];
 }
 
-- (void) addText:(UITapGestureRecognizer*)gr
-{
-    if (gr.state == UIGestureRecognizerStateBegan) {
-        CGPoint coords = [gr locationOfTouch:0 inView:self.view];
-
-        float textboxWidth = 100;
-        float textboxHeight = 40;
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(coords.x-(textboxWidth/2), coords.y-(textboxHeight/2), textboxWidth, textboxHeight)];
-        
-        textField.borderStyle = UITextBorderStyleRoundedRect;
-        textField.font = [UIFont systemFontOfSize:15];
-        textField.placeholder = @"enter text";
-        textField.autocorrectionType = UITextAutocorrectionTypeNo;
-        textField.keyboardType = UIKeyboardTypeDefault;
-        textField.returnKeyType = UIReturnKeyDone;
-        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        [self.view addSubview:textField];
-    }
-}
-
-- (void)initializeTree {}
-
-- (void) loadTree:(UIViewController*) appView
-{
-    [[[UIApplication sharedApplication] keyWindow] bringSubviewToFront:annoTreeView.view];
-}
-
+/* Function to show AnnoTree window and place toolbar at correct location */
 #define CGRectSetPos( r, x, y ) CGRectMake( x, y, r.size.width, r.size.height )
-
 - (void) openTree:(UIGestureRecognizer*)gr
 {
     AnnoTreeWindow.hidden = NO;
-    [AnnoTreeWindow makeKeyAndVisible];
     [openAnnoTreeButton setHidden:YES];
     annoTreeToolbar.frame = CGRectSetPos (annoTreeToolbar.frame, openAnnoTreeButton.frame.origin.x, openAnnoTreeButton.frame.origin.y);
     [self loadFingerDrawing];
 }
 
+/* Function to close the anno tree */
 -(void)closeTree:(UIGestureRecognizer*)gr
-{
-    [self removeTree];
-    [openAnnoTreeButton setHidden:NO];
-}
-
--(void) removeTree
 {
     for (UIView *drawings in annotations) {
         [drawings removeFromSuperview];
     }
     [annotations removeAllObjects];
     AnnoTreeWindow.hidden = YES;
-    [MainWindow makeKeyAndVisible];
+    [openAnnoTreeButton setHidden:NO];
 }
 
-- (void) loadFingerDrawing
-{
-    MyLineDrawingView *drawScreen=[[MyLineDrawingView alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
-    [annotations addObject:drawScreen];
-     [self.view insertSubview:drawScreen belowSubview:annoTreeToolbar];
-}
-
+/* Function for dragging the toolbar */
 - (void)toolbarWasDragged:(UIButton *)button withEvent:(UIEvent *)event
 {
 	// get the touch
@@ -234,6 +191,7 @@
                                             openAnnoTreeButton.center.y + delta_y);
 }
 
+/* Function for dragging the AnnoTree Launch Logo */
 - (void)wasDragged:(UIButton *)button withEvent:(UIEvent *)event
 {
 	// get the touch
@@ -248,6 +206,36 @@
 	// move open button
 	button.center = CGPointMake(button.center.x + delta_x,
                                 button.center.y + delta_y);
+}
+
+/* Temp Function to load drawing with finger */
+- (void) loadFingerDrawing
+{
+    MyLineDrawingView *drawScreen=[[MyLineDrawingView alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+    [annotations addObject:drawScreen];
+    [self.view insertSubview:drawScreen belowSubview:annoTreeToolbar];
+}
+
+/* Temp Function to drop text on screen */
+- (void) addText:(UITapGestureRecognizer*)gr
+{
+    if (gr.state == UIGestureRecognizerStateBegan) {
+        CGPoint coords = [gr locationOfTouch:0 inView:self.view];
+        
+        float textboxWidth = 100;
+        float textboxHeight = 40;
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(coords.x-(textboxWidth/2), coords.y-(textboxHeight/2), textboxWidth, textboxHeight)];
+        
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.font = [UIFont systemFontOfSize:15];
+        textField.placeholder = @"enter text";
+        textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        textField.keyboardType = UIKeyboardTypeDefault;
+        textField.returnKeyType = UIReturnKeyDone;
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        [self.view addSubview:textField];
+    }
 }
 
 - (void)didReceiveMemoryWarning

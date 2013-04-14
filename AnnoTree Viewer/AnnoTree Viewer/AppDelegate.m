@@ -13,7 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //[self.window addGestureRecognizer:[[AnnoTree sharedInstance] getOpen]];
-    [[[UIApplication sharedApplication] keyWindow] addSubview:[[AnnoTree sharedInstance] getAnnoTreeLauncher]];
+    //[[[UIApplication sharedApplication] keyWindow] addSubview:[[AnnoTree sharedInstance] getAnnoTreeLauncher]];
     //[[AnnoTree sharedInstance] initializeTree];
     // Override point for customization after application launch.
     return YES;

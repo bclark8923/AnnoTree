@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShareViewController.h"
 
 @interface AnnoTree : UIViewController {
     //UIWindow *AnnoTreeWindow;
@@ -17,6 +18,7 @@
 @property (nonatomic, retain) UIView *annoTreeToolbar;
 @property (nonatomic, retain) NSMutableArray *annotations;
 @property (nonatomic, retain) NSMutableArray *toolbarButtons;
+@property (nonatomic, retain) ShareViewController *shareView;
 
 /* Temp */
 @property (nonatomic, retain) UILongPressGestureRecognizer *addTextGesture;

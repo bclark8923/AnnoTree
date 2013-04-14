@@ -10,4 +10,6 @@
 
 @interface ShareViewController : UIViewController
 
+@property (nonatomic, retain) UIButton* closeShareView;
+
 @end

@@ -9,6 +9,7 @@
 #import "AnnoTree.h"
 #import "MyLineDrawingView.h"
 #import "Rectangle.h"
+#import "ShareViewController.h"
 #import "AnnoTreeUserLaunchViewController.h"
 
 @interface AnnoTree ()
@@ -22,6 +23,7 @@
 @synthesize annoTreeToolbar;
 @synthesize annotations;
 @synthesize toolbarButtons;
+@synthesize shareView;
 
 /* Temp */
 @synthesize addTextGesture;
@@ -48,6 +50,8 @@
         AnnoTreeWindow.rootViewController = self;
         AnnoTreeWindow.hidden = YES;
         AnnoTreeWindow.backgroundColor = [UIColor clearColor];
+        
+        shareView = [[ShareViewController alloc] init];
         
         /* Space between icons on toolbar */
         int space = 35.0;
@@ -83,7 +87,7 @@
         UIImage *annoTreeImage = [UIImage imageNamed:@"AnnoTreeLogo.png"];
         openAnnoTreeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         openAnnoTreeButton.userInteractionEnabled = YES;
-        [openAnnoTreeButton setFrame:CGRectMake(0.0,0.0, sizeIcon, sizeIcon)];
+        [openAnnoTreeButton setFrame:CGRectMake(20.0,20.0, sizeIcon, sizeIcon)];
         [openAnnoTreeButton setBackgroundImage:annoTreeImage forState:UIControlStateNormal];
         [openAnnoTreeButton addGestureRecognizer:openGesture];
         [openAnnoTreeButton addTarget:self action:@selector(wasDragged:withEvent:)
@@ -147,11 +151,12 @@
         UIImage *shareIconImageSelected = [UIImage imageNamed:@"ShareIconToolbarSelected.png"];
         [shareIconToolbarButton setBackgroundImage:shareIconImage forState:UIControlStateNormal];
         [shareIconToolbarButton setBackgroundImage:shareIconImageSelected forState:UIControlStateHighlighted];
+        [shareIconToolbarButton addTarget:self action:@selector(openShare:) forControlEvents:UIControlEventTouchUpInside];
         [annoTreeToolbar addSubview:shareIconToolbarButton];
         [toolbarButtons addObject:shareIconToolbarButton];
         
         /* Anno Tree Logo for toolbar*/
-        UIButton *annoTreeImageOpenView = [[UIButton alloc] initWithFrame:openAnnoTreeButton.frame];
+        UIButton *annoTreeImageOpenView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, sizeIcon, sizeIcon)];
         annoTreeImageOpenView.userInteractionEnabled = YES;
         [annoTreeImageOpenView setBackgroundImage:annoTreeImage forState:UIControlStateNormal];
         [annoTreeImageOpenView addGestureRecognizer:logoCloseGesture];
@@ -172,6 +177,15 @@
         [self.view addSubview:annoTreeToolbar];
     }
     return self;
+}
+
+-(IBAction)openShare:(UIButton*)button {
+    //loop all buttons and unselect/enable
+    [self.view addSubview:shareView.view];
+    shareView.view.frame = CGRectMake(0, -[[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
+    [UIView animateWithDuration:0.25 animations:^{
+        shareView.view.frame = [[UIScreen mainScreen] bounds];
+    }];
 }
 
 -(IBAction)setSelectedButton:(UIButton*)button {

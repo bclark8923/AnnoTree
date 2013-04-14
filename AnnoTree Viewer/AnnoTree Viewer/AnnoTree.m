@@ -21,6 +21,7 @@
 @synthesize openAnnoTreeButton;
 @synthesize annoTreeToolbar;
 @synthesize annotations;
+@synthesize toolbarButtons;
 
 /* Temp */
 @synthesize addTextGesture;
@@ -39,7 +40,10 @@
     self = [super init];
     if (self) {        
         /* Initiate the annotation window */
-        AnnoTreeWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        int max = [[UIScreen mainScreen] bounds].size.height;
+        //CGRect obj = [[UIScreen mainScreen] bounds];
+        //[self.view setFrame:CGRectMake(0, 0, max, max)];
+        AnnoTreeWindow = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, max, max)];
         AnnoTreeWindow.windowLevel = UIWindowLevelStatusBar;
         AnnoTreeWindow.rootViewController = self;
         AnnoTreeWindow.hidden = YES;
@@ -50,6 +54,11 @@
         /* Size of toolbar icons */
         int sizeIcon = 30;
         
+        
+        
+        /* initiate array to hold the annotations - drawings and text */
+        annotations = [[NSMutableArray alloc] init];
+        toolbarButtons = [[NSMutableArray alloc] init];
         
         /* Gestures for anno tree */
         /* Gesture to open anno tree from icon */
@@ -90,28 +99,56 @@
         [annoTreeToolbar addSubview:toolbarBg];
         
         /* Pencil Icon for toolbar */
-        UIImageView *pencilIconToolbarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,space, sizeIcon, sizeIcon)];
+        UIButton *pencilIconToolbarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [pencilIconToolbarButton setFrame:CGRectMake(0,space, sizeIcon, sizeIcon)];
+        pencilIconToolbarButton.userInteractionEnabled = YES;
         UIImage *pencilIconImage = [UIImage imageNamed:@"PencilIconToolbar.png"];
-        pencilIconToolbarImageView.image = pencilIconImage;
-        [annoTreeToolbar addSubview:pencilIconToolbarImageView];
+        UIImage *pencilIconImageSelected = [UIImage imageNamed:@"PencilIconToolbarSelected.png"];
+        [pencilIconToolbarButton setBackgroundImage:pencilIconImage forState:UIControlStateNormal];
+        [pencilIconToolbarButton setBackgroundImage:pencilIconImageSelected forState:UIControlStateHighlighted];
+        [pencilIconToolbarButton setBackgroundImage:pencilIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
+        [pencilIconToolbarButton setSelected:YES];
+        [pencilIconToolbarButton setEnabled:NO];
+        [pencilIconToolbarButton addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
+        [annoTreeToolbar addSubview:pencilIconToolbarButton];
+        [toolbarButtons addObject:pencilIconToolbarButton];
         
         /* Text Icon for toolbar */
-        UIImageView *textIconToolbarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,space*2, sizeIcon, sizeIcon)];
+        UIButton *textIconToolbarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [textIconToolbarButton setFrame:CGRectMake(0,space*2, sizeIcon, sizeIcon)];
+        textIconToolbarButton.userInteractionEnabled = YES;
         UIImage *textIconImage = [UIImage imageNamed:@"TextIconToolbar.png"];
-        textIconToolbarImageView.image = textIconImage;
-        [annoTreeToolbar addSubview:textIconToolbarImageView];
+        UIImage *textIconImageSelected = [UIImage imageNamed:@"TextIconToolbarSelected.png"];
+        [textIconToolbarButton setBackgroundImage:textIconImage forState:UIControlStateNormal];
+        [textIconToolbarButton setBackgroundImage:textIconImageSelected forState:UIControlStateHighlighted];
+        [textIconToolbarButton setBackgroundImage:textIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
+        [textIconToolbarButton addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
+        [annoTreeToolbar addSubview:textIconToolbarButton];
+        [toolbarButtons addObject:textIconToolbarButton];
         
         /* Select Icon for toolbar */
-        UIImageView *selectIconToolbarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,space*3, sizeIcon, sizeIcon)];
+        UIButton *selectIconToolbarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [selectIconToolbarButton setFrame:CGRectMake(0,space*3, sizeIcon, sizeIcon)];
+        selectIconToolbarButton.userInteractionEnabled = YES;
         UIImage *selectIconImage = [UIImage imageNamed:@"SelectIconToolbar.png"];
-        selectIconToolbarImageView.image = selectIconImage;
-        [annoTreeToolbar addSubview:selectIconToolbarImageView];
+        UIImage *selectIconImageSelected = [UIImage imageNamed:@"SelectIconToolbarSelected.png"];
+        [selectIconToolbarButton setBackgroundImage:selectIconImage forState:UIControlStateNormal];
+        [selectIconToolbarButton setBackgroundImage:selectIconImageSelected forState:UIControlStateHighlighted];
+        [selectIconToolbarButton setBackgroundImage:selectIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
+        [selectIconToolbarButton addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
+        [annoTreeToolbar addSubview:selectIconToolbarButton];
+        [toolbarButtons addObject:selectIconToolbarButton];
         
         /* Share Icon for toolbar */
-        UIImageView *shareIconToolbarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,space*4, sizeIcon, sizeIcon)];
+        UIButton *shareIconToolbarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [shareIconToolbarButton setFrame:CGRectMake(0,space*4, sizeIcon, sizeIcon)];
+        shareIconToolbarButton.userInteractionEnabled = YES;
         UIImage *shareIconImage = [UIImage imageNamed:@"ShareIconToolbar.png"];
-        shareIconToolbarImageView.image = shareIconImage;
-        [annoTreeToolbar addSubview:shareIconToolbarImageView];
+        UIImage *shareIconImageSelected = [UIImage imageNamed:@"ShareIconToolbarSelected.png"];
+        [shareIconToolbarButton setBackgroundImage:shareIconImage forState:UIControlStateNormal];
+        [shareIconToolbarButton setBackgroundImage:shareIconImageSelected forState:UIControlStateHighlighted];
+        [annoTreeToolbar addSubview:shareIconToolbarButton];
+        [toolbarButtons addObject:shareIconToolbarButton];
         
         /* Anno Tree Logo for toolbar*/
         UIButton *annoTreeImageOpenView = [[UIButton alloc] initWithFrame:openAnnoTreeButton.frame];
@@ -133,12 +170,21 @@
         
         /* Add toolbar to window */
         [self.view addSubview:annoTreeToolbar];
-        
-        
-        /* initiate array to hold the annotations - drawings and text */
-        annotations = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+-(IBAction)setSelectedButton:(UIButton*)button {
+    //loop all buttons and unselect/enable
+    for (UIButton* toolbarButton in toolbarButtons) {
+        toolbarButton.selected = NO;
+        toolbarButton.enabled = YES;
+    }
+    
+    //Select clicked button and disable it
+    button.selected = YES;
+    button.highlighted = NO;
+    button.enabled = NO;
 }
 
 -(UIButton*)getAnnoTreeLauncher
@@ -211,7 +257,8 @@
 /* Temp Function to load drawing with finger */
 - (void) loadFingerDrawing
 {
-    MyLineDrawingView *drawScreen=[[MyLineDrawingView alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+    int max = [[UIScreen mainScreen] bounds].size.height;
+    MyLineDrawingView *drawScreen=[[MyLineDrawingView alloc]initWithFrame:CGRectMake(0, 0, max, max)];
     [annotations addObject:drawScreen];
     [self.view insertSubview:drawScreen belowSubview:annoTreeToolbar];
 }
@@ -219,7 +266,7 @@
 /* Temp Function to drop text on screen */
 - (void) addText:(UITapGestureRecognizer*)gr
 {
-    if (gr.state == UIGestureRecognizerStateBegan) {
+    /*if (gr.state == UIGestureRecognizerStateBegan) {
         CGPoint coords = [gr locationOfTouch:0 inView:self.view];
         
         float textboxWidth = 100;
@@ -235,7 +282,7 @@
         textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         [self.view addSubview:textField];
-    }
+    }*/
 }
 
 - (void)didReceiveMemoryWarning

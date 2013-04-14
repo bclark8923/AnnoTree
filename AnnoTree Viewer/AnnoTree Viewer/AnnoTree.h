@@ -16,6 +16,7 @@
 @property (nonatomic, retain) UIButton *openAnnoTreeButton;
 @property (nonatomic, retain) UIView *annoTreeToolbar;
 @property (nonatomic, retain) NSMutableArray *annotations;
+@property (nonatomic, retain) NSMutableArray *toolbarButtons;
 
 /* Temp */
 @property (nonatomic, retain) UILongPressGestureRecognizer *addTextGesture;

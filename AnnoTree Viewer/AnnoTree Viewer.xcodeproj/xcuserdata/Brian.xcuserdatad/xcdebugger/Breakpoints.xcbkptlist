@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AnnoTree Viewer/AnnoTree.m"
-         timestampString = "387668022.720081"
+         timestampString = "387670129.820485"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "211"
-         endingLineNumber = "211"
+         startingLineNumber = "214"
+         endingLineNumber = "214"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AnnoTree Viewer/AnnoTree.m"
-         timestampString = "387668022.720081"
+         timestampString = "387670129.820485"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "227"
-         endingLineNumber = "227"
+         startingLineNumber = "230"
+         endingLineNumber = "230"
          landmarkName = "-closeTree:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AnnoTree Viewer/AnnoTree.m"
-         timestampString = "387668022.720081"
+         timestampString = "387670129.820485"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "239"
-         endingLineNumber = "239"
+         startingLineNumber = "242"
+         endingLineNumber = "242"
          landmarkName = "-toolbarWasDragged:withEvent:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -190,11 +190,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AnnoTree Viewer/AnnoTree.m"
-         timestampString = "387668022.720081"
+         timestampString = "387670129.820485"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "185"
-         endingLineNumber = "185"
+         startingLineNumber = "189"
+         endingLineNumber = "189"
          landmarkName = "-openShare:"
          landmarkType = "5">
       </FileBreakpoint>

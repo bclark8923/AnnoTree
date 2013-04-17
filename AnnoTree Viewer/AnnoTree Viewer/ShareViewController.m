@@ -34,17 +34,14 @@
 }
 
 -(void)closeAnnoTreeShare:(id)sender {
-    self.view.frame = [[UIScreen mainScreen] bounds];
     [UIView animateWithDuration:0.25 animations:^{
-        self.view.frame = CGRectMake(0, -[[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
+        self.view.center = CGPointMake(self.view.frame.size.width/2, -self.view.frame.size.height*2);
     }];
-    double delayInSeconds = 0.25;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        //code to be executed on the main queue after delay
-        [self.view removeFromSuperview];
-    });
     
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation{
+    return YES;
 }
 
 - (void)viewDidLoad

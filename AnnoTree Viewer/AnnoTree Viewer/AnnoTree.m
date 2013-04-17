@@ -51,8 +51,6 @@
         AnnoTreeWindow.hidden = YES;
         AnnoTreeWindow.backgroundColor = [UIColor clearColor];
         
-        shareView = [[ShareViewController alloc] init];
-        
         /* Space between icons on toolbar */
         int space = 35.0;
         /* Size of toolbar icons */
@@ -175,16 +173,17 @@
         
         /* Add toolbar to window */
         [self.view addSubview:annoTreeToolbar];
+        
+        shareView = [[ShareViewController alloc] init];
+        shareView.view.center = CGPointMake(shareView.view.frame.size.width/2, -shareView.view.frame.size.height*2);
+        [self.view addSubview:shareView.view];
     }
     return self;
 }
 
 -(IBAction)openShare:(UIButton*)button {
-    //loop all buttons and unselect/enable
-    [self.view addSubview:shareView.view];
-    shareView.view.frame = CGRectMake(0, -[[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
     [UIView animateWithDuration:0.25 animations:^{
-        shareView.view.frame = [[UIScreen mainScreen] bounds];
+        shareView.view.center = CGPointMake(shareView.view.frame.size.width/2, shareView.view.frame.size.height/2);
     }];
 }
 

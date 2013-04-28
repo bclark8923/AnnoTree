@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'AnnoTreeLibrary' target in the 'AnnoTreeLibrary' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

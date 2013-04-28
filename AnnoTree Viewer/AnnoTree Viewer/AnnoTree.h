@@ -16,6 +16,7 @@
 @property (nonatomic, retain) UIWindow *AnnoTreeWindow;
 @property (nonatomic, retain) UIButton *openAnnoTreeButton;
 @property (nonatomic, retain) UIView *annoTreeToolbar;
+@property (nonatomic, retain) UIView *openAnnoTreeView;
 @property (nonatomic, retain) NSMutableArray *annotations;
 @property (nonatomic, retain) NSMutableArray *toolbarButtons;
 @property (nonatomic, retain) ShareViewController *shareView;
@@ -29,6 +30,6 @@
 
 - (void)loadFingerDrawing;
 
--(UIButton*)getAnnoTreeLauncher;
+-(UIView*)getAnnoTreeLauncher:(UIInterfaceOrientation)orientation;
 
 @end

@@ -27,6 +27,35 @@
 		D314C685171B40C200BA9B2F /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C684171B40C200BA9B2F /* Default-Landscape.png */; };
 		D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */; };
 		D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C688171B413400BA9B2F /* Default-Portrait@2x~ipad.png */; };
+		D321648C172C18B500573823 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A817000FC300954DDF /* Foundation.framework */; };
+		D3216491172C18B500573823 /* AnnoTreeLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3216490172C18B500573823 /* AnnoTreeLibrary.h */; };
+		D3216493172C18B500573823 /* AnnoTreeLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = D3216492172C18B500573823 /* AnnoTreeLibrary.m */; };
+		D321649A172C18B600573823 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1CD17000FC400954DDF /* SenTestingKit.framework */; };
+		D321649B172C18B600573823 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A617000FC300954DDF /* UIKit.framework */; };
+		D321649C172C18B600573823 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A817000FC300954DDF /* Foundation.framework */; };
+		D321649F172C18B600573823 /* libAnnoTreeLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D321648B172C18B500573823 /* libAnnoTreeLibrary.a */; };
+		D32164A5172C18B600573823 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D32164A3172C18B600573823 /* InfoPlist.strings */; };
+		D32164A8172C18B600573823 /* AnnoTreeLibraryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D32164A7172C18B600573823 /* AnnoTreeLibraryTests.m */; };
+		D32164AF172C190300573823 /* MyLineDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AAA1F517002C4400954DDF /* MyLineDrawingView.m */; };
+		D32164B0172C190300573823 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D314C669171B2D7700BA9B2F /* ShareViewController.m */; };
+		D32164B1172C190300573823 /* Rectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D53FF2171A194500552253 /* Rectangle.m */; };
+		D32164B2172C190300573823 /* AnnoTree.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AAA1EE170018EE00954DDF /* AnnoTree.m */; };
+		D32164B3172C192300573823 /* ShareIconToolbarSelected.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = D314C660171B282600BA9B2F /* ShareIconToolbarSelected.png */; };
+		D32164B4172C192300573823 /* SelectIconToolbarSelected.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = D314C65E171B27D900BA9B2F /* SelectIconToolbarSelected.png */; };
+		D32164B5172C192300573823 /* TextIconToolbarSelected.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = D314C65C171B254800BA9B2F /* TextIconToolbarSelected.png */; };
+		D32164B6172C192300573823 /* PencilIconToolbarSelected.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = D314C65A171B204D00BA9B2F /* PencilIconToolbarSelected.png */; };
+		D32164B7172C192300573823 /* PencilIconToolbar.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3D53FE7171A079F00552253 /* PencilIconToolbar.png */; };
+		D32164B8172C192300573823 /* RecordIconToolbar.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3D53FE8171A079F00552253 /* RecordIconToolbar.png */; };
+		D32164B9172C192300573823 /* SelectIconToolbar.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3D53FE9171A079F00552253 /* SelectIconToolbar.png */; };
+		D32164BA172C192300573823 /* ShareIconToolbar.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3D53FEA171A079F00552253 /* ShareIconToolbar.png */; };
+		D32164BB172C192300573823 /* TextIconToolbar.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3D53FEB171A079F00552253 /* TextIconToolbar.png */; };
+		D32164BC172C192300573823 /* CloseIconToolbar.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3D53FE51717B59600552253 /* CloseIconToolbar.png */; };
+		D32164BD172C192300573823 /* AnnoTreeLogo.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3D53FDA1717AE5B00552253 /* AnnoTreeLogo.png */; };
+		D32164BE172C1A4F00573823 /* libAnnoTreeLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D321648B172C18B500573823 /* libAnnoTreeLibrary.a */; };
+		D32164C3172C207C00573823 /* AnnoTree.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3AAA1ED170018EE00954DDF /* AnnoTree.h */; };
+		D32164C4172C21BC00573823 /* MyLineDrawingView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3AAA1F417002C4400954DDF /* MyLineDrawingView.h */; };
+		D32164C5172C21BC00573823 /* ShareViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D314C668171B2D7700BA9B2F /* ShareViewController.h */; };
+		D32164C6172C21BC00573823 /* Rectangle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3D53FF1171A194500552253 /* Rectangle.h */; };
 		D3AAA1A717000FC300954DDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A617000FC300954DDF /* UIKit.framework */; };
 		D3AAA1A917000FC300954DDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A817000FC300954DDF /* Foundation.framework */; };
 		D3AAA1AB17000FC300954DDF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1AA17000FC300954DDF /* CoreGraphics.framework */; };
@@ -43,7 +72,6 @@
 		D3AAA1DB17000FC400954DDF /* AnnoTree_ViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AAA1DA17000FC400954DDF /* AnnoTree_ViewerTests.m */; };
 		D3AAA1F0170018EE00954DDF /* AnnoTree.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AAA1EE170018EE00954DDF /* AnnoTree.m */; };
 		D3AAA1F617002C4400954DDF /* MyLineDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AAA1F517002C4400954DDF /* MyLineDrawingView.m */; };
-		D3AAA2391701603000954DDF /* libAnnoTree in Resources */ = {isa = PBXBuildFile; fileRef = D3AAA2381701603000954DDF /* libAnnoTree */; };
 		D3D53FDB1717AE5B00552253 /* AnnoTreeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D53FDA1717AE5B00552253 /* AnnoTreeLogo.png */; };
 		D3D53FE61717B59600552253 /* CloseIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D53FE51717B59600552253 /* CloseIconToolbar.png */; };
 		D3D53FEC171A079F00552253 /* PencilIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D53FE7171A079F00552253 /* PencilIconToolbar.png */; };
@@ -55,6 +83,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D321649D172C18B600573823 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3AAA19B17000FC300954DDF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D321648A172C18B500573823;
+			remoteInfo = AnnoTreeLibrary;
+		};
 		D3AAA1D117000FC400954DDF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D3AAA19B17000FC300954DDF /* Project object */;
@@ -63,6 +98,34 @@
 			remoteInfo = "AnnoTree Viewer";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D3216489172C18B500573823 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				D32164C4172C21BC00573823 /* MyLineDrawingView.h in CopyFiles */,
+				D32164C5172C21BC00573823 /* ShareViewController.h in CopyFiles */,
+				D32164C6172C21BC00573823 /* Rectangle.h in CopyFiles */,
+				D32164C3172C207C00573823 /* AnnoTree.h in CopyFiles */,
+				D32164B3172C192300573823 /* ShareIconToolbarSelected.png in CopyFiles */,
+				D32164B4172C192300573823 /* SelectIconToolbarSelected.png in CopyFiles */,
+				D32164B5172C192300573823 /* TextIconToolbarSelected.png in CopyFiles */,
+				D32164B6172C192300573823 /* PencilIconToolbarSelected.png in CopyFiles */,
+				D32164B7172C192300573823 /* PencilIconToolbar.png in CopyFiles */,
+				D32164B8172C192300573823 /* RecordIconToolbar.png in CopyFiles */,
+				D32164B9172C192300573823 /* SelectIconToolbar.png in CopyFiles */,
+				D32164BA172C192300573823 /* ShareIconToolbar.png in CopyFiles */,
+				D32164BB172C192300573823 /* TextIconToolbar.png in CopyFiles */,
+				D32164BC172C192300573823 /* CloseIconToolbar.png in CopyFiles */,
+				D32164BD172C192300573823 /* AnnoTreeLogo.png in CopyFiles */,
+				D3216491172C18B500573823 /* AnnoTreeLibrary.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D314C65A171B204D00BA9B2F /* PencilIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PencilIconToolbarSelected.png; path = ../../Images/Resources/PencilIconToolbarSelected.png; sourceTree = "<group>"; };
@@ -86,6 +149,15 @@
 		D314C684171B40C200BA9B2F /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape.png"; path = "../../Images/iTunesArtwork/Default-Landscape.png"; sourceTree = "<group>"; };
 		D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		D314C688171B413400BA9B2F /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "../Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		D321648B172C18B500573823 /* libAnnoTreeLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAnnoTreeLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D321648F172C18B500573823 /* AnnoTreeLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnnoTreeLibrary-Prefix.pch"; sourceTree = "<group>"; };
+		D3216490172C18B500573823 /* AnnoTreeLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnoTreeLibrary.h; sourceTree = "<group>"; };
+		D3216492172C18B500573823 /* AnnoTreeLibrary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnoTreeLibrary.m; sourceTree = "<group>"; };
+		D3216499172C18B600573823 /* AnnoTreeLibraryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnnoTreeLibraryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D32164A2172C18B600573823 /* AnnoTreeLibraryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnnoTreeLibraryTests-Info.plist"; sourceTree = "<group>"; };
+		D32164A4172C18B600573823 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D32164A6172C18B600573823 /* AnnoTreeLibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnoTreeLibraryTests.h; sourceTree = "<group>"; };
+		D32164A7172C18B600573823 /* AnnoTreeLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnoTreeLibraryTests.m; sourceTree = "<group>"; };
 		D3AAA1A317000FC300954DDF /* AnnoTree Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnnoTree Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AAA1A617000FC300954DDF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D3AAA1A817000FC300954DDF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -110,7 +182,6 @@
 		D3AAA1EE170018EE00954DDF /* AnnoTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnoTree.m; sourceTree = "<group>"; };
 		D3AAA1F417002C4400954DDF /* MyLineDrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLineDrawingView.h; sourceTree = "<group>"; };
 		D3AAA1F517002C4400954DDF /* MyLineDrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLineDrawingView.m; sourceTree = "<group>"; };
-		D3AAA2381701603000954DDF /* libAnnoTree */ = {isa = PBXFileReference; lastKnownFileType = folder; name = libAnnoTree; path = "../../../Library/Developer/Xcode/DerivedData/AnnoTreeLib-chacgumndsccjsajgadetmhgvlpa/Build/Products/Debug-iphoneos/libAnnoTree"; sourceTree = "<group>"; };
 		D3D53FDA1717AE5B00552253 /* AnnoTreeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AnnoTreeLogo.png; path = ../../Images/Resources/AnnoTreeLogo.png; sourceTree = "<group>"; };
 		D3D53FE51717B59600552253 /* CloseIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CloseIconToolbar.png; path = ../../Images/Resources/CloseIconToolbar.png; sourceTree = "<group>"; };
 		D3D53FE7171A079F00552253 /* PencilIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PencilIconToolbar.png; path = ../../Images/Resources/PencilIconToolbar.png; sourceTree = "<group>"; };
@@ -123,10 +194,30 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D3216488172C18B500573823 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D321648C172C18B500573823 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3216495172C18B600573823 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D321649A172C18B600573823 /* SenTestingKit.framework in Frameworks */,
+				D321649B172C18B600573823 /* UIKit.framework in Frameworks */,
+				D321649C172C18B600573823 /* Foundation.framework in Frameworks */,
+				D321649F172C18B600573823 /* libAnnoTreeLibrary.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D3AAA1A017000FC300954DDF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D32164BE172C1A4F00573823 /* libAnnoTreeLibrary.a in Frameworks */,
 				D3AAA1A717000FC300954DDF /* UIKit.framework in Frameworks */,
 				D3AAA1A917000FC300954DDF /* Foundation.framework in Frameworks */,
 				D3AAA1AB17000FC300954DDF /* CoreGraphics.framework in Frameworks */,
@@ -221,11 +312,50 @@
 			name = Icon;
 			sourceTree = "<group>";
 		};
+		D321648D172C18B500573823 /* AnnoTreeLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				D3216490172C18B500573823 /* AnnoTreeLibrary.h */,
+				D3216492172C18B500573823 /* AnnoTreeLibrary.m */,
+				D321648E172C18B500573823 /* Supporting Files */,
+			);
+			path = AnnoTreeLibrary;
+			sourceTree = "<group>";
+		};
+		D321648E172C18B500573823 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D321648F172C18B500573823 /* AnnoTreeLibrary-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D32164A0172C18B600573823 /* AnnoTreeLibraryTests */ = {
+			isa = PBXGroup;
+			children = (
+				D32164A6172C18B600573823 /* AnnoTreeLibraryTests.h */,
+				D32164A7172C18B600573823 /* AnnoTreeLibraryTests.m */,
+				D32164A1172C18B600573823 /* Supporting Files */,
+			);
+			path = AnnoTreeLibraryTests;
+			sourceTree = "<group>";
+		};
+		D32164A1172C18B600573823 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D32164A2172C18B600573823 /* AnnoTreeLibraryTests-Info.plist */,
+				D32164A3172C18B600573823 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D3AAA19A17000FC300954DDF = {
 			isa = PBXGroup;
 			children = (
 				D3AAA1AC17000FC300954DDF /* AnnoTree Viewer */,
 				D3AAA1D317000FC400954DDF /* AnnoTree ViewerTests */,
+				D321648D172C18B500573823 /* AnnoTreeLibrary */,
+				D32164A0172C18B600573823 /* AnnoTreeLibraryTests */,
 				D3AAA1A517000FC300954DDF /* Frameworks */,
 				D3AAA1A417000FC300954DDF /* Products */,
 			);
@@ -236,6 +366,8 @@
 			children = (
 				D3AAA1A317000FC300954DDF /* AnnoTree Viewer.app */,
 				D3AAA1CC17000FC400954DDF /* AnnoTree ViewerTests.octest */,
+				D321648B172C18B500573823 /* libAnnoTreeLibrary.a */,
+				D3216499172C18B600573823 /* AnnoTreeLibraryTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -243,7 +375,6 @@
 		D3AAA1A517000FC300954DDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D3AAA2381701603000954DDF /* libAnnoTree */,
 				D3AAA1A617000FC300954DDF /* UIKit.framework */,
 				D3AAA1A817000FC300954DDF /* Foundation.framework */,
 				D3AAA1AA17000FC300954DDF /* CoreGraphics.framework */,
@@ -330,6 +461,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D321648A172C18B500573823 /* AnnoTreeLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D32164AD172C18B600573823 /* Build configuration list for PBXNativeTarget "AnnoTreeLibrary" */;
+			buildPhases = (
+				D3216487172C18B500573823 /* Sources */,
+				D3216488172C18B500573823 /* Frameworks */,
+				D3216489172C18B500573823 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnnoTreeLibrary;
+			productName = AnnoTreeLibrary;
+			productReference = D321648B172C18B500573823 /* libAnnoTreeLibrary.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D3216498172C18B600573823 /* AnnoTreeLibraryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D32164AE172C18B600573823 /* Build configuration list for PBXNativeTarget "AnnoTreeLibraryTests" */;
+			buildPhases = (
+				D3216494172C18B600573823 /* Sources */,
+				D3216495172C18B600573823 /* Frameworks */,
+				D3216496172C18B600573823 /* Resources */,
+				D3216497172C18B600573823 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D321649E172C18B600573823 /* PBXTargetDependency */,
+			);
+			name = AnnoTreeLibraryTests;
+			productName = AnnoTreeLibraryTests;
+			productReference = D3216499172C18B600573823 /* AnnoTreeLibraryTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		D3AAA1A217000FC300954DDF /* AnnoTree Viewer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3AAA1DE17000FC400954DDF /* Build configuration list for PBXNativeTarget "AnnoTree Viewer" */;
@@ -389,11 +556,21 @@
 			targets = (
 				D3AAA1A217000FC300954DDF /* AnnoTree Viewer */,
 				D3AAA1CB17000FC400954DDF /* AnnoTree ViewerTests */,
+				D321648A172C18B500573823 /* AnnoTreeLibrary */,
+				D3216498172C18B600573823 /* AnnoTreeLibraryTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D3216496172C18B600573823 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D32164A5172C18B600573823 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D3AAA1A117000FC300954DDF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -401,7 +578,6 @@
 				D3AAA1B117000FC300954DDF /* InfoPlist.strings in Resources */,
 				D3AAA1C017000FC300954DDF /* MainStoryboard_iPhone.storyboard in Resources */,
 				D3AAA1C317000FC300954DDF /* MainStoryboard_iPad.storyboard in Resources */,
-				D3AAA2391701603000954DDF /* libAnnoTree in Resources */,
 				D3D53FDB1717AE5B00552253 /* AnnoTreeLogo.png in Resources */,
 				D3D53FE61717B59600552253 /* CloseIconToolbar.png in Resources */,
 				D3D53FEC171A079F00552253 /* PencilIconToolbar.png in Resources */,
@@ -442,6 +618,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		D3216497172C18B600573823 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		D3AAA1CA17000FC400954DDF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -458,6 +647,26 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D3216487172C18B500573823 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D32164AF172C190300573823 /* MyLineDrawingView.m in Sources */,
+				D32164B0172C190300573823 /* ShareViewController.m in Sources */,
+				D32164B1172C190300573823 /* Rectangle.m in Sources */,
+				D32164B2172C190300573823 /* AnnoTree.m in Sources */,
+				D3216493172C18B500573823 /* AnnoTreeLibrary.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3216494172C18B600573823 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D32164A8172C18B600573823 /* AnnoTreeLibraryTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D3AAA19F17000FC300954DDF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -483,6 +692,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D321649E172C18B600573823 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D321648A172C18B500573823 /* AnnoTreeLibrary */;
+			targetProxy = D321649D172C18B600573823 /* PBXContainerItemProxy */;
+		};
 		D3AAA1D217000FC400954DDF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D3AAA1A217000FC300954DDF /* AnnoTree Viewer */;
@@ -491,6 +705,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D32164A3172C18B600573823 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D32164A4172C18B600573823 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		D3AAA1AF17000FC300954DDF /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -526,6 +748,62 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D32164A9172C18B600573823 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AnnoTreeLibrary.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnnoTreeLibrary/AnnoTreeLibrary-Prefix.pch";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		D32164AA172C18B600573823 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AnnoTreeLibrary.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnnoTreeLibrary/AnnoTreeLibrary-Prefix.pch";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		D32164AB172C18B600573823 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnnoTreeLibrary/AnnoTreeLibrary-Prefix.pch";
+				INFOPLIST_FILE = "AnnoTreeLibraryTests/AnnoTreeLibraryTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D32164AC172C18B600573823 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnnoTreeLibrary/AnnoTreeLibrary-Prefix.pch";
+				INFOPLIST_FILE = "AnnoTreeLibraryTests/AnnoTreeLibraryTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		D3AAA1DC17000FC400954DDF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -654,6 +932,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D32164AD172C18B600573823 /* Build configuration list for PBXNativeTarget "AnnoTreeLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D32164A9172C18B600573823 /* Debug */,
+				D32164AA172C18B600573823 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D32164AE172C18B600573823 /* Build configuration list for PBXNativeTarget "AnnoTreeLibraryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D32164AB172C18B600573823 /* Debug */,
+				D32164AC172C18B600573823 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D3AAA19E17000FC300954DDF /* Build configuration list for PBXProject "AnnoTree Viewer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

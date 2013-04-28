@@ -24,6 +24,7 @@
 @synthesize annotations;
 @synthesize toolbarButtons;
 @synthesize shareView;
+@synthesize openAnnoTreeView;
 
 /* Temp */
 @synthesize addTextGesture;
@@ -81,7 +82,7 @@
         [AnnoTreeWindow addGestureRecognizer:addTextGesture];
         
         
-        /* Create button to be loaded into user apps views to launch anno tree */
+        /* Create button to be loaded into openAnnoTree view to launch anno tree */
         UIImage *annoTreeImage = [UIImage imageNamed:@"AnnoTreeLogo.png"];
         openAnnoTreeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         openAnnoTreeButton.userInteractionEnabled = YES;
@@ -91,6 +92,9 @@
         [openAnnoTreeButton addTarget:self action:@selector(wasDragged:withEvent:)
           forControlEvents:UIControlEventTouchDragInside];
         
+        /* Create view that will hold button and be put into users app */
+        openAnnoTreeView = [[UIView alloc] init];
+        [openAnnoTreeView addSubview:openAnnoTreeButton];
         
         /* create the toolbar to be loaded */
         annoTreeToolbar = [[UIView alloc]initWithFrame:CGRectMake(0, 0, sizeIcon, space*5+sizeIcon)];
@@ -200,9 +204,9 @@
     button.enabled = NO;
 }
 
--(UIButton*)getAnnoTreeLauncher
+-(UIView*)getAnnoTreeLauncher:(UIInterfaceOrientation)orientation
 {
-    return openAnnoTreeButton;
+    return openAnnoTreeView;
 }
 
 - (void)viewDidLoad

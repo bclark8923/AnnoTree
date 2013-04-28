@@ -51,11 +51,12 @@
 		D32164BB172C192300573823 /* TextIconToolbar.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3D53FEB171A079F00552253 /* TextIconToolbar.png */; };
 		D32164BC172C192300573823 /* CloseIconToolbar.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3D53FE51717B59600552253 /* CloseIconToolbar.png */; };
 		D32164BD172C192300573823 /* AnnoTreeLogo.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3D53FDA1717AE5B00552253 /* AnnoTreeLogo.png */; };
-		D32164BE172C1A4F00573823 /* libAnnoTreeLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D321648B172C18B500573823 /* libAnnoTreeLibrary.a */; };
 		D32164C3172C207C00573823 /* AnnoTree.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3AAA1ED170018EE00954DDF /* AnnoTree.h */; };
 		D32164C4172C21BC00573823 /* MyLineDrawingView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3AAA1F417002C4400954DDF /* MyLineDrawingView.h */; };
 		D32164C5172C21BC00573823 /* ShareViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D314C668171B2D7700BA9B2F /* ShareViewController.h */; };
 		D32164C6172C21BC00573823 /* Rectangle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D3D53FF1171A194500552253 /* Rectangle.h */; };
+		D388CD2A172DAC2C008F4F71 /* UIViewOpenAnnoTree.m in Sources */ = {isa = PBXBuildFile; fileRef = D388CD29172DAC2C008F4F71 /* UIViewOpenAnnoTree.m */; };
+		D388CD2B172DAC2C008F4F71 /* UIViewOpenAnnoTree.m in Sources */ = {isa = PBXBuildFile; fileRef = D388CD29172DAC2C008F4F71 /* UIViewOpenAnnoTree.m */; };
 		D3AAA1A717000FC300954DDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A617000FC300954DDF /* UIKit.framework */; };
 		D3AAA1A917000FC300954DDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A817000FC300954DDF /* Foundation.framework */; };
 		D3AAA1AB17000FC300954DDF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1AA17000FC300954DDF /* CoreGraphics.framework */; };
@@ -158,6 +159,8 @@
 		D32164A4172C18B600573823 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D32164A6172C18B600573823 /* AnnoTreeLibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnoTreeLibraryTests.h; sourceTree = "<group>"; };
 		D32164A7172C18B600573823 /* AnnoTreeLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnoTreeLibraryTests.m; sourceTree = "<group>"; };
+		D388CD28172DAC2C008F4F71 /* UIViewOpenAnnoTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewOpenAnnoTree.h; path = ../UIViewOpenAnnoTree.h; sourceTree = "<group>"; };
+		D388CD29172DAC2C008F4F71 /* UIViewOpenAnnoTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewOpenAnnoTree.m; path = ../UIViewOpenAnnoTree.m; sourceTree = "<group>"; };
 		D3AAA1A317000FC300954DDF /* AnnoTree Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnnoTree Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AAA1A617000FC300954DDF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D3AAA1A817000FC300954DDF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -217,7 +220,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D32164BE172C1A4F00573823 /* libAnnoTreeLibrary.a in Frameworks */,
 				D3AAA1A717000FC300954DDF /* UIKit.framework in Frameworks */,
 				D3AAA1A917000FC300954DDF /* Foundation.framework in Frameworks */,
 				D3AAA1AB17000FC300954DDF /* CoreGraphics.framework in Frameworks */,
@@ -454,6 +456,8 @@
 				D3AAA1E41700182B00954DDF /* Images */,
 				D3AAA1ED170018EE00954DDF /* AnnoTree.h */,
 				D3AAA1EE170018EE00954DDF /* AnnoTree.m */,
+				D388CD28172DAC2C008F4F71 /* UIViewOpenAnnoTree.h */,
+				D388CD29172DAC2C008F4F71 /* UIViewOpenAnnoTree.m */,
 			);
 			name = AnnoTree;
 			sourceTree = "<group>";
@@ -656,6 +660,7 @@
 				D32164B1172C190300573823 /* Rectangle.m in Sources */,
 				D32164B2172C190300573823 /* AnnoTree.m in Sources */,
 				D3216493172C18B500573823 /* AnnoTreeLibrary.m in Sources */,
+				D388CD2B172DAC2C008F4F71 /* UIViewOpenAnnoTree.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +683,7 @@
 				D3AAA1F617002C4400954DDF /* MyLineDrawingView.m in Sources */,
 				D3D53FF3171A194600552253 /* Rectangle.m in Sources */,
 				D314C66B171B2D7700BA9B2F /* ShareViewController.m in Sources */,
+				D388CD2A172DAC2C008F4F71 /* UIViewOpenAnnoTree.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,7 +836,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -855,6 +861,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -872,6 +879,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/AnnoTreeLib-chacgumndsccjsajgadetmhgvlpa/Build/Products/Debug-iphoneos\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "";
@@ -889,6 +897,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/AnnoTreeLib-chacgumndsccjsajgadetmhgvlpa/Build/Products/Debug-iphoneos\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;

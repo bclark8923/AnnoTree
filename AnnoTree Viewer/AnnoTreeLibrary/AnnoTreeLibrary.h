@@ -15,6 +15,6 @@
 
 //+ (id)sharedInstance;
 
-+ (UIView*) getAnnoTreeLauncher:(UIInterfaceOrientation)orientation;
++ (UIView*) getAnnoTreeLauncher:(UIInterfaceOrientationMask)orientation;
 
 @end

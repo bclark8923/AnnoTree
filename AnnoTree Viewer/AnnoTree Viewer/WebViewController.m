@@ -7,6 +7,7 @@
 //
 
 #import "WebViewController.h"
+#import "AnnoTree.h"
 
 static const CGFloat kNavBarHeight = 52.0f;
 static const CGFloat kLabelHeight = 14.0f;
@@ -90,7 +91,7 @@ static const CGFloat kAddressHeight = 26.0f;
     [self updateButtons];
     
     //[[AnnoTree sharedInstance] loadTree:self];
-    [self.view addSubview:[AnnoTreeLibrary getAnnoTreeLauncher]];
+    [self.view addSubview:[[AnnoTree sharedInstance] getAnnoTreeLauncher:UIInterfaceOrientationMaskAll]];
     //[[[UIApplication sharedApplication] keyWindow] bringSubviewToFront:[[AnnoTree sharedInstance] getAnnoTreeLauncher]];
 }
 

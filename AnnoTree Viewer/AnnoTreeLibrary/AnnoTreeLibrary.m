@@ -25,7 +25,7 @@
     return [AnnoTree sharedInstance];
 }*/
 
-+ (UIView*) getAnnoTreeLauncher:(UIInterfaceOrientation)orientation {
++ (UIView*) getAnnoTreeLauncher:(UIInterfaceOrientationMask)orientation {
     return [[AnnoTree sharedInstance] getAnnoTreeLauncher:orientation];
 }
 

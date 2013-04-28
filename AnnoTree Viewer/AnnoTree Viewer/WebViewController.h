@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AnnoTreeLibrary/AnnoTreeLibrary.h>
 
 @interface WebViewController : UIViewController<UIWebViewDelegate> {
     UIWebView *viewWeb;

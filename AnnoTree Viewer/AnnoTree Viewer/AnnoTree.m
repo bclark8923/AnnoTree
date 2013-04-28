@@ -93,7 +93,8 @@
           forControlEvents:UIControlEventTouchDragInside];
         
         /* Create view that will hold button and be put into users app */
-        openAnnoTreeView = [[UIView alloc] init];
+        openAnnoTreeView = [[UIViewOpenAnnoTree alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
+        openAnnoTreeView.userInteractionEnabled = YES;
         [openAnnoTreeView addSubview:openAnnoTreeButton];
         
         /* create the toolbar to be loaded */
@@ -204,7 +205,7 @@
     button.enabled = NO;
 }
 
--(UIView*)getAnnoTreeLauncher:(UIInterfaceOrientation)orientation
+- (UIView*)getAnnoTreeLauncher:(UIInterfaceOrientationMask)orientation
 {
     return openAnnoTreeView;
 }

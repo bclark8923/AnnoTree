@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ShareViewController.h"
+#import "UIViewOpenAnnoTree.h"
 
 @interface AnnoTree : UIViewController {
     //UIWindow *AnnoTreeWindow;
@@ -16,7 +17,7 @@
 @property (nonatomic, retain) UIWindow *AnnoTreeWindow;
 @property (nonatomic, retain) UIButton *openAnnoTreeButton;
 @property (nonatomic, retain) UIView *annoTreeToolbar;
-@property (nonatomic, retain) UIView *openAnnoTreeView;
+@property (nonatomic, retain) UIViewOpenAnnoTree *openAnnoTreeView;
 @property (nonatomic, retain) NSMutableArray *annotations;
 @property (nonatomic, retain) NSMutableArray *toolbarButtons;
 @property (nonatomic, retain) ShareViewController *shareView;
@@ -30,6 +31,6 @@
 
 - (void)loadFingerDrawing;
 
--(UIView*)getAnnoTreeLauncher:(UIInterfaceOrientation)orientation;
+- (UIView*)getAnnoTreeLauncher:(UIInterfaceOrientationMask)orientation;
 
 @end

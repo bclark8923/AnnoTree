@@ -13,8 +13,8 @@
 
 //@property (nonatomic, retain) AnnoTree *annoTreeInstance;
 
-//+ (id)sharedInstance;
++ (id)sharedInstance;
 
-+ (UIView*) getAnnoTreeLauncher:(UIInterfaceOrientationMask)orientation;
+- (void) loadTree:(UIInterfaceOrientationMask)orientation;
 
 @end

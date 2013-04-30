@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 AnnoTree. All rights reserved.
 //
 
-#import "Rectangle.h"
+#import "ToolbarBg.h"
 
-@implementation Rectangle
+@implementation ToolbarBg
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -40,7 +40,9 @@
     }
     
     CGContextSetRGBFillColor(ctx, red, green, blue, 1);// 3
-    CGContextFillRect (ctx, rect);
+    CGContextFillRect (ctx, CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height-(rect.size.width/2)));
+    CGContextAddEllipseInRect(ctx, CGRectMake(rect.origin.x, rect.size.height-(rect.size.width), rect.size.width, rect.size.width));
+    CGContextFillPath(ctx);
 }
 
 /*

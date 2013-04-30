@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Rectangle : UIView
+@interface ToolbarBg : UIView
 
 @end

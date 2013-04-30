@@ -90,8 +90,7 @@ static const CGFloat kAddressHeight = 26.0f;
     [self.viewWeb loadRequest:request];
     [self updateButtons];
     
-    //[[AnnoTree sharedInstance] loadTree:self];
-    [self.view addSubview:[[AnnoTree sharedInstance] getAnnoTreeLauncher:UIInterfaceOrientationMaskAll]];
+    //[self.view addSubview:[[AnnoTree sharedInstance] getAnnoTreeLauncher:UIInterfaceOrientationMaskAll]];
     //[[[UIApplication sharedApplication] keyWindow] bringSubviewToFront:[[AnnoTree sharedInstance] getAnnoTreeLauncher]];
 }
 

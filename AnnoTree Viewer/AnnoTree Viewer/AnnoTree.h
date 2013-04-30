@@ -8,19 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "ShareViewController.h"
-#import "UIViewOpenAnnoTree.h"
+#import "UIWindowAnnoTree.h"
 
 @interface AnnoTree : UIViewController {
     //UIWindow *AnnoTreeWindow;
 }
 
-@property (nonatomic, retain) UIWindow *AnnoTreeWindow;
+@property (nonatomic, retain) UIWindowAnnoTree *annoTreeWindow;
 @property (nonatomic, retain) UIButton *openAnnoTreeButton;
 @property (nonatomic, retain) UIView *annoTreeToolbar;
-@property (nonatomic, retain) UIViewOpenAnnoTree *openAnnoTreeView;
 @property (nonatomic, retain) NSMutableArray *annotations;
 @property (nonatomic, retain) NSMutableArray *toolbarButtons;
+@property (nonatomic, retain) NSMutableArray *toolbarObjects;
 @property (nonatomic, retain) ShareViewController *shareView;
+@property BOOL enabled;
 
 /* Temp */
 @property (nonatomic, retain) UILongPressGestureRecognizer *addTextGesture;
@@ -29,8 +30,10 @@
 
 + (id)sharedInstance;
 
-- (void)loadFingerDrawing;
+// - (void)loadFingerDrawing;
 
-- (UIView*)getAnnoTreeLauncher:(UIInterfaceOrientationMask)orientation;
+- (void) loadTree:(UIInterfaceOrientationMask)orientation;
+
+//- (UIView*)getAnnoTreeLauncher:(UIInterfaceOrientationMask)orientation;
 
 @end

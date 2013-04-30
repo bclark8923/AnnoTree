@@ -12,6 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[AnnoTree sharedInstance] loadTree:UIInterfaceOrientationMaskAll];
     //[self.window addGestureRecognizer:[[AnnoTree sharedInstance] getOpen]];
     //[[[UIApplication sharedApplication] keyWindow] addSubview:[[AnnoTree sharedInstance] getAnnoTreeLauncher]];
     //[[AnnoTree sharedInstance] initializeTree];

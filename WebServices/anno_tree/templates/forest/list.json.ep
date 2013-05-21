@@ -1,0 +1,20 @@
+{
+    "numForests": "3",
+    "forests": [
+        {
+            "id": "0",
+            "name": "Untitled Technologies",
+            "description": "A company for only the truly brave"
+        },
+        {
+            "id": "1",
+            "name": "The Monkey Knows",
+            "description": "How dare you try to rustle my jimmies"
+        },
+        {
+            "id": "2",
+            "name": "Late Night",
+            "description": "Because we will be pulling a bunch of these"
+        }
+    ]
+}

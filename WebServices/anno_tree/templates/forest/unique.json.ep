@@ -1,0 +1,5 @@
+{
+    "name": "<%== $companyName %>",
+    "description": "<%== $desc %>"
+    
+}

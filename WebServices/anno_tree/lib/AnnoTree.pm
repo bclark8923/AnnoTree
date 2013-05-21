@@ -13,6 +13,14 @@ sub startup {
 
   # Normal route to controller
   $r->get('/')->to('example#welcome');
+    
+    # ===== FORESTS =====
+    $r->get('/forest')->to('forest#list');
+    $r->get('/forest/:id' => [id => qr/\d+/])->to('forest#unique');
+
+    # ===== TREES =====
+    $r->get('/:forestid/tree/' => [forestid => qr/\d+/])->to('tree#list');
+
 }
 
 1;

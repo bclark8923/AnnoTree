@@ -1,0 +1,915 @@
+[Mon May 20 23:53:50 2013] [info] Listening at "http://*:3000".
+[Mon May 20 23:53:55 2013] [debug] Your secret passphrase needs to be changed!!!
+[Mon May 20 23:53:55 2013] [debug] GET "/".
+[Mon May 20 23:53:55 2013] [debug] Routing to controller "AnnoTree::Example" and action "welcome".
+[Mon May 20 23:53:55 2013] [debug] Rendering template "example/welcome.html.ep".
+[Mon May 20 23:53:55 2013] [debug] Careful, "layout" is a reserved stash value.
+[Mon May 20 23:53:55 2013] [debug] Rendering template "layouts/default.html.ep".
+[Mon May 20 23:53:55 2013] [debug] 200 OK (0.004288s, 233.209/s).
+[Mon May 20 23:54:02 2013] [debug] GET "/".
+[Mon May 20 23:54:02 2013] [debug] Routing to controller "AnnoTree::Example" and action "welcome".
+[Mon May 20 23:54:02 2013] [debug] Rendering cached template "example/welcome.html.ep".
+[Mon May 20 23:54:02 2013] [debug] Careful, "layout" is a reserved stash value.
+[Mon May 20 23:54:02 2013] [debug] Rendering cached template "layouts/default.html.ep".
+[Mon May 20 23:54:02 2013] [debug] 200 OK (0.000769s, 1300.390/s).
+[Mon May 20 23:59:28 2013] [debug] Your secret passphrase needs to be changed!!!
+[Mon May 20 23:59:28 2013] [debug] GET "/".
+[Mon May 20 23:59:28 2013] [debug] Routing to controller "AnnoTree::Example" and action "welcome".
+[Mon May 20 23:59:28 2013] [debug] Rendering template "example/welcome.html.ep".
+[Mon May 20 23:59:28 2013] [debug] Careful, "layout" is a reserved stash value.
+[Mon May 20 23:59:28 2013] [debug] Rendering template "layouts/default.html.ep".
+[Mon May 20 23:59:28 2013] [debug] 200 OK (0.004122s, 242.601/s).
+[Tue May 21 00:28:36 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 00:28:36 2013] [debug] GET "/".
+[Tue May 21 00:28:36 2013] [debug] Routing to controller "AnnoTree::Example" and action "welcome".
+[Tue May 21 00:28:36 2013] [debug] Rendering template "example/welcome.html.ep".
+[Tue May 21 00:28:36 2013] [debug] Careful, "layout" is a reserved stash value.
+[Tue May 21 00:28:36 2013] [debug] Rendering template "layouts/default.html.ep".
+[Tue May 21 00:28:36 2013] [debug] 200 OK (0.004456s, 224.417/s).
+[Tue May 21 00:28:40 2013] [debug] GET "/forest".
+[Tue May 21 00:28:40 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:28:40 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:28:40 2013] [debug] Rendering inline template.
+[Tue May 21 00:28:40 2013] [debug] Rendering inline template.
+[Tue May 21 00:28:40 2013] [debug] 404 Not Found (0.010395s, 96.200/s).
+[Tue May 21 00:29:19 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 00:29:19 2013] [debug] GET "/forest".
+[Tue May 21 00:29:19 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:29:19 2013] [error] Not a CODE reference at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Forest.pm line 8.
+
+[Tue May 21 00:29:19 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 00:29:19 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 00:29:19 2013] [debug] Rendering inline template.
+[Tue May 21 00:29:19 2013] [debug] Rendering inline template.
+[Tue May 21 00:29:19 2013] [debug] 500 Internal Server Error (0.016011s, 62.457/s).
+[Tue May 21 00:29:36 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 00:29:36 2013] [debug] GET "/forest".
+[Tue May 21 00:29:36 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:29:36 2013] [debug] Template "list.html.ep" not found.
+[Tue May 21 00:29:36 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:29:36 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:29:36 2013] [debug] Rendering inline template.
+[Tue May 21 00:29:36 2013] [debug] Rendering inline template.
+[Tue May 21 00:29:36 2013] [debug] 404 Not Found (0.011321s, 88.331/s).
+[Tue May 21 00:30:49 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 00:30:49 2013] [debug] GET "/forest".
+[Tue May 21 00:30:49 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:30:49 2013] [debug] 200 OK (0.000756s, 1322.751/s).
+[Tue May 21 00:33:31 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 00:33:31 2013] [debug] GET "/forest".
+[Tue May 21 00:33:31 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:33:31 2013] [debug] Template "list.json.ep" not found.
+[Tue May 21 00:33:31 2013] [debug] Template "not_found.development.json.ep" not found.
+[Tue May 21 00:33:31 2013] [debug] Template "not_found.json.ep" not found.
+[Tue May 21 00:33:31 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:33:31 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:33:31 2013] [debug] Rendering inline template.
+[Tue May 21 00:33:31 2013] [debug] Rendering inline template.
+[Tue May 21 00:33:31 2013] [debug] 404 Not Found (0.011820s, 84.602/s).
+[Tue May 21 00:34:52 2013] [debug] GET "/forest.json".
+[Tue May 21 00:34:52 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:34:52 2013] [debug] Template "list.json.ep" not found.
+[Tue May 21 00:34:52 2013] [debug] Template "not_found.development.json.ep" not found.
+[Tue May 21 00:34:52 2013] [debug] Template "not_found.json.ep" not found.
+[Tue May 21 00:34:52 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:34:52 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:34:52 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:34:52 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:34:52 2013] [debug] 404 Not Found (0.003983s, 251.067/s).
+[Tue May 21 00:35:12 2013] [info] Listening at "http://*:3000".
+[Tue May 21 00:35:18 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 00:35:18 2013] [debug] GET "/forest.json".
+[Tue May 21 00:35:18 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:35:18 2013] [debug] Template "list.json.ep" not found.
+[Tue May 21 00:35:18 2013] [debug] Template "not_found.development.json.ep" not found.
+[Tue May 21 00:35:18 2013] [debug] Template "not_found.json.ep" not found.
+[Tue May 21 00:35:18 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:35:18 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:35:18 2013] [debug] Rendering inline template.
+[Tue May 21 00:35:18 2013] [debug] Rendering inline template.
+[Tue May 21 00:35:18 2013] [debug] 404 Not Found (0.011871s, 84.239/s).
+[Tue May 21 00:35:26 2013] [debug] GET "/forest/forest.json".
+[Tue May 21 00:35:26 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:35:26 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:35:26 2013] [debug] Rendering inline template.
+[Tue May 21 00:35:26 2013] [debug] Rendering inline template.
+[Tue May 21 00:35:26 2013] [debug] 404 Not Found (0.010394s, 96.209/s).
+[Tue May 21 00:35:32 2013] [debug] GET "/forest.forest.json".
+[Tue May 21 00:35:32 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:35:32 2013] [debug] Template "list.forest.json.ep" not found.
+[Tue May 21 00:35:32 2013] [debug] Template "not_found.development.forest.json.ep" not found.
+[Tue May 21 00:35:32 2013] [debug] Template "not_found.forest.json.ep" not found.
+[Tue May 21 00:35:32 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:35:32 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:35:32 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:35:32 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:35:32 2013] [debug] 404 Not Found (0.004039s, 247.586/s).
+[Tue May 21 00:35:35 2013] [debug] GET "/forest".
+[Tue May 21 00:35:35 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:35:35 2013] [debug] Template "list.html.ep" not found.
+[Tue May 21 00:35:35 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:35:35 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:35:35 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:35:35 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:35:35 2013] [debug] 404 Not Found (0.003768s, 265.393/s).
+[Tue May 21 00:36:14 2013] [info] Listening at "http://*:3000".
+[Tue May 21 00:36:17 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 00:36:17 2013] [debug] GET "/forest".
+[Tue May 21 00:36:17 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:36:17 2013] [debug] Template "list.html.ep" not found.
+[Tue May 21 00:36:17 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:36:17 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:36:17 2013] [debug] Rendering inline template.
+[Tue May 21 00:36:17 2013] [debug] Rendering inline template.
+[Tue May 21 00:36:17 2013] [debug] 404 Not Found (0.011775s, 84.926/s).
+[Tue May 21 00:36:18 2013] [debug] GET "/forest".
+[Tue May 21 00:36:18 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:36:18 2013] [debug] Template "list.html.ep" not found.
+[Tue May 21 00:36:18 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:36:18 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:36:18 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:36:18 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:36:18 2013] [debug] 404 Not Found (0.003438s, 290.867/s).
+[Tue May 21 00:36:28 2013] [debug] GET "/".
+[Tue May 21 00:36:28 2013] [debug] Routing to controller "AnnoTree::Example" and action "welcome".
+[Tue May 21 00:36:28 2013] [debug] Rendering template "example/welcome.html.ep".
+[Tue May 21 00:36:28 2013] [debug] Careful, "layout" is a reserved stash value.
+[Tue May 21 00:36:28 2013] [debug] Rendering template "layouts/default.html.ep".
+[Tue May 21 00:36:28 2013] [debug] 200 OK (0.003835s, 260.756/s).
+[Tue May 21 00:36:33 2013] [debug] GET "/forest".
+[Tue May 21 00:36:33 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:36:33 2013] [debug] Template "list.html.ep" not found.
+[Tue May 21 00:36:33 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:36:33 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:36:33 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:36:33 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:36:33 2013] [debug] 404 Not Found (0.003566s, 280.426/s).
+[Tue May 21 00:37:57 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 00:37:57 2013] [debug] GET "/forest".
+[Tue May 21 00:37:57 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:37:57 2013] [debug] Template "list.json.ep" not found.
+[Tue May 21 00:37:57 2013] [debug] Template "not_found.development.json.ep" not found.
+[Tue May 21 00:37:57 2013] [debug] Template "not_found.json.ep" not found.
+[Tue May 21 00:37:57 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:37:57 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:37:57 2013] [debug] Rendering inline template.
+[Tue May 21 00:37:57 2013] [debug] Rendering inline template.
+[Tue May 21 00:37:57 2013] [debug] 404 Not Found (0.011620s, 86.059/s).
+[Tue May 21 00:37:58 2013] [debug] GET "/forest".
+[Tue May 21 00:37:58 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:37:58 2013] [debug] Template "list.json.ep" not found.
+[Tue May 21 00:37:58 2013] [debug] Template "not_found.development.json.ep" not found.
+[Tue May 21 00:37:58 2013] [debug] Template "not_found.json.ep" not found.
+[Tue May 21 00:37:58 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:37:58 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:37:58 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:37:58 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:37:58 2013] [debug] 404 Not Found (0.003585s, 278.940/s).
+[Tue May 21 00:38:02 2013] [debug] GET "/forest.json".
+[Tue May 21 00:38:02 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:38:02 2013] [debug] Template "list.json.ep" not found.
+[Tue May 21 00:38:02 2013] [debug] Template "not_found.development.json.ep" not found.
+[Tue May 21 00:38:02 2013] [debug] Template "not_found.json.ep" not found.
+[Tue May 21 00:38:02 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:38:02 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:38:02 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:38:02 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:38:02 2013] [debug] 404 Not Found (0.004210s, 237.530/s).
+[Tue May 21 00:38:05 2013] [debug] GET "/forest".
+[Tue May 21 00:38:05 2013] [debug] Routing to controller "AnnoTree::Forest" and action "listAll".
+[Tue May 21 00:38:05 2013] [debug] Template "list.json.ep" not found.
+[Tue May 21 00:38:05 2013] [debug] Template "not_found.development.json.ep" not found.
+[Tue May 21 00:38:05 2013] [debug] Template "not_found.json.ep" not found.
+[Tue May 21 00:38:05 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:38:05 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:38:05 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:38:05 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:38:05 2013] [debug] 404 Not Found (0.003675s, 272.109/s).
+[Tue May 21 00:39:25 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 00:39:25 2013] [debug] GET "/forest".
+[Tue May 21 00:39:25 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 00:39:25 2013] [debug] Template "forest/list.html.ep" not found.
+[Tue May 21 00:39:25 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:39:25 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:39:25 2013] [debug] Rendering inline template.
+[Tue May 21 00:39:25 2013] [debug] Rendering inline template.
+[Tue May 21 00:39:25 2013] [debug] 404 Not Found (0.011361s, 88.020/s).
+[Tue May 21 00:39:27 2013] [debug] GET "/forest".
+[Tue May 21 00:39:27 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 00:39:27 2013] [debug] Template "forest/list.html.ep" not found.
+[Tue May 21 00:39:27 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:39:27 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:39:27 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:39:27 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:39:27 2013] [debug] 404 Not Found (0.003427s, 291.800/s).
+[Tue May 21 00:39:40 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 00:39:40 2013] [debug] GET "/forest".
+[Tue May 21 00:39:40 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 00:39:40 2013] [debug] Template "forest/list.html.ep" not found.
+[Tue May 21 00:39:40 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:39:40 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:39:40 2013] [debug] Rendering inline template.
+[Tue May 21 00:39:40 2013] [debug] Rendering inline template.
+[Tue May 21 00:39:40 2013] [debug] 404 Not Found (0.011406s, 87.673/s).
+[Tue May 21 00:39:40 2013] [debug] GET "/forest".
+[Tue May 21 00:39:40 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 00:39:40 2013] [debug] Template "forest/list.html.ep" not found.
+[Tue May 21 00:39:40 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:39:40 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:39:40 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:39:40 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:39:40 2013] [debug] 404 Not Found (0.003484s, 287.026/s).
+[Tue May 21 00:39:41 2013] [debug] GET "/forest".
+[Tue May 21 00:39:41 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 00:39:41 2013] [debug] Template "forest/list.html.ep" not found.
+[Tue May 21 00:39:41 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:39:41 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:39:41 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:39:41 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:39:41 2013] [debug] 404 Not Found (0.003416s, 292.740/s).
+[Tue May 21 00:39:42 2013] [debug] GET "/forest".
+[Tue May 21 00:39:42 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 00:39:42 2013] [debug] Template "forest/list.html.ep" not found.
+[Tue May 21 00:39:42 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 00:39:42 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 00:39:42 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:39:42 2013] [debug] Rendering cached inline template.
+[Tue May 21 00:39:42 2013] [debug] 404 Not Found (0.003434s, 291.206/s).
+[Tue May 21 00:40:27 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 00:40:27 2013] [debug] GET "/forest".
+[Tue May 21 00:40:27 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 00:40:27 2013] [debug] Rendering template "forest/list.json.ep".
+[Tue May 21 00:40:27 2013] [debug] 200 OK (0.002868s, 348.675/s).
+[Tue May 21 00:43:10 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 00:43:10 2013] [debug] GET "/forest".
+[Tue May 21 00:43:10 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 00:43:10 2013] [debug] Rendering template "forest/list.json.ep".
+[Tue May 21 00:43:10 2013] [debug] 200 OK (0.002803s, 356.761/s).
+[Tue May 21 01:00:03 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:00:03 2013] [debug] GET "/forest".
+[Tue May 21 01:00:03 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 01:00:03 2013] [debug] Rendering template "forest/list.json.ep".
+[Tue May 21 01:00:03 2013] [debug] 200 OK (0.002811s, 355.745/s).
+[Tue May 21 01:02:45 2013] [debug] GET "/forest".
+[Tue May 21 01:02:45 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 01:02:45 2013] [debug] Rendering cached template "forest/list.json.ep".
+[Tue May 21 01:02:45 2013] [debug] 200 OK (0.000387s, 2583.979/s).
+[Tue May 21 01:05:33 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:05:33 2013] [debug] GET "/forest".
+[Tue May 21 01:05:33 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 01:05:33 2013] [debug] Rendering template "forest/list.json.ep".
+[Tue May 21 01:05:33 2013] [debug] 200 OK (0.002917s, 342.818/s).
+[Tue May 21 01:05:50 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:05:50 2013] [debug] GET "/forest".
+[Tue May 21 01:05:50 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 01:05:50 2013] [debug] Rendering template "forest/list.json.ep".
+[Tue May 21 01:05:50 2013] [debug] 200 OK (0.002925s, 341.880/s).
+[Tue May 21 01:06:35 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:06:35 2013] [debug] GET "/forest".
+[Tue May 21 01:06:35 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 01:06:35 2013] [debug] Rendering template "forest/list.json.ep".
+[Tue May 21 01:06:35 2013] [debug] 200 OK (0.002877s, 347.584/s).
+[Tue May 21 01:07:44 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:07:44 2013] [debug] GET "/forest".
+[Tue May 21 01:07:44 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 01:07:44 2013] [debug] Rendering template "forest/list.json.ep".
+[Tue May 21 01:07:44 2013] [debug] 200 OK (0.003048s, 328.084/s).
+[Tue May 21 01:19:07 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:19:07 2013] [debug] GET "/forest/1".
+[Tue May 21 01:19:07 2013] [error] Global symbol "@companies" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Forest.pm line 16.
+Global symbol "@companies" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Forest.pm line 33.
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 01:19:07 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 01:19:07 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 01:19:07 2013] [debug] Rendering inline template.
+[Tue May 21 01:19:07 2013] [debug] Rendering inline template.
+[Tue May 21 01:19:07 2013] [debug] 500 Internal Server Error (0.015997s, 62.512/s).
+[Tue May 21 01:19:17 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:19:17 2013] [debug] GET "/forest/1".
+[Tue May 21 01:19:17 2013] [error] Global symbol "@companies" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Forest.pm line 16.
+Global symbol "@companies" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Forest.pm line 33.
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 01:19:17 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 01:19:17 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 01:19:17 2013] [debug] Rendering inline template.
+[Tue May 21 01:19:17 2013] [debug] Rendering inline template.
+[Tue May 21 01:19:17 2013] [debug] 500 Internal Server Error (0.016114s, 62.058/s).
+[Tue May 21 01:19:29 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:19:29 2013] [debug] GET "/forest/1".
+[Tue May 21 01:19:29 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:19:29 2013] [debug] 200 OK (0.000859s, 1164.144/s).
+[Tue May 21 01:19:57 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:19:57 2013] [debug] GET "/forest/1".
+[Tue May 21 01:19:57 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:19:57 2013] [debug] 200 OK (0.000834s, 1199.041/s).
+[Tue May 21 01:20:01 2013] [debug] GET "/forest/0".
+[Tue May 21 01:20:01 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:20:01 2013] [debug] 200 OK (0.000373s, 2680.965/s).
+[Tue May 21 01:20:14 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:20:14 2013] [debug] GET "/forest/0".
+[Tue May 21 01:20:14 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:20:14 2013] [debug] 200 OK (0.000834s, 1199.041/s).
+[Tue May 21 01:20:14 2013] [debug] GET "/forest/0".
+[Tue May 21 01:20:14 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:20:14 2013] [debug] 200 OK (0.000221s, 4524.887/s).
+[Tue May 21 01:20:18 2013] [debug] GET "/forest/1".
+[Tue May 21 01:20:18 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:20:18 2013] [debug] 200 OK (0.000375s, 2666.667/s).
+[Tue May 21 01:20:22 2013] [debug] GET "/forest/2".
+[Tue May 21 01:20:22 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:20:22 2013] [debug] 200 OK (0.000370s, 2702.703/s).
+[Tue May 21 01:20:24 2013] [debug] GET "/forest".
+[Tue May 21 01:20:24 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 01:20:24 2013] [debug] Rendering template "forest/list.json.ep".
+[Tue May 21 01:20:24 2013] [debug] 200 OK (0.002676s, 373.692/s).
+[Tue May 21 01:20:27 2013] [debug] GET "/forest/0".
+[Tue May 21 01:20:27 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:20:27 2013] [debug] 200 OK (0.000232s, 4310.345/s).
+[Tue May 21 01:25:47 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:25:47 2013] [debug] GET "/forest/0".
+[Tue May 21 01:25:47 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:25:47 2013] [debug] Template "forest/unique.html.ep" not found.
+[Tue May 21 01:25:47 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:25:47 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:25:47 2013] [debug] Rendering inline template.
+[Tue May 21 01:25:47 2013] [debug] Rendering inline template.
+[Tue May 21 01:25:47 2013] [debug] 404 Not Found (0.011664s, 85.734/s).
+[Tue May 21 01:26:33 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:26:33 2013] [debug] GET "/forest/0".
+[Tue May 21 01:26:33 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:26:33 2013] [debug] Rendering template "forest/unique.json.ep".
+[Tue May 21 01:26:33 2013] [debug] 200 OK (0.002978s, 335.796/s).
+[Tue May 21 01:27:02 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:27:02 2013] [debug] GET "/forest/0".
+[Tue May 21 01:27:02 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:27:02 2013] [debug] Rendering template "forest/unique.json.ep".
+[Tue May 21 01:27:02 2013] [debug] 200 OK (0.003389s, 295.072/s).
+[Tue May 21 01:27:11 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:27:11 2013] [debug] GET "/forest/0".
+[Tue May 21 01:27:11 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:27:11 2013] [debug] Rendering template "forest/unique.json.ep".
+[Tue May 21 01:27:11 2013] [debug] 200 OK (0.002882s, 346.981/s).
+[Tue May 21 01:27:16 2013] [debug] GET "/forest/2".
+[Tue May 21 01:27:16 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:27:16 2013] [debug] Rendering cached template "forest/unique.json.ep".
+[Tue May 21 01:27:16 2013] [debug] 200 OK (0.000657s, 1522.070/s).
+[Tue May 21 01:27:22 2013] [debug] GET "/forest/0".
+[Tue May 21 01:27:22 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:27:22 2013] [debug] Rendering cached template "forest/unique.json.ep".
+[Tue May 21 01:27:22 2013] [debug] 200 OK (0.000431s, 2320.186/s).
+[Tue May 21 01:27:25 2013] [debug] GET "/forest/1".
+[Tue May 21 01:27:25 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:27:25 2013] [debug] Rendering cached template "forest/unique.json.ep".
+[Tue May 21 01:27:25 2013] [debug] 200 OK (0.000577s, 1733.102/s).
+[Tue May 21 01:34:01 2013] [debug] GET "/forest/w".
+[Tue May 21 01:34:01 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:34:01 2013] [debug] Rendering cached template "forest/unique.json.ep".
+[Tue May 21 01:34:01 2013] [debug] 200 OK (0.000589s, 1697.793/s).
+[Tue May 21 01:34:06 2013] [debug] GET "/forest/werwer".
+[Tue May 21 01:34:06 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:34:06 2013] [debug] Rendering cached template "forest/unique.json.ep".
+[Tue May 21 01:34:06 2013] [debug] 200 OK (0.000604s, 1655.629/s).
+[Tue May 21 01:37:40 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:37:40 2013] [debug] GET "/forest/werwer".
+[Tue May 21 01:37:40 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:37:40 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:37:40 2013] [debug] Rendering inline template.
+[Tue May 21 01:37:40 2013] [debug] Rendering inline template.
+[Tue May 21 01:37:40 2013] [debug] 404 Not Found (0.011217s, 89.150/s).
+[Tue May 21 01:37:44 2013] [debug] GET "/forest/w".
+[Tue May 21 01:37:44 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:37:44 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:37:44 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:37:44 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:37:44 2013] [debug] 404 Not Found (0.003439s, 290.782/s).
+[Tue May 21 01:37:46 2013] [debug] GET "/forest/0".
+[Tue May 21 01:37:46 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:37:46 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:37:46 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:37:46 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:37:46 2013] [debug] 404 Not Found (0.003453s, 289.603/s).
+[Tue May 21 01:37:50 2013] [debug] GET "/forest/".
+[Tue May 21 01:37:50 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 01:37:50 2013] [debug] Rendering template "forest/list.json.ep".
+[Tue May 21 01:37:50 2013] [debug] 200 OK (0.002460s, 406.504/s).
+[Tue May 21 01:37:52 2013] [debug] GET "/forest/0".
+[Tue May 21 01:37:52 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:37:52 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:37:52 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:37:52 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:37:52 2013] [debug] 404 Not Found (0.003548s, 281.849/s).
+[Tue May 21 01:39:18 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:39:18 2013] [debug] GET "/forest/0".
+[Tue May 21 01:39:18 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:39:18 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:39:18 2013] [debug] Rendering inline template.
+[Tue May 21 01:39:18 2013] [debug] Rendering inline template.
+[Tue May 21 01:39:18 2013] [debug] 404 Not Found (0.010952s, 91.308/s).
+[Tue May 21 01:40:06 2013] [debug] GET "/forest/".
+[Tue May 21 01:40:06 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 01:40:06 2013] [debug] Rendering template "forest/list.json.ep".
+[Tue May 21 01:40:06 2013] [debug] 200 OK (0.002313s, 432.339/s).
+[Tue May 21 01:40:08 2013] [debug] GET "/forest".
+[Tue May 21 01:40:08 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 01:40:08 2013] [debug] Rendering cached template "forest/list.json.ep".
+[Tue May 21 01:40:08 2013] [debug] 200 OK (0.000570s, 1754.386/s).
+[Tue May 21 01:40:11 2013] [debug] GET "/forest/1".
+[Tue May 21 01:40:11 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:40:11 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:40:11 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:40:11 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:40:11 2013] [debug] 404 Not Found (0.003526s, 283.607/s).
+[Tue May 21 01:40:31 2013] [debug] GET "/forest/werwe".
+[Tue May 21 01:40:31 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:40:31 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:40:31 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:40:31 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:40:31 2013] [debug] 404 Not Found (0.003685s, 271.370/s).
+[Tue May 21 01:40:35 2013] [debug] GET "/forest/0".
+[Tue May 21 01:40:35 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:40:35 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:40:35 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:40:35 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:40:35 2013] [debug] 404 Not Found (0.003844s, 260.146/s).
+[Tue May 21 01:41:38 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:41:38 2013] [debug] GET "/forest/0".
+[Tue May 21 01:41:38 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:41:38 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:41:38 2013] [debug] Rendering inline template.
+[Tue May 21 01:41:38 2013] [debug] Rendering inline template.
+[Tue May 21 01:41:38 2013] [debug] 404 Not Found (0.011038s, 90.596/s).
+[Tue May 21 01:41:38 2013] [debug] GET "/forest/0".
+[Tue May 21 01:41:38 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:41:38 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:41:38 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:41:38 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:41:38 2013] [debug] 404 Not Found (0.003419s, 292.483/s).
+[Tue May 21 01:41:39 2013] [debug] GET "/forest/0".
+[Tue May 21 01:41:39 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:41:39 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:41:39 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:41:39 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:41:39 2013] [debug] 404 Not Found (0.003395s, 294.551/s).
+[Tue May 21 01:41:39 2013] [debug] GET "/forest/0".
+[Tue May 21 01:41:39 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:41:39 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:41:39 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:41:39 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:41:39 2013] [debug] 404 Not Found (0.003394s, 294.638/s).
+[Tue May 21 01:43:05 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:43:05 2013] [debug] GET "/forest/0".
+[Tue May 21 01:43:05 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:43:05 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:43:05 2013] [debug] Rendering inline template.
+[Tue May 21 01:43:05 2013] [debug] Rendering inline template.
+[Tue May 21 01:43:05 2013] [debug] 404 Not Found (0.011128s, 89.863/s).
+[Tue May 21 01:43:06 2013] [debug] GET "/forest/0".
+[Tue May 21 01:43:06 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:43:06 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:43:06 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:06 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:06 2013] [debug] 404 Not Found (0.003344s, 299.043/s).
+[Tue May 21 01:43:06 2013] [debug] GET "/forest/0".
+[Tue May 21 01:43:06 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:43:06 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:43:06 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:06 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:06 2013] [debug] 404 Not Found (0.003384s, 295.508/s).
+[Tue May 21 01:43:06 2013] [debug] GET "/forest/0".
+[Tue May 21 01:43:06 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:43:06 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:43:06 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:06 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:06 2013] [debug] 404 Not Found (0.003463s, 288.767/s).
+[Tue May 21 01:43:07 2013] [debug] GET "/forest/0".
+[Tue May 21 01:43:07 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:43:07 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:43:07 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:07 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:07 2013] [debug] 404 Not Found (0.003393s, 294.724/s).
+[Tue May 21 01:43:07 2013] [debug] GET "/forest/0".
+[Tue May 21 01:43:07 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:43:07 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:43:07 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:07 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:07 2013] [debug] 404 Not Found (0.003596s, 278.087/s).
+[Tue May 21 01:43:07 2013] [debug] GET "/forest/0".
+[Tue May 21 01:43:07 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:43:07 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:43:07 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:07 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:07 2013] [debug] 404 Not Found (0.003520s, 284.091/s).
+[Tue May 21 01:43:07 2013] [debug] GET "/forest/0".
+[Tue May 21 01:43:07 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:43:07 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:43:07 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:07 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:07 2013] [debug] 404 Not Found (0.003465s, 288.600/s).
+[Tue May 21 01:43:07 2013] [debug] GET "/forest/0".
+[Tue May 21 01:43:07 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:43:07 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:43:07 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:07 2013] [debug] Rendering cached inline template.
+[Tue May 21 01:43:07 2013] [debug] 404 Not Found (0.003482s, 287.191/s).
+[Tue May 21 01:43:45 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:43:45 2013] [debug] GET "/forest/0".
+[Tue May 21 01:43:45 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:43:45 2013] [debug] Rendering template "forest/unique.json.ep".
+[Tue May 21 01:43:45 2013] [debug] 200 OK (0.002958s, 338.066/s).
+[Tue May 21 01:43:48 2013] [debug] GET "/forest/1".
+[Tue May 21 01:43:48 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 01:43:48 2013] [debug] Rendering cached template "forest/unique.json.ep".
+[Tue May 21 01:43:48 2013] [debug] 200 OK (0.000592s, 1689.189/s).
+[Tue May 21 01:45:05 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 01:45:05 2013] [debug] GET "/forest/0".
+[Tue May 21 01:45:05 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 01:45:05 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 01:45:05 2013] [debug] Rendering inline template.
+[Tue May 21 01:45:05 2013] [debug] Rendering inline template.
+[Tue May 21 01:45:05 2013] [debug] 404 Not Found (0.011143s, 89.742/s).
+[Tue May 21 02:02:16 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 02:02:16 2013] [debug] GET "/forest/0".
+[Tue May 21 02:02:16 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 02:02:16 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 02:02:16 2013] [debug] Rendering inline template.
+[Tue May 21 02:02:16 2013] [debug] Rendering inline template.
+[Tue May 21 02:02:16 2013] [debug] 404 Not Found (0.010996s, 90.942/s).
+[Tue May 21 02:02:18 2013] [debug] GET "/forest/0".
+[Tue May 21 02:02:18 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 02:02:18 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 02:02:18 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:02:18 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:02:18 2013] [debug] 404 Not Found (0.003881s, 257.666/s).
+[Tue May 21 02:02:19 2013] [debug] GET "/forest/0".
+[Tue May 21 02:02:19 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 02:02:19 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 02:02:19 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:02:19 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:02:19 2013] [debug] 404 Not Found (0.003366s, 297.089/s).
+[Tue May 21 02:03:58 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 02:03:58 2013] [debug] GET "/forest/0".
+[Tue May 21 02:03:58 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 02:03:58 2013] [debug] Rendering template "forest/unique.json.ep".
+[Tue May 21 02:03:58 2013] [debug] 200 OK (0.003033s, 329.707/s).
+[Tue May 21 02:04:02 2013] [debug] GET "/forest/we".
+[Tue May 21 02:04:02 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 02:04:02 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 02:04:02 2013] [debug] Rendering inline template.
+[Tue May 21 02:04:02 2013] [debug] Rendering inline template.
+[Tue May 21 02:04:02 2013] [debug] 404 Not Found (0.010514s, 95.111/s).
+[Tue May 21 02:04:04 2013] [debug] GET "/forest/w".
+[Tue May 21 02:04:04 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 02:04:04 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 02:04:04 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:04:04 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:04:04 2013] [debug] 404 Not Found (0.003939s, 253.872/s).
+[Tue May 21 02:11:26 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 02:11:26 2013] [debug] GET "/forest/0".
+[Tue May 21 02:11:26 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 02:11:26 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 02:11:26 2013] [debug] Rendering inline template.
+[Tue May 21 02:11:26 2013] [debug] Rendering inline template.
+[Tue May 21 02:11:26 2013] [debug] 404 Not Found (0.011374s, 87.920/s).
+[Tue May 21 02:11:31 2013] [debug] GET "/forest/0".
+[Tue May 21 02:11:31 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 02:11:31 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 02:11:31 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:11:31 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:11:31 2013] [debug] 404 Not Found (0.003458s, 289.184/s).
+[Tue May 21 02:11:31 2013] [debug] GET "/forest/0".
+[Tue May 21 02:11:31 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 02:11:31 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 02:11:31 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:11:31 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:11:31 2013] [debug] 404 Not Found (0.003426s, 291.886/s).
+[Tue May 21 02:11:32 2013] [debug] GET "/forest/0".
+[Tue May 21 02:11:32 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 02:11:32 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 02:11:32 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:11:32 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:11:32 2013] [debug] 404 Not Found (0.003390s, 294.985/s).
+[Tue May 21 02:11:32 2013] [debug] GET "/forest/0".
+[Tue May 21 02:11:32 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 02:11:32 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 02:11:32 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:11:32 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:11:32 2013] [debug] 404 Not Found (0.003446s, 290.192/s).
+[Tue May 21 02:11:32 2013] [debug] GET "/forest/0".
+[Tue May 21 02:11:32 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 02:11:32 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 02:11:32 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:11:32 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:11:32 2013] [debug] 404 Not Found (0.003404s, 293.772/s).
+[Tue May 21 02:11:32 2013] [debug] GET "/forest/0".
+[Tue May 21 02:11:32 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 02:11:32 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 02:11:32 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:11:32 2013] [debug] Rendering cached inline template.
+[Tue May 21 02:11:32 2013] [debug] 404 Not Found (0.003451s, 289.771/s).
+[Tue May 21 02:13:07 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 02:13:07 2013] [debug] GET "/forest/0".
+[Tue May 21 02:13:07 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 02:13:07 2013] [debug] Rendering template "forest/unique.json.ep".
+[Tue May 21 02:13:07 2013] [debug] 200 OK (0.003016s, 331.565/s).
+[Tue May 21 02:13:10 2013] [debug] GET "/forest/1".
+[Tue May 21 02:13:10 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 02:13:10 2013] [debug] Rendering cached template "forest/unique.json.ep".
+[Tue May 21 02:13:10 2013] [debug] 200 OK (0.000551s, 1814.882/s).
+[Tue May 21 02:13:12 2013] [debug] GET "/forest/2".
+[Tue May 21 02:13:12 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 02:13:12 2013] [debug] Rendering cached template "forest/unique.json.ep".
+[Tue May 21 02:13:12 2013] [debug] 200 OK (0.000576s, 1736.111/s).
+[Tue May 21 02:54:31 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 02:54:31 2013] [debug] GET "/forest/".
+[Tue May 21 02:54:31 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 02:54:31 2013] [debug] Rendering template "forest/list.json.ep".
+[Tue May 21 02:54:31 2013] [debug] 200 OK (0.003180s, 314.465/s).
+[Tue May 21 02:58:20 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 02:58:20 2013] [debug] GET "/0/tree/".
+[Tue May 21 02:58:20 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 6, near "@trees (
+    "
+Global symbol "$tree" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Global symbol "@trees" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Global symbol "@trees" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 27.
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 02:58:20 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 02:58:20 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 02:58:20 2013] [debug] Rendering inline template.
+[Tue May 21 02:58:20 2013] [debug] Rendering inline template.
+[Tue May 21 02:58:20 2013] [debug] 500 Internal Server Error (0.016616s, 60.183/s).
+[Tue May 21 02:58:37 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 02:58:37 2013] [debug] GET "/0/tree/".
+[Tue May 21 02:58:37 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 6, near "@trees (
+    "
+Global symbol "$tree" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Global symbol "@trees" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Global symbol "@tree" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 27.
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 02:58:37 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 02:58:37 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 02:58:37 2013] [debug] Rendering inline template.
+[Tue May 21 02:58:37 2013] [debug] Rendering inline template.
+[Tue May 21 02:58:37 2013] [debug] 500 Internal Server Error (0.016450s, 60.790/s).
+[Tue May 21 02:58:53 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 02:58:53 2013] [debug] GET "/0/tree/".
+[Tue May 21 02:58:53 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 6, near "@trees (
+    "
+Global symbol "@trees" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Global symbol "@tree" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 27.
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 02:58:53 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 02:58:53 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 02:58:53 2013] [debug] Rendering inline template.
+[Tue May 21 02:58:53 2013] [debug] Rendering inline template.
+[Tue May 21 02:58:53 2013] [debug] 500 Internal Server Error (0.016421s, 60.898/s).
+[Tue May 21 02:59:25 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 02:59:25 2013] [debug] GET "/0/tree/".
+[Tue May 21 02:59:25 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 6, near "@trees (
+    "
+Global symbol "@trees" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Global symbol "@tree" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 27.
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 02:59:25 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 02:59:25 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 02:59:25 2013] [debug] Rendering inline template.
+[Tue May 21 02:59:25 2013] [debug] Rendering inline template.
+[Tue May 21 02:59:25 2013] [debug] 500 Internal Server Error (0.016315s, 61.293/s).
+[Tue May 21 03:00:12 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:00:12 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:00:12 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 6, near "@trees (
+    "
+Global symbol "@trees" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Global symbol "@tree" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 27.
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 03:00:12 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 03:00:12 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 03:00:12 2013] [debug] Rendering inline template.
+[Tue May 21 03:00:12 2013] [debug] Rendering inline template.
+[Tue May 21 03:00:12 2013] [debug] 500 Internal Server Error (0.016342s, 61.192/s).
+[Tue May 21 03:00:29 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:00:29 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:00:29 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 6, near "@trees (
+    "
+Global symbol "@trees" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Global symbol "@tree" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 27.
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 03:00:29 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 03:00:29 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 03:00:29 2013] [debug] Rendering inline template.
+[Tue May 21 03:00:29 2013] [debug] Rendering inline template.
+[Tue May 21 03:00:29 2013] [debug] 500 Internal Server Error (0.016627s, 60.143/s).
+[Tue May 21 03:00:30 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:00:30 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 03:00:30 2013] [debug] Action not found in controller.
+[Tue May 21 03:00:30 2013] [debug] Template "tree/list.html.ep" not found.
+[Tue May 21 03:00:30 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 03:00:30 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 03:00:30 2013] [debug] Rendering inline template.
+[Tue May 21 03:00:30 2013] [debug] Rendering inline template.
+[Tue May 21 03:00:30 2013] [debug] 404 Not Found (0.010366s, 96.469/s).
+[Tue May 21 03:00:56 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:00:56 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:00:56 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 6, near "@trees (
+    "
+Global symbol "@trees" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Global symbol "@tree" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 27.
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 03:00:56 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 03:00:56 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 03:00:56 2013] [debug] Rendering inline template.
+[Tue May 21 03:00:56 2013] [debug] Rendering inline template.
+[Tue May 21 03:00:56 2013] [debug] 500 Internal Server Error (0.016158s, 61.889/s).
+[Tue May 21 03:01:22 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:01:22 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:01:22 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 6, near "@trees (
+    "
+Global symbol "@trees" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 03:01:22 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 03:01:22 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 03:01:22 2013] [debug] Rendering inline template.
+[Tue May 21 03:01:22 2013] [debug] Rendering inline template.
+[Tue May 21 03:01:22 2013] [debug] 500 Internal Server Error (0.016150s, 61.920/s).
+[Tue May 21 03:01:52 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:01:52 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:01:52 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 6, near "@trees (
+    "
+Global symbol "@trees" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 03:01:52 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 03:01:52 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 03:01:52 2013] [debug] Rendering inline template.
+[Tue May 21 03:01:52 2013] [debug] Rendering inline template.
+[Tue May 21 03:01:52 2013] [debug] 500 Internal Server Error (0.016320s, 61.275/s).
+[Tue May 21 03:01:54 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:01:54 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 03:01:54 2013] [debug] Action not found in controller.
+[Tue May 21 03:01:54 2013] [debug] Template "tree/list.html.ep" not found.
+[Tue May 21 03:01:54 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 03:01:54 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 03:01:54 2013] [debug] Rendering inline template.
+[Tue May 21 03:01:54 2013] [debug] Rendering inline template.
+[Tue May 21 03:01:54 2013] [debug] 404 Not Found (0.010404s, 96.117/s).
+[Tue May 21 03:01:55 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:01:55 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 03:01:55 2013] [debug] Action not found in controller.
+[Tue May 21 03:01:55 2013] [debug] Template "tree/list.html.ep" not found.
+[Tue May 21 03:01:55 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 03:01:55 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 03:01:55 2013] [debug] Rendering cached inline template.
+[Tue May 21 03:01:55 2013] [debug] Rendering cached inline template.
+[Tue May 21 03:01:55 2013] [debug] 404 Not Found (0.003470s, 288.184/s).
+[Tue May 21 03:02:12 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:02:12 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 03:02:12 2013] [debug] Action not found in controller.
+[Tue May 21 03:02:12 2013] [debug] Template "tree/list.html.ep" not found.
+[Tue May 21 03:02:12 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 03:02:12 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 03:02:12 2013] [debug] Rendering cached inline template.
+[Tue May 21 03:02:12 2013] [debug] Rendering cached inline template.
+[Tue May 21 03:02:12 2013] [debug] 404 Not Found (0.003433s, 291.290/s).
+[Tue May 21 03:04:38 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:04:38 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:04:38 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 6, near "@trees (
+    "
+syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 24, near "->param{"
+Global symbol "$self" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Global symbol "$forestid" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Global symbol "$self" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 32.
+syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 33, near "}"
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 03:04:38 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 03:04:38 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 03:04:38 2013] [debug] Rendering inline template.
+[Tue May 21 03:04:38 2013] [debug] Rendering inline template.
+[Tue May 21 03:04:38 2013] [debug] 500 Internal Server Error (0.016372s, 61.080/s).
+[Tue May 21 03:05:51 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:05:51 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:05:51 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 6, near "@trees (
+    "
+syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 24, near "->param{"
+Global symbol "$self" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Global symbol "$forestid" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 26.
+Global symbol "$self" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 32.
+syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 33, near "}"
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 03:05:51 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 03:05:51 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 03:05:51 2013] [debug] Rendering inline template.
+[Tue May 21 03:05:51 2013] [debug] Rendering inline template.
+[Tue May 21 03:05:51 2013] [debug] 500 Internal Server Error (0.016100s, 62.112/s).
+[Tue May 21 03:06:48 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:06:48 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:06:48 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 6, near "@trees (
+    "
+Global symbol "@trees" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 28.
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 03:06:48 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 03:06:48 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 03:06:48 2013] [debug] Rendering inline template.
+[Tue May 21 03:06:48 2013] [debug] Rendering inline template.
+[Tue May 21 03:06:48 2013] [debug] 500 Internal Server Error (0.016389s, 61.017/s).
+[Tue May 21 03:07:11 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:07:11 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:07:11 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 6, near "@trees (
+    "
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 03:07:11 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 03:07:11 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 03:07:11 2013] [debug] Rendering inline template.
+[Tue May 21 03:07:11 2013] [debug] Rendering inline template.
+[Tue May 21 03:07:11 2013] [debug] 500 Internal Server Error (0.016196s, 61.744/s).
+[Tue May 21 03:07:39 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:07:39 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:07:39 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 03:07:39 2013] [debug] 200 OK (0.000836s, 1196.172/s).
+[Tue May 21 03:08:04 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:08:04 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:08:04 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 03:08:04 2013] [debug] 200 OK (0.000868s, 1152.074/s).
+[Tue May 21 03:08:04 2013] [error] Not a HASH reference at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 29.
+
+[Tue May 21 03:08:04 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 03:08:04 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 03:08:04 2013] [debug] Rendering inline template.
+[Tue May 21 03:08:04 2013] [debug] Rendering inline template.
+[Tue May 21 03:08:52 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:08:52 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:08:52 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 03:08:52 2013] [debug] 200 OK (0.000924s, 1082.251/s).
+[Tue May 21 03:08:52 2013] [error] Not a HASH reference at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 29.
+
+[Tue May 21 03:08:52 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 03:08:52 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 03:08:52 2013] [debug] Rendering inline template.
+[Tue May 21 03:08:52 2013] [debug] Rendering inline template.
+[Tue May 21 03:09:20 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:09:20 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:09:20 2013] [error] Global symbol "@tree" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 29.
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 03:09:20 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 03:09:20 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 03:09:20 2013] [debug] Rendering inline template.
+[Tue May 21 03:09:20 2013] [debug] Rendering inline template.
+[Tue May 21 03:09:20 2013] [debug] 500 Internal Server Error (0.016361s, 61.121/s).
+[Tue May 21 03:11:54 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:11:54 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:11:54 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 03:11:54 2013] [debug] 200 OK (0.000885s, 1129.944/s).
+[Tue May 21 03:13:58 2013] [info] Listening at "http://*:3000".
+[Tue May 21 03:14:02 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:14:02 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:14:02 2013] [error] Global symbol "$msg" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 31.
+Global symbol "$self" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 32.
+Global symbol "$msg" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 32.
+Unmatched right curly bracket at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 33, at end of line
+syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 33, near "}"
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 03:14:02 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 03:14:02 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 03:14:02 2013] [debug] Rendering inline template.
+[Tue May 21 03:14:02 2013] [debug] Rendering inline template.
+[Tue May 21 03:14:02 2013] [debug] 500 Internal Server Error (0.016303s, 61.338/s).
+[Tue May 21 03:14:16 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:14:16 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:14:16 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 03:14:16 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 03:14:16 2013] [debug] 200 OK (0.003126s, 319.898/s).
+[Tue May 21 03:15:15 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:15:15 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:15:15 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 03:15:15 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 03:15:15 2013] [debug] 200 OK (0.003050s, 327.869/s).
+[Tue May 21 03:16:37 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:16:37 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:16:37 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 27, near """\"
+Global symbol "$msg" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 31.
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 03:16:37 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 03:16:37 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 03:16:37 2013] [debug] Rendering inline template.
+[Tue May 21 03:16:37 2013] [debug] Rendering inline template.
+[Tue May 21 03:16:37 2013] [debug] 500 Internal Server Error (0.016348s, 61.170/s).
+[Tue May 21 03:17:46 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 03:17:46 2013] [debug] GET "/0/tree/".
+[Tue May 21 03:17:46 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 03:17:46 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 03:17:46 2013] [debug] 200 OK (0.003070s, 325.733/s).

@@ -913,3 +913,365 @@ Compilation failed in require at (eval 231) line 1.
 [Tue May 21 03:17:46 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
 [Tue May 21 03:17:46 2013] [debug] Rendering template "tree/list.json.ep".
 [Tue May 21 03:17:46 2013] [debug] 200 OK (0.003070s, 325.733/s).
+[Tue May 21 11:16:04 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:16:04 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:16:04 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:16:04 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 11:16:04 2013] [debug] 200 OK (0.003179s, 314.564/s).
+[Tue May 21 11:16:05 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:16:05 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:16:05 2013] [debug] Rendering cached template "tree/list.json.ep".
+[Tue May 21 11:16:05 2013] [debug] 200 OK (0.000410s, 2439.024/s).
+[Tue May 21 11:27:52 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:27:52 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:27:52 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:27:52 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 11:27:52 2013] [debug] 200 OK (0.003066s, 326.158/s).
+[Tue May 21 11:33:24 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:33:24 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:33:24 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:33:24 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 11:33:24 2013] [debug] 200 OK (0.003219s, 310.655/s).
+[Tue May 21 11:33:48 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:33:48 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:33:48 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:33:48 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 11:33:48 2013] [debug] 200 OK (0.003262s, 306.560/s).
+[Tue May 21 11:34:40 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:34:40 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:34:40 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:34:40 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 11:34:40 2013] [debug] 200 OK (0.003079s, 324.781/s).
+[Tue May 21 11:35:08 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:35:08 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:35:08 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:35:08 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 11:35:08 2013] [debug] 200 OK (0.003112s, 321.337/s).
+[Tue May 21 11:35:33 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:35:33 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:35:33 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:35:33 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 11:35:33 2013] [debug] 200 OK (0.003096s, 322.997/s).
+[Tue May 21 11:35:53 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:35:53 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:35:53 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:35:53 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 11:35:53 2013] [debug] 200 OK (0.003220s, 310.559/s).
+[Tue May 21 11:36:30 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:36:30 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:36:30 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:36:30 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 11:36:30 2013] [debug] 200 OK (0.003114s, 321.130/s).
+[Tue May 21 11:36:56 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:36:56 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:36:56 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:36:56 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 11:36:56 2013] [debug] 200 OK (0.003109s, 321.647/s).
+[Tue May 21 11:36:57 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:36:57 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:36:57 2013] [debug] Rendering cached template "tree/list.json.ep".
+[Tue May 21 11:36:57 2013] [debug] 200 OK (0.000432s, 2314.815/s).
+[Tue May 21 11:37:09 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:37:09 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:37:09 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:37:09 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 11:37:09 2013] [debug] 200 OK (0.003142s, 318.269/s).
+[Tue May 21 11:37:39 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:37:39 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:37:39 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:37:39 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 11:37:39 2013] [debug] 200 OK (0.003082s, 324.465/s).
+[Tue May 21 11:37:47 2013] [debug] GET "/1/tree/".
+[Tue May 21 11:37:47 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:37:47 2013] [error] Can't use an undefined value as an ARRAY reference at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 25.
+
+[Tue May 21 11:37:47 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 11:37:47 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 11:37:47 2013] [debug] Rendering inline template.
+[Tue May 21 11:37:47 2013] [debug] Rendering inline template.
+[Tue May 21 11:37:47 2013] [debug] 500 Internal Server Error (0.015246s, 65.591/s).
+[Tue May 21 11:38:27 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:38:27 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:38:27 2013] [error] Can't modify scalar chop in concatenation (.) or string at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 32, near ""\n]";"
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 11:38:27 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 11:38:27 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 11:38:27 2013] [debug] Rendering inline template.
+[Tue May 21 11:38:27 2013] [debug] Rendering inline template.
+[Tue May 21 11:38:27 2013] [debug] 500 Internal Server Error (0.016539s, 60.463/s).
+[Tue May 21 11:38:44 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:38:44 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:38:44 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:38:44 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 11:38:44 2013] [debug] 200 OK (0.003085s, 324.149/s).
+[Tue May 21 11:39:08 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 11:39:08 2013] [debug] GET "/0/tree/".
+[Tue May 21 11:39:08 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 11:39:08 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 11:39:08 2013] [debug] 200 OK (0.003283s, 304.599/s).
+[Tue May 21 11:39:30 2013] [debug] GET "/".
+[Tue May 21 11:39:30 2013] [debug] Routing to controller "AnnoTree::Example" and action "welcome".
+[Tue May 21 11:39:30 2013] [debug] Rendering template "example/welcome.html.ep".
+[Tue May 21 11:39:30 2013] [debug] Careful, "layout" is a reserved stash value.
+[Tue May 21 11:39:30 2013] [debug] Rendering template "layouts/default.html.ep".
+[Tue May 21 11:39:30 2013] [debug] 200 OK (0.003963s, 252.334/s).
+[Tue May 21 12:00:24 2013] [debug] GET "/0/forest".
+[Tue May 21 12:00:24 2013] [debug] Template "not_found.development.html.ep" not found.
+[Tue May 21 12:00:24 2013] [debug] Template "not_found.html.ep" not found.
+[Tue May 21 12:00:24 2013] [debug] Rendering inline template.
+[Tue May 21 12:00:24 2013] [debug] Rendering inline template.
+[Tue May 21 12:00:24 2013] [debug] 404 Not Found (0.010491s, 95.320/s).
+[Tue May 21 12:00:29 2013] [debug] GET "/forest".
+[Tue May 21 12:00:29 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Tue May 21 12:00:29 2013] [debug] Rendering template "forest/list.json.ep".
+[Tue May 21 12:00:29 2013] [debug] 200 OK (0.002413s, 414.422/s).
+[Tue May 21 12:00:32 2013] [debug] GET "/forest/0".
+[Tue May 21 12:00:32 2013] [debug] Routing to controller "AnnoTree::Forest" and action "unique".
+[Tue May 21 12:00:32 2013] [debug] Rendering template "forest/unique.json.ep".
+[Tue May 21 12:00:32 2013] [debug] 200 OK (0.002061s, 485.201/s).
+[Tue May 21 12:00:36 2013] [debug] GET "/0/tree".
+[Tue May 21 12:00:36 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:00:36 2013] [debug] Rendering cached template "tree/list.json.ep".
+[Tue May 21 12:00:36 2013] [debug] 200 OK (0.000737s, 1356.852/s).
+[Tue May 21 12:02:18 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:02:18 2013] [debug] GET "/0/tree".
+[Tue May 21 12:02:18 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:02:18 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:02:18 2013] [debug] 200 OK (0.003096s, 322.997/s).
+[Tue May 21 12:03:55 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:03:55 2013] [debug] GET "/0/tree".
+[Tue May 21 12:03:55 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:03:55 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:03:55 2013] [debug] 200 OK (0.003063s, 326.477/s).
+[Tue May 21 12:09:43 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:09:43 2013] [debug] GET "/0/tree".
+[Tue May 21 12:09:43 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:09:43 2013] [debug] 200 OK (0.000929s, 1076.426/s).
+[Tue May 21 12:09:43 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:09:43 2013] [error] Global symbol "$treeArray" requires explicit package name at template tree/list.json.ep line 2.
+1: 
+2: %== print $treeArray;
+3: <!--
+4: {
+5:     <%== $content %> 
+6: }
+7: -->
+
+[Tue May 21 12:09:43 2013] [debug] Template "exception.development.json.ep" not found.
+[Tue May 21 12:09:43 2013] [debug] Template "exception.json.ep" not found.
+[Tue May 21 12:09:43 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 12:09:43 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 12:09:43 2013] [debug] Rendering inline template.
+[Tue May 21 12:09:43 2013] [debug] Rendering inline template.
+[Tue May 21 12:11:25 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:11:25 2013] [debug] GET "/0/tree".
+[Tue May 21 12:11:25 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:11:25 2013] [error] Not a SCALAR reference at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 28.
+
+[Tue May 21 12:11:25 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 12:11:25 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 12:11:25 2013] [debug] Rendering inline template.
+[Tue May 21 12:11:25 2013] [debug] Rendering inline template.
+[Tue May 21 12:11:25 2013] [debug] 500 Internal Server Error (0.016217s, 61.664/s).
+[Tue May 21 12:13:07 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:13:07 2013] [debug] GET "/0/tree".
+[Tue May 21 12:13:07 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:13:07 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:13:07 2013] [error] Global symbol "$content" requires explicit package name at template tree/list.json.ep line 5.
+1: 
+2: %== print $numTrees;
+3: <!--
+4: {
+5:     <%== $content %> 
+6: }
+7: -->
+
+[Tue May 21 12:13:07 2013] [debug] Template "exception.development.json.ep" not found.
+[Tue May 21 12:13:07 2013] [debug] Template "exception.json.ep" not found.
+[Tue May 21 12:13:07 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 12:13:07 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 12:13:07 2013] [debug] Rendering inline template.
+[Tue May 21 12:13:07 2013] [debug] Rendering inline template.
+[Tue May 21 12:13:07 2013] [debug] 500 Internal Server Error (0.018509s, 54.028/s).
+[Tue May 21 12:13:28 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:13:28 2013] [debug] GET "/0/tree".
+[Tue May 21 12:13:28 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:13:28 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:13:28 2013] [error] Can't modify scalar in concatenation (.) or string at template tree/list.json.ep line 6, at EOF
+1: 
+2: %== print $numTrees;
+3: <!--
+4: {
+5:     <%== #$content %> 
+6: }
+7: -->
+
+[Tue May 21 12:13:28 2013] [debug] Template "exception.development.json.ep" not found.
+[Tue May 21 12:13:28 2013] [debug] Template "exception.json.ep" not found.
+[Tue May 21 12:13:28 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 12:13:28 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 12:13:28 2013] [debug] Rendering inline template.
+[Tue May 21 12:13:28 2013] [debug] Rendering inline template.
+[Tue May 21 12:13:28 2013] [debug] 500 Internal Server Error (0.018241s, 54.822/s).
+[Tue May 21 12:14:20 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:14:20 2013] [debug] GET "/0/tree".
+[Tue May 21 12:14:20 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:14:20 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:14:20 2013] [error] Can't modify scalar in concatenation (.) or string at template tree/list.json.ep line 4, at EOF
+Not enough arguments for scalar at template tree/list.json.ep line 5, at EOF
+Missing right curly or square bracket at template tree/list.json.ep line 5, at end of line
+syntax error at template tree/list.json.ep line 5, at EOF
+1: 
+2: %== print $numTrees;
+3: %== # {
+4:     %== #$content  
+5: %== #}
+
+[Tue May 21 12:14:20 2013] [debug] Template "exception.development.json.ep" not found.
+[Tue May 21 12:14:20 2013] [debug] Template "exception.json.ep" not found.
+[Tue May 21 12:14:20 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 12:14:20 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 12:14:20 2013] [debug] Rendering inline template.
+[Tue May 21 12:14:20 2013] [debug] Rendering inline template.
+[Tue May 21 12:14:20 2013] [debug] 500 Internal Server Error (0.018424s, 54.277/s).
+[Tue May 21 12:14:50 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:14:50 2013] [debug] GET "/0/tree".
+[Tue May 21 12:14:50 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:14:50 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:14:50 2013] [error] Can't modify scalar in concatenation (.) or string at template tree/list.json.ep line 4, at EOF
+1: {
+2:     %== print $numTrees;
+3:     %== #$content  
+4: }
+
+[Tue May 21 12:14:50 2013] [debug] Template "exception.development.json.ep" not found.
+[Tue May 21 12:14:50 2013] [debug] Template "exception.json.ep" not found.
+[Tue May 21 12:14:50 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 12:14:50 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 12:14:50 2013] [debug] Rendering inline template.
+[Tue May 21 12:14:50 2013] [debug] Rendering inline template.
+[Tue May 21 12:14:50 2013] [debug] 500 Internal Server Error (0.018307s, 54.624/s).
+[Tue May 21 12:15:11 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:15:11 2013] [debug] GET "/0/tree".
+[Tue May 21 12:15:11 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:15:11 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:15:11 2013] [error] Can't modify scalar in concatenation (.) or string at template tree/list.json.ep line 4, at EOF
+1: {
+2:     %== $numTrees;
+3:     %== #$content  
+4: }
+
+[Tue May 21 12:15:11 2013] [debug] Template "exception.development.json.ep" not found.
+[Tue May 21 12:15:11 2013] [debug] Template "exception.json.ep" not found.
+[Tue May 21 12:15:11 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 12:15:11 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 12:15:11 2013] [debug] Rendering inline template.
+[Tue May 21 12:15:11 2013] [debug] Rendering inline template.
+[Tue May 21 12:15:11 2013] [debug] 500 Internal Server Error (0.018166s, 55.048/s).
+[Tue May 21 12:21:28 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:21:28 2013] [debug] GET "/0/tree".
+[Tue May 21 12:21:28 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:21:28 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:21:28 2013] [debug] 200 OK (0.003103s, 322.269/s).
+[Tue May 21 12:21:28 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:31:04 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:31:04 2013] [debug] GET "/0/tree".
+[Tue May 21 12:31:04 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:31:04 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:31:04 2013] [debug] 200 OK (0.003266s, 306.185/s).
+[Tue May 21 12:31:04 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:31:41 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:31:41 2013] [debug] GET "/0/tree".
+[Tue May 21 12:31:41 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:31:41 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:31:41 2013] [debug] 200 OK (0.003218s, 310.752/s).
+[Tue May 21 12:31:41 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:34:55 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:34:55 2013] [debug] GET "/0/tree".
+[Tue May 21 12:34:55 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:34:55 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:34:55 2013] [debug] 200 OK (0.003351s, 298.418/s).
+[Tue May 21 12:34:55 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:36:32 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:36:32 2013] [debug] GET "/0/tree".
+[Tue May 21 12:36:32 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:36:32 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:36:32 2013] [debug] 200 OK (0.003286s, 304.321/s).
+[Tue May 21 12:36:32 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:38:13 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:38:13 2013] [debug] GET "/0/tree".
+[Tue May 21 12:38:13 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:38:13 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:38:13 2013] [error] syntax error at template tree/list.json.ep line 8, near ") $_M "
+3:     "trees": [
+4:         <% for my $i (0..($numTrees - 1)) { %>
+5:         {
+6:             "id": "<%== $treeRef->[$i]->{'id'} %>"
+7:         }
+8:         <% print "," if $i != ($numTrees - 1) %>
+9:         <% } %>
+10:     ]
+11: }
+
+[Tue May 21 12:38:13 2013] [debug] Template "exception.development.json.ep" not found.
+[Tue May 21 12:38:13 2013] [debug] Template "exception.json.ep" not found.
+[Tue May 21 12:38:13 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 12:38:13 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 12:38:13 2013] [debug] Rendering inline template.
+[Tue May 21 12:38:13 2013] [debug] Rendering inline template.
+[Tue May 21 12:38:13 2013] [debug] 500 Internal Server Error (0.018544s, 53.926/s).
+[Tue May 21 12:38:53 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:38:53 2013] [debug] GET "/0/tree".
+[Tue May 21 12:38:53 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:38:53 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:38:53 2013] [debug] 200 OK (0.003338s, 299.581/s).
+[Tue May 21 12:38:53 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:40:46 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:40:46 2013] [debug] GET "/0/tree".
+[Tue May 21 12:40:46 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:40:46 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:40:46 2013] [debug] 200 OK (0.003551s, 281.611/s).
+[Tue May 21 12:40:46 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:41:06 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:41:06 2013] [debug] GET "/0/tree".
+[Tue May 21 12:41:06 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:41:06 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:41:06 2013] [debug] 200 OK (0.003730s, 268.097/s).
+[Tue May 21 12:41:06 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:46:28 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:46:28 2013] [debug] GET "/0/tree".
+[Tue May 21 12:46:28 2013] [error] syntax error at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 44, near "]"
+Global symbol "@trees" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 51.
+Global symbol "@trees" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 52.
+Missing right curly or square bracket at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Tree.pm line 57, at end of line
+Compilation failed in require at (eval 231) line 1.
+
+[Tue May 21 12:46:28 2013] [debug] Template "exception.development.html.ep" not found.
+[Tue May 21 12:46:28 2013] [debug] Template "exception.html.ep" not found.
+[Tue May 21 12:46:28 2013] [debug] Rendering inline template.
+[Tue May 21 12:46:28 2013] [debug] Rendering inline template.
+[Tue May 21 12:46:28 2013] [debug] 500 Internal Server Error (0.016224s, 61.637/s).
+[Tue May 21 12:47:10 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:47:10 2013] [debug] GET "/0/tree".
+[Tue May 21 12:47:10 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:47:10 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:47:10 2013] [debug] 200 OK (0.003589s, 278.629/s).
+[Tue May 21 12:47:13 2013] [debug] GET "/1/tree".
+[Tue May 21 12:47:13 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:47:13 2013] [debug] Rendering cached template "tree/list.json.ep".
+[Tue May 21 12:47:13 2013] [debug] 200 OK (0.000640s, 1562.500/s).
+[Tue May 21 12:54:54 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:54:54 2013] [debug] GET "/1/tree".
+[Tue May 21 12:54:54 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:54:54 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:54:54 2013] [debug] 200 OK (0.003556s, 281.215/s).
+[Tue May 21 12:54:57 2013] [debug] GET "/2/tree".
+[Tue May 21 12:54:57 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:54:57 2013] [debug] Rendering cached template "tree/list.json.ep".
+[Tue May 21 12:54:57 2013] [debug] 200 OK (0.000600s, 1666.667/s).
+[Tue May 21 12:55:28 2013] [debug] Your secret passphrase needs to be changed!!!
+[Tue May 21 12:55:28 2013] [debug] GET "/2/tree".
+[Tue May 21 12:55:28 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Tue May 21 12:55:28 2013] [debug] Rendering template "tree/list.json.ep".
+[Tue May 21 12:55:28 2013] [debug] 200 OK (0.003618s, 276.396/s).

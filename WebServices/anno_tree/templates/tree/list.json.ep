@@ -1,3 +1,15 @@
 {
-    <%== $content %> 
+    "numTrees": "<%== $numTrees %>",
+    "trees": [
+        <% for my $i (0..($numTrees - 1)) { %>
+        {
+            "id": "<%== $treeRef->[$i]->{'id'} %>",
+            "name": "<%== $treeRef->[$i]->{'name'} %>",
+            "datetime": "<%== $treeRef->[$i]->{'datetime'} %>",
+            "icon": "<%== $treeRef->[$i]->{'icon'} %>",
+            "description": "<%== $treeRef->[$i]->{'description'} %>"
+        }
+        <%== "," if $i != ($numTrees - 1) %>
+        <% } %>
+    ]
 }

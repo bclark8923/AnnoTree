@@ -1,3 +1,4 @@
+<% my $numTrees = scalar @{$treeRef}; %>
 {
     "numTrees": "<%== $numTrees %>",
     "trees": [

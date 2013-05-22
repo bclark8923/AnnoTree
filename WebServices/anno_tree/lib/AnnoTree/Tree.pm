@@ -82,7 +82,7 @@ sub list {
     my $numTrees = scalar @{$trees[$forestid]};
     my $treeRef = $trees[$forestid];
     
-    $self->render(name => 'list', format => 'json', numTrees => $numTrees, treeRef => $treeRef);
+    $self->render(name => 'list', format => 'json', treeRef => $treeRef);
 }
 
 return 1;

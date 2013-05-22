@@ -1,12 +1,12 @@
-<% my $numForests = scalar @{$companies}; %>
+<% my $numForests = scalar @{$forests}; %>
 {
     "numForests": "<%== $numForests %>",
     "forests": [
         <% for my $i (0..($numForests - 1)) { %>
         {
-            "id": "<%== $companies->[$i]->{'id'} %>",
-            "name": "<%== $companies->[$i]->{'name'} %>",
-            "description": "<%== $companies->[$i]->{'description'} %>"
+            "id": "<%== $forests->[$i]->{'id'} %>",
+            "name": "<%== $forests->[$i]->{'name'} %>",
+            "description": "<%== $forests->[$i]->{'description'} %>"
         }
         <%== "," if $i != ($numForests - 1) %>
         <% } %>

@@ -3,8 +3,8 @@ package AnnoTree::Forest;
 use Mojo::Base 'Mojolicious::Controller';
 use Data::Dumper;
 
-# placeholder data for companies until I build the DB
-my @companies = (
+# placeholder data for forests until I build the DB
+my @forests = (
     {
         id          => "0",
         name        => "Untitled Technologies",
@@ -25,10 +25,10 @@ my @companies = (
 sub list {
     my $self = shift;
     
-    my $companiesRef = \@companies;
+    my $forestsRef = \@forests;
 
     #$self->render(text => "Hello Forest");
-    $self->render(name => 'list', format => 'json', companies => $companiesRef);
+    $self->render(name => 'list', format => 'json', forests => $forestsRef);
 }
 
 sub unique {
@@ -36,7 +36,7 @@ sub unique {
 
     my $id = $self->param('id');
 
-    $self->render(name => 'unique', format => 'json', company => $companies[$id]);
+    $self->render(name => 'unique', format => 'json', forest => $forests[$id]);
 }
 
 return 1;

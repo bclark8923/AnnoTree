@@ -6,7 +6,7 @@
         {
             "id": "<%== $treeRef->[$i]->{'id'} %>",
             "name": "<%== $treeRef->[$i]->{'name'} %>",
-            "datetime": "<%== $treeRef->[$i]->{'datetime'} %>",
+            "created": "<%== $treeRef->[$i]->{'created'} %>",
             "icon": "<%== $treeRef->[$i]->{'icon'} %>",
             "description": "<%== $treeRef->[$i]->{'description'} %>"
         }

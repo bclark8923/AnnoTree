@@ -6,7 +6,7 @@ sub startup {
     my $self = shift;
 
     # Documentation browser under "/perldoc"
-    $self->plugin('PODRenderer');
+    #$self->plugin('PODRenderer');
 
     # Router
     my $r = $self->routes;
@@ -19,7 +19,10 @@ sub startup {
     $r->get('/forest/:id' => [id => qr/\d+/])->to('forest#unique');
 
     # ===== TREES =====
-    $r->get('/:forestid/tree/' => [forestid => qr/\d+/])->to('tree#list');
+    $r->get('/:forestid/tree' => [forestid => qr/\d+/])->to('tree#list');
+
+    # ===== BRANCHES =====
+    $r->get('/:forestid/:treeid/branch' => [forestid => qr/\d+/, treeid => qr/\d+/])->to('branch#list');
 }
 
 return 1;

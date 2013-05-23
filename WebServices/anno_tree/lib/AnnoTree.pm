@@ -23,6 +23,9 @@ sub startup {
 
     # ===== BRANCHES =====
     $r->get('/:forestid/:treeid/branch' => [forestid => qr/\d+/, treeid => qr/\d+/])->to('branch#list');
+
+    # ===== Leaves =====
+    $r->get('/:forestid/:treeid/:branchid/leaf' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/])->to('leaves-leaf#list');
 }
 
 return 1;

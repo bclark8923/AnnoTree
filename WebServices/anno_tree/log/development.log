@@ -1937,3 +1937,52 @@ Compilation failed in require at (eval 231) line 1.
 [Tue May 21 23:51:14 2013] [debug] Careful, "layout" is a reserved stash value.
 [Tue May 21 23:51:14 2013] [debug] Rendering template "layouts/default.html.ep".
 [Tue May 21 23:51:14 2013] [debug] 200 OK (0.004778s, 209.293/s).
+[Wed May 22 23:14:00 2013] [debug] Your secret passphrase needs to be changed!!!
+[Wed May 22 23:14:00 2013] [debug] GET "/0/0/branch".
+[Wed May 22 23:14:00 2013] [debug] Routing to controller "AnnoTree::Branch" and action "list".
+[Wed May 22 23:14:00 2013] [debug] Rendering template "branch/list.json.ep".
+[Wed May 22 23:14:00 2013] [debug] 200 OK (0.004790s, 208.768/s).
+[Wed May 22 23:15:24 2013] [debug] GET "/0/forest".
+[Wed May 22 23:15:24 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed May 22 23:15:24 2013] [debug] Template "not_found.html.ep" not found.
+[Wed May 22 23:15:24 2013] [debug] Rendering inline template.
+[Wed May 22 23:15:24 2013] [debug] Rendering inline template.
+[Wed May 22 23:15:24 2013] [debug] 404 Not Found (0.010713s, 93.345/s).
+[Wed May 22 23:15:29 2013] [debug] GET "/forest".
+[Wed May 22 23:15:29 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Wed May 22 23:15:29 2013] [debug] Rendering template "forest/list.json.ep".
+[Wed May 22 23:15:29 2013] [debug] 200 OK (0.002782s, 359.454/s).
+[Wed May 22 23:15:38 2013] [debug] GET "/0/tree".
+[Wed May 22 23:15:38 2013] [debug] Routing to controller "AnnoTree::Tree" and action "list".
+[Wed May 22 23:15:38 2013] [debug] Rendering template "tree/list.json.ep".
+[Wed May 22 23:15:38 2013] [debug] 200 OK (0.002840s, 352.113/s).
+[Wed May 22 23:15:47 2013] [debug] GET "/0/0/tree".
+[Wed May 22 23:15:47 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed May 22 23:15:47 2013] [debug] Template "not_found.html.ep" not found.
+[Wed May 22 23:15:47 2013] [debug] Rendering cached inline template.
+[Wed May 22 23:15:47 2013] [debug] Rendering cached inline template.
+[Wed May 22 23:15:47 2013] [debug] 404 Not Found (0.004004s, 249.750/s).
+[Wed May 22 23:15:55 2013] [debug] GET "/0/0/branch".
+[Wed May 22 23:15:55 2013] [debug] Routing to controller "AnnoTree::Branch" and action "list".
+[Wed May 22 23:15:55 2013] [debug] Rendering cached template "branch/list.json.ep".
+[Wed May 22 23:15:55 2013] [debug] 200 OK (0.000511s, 1956.947/s).
+[Wed May 22 23:32:23 2013] [debug] Your secret passphrase needs to be changed!!!
+[Wed May 22 23:32:23 2013] [debug] GET "/0/0/0/leaf".
+[Wed May 22 23:32:23 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "list".
+[Wed May 22 23:32:23 2013] [debug] 200 OK (0.000792s, 1262.626/s).
+[Wed May 22 23:34:50 2013] [debug] Your secret passphrase needs to be changed!!!
+[Wed May 22 23:34:50 2013] [debug] GET "/0/0/0/leaf".
+[Wed May 22 23:34:50 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "list".
+[Wed May 22 23:34:50 2013] [debug] Template "leaves/leaf/list.json.ep" not found.
+[Wed May 22 23:34:50 2013] [debug] Template "not_found.development.json.ep" not found.
+[Wed May 22 23:34:50 2013] [debug] Template "not_found.json.ep" not found.
+[Wed May 22 23:34:50 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed May 22 23:34:50 2013] [debug] Template "not_found.html.ep" not found.
+[Wed May 22 23:34:50 2013] [debug] Rendering inline template.
+[Wed May 22 23:34:50 2013] [debug] Rendering inline template.
+[Wed May 22 23:34:50 2013] [debug] 404 Not Found (0.012358s, 80.919/s).
+[Wed May 22 23:35:41 2013] [debug] Your secret passphrase needs to be changed!!!
+[Wed May 22 23:35:41 2013] [debug] GET "/0/0/0/leaf".
+[Wed May 22 23:35:41 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "list".
+[Wed May 22 23:35:41 2013] [debug] Rendering template "leaves/leaf/list.json.ep".
+[Wed May 22 23:35:41 2013] [debug] 200 OK (0.003300s, 303.030/s).

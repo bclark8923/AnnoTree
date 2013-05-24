@@ -1,6 +1,9 @@
 package AnnoTree;
 use Mojo::Base 'Mojolicious';
 
+# file upload size limit - 5MB
+$ENV{MOJO_MAX_MESSAGE_SIZE} = 5242880;
+
 # This method will run once at server start
 sub startup {
     my $self = shift;
@@ -26,6 +29,9 @@ sub startup {
 
     # ===== Leaves =====
     $r->get('/:forestid/:treeid/:branchid/leaf' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/])->to('leaves-leaf#list');
+    $r->get('/:forestid/:treeid/:branchid/leaf/testupload' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/])->to('leaves-leaf#testImageUpload');
+    
+    $r->post('/:forestid/:treeid/:branchid/leaf' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/])->to('leaves-leaf#imagePost');
 }
 
 return 1;

@@ -3851,3 +3851,446 @@ Compilation failed in require at (eval 230) line 1.
 
 [Thu May 23 21:25:23 2013] [debug] Rendering cached template "leaves/leaf/testupload.html.ep".
 [Thu May 23 21:25:23 2013] [debug] 200 OK (0.001323s, 755.858/s).
+[Thu May 23 21:28:54 2013] [debug] Your secret passphrase needs to be changed!!!
+[Thu May 23 21:28:54 2013] [debug] POST "/0/0/0/leaf".
+[Thu May 23 21:28:54 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "imagePost".
+[Thu May 23 21:28:54 2013] [debug] $VAR1 = bless( {
+                 'name' => 'image',
+                 'filename' => 'Screenshot_2013-05-22-23-02-15.png',
+                 'headers' => bless( {
+                                       'headers' => {
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="image"; filename="Screenshot_2013-05-22-23-02-15.png"'
+                                                                                 ]
+                                                                               ],
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ]
+                                                    },
+                                       'max_line_size' => 10240,
+                                       'cache' => [],
+                                       'state' => 'finished'
+                                     }, 'Mojo::Headers' ),
+                 'asset' => bless( {
+                                     'tmpdir' => '/tmp',
+                                     'cleanup' => 1,
+                                     'handle' => bless( \*Symbol::GEN52, 'IO::File' ),
+                                     'path' => '/tmp/mojo.tmp'
+                                   }, 'Mojo::Asset::File' )
+               }, 'Mojo::Upload' );
+
+[Thu May 23 21:28:54 2013] [debug] 200 OK (0.001266s, 789.889/s).
+[Thu May 23 21:29:11 2013] [debug] GET "/0/0/0/leaf/testupload".
+[Thu May 23 21:29:11 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "testImageUpload".
+[Thu May 23 21:29:11 2013] [debug] Rendering template "leaves/leaf/testupload.html.ep".
+[Thu May 23 21:29:11 2013] [debug] 200 OK (0.003600s, 277.778/s).
+[Thu May 23 22:10:14 2013] [debug] Your secret passphrase needs to be changed!!!
+[Thu May 23 22:10:14 2013] [debug] POST "/0/0/0/leaf".
+[Thu May 23 22:10:14 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "imagePost".
+[Thu May 23 22:10:14 2013] [debug] $VAR1 = bless( {
+                 'headers' => bless( {
+                                       'state' => 'finished',
+                                       'cache' => [],
+                                       'headers' => {
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="image"; filename="Screenshot_2013-05-22-23-01-58.png"'
+                                                                                 ]
+                                                                               ],
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ]
+                                                    },
+                                       'max_line_size' => 10240
+                                     }, 'Mojo::Headers' ),
+                 'filename' => 'Screenshot_2013-05-22-23-01-58.png',
+                 'asset' => bless( {
+                                     'handle' => bless( \*Symbol::GEN52, 'IO::File' ),
+                                     'path' => '/tmp/mojo.tmp',
+                                     'tmpdir' => '/tmp',
+                                     'cleanup' => 1
+                                   }, 'Mojo::Asset::File' ),
+                 'name' => 'image'
+               }, 'Mojo::Upload' );
+
+[Thu May 23 22:10:14 2013] [error] Can't move file "/tmp/mojo.tmp" to "/opt/test/Screenshot_2013-05-22-23-01-58.png": No such file or directory at /home/matt/perl5/perlbrew/perls/5.18_threads/lib/site_perl/5.18.0/Mojo/Upload.pm line 13.
+
+[Thu May 23 22:10:14 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu May 23 22:10:14 2013] [debug] Template "exception.html.ep" not found.
+[Thu May 23 22:10:14 2013] [debug] Rendering inline template.
+[Thu May 23 22:10:14 2013] [debug] Rendering inline template.
+[Thu May 23 22:10:14 2013] [debug] 500 Internal Server Error (0.016997s, 58.834/s).
+[Thu May 23 22:38:24 2013] [debug] Your secret passphrase needs to be changed!!!
+[Thu May 23 22:38:24 2013] [debug] GET "/0/0/0/leaf".
+[Thu May 23 22:38:24 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "list".
+[Thu May 23 22:38:24 2013] [error] Can't locate object method "debug" via package "AnnoTree::Leaves::Leaf" at /home/matt/perl5/perlbrew/perls/5.18_threads/lib/site_perl/5.18.0/Mojolicious/Routes.pm line 172.
+
+[Thu May 23 22:38:24 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu May 23 22:38:24 2013] [debug] Template "exception.html.ep" not found.
+[Thu May 23 22:38:24 2013] [debug] Rendering inline template.
+[Thu May 23 22:38:24 2013] [debug] Rendering inline template.
+[Thu May 23 22:38:24 2013] [debug] 500 Internal Server Error (0.017073s, 58.572/s).
+[Thu May 23 22:38:24 2013] [debug] GET "/0/0/0/leaf/testupload".
+[Thu May 23 22:38:24 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "testImageUpload".
+[Thu May 23 22:38:24 2013] [error] Can't locate object method "plugin" via package "AnnoTree::Leaves::Leaf" at /home/matt/perl5/perlbrew/perls/5.18_threads/lib/site_perl/5.18.0/Mojolicious/Routes.pm line 172.
+
+[Thu May 23 22:38:24 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu May 23 22:38:24 2013] [debug] Template "exception.html.ep" not found.
+[Thu May 23 22:38:24 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:38:24 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:38:24 2013] [debug] 500 Internal Server Error (0.005223s, 191.461/s).
+[Thu May 23 22:38:24 2013] [debug] GET "/0/0/0/leaf/testupload".
+[Thu May 23 22:38:24 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "testImageUpload".
+[Thu May 23 22:38:24 2013] [error] Can't locate object method "plugin" via package "AnnoTree::Leaves::Leaf" at /home/matt/perl5/perlbrew/perls/5.18_threads/lib/site_perl/5.18.0/Mojolicious/Routes.pm line 172.
+
+[Thu May 23 22:38:24 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu May 23 22:38:24 2013] [debug] Template "exception.html.ep" not found.
+[Thu May 23 22:38:24 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:38:24 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:38:24 2013] [debug] 500 Internal Server Error (0.004888s, 204.583/s).
+[Thu May 23 22:38:30 2013] [debug] GET "/0/0/0/leaf/testupload".
+[Thu May 23 22:38:30 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "testImageUpload".
+[Thu May 23 22:38:30 2013] [error] Can't locate object method "plugin" via package "AnnoTree::Leaves::Leaf" at /home/matt/perl5/perlbrew/perls/5.18_threads/lib/site_perl/5.18.0/Mojolicious/Routes.pm line 172.
+
+[Thu May 23 22:38:30 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu May 23 22:38:30 2013] [debug] Template "exception.html.ep" not found.
+[Thu May 23 22:38:30 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:38:30 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:38:30 2013] [debug] 500 Internal Server Error (0.005514s, 181.357/s).
+[Thu May 23 22:38:50 2013] [debug] GET "/0/0/0/leaf/".
+[Thu May 23 22:38:50 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "list".
+[Thu May 23 22:38:50 2013] [error] Can't locate object method "debug" via package "AnnoTree::Leaves::Leaf" at /home/matt/perl5/perlbrew/perls/5.18_threads/lib/site_perl/5.18.0/Mojolicious/Routes.pm line 172.
+
+[Thu May 23 22:38:50 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu May 23 22:38:50 2013] [debug] Template "exception.html.ep" not found.
+[Thu May 23 22:38:50 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:38:50 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:38:50 2013] [debug] 500 Internal Server Error (0.005553s, 180.083/s).
+[Thu May 23 22:38:57 2013] [debug] GET "/0/0/0/leaf/".
+[Thu May 23 22:38:57 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "list".
+[Thu May 23 22:38:57 2013] [error] Can't locate object method "debug" via package "AnnoTree::Leaves::Leaf" at /home/matt/perl5/perlbrew/perls/5.18_threads/lib/site_perl/5.18.0/Mojolicious/Routes.pm line 172.
+
+[Thu May 23 22:38:57 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu May 23 22:38:57 2013] [debug] Template "exception.html.ep" not found.
+[Thu May 23 22:38:57 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:38:57 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:38:57 2013] [debug] 500 Internal Server Error (0.005371s, 186.185/s).
+[Thu May 23 22:39:07 2013] [debug] GET "/0/0/0/leaf/".
+[Thu May 23 22:39:07 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "list".
+[Thu May 23 22:39:07 2013] [error] Can't locate object method "debug" via package "AnnoTree::Leaves::Leaf" at /home/matt/perl5/perlbrew/perls/5.18_threads/lib/site_perl/5.18.0/Mojolicious/Routes.pm line 172.
+
+[Thu May 23 22:39:07 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu May 23 22:39:07 2013] [debug] Template "exception.html.ep" not found.
+[Thu May 23 22:39:07 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:39:07 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:39:07 2013] [debug] 500 Internal Server Error (0.005448s, 183.554/s).
+[Thu May 23 22:39:09 2013] [debug] GET "/0/0/0/leaf/".
+[Thu May 23 22:39:09 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "list".
+[Thu May 23 22:39:09 2013] [error] Can't locate object method "debug" via package "AnnoTree::Leaves::Leaf" at /home/matt/perl5/perlbrew/perls/5.18_threads/lib/site_perl/5.18.0/Mojolicious/Routes.pm line 172.
+
+[Thu May 23 22:39:09 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu May 23 22:39:09 2013] [debug] Template "exception.html.ep" not found.
+[Thu May 23 22:39:09 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:39:09 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:39:09 2013] [debug] 500 Internal Server Error (0.005457s, 183.251/s).
+[Thu May 23 22:39:10 2013] [debug] GET "/0/0/0/leaf/".
+[Thu May 23 22:39:10 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "list".
+[Thu May 23 22:39:10 2013] [error] Can't locate object method "debug" via package "AnnoTree::Leaves::Leaf" at /home/matt/perl5/perlbrew/perls/5.18_threads/lib/site_perl/5.18.0/Mojolicious/Routes.pm line 172.
+
+[Thu May 23 22:39:10 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu May 23 22:39:10 2013] [debug] Template "exception.html.ep" not found.
+[Thu May 23 22:39:10 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:39:10 2013] [debug] Rendering cached inline template.
+[Thu May 23 22:39:10 2013] [debug] 500 Internal Server Error (0.005444s, 183.688/s).
+[Fri May 24 20:10:38 2013] [debug] Your secret passphrase needs to be changed!!!
+[Fri May 24 20:10:38 2013] [debug] GET "/0/0/0/leaf/testupload".
+[Fri May 24 20:10:38 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "testImageUpload".
+[Fri May 24 20:10:38 2013] [error] Can't locate object method "plugin" via package "AnnoTree::Leaves::Leaf" at /home/matt/perl5/perlbrew/perls/5.18_threads/lib/site_perl/5.18.0/Mojolicious/Routes.pm line 172.
+
+[Fri May 24 20:10:38 2013] [debug] Template "exception.development.html.ep" not found.
+[Fri May 24 20:10:38 2013] [debug] Template "exception.html.ep" not found.
+[Fri May 24 20:10:38 2013] [debug] Rendering inline template.
+[Fri May 24 20:10:38 2013] [debug] Rendering inline template.
+[Fri May 24 20:10:38 2013] [debug] 500 Internal Server Error (0.017480s, 57.208/s).
+[Fri May 24 20:11:04 2013] [debug] Your secret passphrase needs to be changed!!!
+[Fri May 24 20:11:04 2013] [debug] GET "/0/0/0/leaf/testupload".
+[Fri May 24 20:11:04 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "testImageUpload".
+[Fri May 24 20:11:04 2013] [debug] Rendering template "leaves/leaf/testupload.html.ep".
+[Fri May 24 20:11:04 2013] [debug] 200 OK (0.004153s, 240.790/s).
+[Fri May 24 20:11:08 2013] [debug] POST "/0/0/0/leaf".
+[Fri May 24 20:11:08 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "imagePost".
+[Fri May 24 20:11:08 2013] [debug] $VAR1 = bless( {
+                 'asset' => bless( {
+                                     'handle' => bless( \*Symbol::GEN52, 'IO::File' ),
+                                     'path' => '/tmp/mojo.tmp',
+                                     'tmpdir' => '/tmp',
+                                     'cleanup' => 1
+                                   }, 'Mojo::Asset::File' ),
+                 'headers' => bless( {
+                                       'state' => 'finished',
+                                       'cache' => [],
+                                       'headers' => {
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="image"; filename="Screenshot_2013-05-22-23-01-58.png"'
+                                                                                 ]
+                                                                               ],
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ]
+                                                    },
+                                       'max_line_size' => 10240
+                                     }, 'Mojo::Headers' ),
+                 'filename' => 'Screenshot_2013-05-22-23-01-58.png',
+                 'name' => 'image'
+               }, 'Mojo::Upload' );
+
+[Fri May 24 20:11:08 2013] [debug] 200 OK (0.000713s, 1402.525/s).
+[Fri May 24 20:12:41 2013] [debug] Your secret passphrase needs to be changed!!!
+[Fri May 24 20:12:41 2013] [debug] GET "/0/0/0/leaf/testupload".
+[Fri May 24 20:12:41 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "testImageUpload".
+[Fri May 24 20:12:41 2013] [debug] Rendering template "leaves/leaf/testupload.html.ep".
+[Fri May 24 20:12:41 2013] [debug] 200 OK (0.004368s, 228.938/s).
+[Fri May 24 20:12:46 2013] [debug] POST "/0/0/0/leaf".
+[Fri May 24 20:12:46 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "imagePost".
+[Fri May 24 20:12:46 2013] [debug] REQUEST--------
+ Dumper(AnnoTree::Leaves::Leaf=HASH(0x3cb2630)->req)
+[Fri May 24 20:12:46 2013] [debug] $VAR1 = bless( {
+                 'asset' => bless( {
+                                     'path' => '/tmp/mojo.tmp',
+                                     'handle' => bless( \*Symbol::GEN52, 'IO::File' ),
+                                     'cleanup' => 1,
+                                     'tmpdir' => '/tmp'
+                                   }, 'Mojo::Asset::File' ),
+                 'filename' => 'Screenshot_2013-05-22-23-01-58.png',
+                 'headers' => bless( {
+                                       'cache' => [],
+                                       'state' => 'finished',
+                                       'headers' => {
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ],
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="image"; filename="Screenshot_2013-05-22-23-01-58.png"'
+                                                                                 ]
+                                                                               ]
+                                                    },
+                                       'max_line_size' => 10240
+                                     }, 'Mojo::Headers' ),
+                 'name' => 'image'
+               }, 'Mojo::Upload' );
+
+[Fri May 24 20:12:46 2013] [debug] 200 OK (0.001209s, 827.130/s).
+[Fri May 24 20:13:32 2013] [debug] Your secret passphrase needs to be changed!!!
+[Fri May 24 20:13:32 2013] [debug] GET "/0/0/0/leaf/testupload".
+[Fri May 24 20:13:32 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "testImageUpload".
+[Fri May 24 20:13:32 2013] [debug] Rendering template "leaves/leaf/testupload.html.ep".
+[Fri May 24 20:13:32 2013] [debug] 200 OK (0.004181s, 239.177/s).
+[Fri May 24 20:13:36 2013] [debug] POST "/0/0/0/leaf".
+[Fri May 24 20:13:36 2013] [debug] Routing to controller "AnnoTree::Leaves::Leaf" and action "imagePost".
+[Fri May 24 20:13:36 2013] [debug] $VAR1 = bless( {
+                 'raw_size' => 1391678,
+                 'state' => 'finished',
+                 'cookies' => {},
+                 'max_line_size' => 10240,
+                 'max_message_size' => '5242880',
+                 'events' => {},
+                 'content' => bless( {
+                                       'buffer' => '',
+                                       'headers' => bless( {
+                                                             'normalcase' => {
+                                                                               'referer' => 'Referer'
+                                                                             },
+                                                             'state' => 'finished',
+                                                             'cache' => [],
+                                                             'max_line_size' => 10240,
+                                                             'headers' => {
+                                                                            'content-length' => [
+                                                                                                  [
+                                                                                                    '1391067'
+                                                                                                  ]
+                                                                                                ],
+                                                                            'accept-encoding' => [
+                                                                                                   [
+                                                                                                     'gzip,deflate,sdch'
+                                                                                                   ]
+                                                                                                 ],
+                                                                            'content-type' => [
+                                                                                                [
+                                                                                                  'multipart/form-data; boundary=----WebKitFormBoundaryyPQ53dfWnI3JwCI0'
+                                                                                                ]
+                                                                                              ],
+                                                                            'cache-control' => [
+                                                                                                 [
+                                                                                                   'max-age=0'
+                                                                                                 ]
+                                                                                               ],
+                                                                            'accept-language' => [
+                                                                                                   [
+                                                                                                     'en-US,en;q=0.8'
+                                                                                                   ]
+                                                                                                 ],
+                                                                            'origin' => [
+                                                                                          [
+                                                                                            'http://127.0.0.1:3000'
+                                                                                          ]
+                                                                                        ],
+                                                                            'connection' => [
+                                                                                              [
+                                                                                                'keep-alive'
+                                                                                              ]
+                                                                                            ],
+                                                                            'referer' => [
+                                                                                           [
+                                                                                             'http://127.0.0.1:3000/0/0/0/leaf/testupload'
+                                                                                           ]
+                                                                                         ],
+                                                                            'host' => [
+                                                                                        [
+                                                                                          '127.0.0.1:3000'
+                                                                                        ]
+                                                                                      ],
+                                                                            'user-agent' => [
+                                                                                              [
+                                                                                                'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.63 Safari/537.31'
+                                                                                              ]
+                                                                                            ],
+                                                                            'dnt' => [
+                                                                                       [
+                                                                                         '1'
+                                                                                       ]
+                                                                                     ],
+                                                                            'accept' => [
+                                                                                          [
+                                                                                            'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+                                                                                          ]
+                                                                                        ],
+                                                                            'accept-charset' => [
+                                                                                                  [
+                                                                                                    'ISO-8859-1,utf-8;q=0.7,*;q=0.3'
+                                                                                                  ]
+                                                                                                ]
+                                                                          }
+                                                           }, 'Mojo::Headers' ),
+                                       'header_size' => 584,
+                                       'body' => 16,
+                                       'events' => {
+                                                     'read' => [
+                                                                 sub { "DUMMY" }
+                                                               ]
+                                                   },
+                                       'real_size' => 1391067,
+                                       'pre_buffer' => '',
+                                       'read' => sub { "DUMMY" },
+                                       'parts' => [
+                                                    bless( {
+                                                             'auto_upgrade' => 1,
+                                                             'raw_size' => 1390979,
+                                                             'size' => 1390859,
+                                                             'relaxed' => 1,
+                                                             'read' => $VAR1->{'content'}{'read'},
+                                                             'state' => 'body',
+                                                             'pre_buffer' => '',
+                                                             'header_size' => 120,
+                                                             'buffer' => '',
+                                                             'headers' => bless( {
+                                                                                   'cache' => [],
+                                                                                   'state' => 'finished',
+                                                                                   'headers' => {
+                                                                                                  'content-disposition' => [
+                                                                                                                             [
+                                                                                                                               'form-data; name="image"; filename="Screenshot_2013-05-22-23-01-58.png"'
+                                                                                                                             ]
+                                                                                                                           ],
+                                                                                                  'content-type' => [
+                                                                                                                      [
+                                                                                                                        'image/png'
+                                                                                                                      ]
+                                                                                                                    ]
+                                                                                                },
+                                                                                   'max_line_size' => 10240
+                                                                                 }, 'Mojo::Headers' ),
+                                                             'asset' => bless( {
+                                                                                 'path' => '/tmp/mojo.tmp',
+                                                                                 'handle' => bless( \*Symbol::GEN52, 'IO::File' ),
+                                                                                 'cleanup' => 1,
+                                                                                 'tmpdir' => '/tmp'
+                                                                               }, 'Mojo::Asset::File' ),
+                                                             'real_size' => 1390859,
+                                                             'events' => {
+                                                                           'read' => [
+                                                                                       $VAR1->{'content'}{'read'}
+                                                                                     ]
+                                                                         },
+                                                             'body' => 16
+                                                           }, 'Mojo::Content::Single' )
+                                                  ],
+                                       'multi_state' => 'finished',
+                                       'multipart' => '
+',
+                                       'max_buffer_size' => 262144,
+                                       'auto_upgrade' => 1,
+                                       'state' => 'finished',
+                                       'raw_size' => 1391651,
+                                       'size' => 1391067
+                                     }, 'Mojo::Content::MultiPart' ),
+                 'method' => 'POST',
+                 'version' => '1.1',
+                 'finished' => 1,
+                 'url' => bless( {
+                                   'query' => bless( {
+                                                       'string' => undef
+                                                     }, 'Mojo::Parameters' ),
+                                   'base' => bless( {
+                                                      'port' => '3000',
+                                                      'scheme' => 'http',
+                                                      'host' => '127.0.0.1'
+                                                    }, 'Mojo::URL' ),
+                                   'fragment' => undef,
+                                   'path' => bless( {
+                                                      'path' => '/0/0/0/leaf',
+                                                      'charset' => 'UTF-8'
+                                                    }, 'Mojo::Path' ),
+                                   'scheme' => undef
+                                 }, 'Mojo::URL' )
+               }, 'Mojo::Message::Request' );
+
+[Fri May 24 20:13:36 2013] [debug] $VAR1 = bless( {
+                 'name' => 'image',
+                 'asset' => bless( {
+                                     'path' => '/tmp/mojo.tmp',
+                                     'handle' => bless( \*Symbol::GEN52, 'IO::File' ),
+                                     'cleanup' => 1,
+                                     'tmpdir' => '/tmp'
+                                   }, 'Mojo::Asset::File' ),
+                 'filename' => 'Screenshot_2013-05-22-23-01-58.png',
+                 'headers' => bless( {
+                                       'cache' => [],
+                                       'state' => 'finished',
+                                       'headers' => {
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="image"; filename="Screenshot_2013-05-22-23-01-58.png"'
+                                                                                 ]
+                                                                               ],
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ]
+                                                    },
+                                       'max_line_size' => 10240
+                                     }, 'Mojo::Headers' )
+               }, 'Mojo::Upload' );
+
+[Fri May 24 20:13:36 2013] [debug] 200 OK (0.002296s, 435.540/s).

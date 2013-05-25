@@ -8,13 +8,21 @@ use Data::Dumper;
 
 sub list {
     my $self = shift;
+    
+    push @{$self->app->plugins->namespaces}, 'AnnoTree::Plugin';
+    
+    #$self->debug('test');
+    
+    
 
     $self->render(name => 'list', format => 'json');
 }
 
 sub testImageUpload {
     my $self = shift;
-
+    
+    #my $debug = $self->plugin('DebugHelper');
+    
     $self->render(template => 'leaves/leaf/testupload', format => 'html');
 }
 
@@ -25,6 +33,7 @@ sub imagePost {
     #my $image = $self->param('image');
 
     #$self->app->log->debug(Dumper($self->req->upload));
+    $self->app->log->debug(Dumper($self->req));
     
     my $upload = $self->req->upload('image');
     $self->app->log->debug(Dumper($upload));

@@ -29,8 +29,14 @@ sub startup {
 
     # ===== Leaves =====
     $r->get('/:forestid/:treeid/:branchid/leaf' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/])->to('leaves-leaf#list');
-    $r->get('/:forestid/:treeid/:branchid/leaf/testupload' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/])->to('leaves-leaf#testImageUpload');
-    $r->post('/:forestid/:treeid/:branchid/leaf' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/])->to('leaves-leaf#imagePost');
+
+    # ===== Annotations =====
+    $r->get('/:forestid/:treeid/:branchid/:leafid/annotation' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])->to('leaves-annotation#list');
+    $r->get('/:forestid/:treeid/:branchid/:leafid/annotation/testupload' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])->to('leaves-annotation#testScreenshotUpload');
+    $r->post('/:forestid/:treeid/:branchid/:leafid/annotation' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])->to('leaves-annotation#annotationCreation');
+    $r->get('/:forestid/:treeid/:branchid/:leafid/annotation/display' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])->to('leaves-annotation#annotationDisplay');
+
+
 }
 
 return 1;

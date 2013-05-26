@@ -1,0 +1,10 @@
+<% 
+my $imageDir = "$imgDir/screenshot/$forestid/$treeid/$branchid/$leafid"; 
+opendir(my $dir, $imageDir) || print "oh fuck";
+my @images = reverse sort readdir($dir);
+foreach my $img (@images) {
+if ($img ne "." && $img ne "..") {
+%>
+<%= $img %><br />
+<img src="<%= "/img/screenshot/$forestid/$treeid/$branchid/$leafid/$img" %>" width="100" /><br />
+<% }} %>

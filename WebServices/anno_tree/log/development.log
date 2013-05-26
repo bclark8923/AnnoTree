@@ -5920,3 +5920,621 @@ $VAR6 = '.';
 [Sun May 26 03:55:33 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "annotationDisplay".
 [Sun May 26 03:55:33 2013] [debug] Rendering cached template "leaves/annotation/display.html.ep".
 [Sun May 26 03:55:33 2013] [debug] 200 OK (0.000617s, 1620.746/s).
+[Sun May 26 13:17:53 2013] [debug] Your secret passphrase needs to be changed!!!
+[Sun May 26 13:17:53 2013] [debug] GET "/img/screenshot/0/0/0/0/annotation/testupload".
+[Sun May 26 13:17:53 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sun May 26 13:17:53 2013] [debug] Template "not_found.html.ep" not found.
+[Sun May 26 13:17:53 2013] [debug] Rendering inline template.
+[Sun May 26 13:17:53 2013] [debug] Rendering inline template.
+[Sun May 26 13:17:53 2013] [debug] 404 Not Found (0.012210s, 81.900/s).
+[Sun May 26 13:18:02 2013] [debug] GET "/0/0/0/0/annotation/testupload".
+[Sun May 26 13:18:02 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "testScreenshotUpload".
+[Sun May 26 13:18:02 2013] [debug] Rendering template "leaves/annotation/testupload.html.ep".
+[Sun May 26 13:18:02 2013] [debug] 200 OK (0.003089s, 323.729/s).
+[Sun May 26 13:18:08 2013] [debug] POST "/0/0/0/0/annotation".
+[Sun May 26 13:18:08 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "annotationCreation".
+[Sun May 26 13:18:08 2013] [debug] annotationdir: /home/matt/Documents/AnnoTree/WebServices/anno_tree/public/img/screenshot/0/0/0/0
+[Sun May 26 13:18:08 2013] [debug] $VAR1 = '5_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR2 = '4_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR3 = '3_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR4 = '2_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR5 = '1_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR6 = '0_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR7 = '..';
+
+$VAR8 = '.';
+
+[Sun May 26 13:18:08 2013] [debug] annotationid: 1
+[Sun May 26 13:18:08 2013] [debug] not a screenshot
+[Sun May 26 13:18:08 2013] [debug] $VAR1 = bless( {
+                 'name' => 'screenshot',
+                 'asset' => bless( {
+                                     'tmpdir' => '/tmp',
+                                     'cleanup' => 1,
+                                     'handle' => bless( \*Symbol::GEN52, 'IO::File' ),
+                                     'path' => '/tmp/mojo.tmp'
+                                   }, 'Mojo::Asset::File' ),
+                 'headers' => bless( {
+                                       'headers' => {
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="screenshot"; filename="Screenshot_2013-05-22-23-02-15.png"'
+                                                                                 ]
+                                                                               ],
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ]
+                                                    },
+                                       'max_line_size' => 10240,
+                                       'cache' => [],
+                                       'state' => 'finished'
+                                     }, 'Mojo::Headers' ),
+                 'filename' => 'Screenshot_2013-05-22-23-02-15.png'
+               }, 'Mojo::Upload' );
+
+[Sun May 26 13:18:08 2013] [debug] 200 OK (0.001209s, 827.130/s).
+[Sun May 26 13:19:40 2013] [debug] Your secret passphrase needs to be changed!!!
+[Sun May 26 13:19:40 2013] [debug] GET "/0/0/0/0/annotation/testupload".
+[Sun May 26 13:19:40 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "testScreenshotUpload".
+[Sun May 26 13:19:40 2013] [debug] Rendering template "leaves/annotation/testupload.html.ep".
+[Sun May 26 13:19:40 2013] [debug] 200 OK (0.004704s, 212.585/s).
+[Sun May 26 13:19:44 2013] [debug] POST "/0/0/0/0/annotation".
+[Sun May 26 13:19:44 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "annotationCreation".
+[Sun May 26 13:19:44 2013] [debug] annotationdir: /home/matt/Documents/AnnoTree/WebServices/anno_tree/public/img/screenshot/0/0/0/0
+[Sun May 26 13:19:44 2013] [debug] $VAR1 = '5_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR2 = '4_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR3 = '3_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR4 = '2_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR5 = '1_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR6 = '1_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR7 = '0_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR8 = '..';
+
+$VAR9 = '.';
+
+[Sun May 26 13:19:44 2013] [debug] annotationid: 1
+[Sun May 26 13:19:44 2013] [debug] not a screenshot
+[Sun May 26 13:19:44 2013] [debug] $VAR1 = bless( {
+                 'name' => 'screenshot',
+                 'asset' => bless( {
+                                     'handle' => bless( \*Symbol::GEN52, 'IO::File' ),
+                                     'path' => '/tmp/mojo.tmp',
+                                     'tmpdir' => '/tmp',
+                                     'cleanup' => 1
+                                   }, 'Mojo::Asset::File' ),
+                 'filename' => 'Screenshot_2013-05-22-23-01-58.png',
+                 'headers' => bless( {
+                                       'state' => 'finished',
+                                       'cache' => [],
+                                       'headers' => {
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="screenshot"; filename="Screenshot_2013-05-22-23-01-58.png"'
+                                                                                 ]
+                                                                               ],
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ]
+                                                    },
+                                       'max_line_size' => 10240
+                                     }, 'Mojo::Headers' )
+               }, 'Mojo::Upload' );
+
+[Sun May 26 13:19:44 2013] [debug] 200 OK (0.002108s, 474.383/s).
+[Sun May 26 13:20:21 2013] [debug] Your secret passphrase needs to be changed!!!
+[Sun May 26 13:20:21 2013] [debug] GET "/0/0/0/0/annotation/testupload".
+[Sun May 26 13:20:21 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "testScreenshotUpload".
+[Sun May 26 13:20:21 2013] [debug] Rendering template "leaves/annotation/testupload.html.ep".
+[Sun May 26 13:20:21 2013] [debug] 200 OK (0.004845s, 206.398/s).
+[Sun May 26 13:20:26 2013] [debug] POST "/0/0/0/0/annotation".
+[Sun May 26 13:20:26 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "annotationCreation".
+[Sun May 26 13:20:26 2013] [debug] annotationdir: /home/matt/Documents/AnnoTree/WebServices/anno_tree/public/img/screenshot/0/0/0/0
+[Sun May 26 13:20:26 2013] [debug] $VAR1 = '5_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR2 = '4_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR3 = '3_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR4 = '2_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR5 = '1_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR6 = '1_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR7 = '1_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR8 = '0_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR9 = '..';
+
+$VAR10 = '.';
+
+[Sun May 26 13:20:26 2013] [debug] filename: 5_Screenshot_2013-05-22-23-11-37.png
+[Sun May 26 13:20:26 2013] [debug] annotationid: 1
+[Sun May 26 13:20:26 2013] [debug] not a screenshot
+[Sun May 26 13:20:26 2013] [debug] $VAR1 = bless( {
+                 'name' => 'screenshot',
+                 'headers' => bless( {
+                                       'state' => 'finished',
+                                       'cache' => [],
+                                       'headers' => {
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ],
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="screenshot"; filename="Screenshot_2013-05-22-23-01-58.png"'
+                                                                                 ]
+                                                                               ]
+                                                    },
+                                       'max_line_size' => 10240
+                                     }, 'Mojo::Headers' ),
+                 'filename' => 'Screenshot_2013-05-22-23-01-58.png',
+                 'asset' => bless( {
+                                     'handle' => bless( \*Symbol::GEN52, 'IO::File' ),
+                                     'path' => '/tmp/mojo.tmp',
+                                     'tmpdir' => '/tmp',
+                                     'cleanup' => 1
+                                   }, 'Mojo::Asset::File' )
+               }, 'Mojo::Upload' );
+
+[Sun May 26 13:20:26 2013] [debug] 200 OK (0.002392s, 418.060/s).
+[Sun May 26 13:22:18 2013] [debug] Your secret passphrase needs to be changed!!!
+[Sun May 26 13:22:18 2013] [debug] GET "/0/0/0/0/annotation/testupload".
+[Sun May 26 13:22:18 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "testScreenshotUpload".
+[Sun May 26 13:22:18 2013] [debug] Rendering template "leaves/annotation/testupload.html.ep".
+[Sun May 26 13:22:18 2013] [debug] 200 OK (0.004647s, 215.193/s).
+[Sun May 26 13:22:22 2013] [debug] POST "/0/0/0/0/annotation".
+[Sun May 26 13:22:22 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "annotationCreation".
+[Sun May 26 13:22:22 2013] [debug] annotationdir: /home/matt/Documents/AnnoTree/WebServices/anno_tree/public/img/screenshot/0/0/0/0
+[Sun May 26 13:22:22 2013] [debug] $VAR1 = '5_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR2 = '4_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR3 = '3_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR4 = '2_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR5 = '1_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR6 = '1_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR7 = '1_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR8 = '0_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR9 = '..';
+
+$VAR10 = '.';
+
+[Sun May 26 13:22:22 2013] [debug] filename: 5_Screenshot_2013-05-22-23-11-37.png
+[Sun May 26 13:22:22 2013] [debug] annotationid: 5
+[Sun May 26 13:22:22 2013] [debug] not a screenshot
+[Sun May 26 13:22:22 2013] [debug] $VAR1 = bless( {
+                 'headers' => bless( {
+                                       'headers' => {
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="screenshot"; filename="Screenshot_2013-05-22-23-02-15.png"'
+                                                                                 ]
+                                                                               ],
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ]
+                                                    },
+                                       'max_line_size' => 10240,
+                                       'state' => 'finished',
+                                       'cache' => []
+                                     }, 'Mojo::Headers' ),
+                 'filename' => 'Screenshot_2013-05-22-23-02-15.png',
+                 'asset' => bless( {
+                                     'handle' => bless( \*Symbol::GEN52, 'IO::File' ),
+                                     'path' => '/tmp/mojo.tmp',
+                                     'tmpdir' => '/tmp',
+                                     'cleanup' => 1
+                                   }, 'Mojo::Asset::File' ),
+                 'name' => 'screenshot'
+               }, 'Mojo::Upload' );
+
+[Sun May 26 13:22:22 2013] [debug] 200 OK (0.001332s, 750.751/s).
+[Sun May 26 13:23:05 2013] [debug] Your secret passphrase needs to be changed!!!
+[Sun May 26 13:23:05 2013] [debug] GET "/0/0/0/0/annotation/testupload".
+[Sun May 26 13:23:05 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "testScreenshotUpload".
+[Sun May 26 13:23:05 2013] [debug] Rendering template "leaves/annotation/testupload.html.ep".
+[Sun May 26 13:23:05 2013] [debug] 200 OK (0.004680s, 213.675/s).
+[Sun May 26 13:23:10 2013] [debug] POST "/0/0/0/0/annotation".
+[Sun May 26 13:23:10 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "annotationCreation".
+[Sun May 26 13:23:10 2013] [debug] annotationdir: /home/matt/Documents/AnnoTree/WebServices/anno_tree/public/img/screenshot/0/0/0/0
+[Sun May 26 13:23:10 2013] [debug] $VAR1 = '..';
+
+$VAR2 = '.';
+
+[Sun May 26 13:23:10 2013] [debug] filename: ..
+[Sun May 26 13:23:10 2013] [debug] annotationid: 0
+[Sun May 26 13:23:10 2013] [debug] not a screenshot
+[Sun May 26 13:23:10 2013] [debug] $VAR1 = bless( {
+                 'name' => 'screenshot',
+                 'headers' => bless( {
+                                       'cache' => [],
+                                       'state' => 'finished',
+                                       'headers' => {
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="screenshot"; filename="Screenshot_2013-05-22-23-01-58.png"'
+                                                                                 ]
+                                                                               ],
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ]
+                                                    },
+                                       'max_line_size' => 10240
+                                     }, 'Mojo::Headers' ),
+                 'filename' => 'Screenshot_2013-05-22-23-01-58.png',
+                 'asset' => bless( {
+                                     'tmpdir' => '/tmp',
+                                     'cleanup' => 1,
+                                     'handle' => bless( \*Symbol::GEN52, 'IO::File' ),
+                                     'path' => '/tmp/mojo.tmp'
+                                   }, 'Mojo::Asset::File' )
+               }, 'Mojo::Upload' );
+
+[Sun May 26 13:23:10 2013] [debug] 200 OK (0.002390s, 418.410/s).
+[Sun May 26 13:23:19 2013] [debug] GET "/0/0/0/0/annotation/testupload".
+[Sun May 26 13:23:19 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "testScreenshotUpload".
+[Sun May 26 13:23:19 2013] [debug] Rendering cached template "leaves/annotation/testupload.html.ep".
+[Sun May 26 13:23:19 2013] [debug] 200 OK (0.000796s, 1256.281/s).
+[Sun May 26 13:23:23 2013] [debug] POST "/0/0/0/0/annotation".
+[Sun May 26 13:23:23 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "annotationCreation".
+[Sun May 26 13:23:23 2013] [debug] annotationdir: /home/matt/Documents/AnnoTree/WebServices/anno_tree/public/img/screenshot/0/0/0/0
+[Sun May 26 13:23:23 2013] [debug] $VAR1 = '0_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR2 = '..';
+
+$VAR3 = '.';
+
+[Sun May 26 13:23:23 2013] [debug] filename: 0_Screenshot_2013-05-22-23-01-58.png
+[Sun May 26 13:23:23 2013] [debug] annotationid: 1
+[Sun May 26 13:23:23 2013] [debug] not a screenshot
+[Sun May 26 13:23:23 2013] [debug] $VAR1 = bless( {
+                 'name' => 'screenshot',
+                 'headers' => bless( {
+                                       'headers' => {
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ],
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="screenshot"; filename="Screenshot_2013-05-22-23-01-58.png"'
+                                                                                 ]
+                                                                               ]
+                                                    },
+                                       'max_line_size' => 10240,
+                                       'state' => 'finished',
+                                       'cache' => []
+                                     }, 'Mojo::Headers' ),
+                 'filename' => 'Screenshot_2013-05-22-23-01-58.png',
+                 'asset' => bless( {
+                                     'path' => '/tmp/mojo.tmp',
+                                     'handle' => bless( \*Symbol::GEN53, 'IO::File' ),
+                                     'cleanup' => 1,
+                                     'tmpdir' => '/tmp'
+                                   }, 'Mojo::Asset::File' )
+               }, 'Mojo::Upload' );
+
+[Sun May 26 13:23:23 2013] [debug] 200 OK (0.001638s, 610.501/s).
+[Sun May 26 13:23:34 2013] [debug] GET "/0/0/0/1/annotation/testupload".
+[Sun May 26 13:23:34 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "testScreenshotUpload".
+[Sun May 26 13:23:34 2013] [debug] Rendering cached template "leaves/annotation/testupload.html.ep".
+[Sun May 26 13:23:34 2013] [debug] 200 OK (0.000982s, 1018.330/s).
+[Sun May 26 13:23:38 2013] [debug] POST "/0/0/0/1/annotation".
+[Sun May 26 13:23:38 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "annotationCreation".
+[Sun May 26 13:23:38 2013] [debug] annotationdir: /home/matt/Documents/AnnoTree/WebServices/anno_tree/public/img/screenshot/0/0/0/1
+[Sun May 26 13:23:38 2013] [debug] $VAR1 = '5_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR2 = '4_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR3 = '3_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR4 = '2_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR5 = '1_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR6 = '..';
+
+$VAR7 = '.';
+
+[Sun May 26 13:23:38 2013] [debug] filename: 5_Screenshot_2013-05-22-23-01-58.png
+[Sun May 26 13:23:38 2013] [debug] annotationid: 6
+[Sun May 26 13:23:38 2013] [debug] not a screenshot
+[Sun May 26 13:23:38 2013] [debug] $VAR1 = bless( {
+                 'name' => 'screenshot',
+                 'filename' => 'Screenshot_2013-05-22-23-11-37.png',
+                 'headers' => bless( {
+                                       'cache' => [],
+                                       'state' => 'finished',
+                                       'headers' => {
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ],
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="screenshot"; filename="Screenshot_2013-05-22-23-11-37.png"'
+                                                                                 ]
+                                                                               ]
+                                                    },
+                                       'max_line_size' => 10240
+                                     }, 'Mojo::Headers' ),
+                 'asset' => bless( {
+                                     'path' => '/tmp/mojo.tmp',
+                                     'handle' => bless( \*Symbol::GEN54, 'IO::File' ),
+                                     'cleanup' => 1,
+                                     'tmpdir' => '/tmp'
+                                   }, 'Mojo::Asset::File' )
+               }, 'Mojo::Upload' );
+
+[Sun May 26 13:23:38 2013] [debug] 200 OK (0.001090s, 917.431/s).
+[Sun May 26 13:23:49 2013] [debug] GET "/0/0/0/1/annotation/testupload".
+[Sun May 26 13:23:49 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "testScreenshotUpload".
+[Sun May 26 13:23:49 2013] [debug] Rendering cached template "leaves/annotation/testupload.html.ep".
+[Sun May 26 13:23:49 2013] [debug] 200 OK (0.000803s, 1245.330/s).
+[Sun May 26 13:23:53 2013] [debug] POST "/0/0/0/1/annotation".
+[Sun May 26 13:23:53 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "annotationCreation".
+[Sun May 26 13:23:53 2013] [debug] annotationdir: /home/matt/Documents/AnnoTree/WebServices/anno_tree/public/img/screenshot/0/0/0/1
+[Sun May 26 13:23:53 2013] [debug] $VAR1 = '6_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR2 = '5_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR3 = '4_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR4 = '3_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR5 = '2_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR6 = '1_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR7 = '..';
+
+$VAR8 = '.';
+
+[Sun May 26 13:23:53 2013] [debug] filename: 6_Screenshot_2013-05-22-23-11-37.png
+[Sun May 26 13:23:53 2013] [debug] annotationid: 7
+[Sun May 26 13:23:53 2013] [debug] not a screenshot
+[Sun May 26 13:23:53 2013] [debug] $VAR1 = bless( {
+                 'name' => 'screenshot',
+                 'filename' => 'Screenshot_2013-05-22-23-11-37.png',
+                 'headers' => bless( {
+                                       'state' => 'finished',
+                                       'cache' => [],
+                                       'headers' => {
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="screenshot"; filename="Screenshot_2013-05-22-23-11-37.png"'
+                                                                                 ]
+                                                                               ],
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ]
+                                                    },
+                                       'max_line_size' => 10240
+                                     }, 'Mojo::Headers' ),
+                 'asset' => bless( {
+                                     'cleanup' => 1,
+                                     'tmpdir' => '/tmp',
+                                     'path' => '/tmp/mojo.tmp',
+                                     'handle' => bless( \*Symbol::GEN55, 'IO::File' )
+                                   }, 'Mojo::Asset::File' )
+               }, 'Mojo::Upload' );
+
+[Sun May 26 13:23:53 2013] [debug] 200 OK (0.000888s, 1126.126/s).
+[Sun May 26 13:23:58 2013] [debug] GET "/0/0/0/1/annotation/testupload".
+[Sun May 26 13:23:58 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "testScreenshotUpload".
+[Sun May 26 13:23:58 2013] [debug] Rendering cached template "leaves/annotation/testupload.html.ep".
+[Sun May 26 13:23:58 2013] [debug] 200 OK (0.000781s, 1280.410/s).
+[Sun May 26 13:24:02 2013] [debug] POST "/0/0/0/1/annotation".
+[Sun May 26 13:24:02 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "annotationCreation".
+[Sun May 26 13:24:02 2013] [debug] annotationdir: /home/matt/Documents/AnnoTree/WebServices/anno_tree/public/img/screenshot/0/0/0/1
+[Sun May 26 13:24:02 2013] [debug] $VAR1 = '7_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR2 = '6_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR3 = '5_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR4 = '4_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR5 = '3_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR6 = '2_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR7 = '1_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR8 = '..';
+
+$VAR9 = '.';
+
+[Sun May 26 13:24:02 2013] [debug] filename: 7_Screenshot_2013-05-22-23-11-37.png
+[Sun May 26 13:24:02 2013] [debug] annotationid: 8
+[Sun May 26 13:24:02 2013] [debug] not a screenshot
+[Sun May 26 13:24:02 2013] [debug] $VAR1 = bless( {
+                 'name' => 'screenshot',
+                 'headers' => bless( {
+                                       'headers' => {
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="screenshot"; filename="Screenshot_2013-05-22-23-02-15.png"'
+                                                                                 ]
+                                                                               ],
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ]
+                                                    },
+                                       'max_line_size' => 10240,
+                                       'cache' => [],
+                                       'state' => 'finished'
+                                     }, 'Mojo::Headers' ),
+                 'filename' => 'Screenshot_2013-05-22-23-02-15.png',
+                 'asset' => bless( {
+                                     'cleanup' => 1,
+                                     'tmpdir' => '/tmp',
+                                     'path' => '/tmp/mojo.tmp',
+                                     'handle' => bless( \*Symbol::GEN56, 'IO::File' )
+                                   }, 'Mojo::Asset::File' )
+               }, 'Mojo::Upload' );
+
+[Sun May 26 13:24:02 2013] [debug] 200 OK (0.000980s, 1020.408/s).
+[Sun May 26 13:24:08 2013] [debug] GET "/0/0/0/1/annotation/testupload".
+[Sun May 26 13:24:08 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "testScreenshotUpload".
+[Sun May 26 13:24:08 2013] [debug] Rendering cached template "leaves/annotation/testupload.html.ep".
+[Sun May 26 13:24:08 2013] [debug] 200 OK (0.000892s, 1121.076/s).
+[Sun May 26 13:24:11 2013] [debug] POST "/0/0/0/1/annotation".
+[Sun May 26 13:24:11 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "annotationCreation".
+[Sun May 26 13:24:11 2013] [debug] annotationdir: /home/matt/Documents/AnnoTree/WebServices/anno_tree/public/img/screenshot/0/0/0/1
+[Sun May 26 13:24:11 2013] [debug] $VAR1 = '8_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR2 = '7_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR3 = '6_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR4 = '5_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR5 = '4_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR6 = '3_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR7 = '2_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR8 = '1_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR9 = '..';
+
+$VAR10 = '.';
+
+[Sun May 26 13:24:11 2013] [debug] filename: 8_Screenshot_2013-05-22-23-02-15.png
+[Sun May 26 13:24:11 2013] [debug] annotationid: 9
+[Sun May 26 13:24:11 2013] [debug] not a screenshot
+[Sun May 26 13:24:11 2013] [debug] $VAR1 = bless( {
+                 'name' => 'screenshot',
+                 'asset' => bless( {
+                                     'path' => '/tmp/mojo.tmp',
+                                     'handle' => bless( \*Symbol::GEN57, 'IO::File' ),
+                                     'cleanup' => 1,
+                                     'tmpdir' => '/tmp'
+                                   }, 'Mojo::Asset::File' ),
+                 'filename' => 'Screenshot_2013-05-22-23-01-58.png',
+                 'headers' => bless( {
+                                       'headers' => {
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ],
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="screenshot"; filename="Screenshot_2013-05-22-23-01-58.png"'
+                                                                                 ]
+                                                                               ]
+                                                    },
+                                       'max_line_size' => 10240,
+                                       'state' => 'finished',
+                                       'cache' => []
+                                     }, 'Mojo::Headers' )
+               }, 'Mojo::Upload' );
+
+[Sun May 26 13:24:11 2013] [debug] 200 OK (0.001757s, 569.152/s).
+[Sun May 26 13:24:17 2013] [debug] GET "/0/0/0/1/annotation/tst".
+[Sun May 26 13:24:17 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sun May 26 13:24:17 2013] [debug] Template "not_found.html.ep" not found.
+[Sun May 26 13:24:17 2013] [debug] Rendering inline template.
+[Sun May 26 13:24:17 2013] [debug] Rendering inline template.
+[Sun May 26 13:24:17 2013] [debug] 404 Not Found (0.010401s, 96.145/s).
+[Sun May 26 13:24:20 2013] [debug] GET "/0/0/0/1/annotation/testupload".
+[Sun May 26 13:24:20 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "testScreenshotUpload".
+[Sun May 26 13:24:20 2013] [debug] Rendering cached template "leaves/annotation/testupload.html.ep".
+[Sun May 26 13:24:20 2013] [debug] 200 OK (0.000837s, 1194.743/s).
+[Sun May 26 13:24:24 2013] [debug] POST "/0/0/0/1/annotation".
+[Sun May 26 13:24:24 2013] [debug] Routing to controller "AnnoTree::Leaves::Annotation" and action "annotationCreation".
+[Sun May 26 13:24:24 2013] [debug] annotationdir: /home/matt/Documents/AnnoTree/WebServices/anno_tree/public/img/screenshot/0/0/0/1
+[Sun May 26 13:24:24 2013] [debug] $VAR1 = '9_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR2 = '8_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR3 = '7_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR4 = '6_Screenshot_2013-05-22-23-11-37.png';
+
+$VAR5 = '5_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR6 = '4_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR7 = '3_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR8 = '2_Screenshot_2013-05-22-23-01-58.png';
+
+$VAR9 = '1_Screenshot_2013-05-22-23-02-15.png';
+
+$VAR10 = '..';
+
+$VAR11 = '.';
+
+[Sun May 26 13:24:24 2013] [debug] filename: 9_Screenshot_2013-05-22-23-01-58.png
+[Sun May 26 13:24:24 2013] [debug] annotationid: 10
+[Sun May 26 13:24:24 2013] [debug] not a screenshot
+[Sun May 26 13:24:24 2013] [debug] $VAR1 = bless( {
+                 'name' => 'screenshot',
+                 'asset' => bless( {
+                                     'path' => '/tmp/mojo.tmp',
+                                     'handle' => bless( \*Symbol::GEN58, 'IO::File' ),
+                                     'cleanup' => 1,
+                                     'tmpdir' => '/tmp'
+                                   }, 'Mojo::Asset::File' ),
+                 'filename' => 'Screenshot_2013-05-22-23-11-37.png',
+                 'headers' => bless( {
+                                       'state' => 'finished',
+                                       'cache' => [],
+                                       'max_line_size' => 10240,
+                                       'headers' => {
+                                                      'content-type' => [
+                                                                          [
+                                                                            'image/png'
+                                                                          ]
+                                                                        ],
+                                                      'content-disposition' => [
+                                                                                 [
+                                                                                   'form-data; name="screenshot"; filename="Screenshot_2013-05-22-23-11-37.png"'
+                                                                                 ]
+                                                                               ]
+                                                    }
+                                     }, 'Mojo::Headers' )
+               }, 'Mojo::Upload' );
+
+[Sun May 26 13:24:24 2013] [debug] 200 OK (0.000891s, 1122.334/s).

@@ -43,11 +43,19 @@ sub annotationCreation {
     # leaf - id, name, list of all annoations associated with leaf
     #my $annotationid = @files ? substr($files[0], 0, 1) + 1 : "0"; 
     my $annotationid = "0";
-    if ($files[0] =~ m/(\d+)_/) {
-        $annotationid = $1 + 1;
-    } 
+    foreach my $file (@files) {
+        $file =~ m/(\d+)_/;
+        my $id = $1;
+        $self->app->log->debug("id: $id");
+        if ($id > $annotationid) {
+            $annotationid = $id;
+        }
+    }
+    unless ($annotationid == 0) {
+        $annotationid += 1;
+    }
     #my $annotationid = @files ? $files[0] =~ m/(\d+)_/ : "0";   
-    $self->app->log->debug("filename: $files[0]");
+    #$self->app->log->debug("filename: $files[0]");
     $self->app->log->debug("annotationid: $annotationid");
     my $upload = $self->req->upload('screenshot');
 

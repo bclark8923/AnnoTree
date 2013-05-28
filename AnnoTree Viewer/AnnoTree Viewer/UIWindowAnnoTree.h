@@ -13,6 +13,7 @@
 }
 
 @property BOOL enabled;
+//@property UIInterfaceOrientation
 
 - (void)setButton:(UIButton*)button;
 

@@ -11,6 +11,7 @@
 #import "ToolbarBg.h"
 #import "ShareViewController.h"
 #import "AnnoTreeUserLaunchViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface AnnoTree ()
@@ -26,6 +27,7 @@
 @synthesize toolbarButtons;
 @synthesize toolbarObjects;
 @synthesize shareView;
+@synthesize supportedOrientation;
 @synthesize enabled;
 
 /* Temp */
@@ -55,6 +57,8 @@
         annoTreeWindow.hidden = NO;
         annoTreeWindow.backgroundColor = [UIColor clearColor];
         
+        supportedOrientation = UIInterfaceOrientationMaskAll;
+        
         /* Space between icons on toolbar */
         int space = 35.0;
         /* Size of toolbar icons */
@@ -70,7 +74,7 @@
         /* Gestures for anno tree */
         /* Gesture to open and close anno tree toolbar from logo */
         UITapGestureRecognizer *startStopAnnotationGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openCloseAnnoTree:)];
-        startStopAnnotationGesture.numberOfTapsRequired = 2;
+        startStopAnnotationGesture.numberOfTapsRequired = 1;
         
         /* Temp gesture to add text */
         addTextGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(addText:)];
@@ -172,9 +176,99 @@
 }
 
 -(IBAction)openShare:(UIButton*)button {
-    [UIView animateWithDuration:0.25 animations:^{
+    /*[UIView animateWithDuration:0.25 animations:^{
         shareView.view.center = CGPointMake(shareView.view.frame.size.width/2, shareView.view.frame.size.height/2);
-    }];
+    }];*/
+    
+    // create request
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    [request setHTTPShouldHandleCookies:NO];
+    [request setTimeoutInterval:30];
+    [request setHTTPMethod:@"POST"];
+    
+    
+    // set Content-Type in HTTP header
+    NSString* boundary = @"-";
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+    [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
+    
+    // post body
+    NSMutableData *body = [NSMutableData data];
+    
+    // add params (all params are strings)
+    /*for (NSString *param in _params) {
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", param] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"%@\r\n", [_params objectForKey:param]] dataUsingEncoding:NSUTF8StringEncoding]];
+    }*/
+    
+    // add image data
+    
+    UIImage *image = [self screenshot];
+    UIGraphicsEndImageContext();
+    NSData * imageData = UIImagePNGRepresentation(image);
+    //[data writeToFile:@"foo.png" atomically:YES];
+    
+    NSString* FileParamConstant = @"screenshot";
+    //NSData *imageData = UIImageJPEGRepresentation(imageToPost, 1.0);
+    if (imageData) {
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"screenshot.png\"\r\n", FileParamConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[@"Content-Type: image/png\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:imageData];
+        [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
+    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // setting the body of the post to the reqeust
+    [request setHTTPBody:body];
+    
+    // set the content-length
+    NSString *postLength = [NSString stringWithFormat:@"%d", [body length]];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    
+    // set URL
+    NSURL *requestURL = [NSURL URLWithString:@"http://ec2-23-21-25-49.compute-1.amazonaws.com:3000/0/0/0/0/annotation"];
+    [request setURL:requestURL];
+    
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    if( connection )
+    {
+        int i = 0;
+        i++;
+        //mutableData = [[NSMutableData alloc] init];
+    }
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    // Fail..
+    NSLog(@"error");
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    // Request performed.
+    NSLog(@"success");
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    // Request performed.
+    NSLog(@"response");
+    //NSLog([response textEncodingName]);
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    // Request performed.
+    NSLog(@"data recieved");
+    //NSLog(data);
+    //NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    //NSLog(responseBody);
 }
 
 -(IBAction)setSelectedButton:(UIButton*)button {
@@ -195,9 +289,9 @@
     [super viewDidLoad];
 }
 
-- (void) loadTree:(UIInterfaceOrientationMask)orientation
+- (void) loadTree:(NSUInteger)orientation
 {
-    
+    supportedOrientation = orientation;
 }
 
 /* Function to show AnnoTree window and place toolbar at correct location */
@@ -268,6 +362,64 @@
         textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         [self.view addSubview:textField];
     }*/
+}
+
+- (UIImage*)screenshot
+{
+    annoTreeToolbar.hidden = YES;
+    // Create a graphics context with the target size
+    // On iOS 4 and later, use UIGraphicsBeginImageContextWithOptions to take the scale into consideration
+    // On iOS prior to 4, fall back to use UIGraphicsBeginImageContext
+    CGSize imageSize = [[UIScreen mainScreen] bounds].size;
+    if (NULL != UIGraphicsBeginImageContextWithOptions)
+        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
+    else
+        UIGraphicsBeginImageContext(imageSize);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // Iterate over every window from back to front
+    for (UIWindow *window in [[UIApplication sharedApplication] windows])
+    {
+        if (![window respondsToSelector:@selector(screen)] || [window screen] == [UIScreen mainScreen])
+        {
+            // -renderInContext: renders in the coordinate space of the layer,
+            // so we must first apply the layer's geometry to the graphics context
+            CGContextSaveGState(context);
+            // Center the context around the window's anchor point
+            CGContextTranslateCTM(context, [window center].x, [window center].y);
+            // Apply the window's transform about the anchor point
+            CGContextConcatCTM(context, [window transform]);
+            // Offset by the portion of the bounds left of and above the anchor point
+            CGContextTranslateCTM(context,
+                                  -[window bounds].size.width * [[window layer] anchorPoint].x,
+                                  -[window bounds].size.height * [[window layer] anchorPoint].y);
+            
+            // Render the layer hierarchy to the current context
+            [[window layer] renderInContext:context];
+            
+            // Restore the context
+            CGContextRestoreGState(context);
+        }
+    }
+    
+    // Retrieve the screenshot image
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    annoTreeToolbar.hidden = NO;
+    return image;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return supportedOrientation;
+}
+
+- (BOOL)shouldAutorotate
+{
+    return !enabled;
 }
 
 - (void)didReceiveMemoryWarning

@@ -21,6 +21,7 @@
 @property (nonatomic, retain) NSMutableArray *toolbarButtons;
 @property (nonatomic, retain) NSMutableArray *toolbarObjects;
 @property (nonatomic, retain) ShareViewController *shareView;
+@property NSUInteger supportedOrientation;
 @property BOOL enabled;
 
 /* Temp */
@@ -31,8 +32,9 @@
 + (id)sharedInstance;
 
 // - (void)loadFingerDrawing;
+//- (id) initWithOrientation:(NSUInteger)orientation;
 
-- (void) loadTree:(UIInterfaceOrientationMask)orientation;
+- (void) loadTree:(NSUInteger)orientation;
 
 //- (UIView*)getAnnoTreeLauncher:(UIInterfaceOrientationMask)orientation;
 

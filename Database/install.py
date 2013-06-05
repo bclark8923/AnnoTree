@@ -30,4 +30,4 @@ for line in components.split("\n")[1:]:
   command = "mysql -u " + username + " --password=" + password + " annotree < " + line
   system(command)
   if DEBUG:
-    print 'running ' + command  
+    print 'Running: ' + command  

@@ -3,7 +3,7 @@
 -- -----------------------------------------------------
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=`TRADITIONAL`;
 
 DROP TABLE IF EXISTS `annotree`.`leaf_annotation` ;
 
@@ -11,6 +11,7 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`leaf_annotation` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `leaf_id` INT NULL ,
   `annotation_id` INT NULL ,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) ,
   INDEX `fk_leaf_annotation_1` (`annotation_id` ASC) ,
   INDEX `fk_leaf_annotation_2` (`leaf_id` ASC) ,

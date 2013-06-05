@@ -3,7 +3,7 @@
 -- -----------------------------------------------------
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=`TRADITIONAL`;
 
 DROP TABLE IF EXISTS `annotree`.`leaf_link` ;
 
@@ -11,6 +11,7 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`leaf_link` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `source` INT NULL ,
   `destination` INT NULL ,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) ,
   INDEX `fk_leafLink_1` (`source` ASC) ,
   INDEX `fk_leaf_link_2` (`destination` ASC) ,

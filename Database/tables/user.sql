@@ -12,7 +12,7 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`user` (
   `username` VARCHAR(45) NULL ,
   `first_name` VARCHAR(45) NULL ,
   `last_name` VARCHAR(45) NULL ,
-  `created_at` DATETIME NULL ,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `lang` VARCHAR(3) NULL ,
   `time_zone` VARCHAR(15) NULL ,
   `profile_image_path` VARCHAR(45) NULL ,

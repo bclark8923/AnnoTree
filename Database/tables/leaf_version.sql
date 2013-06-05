@@ -3,7 +3,7 @@
 -- -----------------------------------------------------
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=`TRADITIONAL`;
 
 DROP TABLE IF EXISTS `annotree`.`leaf_version` ;
 
@@ -14,6 +14,7 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`leaf_version` (
   `owner` INT NULL ,
   `assignee` INT NULL ,
   `project` INT NULL ,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `version` INT NOT NULL,
   PRIMARY KEY (`version`, `id`) ,
   INDEX `fk_leaf_1` (`project` ASC) ,

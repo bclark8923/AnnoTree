@@ -3,7 +3,7 @@
 -- -----------------------------------------------------
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=`TRADITIONAL`;
 
 DROP TABLE IF EXISTS `annotree`.`comment` ;
 
@@ -11,8 +11,8 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`comment` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `comment` VARCHAR(1024) NULL ,
   `user` INT NULL ,
-  `created_at` DATETIME NULL ,
-  `leaf` INT NULL ,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `leaf` INT NULL,
   PRIMARY KEY (`id`) ,
   INDEX `fk_comment_1` (`leaf` ASC) ,
   INDEX `fk_comment_2` (`user` ASC) ,

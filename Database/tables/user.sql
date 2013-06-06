@@ -9,9 +9,11 @@ DROP TABLE IF EXISTS `annotree`.`user` ;
 
 CREATE  TABLE IF NOT EXISTS `annotree`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(45) NULL ,
+  `username` VARCHAR(45),
+  `password` VARCHAR(40), 
   `first_name` VARCHAR(45) NULL ,
   `last_name` VARCHAR(45) NULL ,
+  `email` VARCHAR(255),
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `lang` VARCHAR(3) NULL ,
   `time_zone` VARCHAR(15) NULL ,

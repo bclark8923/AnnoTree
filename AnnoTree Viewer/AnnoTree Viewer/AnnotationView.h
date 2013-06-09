@@ -9,10 +9,18 @@
 #import <UIKit/UIKit.h>
 
 
-@interface MyLineDrawingView : UIView {
+@interface AnnotationView : UIView {
  
     UIBezierPath *myPath;
-    UIColor *brushPattern;
+    UIColor *drawColor;
+    UIColor *textColor;
+    NSMutableArray *drawings;
+    NSMutableArray *textBoxes;
 }
+
+@property BOOL drawingEnabled;
+@property BOOL textEnabled;
+
+-(void) clearAll;
 
 @end

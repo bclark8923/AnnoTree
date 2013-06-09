@@ -14,13 +14,40 @@
 
 @implementation AnnotationViewController
 
+@synthesize drawScreen;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        drawScreen = [[AnnotationView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
+        drawScreen.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
+        self.view = drawScreen;
     }
     return self;
+}
+
+-(void) setDrawingEnabled:(BOOL)enabled
+{
+    [drawScreen setDrawingEnabled:enabled];
+}
+
+-(void) setTextEnabled:(BOOL)enabled
+{
+    [drawScreen setTextEnabled:enabled];
+}
+
+-(void) clearAll
+{
+    [drawScreen clearAll];
+}
+
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
 }
 
 - (void)viewDidLoad

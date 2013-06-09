@@ -7,11 +7,16 @@
 //
 
 #import "AnnoTree.h"
-#import "MyLineDrawingView.h"
 #import "ToolbarBg.h"
 #import "ShareViewController.h"
-#import "AnnoTreeUserLaunchViewController.h"
+#import "AnnotationViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <OpenGLES/EAGL.h>
+#import <OpenGLES/EAGLDrawable.h>
+#import <OpenGLES/ES1/gl.h>
+#import <OpenGLES/ES1/glext.h>
+#import <OpenGLES/ES2/gl.h>
+#import <OpenGLES/ES2/glext.h>
 
 
 @interface AnnoTree ()
@@ -21,14 +26,23 @@
 @implementation AnnoTree
 
 @synthesize annoTreeWindow;
+@synthesize keyWindow;
 @synthesize openAnnoTreeButton;
 @synthesize annoTreeToolbar;
 @synthesize annotations;
 @synthesize toolbarButtons;
 @synthesize toolbarObjects;
 @synthesize shareView;
+@synthesize drawScreen;
+@synthesize annoTreeImageOpenView;
+@synthesize activeTree;
 @synthesize supportedOrientation;
 @synthesize enabled;
+@synthesize drawEnabled;
+@synthesize textEnabled;
+@synthesize selectEnabled;
+@synthesize textViewHeightHold;
+@synthesize keyboardHeight;
 
 /* Temp */
 @synthesize addTextGesture;
@@ -46,12 +60,14 @@
 - (id)init {
     self = [super init];
     if (self) {
-        NSLog(@"Initilaized AnnoTree");
         enabled = NO;
+        drawEnabled = YES;
+        textViewHeightHold = 0;
+        keyboardHeight = 0;
+        activeTree = @"-";
         
         /* Initiate the annotation window */
-        int max = [[UIScreen mainScreen] bounds].size.height;
-        annoTreeWindow = [[UIWindowAnnoTree alloc] initWithFrame:CGRectMake(0, 0, max, max)];
+        annoTreeWindow = [[UIWindowAnnoTree alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height)];
         annoTreeWindow.windowLevel = UIWindowLevelStatusBar;
         annoTreeWindow.rootViewController = self;
         annoTreeWindow.hidden = NO;
@@ -104,6 +120,7 @@
         [pencilIconToolbarButton setSelected:YES];
         [pencilIconToolbarButton setEnabled:NO];
         [pencilIconToolbarButton addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
+        [pencilIconToolbarButton addTarget:self action:@selector(enableDisableDrawing:) forControlEvents:UIControlEventTouchUpInside];
         pencilIconToolbarButton.hidden = YES;
         [annoTreeToolbar addSubview:pencilIconToolbarButton];
         [toolbarButtons addObject:pencilIconToolbarButton];
@@ -118,6 +135,7 @@
         [textIconToolbarButton setBackgroundImage:textIconImageSelected forState:UIControlStateHighlighted];
         [textIconToolbarButton setBackgroundImage:textIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
         [textIconToolbarButton addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
+        [textIconToolbarButton addTarget:self action:@selector(enableDisableText:) forControlEvents:UIControlEventTouchUpInside];
         textIconToolbarButton.hidden = YES;
         [annoTreeToolbar addSubview:textIconToolbarButton];
         [toolbarButtons addObject:textIconToolbarButton];
@@ -132,6 +150,7 @@
         [selectIconToolbarButton setBackgroundImage:selectIconImageSelected forState:UIControlStateHighlighted];
         [selectIconToolbarButton setBackgroundImage:selectIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
         [selectIconToolbarButton addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
+        [selectIconToolbarButton addTarget:self action:@selector(enableDisableSelect:) forControlEvents:UIControlEventTouchUpInside];
         selectIconToolbarButton.hidden = YES;
         [annoTreeToolbar addSubview:selectIconToolbarButton];
         [toolbarButtons addObject:selectIconToolbarButton];
@@ -150,7 +169,8 @@
         [toolbarButtons addObject:shareIconToolbarButton];
         
         /* Anno Tree Logo with open close functionality for toolbar*/
-        UIButton *annoTreeImageOpenView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, sizeIcon, sizeIcon)];
+        annoTreeImageOpenView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, sizeIcon, sizeIcon)];
+        annoTreeImageOpenView.alpha = 0.7;
         annoTreeImageOpenView.userInteractionEnabled = YES;
         UIImage *annoTreeImage = [UIImage imageNamed:@"AnnoTreeLogo.png"];
         [annoTreeImageOpenView setBackgroundImage:annoTreeImage forState:UIControlStateNormal];
@@ -171,8 +191,59 @@
         shareView.view.center = CGPointMake(shareView.view.frame.size.width/2, -shareView.view.frame.size.height*2);
         shareView.view.hidden = YES;
         [self.view addSubview:shareView.view];
+        
+        drawScreen = [[AnnotationViewController alloc] init];
+        //[annotations addObject:drawScreen.view];
+        drawEnabled = YES;
+        [drawScreen setDrawingEnabled:drawEnabled];
+        [self.view insertSubview:drawScreen.view belowSubview:annoTreeToolbar];
+        //[self addChildViewController:drawScreen];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+        
+        NSLog(@"Initialized AnnoTree");
     }
     return self;
+}
+
+- (void)keyboardWillShow:(NSNotification*)notification
+{
+    NSDictionary* info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    if (UIInterfaceOrientationIsLandscape([self interfaceOrientation])){
+        keyboardHeight = kbSize.width;
+    } else {
+        keyboardHeight = kbSize.height;
+    }
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    CGRect rect = textView.frame;
+    //NSLog(@"editing %f %f", [self.view bounds].size.height, rect.origin.y);
+    //NSLog(@"keyboard height %i", keyboardHeight);
+    if(rect.origin.y > [self.view bounds].size.height - keyboardHeight - 30) {
+        textViewHeightHold = rect.origin.y;
+        rect.origin.y = [self.view bounds].size.height - keyboardHeight - 30;
+        textView.frame = rect;
+    }
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    CGRect rect = textView.frame;
+    if(textViewHeightHold > 0) {
+        rect.origin.y = textViewHeightHold;
+        textView.frame = rect;
+    }
+    textViewHeightHold = 0;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    CGRect frame = textView.frame;
+    frame.size.height = textView.contentSize.height;
+    textView.frame = frame;
 }
 
 -(IBAction)openShare:(UIButton*)button {
@@ -194,7 +265,7 @@
     [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
     
     // post body
-    NSMutableData *body = [NSMutableData data];
+    //NSMutableData *body = [NSMutableData data];
     
     // add params (all params are strings)
     /*for (NSString *param in _params) {
@@ -207,6 +278,10 @@
     
     UIImage *image = [self screenshot];
     UIGraphicsEndImageContext();
+    
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+
+    /*
     NSData * imageData = UIImagePNGRepresentation(image);
     //[data writeToFile:@"foo.png" atomically:YES];
     
@@ -242,7 +317,7 @@
         //mutableData = [[NSMutableData alloc] init];
     }
     
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;*/
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
@@ -260,6 +335,7 @@
     // Request performed.
     NSLog(@"response");
     //NSLog([response textEncodingName]);
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
@@ -284,14 +360,61 @@
     button.enabled = NO;
 }
 
+-(IBAction)enableDisableDrawing:(UIButton*) button {
+    drawEnabled = YES;
+    textEnabled = NO;
+    selectEnabled = NO;
+    [drawScreen setDrawingEnabled:drawEnabled];
+    [drawScreen setTextEnabled:textEnabled];
+    //NSLog(@"Drawing enable disable");
+}
+
+-(IBAction)enableDisableText:(UIButton*) button {
+    drawEnabled = NO;
+    textEnabled = YES;
+    selectEnabled = NO;
+    [drawScreen setDrawingEnabled:drawEnabled];
+    [drawScreen setTextEnabled:textEnabled];
+    
+    //NSLog(@"Text enable disable");
+}
+
+-(IBAction)enableDisableSelect:(UIButton*) button {
+    drawEnabled = NO;
+    textEnabled = NO;
+    selectEnabled = YES;
+    [drawScreen setDrawingEnabled:drawEnabled];
+    [drawScreen setTextEnabled:textEnabled];
+    
+    //NSLog(@"Select enable disable");
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.drawScreen.view setAutoresizesSubviews:YES];
+    [self.drawScreen.view setAutoresizingMask:
+     UIViewAutoresizingFlexibleWidth |
+     UIViewAutoresizingFlexibleHeight];
+    
+    [self.view setAutoresizesSubviews:YES];
+    [self.view setAutoresizingMask:
+     UIViewAutoresizingFlexibleWidth |
+     UIViewAutoresizingFlexibleHeight];
+    
+    [self.view.superview setAutoresizesSubviews:YES];
+    [self.view.superview setAutoresizingMask:
+     UIViewAutoresizingFlexibleWidth |
+     UIViewAutoresizingFlexibleHeight];
 }
 
-- (void) loadTree:(NSUInteger)orientation
+- (void) loadAnnoTree:(NSUInteger)orientation  withTree:(NSString*)tree
 {
     supportedOrientation = orientation;
+    
+    
+    NSLog(@"Loaded AnnoTree with tree %@", tree);
 }
 
 /* Function to show AnnoTree window and place toolbar at correct location */
@@ -299,19 +422,33 @@
 - (void) openCloseAnnoTree:(UIGestureRecognizer*)gr
 {
     if(enabled) {
-        enabled = NO;
-        for( UIView* drawings in annotations) {
-            [drawings removeFromSuperview];
-        }
+        [drawScreen clearAll];
+        [annoTreeWindow resignKeyWindow];
+        [keyWindow makeKeyAndVisible];
+        annoTreeImageOpenView.alpha = 0.7;
     } else {
-        enabled = YES;
-        [self loadFingerDrawing];
+        keyWindow = [[UIApplication sharedApplication] keyWindow];
+        [annoTreeWindow makeKeyAndVisible];
+        annoTreeImageOpenView.alpha = 1.0;
     }
+    enabled = !enabled;
     
     for(UIView* view in toolbarObjects) {
         view.hidden = !enabled;
     }
     [annoTreeWindow setEnabled:enabled];
+}
+
+-(BOOL)textView:(UITextView *)_textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    [self adjustFrames:_textView];
+    return YES;
+}
+
+-(void) adjustFrames:(UITextView*)textView
+{
+    CGRect textFrame = textView.frame;
+    textFrame.size.width = textView.contentSize.width;
+    textView.frame = textFrame;
 }
 
 /* Function for dragging the toolbar */
@@ -329,39 +466,6 @@
 	// move open button and toolbar
 	annoTreeToolbar.center = CGPointMake(annoTreeToolbar.center.x + delta_x,
                                          annoTreeToolbar.center.y + delta_y);
-}
-
-/* Temp Function to load drawing with finger */
-- (void) loadFingerDrawing
-{
-    if(enabled) {
-        int max = [[UIScreen mainScreen] bounds].size.height;
-        MyLineDrawingView *drawScreen=[[MyLineDrawingView alloc]initWithFrame:CGRectMake(0, 0, max, max)];
-        [annotations addObject:drawScreen];
-        [self.view insertSubview:drawScreen belowSubview:annoTreeToolbar];
-    }
-}
-
-/* Temp Function to drop text on screen */
-- (void) addText:(UITapGestureRecognizer*)gr
-{
-    /*if (gr.state == UIGestureRecognizerStateBegan) {
-        CGPoint coords = [gr locationOfTouch:0 inView:self.view];
-        
-        float textboxWidth = 100;
-        float textboxHeight = 40;
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(coords.x-(textboxWidth/2), coords.y-(textboxHeight/2), textboxWidth, textboxHeight)];
-        
-        textField.borderStyle = UITextBorderStyleRoundedRect;
-        textField.font = [UIFont systemFontOfSize:15];
-        textField.placeholder = @"enter text";
-        textField.autocorrectionType = UITextAutocorrectionTypeNo;
-        textField.keyboardType = UIKeyboardTypeDefault;
-        textField.returnKeyType = UIReturnKeyDone;
-        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        [self.view addSubview:textField];
-    }*/
 }
 
 - (UIImage*)screenshot
@@ -396,20 +500,164 @@
                                   -[window bounds].size.height * [[window layer] anchorPoint].y);
             
             // Render the layer hierarchy to the current context
-            [[window layer] renderInContext:context];
-            
-            // Restore the context
-            CGContextRestoreGState(context);
+            /*for (EAGLView *glview in window)
+            {
+                CAEAGLLayer *eaglLayer = (CAEAGLLayer *) window.layer;
+                if(eaglLayer resp.drawableProperties) {
+                    eaglLayer.drawableProperties = @{
+                                                 kEAGLDrawablePropertyRetainedBacking: [NSNumber numberWithBool:YES],
+                                                 kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
+                                                 };
+                }
+             }*/
+            for (UIView *subview in window.subviews)
+            {
+                CAEAGLLayer *eaglLayer = (CAEAGLLayer *) subview.layer;
+                if([eaglLayer respondsToSelector:@selector(drawableProperties)]) {
+                    NSLog(@"reponds");
+                    /*eaglLayer.drawableProperties = @{
+                                                     kEAGLDrawablePropertyRetainedBacking: [NSNumber numberWithBool:YES],
+                                                     kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
+                                                     };*/
+                    //UIImageView *glImageView = [[UIImageView alloc] initWithImage:[self glToUIImage]];
+                    CGImageRef iref = [self snapshot:subview withContext:context];
+                    CGContextDrawImage(context, CGRectMake(0.0, 0.0, 640, 960), iref);
+
+                    //glImageView.transform = CGAffineTransformMakeScale(1, -1);
+                    //[glImageView.layer renderInContext:context];
+                }
+                
+                [[window layer] renderInContext:context];
+                
+                // Restore the context
+                CGContextRestoreGState(context);
+            }
         }
     }
     
     // Retrieve the screenshot image
+    //UIImage *GLimage = [self glToUIImage];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
     
     annoTreeToolbar.hidden = NO;
     return image;
+}
+
+- (CGImageRef)snapshot:(UIView*)eaglview withContext:(CGContextRef)cgcontext
+{
+    GLint backingWidth, backingHeight;
+    
+    // Bind the color renderbuffer used to render the OpenGL ES view
+    // If your application only creates a single color renderbuffer which is already bound at this point,
+    // this call is redundant, but it is needed if you're dealing with multiple renderbuffers.
+    // Note, replace "_colorRenderbuffer" with the actual name of the renderbuffer object defined in your class.
+    //glBindRenderbufferOES(GL_RENDERBUFFER_OES, _colorRenderbuffer);
+    //glGenRenderbuffersOES(1, &viewRenderbuffer);
+
+    
+    // Get the size of the backing CAEAGLLayer
+    glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
+    glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &backingHeight);
+    NSLog(@"%i %i", backingWidth, backingHeight);
+    
+    NSInteger x = 0, y = 0, width = backingWidth, height = backingHeight;
+    NSInteger dataLength = width * height * 4;
+    GLubyte *data = (GLubyte*)malloc(dataLength * sizeof(GLubyte));
+    
+    // Read pixel data from the framebuffer
+    glPixelStorei(GL_PACK_ALIGNMENT, 4);
+    glReadPixels(x, y, width, height, GL_RGBA, GL_UNSIGNED_BYTE, data);
+    
+    // Create a CGImage with the pixel data
+    // If your OpenGL ES content is opaque, use kCGImageAlphaNoneSkipLast to ignore the alpha channel
+    // otherwise, use kCGImageAlphaPremultipliedLast
+    CGDataProviderRef ref = CGDataProviderCreateWithData(NULL, data, dataLength, NULL);
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    CGImageRef iref = CGImageCreate(width, height, 8, 32, width * 4, colorspace, kCGBitmapByteOrder32Big | kCGImageAlphaPremultipliedLast,
+                                    ref, NULL, true, kCGRenderingIntentDefault);
+    
+    return iref;
+    /*
+    // OpenGL ES measures data in PIXELS
+    // Create a graphics context with the target size measured in POINTS
+    NSInteger widthInPoints, heightInPoints;
+    if (NULL != UIGraphicsBeginImageContextWithOptions) {
+        // On iOS 4 and later, use UIGraphicsBeginImageContextWithOptions to take the scale into consideration
+        // Set the scale parameter to your OpenGL ES view's contentScaleFactor
+        // so that you get a high-resolution snapshot when its value is greater than 1.0
+        CGFloat scale = eaglview.contentScaleFactor;
+        widthInPoints = width / scale;
+        heightInPoints = height / scale;
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(widthInPoints, heightInPoints), NO, scale);
+    }
+    else {
+        // On iOS prior to 4, fall back to use UIGraphicsBeginImageContext
+        widthInPoints = width;
+        heightInPoints = height;
+        UIGraphicsBeginImageContext(CGSizeMake(widthInPoints, heightInPoints));
+    }
+    
+    //CGContextRef cgcontext = UIGraphicsGetCurrentContext();
+    
+    // UIKit coordinate system is upside down to GL/Quartz coordinate system
+    // Flip the CGImage by rendering it to the flipped bitmap context
+    // The size of the destination area is measured in POINTS
+    CGContextSetBlendMode(cgcontext, kCGBlendModeCopy);
+    CGContextDrawImage(cgcontext, CGRectMake(0.0, 0.0, widthInPoints, heightInPoints), iref);
+    
+    // Retrieve the UIImage from the current context
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    // Clean up
+    free(data);
+    CFRelease(ref);
+    CFRelease(colorspace);
+    CGImageRelease(iref);
+    
+    return image;*/
+}
+
+-(UIImage *) glToUIImage {
+    int width = 320;//[self.view bounds].size.width;
+    int height = 480;//[self.view bounds].size.height;
+    NSInteger myDataLength = width * height * 4;
+    
+    // allocate array and read pixels into it.
+    GLubyte *buffer = (GLubyte *) malloc(myDataLength);
+    glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
+    
+    // gl renders "upside down" so swap top to bottom into new array.
+    // there's gotta be a better way, but this works.
+    GLubyte *buffer2 = (GLubyte *) malloc(myDataLength);
+    for(int y = 0; y < height; y++)
+    {
+        for(int x = 0; x < width * 4; x++)
+        {
+            buffer2[(height - 1 - y) * width * 4 + x] = buffer[y * 4 * width + x];
+        }
+    }
+    
+    // make data provider with data.
+    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, buffer2, myDataLength, NULL);
+    
+    // prep the ingredients
+    int bitsPerComponent = 8;
+    int bitsPerPixel = 32;
+    int bytesPerRow = 4 * width;
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
+    CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
+    
+    // make the cgimage
+    CGImageRef imageRef = CGImageCreate(width, height, bitsPerComponent, bitsPerPixel, bytesPerRow, colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
+    
+    // then make the uiimage from that
+    UIImage *myImage = [UIImage imageWithCGImage:imageRef];
+    return myImage;
 }
 
 - (NSUInteger)supportedInterfaceOrientations
@@ -420,6 +668,20 @@
 - (BOOL)shouldAutorotate
 {
     return !enabled;
+}
+
+-(void)didRotateInterfaceOrientation
+{
+    NSLog(@"rotated");
+}
+
+-(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    /*for (UIButton *toolbarButton in toolbarButtons) {
+        if([toolbarButton pointInside:[self convertPoint:point toView:toolbarButton] withEvent:event] ) {
+            return YES;
+        }
+    }*/
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning

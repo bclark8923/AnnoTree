@@ -27,6 +27,7 @@
 
     //Convert from Hex ;
     UIColor *bgColor = UIColorFromRGB(0x3F3F3F);
+    
     CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
     
     if ([bgColor respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
@@ -36,7 +37,7 @@
         red = components[0];
         green = components[1];
         blue = components[2];
-        alpha = components[3];
+        alpha = 0.6;//components[3];
     }
     
     CGContextSetRGBFillColor(ctx, red, green, blue, 1);

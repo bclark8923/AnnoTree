@@ -6,7 +6,7 @@ html, body {
 body {
   font-family:GeosansLightRegular, Helvetica, Arial, sans-serif;
   /*background: url('../img/gray-fabric-pattern-light.jpg') no-repeat center center fixed;*/
-  background-color: #fafafa;
+  background-color: #f4f4f4;/*#fafafa;*/
   -webkit-background-size: cover; /*for webKit*/
   -moz-background-size: cover; /*Mozilla*/
   -o-background-size: cover; /*opera*/
@@ -16,13 +16,13 @@ body {
 }
 
 .navbar {
-  width: 100%;
+  /*width: 100%;
   height: 45px;
   min-height: 45px;
   display: block;
-  margin: 0;
   margin-bottom: 20px;
-  background: #444444;
+  background: #444444;*/
+  margin: 0;
 }
 
 .navbar .logo {
@@ -58,22 +58,24 @@ body {
 	background-color: transparent;
   /*border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-bottom: 20px solid transparent;*/
-  border-top: 48px solid transparent;
-  margin-top: -65px;
+  border-bottom: 00px solid transparent;
+  border-top: 80px solid transparent;
+  margin-top: -85px;*/
+  border-top: 55px solid transparent;
+  margin-top: -55px;
 }
 
 #mainContent {
   height: 100%;
 	width:100%;
-	background-color: #eae6e1;
-  -moz-box-shadow: 0 0 10px #444;
+	background-color: #f4f4f4;/*#eae6e1;*/
+  /*-moz-box-shadow: 0 0 10px #444;
   -webkit-box-shadow: 0 0 10px #444;
-  box-shadow: 0 0 10px #444;
-}
-
-#treeOptions {
-
+  box-shadow: 0 0 10px #444;*/
+  /*border: 1px solid #888;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;*/
 }
 
 #trees {
@@ -83,37 +85,42 @@ body {
 }
 
 .cardHolder {
-  margin: 20px;
-	width: 200px;
+  margin: 20px 0;
+	width: 100%;
+  text-align: center;
 }
 
 .card {
   text-align: center;
-	width: 200px;
-	height: 250px;
-	background-color: #f7f8f5;
+	width: 175px; /* 200px */
+	height: 225px; /* 250px */
+	background-color: white; /*#f7f8f5;*/
   color: #444444;
+  -moz-box-shadow: 0 0 5px #444;
+  -webkit-box-shadow: 0 0 5px #444;
+  box-shadow: 0 0 5px #444;
+  margin: 0 auto;
 }
 
 .cardTitleBar {
   background-color: #aff19a;
-  height: 40px;
-  font-size: 20pt;
+  height: 30px;
+  font-size: 16pt;
 }
 
 .treeLogo {
-  height: 110px;
+  height: 90px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .leaf {
-  height: 210px;
+  height: 185px;
 }
 
 .leafImage {
-  max-height: 200px;
-  max-width: 190px;
+  max-height: 175px;
+  max-width: 165px;
 }
 
 .newCard {
@@ -150,6 +157,9 @@ body {
   width: 20%;
   float: right;
   height: 100%;
+  /*-webkit-border-radius: 0px 15px 15px 0px;
+  -moz-border-radius: 0px 15px 15px 0px;
+  border-radius: 0px 15px 15px 0px;*/
 }
 
 .actionBar {

@@ -33,6 +33,8 @@
 @property BOOL selectEnabled;
 @property int textViewHeightHold;
 @property int keyboardHeight;
+@property GLuint colorRenderbuffer;
+
 
 /* Temp */
 @property (nonatomic, retain) UILongPressGestureRecognizer *addTextGesture;

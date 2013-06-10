@@ -43,6 +43,7 @@
 @synthesize selectEnabled;
 @synthesize textViewHeightHold;
 @synthesize keyboardHeight;
+@synthesize colorRenderbuffer;
 
 /* Temp */
 @synthesize addTextGesture;
@@ -102,7 +103,7 @@
         annoTreeToolbar.userInteractionEnabled = YES;
         
         /* rectangle background for toolbar */
-        ToolbarBg *toolbarBg = [[ToolbarBg alloc] initWithFrame:CGRectMake(0,sizeIcon/2, sizeIcon, space*5)];
+        ToolbarBg *toolbarBg = [[ToolbarBg alloc] initWithFrame:CGRectMake(0,sizeIcon/2, sizeIcon, space*4)];
         toolbarBg.hidden = YES;
         toolbarBg.backgroundColor = [UIColor clearColor];
         [annoTreeToolbar addSubview:toolbarBg];
@@ -141,7 +142,7 @@
         [toolbarButtons addObject:textIconToolbarButton];
         
         /* Select Icon for toolbar */
-        UIButton *selectIconToolbarButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        /*UIButton *selectIconToolbarButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [selectIconToolbarButton setFrame:CGRectMake(0,space*3, sizeIcon, sizeIcon)];
         selectIconToolbarButton.userInteractionEnabled = YES;
         UIImage *selectIconImage = [UIImage imageNamed:@"SelectIconToolbar.png"];
@@ -153,11 +154,11 @@
         [selectIconToolbarButton addTarget:self action:@selector(enableDisableSelect:) forControlEvents:UIControlEventTouchUpInside];
         selectIconToolbarButton.hidden = YES;
         [annoTreeToolbar addSubview:selectIconToolbarButton];
-        [toolbarButtons addObject:selectIconToolbarButton];
+        [toolbarButtons addObject:selectIconToolbarButton];*/
         
         /* Share Icon for toolbar */
         UIButton *shareIconToolbarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [shareIconToolbarButton setFrame:CGRectMake(0,space*4, sizeIcon, sizeIcon)];
+        [shareIconToolbarButton setFrame:CGRectMake(0,space*3, sizeIcon, sizeIcon)];
         shareIconToolbarButton.userInteractionEnabled = YES;
         UIImage *shareIconImage = [UIImage imageNamed:@"ShareIconToolbar.png"];
         UIImage *shareIconImageSelected = [UIImage imageNamed:@"ShareIconToolbarSelected.png"];
@@ -485,8 +486,8 @@
     // Iterate over every window from back to front
     for (UIWindow *window in [[UIApplication sharedApplication] windows])
     {
-        if (![window respondsToSelector:@selector(screen)] || [window screen] == [UIScreen mainScreen])
-        {
+        /*if (![window respondsToSelector:@selector(screen)] || [window screen] == [UIScreen mainScreen])
+        {*/
             // -renderInContext: renders in the coordinate space of the layer,
             // so we must first apply the layer's geometry to the graphics context
             CGContextSaveGState(context);
@@ -520,12 +521,12 @@
                                                      kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
                                                      };*/
                     UIImageView *glImageView = [[UIImageView alloc] initWithImage:[self snapshotx:subview]];
-                    //UIImageView *glImageView = [[UIImageView alloc] initWithImage:[self glToUIImage]];
+                    glImageView.transform = CGAffineTransformMakeScale(1, -1);
+                    [glImageView.layer renderInContext:context];
+                    
                     //CGImageRef iref = [self snapshot:subview withContext:context];
                     //CGContextDrawImage(context, CGRectMake(0.0, 0.0, 640, 960), iref);
 
-                    glImageView.transform = CGAffineTransformMakeScale(1, -1);
-                    [glImageView.layer renderInContext:context];
                 }
                 
                 [[window layer] renderInContext:context];
@@ -533,7 +534,7 @@
                 // Restore the context
                 CGContextRestoreGState(context);
             }
-        }
+        //}
     }
     
     // Retrieve the screenshot image
@@ -549,6 +550,8 @@
 - (CGImageRef)snapshot:(UIView*)eaglview withContext:(CGContextRef)cgcontext
 {
     GLint backingWidth, backingHeight;
+    EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES1];
+
     
     // Bind the color renderbuffer used to render the OpenGL ES view
     // If your application only creates a single color renderbuffer which is already bound at this point,
@@ -556,7 +559,9 @@
     // Note, replace "_colorRenderbuffer" with the actual name of the renderbuffer object defined in your class.
     //glBindRenderbufferOES(GL_RENDERBUFFER_OES, _colorRenderbuffer);
     //glGenRenderbuffersOES(1, &viewRenderbuffer);
-
+    glGenRenderbuffers(1, &colorRenderbuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, colorRenderbuffer);
+    [context renderbufferStorage:GL_RENDERBUFFER fromDrawable:(CAEAGLLayer *)eaglview.layer];
     
     // Get the size of the backing CAEAGLLayer
     glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
@@ -625,13 +630,9 @@
 - (UIImage*)snapshotx:(UIView*)eaglview
 {
 	GLint backingWidth, backingHeight;
-    
-	// Bind the color renderbuffer used to render the OpenGL ES view
-	// If your application only creates a single color renderbuffer which is already bound at this point,
-	// this call is redundant, but it is needed if you're dealing with multiple renderbuffers.
-	// Note, replace "_colorRenderbuffer" with the actual name of the renderbuffer object defined in your class.
-    // In Cocos2D the render-buffer is already binded (and it's a private property...).
-    //	glBindRenderbufferOES(GL_RENDERBUFFER_OES, _colorRenderbuffer);
+
+    //glBindRenderbufferOES(GL_RENDERBUFFER_OES, _colorRenderbuffer);
+    //don't know how to access the renderbuffer if i can't directly access the below code
     
 	// Get the size of the backing CAEAGLLayer
 	glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
@@ -706,45 +707,6 @@
 	CGImageRelease(iref);
     
 	return image;
-}
-
--(UIImage *) glToUIImage {
-    int width = 320;//[self.view bounds].size.width;
-    int height = 480;//[self.view bounds].size.height;
-    NSInteger myDataLength = width * height * 4;
-    
-    // allocate array and read pixels into it.
-    GLubyte *buffer = (GLubyte *) malloc(myDataLength);
-    glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
-    
-    // gl renders "upside down" so swap top to bottom into new array.
-    // there's gotta be a better way, but this works.
-    GLubyte *buffer2 = (GLubyte *) malloc(myDataLength);
-    for(int y = 0; y < height; y++)
-    {
-        for(int x = 0; x < width * 4; x++)
-        {
-            buffer2[(height - 1 - y) * width * 4 + x] = buffer[y * 4 * width + x];
-        }
-    }
-    
-    // make data provider with data.
-    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, buffer2, myDataLength, NULL);
-    
-    // prep the ingredients
-    int bitsPerComponent = 8;
-    int bitsPerPixel = 32;
-    int bytesPerRow = 4 * width;
-    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-    CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
-    CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
-    
-    // make the cgimage
-    CGImageRef imageRef = CGImageCreate(width, height, bitsPerComponent, bitsPerPixel, bytesPerRow, colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
-    
-    // then make the uiimage from that
-    UIImage *myImage = [UIImage imageWithCGImage:imageRef];
-    return myImage;
 }
 
 - (NSUInteger)supportedInterfaceOrientations

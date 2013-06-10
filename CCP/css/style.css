@@ -1,0 +1,307 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family:GeosansLightRegular, Helvetica, Arial, sans-serif;
+  /*background: url('../img/gray-fabric-pattern-light.jpg') no-repeat center center fixed;*/
+  background-color: #fafafa;
+  -webkit-background-size: cover; /*for webKit*/
+  -moz-background-size: cover; /*Mozilla*/
+  -o-background-size: cover; /*opera*/
+  background-size: cover; /*generic*/
+  height: 100%;
+  width: 100%;
+}
+
+.navbar {
+  width: 100%;
+  height: 45px;
+  min-height: 45px;
+  display: block;
+  margin: 0;
+  margin-bottom: 20px;
+  background: #444444;
+}
+
+.navbar .logo {
+  height: 38px;
+  line-height: 38px;
+}
+
+.navbar ul li > a {
+  height: 45px;
+}
+
+#annoTreeLogo {
+  height: 38px;
+}
+
+#userIcon {
+  border: 2px solid; 
+  height:40px;
+  margin-top:3px;
+}
+
+.navbar li .dropdown ul > li a {
+  background-color: gray;
+}
+
+.navbar li .dropdown ul > li a:hover {
+  background-color: darkgray;
+}
+
+#scaffold {
+  height: 100%;
+	width:100%;
+	background-color: transparent;
+  /*border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid transparent;*/
+  border-top: 48px solid transparent;
+  margin-top: -65px;
+}
+
+#mainContent {
+  height: 100%;
+	width:100%;
+	background-color: #eae6e1;
+  -moz-box-shadow: 0 0 10px #444;
+  -webkit-box-shadow: 0 0 10px #444;
+  box-shadow: 0 0 10px #444;
+}
+
+#treeOptions {
+
+}
+
+#trees {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+.cardHolder {
+  margin: 20px;
+	width: 200px;
+}
+
+.card {
+  text-align: center;
+	width: 200px;
+	height: 250px;
+	background-color: #f7f8f5;
+  color: #444444;
+}
+
+.cardTitleBar {
+  background-color: #aff19a;
+  height: 40px;
+  font-size: 20pt;
+}
+
+.treeLogo {
+  height: 110px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.leaf {
+  height: 210px;
+}
+
+.leafImage {
+  max-height: 200px;
+  max-width: 190px;
+}
+
+.newCard {
+  text-align: center;
+	width: 80px;
+	height: 80px;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: fixed;
+	background-color: #f7f8f5;
+}
+
+.newCardTitleBar {
+  background-color: #cff2b5;
+  height: 20px;
+  font-size: 10pt;
+}
+
+.newCardLogo {
+  color: #d3d4d2;
+  font-size: 150px;
+}
+
+#treeElements {
+  height: 100%;
+  width: 80%;
+  overflow: auto;
+  float: left;
+}
+
+#options {
+  background-color: #444444;
+  width: 20%;
+  float: right;
+  height: 100%;
+}
+
+.actionBar {
+	height: 70px;
+ 	border-bottom: 1px solid black;
+}
+
+.actionBarButton {
+	float: left;
+	width:33.3%;
+	height:100%;
+}
+
+.actionBarIcon {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+}
+
+.settingsIcon {
+	position: absolute;
+	left: 30px;
+	bottom: 10px;
+	margin-left:auto;
+	margin-right: auto;
+}
+
+.rightText {
+	color: white;
+  font-family:GeosansLightRegular, Helvetica, Arial, sans-serif;
+	float: left;
+	margin-top: 30px;
+  margin-left: 20px;
+}
+
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.toDo {
+	color: white;
+	float: left;
+  margin-left: 20px;
+}
+
+.todoHolder {
+  overflow: auto;
+  height: 100%;
+  width; 100%;.
+}
+
+/*
+.rightBarWrapper {
+	height:100%;
+	width:100%;
+}
+
+.wrapper {
+	width:100%;
+}
+
+.leftBar {
+	float:left;
+	width:5%;
+	height:100%;
+	background-color:#444444;
+	-moz-box-shadow: inset -5px -5px 5px #888;
+	-webkit-box-shadow: inset -5px -5px 5px #888;
+	box-shadow: inset -5px -5px 5px #888;
+}
+
+.rightBar {
+	float:right;
+	width:15%;
+	height:100%;
+	background-color:#444444;
+	-moz-box-shadow: -5px -5px 5px #888;
+	-webkit-box-shadow: -5px -5px 5px #888;
+	box-shadow: -5px -5px 5px #888;
+}
+
+.actionBar {
+	height: 70px;
+ 	border-bottom: 1px solid black;
+}
+
+.actionBarButton {
+	float: left;
+	width:33.3%;
+	height:100%;
+}
+
+.actionBarIcon {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+}
+
+.settingsIcon {
+	position: absolute;
+	left: 30px;
+	bottom: 10px;
+	margin-left:auto;
+	margin-right: auto;
+}
+
+.middleContent {
+	margin-left: 20%;
+}
+
+.annotation {
+	margin-top: 5%;
+	width: 300px;
+	height: 300px;
+	background-color: #f7f8f5;
+}
+
+.annotationLabel {
+	margin-left: 5px;
+	font-family:GeosansLightRegular, Helvetica, Arial, sans-serif; 
+}
+
+.titleBar {
+	height: 10%;
+	background-color: #b3ef88;
+	text-align: center;
+	font-family:GeosansLightRegular, Helvetica, Arial, sans-serif; 
+}
+
+.annotationImage {
+	width: auto;
+	height: 200px;
+	background-color: #b3ef88;
+	margin-left: 30px;
+}
+
+.rightText {
+	color: white;
+	float: left;
+	margin-top: 30px;
+}
+
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.toDo {
+	color: white;
+	float: left;
+}
+*/

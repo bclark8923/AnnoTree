@@ -234,6 +234,17 @@ body {
   width; 100%;.
 }
 
+@media only screen and (max-width: 767px) {
+  #treeElements {
+    width: 100%;
+  }
+  
+  #options {
+    width: 100%;
+    display: none;
+  }
+}
+
 /*
 .rightBarWrapper {
 	height:100%;

@@ -27,15 +27,27 @@ body {
 
 .navbar .logo {
   height: 38px;
-  line-height: 38px;
+  line-height: 24px;
 }
 
 .navbar ul li > a {
   height: 45px;
 }
+.ccpRow {
+  max-width: 100%;
+  padding-top: 5px;
+}
 
 #annoTreeLogo {
   height: 38px;
+}
+
+.userLink {
+  color: white;
+}
+
+.userLink:hover {
+  color: white;
 }
 
 #userIcon {
@@ -92,18 +104,23 @@ body {
 
 .card {
   text-align: center;
-	width: 175px; /* 200px */
-	height: 225px; /* 250px */
+	width: 195px; /* 200px */
+	height: 245px; /* 250px */
 	background-color: white; /*#f7f8f5;*/
   color: #444444;
   -moz-box-shadow: 0 0 5px #444;
   -webkit-box-shadow: 0 0 5px #444;
   box-shadow: 0 0 5px #444;
   margin: 0 auto;
+  border: 10px solid white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
 }
 
 .cardTitleBar {
   background-color: #aff19a;
+  color: #444;
   height: 30px;
   font-size: 16pt;
 }
@@ -112,6 +129,10 @@ body {
   height: 90px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.cardLabel {
+	color: #444 
 }
 
 .leaf {
@@ -280,10 +301,7 @@ body {
 	background-color: #f7f8f5;
 }
 
-.annotationLabel {
-	margin-left: 5px;
-	font-family:GeosansLightRegular, Helvetica, Arial, sans-serif; 
-}
+
 
 .titleBar {
 	height: 10%;

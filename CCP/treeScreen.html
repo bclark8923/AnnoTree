@@ -13,9 +13,11 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
  
+  <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/gumby.css">
   <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.3.custom.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="fonts/geosanslight/stylesheet.css">
   <link rel="shortcut icon" href="favicon.ico" />
 
@@ -28,7 +30,7 @@
 
 <body>
   <div id="wrapper" style="height:100%;width:100%;">
-    <div class="navbar pretty" id="nav1">
+    <div class="navbar" id="nav1">
       <div class="row ccpRow">
         <div class="push_six two columns">
           <h1 class="logo">
@@ -45,118 +47,125 @@
     <div id="scaffold">
 
       <div id="mainContent">
-        <div id="treeElements">
-          <div class="twelve colgrid">
-            <div class="row">
-              <div class="one columns">
-                <div class="newCard">
-                  <div class="newCardTitleBar valign"><div>New Element</div></div>
-                  <div class="newCardLogo">+</div>
+        <div id="treeContainer">
+          <div id="treeHeader" class="valign">
+            <div>
+              <a href="forestScreen.html">Home</a> > AnnoTree
+            </div>
+            <div id="newElementHolder">
+              <div id="newElementButton" class="pretty medium success btn"><button><i class="icon-ne icon-plus-sign"></i> New Element</button></div>
+            </div>
+          </div>
+          <div id="treeElements">
+            <div class="twelve colgrid treeBG">
+              <div class="row">
+                <div class="four columns">
+                  <div class="cardHolder">
+                    <div class="card">
+                      <a href="leafScreen.html">
+                        <div class="cardTitleBar valign"><div>Leaf 01</div></div>
+                        <div class="leaf valign">
+                          <div>
+                            <img class="leafImage" src="img/leaf01.png" gumby-retina />
+                          </div>
+                        </div> 
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="four columns">
+                  <div class="cardHolder">
+                    <div class="card">
+                      <a href="leafScreen.html">
+                        <div class="cardTitleBar valign"><div>Leaf 02</div></div>
+                        <div class="leaf valign">
+                          <div>
+                            <img class="leafImage" src="img/leaf02.png" gumby-retina />
+                          </div>
+                        </div> 
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="four columns">
+                  <div class="cardHolder">
+                    <div class="card">
+                      <a href="leafScreen.html">
+                        <div class="cardTitleBar valign"><div>Leaf 01</div></div>
+                        <div class="leaf valign">
+                          <div>
+                            <img class="leafImage" src="img/leaf01.png" gumby-retina />
+                          </div>
+                        </div> 
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="eleven columns">
-                <div class="twelve colgrid">
-                  <div class="row">
-                    <div class="four columns">
-                      <div class="cardHolder">
-                          <div class="card">
-                            <a href="leafScreen.html">
-                              <div class="cardTitleBar valign"><div>Leaf 01</div></div>
-                              <div class="leaf valign">
-                                <div>
-                                  <img class="leafImage" src="img/leaf01.png" gumby-retina />
-                                </div>
-                              </div> 
-                            </a>
+              <div class="row">
+                <div class="four columns">
+                  <div class="cardHolder">
+                    <div class="card">
+                      <a href="leafScreen.html">
+                        <div class="cardTitleBar valign"><div>Leaf 01</div></div>
+                        <div class="leaf valign">
+                          <div>
+                            <img class="leafImage" src="img/leaf01.png" gumby-retina />
                           </div>
-                      </div>
-                    </div>
-                    <div class="four columns">
-                      <div class="cardHolder">
-                        <div class="card">
-                          <a href="leafScreen.html">
-                            <div class="cardTitleBar valign"><div>Leaf 02</div></div>
-                            <div class="leaf valign">
-                              <div>
-                                <img class="leafImage" src="img/leaf02.png" gumby-retina />
-                              </div>
-                            </div> 
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="four columns">
-                      <div class="cardHolder">
-                        <div class="card">
-                          <a href="leafScreen.html">
-                            <div class="cardTitleBar valign"><div>Leaf 01</div></div>
-                            <div class="leaf valign">
-                              <div>
-                                <img class="leafImage" src="img/leaf01.png" gumby-retina />
-                              </div>
-                            </div> 
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="four columns">
-                      <div class="cardHolder">
-                        <div class="card">
-                          <a href="leafScreen.html">
-                            <div class="cardTitleBar valign"><div>Leaf 01</div></div>
-                            <div class="leaf valign">
-                              <div>
-                                <img class="leafImage" src="img/leaf01.png" gumby-retina />
-                              </div>
-                            </div> 
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="four columns">
-                      <div class="cardHolder">
-                        <div class="card">
-                          <a href="leafScreen.html">
-                            <div class="cardTitleBar valign"><div>Leaf 01</div></div>
-                            <div class="leaf valign">
-                              <div>
-                                <img class="leafImage" src="img/leaf01.png" gumby-retina />
-                              </div>
-                            </div> 
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="four columns">
-                      <div class="cardHolder">
-                        <div class="card">
-                          <a href="leafScreen.html">
-                            <div class="cardTitleBar valign"><div>Leaf 01</div></div>
-                            <div class="leaf valign">
-                              <div>
-                                <img class="leafImage" src="img/leaf01.png" gumby-retina />
-                              </div>
-                            </div> 
-                          </a>
-                        </div>
-                      </div>
+                        </div> 
+                      </a>
                     </div>
                   </div>
                 </div>
-              </div> <!-- end fourteen -->
-            </div> <!-- end row -->
-          </div> <!-- end sixteen -->
-        </div> <!-- end trees -->
+                <div class="four columns">
+                  <div class="cardHolder">
+                    <div class="card">
+                      <a href="leafScreen.html">
+                        <div class="cardTitleBar valign"><div>Leaf 01</div></div>
+                        <div class="leaf valign">
+                          <div>
+                            <img class="leafImage" src="img/leaf01.png" gumby-retina />
+                          </div>
+                        </div> 
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="four columns">
+                  <div class="cardHolder">
+                    <div class="card">
+                      <a href="leafScreen.html">
+                        <div class="cardTitleBar valign"><div>Leaf 01</div></div>
+                        <div class="leaf valign">
+                          <div>
+                            <img class="leafImage" src="img/leaf01.png" gumby-retina />
+                          </div>
+                        </div> 
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- end sixteen -->
+          </div> <!-- end trees -->
+        </div>
         <div id="options" ng-controller="RightCtrl">
           <div class="actionBar">
-            <div class="wrapper">
-              <span class="actionBarButton"><img class="actionBarIcon" src="img/Tasks.png"></span>
-              <span class="actionBarButton"><img class="actionBarIcon" src="img/Comments.png"></span>
-              <span class="actionBarButton"><img class="actionBarIcon" style="margin-top:10px;" src="img/cog.png"></span>
+            <div class="actionWrapper">
+            <h2 class="taskHeader">Task List</h2>
+            <!--
+              <span class="actionBarButton">
+                <i class="icon-fa icon-tasks"></i>
+              </span>
+              <span class="actionBarButton">
+                <i class="icon-fa icon-comments-alt"></i>
+              </span>
+              <span class="actionBarButton">
+                <i class="icon-fa icon-leaf"></i>
+              </span>
+              -->
             </div>
-            <h2 class="rightText">To Do List</h2>
+            <!-- <h2 class="rightText">Task List</h2> -->
             <div class="toDo">
               <span>{{remaining()}} of {{todos.length}} remaining</span>
               [ <a href="" ng-click="archive()">archive</a> ]
@@ -167,7 +176,7 @@
                 </li>
               </ul>
               <form ng-submit="addTodo()">
-                <input type="text" ng-model="todoText"  size="30"
+                <input class="taskInput" type="text" ng-model="todoText"  size="30"
                        placeholder="add new todo here">
                 <input class="btn-primary" type="submit" value="add">
               </form>

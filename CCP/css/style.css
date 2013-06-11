@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-  font-family:GeosansLightRegular, Helvetica, Arial, sans-serif;
+  font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif;
   /*background: url('../img/gray-fabric-pattern-light.jpg') no-repeat center center fixed;*/
   background-color: #f4f4f4;/*#fafafa;*/
   -webkit-background-size: cover; /*for webKit*/
@@ -13,6 +13,10 @@ body {
   background-size: cover; /*generic*/
   height: 100%;
   width: 100%;
+}
+
+a {
+  color: #84db69;
 }
 
 .navbar {
@@ -81,6 +85,7 @@ body {
   height: 100%;
 	width:100%;
 	background-color: #f4f4f4;/*#eae6e1;*/
+  padding: 30px;
   /*-moz-box-shadow: 0 0 10px #444;
   -webkit-box-shadow: 0 0 10px #444;
   box-shadow: 0 0 10px #444;*/
@@ -94,6 +99,11 @@ body {
   height: 100%;
   width: 100%;
   overflow: auto;
+  border-top: 50px solid transparent;
+  margin-top: -50px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 .cardHolder {
@@ -104,25 +114,32 @@ body {
 
 .card {
   text-align: center;
-	width: 195px; /* 200px */
+	max-width: 195px; /* 200px */
 	height: 245px; /* 250px */
-	background-color: white; /*#f7f8f5;*/
+	background-color: /*white;*/ #f7f8f5;
   color: #444444;
-  -moz-box-shadow: 0 0 5px #444;
+  /*-moz-box-shadow: 0 0 5px #444;
   -webkit-box-shadow: 0 0 5px #444;
-  box-shadow: 0 0 5px #444;
+  box-shadow: 0 0 5px #444;*/
   margin: 0 auto;
-  border: 10px solid white;
+  /*border: 10px solid white;*/
+  border: 1px solid  #bbb; /*#aff19a;*/
+  /*border: 3px solid  #84db69;*/ /*#aff19a;*/
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
 }
 
 .cardTitleBar {
-  background-color: #aff19a;
+  background-color: #84db69; /*#aff19a;*/
   color: #444;
   height: 30px;
   font-size: 16pt;
+  background-image: linear-gradient(#aff19a, #84db69);
+  background-image: -webkit-linear-gradient(top, #aff19a, #84db69);
+  border-radius: 5px 5px 0px 0px;
+  -webkit-border-radius: 5px 5px 0px 0px;
+  -moz-border-radius: 5px 5px 0px 0px;
 }
 
 .treeLogo {
@@ -132,66 +149,113 @@ body {
 }
 
 .cardLabel {
-	color: #444 
+	color: #444;
+  padding: 5px;
 }
 
 .leaf {
-  height: 185px;
+  height: 210px;
 }
 
 .leafImage {
   max-height: 175px;
-  max-width: 165px;
+  max-width: 155px;
 }
 
-.newCard {
-  text-align: center;
-	width: 80px;
-	height: 80px;
-  margin-top: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
-  position: fixed;
-	background-color: #f7f8f5;
+#forestContainer {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #bbb;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: white;
 }
 
-.newCardTitleBar {
-  background-color: #cff2b5;
-  height: 20px;
-  font-size: 10pt;
+#treeContainer {
+  height: 100%;
+  width: 77%;
+  float: left;
+  border: 1px solid #bbb;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: white;
 }
 
-.newCardLogo {
-  color: #d3d4d2;
-  font-size: 150px;
+#treeHeader {
+  height:50px;
+  background-color:black;
+  border-bottom: 1px solid #bbb;
+  background-image: linear-gradient(#ffffff, #f7f7f7);
+  background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7);
+  -webkit-border-radius: 5px 5px 0px 0px;
+  -moz-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
+  padding-left: 20px;
+  font-size: 14pt;
+}
+
+#newElementHolder {
+  text-align: right;
+  padding-right: 10px;
+}
+
+#newElementButton {
+  font-size: 9pt;
+  height: 30px;
 }
 
 #treeElements {
   height: 100%;
-  width: 80%;
+  width: 100%;
   overflow: auto;
-  float: left;
+  border-top: 50px solid transparent;
+  margin-top: -50px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.treeBG {
+  background-color: white;
 }
 
 #options {
-  background-color: #444444;
+  background-color: white;/*#444444;*/
   width: 20%;
   float: right;
   height: 100%;
+  border: 1px solid #bbb;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
   /*-webkit-border-radius: 0px 15px 15px 0px;
   -moz-border-radius: 0px 15px 15px 0px;
   border-radius: 0px 15px 15px 0px;*/
 }
 
 .actionBar {
-	height: 70px;
- 	border-bottom: 1px solid black;
+	height: 50px;
+ 	border-bottom: 1px solid #bbb;
+  background-image: linear-gradient(#ffffff, #f7f7f7);
+  background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7);
+  -webkit-border-radius: 5px 5px 0px 0px;
+  -moz-border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.actionWrapper {
+  height: 100%;
 }
 
 .actionBarButton {
 	float: left;
 	width:33.3%;
 	height:100%;
+  font-size: 20pt;
+  color: #84db69;/*#bbb;*/
+  margin: 0 auto;
 }
 
 .actionBarIcon {
@@ -199,6 +263,28 @@ body {
 	margin-right: auto;
 	margin-left: auto;
 	margin-top: 10px;
+  height: 25px;
+}
+
+i[class^="icon-"] {
+  font-family: FontAwesome;
+}
+
+i[class^="icon-fa"] {
+  margin: 0 auto;
+  display: block;
+  margin-top: 10px;
+  font-family: FontAwesome;
+}
+
+i[class^="icon-ne"] {
+  width: 10px;
+  min-width: 10px;
+  margin-left: 0;
+}
+
+i.icon-leaf:before {
+  content: "\f06c";
 }
 
 .settingsIcon {
@@ -209,10 +295,19 @@ body {
 	margin-right: auto;
 }
 
-.rightText {
-	color: white;
-  font-family:GeosansLightRegular, Helvetica, Arial, sans-serif;
+.taskHeader {
+  text-align: center;
+  width: 100%;
+	color: #444;
+  font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif;
 	float: left;
+  font-size: 20pt;
+}
+.rightText {
+	color: #444;
+  font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif;
+	float: left;
+  font-size: 20pt;
 	margin-top: 30px;
   margin-left: 20px;
 }
@@ -223,9 +318,10 @@ body {
 }
 
 .toDo {
-	color: white;
-	float: left;
-  margin-left: 20px;
+	color: #444;
+  width: 100%;
+  padding: 10px;
+  font-size: 10pt;
 }
 
 .todoHolder {
@@ -234,7 +330,26 @@ body {
   width; 100%;.
 }
 
+.taskInput {
+  width: 100%;
+}
+
+#singleLeafHolder {
+  text-align: center;
+  height: 100%;
+}
+
+.singleLeafImage {
+  max-height: 80%;
+  max-width: 80%;
+}
+
 @media only screen and (max-width: 767px) {
+  
+  #treeContainer {
+    width: 100%;
+  }
+  
   #treeElements {
     width: 100%;
   }

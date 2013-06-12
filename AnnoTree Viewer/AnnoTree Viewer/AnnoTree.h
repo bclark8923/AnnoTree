@@ -9,31 +9,38 @@
 #import <UIKit/UIKit.h>
 #import "ShareViewController.h"
 #import "UIWindowAnnoTree.h"
+#import "AnnotationViewController.h"
 
 @interface AnnoTree : UIViewController {
     //UIWindow *AnnoTreeWindow;
 }
 
 @property (nonatomic, retain) UIWindowAnnoTree *annoTreeWindow;
+@property (nonatomic, retain) UIWindow *keyWindow;
 @property (nonatomic, retain) UIButton *openAnnoTreeButton;
 @property (nonatomic, retain) UIView *annoTreeToolbar;
 @property (nonatomic, retain) NSMutableArray *annotations;
 @property (nonatomic, retain) NSMutableArray *toolbarButtons;
 @property (nonatomic, retain) NSMutableArray *toolbarObjects;
 @property (nonatomic, retain) ShareViewController *shareView;
+@property (nonatomic, retain) AnnotationViewController *drawScreen;
+@property (nonatomic, retain) UIButton *annoTreeImageOpenView;
+@property (nonatomic, retain) NSString *activeTree;
+@property NSUInteger supportedOrientation;
 @property BOOL enabled;
+@property BOOL drawEnabled;
+@property BOOL textEnabled;
+@property BOOL selectEnabled;
+@property int textViewHeightHold;
+@property int keyboardHeight;
+@property GLuint colorRenderbuffer;
+
 
 /* Temp */
 @property (nonatomic, retain) UILongPressGestureRecognizer *addTextGesture;
 
-//+ (AnnoTree *)instance;
-
 + (id)sharedInstance;
 
-// - (void)loadFingerDrawing;
-
-- (void) loadTree:(UIInterfaceOrientationMask)orientation;
-
-//- (UIView*)getAnnoTreeLauncher:(UIInterfaceOrientationMask)orientation;
+- (void) loadAnnoTree:(NSUInteger)orientation withTree:(NSString*)tree;
 
 @end

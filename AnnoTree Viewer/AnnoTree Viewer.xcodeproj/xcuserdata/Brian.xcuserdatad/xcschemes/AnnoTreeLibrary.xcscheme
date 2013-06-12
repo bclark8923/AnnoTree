@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D321648A172C18B500573823"
-               BuildableName = "libAnnoTreeLibrary.a"
-               BlueprintName = "AnnoTreeLibrary"
+               BuildableName = "libAnnoTree.a"
+               BlueprintName = "AnnoTree"
                ReferencedContainer = "container:AnnoTree Viewer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D3216498172C18B600573823"
-               BuildableName = "AnnoTreeLibraryTests.octest"
-               BlueprintName = "AnnoTreeLibraryTests"
+               BuildableName = "AnnoTreeTests.octest"
+               BlueprintName = "AnnoTreeTests"
                ReferencedContainer = "container:AnnoTree Viewer.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -172,4 +172,10 @@ static const CGFloat kAddressHeight = 26.0f;
     [alertView show];
 }
 
+
+- (BOOL)shouldAutorotate
+{
+    return [[AnnoTree sharedInstance] shouldAutorotate];
+}
+
 @end

@@ -25,8 +25,9 @@
 {
     CGContextRef ctx = UIGraphicsGetCurrentContext();
 
-    //double color = 63/255;
+    //Convert from Hex ;
     UIColor *bgColor = UIColorFromRGB(0x3F3F3F);
+    
     CGFloat red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
     
     if ([bgColor respondsToSelector:@selector(getRed:green:blue:alpha:)]) {
@@ -36,11 +37,15 @@
         red = components[0];
         green = components[1];
         blue = components[2];
-        alpha = components[3];
+        alpha = 0.6;//components[3];
     }
     
-    CGContextSetRGBFillColor(ctx, red, green, blue, 1);// 3
+    CGContextSetRGBFillColor(ctx, red, green, blue, 1);
+    
+    /* Draw the rectangle toolbar background */
     CGContextFillRect (ctx, CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height-(rect.size.width/2)));
+    
+    /* Draw the circle at the bottom of the toolbar */
     CGContextAddEllipseInRect(ctx, CGRectMake(rect.origin.x, rect.size.height-(rect.size.width), rect.size.width, rect.size.width));
     CGContextFillPath(ctx);
 }

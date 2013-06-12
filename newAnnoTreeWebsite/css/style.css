@@ -28,7 +28,7 @@ p {
 }
 
 .navLinks > a {
-  color:#84db69;
+  color:#82BF56;
 }
 
 .navLinks > a:hover {
@@ -37,7 +37,6 @@ p {
 
 .navLinks {
   text-align:center;
-  font-weight: bold;
 }
 
 #content {

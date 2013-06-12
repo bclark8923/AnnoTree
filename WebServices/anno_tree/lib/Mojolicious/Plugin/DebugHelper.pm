@@ -1,4 +1,4 @@
-package AnnoTree::Plugin::DebugHelper;
+package Mojolicious::Plugin::DebugHelper;
 
 use Mojo::Base 'Mojolicious::Plugin';
 

@@ -4,10 +4,16 @@ use Mojo::Base 'Mojolicious';
 # file upload size limit - 5MB
 $ENV{MOJO_MAX_MESSAGE_SIZE} = 5242880;
 
+
 # This method will run once at server start
 sub startup {
     my $self = shift;
-
+    
+    # secret passphrase for sessions
+    $self->secret('protect the ANN0T33$ before THEY g3t T@k3n');
+    
+    # load the plugins
+    $self->plugin('DebugHelper');
     # Documentation browser under "/perldoc"
     #$self->plugin('PODRenderer');
 

@@ -206,6 +206,11 @@ a {
   height: 30px;
 }
 
+#newElementLink {
+  padding: 0;
+  color: white;
+}
+
 #treeElements {
   height: 100%;
   width: 100%;
@@ -235,7 +240,7 @@ a {
   border-radius: 0px 15px 15px 0px;*/
 }
 
-.actionBar {
+#actionHeader {
 	height: 50px;
  	border-bottom: 1px solid #bbb;
   background-image: linear-gradient(#ffffff, #f7f7f7);
@@ -245,8 +250,15 @@ a {
   border-radius: 5px 5px 0px 0px;
 }
 
-.actionWrapper {
+#actionContent {
+	color: #444;
+  width: 100%;
+  padding: 10px;
+  font-size: 10pt;
   height: 100%;
+  overflow: auto;
+  border-top: 50px solid transparent;
+  margin-top: -50px;
 }
 
 .actionBarButton {
@@ -256,14 +268,6 @@ a {
   font-size: 20pt;
   color: #84db69;/*#bbb;*/
   margin: 0 auto;
-}
-
-.actionBarIcon {
-	display: block;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: 10px;
-  height: 25px;
 }
 
 i[class^="icon-"] {
@@ -300,9 +304,9 @@ i.icon-leaf:before {
   width: 100%;
 	color: #444;
   font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif;
-	float: left;
   font-size: 20pt;
 }
+
 .rightText {
 	color: #444;
   font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif;
@@ -315,13 +319,6 @@ i.icon-leaf:before {
 .done-true {
   text-decoration: line-through;
   color: grey;
-}
-
-.toDo {
-	color: #444;
-  width: 100%;
-  padding: 10px;
-  font-size: 10pt;
 }
 
 .todoHolder {

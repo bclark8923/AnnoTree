@@ -29,6 +29,19 @@
 
 
 <body>
+  <div class="modal" id="newLeafModal">
+    <div class="content">
+      <a class="close switch" gumby-trigger="|#modal1"><i class="icon-cancel"></i></a>
+      <div class="row">
+        <div class="ten columns centered center-text">
+          <h2>This is a modal.</h2>
+          <p>Gumby modals are easy to make using Toggles &amp; Switches. The <span class="label default">.modal</span> class already has the required styles which you can open and close using Toggles &amp; Switches.</p>
+
+          <p class="btn primary medium"><a href="#" class="switch active" gumby-trigger="|#newLeafModal">Close Modal</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
   <div id="wrapper" style="height:100%;width:100%;">
     <div class="navbar" id="nav1">
       <div class="row ccpRow">
@@ -53,7 +66,13 @@
               <a href="forestScreen.html">Home</a> > AnnoTree
             </div>
             <div id="newElementHolder">
-              <div id="newElementButton" class="pretty medium success btn"><button><i class="icon-ne icon-plus-sign"></i> New Element</button></div>
+              <div id="newElementButton" class="pretty medium success btn">
+                <button>
+                  <a id="newElementLink" href="#" class="switch active" gumby-trigger="#newLeafModal">
+                    <i class="icon-ne icon-plus-sign"></i> New Leaf
+                  </a>
+                </button>
+              </div>
             </div>
           </div>
           <div id="treeElements">
@@ -150,37 +169,34 @@
           </div> <!-- end trees -->
         </div>
         <div id="options" ng-controller="RightCtrl">
-          <div class="actionBar">
-            <div class="actionWrapper">
-            <h2 class="taskHeader">Task List</h2>
+          <div id="actionHeader" class="valign">
+            <div class="taskHeader">Task List</div>
             <!--
-              <span class="actionBarButton">
-                <i class="icon-fa icon-tasks"></i>
-              </span>
-              <span class="actionBarButton">
-                <i class="icon-fa icon-comments-alt"></i>
-              </span>
-              <span class="actionBarButton">
-                <i class="icon-fa icon-leaf"></i>
-              </span>
-              -->
-            </div>
-            <!-- <h2 class="rightText">Task List</h2> -->
-            <div class="toDo">
-              <span>{{remaining()}} of {{todos.length}} remaining</span>
-              [ <a href="" ng-click="archive()">archive</a> ]
-              <ul class="unstyled">
-                <li ng-repeat="todo in todos">
-                  <input type="checkbox" ng-model="todo.done">
-                  <span class="done-{{todo.done}}">{{todo.text}}</span>
-                </li>
-              </ul>
-              <form ng-submit="addTodo()">
-                <input class="taskInput" type="text" ng-model="todoText"  size="30"
-                       placeholder="add new todo here">
-                <input class="btn-primary" type="submit" value="add">
-              </form>
-            </div>
+            <span class="actionBarButton">
+              <i class="icon-fa icon-tasks"></i>
+            </span>
+            <span class="actionBarButton">
+              <i class="icon-fa icon-comments-alt"></i>
+            </span>
+            <span class="actionBarButton">
+              <i class="icon-fa icon-leaf"></i>
+            </span>
+            -->
+          </div>
+          <div id="actionContent">
+            <span>{{remaining()}} of {{todos.length}} remaining</span>
+            [ <a href="" ng-click="archive()">archive</a> ]
+            <ul class="unstyled">
+              <li ng-repeat="todo in todos">
+                <input type="checkbox" ng-model="todo.done">
+                <span class="done-{{todo.done}}">{{todo.text}}</span>
+              </li>
+            </ul>
+            <form ng-submit="addTodo()">
+              <input class="taskInput" type="text" ng-model="todoText"  size="30"
+                     placeholder="add new todo here">
+              <input class="btn-primary" type="submit" value="add">
+            </form>
           </div>
         </div>
       </div>

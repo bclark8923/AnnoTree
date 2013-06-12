@@ -52,9 +52,7 @@
             <div>
               <a href="forestScreen.html">Home</a> > <a href="treeScreen.html">AnnoTree</a> > Leaf 01
             </div>
-            <div id="newElementHolder">
-              <div id="newElementButton" class="pretty medium success btn"><button><i class="icon-ne icon-plus-sign"></i> New Element</button></div>
-            </div>
+            
           </div>
           <div id="treeElements" class="valign">
             <div id="singleLeafHolder">
@@ -63,37 +61,28 @@
           </div> <!-- end trees -->
         </div>
         <div id="options" ng-controller="RightCtrl">
-          <div class="actionBar">
-            <div class="actionWrapper">
-            <h2 class="taskHeader">Task List</h2>
+          <div id="actionHeader" class="valign">
+            <div class="taskHeader">Task List</div>
             <!--
-              <span class="actionBarButton">
-                <i class="icon-fa icon-tasks"></i>
-              </span>
-              <span class="actionBarButton">
-                <i class="icon-fa icon-comments-alt"></i>
-              </span>
-              <span class="actionBarButton">
-                <i class="icon-fa icon-leaf"></i>
-              </span>
-              -->
-            </div>
-            <!-- <h2 class="rightText">Task List</h2> -->
-            <div class="toDo">
-              <span>{{remaining()}} of {{todos.length}} remaining</span>
-              [ <a href="" ng-click="archive()">archive</a> ]
-              <ul class="unstyled">
-                <li ng-repeat="todo in todos">
-                  <input type="checkbox" ng-model="todo.done">
-                  <span class="done-{{todo.done}}">{{todo.text}}</span>
-                </li>
-              </ul>
-              <form ng-submit="addTodo()">
-                <input class="taskInput" type="text" ng-model="todoText"  size="30"
-                       placeholder="add new todo here">
-                <input class="btn-primary" type="submit" value="add">
-              </form>
-            </div>
+            <span class="actionBarButton">
+              <i class="icon-fa icon-tasks"></i>
+            </span>
+            <span class="actionBarButton">
+              <i class="icon-fa icon-comments-alt"></i>
+            </span>
+            <span class="actionBarButton">
+              <i class="icon-fa icon-leaf"></i>
+            </span>
+            -->
+          </div>
+          <div id="actionContent">
+            <div class="medium btn pill-left default"><a href="#">Pill Left</a></div>
+            <div class="medium btn pill-right default"><a href="#">Pill Left</a></div>
+            Mine <i class="icon-down-circled"></i> <br/>
+            
+            All v <br/>
+            
+            Completed v
           </div>
         </div>
       </div>

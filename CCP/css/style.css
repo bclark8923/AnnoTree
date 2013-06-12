@@ -347,6 +347,9 @@ i.icon-leaf:before {
   margin-top: 10px;
 }
 
+.btn.taskSelectButtons {
+}
+
 .btn.taskSelectButtons.active {
   background-color: #bbb;
   border: 1px solid #bbb;

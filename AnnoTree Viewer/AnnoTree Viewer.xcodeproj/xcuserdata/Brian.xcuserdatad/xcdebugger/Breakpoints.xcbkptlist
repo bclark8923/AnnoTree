@@ -169,8 +169,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "350"
          endingLineNumber = "350"
-         landmarkName = "-setSelectedButton:"
-         landmarkType = "5">
+         landmarkName = "@implementation AnnoTree"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"

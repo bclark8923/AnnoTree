@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D3180C24176184B300A6B8E0"
-               BuildableName = "AnnoTreeResources.bundle"
+               BuildableName = "AnnoTree.bundle"
                BlueprintName = "AnnoTreeResources"
                ReferencedContainer = "container:AnnoTree Viewer.xcodeproj">
             </BuildableReference>

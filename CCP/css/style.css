@@ -344,7 +344,15 @@ i.icon-leaf:before {
 }
 
 #tasks {
-  margin-top: 10px;
+  margin-top: 0px;
+}
+
+.linkColor {
+  color: #444;
+}
+
+.linkColor:hover {
+  color: #444;
 }
 
 .btn.taskSelectButtons {
@@ -353,6 +361,24 @@ i.icon-leaf:before {
 .btn.taskSelectButtons.active {
   background-color: #bbb;
   border: 1px solid #bbb;
+}
+
+.taskHeader > p {
+  font-size: 20pt;
+  margin-bottom: 0;
+}
+
+.taskListHeadText {
+  float: left;
+  width: 80%;
+  text-align: left;
+  padding-left: 10px;
+}
+
+taskListHeadLink {
+  float: right;
+  width: 20%;
+  text-align: right;
 }
 
 .taskSelectButtonLinks {
@@ -387,6 +413,15 @@ i.icon-leaf:before {
   float:right;
   width:20%;
   margin-bottom: 0;
+}
+
+.taskGroupingIcon > .icon-chevron-sign-down.active:before {
+  content: "\f139";
+}
+
+.smallTaskLabel {
+  background-color: #84db69;
+  font-family: 'Lato';
 }
 
 .taskGrouping:not(:last-child) {

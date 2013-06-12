@@ -1,0 +1,120 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Lato:300);
+/*
+We highly recommend you use SASS and write your custom styles in sass/_custom.scss.
+However, this blank file is available if you prefer
+*/
+
+body, p {
+  font-family: 'Lato', 'Open Sans';
+}
+
+p {
+  font-size: 15pt;
+}
+
+.navbar {
+  background: white;
+  color: #888;
+  margin-bottom: 0px;
+}
+
+.navbar > .row {
+  height: 60px;
+}
+
+.navbar > .row > div {
+  height: 100%;
+}
+
+.navLinks > a {
+  color:#84db69;
+}
+
+.navLinks > a:hover {
+  color:#aff19a;
+}
+
+.navLinks {
+  text-align:center;
+}
+
+#content {
+  margin-top: 0px;
+}
+
+#mainTitle {
+  background: url('../img/bgImage-blur3.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100%;
+  height: 700px;
+  text-align: center;
+}
+
+#titleContent > div {
+  height: 70px;
+}
+
+#titleContent > div > span {
+  background-color: #444;
+  color: white;
+  opacity: 0.8;
+  font-size: 30pt;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+
+.homeScreenModal {
+  max-width: 500px;
+}
+
+.sectionHeaderText {
+  padding-top:20px;
+  text-align:center;
+  font-size:40pt;
+}
+
+#why {
+  padding-top: 200px;
+  height: 800px;
+}
+
+.pageParagraphs {
+  font-size: 15pt;
+}
+
+#product {
+  padding-top: 200px;
+  min-height: 1100px;
+  background-color: #eee;
+  font-size: 15pt;
+}
+
+.iPhoneScrenshot {
+  max-height: 375px;
+  max-width: 375px;
+}
+
+#contact {
+  padding-top: 200px;
+  height: 700px;
+  background-color: #aff19a;
+}
+
+.contactInfo {
+  text-align: center;
+}
+
+#footer {
+  background-color: #444;
+  height: 100px;
+  color: white;
+  text-align: center;
+}
+
+.footerText {
+  font-size: 10pt;
+}

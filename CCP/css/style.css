@@ -376,12 +376,14 @@ i.icon-leaf:before {
 .taskGroupingHeader {
   float:left;
   width:80%;
+  margin-bottom: 0;
 }
 
 .taskGroupingIcon {
   text-align:right;
   float:right;
   width:20%;
+  margin-bottom: 0;
 }
 
 .taskGrouping:not(:last-child) {

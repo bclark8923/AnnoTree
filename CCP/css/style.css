@@ -15,6 +15,10 @@ body {
   width: 100%;
 }
 
+p {
+  font-family: 'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif;
+}
+
 a {
   color: #84db69;
 }
@@ -211,6 +215,14 @@ a {
   color: white;
 }
 
+.btn.pretty.success {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #aff19a), color-stop(100%, #84db69));
+  background-image: -webkit-linear-gradient(#aff19a, #84db69);
+  background-image: -moz-linear-gradient(#aff19a, #84db69);
+  background-image: -o-linear-gradient(#aff19a, #84db69);
+  background-image: -webkit-linear-gradient(top, #aff19a, #84db69);
+}
+
 #treeElements {
   height: 100%;
   width: 100%;
@@ -327,8 +339,53 @@ i.icon-leaf:before {
   width; 100%;.
 }
 
-.taskInput {
-  width: 100%;
+#taskSelect {
+  text-align: center;
+}
+
+#tasks {
+  margin-top: 10px;
+}
+
+.btn.taskSelectButtons.active {
+  background-color: #bbb;
+  border: 1px solid #bbb;
+}
+
+.taskSelectButtonLinks {
+  width: 70px;
+  font-size: 8pt;
+  font-family: 'Lato', GeosansLightRegular, Helvetica, Arial, sans-serif;
+}
+
+.taskToggle {
+  color: #444;
+}
+
+.taskToggle:hover {
+  color: #444;
+}
+
+.taskList {
+  background: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.taskGroupingHeader {
+  float:left;
+  width:80%;
+}
+
+.taskGroupingIcon {
+  text-align:right;
+  float:right;
+  width:20%;
+}
+
+.taskGrouping:not(:last-child) {
+  border-bottom: 1px solid #bbb;
 }
 
 #singleLeafHolder {

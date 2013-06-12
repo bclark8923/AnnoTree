@@ -184,19 +184,82 @@
             -->
           </div>
           <div id="actionContent">
-            <span>{{remaining()}} of {{todos.length}} remaining</span>
-            [ <a href="" ng-click="archive()">archive</a> ]
-            <ul class="unstyled">
-              <li ng-repeat="todo in todos">
-                <input type="checkbox" ng-model="todo.done">
-                <span class="done-{{todo.done}}">{{todo.text}}</span>
-              </li>
-            </ul>
-            <form ng-submit="addTodo()">
-              <input class="taskInput" type="text" ng-model="todoText"  size="30"
-                     placeholder="add new todo here">
-              <input class="btn-primary" type="submit" value="add">
-            </form>
+            <div id="taskSelect">
+              <div id="allTasks" class="taskSelectButtons small btn pill-left info active">
+                <a href="#" class="taskSelectButtonLinks toggle" gumby-trigger="#allTasks | #elementTasks">All</a>
+              </div>
+              <div id="elementTasks" class="taskSelectButtons small btn pill-right info">
+                <a href="#" class="taskSelectButtonLinks toggle" gumby-trigger="#elementTasks | #allTasks">Element</a>
+              </div>
+            </div>
+            <div id="tasks">
+              <div id="myTasks" class="taskGrouping">
+                <a href="#" class="toggle taskToggle" gumby-trigger="#myTaskTasks">
+                  <p class="taskGroupingHeader">My Tasks</p>
+                  <p class="taskGroupingIcon"><i class="icon-chevron-sign-down"></i></p>
+                </a>
+                <div class="drawer taskList" id="myTaskTasks">
+                  <ul>
+                    <li>
+                      <input type="checkbox">
+                      <span>Build Annotree iOS library</span>
+                    </li>
+                    <li>
+                      <input type="checkbox">
+                      <span>Build Annotree iOS library</span>
+                    </li>
+                    <li>
+                      <input type="checkbox">
+                      <span>Build Annotree iOS library</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="otherTasks" class="taskGrouping">
+                <a href="#" class="toggle taskToggle" gumby-trigger="#otherTaskTasks">
+                  <p class="taskGroupingHeader">Other Tasks</p>
+                  <p class="taskGroupingIcon"><i class="icon-chevron-sign-down"></i></p>
+                </a>
+                <div class="drawer taskList" id="otherTaskTasks">
+                  <ul>
+                    <li>
+                      <input type="checkbox">
+                      <span>Build Annotree iOS library</span>
+                    </li>
+                    <li>
+                      <input type="checkbox">
+                      <span>Build Annotree iOS library</span>
+                    </li>
+                    <li>
+                      <input type="checkbox">
+                      <span>Build Annotree iOS library</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="completedTasks" class="taskGrouping">
+                <a href="#" class="toggle taskToggle" gumby-trigger="#completedTaskTasks">
+                  <p class="taskGroupingHeader">Completed Tasks</p>
+                  <p class="taskGroupingIcon"><i class="icon-chevron-sign-down"></i></p>
+                </a>
+                <div class="drawer taskList" id="completedTaskTasks">
+                  <ul>
+                    <li>
+                      <input type="checkbox">
+                      <span>Build Annotree iOS library</span>
+                    </li>
+                    <li>
+                      <input type="checkbox">
+                      <span>Build Annotree iOS library</span>
+                    </li>
+                    <li>
+                      <input type="checkbox">
+                      <span>Build Annotree iOS library</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

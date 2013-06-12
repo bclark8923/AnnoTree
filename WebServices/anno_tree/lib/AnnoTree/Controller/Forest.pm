@@ -1,7 +1,7 @@
-package AnnoTree::Forest;
+package AnnoTree::Controller::Forest;
 
 use Mojo::Base 'Mojolicious::Controller';
-use AnnoTree::ForestModel;
+use AnnoTree::Model::Forest;
 
 # placeholder data for forests until I build the DB
 =begin placeholderData
@@ -31,12 +31,13 @@ my $forests = {
 sub list {
     my $self = shift;
     
-    my $model = AnnoTree::ForestModel::getAllForests($self);
+    my $model = AnnoTree::Model::Forest::getAllForests($self);
 
     #$self->debug($self->dumper($forests));
     $self->debug($self->dumper($model));
 
     $self->render(json => $model);
+    #$self->render(text => "hello");
 }
 
 sub unique {
@@ -46,8 +47,14 @@ sub unique {
 
     $self->debug("before go id is $id");
     
-    my $model = AnnoTree::ForestModel::getUniqueForest($self, $id);
+    my $model = AnnoTree::Model::Forest::getUniqueForest($self, $id);
     $self->render(json => $model);
 }
 
+# temporary route to test forest creation
+sub testCreate {
+    my $self = shift;
+
+    $self->render(template => 'forest/testcreate');
+}
 return 1;

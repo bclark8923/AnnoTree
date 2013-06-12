@@ -1,4 +1,4 @@
-package AnnoTree::Tree;
+package AnnoTree::Controller::Tree;
 
 use Mojo::Base 'Mojolicious::Controller';
 
@@ -82,7 +82,7 @@ sub list {
     my $numTrees = scalar @{$trees[$forestid]};
     my $treeRef = $trees[$forestid];
     
-    $self->render(name => 'list', format => 'json', treeRef => $treeRef);
+    $self->render(template => 'tree/list', format => 'json', treeRef => $treeRef);
 }
 
 return 1;

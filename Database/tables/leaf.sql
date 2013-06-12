@@ -13,15 +13,15 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`leaf` (
   `comment` VARCHAR(1024) NULL ,
   `owner` INT NULL ,
   `assignee` INT NULL ,
-  `project` INT NULL ,
+  `tree_id` INT NULL ,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_leaf_1` (`project` ASC) ,
-  INDEX `fk_leaf_2` (`assignee` ASC) ,
-  INDEX `fk_leaf_3` (`owner` ASC) ,
+  INDEX `fk_leaf_1` (`tree_id` ASC),
+  INDEX `fk_leaf_2` (`assignee` ASC),
+  INDEX `fk_leaf_3` (`owner` ASC),
   CONSTRAINT `fk_leaf_1`
-    FOREIGN KEY (`project` )
-    REFERENCES `annotree`.`project` (`id` )
+    FOREIGN KEY (`tree_id` )
+    REFERENCES `annotree`.`tree` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_leaf_2`

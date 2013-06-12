@@ -1,4 +1,4 @@
-package AnnoTree::ForestModel;
+package AnnoTree::Model::Forest;
 
 use EV;
 use DBIx::Custom;
@@ -12,12 +12,18 @@ my $dbi = DBIx::Custom->connect(
     password    => 'ann0tr33s'
 );
 
-# need to make this async but that can come later
+# need to make this fully async but that can come later
+$dbi->async_conf({
+    prepare_attr    => {async => 1},
+    fh              => sub {shift->dbh->mysql_fd}
+});
+
+# grabs all of the forests from the DB
 sub getAllForests {
     my $self = shift;
     
     my $result = $dbi->execute(
-        "select id, name, description from forest"
+        "select id, name, description, created_at from forest"
     );
     my $count = 0;
     my $forests = {};
@@ -25,6 +31,7 @@ sub getAllForests {
         $forests->{forests}->[$count]->{id} = $res->[0];
         $forests->{forests}->[$count]->{name} = $res->[1];
         $forests->{forests}->[$count]->{description} = $res->[2];
+        $forests->{forests}->[$count]->{created} = $res->[3];
         $count++;
     }
     #$self->debug($count);
@@ -32,25 +39,16 @@ sub getAllForests {
     $self->debug($self->dumper($forests));
     
     return $forests;
-=begin comment
-    # start of async stuff
-    my $result = $dbi->select(
-        ['name'],
-        table   => 'forest'
-    );
-    $self->app->log->debug(Dumper($result->fetch));
-    $self->app->log->debug(Dumper($result->fetch));
-=end comment
-=cut
 }
 
+# gets an individual forest's info from the DB
 sub getUniqueForest {
     my ($self, $id) = @_;
     
     $self->debug("id is $id");
 
     my $result = $dbi->execute(
-        "select id, name, description from forest where id = :pid",
+        "select id, name, description, created_at from forest where id = :pid",
         {pid => $id}
     );
     
@@ -59,6 +57,7 @@ sub getUniqueForest {
     $forest->{id} = $res->[0];
     $forest->{name} = $res->[1];
     $forest->{description} = $res->[2];
+    $forest->{created} = $res->[3];
     $self->debug($self->dumper($res));
     $self->debug($self->dumper($forest));
     

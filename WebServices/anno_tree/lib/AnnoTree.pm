@@ -20,15 +20,14 @@ sub startup {
     # Router
     my $r = $self->routes;
 
-    # Normal route to controller
-    $r->get('/')->to('example#welcome');
-    
     # ===== FORESTS =====
-    $r->get('/forest')->to('forest#list');
-    $r->get('/forest/:id' => [id => qr/\d+/])->to('forest#unique');
+    $r->get('/forest')->to('controller-forest#list');
+    $r->get('/forest/:id' => [id => qr/\d+/])->to('controller-forest#unique');
+    $r->get('/forest/create')->to('controller-forest#testCreate');
+    $r->post('/forest')->to('controller-forest#create');
 
     # ===== TREES =====
-    $r->get('/:forestid/tree' => [forestid => qr/\d+/])->to('tree#list');
+    $r->get('/:forestid/tree' => [forestid => qr/\d+/])->to('controller-tree#list');
 
     # ===== BRANCHES =====
     $r->get('/:forestid/:treeid/branch' => [forestid => qr/\d+/, treeid => qr/\d+/])->to('branch#list');

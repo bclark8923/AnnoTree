@@ -9,7 +9,6 @@ DROP TABLE IF EXISTS `annotree`.`user` ;
 
 CREATE  TABLE IF NOT EXISTS `annotree`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(45),
   `password` VARCHAR(40), 
   `first_name` VARCHAR(45) NULL ,
   `last_name` VARCHAR(45) NULL ,

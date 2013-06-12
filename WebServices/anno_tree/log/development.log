@@ -8786,3 +8786,848 @@ Compilation failed in require at (eval 231) line 1.
 }
 
 [Tue Jun  4 03:08:55 2013] [debug] 200 OK (0.001021s, 979.432/s).
+[Wed Jun 12 13:49:39 2013] [info] Listening at "http://*:3000".
+[Wed Jun 12 13:50:14 2013] [debug] GET "/".
+[Wed Jun 12 13:50:14 2013] [debug] Routing to controller "AnnoTree::Example" and action "welcome".
+[Wed Jun 12 13:50:14 2013] [debug] Rendering template "example/welcome.html.ep".
+[Wed Jun 12 13:50:14 2013] [debug] Rendering template "layouts/default.html.ep".
+[Wed Jun 12 13:50:14 2013] [debug] 200 OK (0.006509s, 153.633/s).
+[Wed Jun 12 13:51:22 2013] [debug] GET "/".
+[Wed Jun 12 13:51:22 2013] [debug] Controller "AnnoTree::Example" does not exist.
+[Wed Jun 12 13:51:22 2013] [debug] Template "example/welcome.html.ep" not found.
+[Wed Jun 12 13:51:22 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 13:51:22 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 13:51:22 2013] [debug] Rendering inline template.
+[Wed Jun 12 13:51:22 2013] [debug] Rendering inline template.
+[Wed Jun 12 13:51:22 2013] [debug] 404 Not Found (0.012592s, 79.416/s).
+[Wed Jun 12 13:51:26 2013] [debug] GET "/forest".
+[Wed Jun 12 13:51:26 2013] [debug] Routing to controller "AnnoTree::Forest" and action "list".
+[Wed Jun 12 13:51:26 2013] [error] DBD::mysql::st execute failed: Table 'annotree.forest' doesn't exist. Following SQL is executed.
+ select id, name, description from forest
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/ForestModel.pm line 19.
+
+[Wed Jun 12 13:51:26 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 12 13:51:26 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 12 13:51:26 2013] [debug] Rendering inline template.
+[Wed Jun 12 13:51:26 2013] [debug] Rendering inline template.
+[Wed Jun 12 13:51:26 2013] [debug] 500 Internal Server Error (0.061790s, 16.184/s).
+[Wed Jun 12 15:23:21 2013] [debug] GET "/forest".
+[Wed Jun 12 15:23:21 2013] [error] Can't locate AnnoTree/ForestModel.pm in @INC (you may need to install the AnnoTree::ForestModel module) (@INC contains: /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib /home/matt/perl5/perlbrew/perls/5.18_threads/bin/../lib /home/matt/perl5/perlbrew/perls/5.18_threads/lib/site_perl/5.18.0/x86_64-linux-thread-multi /home/matt/perl5/perlbrew/perls/5.18_threads/lib/site_perl/5.18.0 /home/matt/perl5/perlbrew/perls/5.18_threads/lib/5.18.0/x86_64-linux-thread-multi /home/matt/perl5/perlbrew/perls/5.18_threads/lib/5.18.0 .) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/Forest.pm line 4.
+BEGIN failed--compilation aborted at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/Forest.pm line 4.
+Compilation failed in require at (eval 231) line 1.
+
+[Wed Jun 12 15:23:21 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 12 15:23:21 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 12 15:23:21 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:23:21 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:23:21 2013] [debug] 500 Internal Server Error (0.017417s, 57.415/s).
+[Wed Jun 12 15:23:34 2013] [debug] GET "/forest".
+[Wed Jun 12 15:23:34 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "list".
+[Wed Jun 12 15:23:34 2013] [debug] 200 OK (0.032685s, 30.595/s).
+[Wed Jun 12 15:32:32 2013] [debug] GET "/0tree".
+[Wed Jun 12 15:32:32 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:32:32 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:32:32 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:32:32 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:32:32 2013] [debug] 404 Not Found (0.013565s, 73.719/s).
+[Wed Jun 12 15:32:35 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:32:35 2013] [debug] Controller "AnnoTree::Tree" does not exist.
+[Wed Jun 12 15:32:35 2013] [debug] Template "tree/list.html.ep" not found.
+[Wed Jun 12 15:32:35 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:32:35 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:32:35 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:32:35 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:32:35 2013] [debug] 404 Not Found (0.011208s, 89.222/s).
+[Wed Jun 12 15:32:57 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:32:57 2013] [debug] Class "AnnoTree::Controller::Tree" is not a controller.
+[Wed Jun 12 15:32:57 2013] [debug] Template "controller/tree/list.html.ep" not found.
+[Wed Jun 12 15:32:57 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:32:57 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:32:57 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:32:57 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:32:57 2013] [debug] 404 Not Found (0.012804s, 78.101/s).
+[Wed Jun 12 15:32:58 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:32:58 2013] [debug] Class "AnnoTree::Controller::Tree" is not a controller.
+[Wed Jun 12 15:32:58 2013] [debug] Template "controller/tree/list.html.ep" not found.
+[Wed Jun 12 15:32:58 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:32:58 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:32:58 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:32:58 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:32:58 2013] [debug] 404 Not Found (0.003525s, 283.688/s).
+[Wed Jun 12 15:32:58 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:32:58 2013] [debug] Class "AnnoTree::Controller::Tree" is not a controller.
+[Wed Jun 12 15:32:58 2013] [debug] Template "controller/tree/list.html.ep" not found.
+[Wed Jun 12 15:32:58 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:32:58 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:32:58 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:32:58 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:32:58 2013] [debug] 404 Not Found (0.003640s, 274.725/s).
+[Wed Jun 12 15:34:48 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:34:48 2013] [debug] Routing to controller "AnnoTree::Controller::Tree" and action "list".
+[Wed Jun 12 15:34:48 2013] [debug] Template "controller/tree/list.json.ep" not found.
+[Wed Jun 12 15:34:48 2013] [debug] Template "not_found.development.json.ep" not found.
+[Wed Jun 12 15:34:48 2013] [debug] Template "not_found.json.ep" not found.
+[Wed Jun 12 15:34:48 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:34:48 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:34:48 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:34:48 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:34:48 2013] [debug] 404 Not Found (0.012965s, 77.131/s).
+[Wed Jun 12 15:34:49 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:34:49 2013] [debug] Routing to controller "AnnoTree::Controller::Tree" and action "list".
+[Wed Jun 12 15:34:49 2013] [debug] Template "controller/tree/list.json.ep" not found.
+[Wed Jun 12 15:34:49 2013] [debug] Template "not_found.development.json.ep" not found.
+[Wed Jun 12 15:34:49 2013] [debug] Template "not_found.json.ep" not found.
+[Wed Jun 12 15:34:49 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:34:49 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:34:49 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:34:49 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:34:49 2013] [debug] 404 Not Found (0.003764s, 265.675/s).
+[Wed Jun 12 15:34:49 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:34:49 2013] [debug] Routing to controller "AnnoTree::Controller::Tree" and action "list".
+[Wed Jun 12 15:34:49 2013] [debug] Template "controller/tree/list.json.ep" not found.
+[Wed Jun 12 15:34:49 2013] [debug] Template "not_found.development.json.ep" not found.
+[Wed Jun 12 15:34:49 2013] [debug] Template "not_found.json.ep" not found.
+[Wed Jun 12 15:34:49 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:34:49 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:34:49 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:34:49 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:34:49 2013] [debug] 404 Not Found (0.003817s, 261.986/s).
+[Wed Jun 12 15:34:51 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:34:51 2013] [debug] Routing to controller "AnnoTree::Controller::Tree" and action "list".
+[Wed Jun 12 15:34:51 2013] [debug] Template "controller/tree/list.json.ep" not found.
+[Wed Jun 12 15:34:51 2013] [debug] Template "not_found.development.json.ep" not found.
+[Wed Jun 12 15:34:51 2013] [debug] Template "not_found.json.ep" not found.
+[Wed Jun 12 15:34:51 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:34:51 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:34:51 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:34:51 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:34:51 2013] [debug] 404 Not Found (0.003778s, 264.690/s).
+[Wed Jun 12 15:35:50 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:35:50 2013] [debug] Routing to controller "AnnoTree::Controller::Tree" and action "list".
+[Wed Jun 12 15:35:50 2013] [debug] Template "controller/tree/list.json.ep" not found.
+[Wed Jun 12 15:35:50 2013] [debug] Template "not_found.development.json.ep" not found.
+[Wed Jun 12 15:35:50 2013] [debug] Template "not_found.json.ep" not found.
+[Wed Jun 12 15:35:50 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:35:50 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:35:50 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:35:50 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:35:50 2013] [debug] 404 Not Found (0.012908s, 77.471/s).
+[Wed Jun 12 15:36:05 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:36:05 2013] [debug] Routing to controller "AnnoTree::Controller::Tree" and action "list".
+[Wed Jun 12 15:36:05 2013] [debug] Template "controller/tree/list.json.ep" not found.
+[Wed Jun 12 15:36:05 2013] [debug] Template "not_found.development.json.ep" not found.
+[Wed Jun 12 15:36:05 2013] [debug] Template "not_found.json.ep" not found.
+[Wed Jun 12 15:36:05 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:36:05 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:36:05 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:36:05 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:36:05 2013] [debug] 404 Not Found (0.013236s, 75.552/s).
+[Wed Jun 12 15:36:05 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:36:05 2013] [debug] Routing to controller "AnnoTree::Controller::Tree" and action "list".
+[Wed Jun 12 15:36:05 2013] [debug] Template "controller/tree/list.json.ep" not found.
+[Wed Jun 12 15:36:05 2013] [debug] Template "not_found.development.json.ep" not found.
+[Wed Jun 12 15:36:05 2013] [debug] Template "not_found.json.ep" not found.
+[Wed Jun 12 15:36:05 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:36:05 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:36:05 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:36:05 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:36:05 2013] [debug] 404 Not Found (0.003675s, 272.109/s).
+[Wed Jun 12 15:36:06 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:36:06 2013] [debug] Routing to controller "AnnoTree::Controller::Tree" and action "list".
+[Wed Jun 12 15:36:06 2013] [debug] Template "controller/tree/list.json.ep" not found.
+[Wed Jun 12 15:36:06 2013] [debug] Template "not_found.development.json.ep" not found.
+[Wed Jun 12 15:36:06 2013] [debug] Template "not_found.json.ep" not found.
+[Wed Jun 12 15:36:06 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:36:06 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:36:06 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:36:06 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:36:06 2013] [debug] 404 Not Found (0.003737s, 267.594/s).
+[Wed Jun 12 15:36:35 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:36:35 2013] [debug] Routing to controller "AnnoTree::Controller::Tree" and action "list".
+[Wed Jun 12 15:36:35 2013] [debug] Template "controller/tree/list.json.ep" not found.
+[Wed Jun 12 15:36:35 2013] [debug] Template "not_found.development.json.ep" not found.
+[Wed Jun 12 15:36:35 2013] [debug] Template "not_found.json.ep" not found.
+[Wed Jun 12 15:36:35 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:36:35 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:36:35 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:36:35 2013] [debug] Rendering inline template.
+[Wed Jun 12 15:36:35 2013] [debug] 404 Not Found (0.013011s, 76.858/s).
+[Wed Jun 12 15:36:35 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:36:35 2013] [debug] Routing to controller "AnnoTree::Controller::Tree" and action "list".
+[Wed Jun 12 15:36:35 2013] [debug] Template "controller/tree/list.json.ep" not found.
+[Wed Jun 12 15:36:35 2013] [debug] Template "not_found.development.json.ep" not found.
+[Wed Jun 12 15:36:35 2013] [debug] Template "not_found.json.ep" not found.
+[Wed Jun 12 15:36:35 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 15:36:35 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 15:36:35 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:36:35 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 15:36:35 2013] [debug] 404 Not Found (0.003663s, 273.000/s).
+[Wed Jun 12 15:37:42 2013] [debug] GET "/0/tree".
+[Wed Jun 12 15:37:42 2013] [debug] Routing to controller "AnnoTree::Controller::Tree" and action "list".
+[Wed Jun 12 15:37:42 2013] [debug] Rendering template "tree/list.json.ep".
+[Wed Jun 12 15:37:42 2013] [debug] 200 OK (0.004457s, 224.366/s).
+[Wed Jun 12 18:23:11 2013] [debug] GET "/forest".
+[Wed Jun 12 18:23:11 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "list".
+[Wed Jun 12 18:23:11 2013] [debug] {
+  'forests' => [
+    {
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:23:11 2013] [debug] {
+  'forests' => [
+    {
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:23:11 2013] [debug] 200 OK (0.032480s, 30.788/s).
+[Wed Jun 12 18:24:30 2013] [debug] GET "/forest".
+[Wed Jun 12 18:24:30 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "list".
+[Wed Jun 12 18:24:30 2013] [debug] {
+  'forests' => [
+    {
+      'created_date' => undef,
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created_date' => undef,
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created_date' => undef,
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created_date' => undef,
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:24:30 2013] [debug] {
+  'forests' => [
+    {
+      'created_date' => undef,
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created_date' => undef,
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created_date' => undef,
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created_date' => undef,
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:24:30 2013] [debug] 200 OK (0.033019s, 30.286/s).
+[Wed Jun 12 18:24:55 2013] [debug] GET "/forest".
+[Wed Jun 12 18:24:55 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "list".
+[Wed Jun 12 18:24:55 2013] [debug] {
+  'forests' => [
+    {
+      'created_date' => '2013-06-12 18:22:04',
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created_date' => '2013-06-12 18:22:04',
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created_date' => '2013-06-12 18:22:04',
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created_date' => '2013-06-12 18:22:04',
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:24:55 2013] [debug] {
+  'forests' => [
+    {
+      'created_date' => '2013-06-12 18:22:04',
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created_date' => '2013-06-12 18:22:04',
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created_date' => '2013-06-12 18:22:04',
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created_date' => '2013-06-12 18:22:04',
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:24:55 2013] [debug] 200 OK (0.033166s, 30.151/s).
+[Wed Jun 12 18:25:34 2013] [debug] GET "/0/forest".
+[Wed Jun 12 18:25:34 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 18:25:34 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 18:25:34 2013] [debug] Rendering inline template.
+[Wed Jun 12 18:25:34 2013] [debug] Rendering inline template.
+[Wed Jun 12 18:25:34 2013] [debug] 404 Not Found (0.012022s, 83.181/s).
+[Wed Jun 12 18:25:44 2013] [debug] GET "/forest/0".
+[Wed Jun 12 18:25:44 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "unique".
+[Wed Jun 12 18:25:44 2013] [debug] before go id is 0
+[Wed Jun 12 18:25:44 2013] [debug] id is 0
+[Wed Jun 12 18:25:44 2013] [debug] []
+
+[Wed Jun 12 18:25:44 2013] [debug] {
+  'description' => undef,
+  'id' => undef,
+  'name' => undef
+}
+
+[Wed Jun 12 18:25:44 2013] [debug] 200 OK (0.001053s, 949.668/s).
+[Wed Jun 12 18:25:47 2013] [debug] GET "/forest/1".
+[Wed Jun 12 18:25:47 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "unique".
+[Wed Jun 12 18:25:47 2013] [debug] before go id is 1
+[Wed Jun 12 18:25:47 2013] [debug] id is 1
+[Wed Jun 12 18:25:47 2013] [debug] [
+  '1',
+  'Silith.io',
+  'A company for only the truly brave'
+]
+
+[Wed Jun 12 18:25:47 2013] [debug] {
+  'description' => 'A company for only the truly brave',
+  'id' => '1',
+  'name' => 'Silith.io'
+}
+
+[Wed Jun 12 18:25:47 2013] [debug] 200 OK (0.001086s, 920.810/s).
+[Wed Jun 12 18:25:51 2013] [debug] GET "/forest/2".
+[Wed Jun 12 18:25:51 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "unique".
+[Wed Jun 12 18:25:51 2013] [debug] before go id is 2
+[Wed Jun 12 18:25:51 2013] [debug] id is 2
+[Wed Jun 12 18:25:51 2013] [debug] [
+  '2',
+  'The Monkey Knows',
+  'How dare you try to rustle my jimmies'
+]
+
+[Wed Jun 12 18:25:51 2013] [debug] {
+  'description' => 'How dare you try to rustle my jimmies',
+  'id' => '2',
+  'name' => 'The Monkey Knows'
+}
+
+[Wed Jun 12 18:25:51 2013] [debug] 200 OK (0.001043s, 958.773/s).
+[Wed Jun 12 18:27:19 2013] [debug] GET "/forest/2".
+[Wed Jun 12 18:27:19 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "unique".
+[Wed Jun 12 18:27:19 2013] [debug] before go id is 2
+[Wed Jun 12 18:27:19 2013] [debug] id is 2
+[Wed Jun 12 18:27:19 2013] [debug] [
+  '2',
+  'The Monkey Knows',
+  'How dare you try to rustle my jimmies',
+  '2013-06-12 18:22:04'
+]
+
+[Wed Jun 12 18:27:19 2013] [debug] {
+  'created' => '2013-06-12 18:22:04',
+  'description' => 'How dare you try to rustle my jimmies',
+  'id' => '2',
+  'name' => 'The Monkey Knows'
+}
+
+[Wed Jun 12 18:27:19 2013] [debug] 200 OK (0.033195s, 30.125/s).
+[Wed Jun 12 18:27:24 2013] [debug] GET "/forest/4".
+[Wed Jun 12 18:27:24 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "unique".
+[Wed Jun 12 18:27:24 2013] [debug] before go id is 4
+[Wed Jun 12 18:27:24 2013] [debug] id is 4
+[Wed Jun 12 18:27:24 2013] [debug] [
+  '4',
+  'NoDesc Co',
+  '',
+  '2013-06-12 18:22:04'
+]
+
+[Wed Jun 12 18:27:24 2013] [debug] {
+  'created' => '2013-06-12 18:22:04',
+  'description' => '',
+  'id' => '4',
+  'name' => 'NoDesc Co'
+}
+
+[Wed Jun 12 18:27:24 2013] [debug] 200 OK (0.001095s, 913.242/s).
+[Wed Jun 12 18:27:28 2013] [debug] GET "/forest/3".
+[Wed Jun 12 18:27:28 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "unique".
+[Wed Jun 12 18:27:28 2013] [debug] before go id is 3
+[Wed Jun 12 18:27:28 2013] [debug] id is 3
+[Wed Jun 12 18:27:28 2013] [debug] [
+  '3',
+  'Late Night',
+  'Because we will be pulling a bunch of these',
+  '2013-06-12 18:22:04'
+]
+
+[Wed Jun 12 18:27:28 2013] [debug] {
+  'created' => '2013-06-12 18:22:04',
+  'description' => 'Because we will be pulling a bunch of these',
+  'id' => '3',
+  'name' => 'Late Night'
+}
+
+[Wed Jun 12 18:27:28 2013] [debug] 200 OK (0.001075s, 930.233/s).
+[Wed Jun 12 18:30:18 2013] [debug] GET "/forest/3".
+[Wed Jun 12 18:30:18 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "unique".
+[Wed Jun 12 18:30:18 2013] [debug] before go id is 3
+[Wed Jun 12 18:30:18 2013] [debug] id is 3
+[Wed Jun 12 18:30:18 2013] [debug] [
+  '3',
+  'Late Night',
+  'Because we will be pulling a bunch of these',
+  '2013-06-12 18:22:04'
+]
+
+[Wed Jun 12 18:30:18 2013] [debug] {
+  'created' => '2013-06-12 18:22:04',
+  'description' => 'Because we will be pulling a bunch of these',
+  'id' => '3',
+  'name' => 'Late Night'
+}
+
+[Wed Jun 12 18:30:18 2013] [debug] 200 OK (0.033082s, 30.228/s).
+[Wed Jun 12 18:30:19 2013] [debug] GET "/forest/3".
+[Wed Jun 12 18:30:19 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "unique".
+[Wed Jun 12 18:30:19 2013] [debug] before go id is 3
+[Wed Jun 12 18:30:19 2013] [debug] id is 3
+[Wed Jun 12 18:30:19 2013] [debug] [
+  '3',
+  'Late Night',
+  'Because we will be pulling a bunch of these',
+  '2013-06-12 18:22:04'
+]
+
+[Wed Jun 12 18:30:19 2013] [debug] {
+  'created' => '2013-06-12 18:22:04',
+  'description' => 'Because we will be pulling a bunch of these',
+  'id' => '3',
+  'name' => 'Late Night'
+}
+
+[Wed Jun 12 18:30:19 2013] [debug] 200 OK (0.000739s, 1353.180/s).
+[Wed Jun 12 18:30:21 2013] [debug] GET "/forest".
+[Wed Jun 12 18:30:21 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "list".
+[Wed Jun 12 18:30:21 2013] [error] Can't locate object method "dumper" via package "AnnoTree::Model::Forest" at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/Forest.pm line 33.
+
+[Wed Jun 12 18:30:21 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 12 18:30:21 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 12 18:30:21 2013] [debug] Rendering inline template.
+[Wed Jun 12 18:30:21 2013] [debug] Rendering inline template.
+[Wed Jun 12 18:30:21 2013] [debug] 500 Internal Server Error (0.016658s, 60.031/s).
+[Wed Jun 12 18:30:49 2013] [debug] GET "/forest".
+[Wed Jun 12 18:30:49 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "list".
+[Wed Jun 12 18:30:49 2013] [debug] {
+  'forests' => [
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:30:49 2013] [debug] {
+  'forests' => [
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:30:49 2013] [debug] 200 OK (0.033971s, 29.437/s).
+[Wed Jun 12 18:39:08 2013] [debug] GET "/forest".
+[Wed Jun 12 18:39:08 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "list".
+[Wed Jun 12 18:39:08 2013] [debug] {
+  'forests' => [
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:39:08 2013] [debug] {
+  'forests' => [
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:39:08 2013] [debug] 200 OK (0.033299s, 30.031/s).
+[Wed Jun 12 18:39:08 2013] [debug] GET "/forest".
+[Wed Jun 12 18:39:08 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "list".
+[Wed Jun 12 18:39:08 2013] [debug] {
+  'forests' => [
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:39:08 2013] [debug] {
+  'forests' => [
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:39:08 2013] [debug] 200 OK (0.000797s, 1254.705/s).
+[Wed Jun 12 18:39:09 2013] [debug] GET "/forest".
+[Wed Jun 12 18:39:09 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "list".
+[Wed Jun 12 18:39:09 2013] [debug] {
+  'forests' => [
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:39:09 2013] [debug] {
+  'forests' => [
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:39:09 2013] [debug] 200 OK (0.000843s, 1186.240/s).
+[Wed Jun 12 18:39:09 2013] [debug] GET "/forest".
+[Wed Jun 12 18:39:09 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "list".
+[Wed Jun 12 18:39:09 2013] [debug] {
+  'forests' => [
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:39:09 2013] [debug] {
+  'forests' => [
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created' => '2013-06-12 18:22:04',
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    }
+  ],
+  'numForests' => '4'
+}
+
+[Wed Jun 12 18:39:09 2013] [debug] 200 OK (0.000803s, 1245.330/s).
+[Wed Jun 12 18:45:24 2013] [debug] GET "/".
+[Wed Jun 12 18:45:24 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 18:45:24 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 18:45:24 2013] [debug] Rendering inline template.
+[Wed Jun 12 18:45:24 2013] [debug] Rendering inline template.
+[Wed Jun 12 18:45:24 2013] [debug] 404 Not Found (0.011933s, 83.801/s).
+[Wed Jun 12 18:45:28 2013] [debug] GET "/".
+[Wed Jun 12 18:45:28 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 18:45:28 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 18:45:28 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 18:45:28 2013] [debug] Rendering cached inline template.
+[Wed Jun 12 18:45:28 2013] [debug] 404 Not Found (0.003511s, 284.819/s).

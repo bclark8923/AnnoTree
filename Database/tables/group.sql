@@ -9,13 +9,13 @@ DROP TABLE IF EXISTS `annotree`.`group` ;
 
 CREATE  TABLE IF NOT EXISTS `annotree`.`group` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `organization` INT NULL ,
+  `forest_id` INT NULL ,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_group_1` (`organization` ASC) ,
+  INDEX `fk_group_1` (`forest_id` ASC) ,
   CONSTRAINT `fk_group_1`
-    FOREIGN KEY (`organization` )
-    REFERENCES `annotree`.`organization` (`id` )
+    FOREIGN KEY (`forest_id`)
+    REFERENCES `annotree`.`forest` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

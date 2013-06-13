@@ -17,14 +17,14 @@ $password = 'password'
   }
 
   sub create_user {
-    $username = $0;
-    $password = create_salted_hash($1);
-    $first_name = $2;
-    $last_name = $3;
-    $email = $4
-    $lang = $5;
-    $time_zone = $6;
-    $profile_image_path = $7;
+    my $username = $0;
+    my $password = create_salted_hash($1);
+    my $first_name = $2;
+    my $last_name = $3;
+    my $email = $4
+    my $lang = $5;
+    my $time_zone = $6;
+    my $profile_image_path = $7;
   }
   
   sub create_salted_hash{
@@ -36,4 +36,5 @@ $password = 'password'
     $crypt->add($password);
     my $shash=$crypt->generate();
     return $shash;
-    }
+    
+  }

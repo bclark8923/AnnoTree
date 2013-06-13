@@ -17,11 +17,11 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`user` (
   `lang` VARCHAR(3) NULL ,
   `time_zone` VARCHAR(15) NULL ,
   `profile_image_path` VARCHAR(45) NULL ,
-  PRIMARY KEY (`id`) )
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`(45))
+ )
 ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-

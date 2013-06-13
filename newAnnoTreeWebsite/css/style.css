@@ -28,16 +28,24 @@ p {
 }
 
 .navLinks > a {
-  color:#82BF56;
+  color:#444;
 }
 
 .navLinks > a:hover {
-  color:#aff19a;
+  color:#888;
 }
 
 .navLinks {
   text-align:center;
 }
+
+.responsiveHide {
+  display: block;
+}
+
+.responsiveShow {
+    display: none;
+  }
 
 #content {
   margin-top: 0px;
@@ -54,17 +62,30 @@ p {
 }
 
 #titleContent > div {
-  height: 70px;
+  min-height: 40px;
 }
 
 #titleContent > div > span {
-  background-color: #444;
+  background-color: #222;
   color: white;
   opacity: 0.8;
   font-size: 30pt;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 5px;
+  /*text-shadow: 2px 2px 3px #222;
+  font-weight: bold;*/
+}
+
+#titleContentLine {
+  background-color: #444;
+  opacity: 0.8;
+  color: white;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  font-size: 30pt;
+  line-height: 35pt;
+  height: 120px;
 }
 
 .homeScreenModal {
@@ -79,7 +100,7 @@ p {
 
 #why {
   padding-top: 200px;
-  height: 800px;
+  min-height: 800px;
 }
 
 .pageParagraphs {
@@ -87,21 +108,45 @@ p {
 }
 
 #product {
-  padding-top: 200px;
-  min-height: 1100px;
-  background-color: #eee;
+  padding-top: 100px;
+  min-height: 750px;
+  background-color: #58c026;
   font-size: 15pt;
+  color: white;
+}
+
+.productColumn {
+  margin-bottom: 50px;
+}
+
+.tiles > li {
+  height: 250px;
 }
 
 .iPhoneScrenshot {
-  max-height: 375px;
-  max-width: 375px;
+  max-height: 325px;
+  max-width: 325px;
+  width: 100%;
+}
+
+.productScreenShot {
+  max-width: 220px;
+}
+  
+#iPhoneDescription {
+  height:350px;
+}
+
+#iPhoneImage {
+  text-align: center; 
+  height: 300px; 
+  padding-top: 80px;
 }
 
 #contact {
-  padding-top: 200px;
+  padding-top: 250px;
   height: 700px;
-  background-color: #aff19a;
+  background-color: white;
 }
 
 .contactInfo {
@@ -117,4 +162,79 @@ p {
 
 .footerText {
   font-size: 10pt;
+  text-align: center;
+}
+
+img.grayScale {
+    filter: url(filters.svg#grayscale); /* Firefox 3.5+ */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(1); /* Google Chrome & Safari 6+ */
+}
+
+@media only screen and (max-width: 767px) {
+  .responsiveShow {
+    display: block;
+  }
+  
+  .responsiveHide {
+    display: none;
+  }
+  
+  #mainTitle {
+    height: 300px;
+  }
+  #titleContent > div > span {
+    font-size: 20pt;
+  }
+  
+  #titleContentLine {
+    margin-bottom: 20px;
+    padding-top: 10px;
+    font-size: 15pt;
+    line-height: 20pt;
+    height: 80px;
+  }
+  
+  #why {
+    padding-top: 50px;
+    min-height: 850px;
+  }
+  
+  #product {
+    padding-top: 50px;
+    height: 1400px;
+  }
+
+  .tiles > li {
+    height: 100%;
+  }
+  
+  .productScreenShot {
+    margin-bottom: 50px;
+  }
+  
+  #iPhoneDescription {
+    height:250px;
+  }
+  
+  #iPhoneImage {
+    height: 200px;
+    padding-top: 0px;
+  }
+  
+  #contact {
+    padding-top: 200px;
+  }
+}
+
+
+@media only screen and (max-width: 320px) {
+ 
+  #titleContentLine {
+    margin-bottom: 10px;
+    padding-top: 10px;
+    font-size: 10pt;
+    line-height: 15pt;
+    height: 60px;
+  }
 }

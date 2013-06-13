@@ -28,8 +28,8 @@ a {
   height: 45px;
   min-height: 45px;
   display: block;
-  margin-bottom: 20px;
-  background: #444444;*/
+  margin-bottom: 20px;*/
+  background: #555;
   margin: 0;
 }
 
@@ -47,7 +47,7 @@ a {
 }
 
 #annoTreeLogo {
-  height: 38px;
+  height: 45px;
 }
 
 .userLink {
@@ -434,8 +434,9 @@ taskListHeadLink {
 }
 
 .singleLeafImage {
-  max-height: 80%;
-  max-width: 80%;
+  margin-top: 10px;
+  max-height: 90%;
+  max-width: 90%;
 }
 
 @media only screen and (max-width: 767px) {

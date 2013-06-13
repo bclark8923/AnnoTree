@@ -9818,3 +9818,307 @@ Compilation failed in require at (eval 231) line 1.
 }
 
 [Wed Jun 12 21:46:15 2013] [debug] 200 OK (0.035106s, 28.485/s).
+[Wed Jun 12 23:45:50 2013] [debug] GET "/user/sign".
+[Wed Jun 12 23:45:50 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 23:45:50 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 23:45:50 2013] [debug] Rendering inline template.
+[Wed Jun 12 23:45:50 2013] [debug] Rendering inline template.
+[Wed Jun 12 23:45:50 2013] [debug] 404 Not Found (0.012860s, 77.760/s).
+[Wed Jun 12 23:45:52 2013] [debug] GET "/user/signup".
+[Wed Jun 12 23:45:52 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 12 23:45:52 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 12 23:45:52 2013] [debug] 200 OK (0.033660s, 29.709/s).
+[Wed Jun 12 23:46:05 2013] [debug] POST "/user/signup".
+[Wed Jun 12 23:46:05 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 23:46:05 2013] [debug] {
+  'email' => 'test@user.com',
+  'firstName' => 'test',
+  'lastName' => 'user',
+  'password' => 'hithere'
+}
+
+[Wed Jun 12 23:46:05 2013] [error] DBD::mysql::st execute failed: FUNCTION annotree.create_user does not exist. Following SQL is executed.
+ select create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 21.
+
+[Wed Jun 12 23:46:05 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 12 23:46:05 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 12 23:46:05 2013] [debug] Rendering inline template.
+[Wed Jun 12 23:46:05 2013] [debug] Rendering inline template.
+[Wed Jun 12 23:46:05 2013] [debug] 500 Internal Server Error (0.017171s, 58.238/s).
+[Wed Jun 12 23:49:59 2013] [debug] POST "/user/signup".
+[Wed Jun 12 23:49:59 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 23:49:59 2013] [debug] {
+  'email' => 'test@user.com',
+  'firstName' => 'test',
+  'lastName' => 'user',
+  'password' => 'hithere'
+}
+
+[Wed Jun 12 23:49:59 2013] [debug] DBIx::Custom::Result=HASH(0x3c8f530)
+[Wed Jun 12 23:49:59 2013] [debug] 200 OK (0.003822s, 261.643/s).
+[Wed Jun 12 23:52:33 2013] [debug] POST "/user/signup".
+[Wed Jun 12 23:52:33 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 23:52:33 2013] [debug] {
+  'email' => 'test@user.com',
+  'firstName' => 'test',
+  'lastName' => 'user',
+  'password' => 'hithere'
+}
+
+[Wed Jun 12 23:52:33 2013] [error] DBD::mysql::st execute failed: Duplicate entry 'test@user.com' for key 'email'. Following SQL is executed.
+ select create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 21.
+
+[Wed Jun 12 23:52:33 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 12 23:52:33 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 12 23:52:33 2013] [debug] Rendering inline template.
+[Wed Jun 12 23:52:33 2013] [debug] Rendering inline template.
+[Wed Jun 12 23:52:33 2013] [debug] 500 Internal Server Error (0.053205s, 18.795/s).
+[Wed Jun 12 23:52:40 2013] [debug] GET "/user/signu".
+[Wed Jun 12 23:52:40 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 23:52:40 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 23:52:40 2013] [debug] Rendering inline template.
+[Wed Jun 12 23:52:40 2013] [debug] Rendering inline template.
+[Wed Jun 12 23:52:40 2013] [debug] 404 Not Found (0.011474s, 87.154/s).
+[Wed Jun 12 23:52:42 2013] [debug] GET "/user/signup".
+[Wed Jun 12 23:52:42 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 12 23:52:42 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 12 23:52:42 2013] [debug] 200 OK (0.002675s, 373.832/s).
+[Wed Jun 12 23:52:55 2013] [debug] POST "/user/signup".
+[Wed Jun 12 23:52:55 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 23:52:55 2013] [debug] {
+  'email' => 'matt@price.com',
+  'firstName' => 'matt',
+  'lastName' => 'price',
+  'password' => 'test'
+}
+
+[Wed Jun 12 23:52:55 2013] [debug] bless( {
+  'dbi' => bless( {
+    '_tags' => {
+      '<' => sub { "DUMMY" },
+      '<=' => sub { "DUMMY" },
+      '<>' => sub { "DUMMY" },
+      '=' => sub { "DUMMY" },
+      '>' => sub { "DUMMY" },
+      '>=' => sub { "DUMMY" },
+      '?' => sub { "DUMMY" },
+      'in' => sub { "DUMMY" },
+      'insert_param' => sub { "DUMMY" },
+      'like' => sub { "DUMMY" },
+      'update_param' => sub { "DUMMY" }
+    },
+    '_type_rule_is_called' => 1,
+    'cache' => 0,
+    'dbh' => bless( {}, 'DBI::db' ),
+    'dbi_option' => {},
+    'dbi_options' => {},
+    'default_option' => {
+      'AutoCommit' => 1,
+      'PrintError' => 0,
+      'RaiseError' => 1
+    },
+    'dsn' => 'dbi:mysql:database=annotree;host=localhost;port=3306',
+    'filter' => {},
+    'filters' => {
+      'decode_utf8' => sub { "DUMMY" },
+      'encode_utf8' => sub { "DUMMY" }
+    },
+    'last_sql' => ' select create_user(? , ? , ? , ? , ? , ? , ? )',
+    'option' => {},
+    'password' => 'ann0tr33s',
+    'quote' => '`',
+    'result_class' => 'DBIx::Custom::Result',
+    'safety_character' => 'a-zA-Z0-9_',
+    'tag_parse' => 1,
+    'user' => 'annotree'
+  }, 'DBIx::Custom' ),
+  'default_filter' => undef,
+  'end_filter' => {},
+  'filter' => {},
+  'sth' => bless( {}, 'DBI::st' ),
+  'type_rule' => {
+    'from1' => undef,
+    'from2' => undef
+  }
+}, 'DBIx::Custom::Result' )
+
+[Wed Jun 12 23:52:55 2013] [debug] 200 OK (0.003780s, 264.550/s).
+[Wed Jun 12 23:54:30 2013] [debug] GET "/user/signup".
+[Wed Jun 12 23:54:30 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 12 23:54:30 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 12 23:54:30 2013] [debug] 200 OK (0.035610s, 28.082/s).
+[Wed Jun 12 23:54:50 2013] [debug] POST "/user/signup".
+[Wed Jun 12 23:54:50 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 23:54:50 2013] [debug] {
+  'email' => 'hi@test.com',
+  'firstName' => undef,
+  'lastName' => undef,
+  'password' => 'asdf'
+}
+
+[Wed Jun 12 23:54:50 2013] [debug] [
+  '1'
+]
+
+[Wed Jun 12 23:54:50 2013] [debug] bless( {
+  '_cache' => 1,
+  '_columns' => {
+    'create_user(\'asdf\' , NULL , NULL , \'hi@test.com\' , \'ENG\' , \'EST\' , \'null\' )' => 1
+  },
+  '_pos' => {
+    'create_user(\'asdf\' , NULL , NULL , \'hi@test.com\' , \'ENG\' , \'EST\' , \'null\' )' => [
+      0
+    ]
+  },
+  '_type_map' => {
+    '4' => [
+      'create_user(\'asdf\' , NULL , NULL , \'hi@test.com\' , \'ENG\' , \'EST\' , \'null\' )'
+    ]
+  },
+  'dbi' => bless( {
+    '_tags' => {
+      '<' => sub { "DUMMY" },
+      '<=' => sub { "DUMMY" },
+      '<>' => sub { "DUMMY" },
+      '=' => sub { "DUMMY" },
+      '>' => sub { "DUMMY" },
+      '>=' => sub { "DUMMY" },
+      '?' => sub { "DUMMY" },
+      'in' => sub { "DUMMY" },
+      'insert_param' => sub { "DUMMY" },
+      'like' => sub { "DUMMY" },
+      'update_param' => sub { "DUMMY" }
+    },
+    '_type_rule_is_called' => 1,
+    'cache' => 0,
+    'dbh' => bless( {}, 'DBI::db' ),
+    'dbi_option' => {},
+    'dbi_options' => {},
+    'default_option' => {
+      'AutoCommit' => 1,
+      'PrintError' => 0,
+      'RaiseError' => 1
+    },
+    'dsn' => 'dbi:mysql:database=annotree;host=localhost;port=3306',
+    'filter' => {},
+    'filters' => {
+      'decode_utf8' => sub { "DUMMY" },
+      'encode_utf8' => sub { "DUMMY" }
+    },
+    'last_sql' => ' select create_user(? , ? , ? , ? , ? , ? , ? )',
+    'option' => {},
+    'password' => 'ann0tr33s',
+    'quote' => '`',
+    'result_class' => 'DBIx::Custom::Result',
+    'safety_character' => 'a-zA-Z0-9_',
+    'tag_parse' => 1,
+    'user' => 'annotree'
+  }, 'DBIx::Custom' ),
+  'default_filter' => undef,
+  'end_filter' => {},
+  'filter' => {},
+  'sth' => bless( {}, 'DBI::st' ),
+  'type_rule' => {
+    'from1' => undef,
+    'from2' => undef
+  }
+}, 'DBIx::Custom::Result' )
+
+[Wed Jun 12 23:54:50 2013] [debug] 200 OK (0.004203s, 237.925/s).
+[Wed Jun 12 23:56:59 2013] [debug] GET "/user/signup".
+[Wed Jun 12 23:56:59 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 12 23:56:59 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 12 23:56:59 2013] [debug] 200 OK (0.035671s, 28.034/s).
+[Wed Jun 12 23:57:08 2013] [debug] POST "/user/signup".
+[Wed Jun 12 23:57:08 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 23:57:08 2013] [debug] {
+  'email' => 'again@test.com',
+  'firstName' => 'test',
+  'lastName' => 'again',
+  'password' => 'asdasdf'
+}
+
+[Wed Jun 12 23:57:08 2013] [debug] 1
+[Wed Jun 12 23:57:08 2013] [debug] 200 OK (0.003122s, 320.307/s).
+[Wed Jun 12 23:57:39 2013] [debug] GET "/user/signup".
+[Wed Jun 12 23:57:39 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 12 23:57:39 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 12 23:57:39 2013] [debug] 200 OK (0.036123s, 27.683/s).
+[Wed Jun 12 23:57:48 2013] [debug] POST "/user/signup".
+[Wed Jun 12 23:57:48 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 23:57:48 2013] [debug] {
+  'email' => 'testing@again.com',
+  'firstName' => 'testing',
+  'lastName' => 'again',
+  'password' => 'asd;lfkjasdf;lk'
+}
+
+[Wed Jun 12 23:57:48 2013] [debug] 200 OK (0.002970s, 336.700/s).
+[Thu Jun 13 00:03:02 2013] [debug] GET "/user/signup".
+[Thu Jun 13 00:03:02 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 13 00:03:02 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 13 00:03:02 2013] [debug] 200 OK (0.035811s, 27.924/s).
+[Thu Jun 13 00:03:13 2013] [debug] POST "/user/signup".
+[Thu Jun 13 00:03:13 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 13 00:03:13 2013] [debug] {
+  'email' => 'hihi@g.com',
+  'firstName' => 'test',
+  'lastName' => 'again',
+  'password' => 'as;dlfkj'
+}
+
+[Thu Jun 13 00:03:13 2013] [debug] 200 OK (0.003017s, 331.455/s).
+[Thu Jun 13 00:04:02 2013] [debug] GET "/user/signup".
+[Thu Jun 13 00:04:02 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 13 00:04:02 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 13 00:04:02 2013] [debug] 200 OK (0.036124s, 27.682/s).
+[Thu Jun 13 00:04:13 2013] [debug] POST "/user/signup".
+[Thu Jun 13 00:04:13 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 13 00:04:13 2013] [debug] {
+  'email' => 'blah@alskd.com',
+  'firstName' => 'asdf',
+  'lastName' => 'asdf',
+  'password' => 'asdl;fkj'
+}
+
+[Thu Jun 13 00:04:13 2013] [debug] '1'
+
+[Thu Jun 13 00:04:13 2013] [debug] 200 OK (0.003997s, 250.188/s).
+[Thu Jun 13 00:04:29 2013] [debug] GET "/user/signup".
+[Thu Jun 13 00:04:29 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 13 00:04:29 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 13 00:04:29 2013] [debug] 200 OK (0.035774s, 27.953/s).
+[Thu Jun 13 00:04:36 2013] [debug] POST "/user/signup".
+[Thu Jun 13 00:04:36 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 13 00:04:36 2013] [debug] {
+  'email' => 'there@hi.com',
+  'firstName' => 'hi',
+  'lastName' => 'there',
+  'password' => 'as;dlfkj'
+}
+
+[Thu Jun 13 00:04:36 2013] [debug] {
+  'result' => 'DBIx::Custom::Result=HASH(0x3ba91e0)->fetch->[0]'
+}
+
+[Thu Jun 13 00:04:36 2013] [debug] 200 OK (0.004092s, 244.379/s).
+[Thu Jun 13 00:05:21 2013] [debug] GET "/user/signup".
+[Thu Jun 13 00:05:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 13 00:05:22 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 13 00:05:22 2013] [debug] 200 OK (0.035651s, 28.050/s).
+[Thu Jun 13 00:05:42 2013] [debug] POST "/user/signup".
+[Thu Jun 13 00:05:42 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 13 00:05:42 2013] [debug] {
+  'email' => 'asdlfkj@asdl.com',
+  'firstName' => 'what',
+  'lastName' => 'the',
+  'password' => 'asdl;fkj'
+}
+
+[Thu Jun 13 00:05:42 2013] [debug] {
+  'result' => '1'
+}
+
+[Thu Jun 13 00:05:42 2013] [debug] 200 OK (0.004220s, 236.967/s).

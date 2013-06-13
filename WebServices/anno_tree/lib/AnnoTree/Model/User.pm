@@ -18,6 +18,19 @@ sub signup {
     
     $self->debug($self->dumper($params));
     
+    my $result = $dbi->execute(
+        "select create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage)",
+        {
+            email           => $params->{'email'}, 
+            password        => $params->{'password'},
+            firstName       => $params->{'firstName'},
+            lastName        => $params->{'lastName'},
+            lang            => "ENG",
+            timezone        => "EST",
+            profileImage    => "NULL"
+        }
+    );
+=begin comment
     my $result = $dbi->insert({
             email       => $params->{'email'}, 
             password    => $params->{'password'},
@@ -25,8 +38,13 @@ sub signup {
             last_name  => $params->{'lastName'}
         },
         table => 'user');
+=end comment
+=cut
 
-    return $result;
+    #$self->debug($result->fetch->[0]);
+    my $json = {}; 
+    $json->{'result'} = $result->fetch->[0];
+    return $json;
 }
 
 return 1;

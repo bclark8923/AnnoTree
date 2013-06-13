@@ -21,7 +21,13 @@ sub signup {
     
     my $result = AnnoTree::Model::User::signup($self, $params);
     
-    $result == 1 ? $self->render(text => 'success') : $self->render(text => 'failed');
+    $self->debug($self->dumper($result));
+    #$result == 1 ? $self->render(text => 'success') : $self->render(text => 'failed');
+    $self->render(json => $result);
+}
+
+sub authenticateUser {
+    
 }
 
 return 1;

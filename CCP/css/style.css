@@ -69,11 +69,12 @@ a {
 }
 
 .userSettingsBox {
-  background-color: #bbb;
+  box-shadow: 1px 1px 10px #bbb;
+  background-color: white;
   width: 200px;
   float: right;
   position: absolute;
-  top: 65px;
+  top: 63px;
   right: 40px;
   height: 70px;
   z-index: 999;
@@ -86,11 +87,11 @@ a {
 }
 
 .logoutArrow {
-  margin: 56px 0 0;
+  margin: 54px 0 0;
   right: 75px;
   border-style: dashed dashed solid;
   border-color: transparent;
-  border-bottom-color: #bbb;
+  border-bottom-color: white;
   border-width: 0 10px 10px;
   cursor: default;
   display: -moz-inline-box;

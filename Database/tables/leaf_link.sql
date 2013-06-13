@@ -9,19 +9,19 @@ DROP TABLE IF EXISTS `annotree`.`leaf_link` ;
 
 CREATE  TABLE IF NOT EXISTS `annotree`.`leaf_link` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `source` INT NULL ,
-  `destination` INT NULL ,
+  `source_leaf_id` INT NULL ,
+  `destination_leaf_id` INT NULL ,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_leafLink_1` (`source` ASC) ,
-  INDEX `fk_leaf_link_2` (`destination` ASC) ,
+  INDEX `fk_leafLink_1` (`source_leaf_id` ASC) ,
+  INDEX `fk_leaf_link_2` (`destination_leaf_id` ASC) ,
   CONSTRAINT `fk_leafLink_1`
-    FOREIGN KEY (`source` )
+    FOREIGN KEY (`source_leaf_id` )
     REFERENCES `annotree`.`leaf` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_leaf_link_2`
-    FOREIGN KEY (`destination` )
+    FOREIGN KEY (`destination_leaf_id` )
     REFERENCES `annotree`.`leaf` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)

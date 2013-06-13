@@ -8,19 +8,19 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=`TRADITIONAL`;
 DROP TABLE IF EXISTS `annotree`.`group_user` ;
 
 CREATE  TABLE IF NOT EXISTS `annotree`.`group_user` (
-  `group` INT NOT NULL AUTO_INCREMENT,
-  `user` INT NOT NULL ,
+  `group_id` INT NOT NULL,
+  `user_id` INT NOT NULL ,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  INDEX `fk_groupUser_1` (`group` ASC) ,
-  INDEX `fk_groupUser_2` (`user` ASC) ,
-  PRIMARY KEY (`group`, `user`) ,
+  INDEX `fk_groupUser_1` (`group_id` ASC) ,
+  INDEX `fk_groupUser_2` (`user_id` ASC) ,
+  PRIMARY KEY (`group_id`, `user_id`) ,
   CONSTRAINT `fk_groupUser_1`
-    FOREIGN KEY (`group` )
+    FOREIGN KEY (`group_id` )
     REFERENCES `annotree`.`group` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_groupUser_2`
-    FOREIGN KEY (`user` )
+    FOREIGN KEY (`user_id` )
     REFERENCES `annotree`.`user` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)

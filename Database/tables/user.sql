@@ -18,7 +18,7 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`user` (
   `time_zone` VARCHAR(15) NULL ,
   `profile_image_path` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`(45))
+  UNIQUE KEY `email` (`email`(45))
  )
 ENGINE = InnoDB;
 

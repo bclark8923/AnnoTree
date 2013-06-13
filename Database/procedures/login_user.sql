@@ -5,13 +5,12 @@
 DELIMITER $$
 
 CREATE FUNCTION `login_user`(
-  u VARCHAR(45),
+  e VARCHAR(255),
   p VARCHAR(45))
 returns VARCHAR(1024)
 BEGIN
-DECLARE user_data varchar(255) default '0';
-SET user_data = concat((select concat(username, ' ', 
-                                      password, ' ', 
+DECLARE user_data varchar(1024) default '0';
+SET user_data = concat((select concat(password, ' ', 
                                       first_name, ' ',
                                       last_name, ' ',
                                       email, ' ',
@@ -19,6 +18,6 @@ SET user_data = concat((select concat(username, ' ',
                                       time_zone, ' ',
                                       profile_image_path, ' ')
             from user 
-            where username = u and password = p), '');
+            where email = e and password = p), '');
 return @user_data;
 END

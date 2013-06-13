@@ -3,7 +3,7 @@
 -- Note: You need to salt the password in perl.
 -- returns 0 - success, 1 - emails fails regex, 2 - email already exists
 -- --------------------------------------------------------------------------------
-drop function `create_user`;
+drop  function IF EXISTS `create_user`;
 DELIMITER $$
 
 

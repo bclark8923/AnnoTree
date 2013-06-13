@@ -14,7 +14,6 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`user_forest` (
   `forest_id` INT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_user_forest_1` (`user_id` ASC) ,
-  INDEX `fk_user_forest_2` () ,
   INDEX `fk_user_forest_2` (`forest_id` ASC) ,
   CONSTRAINT `fk_user_forest_1`
     FOREIGN KEY (`user_id` )
@@ -23,7 +22,7 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`user_forest` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_forest_2`
     FOREIGN KEY (`forest_id` )
-    REFERENCES `annotree`.`tree` (`id` )
+    REFERENCES `annotree`.`forest` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

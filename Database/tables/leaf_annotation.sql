@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS `annotree`.`leaf_annotation` ;
 
 CREATE  TABLE IF NOT EXISTS `annotree`.`leaf_annotation` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `leaf_id` INT NULL ,
+  `leaf_id` INT NULL,
   `annotation_id` INT NULL ,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) ,

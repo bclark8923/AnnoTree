@@ -10,19 +10,19 @@ DROP TABLE IF EXISTS `annotree`.`comment` ;
 CREATE  TABLE IF NOT EXISTS `annotree`.`comment` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `comment` VARCHAR(1024) NULL ,
-  `user` INT NULL ,
+  `user_id` INT NULL ,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `leaf` INT NULL,
+  `leaf_id` INT NULL,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_comment_1` (`leaf` ASC) ,
-  INDEX `fk_comment_2` (`user` ASC) ,
+  INDEX `fk_comment_1` (`leaf_id` ASC) ,
+  INDEX `fk_comment_2` (`user_id` ASC) ,
   CONSTRAINT `fk_comment_1`
-    FOREIGN KEY (`leaf` )
+    FOREIGN KEY (`leaf_id` )
     REFERENCES `annotree`.`leaf` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_comment_2`
-    FOREIGN KEY (`user` )
+    FOREIGN KEY (`user_id` )
     REFERENCES `annotree`.`user` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)

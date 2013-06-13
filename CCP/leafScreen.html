@@ -29,32 +29,40 @@
 
 
 <body>
-  <!-- New Task Modal -->
-  <div class="modal" id="newTaskModal">
+  
+  <!-- User Settings Modal -->
+  <div class="modal" id="userSettingsModal">
     <div class="content">
-      <a class="close switch" gumby-trigger="|#newTaskModal"><i class="icon-cancel"></i></a>
+      <a class="close switch" gumby-trigger="|#userSettingsModal"><i class="icon-cancel"></i></a>
       <div class="row">
         <div class="ten columns centered center-text">
           <h2>This is a modal.</h2>
           <p>Gumby modals are easy to make using Toggles &amp; Switches. The <span class="label default">.modal</span> class already has the required styles which you can open and close using Toggles &amp; Switches.</p>
 
-          <p class="btn primary medium"><a href="#" class="switch active" gumby-trigger="|#newTaskModal">Close Modal</a></p>
+          <p class="btn primary medium"><a href="#" class="switch active" gumby-trigger="|#userSettingsModal">Close Modal</a></p>
         </div>
       </div>
     </div>
   </div>
   
+  <div id="userSettings" class="userSettingsBox userSettings">
+    <p class="btn info small settingsButton"><a href="#" class="switch active" gumby-trigger="#userSettingsModal">Settings</a></p>
+    <p class="btn success small logoutButton"><a href="http://annotree.com">Logout</a></p>
+  </div>
+  
   <!-- App -->
-  <div id="wrapper" style="height:100%;width:100%;">
+  <div id="wrapper" style="height:100%;width:100%;" class="switch" gumby-trigger="|.userSettings">
     <div class="navbar" id="nav1">
       <div class="row ccpRow">
         <div class="push_six two columns">
           <h1 class="logo">
-              <img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina />
+            <!-- <a href="http://annotree.com" style="padding: 0;line-height: 40px;"><img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina /></a> -->
+            <img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina />
           </h1>
         </div>
         <div class="push_three one columns">
-          <a href="#" class="userLink"><img id="userIcon" src="img/user.png" gumby-retina /></a>
+          <a href="#" class="userLink toggle" gumby-trigger=".userSettings"><img id="userIcon" src="img/user.png" gumby-retina /></a>
+          <span class="logoutArrow userSettings"></span>
         </div>
       </div>
       <!-- Toggle for mobile navigation, targeting the <ul> -->
@@ -66,7 +74,7 @@
         <div id="treeContainer">
           <div id="treeHeader" class="valign">
             <div>
-              <a href="forestScreen.html">Home</a> > <a href="treeScreen.html">AnnoTree</a> > Leaf 01
+              <a href="index.html">Home</a> > <a href="treeScreen.html">AnnoTree</a> > Leaf 01
             </div>
             
           </div>
@@ -80,7 +88,6 @@
           <div id="actionHeader" class="valign">
             <div class="taskHeader">
               <p class="taskListHeadText">Task List</p>
-              <p class="taskListHeadLink"><aclass="switch active linkColor" href="#" gumby-trigger="#newTaskModal"><i class="icon-ne icon-plus-sign"></i></a></p>
             </div>
             <!--
             <span class="actionBarButton">
@@ -111,7 +118,6 @@
                 </a>
                 <div class="drawer taskList active myTaskOpen" id="myTaskTasks">
                   <ul>
-                    <li class=" label smallTaskLabel">My Tasks</li>
                     <li>
                       <input type="checkbox">
                       <span>Build Annotree iOS library</span>
@@ -124,14 +130,10 @@
                       <input type="checkbox">
                       <span>Build Annotree iOS library</span>
                     </li>
-                  </ul>
-                  <ul>
-                    <li class=" label smallTaskLabel">Other Tasks</li>
                     <li>
                       <input type="checkbox">
                       <span>
                         Build Annotree iOS library for this one really super long to do with lots of descriptions in tact.
-                        <span style="font-size: 7pt">Unassigned - May 19, 2013</span>
                       </span>
                     </li>
                     <li>
@@ -141,6 +143,13 @@
                     <li>
                       <input type="checkbox">
                       <span>Build Annotree iOS library</span>
+                    </li>
+                    <li>
+                      <div style="padding-left:5px;">
+                        <span><a class="linkColor" href="#" ><i class="icon-ne icon-plus-sign"></i></a></span>
+                        <span><input type="text"></span>
+                        
+                      </div>
                     </li>
                   </ul>
                 </div>

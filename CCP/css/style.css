@@ -64,6 +64,59 @@ a {
   margin-top:3px;
 }
 
+.navbar a.toggle {
+  display: block;
+}
+
+.userSettingsBox {
+  background-color: #bbb;
+  width: 200px;
+  float: right;
+  position: absolute;
+  top: 65px;
+  right: 40px;
+  height: 70px;
+  z-index: 999;
+  border: 1px solid #bbb;
+  display: none;
+}
+
+.userSettings.active {
+  display:block;
+}
+
+.logoutArrow {
+  margin: 56px 0 0;
+  right: 75px;
+  border-style: dashed dashed solid;
+  border-color: transparent;
+  border-bottom-color: #bbb;
+  border-width: 0 10px 10px;
+  cursor: default;
+  display: -moz-inline-box;
+  display: inline-block;
+  font-size: 0;
+  height: 0;
+  line-height: 0;
+  position: absolute;
+  top: 0;
+  width: 0;
+  z-index: 1000;
+  display: none;
+}
+
+.logoutButton {
+  float:right;
+  margin-right: 10px;
+  margin-top: 40px;
+}
+
+.settingsButton {
+  float:left;
+  margin-left: 10px;
+  margin-top: 40px;
+}
+
 .navbar li .dropdown ul > li a {
   background-color: gray;
 }
@@ -452,6 +505,10 @@ taskListHeadLink {
   #options {
     width: 100%;
     display: none;
+  }
+  
+  .navbar a.toggle, .navbar a.toggle:hover, .navbar a.toggle.active {
+    background: transparent;
   }
 }
 

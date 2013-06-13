@@ -75,17 +75,24 @@
     </div>
   </div>
   
+  <div id="userSettings" class="userSettingsBox userSettings">
+    <p class="btn info small settingsButton"><a href="#" class="switch active" gumby-trigger="#userSettingsModal">Settings</a></p>
+    <p class="btn success small logoutButton"><a href="http://annotree.com">Logout</a></p>
+  </div>
+  
   <!-- App -->
-  <div id="wrapper" style="height:100%;width:100%;">
+  <div id="wrapper" style="height:100%;width:100%;" class="switch" gumby-trigger="|.userSettings">
     <div class="navbar" id="nav1">
       <div class="row ccpRow">
         <div class="push_six two columns">
           <h1 class="logo">
-              <img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina />
+            <!-- <a href="http://annotree.com" style="padding: 0;line-height: 40px;"><img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina /></a> -->
+            <img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina />
           </h1>
         </div>
         <div class="push_three one columns">
-          <a href="#" class="userLink"><img id="userIcon" src="img/user.png" gumby-retina /></a>
+          <a href="#" class="userLink toggle" gumby-trigger=".userSettings"><img id="userIcon" src="img/user.png" gumby-retina /></a>
+          <span class="logoutArrow userSettings"></span>
         </div>
       </div>
       <!-- Toggle for mobile navigation, targeting the <ul> -->
@@ -97,7 +104,7 @@
         <div id="treeContainer">
           <div id="treeHeader" class="valign">
             <div>
-              <a href="forestScreen.html">Home</a> > AnnoTree
+              <a href="index.html">Home</a> > AnnoTree
             </div>
             <div id="newElementHolder">
               <div id="newElementButton" class="pretty medium success btn">
@@ -206,7 +213,6 @@
           <div id="actionHeader" class="valign">
             <div class="taskHeader">
               <p class="taskListHeadText">Task List</p>
-              <p class="taskListHeadLink"><a class="switch active linkColor" href="#" gumby-trigger="#newTaskModal"><i class="icon-ne icon-plus-sign"></i></a></p>
             </div>
             <!--
             <span class="actionBarButton">
@@ -221,14 +227,14 @@
             -->
           </div>
           <div id="actionContent">
-            <div id="taskSelect">
+            <!-- <div id="taskSelect">
               <div id="allTasks" class="taskSelectButtons small btn pill-left info active">
                 <a href="#" class="taskSelectButtonLinks switch" gumby-trigger="#allTasks | #elementTasks">All</a>
               </div>
               <div id="elementTasks" class="taskSelectButtons small btn pill-right info">
                 <a href="#" class="taskSelectButtonLinks switch" gumby-trigger="#elementTasks | #allTasks">Element</a>
               </div>
-            </div>
+            </div> -->
             <div id="tasks">
               <div id="myTasks" class="taskGrouping">
                 <a href="#" class="toggle taskToggle active" gumby-trigger=".myTaskOpen">
@@ -237,7 +243,6 @@
                 </a>
                 <div class="drawer taskList active myTaskOpen" id="myTaskTasks">
                   <ul>
-                    <li class=" label smallTaskLabel">My Tasks</li>
                     <li>
                       <input type="checkbox">
                       <span>Build Annotree iOS library</span>
@@ -250,12 +255,11 @@
                       <input type="checkbox">
                       <span>Build Annotree iOS library</span>
                     </li>
-                  </ul>
-                  <ul>
-                    <li class=" label smallTaskLabel">Other Tasks</li>
                     <li>
                       <input type="checkbox">
-                      <span>Build Annotree iOS library</span>
+                      <span>
+                        Build Annotree iOS library for this one really super long to do with lots of descriptions in tact.
+                      </span>
                     </li>
                     <li>
                       <input type="checkbox">
@@ -264,6 +268,13 @@
                     <li>
                       <input type="checkbox">
                       <span>Build Annotree iOS library</span>
+                    </li>
+                    <li>
+                      <div style="padding-left:5px;">
+                        <span><a class="linkColor" href="#" ><i class="icon-ne icon-plus-sign"></i></a></span>
+                        <span><input type="text"></span>
+                        
+                      </div>
                     </li>
                   </ul>
                 </div>

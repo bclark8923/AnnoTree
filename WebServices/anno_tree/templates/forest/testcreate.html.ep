@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Upload</title></head>
+    <body>
+        %= form_for "/forest" => (method => 'POST')=> begin
+        Name:
+        %= text_field 'signUpName'
+        <br/>Email:
+        %= email_field 'signUpEmail'
+        <br/>Password
+        %= password_field 'signUpPassword'
+        <br/>
+        %= submit_button 'Submit'
+    % end
+    </body>
+</html>

@@ -9631,3 +9631,190 @@ Compilation failed in require at (eval 231) line 1.
 [Wed Jun 12 18:45:28 2013] [debug] Rendering cached inline template.
 [Wed Jun 12 18:45:28 2013] [debug] Rendering cached inline template.
 [Wed Jun 12 18:45:28 2013] [debug] 404 Not Found (0.003511s, 284.819/s).
+[Wed Jun 12 20:40:37 2013] [debug] GET "/forest/testcreate".
+[Wed Jun 12 20:40:37 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 20:40:37 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 20:40:37 2013] [debug] Rendering inline template.
+[Wed Jun 12 20:40:37 2013] [debug] Rendering inline template.
+[Wed Jun 12 20:40:37 2013] [debug] 404 Not Found (0.012748s, 78.444/s).
+[Wed Jun 12 20:40:53 2013] [debug] GET "/forest/create".
+[Wed Jun 12 20:40:53 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "testCreate".
+[Wed Jun 12 20:40:53 2013] [debug] Rendering template "forest/testcreate.html.ep".
+[Wed Jun 12 20:40:53 2013] [error] Global symbol "$forestid" requires explicit package name at template forest/testcreate.html.ep line 5.
+Global symbol "$treeid" requires explicit package name at template forest/testcreate.html.ep line 5.
+Global symbol "$branchid" requires explicit package name at template forest/testcreate.html.ep line 5.
+Global symbol "$leafid" requires explicit package name at template forest/testcreate.html.ep line 5.
+1: <!DOCTYPE html>
+2: <html>
+3:     <head><title>Upload</title></head>
+4:     <body>
+5:         %= form_for "/$forestid/$treeid/$branchid/$leafid/annotation" => (enctype => 'multipart/form-data') => (method => 'POST')=> begin
+6:         %= file_field 'screenshot'
+7:         %= submit_button 'Upload'
+8:     % end
+9:     </body>
+10: </html>
+
+[Wed Jun 12 20:40:53 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 12 20:40:53 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 12 20:40:53 2013] [debug] Rendering inline template.
+[Wed Jun 12 20:40:53 2013] [debug] Rendering inline template.
+[Wed Jun 12 20:40:53 2013] [debug] 500 Internal Server Error (0.048867s, 20.464/s).
+[Wed Jun 12 20:41:21 2013] [debug] GET "/forest/create".
+[Wed Jun 12 20:41:21 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "testCreate".
+[Wed Jun 12 20:41:21 2013] [debug] Rendering template "forest/testcreate.html.ep".
+[Wed Jun 12 20:41:21 2013] [debug] 200 OK (0.035787s, 27.943/s).
+[Wed Jun 12 20:57:57 2013] [debug] GET "/forest/create".
+[Wed Jun 12 20:57:57 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "testCreate".
+[Wed Jun 12 20:57:57 2013] [debug] Rendering template "forest/testcreate.html.ep".
+[Wed Jun 12 20:57:57 2013] [debug] 200 OK (0.035887s, 27.865/s).
+[Wed Jun 12 20:58:43 2013] [debug] GET "/forest/create".
+[Wed Jun 12 20:58:43 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "testCreate".
+[Wed Jun 12 20:58:43 2013] [debug] Rendering cached template "forest/testcreate.html.ep".
+[Wed Jun 12 20:58:43 2013] [debug] 200 OK (0.000778s, 1285.347/s).
+[Wed Jun 12 20:58:45 2013] [debug] GET "/forest/create".
+[Wed Jun 12 20:58:45 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "testCreate".
+[Wed Jun 12 20:58:45 2013] [debug] Rendering template "forest/testcreate.html.ep".
+[Wed Jun 12 20:58:45 2013] [debug] 200 OK (0.035963s, 27.806/s).
+[Wed Jun 12 21:00:21 2013] [debug] GET "/forest/create".
+[Wed Jun 12 21:00:22 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "testCreate".
+[Wed Jun 12 21:00:22 2013] [debug] Rendering template "forest/testcreate.html.ep".
+[Wed Jun 12 21:00:22 2013] [debug] 200 OK (0.035809s, 27.926/s).
+[Wed Jun 12 21:00:22 2013] [debug] GET "/forest/create".
+[Wed Jun 12 21:00:22 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "testCreate".
+[Wed Jun 12 21:00:22 2013] [debug] Rendering cached template "forest/testcreate.html.ep".
+[Wed Jun 12 21:00:22 2013] [debug] 200 OK (0.000798s, 1253.133/s).
+[Wed Jun 12 21:11:06 2013] [debug] GET "/user/signup".
+[Wed Jun 12 21:11:06 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 12 21:11:06 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 12 21:11:06 2013] [debug] 200 OK (0.005166s, 193.573/s).
+[Wed Jun 12 21:11:09 2013] [debug] GET "/user/signup".
+[Wed Jun 12 21:11:09 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 12 21:11:09 2013] [debug] Rendering cached template "user/testsignup.html.ep".
+[Wed Jun 12 21:11:09 2013] [debug] 200 OK (0.000825s, 1212.121/s).
+[Wed Jun 12 21:11:10 2013] [debug] GET "/user/signup".
+[Wed Jun 12 21:11:10 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 12 21:11:10 2013] [debug] Rendering cached template "user/testsignup.html.ep".
+[Wed Jun 12 21:11:10 2013] [debug] 200 OK (0.000784s, 1275.510/s).
+[Wed Jun 12 21:11:10 2013] [debug] GET "/user/signup".
+[Wed Jun 12 21:11:10 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 12 21:11:10 2013] [debug] Rendering cached template "user/testsignup.html.ep".
+[Wed Jun 12 21:11:10 2013] [debug] 200 OK (0.000775s, 1290.323/s).
+[Wed Jun 12 21:11:10 2013] [debug] GET "/user/signup".
+[Wed Jun 12 21:11:10 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 12 21:11:10 2013] [debug] Rendering cached template "user/testsignup.html.ep".
+[Wed Jun 12 21:11:10 2013] [debug] 200 OK (0.000787s, 1270.648/s).
+[Wed Jun 12 21:11:31 2013] [debug] GET "/user/signup".
+[Wed Jun 12 21:11:31 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 12 21:11:31 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 12 21:11:31 2013] [debug] 200 OK (0.005077s, 196.967/s).
+[Wed Jun 12 21:12:14 2013] [debug] GET "/user/signup".
+[Wed Jun 12 21:12:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 12 21:12:14 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 12 21:12:14 2013] [debug] 200 OK (0.005265s, 189.934/s).
+[Wed Jun 12 21:12:17 2013] [debug] POST "/user/signup".
+[Wed Jun 12 21:12:17 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 21:12:17 2013] [debug] name: 
+[Wed Jun 12 21:12:17 2013] [debug] 200 OK (0.000523s, 1912.046/s).
+[Wed Jun 12 21:12:56 2013] [debug] POST "/user/signup".
+[Wed Jun 12 21:12:56 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 21:12:56 2013] [debug] name: test
+[Wed Jun 12 21:12:56 2013] [debug] 200 OK (0.001813s, 551.572/s).
+[Wed Jun 12 21:13:04 2013] [debug] GET "/user/".
+[Wed Jun 12 21:13:04 2013] [debug] Template "not_found.development.html.ep" not found.
+[Wed Jun 12 21:13:04 2013] [debug] Template "not_found.html.ep" not found.
+[Wed Jun 12 21:13:04 2013] [debug] Rendering inline template.
+[Wed Jun 12 21:13:04 2013] [debug] Rendering inline template.
+[Wed Jun 12 21:13:04 2013] [debug] 404 Not Found (0.011837s, 84.481/s).
+[Wed Jun 12 21:13:10 2013] [debug] GET "/user/signup".
+[Wed Jun 12 21:13:10 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 12 21:13:10 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 12 21:13:10 2013] [debug] 200 OK (0.002738s, 365.230/s).
+[Wed Jun 12 21:16:43 2013] [debug] POST "/user/signup".
+[Wed Jun 12 21:16:43 2013] [error] Global symbol "%params" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 15.
+Global symbol "%params" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 16.
+Global symbol "%params" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 17.
+Compilation failed in require at (eval 231) line 1.
+
+[Wed Jun 12 21:16:43 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 12 21:16:43 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 12 21:16:43 2013] [debug] Rendering inline template.
+[Wed Jun 12 21:16:43 2013] [debug] Rendering inline template.
+[Wed Jun 12 21:16:43 2013] [debug] 500 Internal Server Error (0.017536s, 57.026/s).
+[Wed Jun 12 21:17:14 2013] [debug] POST "/user/signup".
+[Wed Jun 12 21:17:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 21:17:14 2013] [debug] {
+  'email' => 'email@test',
+  'name' => 'name test',
+  'password' => 'blahblah'
+}
+
+[Wed Jun 12 21:17:14 2013] [debug] 200 OK (0.001875s, 533.333/s).
+[Wed Jun 12 21:25:35 2013] [debug] POST "/user/signup".
+[Wed Jun 12 21:25:35 2013] [error] Global symbol "$result" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 22.
+Global symbol "$result" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 24.
+Compilation failed in require at (eval 231) line 1.
+
+[Wed Jun 12 21:25:35 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 12 21:25:35 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 12 21:25:35 2013] [debug] Rendering inline template.
+[Wed Jun 12 21:25:35 2013] [debug] Rendering inline template.
+[Wed Jun 12 21:25:35 2013] [debug] 500 Internal Server Error (0.048806s, 20.489/s).
+[Wed Jun 12 21:25:50 2013] [debug] POST "/user/signup".
+[Wed Jun 12 21:25:50 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 21:25:50 2013] [debug] {
+  'email' => 'email@test',
+  'name' => 'name test',
+  'password' => 'blahblah'
+}
+
+[Wed Jun 12 21:25:50 2013] [debug] 200 OK (0.032814s, 30.475/s).
+[Wed Jun 12 21:29:33 2013] [debug] POST "/user/signup".
+[Wed Jun 12 21:29:33 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 21:29:33 2013] [debug] {
+  'email' => 'email@test',
+  'name' => 'name test',
+  'password' => 'blahblah'
+}
+
+[Wed Jun 12 21:29:33 2013] [debug] 200 OK (0.036272s, 27.569/s).
+[Wed Jun 12 21:41:03 2013] [debug] POST "/user/signup".
+[Wed Jun 12 21:41:03 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 21:41:03 2013] [debug] {
+  'email' => 'email@test',
+  'firstName' => 'name',
+  'lastName' => 'test',
+  'password' => 'blahblah'
+}
+
+[Wed Jun 12 21:41:03 2013] [debug] 200 OK (0.035865s, 27.882/s).
+[Wed Jun 12 21:41:39 2013] [debug] POST "/user/signup".
+[Wed Jun 12 21:41:39 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 21:41:39 2013] [debug] {
+  'email' => 'email@test',
+  'firstName' => 'name',
+  'lastName' => 'test',
+  'password' => 'blahblah'
+}
+
+[Wed Jun 12 21:41:39 2013] [debug] 200 OK (0.036933s, 27.076/s).
+[Wed Jun 12 21:45:10 2013] [debug] POST "/user/signup".
+[Wed Jun 12 21:45:10 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 21:45:10 2013] [debug] {
+  'email' => 'email@test',
+  'firstName' => 'name',
+  'lastName' => 'test',
+  'password' => 'blahblah'
+}
+
+[Wed Jun 12 21:45:10 2013] [debug] 200 OK (0.035972s, 27.799/s).
+[Wed Jun 12 21:46:15 2013] [debug] POST "/user/signup".
+[Wed Jun 12 21:46:15 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 12 21:46:15 2013] [debug] {
+  'email' => 'email@test',
+  'firstName' => 'name',
+  'lastName' => 'test',
+  'password' => 'blahblah'
+}
+
+[Wed Jun 12 21:46:15 2013] [debug] 200 OK (0.035106s, 28.485/s).

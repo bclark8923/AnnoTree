@@ -20,6 +20,10 @@ sub startup {
     # Router
     my $r = $self->routes;
 
+    # ===== USERS =====
+    $r->get('/user/signup')->to('controller-user#testSignup');
+    $r->post('/user/signup')->to('controller-user#signup');
+
     # ===== FORESTS =====
     $r->get('/forest')->to('controller-forest#list');
     $r->get('/forest/:id' => [id => qr/\d+/])->to('controller-forest#unique');

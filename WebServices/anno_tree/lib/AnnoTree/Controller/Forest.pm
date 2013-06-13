@@ -51,6 +51,13 @@ sub unique {
     $self->render(json => $model);
 }
 
+
+sub create {
+    my $self = shift;
+
+    $self->render(text => "sup");
+}
+
 # temporary route to test forest creation
 sub testCreate {
     my $self = shift;

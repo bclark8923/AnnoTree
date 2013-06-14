@@ -7,24 +7,29 @@
 # 3) start development (morbo) server
 
 usage() {
-    echo "Usage: build.sh ENV"
+    echo "Usage: build.sh ENV GIT-REMOTE"
     echo "\tENV: matt aws-dev1"
+    echo "\t GIT-REMOTE: the name of remote repo"
     exit
 }
 
-if [ -z $1 ]; then
-    usage
-fi
-
-if [ $1 = "aws-dev1" ]; then
+build() {
     git stash
-    git pull lots-www master
+    git pull $2 master
     cd Database
     ./install.py
     cd ..
     nohup morbo WebServices/anno_tree/script/anno_tree &
-elif [ $1 = "matt" ]; then
-    echo "matt"
+}
+
+if [ -z $1 || -z $2 ]; then
+    usage
+fi
+
+if [ $1 = "aws-dev1" || $1 = "matt" ]; then
+    build
+#elif [ $1 = "matt" ]; then
+#    build
 else 
     usage
 fi

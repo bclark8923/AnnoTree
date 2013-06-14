@@ -196,7 +196,7 @@
 		D321648F172C18B500573823 /* AnnoTreeLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnnoTreeLibrary-Prefix.pch"; sourceTree = "<group>"; };
 		D3216490172C18B500573823 /* AnnoTreeLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnoTreeLibrary.h; sourceTree = "<group>"; };
 		D3216492172C18B500573823 /* AnnoTreeLibrary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnoTreeLibrary.m; sourceTree = "<group>"; };
-		D3216499172C18B600573823 /* AnnoTreeLibraryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnnoTreeLibraryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3216499172C18B600573823 /* AnnoTreeTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnnoTreeTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D32164A2172C18B600573823 /* AnnoTreeLibraryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnnoTreeLibraryTests-Info.plist"; sourceTree = "<group>"; };
 		D32164A4172C18B600573823 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D32164A6172C18B600573823 /* AnnoTreeLibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnoTreeLibraryTests.h; sourceTree = "<group>"; };
@@ -438,7 +438,7 @@
 				D3AAA1A317000FC300954DDF /* AnnoTree Viewer.app */,
 				D3AAA1CC17000FC400954DDF /* AnnoTree ViewerTests.octest */,
 				D321648B172C18B500573823 /* libAnnoTree.a */,
-				D3216499172C18B600573823 /* AnnoTreeLibraryTests.octest */,
+				D3216499172C18B600573823 /* AnnoTreeTests.octest */,
 				D3180C25176184B300A6B8E0 /* AnnoTree.bundle */,
 			);
 			name = Products;
@@ -606,7 +606,7 @@
 			);
 			name = AnnoTreeTests;
 			productName = AnnoTreeLibraryTests;
-			productReference = D3216499172C18B600573823 /* AnnoTreeLibraryTests.octest */;
+			productReference = D3216499172C18B600573823 /* AnnoTreeTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 		D3AAA1A217000FC300954DDF /* AnnoTree Viewer */ = {
@@ -1192,6 +1192,7 @@
 				D3180C12176182E400A6B8E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D3180C2F176184B300A6B8E0 /* Build configuration list for PBXNativeTarget "AnnoTreeResources" */ = {
 			isa = XCConfigurationList;
@@ -1200,6 +1201,7 @@
 				D3180C31176184B300A6B8E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D32164AD172C18B600573823 /* Build configuration list for PBXNativeTarget "AnnoTree" */ = {
 			isa = XCConfigurationList;

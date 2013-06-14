@@ -26,7 +26,7 @@ if [ -z $1 || -z $2 ]; then
     usage
 fi
 
-if [ $1 = "aws-dev1" || $1 = "matt" ]; then
+if [ $1 = "aws-dev1" ] || [ $1 = "matt" ]; then
     build
 #elif [ $1 = "matt" ]; then
 #    build

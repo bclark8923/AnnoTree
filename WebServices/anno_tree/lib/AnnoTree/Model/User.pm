@@ -25,6 +25,41 @@ sub createSaltedHash {
     return $shash;
 }
 
+# validates a user attempting to log in
+# returns 0 if invalid email
+# returns -1 if password is incorrect
+# returns the user's id otherwise (a positive int)
+sub login {
+    my ($self, $params) = @_;
+    
+    $self->debug('before query');
+    my $result = $self->db_dbi->execute(
+        "select id, password from user where email=:email",
+        {
+            email => $params->{email}
+        }
+    );
+
+    my $fetch = $result->fetch;
+    my $json = {};
+    
+    if ($fetch) {
+        $self->debug($self->dumper($fetch));
+        my $shash = $fetch->[1];
+        my $valid = Crypt::SaltedHash->validate($shash, $params->{password});
+        $self->debug("valid is $valid");
+        
+        if ($valid == 1) {
+            $json->{userid} = '' . $fetch->[0];
+        } else {
+            $json->{userid} = '0';
+        }
+    } else {
+        $json->{userid} = '-1';
+    }
+    return $json;
+}
+
 # inserts a new user into the DB
 sub signup {
     my ($self, $params) = @_;

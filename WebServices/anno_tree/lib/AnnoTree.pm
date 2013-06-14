@@ -32,6 +32,8 @@ sub startup {
     # ===== USERS =====
     $r->get('/user/signup')->to('controller-user#testSignup');
     $r->post('/user/signup')->to('controller-user#signup');
+    $r->get('/user/login')->to('controller-user#testLogin');
+    $r->post('/user/login')->to('controller-user#login');
 
     # ===== FORESTS =====
     $r->get('/forest')->to('controller-forest#list');

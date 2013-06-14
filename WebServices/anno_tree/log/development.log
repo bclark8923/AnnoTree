@@ -10553,3 +10553,236 @@ Compilation failed in require at (eval 307) line 1.
 }
 
 [Thu Jun 13 20:53:08 2013] [debug] 200 OK (0.003677s, 271.961/s).
+[Thu Jun 13 23:23:44 2013] [info] Listening at "http://*:3000".
+[Thu Jun 13 23:25:49 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:25:49 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testLogin".
+[Thu Jun 13 23:25:49 2013] [debug] Rendering template "user/testlogin.html.ep".
+[Thu Jun 13 23:25:49 2013] [debug] 200 OK (0.005416s, 184.638/s).
+[Thu Jun 13 23:26:00 2013] [debug] GET "/user/signup".
+[Thu Jun 13 23:26:00 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 13 23:26:00 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 13 23:26:00 2013] [debug] 200 OK (0.003133s, 319.183/s).
+[Thu Jun 13 23:26:16 2013] [debug] POST "/user/signup".
+[Thu Jun 13 23:26:16 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 13 23:26:16 2013] [debug] {
+  'email' => 'mattprice11@gmail.com',
+  'firstName' => 'matt',
+  'lastName' => 'price',
+  'password' => 'groovy'
+}
+
+[Thu Jun 13 23:26:16 2013] [debug] {SSHA512}G1U2u4qbAXt8TAJFQLHthprBZ2/auDhzLwgXEmny1rR2uO8NzOwOx9rFXJnpOJ2olVDuiB9M7qgYDoGXX4Ja5b4nsxk=
+[Thu Jun 13 23:26:16 2013] [debug] {
+  'result' => '0'
+}
+
+[Thu Jun 13 23:26:16 2013] [debug] 200 OK (0.010458s, 95.621/s).
+[Thu Jun 13 23:26:20 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:26:20 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testLogin".
+[Thu Jun 13 23:26:20 2013] [debug] Rendering cached template "user/testlogin.html.ep".
+[Thu Jun 13 23:26:20 2013] [debug] 200 OK (0.000837s, 1194.743/s).
+[Thu Jun 13 23:29:06 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:29:06 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testLogin".
+[Thu Jun 13 23:29:06 2013] [debug] Rendering template "user/testlogin.html.ep".
+[Thu Jun 13 23:29:06 2013] [debug] 200 OK (0.005396s, 185.322/s).
+[Thu Jun 13 23:29:12 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:29:12 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Thu Jun 13 23:29:12 2013] [error] Undefined subroutine &AnnoTree::Controller::User::Dumper called at /home/matt/perl5/perlbrew/perls/5.18_threads/lib/site_perl/5.18.0/Mojolicious/Routes.pm line 172.
+
+[Thu Jun 13 23:29:12 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 13 23:29:12 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 13 23:29:12 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:29:12 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:29:12 2013] [debug] 500 Internal Server Error (0.015592s, 64.135/s).
+[Thu Jun 13 23:29:51 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:29:51 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Thu Jun 13 23:29:51 2013] [debug] 200 OK (0.002081s, 480.538/s).
+[Thu Jun 13 23:39:14 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:39:14 2013] [error] Global symbol "$result" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 41.
+Compilation failed in require at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+BEGIN failed--compilation aborted at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+Compilation failed in require at (eval 307) line 1.
+
+[Thu Jun 13 23:39:14 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 13 23:39:14 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 13 23:39:14 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:39:14 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:39:14 2013] [debug] 500 Internal Server Error (0.018048s, 55.408/s).
+[Thu Jun 13 23:41:34 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:41:34 2013] [error] Global symbol "$result" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 42.
+Compilation failed in require at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+BEGIN failed--compilation aborted at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+Compilation failed in require at (eval 307) line 1.
+
+[Thu Jun 13 23:41:34 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 13 23:41:34 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 13 23:41:34 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:41:34 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:41:34 2013] [debug] 500 Internal Server Error (0.018490s, 54.083/s).
+[Thu Jun 13 23:42:15 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:42:15 2013] [error] Global symbol "$result" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 42.
+Compilation failed in require at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+BEGIN failed--compilation aborted at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+Compilation failed in require at (eval 307) line 1.
+
+[Thu Jun 13 23:42:15 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 13 23:42:15 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 13 23:42:15 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:42:15 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:42:15 2013] [debug] 500 Internal Server Error (0.018056s, 55.383/s).
+[Thu Jun 13 23:42:18 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:42:18 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testLogin".
+[Thu Jun 13 23:42:18 2013] [debug] Action not found in controller.
+[Thu Jun 13 23:42:18 2013] [debug] Template "controller/user/testLogin.html.ep" not found.
+[Thu Jun 13 23:42:18 2013] [debug] Template "not_found.development.html.ep" not found.
+[Thu Jun 13 23:42:18 2013] [debug] Template "not_found.html.ep" not found.
+[Thu Jun 13 23:42:18 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:42:18 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:42:18 2013] [debug] 404 Not Found (0.010722s, 93.266/s).
+[Thu Jun 13 23:42:52 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:42:52 2013] [error] Global symbol "$result" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 42.
+Compilation failed in require at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+BEGIN failed--compilation aborted at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+Compilation failed in require at (eval 307) line 1.
+
+[Thu Jun 13 23:42:52 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 13 23:42:52 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 13 23:42:52 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:42:52 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:42:52 2013] [debug] 500 Internal Server Error (0.017883s, 55.919/s).
+[Thu Jun 13 23:43:20 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:43:20 2013] [error] Global symbol "$result" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 42.
+Compilation failed in require at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+BEGIN failed--compilation aborted at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+Compilation failed in require at (eval 307) line 1.
+
+[Thu Jun 13 23:43:20 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 13 23:43:20 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 13 23:43:20 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:43:20 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:43:20 2013] [debug] 500 Internal Server Error (0.018265s, 54.750/s).
+[Thu Jun 13 23:43:24 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:43:24 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testLogin".
+[Thu Jun 13 23:43:24 2013] [debug] Action not found in controller.
+[Thu Jun 13 23:43:24 2013] [debug] Template "controller/user/testLogin.html.ep" not found.
+[Thu Jun 13 23:43:24 2013] [debug] Template "not_found.development.html.ep" not found.
+[Thu Jun 13 23:43:24 2013] [debug] Template "not_found.html.ep" not found.
+[Thu Jun 13 23:43:24 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:43:24 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:43:24 2013] [debug] 404 Not Found (0.010562s, 94.679/s).
+[Thu Jun 13 23:43:43 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:43:43 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testLogin".
+[Thu Jun 13 23:43:43 2013] [debug] Rendering template "user/testlogin.html.ep".
+[Thu Jun 13 23:43:43 2013] [debug] 200 OK (0.005395s, 185.357/s).
+[Thu Jun 13 23:43:51 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:43:51 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Thu Jun 13 23:43:51 2013] [debug] before query
+[Thu Jun 13 23:43:51 2013] [debug] [
+  '3',
+  '{SSHA512}G1U2u4qbAXt8TAJFQLHthprBZ2/auDhzLwgXEmny1rR2uO8NzOwOx9rFXJnpOJ2olVDuiB9M7qgYDoGXX4Ja5b4nsxk='
+]
+
+[Thu Jun 13 23:43:51 2013] [debug] 200 OK (0.007889s, 126.759/s).
+[Thu Jun 13 23:44:41 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:44:41 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Thu Jun 13 23:44:41 2013] [debug] before query
+[Thu Jun 13 23:44:41 2013] [error] Can't use string ("3") as an ARRAY ref while "strict refs" in use at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 42.
+
+[Thu Jun 13 23:44:41 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 13 23:44:41 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 13 23:44:41 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:44:41 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:44:41 2013] [debug] 500 Internal Server Error (0.025386s, 39.392/s).
+[Thu Jun 13 23:46:18 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:46:18 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Thu Jun 13 23:46:18 2013] [debug] before query
+[Thu Jun 13 23:46:18 2013] [error] Can't use string ("3") as an ARRAY ref while "strict refs" in use at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 42.
+
+[Thu Jun 13 23:46:18 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 13 23:46:18 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 13 23:46:18 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:46:18 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:46:18 2013] [debug] 500 Internal Server Error (0.025538s, 39.157/s).
+[Thu Jun 13 23:46:32 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:46:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Thu Jun 13 23:46:32 2013] [debug] before query
+[Thu Jun 13 23:46:32 2013] [debug] {SSHA512}G1U2u4qbAXt8TAJFQLHthprBZ2/auDhzLwgXEmny1rR2uO8NzOwOx9rFXJnpOJ2olVDuiB9M7qgYDoGXX4Ja5b4nsxk=
+[Thu Jun 13 23:46:32 2013] [debug] 200 OK (0.009411s, 106.259/s).
+[Thu Jun 13 23:48:48 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:48:48 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Thu Jun 13 23:48:48 2013] [debug] before query
+[Thu Jun 13 23:48:48 2013] [error] Can't locate object method "valid" via package "Crypt::SaltedHash" at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 44.
+
+[Thu Jun 13 23:48:48 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 13 23:48:48 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 13 23:48:48 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:48:48 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:48:48 2013] [debug] 500 Internal Server Error (0.025551s, 39.137/s).
+[Thu Jun 13 23:49:09 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:49:09 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Thu Jun 13 23:49:09 2013] [debug] before query
+[Thu Jun 13 23:49:09 2013] [debug] valid is 1
+[Thu Jun 13 23:49:09 2013] [debug] 200 OK (0.009751s, 102.554/s).
+[Thu Jun 13 23:49:15 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:49:15 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testLogin".
+[Thu Jun 13 23:49:15 2013] [debug] Rendering template "user/testlogin.html.ep".
+[Thu Jun 13 23:49:15 2013] [debug] 200 OK (0.004024s, 248.509/s).
+[Thu Jun 13 23:49:26 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:49:26 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Thu Jun 13 23:49:26 2013] [debug] before query
+[Thu Jun 13 23:49:26 2013] [debug] valid is 
+[Thu Jun 13 23:49:26 2013] [debug] 200 OK (0.000767s, 1303.781/s).
+[Thu Jun 13 23:53:03 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:53:03 2013] [error] Global symbol "$json" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 52.
+Global symbol "$json" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 55.
+Compilation failed in require at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+BEGIN failed--compilation aborted at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+Compilation failed in require at (eval 307) line 1.
+
+[Thu Jun 13 23:53:03 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 13 23:53:03 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 13 23:53:03 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:53:03 2013] [debug] Rendering inline template.
+[Thu Jun 13 23:53:03 2013] [debug] 500 Internal Server Error (0.018097s, 55.258/s).
+[Thu Jun 13 23:53:27 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:53:27 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testLogin".
+[Thu Jun 13 23:53:27 2013] [debug] Rendering template "user/testlogin.html.ep".
+[Thu Jun 13 23:53:27 2013] [debug] 200 OK (0.005431s, 184.128/s).
+[Thu Jun 13 23:53:34 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:53:34 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Thu Jun 13 23:53:34 2013] [debug] before query
+[Thu Jun 13 23:53:34 2013] [debug] valid is 1
+[Thu Jun 13 23:53:34 2013] [debug] 200 OK (0.008340s, 119.904/s).
+[Thu Jun 13 23:54:56 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:54:56 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testLogin".
+[Thu Jun 13 23:54:56 2013] [debug] Rendering cached template "user/testlogin.html.ep".
+[Thu Jun 13 23:54:56 2013] [debug] 200 OK (0.000881s, 1135.074/s).
+[Thu Jun 13 23:55:04 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:55:04 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Thu Jun 13 23:55:04 2013] [debug] before query
+[Thu Jun 13 23:55:04 2013] [debug] valid is 
+[Thu Jun 13 23:55:04 2013] [debug] 200 OK (0.000778s, 1285.347/s).
+[Thu Jun 13 23:55:06 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:55:06 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testLogin".
+[Thu Jun 13 23:55:06 2013] [debug] Rendering cached template "user/testlogin.html.ep".
+[Thu Jun 13 23:55:06 2013] [debug] 200 OK (0.000834s, 1199.041/s).
+[Thu Jun 13 23:55:13 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:55:13 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Thu Jun 13 23:55:13 2013] [debug] before query
+[Thu Jun 13 23:55:13 2013] [debug] valid is 
+[Thu Jun 13 23:55:13 2013] [debug] 200 OK (0.000953s, 1049.318/s).
+[Thu Jun 13 23:55:15 2013] [debug] GET "/user/login".
+[Thu Jun 13 23:55:15 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testLogin".
+[Thu Jun 13 23:55:15 2013] [debug] Rendering cached template "user/testlogin.html.ep".
+[Thu Jun 13 23:55:15 2013] [debug] 200 OK (0.000824s, 1213.592/s).
+[Thu Jun 13 23:55:59 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:55:59 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Thu Jun 13 23:55:59 2013] [debug] before query
+[Thu Jun 13 23:55:59 2013] [debug] undef
+
+[Thu Jun 13 23:55:59 2013] [debug] valid is 
+[Thu Jun 13 23:55:59 2013] [debug] 200 OK (0.009971s, 100.291/s).
+[Thu Jun 13 23:57:49 2013] [debug] POST "/user/login".
+[Thu Jun 13 23:57:49 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Thu Jun 13 23:57:49 2013] [debug] before query
+[Thu Jun 13 23:57:49 2013] [debug] 200 OK (0.009324s, 107.250/s).

@@ -14,6 +14,24 @@ sub testSignup {
     $self->render(template => 'user/testsignup');
 }
 
+sub testLogin {
+    my $self = shift;
+
+    $self->render(template => 'user/testlogin');
+}
+
+sub login {
+    my $self = shift;
+
+    my $params = {};
+    $params->{email} = $self->param('email');
+    $params->{password} = $self->param('password');
+    
+    my $result = AnnoTree::Model::User::login($self, $params);
+
+    $self->render(json => $result);
+}
+
 sub signup {
     my $self = shift;
     

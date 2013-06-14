@@ -9,7 +9,7 @@
 usage() {
     echo "Usage: build.sh ENV GIT-REMOTE"
     echo "\tENV: matt aws-dev1"
-    echo "\t GIT-REMOTE: the name of remote repo"
+    echo "\tGIT-REMOTE: the name of remote repo"
     exit
 }
 
@@ -22,7 +22,7 @@ build() {
     nohup morbo WebServices/anno_tree/script/anno_tree &
 }
 
-if [ -z $1 || -z $2 ]; then
+if [ -z $1 ] || [ -z $2 ]; then
     usage
 fi
 

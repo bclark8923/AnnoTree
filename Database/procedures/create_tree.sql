@@ -1,26 +1,28 @@
 -- --------------------------------------------------------------------------------
--- create_forest
+-- create_tree
 -- returns 0 - success
 -- --------------------------------------------------------------------------------
 use annotree;
-drop  function IF EXISTS `create_forest`;
+drop  function IF EXISTS `create_tree`;
 DELIMITER $$
 
 
-CREATE FUNCTION `create_forest`(
+CREATE FUNCTION `create_tree`(
   user INT,
+  f_id INT,
   n varchar(45),
   d varchar(1024)
   )
 RETURNS int
 BEGIN
-IF (select id from user where id = user) AND (select f_id from forest where f_id = id) then
-insert into `annotree`.`forest` 
+
+IF (select id from user where id = user) then
+insert into `annotree`.`tree` 
   (name, description)
-  values (n, d);
+  values (n, d, f_id);
 set @id = LAST_INSERT_ID();
-insert into `annotree`.`user_forest`
-  (user_id, forest_id)
+insert into `annotree`.`user_tree`
+  (user_id, tree_id)
 values
   (user, @id);
 return 0;

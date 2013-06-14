@@ -37,14 +37,14 @@
   padding: 0; top:10%;
   ">
       <div class="row" style="height:80px;background-color:#555;text-align:center;">
-        <a href="index.html"><img src="img/AnnoTreeFadeIn.png" style="height: 60px;margin-top:10px;"/></a>
+        <img src="img/AnnoTreeFadeIn.png" style="height: 60px;margin-top:10px;"/>
       </div>
       <div class="row" style="height:150px;">
         <div class="ten columns centered center-text">
-          <p style="padding-top: 15px;padding-bottom: 10px; text-align: center; font-size:11pt">Please enter your email and we will send you a reset link.</p>
-          <form id="requestPasswordResetForm" style="">
+          <form id="loginForm" style="padding-top: 30px">
             <ul>
-              <li class="field" style="text-align:center;"><input id="requestEmail" class="email input" type="email" placeholder="Email" style="max-width:380px;"></li>
+              <li class="field" style="text-align:center;"><input id="loginEmail" class="email input" type="email" placeholder="Email" style="max-width:380px;"></li>
+              <li class="field" style="text-align:center;"><input id="loginPassword" class="password input" type="password" placeholder="Password" style="max-width:380px;"></li>
             </ul>
           </form>
         </div>
@@ -52,8 +52,11 @@
       <div class="row" style="height:85px;background-color:#eee;border-top:1px solid #bbb;">
         <div style="text-align: center; padding-top:15px;">
           <div>
-            <div class="medium btn success"><a href="#">Request Password Reset</a></div>
-            <p style="margin-bottom: 0px; padding-top: 5px; text-align: center; font-size:10pt;"><a href="loginScreen.html" style="color:#444;text-decoration:underline;">Return to Login Screen</a></p>
+            <div class="medium btn success"><a href="http://ccp.annotree.com">Login</a></div>
+            <div>
+              <p class="forgotPassword"><a href="appRequestPasswordScreen.html" style="color:#444;text-decoration:underline;">Forgot Password?</a></p>
+              <p class="signUpHere">New here? <a href="appSignupScreen.html" style="color:#444;text-decoration:underline;">Come Sign Up!</a></p>
+            </div>
           </div>
         </div>
       </div>

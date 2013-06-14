@@ -14,7 +14,20 @@ Gumby.oldie(function() {
 });
 
 // Document ready
-$(function() {
+$(document).ready(function() {
+  var width = 80;
+  settingsPane = new SlidingPane({
+    id: 'mobileOptions',
+    targetId: 'wrapper',
+    side: 'right',
+    width: 240,
+    duration: 0.75,
+    timingFunction: 'ease',
+    shadowStyle: '0px 0px 0px #000' /* or 'none' or ... */
+  });
 
+  $("#paneToggle").click(function() {
+    settingsPane.toggle()
+  });
 });
 

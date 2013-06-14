@@ -19,11 +19,13 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="fonts/geosanslight/stylesheet.css">
-  <link rel="shortcut icon" href="favicon.ico" />
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+      <link rel="icon" type="image/png" href="favicon.png" />
 
   <script src="js/libs/modernizr-2.6.2.min.js"></script>
   <script src="js/libs/angular.min.js"></script>
   <script src="js/scripts/controllers.js"></script>
+  <script type="text/javascript" src="js/sliding-pane.js"></script>
 
 </head>
 
@@ -36,7 +38,7 @@
       <a class="close switch" gumby-trigger="|#newLeafModal"><i class="icon-cancel"></i></a>
       <div class="row">
         <div class="ten columns centered center-text">
-          <h2>This is a modal.</h2>
+          <h2>Add Leaf</h2>
           <p>Gumby modals are easy to make using Toggles &amp; Switches. The <span class="label default">.modal</span> class already has the required styles which you can open and close using Toggles &amp; Switches.</p>
 
           <p class="btn primary medium"><a href="#" class="switch active" gumby-trigger="|#newLeafModal">Close Modal</a></p>
@@ -45,19 +47,34 @@
     </div>
   </div>
   
-  <!-- New Task Modal -->
-  <div class="modal" id="newTaskModal">
-    <div class="content">
-      <a class="close switch" gumby-trigger="|#newTaskModal"><i class="icon-cancel"></i></a>
-      <div class="row">
-        <div class="ten columns centered center-text">
-          <h2>This is a modal.</h2>
-          <p>Gumby modals are easy to make using Toggles &amp; Switches. The <span class="label default">.modal</span> class already has the required styles which you can open and close using Toggles &amp; Switches.</p>
-
-          <p class="btn primary medium"><a href="#" class="switch active" gumby-trigger="|#newTaskModal">Close Modal</a></p>
-        </div>
+  <!-- Modify leaf Modal -->
+  <div class="modal" id="modifyLeafModal">
+      <div class="content">
+          <a class="close switch" gumby-trigger="|#modifyLeafModal"><i class="icon-cancel"></i></a>
+          <div class="row">
+              <div class="ten columns centered center-text">
+                  <h2>Modify Leaf</h2>
+                  <p>Gumby modals are easy to make using Toggles &amp; Switches. The <span class="label default">.modal</span> class already has the required styles which you can open and close using Toggles &amp; Switches.</p>
+                  
+                  <p class="btn primary medium"><a href="#" class="switch active" gumby-trigger="|#modifyLeafModal">Close Modal</a></p>
+              </div>
+          </div>
       </div>
-    </div>
+  </div>
+  
+  <!-- Modify Tree Modal -->
+  <div class="modal" id="modifyTreeModal">
+      <div class="content">
+          <a class="close switch" gumby-trigger="|#modifyTreeModal"><i class="icon-cancel"></i></a>
+          <div class="row">
+              <div class="ten columns centered center-text">
+                  <h2>Modify Tree</h2>
+                  <p>Gumby modals are easy to make using Toggles &amp; Switches. The <span class="label default">.modal</span> class already has the required styles which you can open and close using Toggles &amp; Switches.</p>
+                  
+                  <p class="btn primary medium"><a href="#" class="switch active" gumby-trigger="|#modifyTreeModal">Close Modal</a></p>
+              </div>
+          </div>
+      </div>
   </div>
   
   <!-- User Settings Modal -->
@@ -66,7 +83,7 @@
       <a class="close switch" gumby-trigger="|#userSettingsModal"><i class="icon-cancel"></i></a>
       <div class="row">
         <div class="ten columns centered center-text">
-          <h2>This is a modal.</h2>
+          <h2>Settings</h2>
           <p>Gumby modals are easy to make using Toggles &amp; Switches. The <span class="label default">.modal</span> class already has the required styles which you can open and close using Toggles &amp; Switches.</p>
 
           <p class="btn primary medium"><a href="#" class="switch active" gumby-trigger="|#userSettingsModal">Close Modal</a></p>
@@ -75,9 +92,9 @@
     </div>
   </div>
   
-  <div id="userSettings" class="userSettingsBox userSettings">
-    <p class="btn info small settingsButton"><a href="#" class="switch active" gumby-trigger="#userSettingsModal">Settings</a></p>
-    <p class="btn success small logoutButton"><a href="http://annotree.com">Logout</a></p>
+  <div id="userSettings" class="userSettingsBox userSettings mobileSettings">
+    <p class="btn info small settingsButton"><a href="#" class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p>
+    <p class="btn success small logoutButton"><a href="http://annotree.com/loginScreen.html">Logout</a></p>
   </div>
   
   <!-- App -->
@@ -97,11 +114,16 @@
       <!-- Toggle for mobile navigation, targeting the <ul> -->
       <div>
           <h1 class="logo" style="float:left;width:100%;text-align:center;margin-top:5px;">
-              <a href="http://ccp.annotree.com" style="padding: 0;line-height: 40px;"><img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina /></a>
+              <a href="http://ccp.annotree.com" class="logoLink"><img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina /></a>
           </h1>
           <div style="position:absolute; right:20px; top: 5px;">
-              <a href="#" class="userLink toggle" gumby-trigger=".userSettings"><img id="userIcon" src="img/user.png" gumby-retina /></a>
+              <a href="#" class="userLink toggle responsiveHide" gumby-trigger=".userSettings"><img id="userIcon" src="img/user.png" gumby-retina /></a>
               <span class="logoutArrow userSettings"></span>
+              <div class="btn pretty info responsiveShow" style="width: 50px;
+                  height: 40px;
+                  margin-top: 5px;">
+                  <a href="#" id="paneToggle" style="padding:0;text-align:center;"><i class="icon-cog responsiveShow" style="color:#bbb;font-size:22pt;"></i></a>
+              </div>
           </div>
       </div>
       
@@ -111,14 +133,24 @@
       <div id="mainContent">
         <div id="treeContainer">
           <div id="treeHeader" class="valign">
-            <div>
-              <a href="index.html">Home</a> > AnnoTree
+            <div id="crumbHolder">
+              <span class="responsiveHide">
+                <a href="index.html">Home</a> > AnnoTree
+              </span>
+              <span class="responsiveShow">
+                <a href="index.html"><i class="icon-arrow-left" style="color:#444;font-size:22pt"></i></a>
+              </span>
+            </div>
+            <div class="responsiveShowTC" style="text-align:center;width:100%">
+                AnnoTree
             </div>
             <div id="newElementHolder">
-              <div id="newElementButton" class="pretty medium success btn">
+                <div id="newElementButton" class="pretty medium success btn" style="
+                    
+                    ">
                 <button>
                   <a id="newElementLink" href="#" class="switch active" gumby-trigger="#newLeafModal">
-                    <i class="icon-ne icon-plus-sign"></i> New Leaf
+                    <i class="icon-ne icon-plus-sign" style="margin-right:0px;"></i><span class="responsiveHide" style="margin-left:5px;"> New Leaf</span>
                   </a>
                 </button>
               </div>
@@ -130,42 +162,51 @@
                 <div class="four columns">
                   <div class="cardHolder">
                     <div class="card">
+                      <div class="cardTitleBar valign"><div>Leaf 01</div></div>
                       <a href="leafScreen.html">
-                        <div class="cardTitleBar valign"><div>Leaf 01</div></div>
                         <div class="leaf valign">
                           <div>
                             <img class="leafImage" src="img/leaf01.png" gumby-retina />
                           </div>
-                        </div> 
+                        </div>
                       </a>
+                      <div class="treeModify">
+                        <a href="#" class="switch" gumby-trigger="#modifyLeafModal"><i class="icon-cog"></i></a>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div class="four columns">
                   <div class="cardHolder">
                     <div class="card">
-                      <a href="leafScreen.html">
                         <div class="cardTitleBar valign"><div>Leaf 02</div></div>
-                        <div class="leaf valign">
-                          <div>
-                            <img class="leafImage" src="img/leaf02.png" gumby-retina />
-                          </div>
-                        </div> 
-                      </a>
+                        <a href="leafScreen.html">
+                            <div class="leaf valign">
+                                <div>
+                                    <img class="leafImage" src="img/leaf02.png" gumby-retina />
+                                </div>
+                            </div>
+                        </a>
+                        <div class="treeModify">
+                            <a href="#" class="switch" gumby-trigger="#modifyLeafModal"><i class="icon-cog"></i></a>
+                        </div>
                     </div>
                   </div>
                 </div>
                 <div class="four columns">
                   <div class="cardHolder">
                     <div class="card">
-                      <a href="leafScreen.html">
                         <div class="cardTitleBar valign"><div>Leaf 01</div></div>
-                        <div class="leaf valign">
-                          <div>
-                            <img class="leafImage" src="img/leaf01.png" gumby-retina />
-                          </div>
-                        </div> 
-                      </a>
+                        <a href="leafScreen.html">
+                            <div class="leaf valign">
+                                <div>
+                                    <img class="leafImage" src="img/leaf01.png" gumby-retina />
+                                </div>
+                            </div>
+                        </a>
+                        <div class="treeModify">
+                            <a href="#" class="switch" gumby-trigger="#modifyLeafModal"><i class="icon-cog"></i></a>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -174,42 +215,51 @@
                 <div class="four columns">
                   <div class="cardHolder">
                     <div class="card">
-                      <a href="leafScreen.html">
                         <div class="cardTitleBar valign"><div>Leaf 01</div></div>
-                        <div class="leaf valign">
-                          <div>
-                            <img class="leafImage" src="img/leaf01.png" gumby-retina />
-                          </div>
-                        </div> 
-                      </a>
+                        <a href="leafScreen.html">
+                            <div class="leaf valign">
+                                <div>
+                                    <img class="leafImage" src="img/leaf01.png" gumby-retina />
+                                </div>
+                            </div>
+                        </a>
+                        <div class="treeModify">
+                            <a href="#" class="switch" gumby-trigger="#modifyLeafModal"><i class="icon-cog"></i></a>
+                        </div>
                     </div>
                   </div>
                 </div>
                 <div class="four columns">
                   <div class="cardHolder">
                     <div class="card">
-                      <a href="leafScreen.html">
                         <div class="cardTitleBar valign"><div>Leaf 01</div></div>
-                        <div class="leaf valign">
-                          <div>
-                            <img class="leafImage" src="img/leaf01.png" gumby-retina />
-                          </div>
-                        </div> 
-                      </a>
+                        <a href="leafScreen.html">
+                            <div class="leaf valign">
+                                <div>
+                                    <img class="leafImage" src="img/leaf01.png" gumby-retina />
+                                </div>
+                            </div>
+                        </a>
+                        <div class="treeModify">
+                            <a href="#" class="switch" gumby-trigger="#modifyLeafModal"><i class="icon-cog"></i></a>
+                        </div>
                     </div>
                   </div>
                 </div>
                 <div class="four columns">
                   <div class="cardHolder">
                     <div class="card">
-                      <a href="leafScreen.html">
                         <div class="cardTitleBar valign"><div>Leaf 01</div></div>
-                        <div class="leaf valign">
-                          <div>
-                            <img class="leafImage" src="img/leaf01.png" gumby-retina />
-                          </div>
-                        </div> 
-                      </a>
+                        <a href="leafScreen.html">
+                            <div class="leaf valign">
+                                <div>
+                                    <img class="leafImage" src="img/leaf01.png" gumby-retina />
+                                </div>
+                            </div>
+                        </a>
+                        <div class="treeModify">
+                            <a href="#" class="switch" gumby-trigger="#modifyLeafModal"><i class="icon-cog"></i></a>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -336,6 +386,127 @@
         </div>
       </div>
     </div>
+  </div>
+  <div id="mobileOptions">
+      <div style="position:absolute; right:20px; top: 5px; z-index:0;">
+          <a href="#" class="userLink toggle responsiveShow" gumby-trigger=".mobileSettings"><img id="userIcon" src="img/user.png" gumby-retina /></a>
+          <span class="logoutArrow userSettings mobileSettings"></span>
+      </div>
+      <div id="actionHeader" class="valign">
+          <div class="taskHeader">
+              <p class="taskListHeadText">Task List</p>
+          </div>
+          <!--
+           <span class="actionBarButton">
+           <i class="icon-fa icon-tasks"></i>
+           </span>
+           <span class="actionBarButton">
+           <i class="icon-fa icon-comments-alt"></i>
+           </span>
+           <span class="actionBarButton">
+           <i class="icon-fa icon-leaf"></i>
+           </span>
+           -->
+      </div>
+      <div id="actionContent">
+          <!-- <div id="taskSelect">
+           <div id="allTasks" class="taskSelectButtons small btn pill-left info active">
+           <a href="#" class="taskSelectButtonLinks switch" gumby-trigger="#allTasks | #elementTasks">All</a>
+           </div>
+           <div id="elementTasks" class="taskSelectButtons small btn pill-right info">
+           <a href="#" class="taskSelectButtonLinks switch" gumby-trigger="#elementTasks | #allTasks">Element</a>
+           </div>
+           </div> -->
+          <div id="tasks">
+              <div id="myTasks" class="taskGrouping">
+                  <a href="#" class="toggle taskToggle active" gumby-trigger=".myTaskOpen">
+                      <p class="taskGroupingHeader">Open Tasks</p>
+                      <p class="taskGroupingIcon"><i id="myTaskIcon" class="icon-chevron-sign-down myTaskOpen active"></i></p>
+                  </a>
+                  <div class="drawer taskList active myTaskOpen" id="myTaskTasks">
+                      <ul>
+                          <li>
+                              <input type="checkbox">
+                                  <span>Build Annotree iOS library</span>
+                                  </li>
+                          <li>
+                              <input type="checkbox">
+                                  <span>Build Annotree iOS library</span>
+                                  </li>
+                          <li>
+                              <input type="checkbox">
+                                  <span>Build Annotree iOS library</span>
+                                  </li>
+                          <li>
+                              <input type="checkbox">
+                                  <span>
+                                      Build Annotree iOS library for this one really super long to do with lots of descriptions in tact.
+                                  </span>
+                                  </li>
+                          <li>
+                              <input type="checkbox">
+                                  <span>Build Annotree iOS library</span>
+                                  </li>
+                          <li>
+                              <input type="checkbox">
+                                  <span>Build Annotree iOS library</span>
+                                  </li>
+                          <li>
+                              <div style="padding-left:5px;">
+                                  <span><a class="linkColor" href="#" ><i class="icon-ne icon-plus-sign"></i></a></span>
+                                  <span><input type="text" class="addTodo"></span>
+                                  
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <!-- <div id="otherTasks" class="taskGrouping">
+               <a href="#" class="toggle taskToggle" gumby-trigger="#otherTaskTasks">
+               <p class="taskGroupingHeader">Other Tasks</p>
+               <p class="taskGroupingIcon"><i class="icon-chevron-sign-down"></i></p>
+               </a>
+               <div class="drawer taskList" id="otherTaskTasks">
+               <ul>
+               <li>
+               <input type="checkbox">
+               <span>Build Annotree iOS library</span>
+               </li>
+               <li>
+               <input type="checkbox">
+               <span>Build Annotree iOS library</span>
+               </li>
+               <li>
+               <input type="checkbox">
+               <span>Build Annotree iOS library</span>
+               </li>
+               </ul>
+               </div>
+               </div> -->
+              <div id="completedTasks" class="taskGrouping">
+                  <a href="#" class="toggle taskToggle" gumby-trigger=".completedTaskOpen">
+                      <p class="taskGroupingHeader">Completed Tasks</p>
+                      <p class="taskGroupingIcon"><i class="icon-chevron-sign-down completedTaskOpen"></i></p>
+                  </a>
+                  <div class="drawer taskList completedTaskOpen" id="completedTaskTasks">
+                      <ul>
+                          <li>
+                              <input type="checkbox">
+                                  <span>Build Annotree iOS library</span>
+                                  </li>
+                          <li>
+                              <input type="checkbox">
+                                  <span>Build Annotree iOS library</span>
+                                  </li>
+                          <li>
+                              <input type="checkbox">
+                                  <span>Build Annotree iOS library</span>
+                                  </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
   <!-- Grab Google CDN's jQuery, fall back to local if offline -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

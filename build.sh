@@ -18,8 +18,10 @@ fi
 
 if [ $1 = "aws-dev1" ]; then
     git stash
-    git pull lots-db master
-    Database/install.py
+    git pull lots-www master
+    cd Database
+    install.py
+    cd ..
     nohup morbo WebServices/anno_tree/script/anno_tree &
 elif [ $1 = "matt" ]; then
     echo "matt"

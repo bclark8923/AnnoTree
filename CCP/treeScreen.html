@@ -13,7 +13,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
  
-  <link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+  <link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/gumby.css">
   <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.3.custom.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -83,19 +83,27 @@
   <!-- App -->
   <div id="wrapper" style="height:100%;width:100%;" class="switch" gumby-trigger="|.userSettings">
     <div class="navbar" id="nav1">
-      <div class="row ccpRow">
+      <!-- <div class="row ccpRow">
         <div class="push_six two columns">
           <h1 class="logo">
-            <!-- <a href="http://annotree.com" style="padding: 0;line-height: 40px;"><img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina /></a> -->
-            <img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina />
+            <a href="http://ccp.annotree.com" style="padding: 0;line-height: 40px;"><img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina /></a>
           </h1>
         </div>
         <div class="push_three one columns">
           <a href="#" class="userLink toggle" gumby-trigger=".userSettings"><img id="userIcon" src="img/user.png" gumby-retina /></a>
           <span class="logoutArrow userSettings"></span>
         </div>
-      </div>
+      </div> -->
       <!-- Toggle for mobile navigation, targeting the <ul> -->
+      <div>
+          <h1 class="logo" style="float:left;width:100%;text-align:center;margin-top:5px;">
+              <a href="http://ccp.annotree.com" style="padding: 0;line-height: 40px;"><img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina /></a>
+          </h1>
+          <div style="position:absolute; right:20px; top: 5px;">
+              <a href="#" class="userLink toggle" gumby-trigger=".userSettings"><img id="userIcon" src="img/user.png" gumby-retina /></a>
+              <span class="logoutArrow userSettings"></span>
+          </div>
+      </div>
       
     </div>
     <div id="scaffold">

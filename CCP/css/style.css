@@ -83,7 +83,7 @@ a:hover{
   float: right;
   position: absolute;
   top: 63px;
-  right: 40px;
+  right: 15px;
   height: 70px;
   z-index: 999;
   border: 1px solid #bbb;
@@ -96,7 +96,7 @@ a:hover{
 
 .logoutArrow {
   margin: 54px 0 0;
-  right: 75px;
+  right: 15px;
   border-style: dashed dashed solid;
   border-color: transparent;
   border-bottom-color: white;

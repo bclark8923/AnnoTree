@@ -8,7 +8,7 @@ DELIMITER $$
 
 
 CREATE FUNCTION `create_user`(
-  password VARCHAR(40), 
+  password VARCHAR(128), 
   first_name VARCHAR(45),
   last_name VARCHAR(45),
   email VARCHAR(255),

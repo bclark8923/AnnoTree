@@ -1,9 +1,6 @@
-#!usr/bin/perl
+package AnnoTree::Model::Dao::Dao;
 
 use Crypt::SaltedHash;
-use strict;
-use warnings;
-package dao;
 
 
 use base 'Class::DBI::mysql';

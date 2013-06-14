@@ -6,6 +6,10 @@ use AnnoTree::Model::User;
 
 sub testSignup {
     my $self = shift;
+    
+    #$self->db_test();
+    #$self->debug($self->db_set);
+    #$self->debug($self->testStr('blahblah'));
 
     $self->render(template => 'user/testsignup');
 }

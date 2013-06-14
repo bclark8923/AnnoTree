@@ -14,6 +14,15 @@ sub startup {
     
     # load the plugins
     $self->plugin('DebugHelper');
+    $self->plugin('MySQL', {
+            db => {
+                database    => 'annotree',
+                host        => 'localhost',
+                port        => '3306',
+                username    => 'annotree',
+                password    => 'ann0tr33s',
+            }
+        });
     # Documentation browser under "/perldoc"
     #$self->plugin('PODRenderer');
 

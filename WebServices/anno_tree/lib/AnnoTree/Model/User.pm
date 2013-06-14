@@ -1,33 +1,47 @@
 package AnnoTree::Model::User;
 
-use EV;
-use DBIx::Custom;
+use Mojo::Base -strict;
+use Crypt::SaltedHash;
+#use EV;
+#use DBIx::Custom;
 
-use strict;
-use warnings;
-
+#use strict;
+#use warnings;
+=begin comment
 my $dbi = DBIx::Custom->connect(
     dsn         => 'dbi:mysql:database=annotree;host=localhost;port=3306',
     user        => 'annotree',
     password    => 'ann0tr33s'
 );
+=end comment
+=cut
+sub createSaltedHash {
+    my $password = shift;
+    
+    #creating the salted hash
+    my $crypt = Crypt::SaltedHash->new(algorithm=>'SHA-512');
+    $crypt->add($password);
+    my $shash = $crypt->generate();
+    return $shash;
+}
 
 # inserts a new user into the DB
 sub signup {
     my ($self, $params) = @_;
     
     $self->debug($self->dumper($params));
-    
-    my $result = $dbi->execute(
+    my $pass = createSaltedHash($params->{'password'});
+    $self->debug($pass);
+    my $result = $self->db_dbi->execute( #$dbi->execute(
         "select create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage)",
         {
             email           => $params->{'email'}, 
-            password        => $params->{'password'},
+            password        => '' . $pass,
             firstName       => $params->{'firstName'},
             lastName        => $params->{'lastName'},
-            lang            => "ENG",
-            timezone        => "EST",
-            profileImage    => "NULL"
+            lang            => 'ENG',
+            timezone        => 'EST',
+            profileImage    => 'NULL'
         }
     );
 =begin comment

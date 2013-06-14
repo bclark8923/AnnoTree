@@ -15,7 +15,7 @@ usage() {
 
 build() {
     git stash
-    git pull $2 master
+    git pull $1 master
     cd Database
     ./install.py
     cd ..
@@ -27,7 +27,7 @@ if [ -z $1 ] || [ -z $2 ]; then
 fi
 
 if [ $1 = "aws-dev1" ] || [ $1 = "matt" ]; then
-    build
+    build $2
 #elif [ $1 = "matt" ]; then
 #    build
 else 

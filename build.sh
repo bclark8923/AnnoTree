@@ -20,7 +20,7 @@ if [ $1 = "aws-dev1" ]; then
     git stash
     git pull lots-www master
     cd Database
-    install.py
+    ./install.py
     cd ..
     nohup morbo WebServices/anno_tree/script/anno_tree &
 elif [ $1 = "matt" ]; then

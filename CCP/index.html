@@ -76,13 +76,23 @@
   </div>
   
   <div id="userSettings" class="userSettingsBox userSettings">
-    <p class="btn info small settingsButton"><a href="#" class="switch active" gumby-trigger="#userSettingsModal | #userSettings">Settings</a></p>
+    <p style="position:absolute;top:0px;right:0px;"><a href="#" style="color:#444;" class="switch" gumby-trigger="|.userSettings"><i class="icon-remove-sign"></i></a></p>
+    <div>
+        <p style="
+            margin-left: 10px;
+            margin-top: 5px;
+            height: 23px;
+            ">Brian Clark</p>
+    </div>
+    <div>
+    <p class="btn info small settingsButton"><a href="#" class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p>
     <p class="btn success small logoutButton"><a href="http://annotree.com/loginScreen.html">Logout</a></p>
+    </div>
   </div>
   
   <!-- App -->
   <div id="wrapper" style="height:100%;width:100%;" class="switch" gumby-trigger="|.userSettings">
-    <div class="navbar" id="nav1">
+    <div class="navbar pretty" id="nav1">
       <!-- <div class="row ccpRow">
         <div class="push_six two columns">
           <h1 class="logo">

@@ -39,7 +39,16 @@ a:hover{
   margin-bottom: 20px;*/
   background: #555;
   margin: 0;
+  z-index: 800;
 }
+/*
+.pretty.navbar {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #aff19a), color-stop(100%, #84db69));
+    background-image: -webkit-linear-gradient(#aff19a, #84db69);
+    background-image: -moz-linear-gradient(#aff19a, #84db69);
+    background-image: -o-linear-gradient(#aff19a, #84db69);
+    background-image: linear-gradient(#aff19a, #84db69);
+}*/
 
 .navbar .logo {
   height: 38px;
@@ -49,6 +58,7 @@ a:hover{
 .navbar ul li > a {
   height: 45px;
 }
+
 .ccpRow {
   max-width: 100%;
   padding-top: 5px;
@@ -117,13 +127,13 @@ a:hover{
 .logoutButton {
   float:right;
   margin-right: 10px;
-  margin-top: 40px;
+  margin-top: 0px;
 }
 
 .settingsButton {
   float:left;
   margin-left: 10px;
-  margin-top: 40px;
+  margin-top: 0px;
 }
 
 .navbar li .dropdown ul > li a {
@@ -158,7 +168,7 @@ a:hover{
   height: 100%;
 	width:100%;
 	background-color: #f4f4f4;/*#eae6e1;*/
-  padding: 30px;
+  /*padding: 30px;*/
   /*-moz-box-shadow: 0 0 10px #444;
   -webkit-box-shadow: 0 0 10px #444;
   box-shadow: 0 0 10px #444;*/
@@ -174,9 +184,9 @@ a:hover{
   overflow: auto;
   border-top: 50px solid transparent;
   margin-top: -50px;
-  -webkit-border-radius: 5px;
+  /*-webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 5px;
+  border-radius: 5px;*/
 }
 
 .cardHolder {
@@ -196,16 +206,17 @@ a:hover{
   box-shadow: 0 0 5px #444;*/
   margin: 0 auto;
   /*border: 10px solid white;*/
-  border: 1px solid  #bbb; /*#aff19a;*/
+  /*border: 1px solid  #bbb;*/ /*#aff19a;*/
   /*border: 3px solid  #84db69;*/ /*#aff19a;*/
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
+  box-shadow: 0px 0px 10px #bbb;
 }
 
 .cardTitleBar {
   background-color: #84db69; /*#aff19a;*/
-  color: #444;
+  color: white; /*#444;*/
   height: 30px;
   font-size: 16pt;
   background-image: linear-gradient(#aff19a, #84db69);
@@ -231,7 +242,7 @@ a:hover{
 }
 
 .leaf {
-  height: 170px;
+  height: 175px;
 }
 
 .leafImage {
@@ -243,20 +254,20 @@ a:hover{
   height: 100%;
   width: 100%;
   border: 1px solid #bbb;
-  -webkit-border-radius: 5px;
+  /*-webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 5px;
+  border-radius: 5px;*/
   background-color: white;
 }
 
 #treeContainer {
   height: 100%;
-  width: 77%;
+  width: 75%;
   float: left;
   border: 1px solid #bbb;
-  -webkit-border-radius: 5px;
+  /*-webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 5px;
+  border-radius: 5px;*/
   background-color: white;
 }
 
@@ -266,9 +277,9 @@ a:hover{
   border-bottom: 1px solid #bbb;
   background-image: linear-gradient(#ffffff, #f7f7f7);
   background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7);
-  -webkit-border-radius: 5px 5px 0px 0px;
+  /*-webkit-border-radius: 5px 5px 0px 0px;
   -moz-border-radius: 5px 5px 0px 0px;
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px;*/
   padding-left: 20px;
   font-size: 14pt;
 }
@@ -282,6 +293,16 @@ a:hover{
   font-size: 9pt;
   height: 30px;
   z-index: 500;
+}
+
+.btn.pretty.success {
+    border: none;
+    box-shadow: 0 0 5px #bbb;
+}
+
+.btn.pretty.success:hover {
+    border: none;
+    box-shadow: 0 0 5px #bbb;
 }
 
 #newElementLink {
@@ -310,6 +331,7 @@ a:hover{
 
 .treeBG {
   background-color: white;
+  /*background-color: rgb(219, 255, 225);*/
 }
 
 .treeModify {
@@ -323,13 +345,13 @@ a:hover{
 
 #options {
   background-color: white;/*#444444;*/
-  width: 20%;
+  width: 25%;
   float: right;
   height: 100%;
   border: 1px solid #bbb;
-  -webkit-border-radius: 5px;
+  /*-webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 5px;
+  border-radius: 5px;*/
   /*-webkit-border-radius: 0px 15px 15px 0px;
   -moz-border-radius: 0px 15px 15px 0px;
   border-radius: 0px 15px 15px 0px;*/
@@ -563,6 +585,16 @@ taskListHeadLink {
 
 @media only screen and (max-width: 767px) {
   
+  .pretty .info.btn, .pretty.navbar a.toggle,.pretty.navbar a.toggle.active, .pretty.navbar a.toggle:hover {
+      box-shadow: none;
+      border: none;
+      background-image: none;
+  }
+  
+  .pretty .success.btn {
+      box-shadow: 0 0 5px #222;
+  }
+  
   #treeContainer {
     width: 100%;
     border-radius:0;
@@ -611,7 +643,7 @@ taskListHeadLink {
   #crumbHolder {
     padding-left: 10px;
     position: absolute;
-    top: 64px;
+    top: 70px;
     left: 0px;
     width: 60px;
   }

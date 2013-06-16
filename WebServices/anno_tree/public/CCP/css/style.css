@@ -59,6 +59,25 @@ a:hover{
   height: 45px;
 }
 
+
+.forgotPassword {
+    margin-bottom: 0px;
+    padding-left: 10px;
+    padding-top: 5px;
+    text-align: center;
+    font-size:10pt;
+    float:left;
+}
+
+.signUpHere {
+    margin-bottom: 0px;
+    padding-right: 10px;
+    padding-top: 5px;
+    text-align: center;
+    font-size:10pt;
+    float:right;
+}
+
 .ccpRow {
   max-width: 100%;
   padding-top: 5px;
@@ -668,4 +687,17 @@ taskListHeadLink {
   i[class^="icon-responsive"] {
       margin-right:0px;
   }
+}
+
+@media only screen and (max-width: 320px) {
+    
+    .forgotPassword {
+        padding-left: 5px;
+        font-size:8pt;
+    }
+    
+    .signUpHere {
+        padding-right: 5px;
+        font-size:8pt;
+    }
 }

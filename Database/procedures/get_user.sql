@@ -2,8 +2,8 @@
 -- login_user
 -- Note: You need to salt the password in perl.
 -- --------------------------------------------------------------------------------
-use annotre;
-drop function `get_user`;
+use annotree;
+drop function IF EXISTS `get_user`;
 DELIMITER $$
 
 CREATE FUNCTION `get_user`(

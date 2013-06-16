@@ -9,7 +9,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 DROP TABLE IF EXISTS `annotree`.`user_forest` ;
 
 CREATE  TABLE IF NOT EXISTS `annotree`.`user_forest` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NULL ,
   `forest_id` INT NULL ,
   PRIMARY KEY (`id`) ,

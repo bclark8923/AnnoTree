@@ -1,9 +1,9 @@
 USE annotree;
 
 
---fake data for users
+-- fake data for users
 select create_user('password', 'mike', 'max', 'unrealdps@gmail.com', 'ENG', 'EST', null);
-select create_user('{SSHA512}lYeG5lCnnF/b2Ao/qWWLkQZZzZwMSg8Ks0m2vUZl5I+T0EmEzjyhwCudoEZxw4vuJWhg5rLTVr8kWGX3pef46Z4tR4o=', 'matt', 'price', 'matt@price.com', 'ENG', 'EST', null);
+-- select create_user('{SSHA512}UX9sgqjO+B6T4x+ymVTOX+ZfBl5QI1DbJKwMuDijfgwwDQoTHHm/waUNdSI4VlqLOg/gn6GSCvcBdFWSRJTM7NtAC+c=', 'matt', 'price', 'matt@price.com', 'ENG', 'EST', null);
 
 -- fake data for forests
 select create_forest(1,"Silith.io", "A company for only the truly brave");

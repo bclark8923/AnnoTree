@@ -6,8 +6,8 @@ DEBUG = True
 config = open("config/install.config").read(-1)
 components = open("config/components.config").read(-1)
 
-username = "root"
-password = "password"
+username = "annotree"
+password = "ann0tr33s"
 
 for line in config.split("\n"):
   parts = line.split("=")

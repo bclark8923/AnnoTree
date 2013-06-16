@@ -14,7 +14,8 @@ CREATE FUNCTION `create_forest`(
   )
 RETURNS int
 BEGIN
-IF (select id from user where id = user) AND (select f_id from forest where f_id = id) then
+IF (select id from user where id = user) then
+-- AND (select f_id from forest where f_id = id) then
 insert into `annotree`.`forest` 
   (name, description)
   values (n, d);

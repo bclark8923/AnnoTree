@@ -11,7 +11,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 DROP TABLE IF EXISTS `annotree`.`user_tree` ;
 
 CREATE  TABLE IF NOT EXISTS `annotree`.`user_tree` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NULL ,
   `tree_id` INT NULL ,
   PRIMARY KEY (`id`) ,

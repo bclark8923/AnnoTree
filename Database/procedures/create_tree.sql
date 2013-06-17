@@ -3,31 +3,27 @@
 -- returns 0 - success
 -- --------------------------------------------------------------------------------
 use annotree;
-drop  function IF EXISTS `create_tree`;
+drop  procedure IF EXISTS `create_tree`;
 DELIMITER $$
 
 
-CREATE FUNCTION `create_tree`(
-  user INT,
-  f_id INT,
-  n varchar(45),
-  d varchar(1024)
+CREATE Procedure `create_tree`(
+  in user INT,
+  in f INT,
+  in n varchar(45),
+  in d varchar(1024)
   )
-RETURNS int
 BEGIN
-
-IF (select id from user where id = user) then
+IF (select id from user where id = user and active = true) and (select id from forest where id = f) then
 insert into `annotree`.`tree` 
-  (name, description)
-  values (n, d, f_id);
+  (forest_id, name, description)
+  values (f, n, d);
 set @id = LAST_INSERT_ID();
 insert into `annotree`.`user_tree`
   (user_id, tree_id)
 values
   (user, @id);
-return 0;
-ELSE
-return 1;
+select 'id', 'forest_id', 'name', 'description' union select @id, f, n, d;
 END IF;
 END $$
 delimiter ; $$

@@ -17,4 +17,3 @@ select forest.id, forest.name, forest.description, forest.created_at
                     and user_forest.user_id = u;
 END $$
 delimiter ; $$
-call get_forest_by_user(1);

@@ -6,23 +6,30 @@ use DBIx::Custom;
 use strict;
 use warnings;
 
-my $dbi = DBIx::Custom->connect(
-    dsn         => 'dbi:mysql:database=annotree;host=localhost;port=3306',
-    user        => 'annotree',
-    password    => 'ann0tr33s'
-);
+# Create a new forest 
+sub create {
+    my ($self, $params) = @_;
+    
+    # need to change this so that we grab the actaul userid
+    my $result = $self->db_dbi->execute(
+        "select create_forest(:userid, :name, :desc)",
+        {
+            userid  => $params->{userid},
+            name    => $params->{name},
+            desc    => $params->{desc}
+        }
+    );
 
-# need to make this fully async but that can come later
-$dbi->async_conf({
-    prepare_attr    => {async => 1},
-    fh              => sub {shift->dbh->mysql_fd}
-});
+    my $json = {};
+    $json->{result} = $result->fetch->[0];
+    return $json;
+}
 
 # grabs all of the forests from the DB
 sub getAllForests {
     my $self = shift;
     
-    my $result = $dbi->execute(
+    my $result = $self->db_dbi->execute(
         "select id, name, description, created_at from forest"
     );
     my $count = 0;
@@ -42,12 +49,12 @@ sub getAllForests {
 }
 
 # gets an individual forest's info from the DB
-sub getUniqueForest {
+sub uniqueForest {
     my ($self, $id) = @_;
     
     $self->debug("id is $id");
 
-    my $result = $dbi->execute(
+    my $result = $self->db_dbi->execute(
         "select id, name, description, created_at from forest where id = :pid",
         {pid => $id}
     );
@@ -62,6 +69,46 @@ sub getUniqueForest {
     $self->debug($self->dumper($forest));
     
     return $forest; 
+}
+
+sub forestsForUser {
+    my ($controller, $params) = @_;
+=begin oldcode
+    my $select = $controller->db_dbi->execute(
+        "select id, name, description, created_at
+        from forest
+        where id in (
+            select forest_id
+            from user_forest
+            where user_id = :userid
+        )",
+        {
+            userid => $params->{userid}
+        }
+    );
+=end oldcode
+=cut
+    
+    my $select = $controller->db_dbi->execute(
+        "call get_forest_by_user(:userid)",
+        {
+            userid => $params->{userid}
+        }
+    );
+
+    my $json = {};
+    my $index = 0;
+    while (my $return = $select->fetch) {
+        $controller->debug($controller->dumper($return));
+        $json->{forests}->[$index]->{id} = $return->[0];
+        $json->{forests}->[$index]->{name} = $return->[1];
+        $json->{forests}->[$index]->{description} = $return->[2];
+        $json->{forests}->[$index]->{createAt} = $return->[3];
+        $index++;
+    }
+    
+    $json->{numForests} = '' . $index;
+    return $json;
 }
 
 return 1;

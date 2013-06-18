@@ -4,9 +4,9 @@
     <body>
         %= form_for "/user/login" => (method => 'POST')=> begin
         Email:
-        %= email_field 'email'
+        %= email_field 'loginEmail'
         <br/>Password
-        %= password_field 'password'
+        %= password_field 'loginPassword'
         <br/>
         %= submit_button 'Submit'
     % end

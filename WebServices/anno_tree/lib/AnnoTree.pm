@@ -34,12 +34,14 @@ sub startup {
     $r->post('/user/signup')->to('controller-user#signup');
     $r->get('/user/login')->to('controller-user#testLogin');
     $r->post('/user/login')->to('controller-user#login');
+    $r->delete('/user/:uid' => [uid => qr/\d+/])->to('controller-user#delete');
 
     # ===== FORESTS =====
     $r->get('/forest')->to('controller-forest#list');
-    $r->get('/forest/:id' => [id => qr/\d+/])->to('controller-forest#unique');
-    $r->get('/forest/create')->to('controller-forest#testCreate');
     $r->post('/forest')->to('controller-forest#create');
+    $r->get('/forest/:id' => [id => qr/\d+/])->to('controller-forest#uniqueForest');
+    $r->get('/forest/create')->to('controller-forest#testCreate');
+    $r->get('/:userid/forest' => [userid => qr/\d+/])->to('controller-forest#forestsForUser');
 
     # ===== TREES =====
     $r->get('/:forestid/tree' => [forestid => qr/\d+/])->to('controller-tree#list');

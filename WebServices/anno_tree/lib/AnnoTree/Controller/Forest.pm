@@ -3,31 +3,6 @@ package AnnoTree::Controller::Forest;
 use Mojo::Base 'Mojolicious::Controller';
 use AnnoTree::Model::Forest;
 
-# placeholder data for forests until I build the DB
-=begin placeholderData
-my $forests = {
-    numForests      => "3",
-    forests         => [
-        {
-            id          => "0",
-            name        => "Untitled Technologies",
-            description => "A company for only the truly brave"
-        },
-        {
-            id          => "1",
-            name        => "The Monkey Knows",
-            description => "How dare you try to rustle my jimmies"
-        },
-        {
-            id          => "2",
-            name        => "Late Night",
-            description => "Because we will be pulling a bunch of these"
-        }
-    ]
-};
-=end placeholderData
-=cut
-
 sub list {
     my $self = shift;
     
@@ -40,22 +15,29 @@ sub list {
     #$self->render(text => "hello");
 }
 
-sub unique {
+sub uniqueForest {
     my $self = shift;
 
     my $id = $self->param('id');
 
     $self->debug("before go id is $id");
     
-    my $model = AnnoTree::Model::Forest::getUniqueForest($self, $id);
+    my $model = AnnoTree::Model::Forest::uniqueForest($self, $id);
     $self->render(json => $model);
 }
 
 
 sub create {
     my $self = shift;
+    
+    my $params = {};
+    $params->{userid} = $self->param('userid');
+    $params->{name} = $self->param('name');
+    $params->{desc} = $self->param('description');
+    
+    my $result = AnnoTree::Model::Forest::create($self, $params);
 
-    $self->render(text => "sup");
+    $self->render(json => $result);
 }
 
 # temporary route to test forest creation
@@ -64,4 +46,16 @@ sub testCreate {
 
     $self->render(template => 'forest/testcreate');
 }
+
+sub forestsForUser {
+    my $self = shift;
+
+    my $params = {};
+    $params->{userid} = $self->param('userid');
+
+    my $result = AnnoTree::Model::Forest::forestsForUser($self, $params);
+
+    $self->render(json => $result);
+}
+
 return 1;

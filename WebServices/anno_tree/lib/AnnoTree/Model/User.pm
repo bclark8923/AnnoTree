@@ -32,29 +32,45 @@ sub createSaltedHash {
 sub login {
     my ($self, $params) = @_;
     
-    $self->debug('before query');
+    #$self->debug('before query');
+=begin oldselect
     my $result = $self->db_dbi->execute(
         "select id, password from user where email=:email",
         {
             email => $params->{email}
         }
     );
-
+=end oldselect
+=cut
+    my $result = $self->db_dbi->execute(
+        "select get_user(:email)",
+        {
+            email => $params->{email}
+        }
+    );
     my $fetch = $result->fetch;
     my $json = {};
     
-    if ($fetch) {
+    if ($fetch->[0]) {
+        my @fetch = split(/, /, $fetch->[0]);
+        #$self->debug('userid: ' . $fetch[0]);
         $self->debug($self->dumper($fetch));
-        my $shash = $fetch->[1];
+        my $shash = $fetch[1];
         my $valid = Crypt::SaltedHash->validate($shash, $params->{password});
         $self->debug("valid is $valid");
         
         if ($valid == 1) {
-            $json->{userid} = '' . $fetch->[0];
-        } else {
+            $json->{userid} = '' . $fetch[0];
+            $json->{firstName} = '' . $fetch[2];
+            $json->{lastName} = '' . $fetch[3];
+            $json->{email} = '' . $fetch[4];
+            $json->{lang} = '' . $fetch[5];
+            $json->{timezone} = '' . $fetch[6];
+            $json->{profileImagePath} = '' . $fetch[7];
+        } else { # password was invalid
             $json->{userid} = '0';
         }
-    } else {
+    } else { # user does not exist
         $json->{userid} = '-1';
     }
     return $json;

@@ -24,8 +24,8 @@ sub login {
     my $self = shift;
 
     my $params = {};
-    $params->{email} = $self->param('email');
-    $params->{password} = $self->param('password');
+    $params->{email} = $self->param('loginEmail');
+    $params->{password} = $self->param('loginPassword');
     
     my $result = AnnoTree::Model::User::login($self, $params);
 
@@ -36,7 +36,7 @@ sub signup {
     my $self = shift;
     
     my $params = {};
-    ($params->{'firstName'}, $params->{'lastName'}) = $self->param('signUpName') =~ m/(\S+)\s+(\S+)/;
+    ($params->{'firstName'}, $params->{'lastName'}) = $self->param('signUpName') =~ m/(.+)\s+(\S+)\Z/;
     $params->{'email'} = $self->param('signUpEmail');
     $params->{'password'} = $self->param('signUpPassword');
     #$self->debug($self->dumper($params));

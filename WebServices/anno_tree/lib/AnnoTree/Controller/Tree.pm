@@ -79,10 +79,10 @@ my @trees = (
 sub list {
     my $self = shift;
     my $forestid = $self->param('forestid');
-    my $numTrees = scalar @{$trees[$forestid]};
-    my $treeRef = $trees[$forestid];
+    #my $numTrees = scalar @{$trees[$forestid]};
+    #my $treeRef = $trees[$forestid];
     
-    $self->render(template => 'tree/list', format => 'json', treeRef => $treeRef);
+    $self->render(json => @trees[$forestid]);
 }
 
 return 1;

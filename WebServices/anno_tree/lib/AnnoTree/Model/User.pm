@@ -84,7 +84,7 @@ sub signup {
     my $pass = createSaltedHash($params->{'password'});
     $self->debug($pass);
     my $result = $self->db_dbi->execute( #$dbi->execute(
-        "select create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage)",
+        "call create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage)",
         {
             email           => $params->{'email'}, 
             password        => '' . $pass,
@@ -107,8 +107,15 @@ sub signup {
 =cut
 
     #$self->debug($result->fetch->[0]);
-    my $json = {}; 
-    $json->{'result'} = $result->fetch->[0];
+    my $json = {};
+    
+    
+    my $cols = $result->fetch; # get the columns (keys for json)
+    my $userInfo = $result->fetch; # get the newly created user's info
+    for(my $i = 0; $i < @{$cols}; $i++) {
+        $json->{$cols->[$i]} = $userInfo->[$i];
+    }
+    #$json->{$cols} = $result->fetch->[0];
     return $json;
 }
 

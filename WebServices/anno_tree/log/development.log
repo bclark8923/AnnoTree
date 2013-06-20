@@ -13604,3 +13604,761 @@ Compilation failed in require at (eval 307) line 1.
 
 [Tue Jun 18 01:40:09 2013] [debug] valid is 1
 [Tue Jun 18 01:40:09 2013] [debug] 200 OK (0.001295s, 772.201/s).
+[Tue Jun 18 01:46:33 2013] [debug] GET "/user/signup".
+[Tue Jun 18 01:46:33 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Tue Jun 18 01:46:33 2013] [debug] Rendering cached template "user/testsignup.html.ep".
+[Tue Jun 18 01:46:33 2013] [debug] 200 OK (0.000920s, 1086.957/s).
+[Tue Jun 18 01:47:13 2013] [debug] POST "/user/signup".
+[Tue Jun 18 01:47:13 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Tue Jun 18 01:47:13 2013] [debug] {
+  'email' => 'lordoftheservers@silith.io',
+  'firstName' => 'Lord of the',
+  'lastName' => 'Servers',
+  'password' => 'groovy'
+}
+
+[Tue Jun 18 01:47:13 2013] [debug] {SSHA512}jBYUMh4uUQVruxRjDX7Y4udAk2yqdl2wRQI6Clw3LPC7TXc/2nZc660ZZJAbpQs3wkDVvljKqApjv5OUQj31TMx6BjU=
+[Tue Jun 18 01:47:13 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-18 01:47:13',
+  'email' => 'lordoftheservers@silith.io',
+  'first_name' => 'Lord of the',
+  'id' => '3',
+  'lang' => 'ENG',
+  'last_name' => 'Servers',
+  'password' => '{SSHA512}jBYUMh4uUQVruxRjDX7Y4udAk2yqdl2wRQI6Clw3LPC7TXc/2nZc660ZZJAbpQs3wkDVvljKqApjv5OUQj31TMx6BjU=',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Tue Jun 18 01:47:13 2013] [debug] 200 OK (0.001982s, 504.541/s).
+[Wed Jun 19 21:49:00 2013] [debug] GET "/user/signup".
+[Wed Jun 19 21:49:00 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 21:49:00 2013] [error] Can't locate object method "procedure" via package "AnnoTree::Model::Dao" (perhaps you forgot to load "AnnoTree::Model::Dao"?) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 10.
+
+[Wed Jun 19 21:49:00 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 19 21:49:00 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 19 21:49:00 2013] [debug] Rendering inline template.
+[Wed Jun 19 21:49:00 2013] [debug] Rendering inline template.
+[Wed Jun 19 21:49:00 2013] [debug] 500 Internal Server Error (0.018244s, 54.813/s).
+[Wed Jun 19 21:49:27 2013] [debug] GET "/user/signup".
+[Wed Jun 19 21:49:27 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 21:49:27 2013] [error] Can't locate object method "debug" via package "AnnoTree::Model::Dao" at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/Dao.pm line 9.
+
+[Wed Jun 19 21:49:27 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 19 21:49:27 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 19 21:49:27 2013] [debug] Rendering inline template.
+[Wed Jun 19 21:49:27 2013] [debug] Rendering inline template.
+[Wed Jun 19 21:49:27 2013] [debug] 500 Internal Server Error (0.018180s, 55.006/s).
+[Wed Jun 19 21:50:22 2013] [debug] GET "/user/signup".
+[Wed Jun 19 21:50:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 21:50:22 2013] [debug] You did it
+[Wed Jun 19 21:50:22 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 19 21:50:22 2013] [debug] 200 OK (0.005901s, 169.463/s).
+[Wed Jun 19 21:57:50 2013] [debug] GET "/user/signup".
+[Wed Jun 19 21:57:50 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 21:57:50 2013] [debug] You did it
+[Wed Jun 19 21:57:50 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 19 21:57:50 2013] [debug] 200 OK (0.005862s, 170.590/s).
+[Wed Jun 19 22:15:38 2013] [debug] GET "/user/signup".
+[Wed Jun 19 22:15:38 2013] [error] Bareword "AnnoTree::Model::MySQL" not allowed while "strict subs" in use at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/Dao.pm line 11.
+Compilation failed in require at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 5.
+BEGIN failed--compilation aborted at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 5.
+Compilation failed in require at (eval 308) line 1.
+
+[Wed Jun 19 22:15:38 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 19 22:15:38 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 19 22:15:38 2013] [debug] Rendering inline template.
+[Wed Jun 19 22:15:38 2013] [debug] Rendering inline template.
+[Wed Jun 19 22:15:38 2013] [debug] 500 Internal Server Error (0.018489s, 54.086/s).
+[Wed Jun 19 22:16:56 2013] [debug] GET "/user/signup".
+[Wed Jun 19 22:16:56 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 22:16:56 2013] [debug] fuck katie now
+[Wed Jun 19 22:16:56 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 19 22:16:56 2013] [debug] 200 OK (0.005999s, 166.694/s).
+[Wed Jun 19 23:05:19 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:05:19 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 23:05:19 2013] [debug] 
+[Wed Jun 19 23:05:19 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 19 23:05:19 2013] [debug] 200 OK (0.005949s, 168.095/s).
+[Wed Jun 19 23:05:51 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:05:51 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 23:05:51 2013] [debug] 
+[Wed Jun 19 23:05:51 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 19 23:05:51 2013] [debug] 200 OK (0.005875s, 170.213/s).
+[Wed Jun 19 23:05:55 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:05:55 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 23:05:55 2013] [debug] 
+[Wed Jun 19 23:05:55 2013] [debug] Rendering cached template "user/testsignup.html.ep".
+[Wed Jun 19 23:05:55 2013] [debug] 200 OK (0.000927s, 1078.749/s).
+[Wed Jun 19 23:06:33 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:06:33 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 23:06:33 2013] [debug] 
+[Wed Jun 19 23:06:33 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 19 23:06:33 2013] [debug] 200 OK (0.006011s, 166.362/s).
+[Wed Jun 19 23:06:57 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:06:57 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 23:06:57 2013] [debug] 
+[Wed Jun 19 23:06:57 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 19 23:06:57 2013] [debug] 200 OK (0.006073s, 164.663/s).
+[Wed Jun 19 23:07:04 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:07:04 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 23:07:04 2013] [debug] 
+[Wed Jun 19 23:07:04 2013] [debug] Rendering cached template "user/testsignup.html.ep".
+[Wed Jun 19 23:07:04 2013] [debug] 200 OK (0.000957s, 1044.932/s).
+[Wed Jun 19 23:07:04 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:07:04 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 23:07:04 2013] [debug] 
+[Wed Jun 19 23:07:04 2013] [debug] Rendering cached template "user/testsignup.html.ep".
+[Wed Jun 19 23:07:04 2013] [debug] 200 OK (0.001009s, 991.080/s).
+[Wed Jun 19 23:07:05 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:07:05 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 23:07:05 2013] [debug] 
+[Wed Jun 19 23:07:05 2013] [debug] Rendering cached template "user/testsignup.html.ep".
+[Wed Jun 19 23:07:05 2013] [debug] 200 OK (0.000891s, 1122.334/s).
+[Wed Jun 19 23:07:05 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:07:05 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 23:07:05 2013] [debug] 
+[Wed Jun 19 23:07:05 2013] [debug] Rendering cached template "user/testsignup.html.ep".
+[Wed Jun 19 23:07:05 2013] [debug] 200 OK (0.000946s, 1057.082/s).
+[Wed Jun 19 23:09:37 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:09:37 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 23:09:37 2013] [debug] hi there
+[Wed Jun 19 23:09:37 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 19 23:09:37 2013] [debug] 200 OK (0.005976s, 167.336/s).
+[Wed Jun 19 23:38:43 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:38:43 2013] [error] Global symbol "$result" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 115.
+Global symbol "$result" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 116.
+Compilation failed in require at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+BEGIN failed--compilation aborted at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+Compilation failed in require at (eval 308) line 1.
+
+[Wed Jun 19 23:38:43 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 19 23:38:43 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 19 23:38:43 2013] [debug] Rendering inline template.
+[Wed Jun 19 23:38:43 2013] [debug] Rendering inline template.
+[Wed Jun 19 23:38:43 2013] [debug] 500 Internal Server Error (0.018698s, 53.482/s).
+[Wed Jun 19 23:40:38 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:40:38 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 23:40:38 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 19 23:40:38 2013] [debug] 200 OK (0.005776s, 173.130/s).
+[Wed Jun 19 23:41:13 2013] [debug] POST "/user/signup".
+[Wed Jun 19 23:41:13 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 19 23:41:13 2013] [debug] {
+  'email' => 'mattprice11@gmail.com',
+  'firstName' => 'matt a',
+  'lastName' => 'price',
+  'password' => 'asdf'
+}
+
+[Wed Jun 19 23:41:13 2013] [debug] {SSHA512}1jIp5+sHF6LJYvLfuH8bS1VZSBebnHgk/5xB4K/BcTMODkGQmnFJtuMOskClS/X55p49sQ4u58ceRK80S0J0wzhWOvs=
+[Wed Jun 19 23:41:13 2013] [error] Undefined subroutine &AnnoTree::Model::Dao::Dumper called at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/Dao.pm line 11.
+
+[Wed Jun 19 23:41:13 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 19 23:41:13 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 19 23:41:13 2013] [debug] Rendering inline template.
+[Wed Jun 19 23:41:13 2013] [debug] Rendering inline template.
+[Wed Jun 19 23:41:13 2013] [debug] 500 Internal Server Error (0.015615s, 64.041/s).
+[Wed Jun 19 23:41:42 2013] [debug] POST "/user/signup".
+[Wed Jun 19 23:41:42 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 19 23:41:42 2013] [debug] {
+  'email' => 'mattprice11@gmail.com',
+  'firstName' => 'matt a',
+  'lastName' => 'price',
+  'password' => 'asdf'
+}
+
+[Wed Jun 19 23:41:42 2013] [debug] {SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=
+[Wed Jun 19 23:41:42 2013] [debug] {
+  'hi' => 'test'
+}
+
+[Wed Jun 19 23:41:42 2013] [debug] 200 OK (0.002734s, 365.764/s).
+[Wed Jun 19 23:45:32 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:45:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 23:45:32 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 19 23:45:32 2013] [debug] 200 OK (0.005875s, 170.213/s).
+[Wed Jun 19 23:45:43 2013] [debug] POST "/user/signup".
+[Wed Jun 19 23:45:43 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 19 23:45:43 2013] [debug] {
+  'email' => 'test@user.com',
+  'firstName' => 'test',
+  'lastName' => 'user',
+  'password' => 'asdf'
+}
+
+[Wed Jun 19 23:45:43 2013] [debug] {SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=
+[Wed Jun 19 23:45:43 2013] [error] DBD::mysql::st execute failed: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'create_user('{SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl' at line 1. Following SQL is executed.
+ create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/Dao.pm line 14.
+
+[Wed Jun 19 23:45:43 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 19 23:45:43 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 19 23:45:43 2013] [debug] Rendering inline template.
+[Wed Jun 19 23:45:43 2013] [debug] Rendering inline template.
+[Wed Jun 19 23:45:43 2013] [debug] 500 Internal Server Error (0.017745s, 56.354/s).
+[Wed Jun 19 23:48:14 2013] [debug] POST "/user/signup".
+[Wed Jun 19 23:48:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 19 23:48:14 2013] [debug] {
+  'email' => 'test@user.com',
+  'firstName' => 'test',
+  'lastName' => 'user',
+  'password' => 'asdf'
+}
+
+[Wed Jun 19 23:48:14 2013] [debug] {SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=
+[Wed Jun 19 23:48:14 2013] [error] DBD::mysql::st execute failed: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'create_user('{SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl' at line 1. Following SQL is executed.
+ create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/Dao.pm line 14.
+
+[Wed Jun 19 23:48:14 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 19 23:48:14 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 19 23:48:14 2013] [debug] Rendering inline template.
+[Wed Jun 19 23:48:14 2013] [debug] Rendering inline template.
+[Wed Jun 19 23:48:14 2013] [debug] 500 Internal Server Error (0.023298s, 42.922/s).
+[Wed Jun 19 23:49:18 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:49:18 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 23:49:18 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 19 23:49:18 2013] [debug] 200 OK (0.005857s, 170.736/s).
+[Wed Jun 19 23:49:26 2013] [debug] POST "/user/signup".
+[Wed Jun 19 23:49:26 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 19 23:49:26 2013] [debug] {
+  'email' => 'test@user.com',
+  'firstName' => 'test',
+  'lastName' => 'user',
+  'password' => 'asdf'
+}
+
+[Wed Jun 19 23:49:26 2013] [debug] {SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=
+[Wed Jun 19 23:49:26 2013] [error] DBD::mysql::st execute failed: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'create_user('{SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl' at line 1. Following SQL is executed.
+ create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/Dao.pm line 14.
+
+[Wed Jun 19 23:49:26 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 19 23:49:26 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 19 23:49:26 2013] [debug] Rendering inline template.
+[Wed Jun 19 23:49:26 2013] [debug] Rendering inline template.
+[Wed Jun 19 23:49:26 2013] [debug] 500 Internal Server Error (0.017875s, 55.944/s).
+[Wed Jun 19 23:51:22 2013] [debug] GET "/user/signup".
+[Wed Jun 19 23:51:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Wed Jun 19 23:51:22 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Wed Jun 19 23:51:22 2013] [debug] 200 OK (0.006121s, 163.372/s).
+[Wed Jun 19 23:51:28 2013] [debug] POST "/user/signup".
+[Wed Jun 19 23:51:28 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 19 23:51:28 2013] [debug] {
+  'email' => 'test@user.com',
+  'firstName' => 'test',
+  'lastName' => 'user',
+  'password' => 'asdf'
+}
+
+[Wed Jun 19 23:51:28 2013] [debug] {SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=
+[Wed Jun 19 23:51:28 2013] [error] Can't use an undefined value as an ARRAY reference at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/Dao.pm line 20.
+
+[Wed Jun 19 23:51:28 2013] [debug] Template "exception.development.html.ep" not found.
+[Wed Jun 19 23:51:28 2013] [debug] Template "exception.html.ep" not found.
+[Wed Jun 19 23:51:28 2013] [debug] Rendering inline template.
+[Wed Jun 19 23:51:28 2013] [debug] Rendering inline template.
+[Wed Jun 19 23:51:28 2013] [debug] 500 Internal Server Error (0.018921s, 52.851/s).
+[Wed Jun 19 23:52:12 2013] [debug] POST "/user/signup".
+[Wed Jun 19 23:52:12 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Wed Jun 19 23:52:12 2013] [debug] {
+  'email' => 'test@user.com',
+  'firstName' => 'test',
+  'lastName' => 'user',
+  'password' => 'asdf'
+}
+
+[Wed Jun 19 23:52:12 2013] [debug] {SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=
+[Wed Jun 19 23:52:12 2013] [debug] {
+  'hi' => 'test'
+}
+
+[Wed Jun 19 23:52:12 2013] [debug] 200 OK (0.005603s, 178.476/s).
+[Thu Jun 20 00:11:29 2013] [debug] POST "/user/signup".
+[Thu Jun 20 00:11:29 2013] [error] Global symbol "$resultIndex" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/Dao.pm line 24.
+Compilation failed in require at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 5.
+BEGIN failed--compilation aborted at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 5.
+Compilation failed in require at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+BEGIN failed--compilation aborted at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+Compilation failed in require at (eval 308) line 1.
+
+[Thu Jun 20 00:11:29 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 20 00:11:29 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 20 00:11:29 2013] [debug] Rendering inline template.
+[Thu Jun 20 00:11:29 2013] [debug] Rendering inline template.
+[Thu Jun 20 00:11:29 2013] [debug] 500 Internal Server Error (0.019010s, 52.604/s).
+[Thu Jun 20 00:11:54 2013] [debug] POST "/user/signup".
+[Thu Jun 20 00:11:54 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 00:11:54 2013] [debug] {
+  'email' => 'test@user.com',
+  'firstName' => 'test',
+  'lastName' => 'user',
+  'password' => 'asdf'
+}
+
+[Thu Jun 20 00:11:54 2013] [debug] {SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=
+[Thu Jun 20 00:11:54 2013] [debug] {
+  'params' => [
+    '2'
+  ]
+}
+
+[Thu Jun 20 00:11:54 2013] [debug] 200 OK (0.006150s, 162.602/s).
+[Thu Jun 20 00:12:08 2013] [debug] GET "/user/signup".
+[Thu Jun 20 00:12:08 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 00:12:08 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 00:12:08 2013] [debug] 200 OK (0.004136s, 241.779/s).
+[Thu Jun 20 00:12:18 2013] [debug] POST "/user/signup".
+[Thu Jun 20 00:12:18 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 00:12:18 2013] [debug] {
+  'email' => 'tester@man.com',
+  'firstName' => 'tester',
+  'lastName' => 'man',
+  'password' => 'asdfasdf'
+}
+
+[Thu Jun 20 00:12:18 2013] [debug] {SSHA512}boKXEcMRBtmqMhhvjWyA9Rb2eiJukjA4Ir4dSVvhvfx5PObQyKn0agr7ojuiQ4JbO6yR5HZV8U+AGhTLooh5e0r7trk=
+[Thu Jun 20 00:12:18 2013] [error] Not an ARRAY reference at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/Dao.pm line 24.
+
+[Thu Jun 20 00:12:18 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 20 00:12:18 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 20 00:12:18 2013] [debug] Rendering inline template.
+[Thu Jun 20 00:12:18 2013] [debug] Rendering inline template.
+[Thu Jun 20 00:12:18 2013] [debug] 500 Internal Server Error (0.018127s, 55.166/s).
+[Thu Jun 20 00:13:24 2013] [debug] POST "/user/signup".
+[Thu Jun 20 00:13:24 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 00:13:24 2013] [debug] {
+  'email' => 'tester@man.com',
+  'firstName' => 'tester',
+  'lastName' => 'man',
+  'password' => 'asdfasdf'
+}
+
+[Thu Jun 20 00:13:24 2013] [debug] {SSHA512}zGmlRN3z6s6BDYnG9vXjaHvEvEOn2kvCXrZR4Nccl7pg5fg/bQSPe/gcWsKjWoacr/LlyC6gYOYbBTzMkYRhPUaYKFY=
+[Thu Jun 20 00:13:24 2013] [debug] {
+  'params' => [
+    '2'
+  ]
+}
+
+[Thu Jun 20 00:13:24 2013] [debug] 200 OK (0.005567s, 179.630/s).
+[Thu Jun 20 00:13:26 2013] [debug] GET "/user/signup".
+[Thu Jun 20 00:13:26 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 00:13:26 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 00:13:26 2013] [debug] 200 OK (0.004045s, 247.219/s).
+[Thu Jun 20 00:13:38 2013] [debug] POST "/user/signup".
+[Thu Jun 20 00:13:38 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 00:13:38 2013] [debug] {
+  'email' => 'blah@test.com',
+  'firstName' => 'test',
+  'lastName' => 'again',
+  'password' => 'asdf'
+}
+
+[Thu Jun 20 00:13:38 2013] [debug] {SSHA512}l9/n2XSk7/u0zGkjuQVTrgkHt8SmeMW96d78rZLBkHgFGD+9UsICI9x2BPlJ/m4CKr71kjTr/Dh5uffirVWsYkr7trk=
+[Thu Jun 20 00:13:38 2013] [debug] {
+  'params' => [
+    'id',
+    'password',
+    'first_name',
+    'last_name',
+    'email',
+    'created_at',
+    'lang',
+    'time_zone',
+    'profile_image_path',
+    'active'
+  ],
+  'results' => [
+    {
+      'active' => '1',
+      'created_at' => '2013-06-20 00:13:38',
+      'email' => 'blah@test.com',
+      'first_name' => 'test',
+      'id' => '8',
+      'lang' => 'ENG',
+      'last_name' => 'again',
+      'password' => '{SSHA512}l9/n2XSk7/u0zGkjuQVTrgkHt8SmeMW96d78rZLBkHgFGD+9UsICI9x2BPlJ/m4CKr71kjTr/Dh5uffirVWsYkr7trk=',
+      'profile_image_path' => 'NULL',
+      'time_zone' => 'EST'
+    }
+  ]
+}
+
+[Thu Jun 20 00:13:38 2013] [debug] 200 OK (0.003576s, 279.642/s).
+[Thu Jun 20 00:23:14 2013] [debug] GET "/user/signup".
+[Thu Jun 20 00:23:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 00:23:14 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 00:23:14 2013] [debug] 200 OK (0.005945s, 168.209/s).
+[Thu Jun 20 00:23:22 2013] [debug] POST "/user/signup".
+[Thu Jun 20 00:23:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 00:23:22 2013] [debug] {
+  'email' => 'test@again.com',
+  'firstName' => 'test',
+  'lastName' => 'again',
+  'password' => 'asdf'
+}
+
+[Thu Jun 20 00:23:22 2013] [debug] {SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=
+[Thu Jun 20 00:23:22 2013] [debug] {
+  'params' => [
+    'id',
+    'password',
+    'first_name',
+    'last_name',
+    'email',
+    'created_at',
+    'lang',
+    'time_zone',
+    'profile_image_path',
+    'active'
+  ],
+  'results' => [
+    {
+      'active' => '1',
+      'created_at' => '2013-06-20 00:23:22',
+      'email' => 'test@again.com',
+      'first_name' => 'test',
+      'id' => '9',
+      'lang' => 'ENG',
+      'last_name' => 'again',
+      'password' => '{SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=',
+      'profile_image_path' => 'NULL',
+      'time_zone' => 'EST'
+    }
+  ]
+}
+
+[Thu Jun 20 00:23:22 2013] [debug] 200 OK (0.004285s, 233.372/s).
+[Thu Jun 20 18:16:40 2013] [debug] GET "/forest".
+[Thu Jun 20 18:16:40 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "list".
+[Thu Jun 20 18:16:40 2013] [debug] {
+  'forests' => [
+    {
+      'created' => '2013-06-19 23:11:02',
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created' => '2013-06-19 23:11:02',
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created' => '2013-06-19 23:11:02',
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created' => '2013-06-19 23:11:02',
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    },
+    {
+      'created' => '2013-06-19 23:11:02',
+      'description' => 'What is World of Trees? World of Trees is an online game where players from around the world assume the roles of heroic fantasy characters and explore a virtual world full of mystery, magic, and endless adventure. So much for the short answer! If youre still looking for a better understanding of what World of Trees is, this page and the Beginners Guide are the right place to start.So, what is this game? Among other things,',
+      'id' => '5',
+      'name' => 'World of Trees'
+    }
+  ],
+  'numForests' => '5'
+}
+
+[Thu Jun 20 18:16:40 2013] [debug] {
+  'forests' => [
+    {
+      'created' => '2013-06-19 23:11:02',
+      'description' => 'A company for only the truly brave',
+      'id' => '1',
+      'name' => 'Silith.io'
+    },
+    {
+      'created' => '2013-06-19 23:11:02',
+      'description' => 'How dare you try to rustle my jimmies',
+      'id' => '2',
+      'name' => 'The Monkey Knows'
+    },
+    {
+      'created' => '2013-06-19 23:11:02',
+      'description' => 'Because we will be pulling a bunch of these',
+      'id' => '3',
+      'name' => 'Late Night'
+    },
+    {
+      'created' => '2013-06-19 23:11:02',
+      'description' => '',
+      'id' => '4',
+      'name' => 'NoDesc Co'
+    },
+    {
+      'created' => '2013-06-19 23:11:02',
+      'description' => 'What is World of Trees? World of Trees is an online game where players from around the world assume the roles of heroic fantasy characters and explore a virtual world full of mystery, magic, and endless adventure. So much for the short answer! If youre still looking for a better understanding of what World of Trees is, this page and the Beginners Guide are the right place to start.So, what is this game? Among other things,',
+      'id' => '5',
+      'name' => 'World of Trees'
+    }
+  ],
+  'numForests' => '5'
+}
+
+[Thu Jun 20 18:16:40 2013] [debug] 200 OK (0.002384s, 419.463/s).
+[Thu Jun 20 18:22:51 2013] [debug] GET "/user/signup".
+[Thu Jun 20 18:22:51 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 18:22:51 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 18:22:51 2013] [debug] 200 OK (0.006187s, 161.629/s).
+[Thu Jun 20 18:23:00 2013] [debug] POST "/user/signup".
+[Thu Jun 20 18:23:00 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 18:23:00 2013] [debug] {
+  'email' => 'asdf@asdf.com',
+  'firstName' => 'mat a',
+  'lastName' => 'price',
+  'password' => 'asdf'
+}
+
+[Thu Jun 20 18:23:00 2013] [debug] {SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=
+[Thu Jun 20 18:23:00 2013] [error] Can't locate object method "procedure" via package "AnnoTree::Model::Dao" (perhaps you forgot to load "AnnoTree::Model::Dao"?) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 75.
+
+[Thu Jun 20 18:23:00 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 20 18:23:00 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 20 18:23:00 2013] [debug] Rendering inline template.
+[Thu Jun 20 18:23:00 2013] [debug] Rendering inline template.
+[Thu Jun 20 18:23:00 2013] [debug] 500 Internal Server Error (0.016472s, 60.709/s).
+[Thu Jun 20 18:24:00 2013] [debug] POST "/user/signup".
+[Thu Jun 20 18:24:00 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 18:24:00 2013] [debug] {
+  'email' => 'asdf@asdf.com',
+  'firstName' => 'mat a',
+  'lastName' => 'price',
+  'password' => 'asdf'
+}
+
+[Thu Jun 20 18:24:00 2013] [debug] {SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=
+[Thu Jun 20 18:24:00 2013] [debug] {
+  'test' => 'hi there'
+}
+
+[Thu Jun 20 18:24:00 2013] [debug] 200 OK (0.006268s, 159.541/s).
+[Thu Jun 20 18:25:27 2013] [debug] GET "/user/signup".
+[Thu Jun 20 18:25:27 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 18:25:27 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 18:25:27 2013] [debug] 200 OK (0.005838s, 171.292/s).
+[Thu Jun 20 18:25:35 2013] [debug] POST "/user/signup".
+[Thu Jun 20 18:25:35 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 18:25:35 2013] [debug] {
+  'email' => 'asdf@asdf.com',
+  'firstName' => 'asdf asdfa asdfas',
+  'lastName' => 'dfasd',
+  'password' => 'asdf'
+}
+
+[Thu Jun 20 18:25:35 2013] [debug] {SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=
+[Thu Jun 20 18:25:35 2013] [debug] {
+  'test' => 'hi there'
+}
+
+[Thu Jun 20 18:25:35 2013] [debug] 200 OK (0.003565s, 280.505/s).
+[Thu Jun 20 18:26:26 2013] [debug] GET "/user/signup".
+[Thu Jun 20 18:26:26 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 18:26:26 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 18:26:26 2013] [debug] 200 OK (0.005877s, 170.155/s).
+[Thu Jun 20 18:26:39 2013] [debug] POST "/user/signup".
+[Thu Jun 20 18:26:39 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 18:26:39 2013] [debug] {
+  'email' => 'asdfljk@asdf.com',
+  'firstName' => undef,
+  'lastName' => undef,
+  'password' => 'asdf'
+}
+
+[Thu Jun 20 18:26:39 2013] [debug] {SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=
+[Thu Jun 20 18:26:39 2013] [debug] {
+  'test' => 'hi there'
+}
+
+[Thu Jun 20 18:26:39 2013] [debug] 200 OK (0.003642s, 274.574/s).
+[Thu Jun 20 18:27:28 2013] [debug] GET "/user/signup".
+[Thu Jun 20 18:27:28 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 18:27:28 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 18:27:28 2013] [debug] 200 OK (0.005864s, 170.532/s).
+[Thu Jun 20 18:27:38 2013] [debug] POST "/user/signup".
+[Thu Jun 20 18:27:38 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 18:27:38 2013] [debug] {
+  'email' => 'hkljh@lkjh.clkj',
+  'firstName' => 'sdfg',
+  'lastName' => 'sdfg',
+  'password' => 'dfg'
+}
+
+[Thu Jun 20 18:27:38 2013] [debug] {SSHA512}lNGmt7zOjPRNjx0PO3rR9msCSqS1xMWsYIWaMk9ZH4EFpxQmFA8ev9ua1C+0egBgtl1zg9QqOBL9e50d2CXa8EaYKFY=
+[Thu Jun 20 18:27:38 2013] [debug] {
+  'test' => 'hi there'
+}
+
+[Thu Jun 20 18:27:38 2013] [debug] 200 OK (0.004192s, 238.550/s).
+[Thu Jun 20 18:29:33 2013] [debug] GET "/user/signup".
+[Thu Jun 20 18:29:33 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 18:29:33 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 18:29:33 2013] [debug] 200 OK (0.005846s, 171.057/s).
+[Thu Jun 20 18:29:43 2013] [debug] POST "/user/signup".
+[Thu Jun 20 18:29:43 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 18:29:43 2013] [debug] {
+  'email' => 'lkjg@kjgh.kjh',
+  'firstName' => undef,
+  'lastName' => undef,
+  'password' => 'sadf'
+}
+
+[Thu Jun 20 18:29:43 2013] [debug] {SSHA512}7V4yeLWhiXE34okI/TmIHtvDJVfwqnKpdRRQWo8N4SKrmO8kEYrzCT6zjTrxTOhOs5t5CdfCGjGnZGVIWmOuS0aYKFY=
+[Thu Jun 20 18:29:43 2013] [error] Not an ARRAY reference at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/Dao.pm line 15.
+
+[Thu Jun 20 18:29:43 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 20 18:29:43 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 20 18:29:43 2013] [debug] Rendering inline template.
+[Thu Jun 20 18:29:43 2013] [debug] Rendering inline template.
+[Thu Jun 20 18:29:43 2013] [debug] 500 Internal Server Error (0.017053s, 58.641/s).
+[Thu Jun 20 18:51:14 2013] [debug] GET "/user/signup".
+[Thu Jun 20 18:51:14 2013] [error] Global symbol "$json" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 104.
+Global symbol "$json" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 107.
+Compilation failed in require at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+BEGIN failed--compilation aborted at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 4.
+Compilation failed in require at (eval 308) line 1.
+
+[Thu Jun 20 18:51:14 2013] [debug] Template "exception.development.html.ep" not found.
+[Thu Jun 20 18:51:14 2013] [debug] Template "exception.html.ep" not found.
+[Thu Jun 20 18:51:14 2013] [debug] Rendering inline template.
+[Thu Jun 20 18:51:14 2013] [debug] Rendering inline template.
+[Thu Jun 20 18:51:14 2013] [debug] 500 Internal Server Error (0.018628s, 53.683/s).
+[Thu Jun 20 18:51:25 2013] [debug] GET "/user/signup".
+[Thu Jun 20 18:51:25 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 18:51:25 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 18:51:25 2013] [debug] 200 OK (0.005778s, 173.070/s).
+[Thu Jun 20 18:51:32 2013] [debug] POST "/user/signup".
+[Thu Jun 20 18:51:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 18:51:32 2013] [debug] {
+  'email' => 'tst@ing.com',
+  'firstName' => 'test',
+  'lastName' => 'ing',
+  'password' => 'asdf'
+}
+
+[Thu Jun 20 18:51:32 2013] [debug] {SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=
+[Thu Jun 20 18:51:32 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-20 18:51:32',
+  'email' => 'tst@ing.com',
+  'first_name' => 'test',
+  'id' => '15',
+  'lang' => 'ENG',
+  'last_name' => 'ing',
+  'password' => '{SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Thu Jun 20 18:51:32 2013] [debug] 200 OK (0.003869s, 258.465/s).
+[Thu Jun 20 18:53:35 2013] [debug] GET "/user/signup".
+[Thu Jun 20 18:53:35 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 18:53:35 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 18:53:35 2013] [debug] 200 OK (0.005720s, 174.825/s).
+[Thu Jun 20 18:53:44 2013] [debug] POST "/user/signup".
+[Thu Jun 20 18:53:44 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 18:53:44 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-20 18:53:44',
+  'email' => 'asdf@iouy.com',
+  'first_name' => 'tst',
+  'id' => '16',
+  'lang' => 'ENG',
+  'last_name' => '2',
+  'password' => '{SSHA512}VMG4hc4XHdYbXyWLFvAzBQMcoJkwrswvcXMuk3ApqnrFRmQRYkatBxcsfl3HPyGQnttrezqY3CC1NpvBkTP9VkaYKFY=',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Thu Jun 20 18:53:44 2013] [debug] 200 OK (0.004642s, 215.424/s).
+[Thu Jun 20 18:55:45 2013] [debug] GET "/user/signup".
+[Thu Jun 20 18:55:45 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 18:55:45 2013] [debug] Rendering cached template "user/testsignup.html.ep".
+[Thu Jun 20 18:55:45 2013] [debug] 200 OK (0.000836s, 1196.172/s).
+[Thu Jun 20 18:56:28 2013] [debug] POST "/user/signup".
+[Thu Jun 20 18:56:28 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 18:56:28 2013] [debug] {
+  '1' => undef
+}
+
+[Thu Jun 20 18:56:28 2013] [debug] 200 OK (0.000929s, 1076.426/s).
+[Thu Jun 20 18:58:24 2013] [debug] GET "/user/signu".
+[Thu Jun 20 18:58:24 2013] [debug] Template "not_found.development.html.ep" not found.
+[Thu Jun 20 18:58:24 2013] [debug] Template "not_found.html.ep" not found.
+[Thu Jun 20 18:58:24 2013] [debug] Rendering inline template.
+[Thu Jun 20 18:58:24 2013] [debug] Rendering inline template.
+[Thu Jun 20 18:58:24 2013] [debug] 404 Not Found (0.012531s, 79.802/s).
+[Thu Jun 20 18:58:27 2013] [debug] GET "/user/signup".
+[Thu Jun 20 18:58:27 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 18:58:27 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 18:58:27 2013] [debug] 200 OK (0.004691s, 213.174/s).
+[Thu Jun 20 18:58:35 2013] [debug] POST "/user/signup".
+[Thu Jun 20 18:58:35 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 18:58:35 2013] [debug] 1
+
+[Thu Jun 20 18:58:35 2013] [debug] 200 OK (0.001328s, 753.012/s).
+[Thu Jun 20 19:06:14 2013] [debug] GET "/user/signup".
+[Thu Jun 20 19:06:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 19:06:14 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 19:06:14 2013] [debug] 200 OK (0.005694s, 175.623/s).
+[Thu Jun 20 19:06:22 2013] [debug] POST "/user/signup".
+[Thu Jun 20 19:06:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 19:06:22 2013] [debug] 406 Not Acceptable (0.001213s, 824.402/s).
+[Thu Jun 20 19:08:14 2013] [debug] GET "/user/signup".
+[Thu Jun 20 19:08:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 19:08:14 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 19:08:14 2013] [debug] 200 OK (0.005695s, 175.593/s).
+[Thu Jun 20 19:08:21 2013] [debug] POST "/user/signup".
+[Thu Jun 20 19:08:21 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 19:08:21 2013] [debug] 406 Not Acceptable (0.001229s, 813.670/s).
+[Thu Jun 20 19:10:23 2013] [debug] GET "/user/signup".
+[Thu Jun 20 19:10:23 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 19:10:23 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 19:10:23 2013] [debug] 200 OK (0.005707s, 175.223/s).
+[Thu Jun 20 19:10:29 2013] [debug] POST "/user/signup".
+[Thu Jun 20 19:10:29 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 19:10:29 2013] [debug] 406 Not Acceptable (0.001254s, 797.448/s).
+[Thu Jun 20 19:13:10 2013] [debug] GET "/user/signup".
+[Thu Jun 20 19:13:10 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 19:13:10 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 19:13:10 2013] [debug] 200 OK (0.005722s, 174.764/s).
+[Thu Jun 20 19:13:17 2013] [debug] POST "/user/signup".
+[Thu Jun 20 19:13:17 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 19:13:17 2013] [debug] 200 OK (0.003542s, 282.326/s).
+[Thu Jun 20 19:13:29 2013] [debug] GET "/user/signup".
+[Thu Jun 20 19:13:29 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 19:13:29 2013] [debug] Rendering cached template "user/testsignup.html.ep".
+[Thu Jun 20 19:13:29 2013] [debug] 200 OK (0.000813s, 1230.012/s).
+[Thu Jun 20 19:14:14 2013] [debug] POST "/user/signup".
+[Thu Jun 20 19:14:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 19:14:14 2013] [debug] 200 OK (0.003731s, 268.025/s).
+[Thu Jun 20 19:14:28 2013] [debug] GET "/user/signup".
+[Thu Jun 20 19:14:28 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 19:14:28 2013] [debug] Rendering cached template "user/testsignup.html.ep".
+[Thu Jun 20 19:14:28 2013] [debug] 200 OK (0.000830s, 1204.819/s).
+[Thu Jun 20 19:14:35 2013] [debug] POST "/user/signup".
+[Thu Jun 20 19:14:35 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 19:14:35 2013] [debug] 406 Not Acceptable (0.000807s, 1239.157/s).
+[Thu Jun 20 19:16:50 2013] [debug] GET "/user/signup".
+[Thu Jun 20 19:16:50 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 19:16:50 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 19:16:50 2013] [debug] 200 OK (0.005692s, 175.685/s).
+[Thu Jun 20 19:16:58 2013] [debug] POST "/user/signup".
+[Thu Jun 20 19:16:58 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 19:16:58 2013] [debug] 200 OK (0.003839s, 260.485/s).
+[Thu Jun 20 19:18:12 2013] [debug] GET "/user/signup".
+[Thu Jun 20 19:18:12 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Thu Jun 20 19:18:12 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Thu Jun 20 19:18:12 2013] [debug] 200 OK (0.005781s, 172.980/s).
+[Thu Jun 20 19:18:19 2013] [debug] POST "/user/signup".
+[Thu Jun 20 19:18:19 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Thu Jun 20 19:18:19 2013] [debug] 406 Not Acceptable (0.003507s, 285.144/s).

@@ -2,19 +2,10 @@ package AnnoTree::Model::User;
 
 use Mojo::Base -strict;
 use Crypt::SaltedHash;
-#use EV;
-#use DBIx::Custom;
+use AnnoTree::Model::MySQL;
+use Scalar::Util qw(looks_like_number);
 
-#use strict;
-#use warnings;
-=begin comment
-my $dbi = DBIx::Custom->connect(
-    dsn         => 'dbi:mysql:database=annotree;host=localhost;port=3306',
-    user        => 'annotree',
-    password    => 'ann0tr33s'
-);
-=end comment
-=cut
+# creates a salted hash which is returned
 sub createSaltedHash {
     my $password = shift;
     
@@ -30,19 +21,10 @@ sub createSaltedHash {
 # returns -1 if password is incorrect
 # returns the user's id otherwise (a positive int)
 sub login {
-    my ($self, $params) = @_;
+    my ($controller, $params) = @_;
     
-    #$self->debug('before query');
-=begin oldselect
-    my $result = $self->db_dbi->execute(
-        "select id, password from user where email=:email",
-        {
-            email => $params->{email}
-        }
-    );
-=end oldselect
-=cut
-    my $result = $self->db_dbi->execute(
+    #$controller->debug('before query');
+    my $result = AnnoTree::Model::MySQL->db->execute(
         "select get_user(:email)",
         {
             email => $params->{email}
@@ -53,11 +35,11 @@ sub login {
     
     if ($fetch->[0]) {
         my @fetch = split(/, /, $fetch->[0]);
-        #$self->debug('userid: ' . $fetch[0]);
-        $self->debug($self->dumper($fetch));
+        #$controller->debug('userid: ' . $fetch[0]);
+        $controller->debug($controller->dumper($fetch));
         my $shash = $fetch[1];
         my $valid = Crypt::SaltedHash->validate($shash, $params->{password});
-        $self->debug("valid is $valid");
+        $controller->debug("valid is $valid");
         
         if ($valid == 1) {
             $json->{userid} = '' . $fetch[0];
@@ -78,13 +60,11 @@ sub login {
 
 # inserts a new user into the DB
 sub signup {
-    my ($self, $params) = @_;
+    my ($class, $params) = @_;
     
-    $self->debug($self->dumper($params));
     my $pass = createSaltedHash($params->{'password'});
-    $self->debug($pass);
-    my $result = $self->db_dbi->execute( #$dbi->execute(
-        "call create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage)",
+    
+    my $result = AnnoTree::Model::MySQL->db->execute("call create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage)", 
         {
             email           => $params->{'email'}, 
             password        => '' . $pass,
@@ -95,27 +75,16 @@ sub signup {
             profileImage    => 'NULL'
         }
     );
-=begin comment
-    my $result = $dbi->insert({
-            email       => $params->{'email'}, 
-            password    => $params->{'password'},
-            first_name  => $params->{'firstName'},
-            last_name  => $params->{'lastName'}
-        },
-        table => 'user');
-=end comment
-=cut
 
-    #$self->debug($result->fetch->[0]);
     my $json = {};
-    
-    
     my $cols = $result->fetch; # get the columns (keys for json)
+    return $cols->[0] if (looks_like_number($cols->[0])); # if there is an error return
+    
     my $userInfo = $result->fetch; # get the newly created user's info
     for(my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $userInfo->[$i];
     }
-    #$json->{$cols} = $result->fetch->[0];
+    
     return $json;
 }
 

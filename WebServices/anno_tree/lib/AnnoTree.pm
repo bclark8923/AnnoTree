@@ -1,6 +1,8 @@
 package AnnoTree;
 use Mojo::Base 'Mojolicious';
 
+use AnnoTree::Model::MySQL;
+
 # file upload size limit - 5MB
 $ENV{MOJO_MAX_MESSAGE_SIZE} = 5242880;
 
@@ -25,16 +27,24 @@ sub startup {
         });
     # Documentation browser under "/perldoc"
     #$self->plugin('PODRenderer');
+    
+    AnnoTree::Model::MySQL->init({
+        database    => 'annotree',
+        host        => 'localhost',
+        port        => '3306',
+        username    => 'annotree',
+        password    => 'ann0tr33s',
+    });
 
     # Router
     my $r = $self->routes;
 
     # ===== USERS =====
-    $r->get('/user/signup')->to('controller-user#testSignup');
-    $r->post('/user/signup')->to('controller-user#signup');
-    $r->get('/user/login')->to('controller-user#testLogin');
-    $r->post('/user/login')->to('controller-user#login');
-    $r->delete('/user/:uid' => [uid => qr/\d+/])->to('controller-user#delete');
+    $r->get('/user/signup')                         ->to('controller-user#testSignup');
+    $r->post('/user/signup')                        ->to('controller-user#signup');
+    $r->get('/user/login')                          ->to('controller-user#testLogin');
+    $r->post('/user/login')                         ->to('controller-user#login');
+    $r->delete('/user/:uid' => [uid => qr/\d+/])    ->to('controller-user#delete');
 
     # ===== FORESTS =====
     $r->get('/forest')->to('controller-forest#list');

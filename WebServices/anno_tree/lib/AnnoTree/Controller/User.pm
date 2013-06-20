@@ -2,7 +2,7 @@ package AnnoTree::Controller::User;
 
 use Mojo::Base 'Mojolicious::Controller';
 use AnnoTree::Model::User;
-
+use Scalar::Util qw(looks_like_number);
 
 sub testSignup {
     my $self = shift;
@@ -39,13 +39,17 @@ sub signup {
     ($params->{'firstName'}, $params->{'lastName'}) = $self->param('signUpName') =~ m/(.+)\s+(\S+)\Z/;
     $params->{'email'} = $self->param('signUpEmail');
     $params->{'password'} = $self->param('signUpPassword');
-    #$self->debug($self->dumper($params));
     
-    my $result = AnnoTree::Model::User::signup($self, $params);
+    my $result = AnnoTree::Model::User->signup($params);
     
-    $self->debug($self->dumper($result));
-    #$result == 1 ? $self->render(text => 'success') : $self->render(text => 'failed');
-    $self->render(json => $result);
+    if (looks_like_number($result)) {
+        # something was wrong with one of the passed in parameters
+        # 1: email sucks
+        # 2: email already exists
+        $self->render(json => {result => '' . $result}, status => 406);
+    } else {
+        $self->render(json => $result);
+    }
 }
 
 sub authenticateUser {

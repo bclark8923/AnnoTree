@@ -23,7 +23,7 @@ $(document).ready(function() {
     width: 240,
     duration: 0.75,
     timingFunction: 'ease',
-    shadowStyle: '0px 0px 0px #000' /* or 'none' or ... */
+    shadowStyle: '0px 0px 0px #000'
   });
 
   $("#paneToggle").click(function() {

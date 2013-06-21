@@ -23,6 +23,8 @@ insert into `annotree`.`user_forest`
 values
   (user, @id);
 select 'id', 'name', 'description' union select @id, n, d;
+ELSE
+SELECT '1';
 END IF;
 END $$
 delimiter ; $$

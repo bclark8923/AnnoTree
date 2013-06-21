@@ -1,0 +1,45 @@
+<div ng-controller="layouts.StandardController" class="l-standard">
+
+
+        <!-- Static User Settigs Box -->
+        <div id="userSettings" class="userSettingsBox userSettings">
+            <p class="userSettingsClose"><a href="#" class="switch" gumby-trigger="|.userSettings"><i class="icon-remove-sign"></i></a></p>
+            <div>
+                <p class="userSettingsName">Brian Clark</p>
+            </div>
+            <div>
+                <p class="btn info small settingsButton"><a href="#" class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p>
+                <p class="btn success small logoutButton"><a href="loginScreen.html">Logout</a></p>
+            </div>
+        </div>
+
+        <!-- App -->
+        <div id="wrapper" class="switch" gumby-trigger="|.userSettings">
+            <div class="navbar pretty" id="nav1">
+                <div>
+                    <h1 class="logo">
+                        <a href="http://ccp.annotree.com" class="logoLink"><img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina /></a>
+                    </h1>
+                    <div class="userLinkDiv">
+                        <a href="#" class="userLink toggle" gumby-trigger=".userSettings"><img id="userIcon" src="img/user.png" gumby-retina /></a>
+                        <span class="logoutArrow userSettings"></span>
+                        <div class="btn pretty success responsiveShow" style="width: 50px;
+                            height: 40px;
+                            margin-top: 5px;">
+                            <a href="#" id="paneToggle" style="padding:0;text-align:center;"><i class="icon-cog responsiveShow" style="color:white;font-size:22pt;padding-top:4px;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Include Body Content. -->
+            <div ng-switch="subview" class="l-body">
+                <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/index.html' "></div>
+                <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/index.html' "></div>
+                <div ng-switch-when="leaf" ng-include=" 'assets/app/views/leaf/index.html' "></div>
+            </div>
+        
+        </div>
+        
+    
+</div>

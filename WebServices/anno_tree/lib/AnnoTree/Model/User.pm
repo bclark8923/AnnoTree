@@ -62,7 +62,12 @@ sub login {
 sub signup {
     my ($class, $params) = @_;
     
-    my $pass = createSaltedHash($params->{'password'});
+    my $pass = $params->{'password'};
+    
+    return 3 if (length($pass) < 6); # password must be at least 6 characters
+    return 4 if ($pass !~ m/\d/);
+    return 5 if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
+    $pass = createSaltedHash($pass);
     
     my $result = AnnoTree::Model::MySQL->db->execute("call create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage)", 
         {

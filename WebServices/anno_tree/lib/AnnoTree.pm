@@ -41,17 +41,17 @@ sub startup {
 
     # ===== USERS =====
     $r->get('/user/signup')                         ->to('controller-user#testSignup');
-    $r->post('/user/signup')                        ->to('controller-user#signup');
+    $r->post('/user/signup')                        ->to('controller-user#signup'); # done
     $r->get('/user/login')                          ->to('controller-user#testLogin');
-    $r->post('/user/login')                         ->to('controller-user#login');
+    $r->post('/user/login')                         ->to('controller-user#login'); # needs procedure
     $r->delete('/user/:uid' => [uid => qr/\d+/])    ->to('controller-user#delete');
 
     # ===== FORESTS =====
-    $r->get('/forest')->to('controller-forest#list');
+    $r->get('/forest')->to('controller-forest#listAll'); # do we need this?
     $r->post('/forest')->to('controller-forest#create');
-    $r->get('/forest/:id' => [id => qr/\d+/])->to('controller-forest#uniqueForest');
+    $r->get('/forest/:id' => [id => qr/\d+/])->to('controller-forest#uniqueForest'); # do we need this?
     $r->get('/forest/create')->to('controller-forest#testCreate');
-    $r->get('/:userid/forest' => [userid => qr/\d+/])->to('controller-forest#forestsForUser');
+    $r->get('/:userid/forest' => [userid => qr/\d+/])->to('controller-forest#forestsForUser'); # done
 
     # ===== TREES =====
     $r->get('/:forestid/tree' => [forestid => qr/\d+/])->to('controller-tree#list');

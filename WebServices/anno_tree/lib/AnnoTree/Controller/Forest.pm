@@ -2,11 +2,12 @@ package AnnoTree::Controller::Forest;
 
 use Mojo::Base 'Mojolicious::Controller';
 use AnnoTree::Model::Forest;
+use Scalar::Util qw(looks_like_number);
 
-sub list {
+sub listAll {
     my $self = shift;
     
-    my $model = AnnoTree::Model::Forest::getAllForests($self);
+    my $model = AnnoTree::Model::Forest->listAll();
 
     #$self->debug($self->dumper($forests));
     $self->debug($self->dumper($model));
@@ -22,10 +23,9 @@ sub uniqueForest {
 
     $self->debug("before go id is $id");
     
-    my $model = AnnoTree::Model::Forest::uniqueForest($self, $id);
+    my $model = AnnoTree::Model::Forest->uniqueForest($id);
     $self->render(json => $model);
 }
-
 
 sub create {
     my $self = shift;
@@ -35,7 +35,7 @@ sub create {
     $params->{name} = $self->param('name');
     $params->{desc} = $self->param('description');
     
-    my $result = AnnoTree::Model::Forest::create($self, $params);
+    my $result = AnnoTree::Model::Forest->create($params);
 
     $self->render(json => $result);
 }
@@ -53,9 +53,13 @@ sub forestsForUser {
     my $params = {};
     $params->{userid} = $self->param('userid');
 
-    my $result = AnnoTree::Model::Forest::forestsForUser($self, $params);
-
-    $self->render(json => $result);
+    my $result = AnnoTree::Model::Forest->forestsForUser($params);
+    
+    if (looks_like_number($result)) {
+        $self->render(status => 204, json => {txt => 'No forests were found for this user'});
+    } else {
+        $self->render(json => $result);
+    }
 }
 
 return 1;

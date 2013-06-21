@@ -46,6 +46,9 @@ sub signup {
         # something was wrong with one of the passed in parameters
         # 1: email sucks
         # 2: email already exists
+        # 3: password is not at least 6 characters in length
+        # 4: no number in password
+        # 5: nonvalid character used
         $self->render(json => {result => '' . $result}, status => 406);
     } else {
         $self->render(json => $result);

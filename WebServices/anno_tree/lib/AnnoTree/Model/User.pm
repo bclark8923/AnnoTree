@@ -25,11 +25,24 @@ sub login {
     
     #$controller->debug('before query');
     my $result = AnnoTree::Model::MySQL->db->execute(
-        "select get_user(:email)",
+        "call get_user(:email)",
         {
             email => $params->{email}
         }
     );
+
+    my $json = {};
+    my $cols = $result->fetch; # get the columns (keys for json)
+    
+    my $userInfo = $result->fetch; # get the newly created user's info
+    return {result => '-1'} unless ($userInfo->[0]); # user does not exist
+    for(my $i = 0; $i < @{$cols}; $i++) {
+        $json->{$cols->[$i]} = $userInfo->[$i];
+    }
+    my $shash = $json->{password};
+    my $valid = Crypt::SaltedHash->validate($shash, $params->{password});
+    return {result => '0'} unless ($valid);
+=begin oldcode
     my $fetch = $result->fetch;
     my $json = {};
     
@@ -50,11 +63,13 @@ sub login {
             $json->{timezone} = '' . $fetch[6];
             $json->{profileImagePath} = '' . $fetch[7];
         } else { # password was invalid
-            $json->{userid} = '0';
+            $json->{result} = '0';
         }
     } else { # user does not exist
-        $json->{userid} = '-1';
+        $json->{result} = '-1';
     }
+=end oldcode
+=cut
     return $json;
 }
 

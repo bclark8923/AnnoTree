@@ -28,13 +28,23 @@ sub login {
     $params->{password} = $self->param('loginPassword');
     
     my $result = AnnoTree::Model::User::login($self, $params);
-
-    $self->render(json => $result);
+    if (exists $result->{result}) {
+        my $error = $result->{result};
+        #$self->debug("error is $error");
+        if ($error == -1) { # user does not exist
+            $self->render(json => $result, status => 404);
+        } elsif ($error == 0) { # incorrect password
+            $self->render(json => $result, status => 406);
+        }
+    } else {
+        $self->render(json => $result);
+    }
 }
 
 sub signup {
     my $self = shift;
     
+    $self->debug($self->dumper($self->req->params));
     my $params = {};
     ($params->{'firstName'}, $params->{'lastName'}) = $self->param('signUpName') =~ m/(.+)\s+(\S+)\Z/;
     $params->{'email'} = $self->param('signUpEmail');

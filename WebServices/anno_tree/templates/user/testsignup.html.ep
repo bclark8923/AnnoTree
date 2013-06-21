@@ -2,7 +2,7 @@
 <html>
     <head><title>Test User Signup</title></head>
     <body>
-        %= form_for "/user/signup" => (method => 'POST')=> begin
+        %= form_for "/user/signup" => {format => 'json'} => (method => 'POST') => begin
         Name:
         %= text_field 'signUpName'
         <br/>Email:

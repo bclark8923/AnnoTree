@@ -14890,3 +14890,121 @@ Compilation failed in require at (eval 308) line 1.
 }, 'Mojo::Parameters' )
 
 [Fri Jun 21 02:37:07 2013] [debug] 200 OK (0.011878s, 84.189/s).
+[Fri Jun 21 02:52:18 2013] [debug] GET "/user/signup".
+[Fri Jun 21 02:52:18 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "testSignup".
+[Fri Jun 21 02:52:18 2013] [debug] Rendering template "user/testsignup.html.ep".
+[Fri Jun 21 02:52:18 2013] [debug] 200 OK (0.005732s, 174.459/s).
+[Fri Jun 21 02:52:33 2013] [debug] POST "/user/signup".
+[Fri Jun 21 02:52:33 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Fri Jun 21 02:52:33 2013] [debug] bless( {
+  'charset' => 'UTF-8',
+  'params' => [
+    'signUpName',
+    'testing 3',
+    'signUpEmail',
+    'testi4ng@sdf.com',
+    'signUpPassword',
+    'groovy4'
+  ]
+}, 'Mojo::Parameters' )
+
+[Fri Jun 21 02:52:33 2013] [debug] 200 OK (0.003741s, 267.308/s).
+[Fri Jun 21 03:01:32 2013] [debug] POST "/user/signup".
+[Fri Jun 21 03:01:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Fri Jun 21 03:01:32 2013] [debug] bless( {
+  'charset' => 'UTF-8',
+  'params' => []
+}, 'Mojo::Parameters' )
+
+[Fri Jun 21 03:01:32 2013] [debug] 406 Not Acceptable (0.000430s, 2325.581/s).
+[Fri Jun 21 03:01:50 2013] [debug] POST "/user/signup".
+[Fri Jun 21 03:01:50 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Fri Jun 21 03:01:50 2013] [debug] bless( {
+  'charset' => 'UTF-8',
+  'params' => []
+}, 'Mojo::Parameters' )
+
+[Fri Jun 21 03:01:50 2013] [debug] 406 Not Acceptable (0.000444s, 2252.252/s).
+[Fri Jun 21 03:02:23 2013] [debug] POST "/user/signup".
+[Fri Jun 21 03:02:23 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Fri Jun 21 03:02:23 2013] [debug] bless( {
+  'charset' => 'UTF-8',
+  'params' => []
+}, 'Mojo::Parameters' )
+
+[Fri Jun 21 03:02:23 2013] [debug] 406 Not Acceptable (0.000442s, 2262.443/s).
+[Fri Jun 21 03:02:52 2013] [debug] POST "/user/signup".
+[Fri Jun 21 03:02:52 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Fri Jun 21 03:02:52 2013] [debug] bless( {
+  'charset' => 'UTF-8',
+  'params' => []
+}, 'Mojo::Parameters' )
+
+[Fri Jun 21 03:02:52 2013] [debug] 406 Not Acceptable (0.000438s, 2283.105/s).
+[Fri Jun 21 03:03:36 2013] [debug] POST "/user/signup".
+[Fri Jun 21 03:03:36 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Fri Jun 21 03:03:36 2013] [debug] bless( {
+  'charset' => 'UTF-8',
+  'params' => []
+}, 'Mojo::Parameters' )
+
+[Fri Jun 21 03:03:36 2013] [debug] 406 Not Acceptable (0.000527s, 1897.533/s).
+[Fri Jun 21 03:05:09 2013] [debug] POST "/user/signup".
+[Fri Jun 21 03:05:09 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Fri Jun 21 03:05:09 2013] [debug] bless( {
+  'charset' => 'UTF-8',
+  'params' => []
+}, 'Mojo::Parameters' )
+
+[Fri Jun 21 03:05:09 2013] [debug] 406 Not Acceptable (0.000444s, 2252.252/s).
+[Fri Jun 21 03:08:40 2013] [debug] POST "/user/signup".
+[Fri Jun 21 03:08:40 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Fri Jun 21 03:08:40 2013] [debug] {
+  'hello' => 'world'
+}
+
+[Fri Jun 21 03:08:40 2013] [debug] 406 Not Acceptable (0.002442s, 409.500/s).
+[Fri Jun 21 03:12:07 2013] [debug] POST "/user/signup".
+[Fri Jun 21 03:12:07 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Fri Jun 21 03:12:07 2013] [debug] {
+  'hello' => 'world'
+}
+
+[Fri Jun 21 03:12:07 2013] [debug] 406 Not Acceptable (0.002535s, 394.477/s).
+[Fri Jun 21 03:13:16 2013] [debug] POST "/user/signup".
+[Fri Jun 21 03:13:16 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Fri Jun 21 03:13:16 2013] [debug] {
+  'signUpEmail' => 'mattprice11@gmail.com',
+  'signUpName' => 'matt a price',
+  'signUpPassword' => 'groovy11'
+}
+
+[Fri Jun 21 03:13:16 2013] [debug] 406 Not Acceptable (0.000511s, 1956.947/s).
+[Fri Jun 21 03:14:55 2013] [debug] POST "/user/signup".
+[Fri Jun 21 03:14:55 2013] [error] Global symbol "$params2" requires explicit package name at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Controller/User.pm line 48.
+Compilation failed in require at (eval 308) line 1.
+
+[Fri Jun 21 03:14:55 2013] [debug] Template "exception.development.html.ep" not found.
+[Fri Jun 21 03:14:55 2013] [debug] Template "exception.html.ep" not found.
+[Fri Jun 21 03:14:55 2013] [debug] Rendering inline template.
+[Fri Jun 21 03:14:55 2013] [debug] Rendering inline template.
+[Fri Jun 21 03:14:55 2013] [debug] 500 Internal Server Error (0.018320s, 54.585/s).
+[Fri Jun 21 03:15:07 2013] [debug] POST "/user/signup".
+[Fri Jun 21 03:15:07 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Fri Jun 21 03:15:07 2013] [debug] 406 Not Acceptable (0.005517s, 181.258/s).
+[Fri Jun 21 03:16:02 2013] [debug] POST "/user/signup".
+[Fri Jun 21 03:16:02 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Fri Jun 21 03:16:02 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-21 03:16:02',
+  'email' => 'mattprice11@gmail.com',
+  'first_name' => 'matt a',
+  'id' => '3',
+  'lang' => 'ENG',
+  'last_name' => 'price',
+  'password' => '{SSHA512}RqO2b3N7ut0v/rcyVVwudNob94dYW/ubOypNmsod6P8jxMcCXsfMieL4twXCu1K14VT48ts9seYstdFekGVfZUaYKFY=',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Fri Jun 21 03:16:02 2013] [debug] 200 OK (0.006111s, 163.639/s).

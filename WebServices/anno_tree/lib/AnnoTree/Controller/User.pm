@@ -44,14 +44,15 @@ sub login {
 sub signup {
     my $self = shift;
     
-    $self->debug($self->dumper($self->req->params));
+    my $jsonReq = $self->req->json;
+    #$self->debug($self->dumper($params2));
     my $params = {};
-    ($params->{'firstName'}, $params->{'lastName'}) = $self->param('signUpName') =~ m/(.+)\s+(\S+)\Z/;
-    $params->{'email'} = $self->param('signUpEmail');
-    $params->{'password'} = $self->param('signUpPassword');
+    ($params->{'firstName'}, $params->{'lastName'}) = $jsonReq->{'signUpName'} =~ m/(.+)\s+(\S+)\Z/;
+    $params->{'email'} = $jsonReq->{'signUpEmail'};
+    $params->{'password'} = $jsonReq->{'signUpPassword'};
     
     my $result = AnnoTree::Model::User->signup($params);
-    
+    $self->debug($self->dumper($result));
     if (looks_like_number($result)) {
         # something was wrong with one of the passed in parameters
         # 1: email sucks

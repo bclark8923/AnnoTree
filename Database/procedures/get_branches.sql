@@ -13,10 +13,10 @@ CREATE Procedure `get_branches`(
   )
 BEGIN
 select 'id', 'name', 'description', 'tree_id', 'created_at' union
-select b.id, b.name, b.description, b.tree_idd, b.created_at 
+select b.id, b.name, b.description, b.tree_id, b.created_at 
 from branch as b 
     join user_branch ub on
-        ub.branch_id = branch.id and
+        ub.branch_id = b.id and
         user = ub.user_id and
         b.tree_id = tree;
 END $$ 

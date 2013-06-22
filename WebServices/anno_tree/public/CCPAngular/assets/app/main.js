@@ -1,6 +1,6 @@
 
 // Create an application module for our demo.
-var AnnoTree = angular.module( "AnnoTree", [] );
+var AnnoTree = angular.module( "AnnoTree", ['ngCookies'] );
 
 AnnoTree.run(function($rootScope, $templateCache) {
           $rootScope.$on('$viewContentLoaded', function() {
@@ -106,4 +106,10 @@ AnnoTree.factory('apiRoot', function() {
 	}
 
 });
+/*
+angular.module('MyApp', [])
+  .config(['$httpProvider', function($httpProvider) {
+    $httpProvider.defaults.timeout = 5000;
+}]);
+*/
 

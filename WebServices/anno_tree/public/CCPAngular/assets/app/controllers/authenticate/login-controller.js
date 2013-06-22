@@ -4,44 +4,48 @@
 
 	app.controller(
 		"authenticate.LoginController",
-		function( $scope, requestContext, categoryService, _ ) {
+		function( $scope, $cookies, $location, requestContext, authenticateService, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
 
 
 			// I apply the remote data to the local view model.
-			function applyRemoteData( userTrees ) {
+			function completeLogin( response ) {
 
-				//$scope.categories = _.sortOnProperty( categories, "name", "asc" );
-                   
-                   $scope.userTrees = _.sortOnProperty( userTrees.data, "name", "asc");
+				var date = new Date().getTime();
+				$cookies.sessionid = response.data.id;
+				$cookies.username = response.data.first_name + " " + response.data.last_name;
+				$cookies.userid = response.data.id;
+				$cookies.avatar = response.data.profile_image_path;
 
+				$location.path("app");
 			}
 
 
-			// I load the "remote" data from the server.
-			function loadRemoteData() {
+			$scope.validateLogin = function() {
 
-				$scope.isLoading = true;
+				var email = $scope.loginEmail;
+				var password = $scope.loginPassword;
 
-				var promise = categoryService.getTrees();
+				if(true) {
+					var promise = authenticateService.login(email, password);
 
-				promise.then(
-					function( response ) {
+					promise.then(
+						function( response ) {
 
-						$scope.isLoading = false;
+							$scope.isLoading = false;
 
-						applyRemoteData( response );
+							completeLogin( response );
 
-					},
-					function( response ) {
+						},
+						function( response ) {
 
-						$scope.openModalWindow( "error", "For some reason we couldn't load the categories. Try refreshing your browser." );
+							$scope.openModalWindow( "error", "Our login service is currently down, please try again later." );
 
-					}
-				);
-
+						}
+					);
+				}
 			}
 
 
@@ -63,10 +67,6 @@
 
 			// I flag that data is being loaded.
 			$scope.isLoading = true;
-
-			// I hold the categories to render.
-			$scope.categories = [];
-            $scope.userTrees = [];
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();
@@ -99,9 +99,6 @@
 
 			// Set the window title.
 			$scope.setWindowTitle( "AnnoTree" );
-
-			// Load the "remote" data.
-			//loadRemoteData();
 
 
 		}

@@ -1,28 +1,18 @@
 
-<div ng-switch="subview">
-
-<div class="modal active" id="signUpModal" ng-controller="authenticate.LoginController">
-  <div class="content" style="max-width: 500px;
-  max-height: 435px; max-height: 100%; min-height: 0%;
-  padding: 0; top:10%;
-  ">
-    <div class="row" style="height:80px;background-color:#555;text-align:center;">
-      <a href="http://annotree.com"><img src="img/AnnoTreeFadeIn.png" style="height: 60px;margin-top:10px;"/></a>
-    </div>
-    <div class="row" style="height:150px;">
+<div ng-switch="subview" ng-controller="authenticate.LoginController">
+  <form name="loginForm" ng-submit="validateLogin()" style="padding-top: 30px; margin: 0;">
+    <div class="row" style="min-height:120px;">
       <div class="ten columns centered center-text">
-        <form id="loginForm" style="padding-top: 30px">
-          <ul>
-            <li class="field" style="text-align:center;"><input id="loginEmail" class="email input" type="email" placeholder="Email" style="max-width:380px;"></li>
-            <li class="field" style="text-align:center;"><input id="loginPassword" class="password input" type="password" placeholder="Password" style="max-width:380px;"></li>
-          </ul>
-        </form>
+        <ul>
+          <li class="field" style="text-align:center;"><input id="loginEmail" class="email input" type="email" placeholder="Email" style="max-width:380px;" ng-model="loginEmail" required></li>
+          <li class="field" style="text-align:center;"><input id="loginPassword" class="password input" type="password" placeholder="Password" style="max-width:380px;" ng-model="loginPassword" required></li>
+        </ul>
       </div>
     </div>
-    <div class="row" style="height:85px;background-color:#eee;border-top:1px solid #bbb;">
+    <div class="row authenticateFooter">
       <div style="text-align: center; padding-top:15px;">
         <div>
-          <div class="medium btn success"><a href="index.html">Login</a></div>
+          <button type="submit" class="medium btn success"><a ng-click="validateLogin()">Login</a></button>
           <div>
             <p class="forgotPassword"><a href="#/authenticate/requestPassword" style="color:#444;text-decoration:underline;">Forgot Password?</a></p>
             <p class="signUpHere">New here? <a href="#/authenticate/signUp" style="color:#444;text-decoration:underline;">Come Sign Up!</a></p>
@@ -30,7 +20,5 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
-  
+  </form>
 </div>

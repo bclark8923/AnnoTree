@@ -3,20 +3,14 @@
 	"use strict";
 
 	app.service("authenticateService",
-		function( $http, apiRoot ) {
+		function( $http, $location, $cookies, apiRoot ) {
 
 			function signup(name, email, password) {
-				//return $http.post(apiRoot.getRoot() + '/user/signup', {signUpName: name, signUpEmail: email, signUpPassword: password});
-				return $http({
-				    method: 'POST',
-				    url: apiRoot.getRoot() + '/user/signup',
-				    data: {signUpName: name, signUpEmail: email, signUpPassword: password},
-				    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-				});
+				return $http.post(apiRoot.getRoot() + '/user/signup', {signUpName: name, signUpEmail: email, signUpPassword: password});
 			}
 
-			function login() {
-				return $http.get(apiRoot.getRoot() + '/2/tree');
+			function login(email, password) {
+				return $http.post(apiRoot.getRoot() + '/user/login', {loginEmail: email, loginPassword: password});
 			}
 
 			function requestPassword() {
@@ -26,6 +20,14 @@
 			function resetPassword() {
 				return $http.get(apiRoot.getRoot() + '/2/tree');
 			}
+
+	        function isLoggedIn() {
+	            if($cookies.sessionid) {
+	                return true;
+	            }
+
+	            $location.path("login");
+	        }
 			// ---------------------------------------------- //
 			// ---------------------------------------------- //
 

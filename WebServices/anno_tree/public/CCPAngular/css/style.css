@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-  font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif;
+  font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
   /*background: url('../img/gray-fabric-pattern-light.jpg') no-repeat center center fixed;*/
   background-color: #f4f4f4;/*#fafafa;*/
   -webkit-background-size: cover; /*for webKit*/
@@ -69,6 +69,18 @@ a:hover{
   height: 45px;
 }
 
+.authenticateHeader {
+  height:80px;
+  background-color:#f7f8f5;
+  text-align:center;
+  border-bottom: 1px solid #ccc;
+}
+
+.authenticateFooter {
+  height:85px;
+  background-color:#f7f8f5;
+  border-top:1px solid #ccc;
+}
 
 .forgotPassword {
     margin-bottom: 0px;

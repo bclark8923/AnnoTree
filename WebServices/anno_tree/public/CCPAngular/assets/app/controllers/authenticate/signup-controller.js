@@ -12,13 +12,14 @@
 
 			// I apply the remote data to the local view model.
 			function completeSignup ( response ) {
-
+				//set session information
 				var date = new Date().getTime();
 				$cookies.sessionid = response.data.id;
 				$cookies.username = response.data.first_name + " " + response.data.last_name;
 				$cookies.userid = response.data.id;
 				$cookies.avatar = response.data.profile_image_path;
 
+				//redirect to app
 				$location.path("app");
 			}
 
@@ -26,19 +27,21 @@
 			// I load the "remote" data from the server.
 			$scope.validateSignUp = function() {
 				
+				//Mark the form as valid
 				$scope.invalidSignUp = false;
 
+				//check for validation
 				$scope.$broadcast('$validate');
 				
+				//obtain the values
 				var name = $scope.signUpName;
 				var email = $scope.signUpEmail;
 				var password = $scope.signUpPassword;
 				var formValid = $scope.signUpForm.$valid;
 				
-				//validate for
+				//validate form
 				if(!formValid) {
 					$scope.invalidSignUp = true;
-					//fix
 					if(!name) {
 						$("#validateError").html("Please fill out your name.");
 					}
@@ -47,22 +50,25 @@
 					}
 					else if(!password) {
 						$("#validateError").html("Please enter a valid password.");
+					} else {
+						//shouldn't happen
+						$("#validateError").html("Please enter valid information.");
 					}
-					//$scope.openModalWindow( "error", "Please fill all the fields with valid input." );
 				}
 				else {
+					//Send signup api call
 					var promise = authenticateService.signup(name, email, password);
 
 					promise.then(
 						function( response ) {
 
 							$scope.isLoading = false;
-
+							//complete signup
 							completeSignup ( response );
 
 						},
 						function( response ) {
-
+							//error responses from API
 							var errorData = "Our Sign Up Service is currently down, please try again later.";
 							var errorNumber = parseInt(response.data.error);
 							switch(errorNumber)
@@ -116,11 +122,9 @@
 
 			// I flag that data is being loaded.
 			$scope.isLoading = true;
-			$scope.invalidSignUp = false;
 
-			// I hold the categories to render.
-			$scope.categories = [];
-            $scope.userTrees = [];
+			//set the form to valid
+			$scope.invalidSignUp = false;
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();
@@ -153,10 +157,6 @@
 
 			// Set the window title.
 			$scope.setWindowTitle( "AnnoTree" );
-
-			// Load the "remote" data.
-			//loadRemoteData();
-
 
 		}
 	);

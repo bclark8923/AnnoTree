@@ -69,6 +69,7 @@
 						},
 						function( response ) {
 							//error responses from API
+							$scope.invalidSignUp = true;
 							var errorData = "Our Sign Up Service is currently down, please try again later.";
 							var errorNumber = parseInt(response.data.error);
 							switch(errorNumber)

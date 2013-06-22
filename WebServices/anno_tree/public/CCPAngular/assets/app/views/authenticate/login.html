@@ -4,6 +4,7 @@
     <div class="row" style="min-height:120px;">
       <div class="ten columns centered center-text">
         <ul>
+          <li class="danger alert" id="validateError" ng-show="invalidLogin"></li>
           <li class="field" style="text-align:center;"><input id="loginEmail" class="email input" type="email" placeholder="Email" style="max-width:380px;" ng-model="loginEmail" required></li>
           <li class="field" style="text-align:center;"><input id="loginPassword" class="password input" type="password" placeholder="Password" style="max-width:380px;" ng-model="loginPassword" required></li>
         </ul>

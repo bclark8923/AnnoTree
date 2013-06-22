@@ -62,4 +62,22 @@ sub signup {
     }
 }
 
+sub deleteUser {
+    my $self = shift;
+
+    my $userid = $self->param('uid');
+
+    my $result = AnnoTree::Model::User->deleteUser($userid);
+    
+    my $status = 200;
+    if (exists $result->{error}) {
+        my $error = $result->{error};
+        if ($error == 1) { # user does not exist
+            $status = 404;
+        }
+    }
+
+    $self->render(json => $result, status => $status);
+}
+
 return 1;

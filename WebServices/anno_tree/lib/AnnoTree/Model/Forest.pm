@@ -8,7 +8,6 @@ use Scalar::Util qw(looks_like_number);
 sub create {
     my ($class, $params) = @_;
     
-    # need to change this so that we grab the actaul userid
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call create_forest(:userid, :name, :desc)",
         {
@@ -20,32 +19,14 @@ sub create {
 
     my $json = {};
     my $cols = $result->fetch;
-    return $cols->[0] if (looks_like_number($cols->[0]));
-    #$json->{result} = $result->fetch->[0];
-    return $json;
-}
-
-# grabs all of the forests from the DB
-sub listAll {
-    my $class = shift;
+    return {error => $cols->[0]} if (looks_like_number($cols->[0])); # returns a 1 if user does not exist or was deleted
     
-    my $result = AnnoTree::Model::MySQL->db->execute(
-        "select id, name, description, created_at from forest"
-    );
-    my $count = 0;
-    my $forests = {};
-    while (my $res = $result->fetch) {
-        $forests->{forests}->[$count]->{id} = $res->[0];
-        $forests->{forests}->[$count]->{name} = $res->[1];
-        $forests->{forests}->[$count]->{description} = $res->[2];
-        $forests->{forests}->[$count]->{created} = $res->[3];
-        $count++;
+    my $forestInfo = $result->fetch;
+    for (my $i = 0; $i < @{$cols}; $i++) {
+        $json->{$cols->[$i]} = $forestInfo->[$i];
     }
-    #$self->debug($count);
-    $forests->{numForests} = "$count";
-    #$self->debug($self->dumper($forests));
     
-    return $forests;
+    return $json;
 }
 
 # gets an individual forest's info from the DB

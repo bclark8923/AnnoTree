@@ -14,7 +14,7 @@ my $jsonBody; # this should be the body of the returned message if JSON
 # this test creates a new valid user
 my $testname = 'Valid user signup: ';
 $tx = $ua->post('http://localhost:3000/user/signup' => json => {
-    signUpName      => 'test script user',
+    signUpName      => 'login test user',
     signUpEmail     => 'mojotest@login.com',
     signUpPassword  => 'tester1'
 });
@@ -22,7 +22,7 @@ $jsonBody = $json->decode($tx->res->body);
 
 ok(200 == $tx->res->code,                       $testname . 'Response Code is 200');
 ok(exists $jsonBody->{id},                      $testname . 'Response JSON ID exists');
-ok('test script' eq $jsonBody->{first_name},    $testname . "Response JSON first name is 'test script'");
+ok('login test' eq $jsonBody->{first_name},     $testname . "Response JSON first name is 'login test'");
 ok('user' eq $jsonBody->{last_name},            $testname . "Response JSON last name is 'user'");
 ok(exists $jsonBody->{created_at},              $testname . 'Response JSON created date exists');
 ok('ENG' eq $jsonBody->{lang},                  $testname . "Response JSON language is ENG");
@@ -30,7 +30,7 @@ ok(1 == $jsonBody->{active},                    $testname . 'Response JSON activ
 ok('EST' eq $jsonBody->{time_zone},             $testname . "Response JSON time zone is EST");
 ok(exists $jsonBody->{password},                $testname . 'Response JSON password exists');
 ok('NULL' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is NULL");
-ok('mojotest@login.com' eq $jsonBody->{email},   $testname . "Response JSON email is 'mojotest\@user.com'");
+ok('mojotest@login.com' eq $jsonBody->{email},  $testname . "Response JSON email is 'mojotest\@user.com'");
 ######### END VALID USER SIGNUP TEST #########
 
 ######### START VALID USER LOGIN TEST #########
@@ -44,7 +44,7 @@ $jsonBody = $json->decode($tx->res->body);
 
 ok(200 == $tx->res->code,                       $testname . 'Response Code is 200');
 ok(exists $jsonBody->{id},                      $testname . 'Response JSON ID exists');
-ok('test script' eq $jsonBody->{first_name},    $testname . "Response JSON first name is 'test script'");
+ok('login test' eq $jsonBody->{first_name},     $testname . "Response JSON first name is 'test script'");
 ok('user' eq $jsonBody->{last_name},            $testname . "Response JSON last name is 'user'");
 ok(exists $jsonBody->{created_at},              $testname . 'Response JSON created date exists');
 ok('ENG' eq $jsonBody->{lang},                  $testname . "Response JSON language is ENG");

@@ -16,7 +16,9 @@ sub init {
         dsn         => $dsn,
         user        => '' . $config->{username},
         password    => '' . $config->{password}
-    ) or warn 'Could not connect to DB'; 
+    ) or warn 'Could not connect to DB';
+    
+    $DB->{mysql_auto_reconnect} = 1;
 
     return $DB;
 }

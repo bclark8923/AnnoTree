@@ -41,14 +41,12 @@ sub startup {
 
     # ===== USERS =====
     $r->post('/user/signup')                        ->to('controller-user#signup'); # need to create trees, etc. when not a referral - referrals need to add to forest/tree?
-    $r->post('/user/login')                         ->to('controller-user#login'); # needs procedure
-    $r->delete('/user/:uid' => [uid => qr/\d+/])    ->to('controller-user#delete');
+    $r->post('/user/login')                         ->to('controller-user#login'); # working - should it return the list of forests the user has access to?
+    $r->delete('/user/:uid' => [uid => qr/\d+/])    ->to('controller-user#deleteUser');
 
     # ===== FORESTS =====
-    $r->get('/forest')->to('controller-forest#listAll'); # do we need this?
-    $r->post('/forest')->to('controller-forest#create');
+    $r->post('/:userid/forest' => [userid => qr/\d+/])->to('controller-forest#create');
     $r->get('/forest/:id' => [id => qr/\d+/])->to('controller-forest#uniqueForest'); # do we need this?
-    $r->get('/forest/create')->to('controller-forest#testCreate');
     $r->get('/:userid/forest' => [userid => qr/\d+/])->to('controller-forest#forestsForUser'); # done
 
     # ===== TREES =====

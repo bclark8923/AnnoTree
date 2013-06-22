@@ -4,18 +4,6 @@ use Mojo::Base 'Mojolicious::Controller';
 use AnnoTree::Model::Forest;
 use Scalar::Util qw(looks_like_number);
 
-sub listAll {
-    my $self = shift;
-    
-    my $model = AnnoTree::Model::Forest->listAll();
-
-    #$self->debug($self->dumper($forests));
-    $self->debug($self->dumper($model));
-
-    $self->render(json => $model);
-    #$self->render(text => "hello");
-}
-
 sub uniqueForest {
     my $self = shift;
 
@@ -30,21 +18,25 @@ sub uniqueForest {
 sub create {
     my $self = shift;
     
+    my $jsonReq = $self->req->json;
+    $self->debug($self->dumper($jsonReq));
+    $self->render(json => {error => '6'}, status => 406) and return unless (exists $jsonReq->{name} && exists $jsonReq->{description});
+
     my $params = {};
     $params->{userid} = $self->param('userid');
-    $params->{name} = $self->param('name');
-    $params->{desc} = $self->param('description');
+    $params->{name} = $jsonReq->{'name'};
+    $params->{desc} = $jsonReq->{'description'};
     
     my $result = AnnoTree::Model::Forest->create($params);
-
-    $self->render(json => $result);
-}
-
-# temporary route to test forest creation
-sub testCreate {
-    my $self = shift;
-
-    $self->render(template => 'forest/testcreate');
+    
+    my $status = 200;
+    if (exists $result->{error}) {
+        my $error = $result->{error};
+        if ($error == 1) { # user does not exist or was deleted
+           $status = 404;
+       }
+    }
+    $self->render(json => $result, status => $status);
 }
 
 sub forestsForUser {

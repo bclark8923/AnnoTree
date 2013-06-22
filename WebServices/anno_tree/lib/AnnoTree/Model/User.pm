@@ -4,6 +4,7 @@ use Mojo::Base -strict;
 use Crypt::SaltedHash;
 use AnnoTree::Model::MySQL;
 use Scalar::Util qw(looks_like_number);
+use Data::Dumper;
 
 # creates a salted hash which is returned
 sub createSaltedHash {
@@ -75,7 +76,30 @@ sub signup {
     return $cols->[0] if (looks_like_number($cols->[0])); # if there is an error return
     
     my $userInfo = $result->fetch; # get the newly created user's info
-    for(my $i = 0; $i < @{$cols}; $i++) {
+    for (my $i = 0; $i < @{$cols}; $i++) {
+        $json->{$cols->[$i]} = $userInfo->[$i];
+    }
+    
+    return $json;
+}
+
+sub deleteUser {
+    my ($class, $userid) = @_;
+    
+    print "userid to delete is $userid \n";
+    my $result = AnnoTree::Model::MySQL->db->execute("call delete_user(:userid)",
+        {
+            userid => $userid
+        }
+    );
+    
+    my $json = {};
+    my $cols = $result->fetch; # get the columns (keys for json)
+    print Dumper($cols);
+    return {error => $cols->[0]} if (looks_like_number($cols->[0])); # if there is an error return
+    
+    my $userInfo = $result->fetch; # get the newly created user's info
+    for (my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $userInfo->[$i];
     }
     

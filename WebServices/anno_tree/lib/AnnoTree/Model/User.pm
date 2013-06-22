@@ -4,6 +4,7 @@ use Mojo::Base -strict;
 use Crypt::SaltedHash;
 use AnnoTree::Model::MySQL;
 use Scalar::Util qw(looks_like_number);
+use Data::Dumper;
 
 # creates a salted hash which is returned
 sub createSaltedHash {
@@ -18,8 +19,8 @@ sub createSaltedHash {
 
 # validates a user attempting to log in
 # returns 0 if invalid email
-# returns -1 if password is incorrect
-# returns the user's id otherwise (a positive int)
+# returns 1 if password is incorrect
+# returns the user's info in a hash otherwise
 sub login {
     my ($controller, $params) = @_;
     
@@ -35,41 +36,15 @@ sub login {
     my $cols = $result->fetch; # get the columns (keys for json)
     
     my $userInfo = $result->fetch; # get the newly created user's info
-    return {result => '-1'} unless ($userInfo->[0]); # user does not exist
+    return {error => '1'} unless ($userInfo->[0]); # user does not exist
+    
     for(my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $userInfo->[$i];
     }
     my $shash = $json->{password};
     my $valid = Crypt::SaltedHash->validate($shash, $params->{password});
-    return {result => '0'} unless ($valid);
-=begin oldcode
-    my $fetch = $result->fetch;
-    my $json = {};
+    return {error => '0'} unless ($valid); # passwords do not match
     
-    if ($fetch->[0]) {
-        my @fetch = split(/, /, $fetch->[0]);
-        #$controller->debug('userid: ' . $fetch[0]);
-        $controller->debug($controller->dumper($fetch));
-        my $shash = $fetch[1];
-        my $valid = Crypt::SaltedHash->validate($shash, $params->{password});
-        $controller->debug("valid is $valid");
-        
-        if ($valid == 1) {
-            $json->{userid} = '' . $fetch[0];
-            $json->{firstName} = '' . $fetch[2];
-            $json->{lastName} = '' . $fetch[3];
-            $json->{email} = '' . $fetch[4];
-            $json->{lang} = '' . $fetch[5];
-            $json->{timezone} = '' . $fetch[6];
-            $json->{profileImagePath} = '' . $fetch[7];
-        } else { # password was invalid
-            $json->{result} = '0';
-        }
-    } else { # user does not exist
-        $json->{result} = '-1';
-    }
-=end oldcode
-=cut
     return $json;
 }
 
@@ -101,7 +76,29 @@ sub signup {
     return $cols->[0] if (looks_like_number($cols->[0])); # if there is an error return
     
     my $userInfo = $result->fetch; # get the newly created user's info
-    for(my $i = 0; $i < @{$cols}; $i++) {
+    for (my $i = 0; $i < @{$cols}; $i++) {
+        $json->{$cols->[$i]} = $userInfo->[$i];
+    }
+    
+    return $json;
+}
+
+sub deleteUser {
+    my ($class, $userid) = @_;
+    
+    my $result = AnnoTree::Model::MySQL->db->execute("call delete_user(:userid)",
+        {
+            userid => $userid
+        }
+    );
+    
+    my $json = {};
+    my $cols = $result->fetch; # get the columns (keys for json)
+    
+    return {error => $cols->[0]} if (looks_like_number($cols->[0])); # if there is an error return
+    
+    my $userInfo = $result->fetch; # get the newly created user's info
+    for (my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $userInfo->[$i];
     }
     

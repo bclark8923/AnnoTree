@@ -40,9 +40,7 @@ sub startup {
     my $r = $self->routes;
 
     # ===== USERS =====
-    $r->get('/user/signup')                         ->to('controller-user#testSignup');
-    $r->post('/user/signup')                        ->to('controller-user#signup'); # done
-    $r->get('/user/login')                          ->to('controller-user#testLogin');
+    $r->post('/user/signup')                        ->to('controller-user#signup'); # need to create trees, etc. when not a referral - referrals need to add to forest/tree?
     $r->post('/user/login')                         ->to('controller-user#login'); # needs procedure
     $r->delete('/user/:uid' => [uid => qr/\d+/])    ->to('controller-user#delete');
 

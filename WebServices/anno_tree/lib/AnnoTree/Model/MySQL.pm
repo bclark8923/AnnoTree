@@ -16,7 +16,7 @@ sub init {
         dsn         => $dsn,
         user        => '' . $config->{username},
         password    => '' . $config->{password}
-    ); 
+    ) or warn 'Could not connect to DB'; 
 
     return $DB;
 }

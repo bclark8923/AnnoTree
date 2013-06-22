@@ -56,7 +56,7 @@ ok('mojotest@login.com' eq $jsonBody->{email},  $testname . "Response JSON email
 ######### END VALID USER TEST #########
 
 ######### START MISSING REQUEST JSON PARAMETERS TEST #########
-# this test attempts to send missing JSON parameters
+# this test attempts to login an user with missing JSON values in the request
 my $testname = 'Missing request parameters user login: ';
 $tx = $ua->post('http://localhost:3000/user/signup' => json => {
     signUpEmail     => 'mojotest@login.com'

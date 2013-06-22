@@ -18295,3 +18295,1509 @@ Compilation failed in require at (eval 308) line 1.
 [Sat Jun 22 02:17:16 2013] [debug] DELETE "/user/5".
 [Sat Jun 22 02:17:16 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
 [Sat Jun 22 02:17:16 2013] [debug] 200 OK (0.001615s, 619.195/s).
+[Sat Jun 22 02:27:53 2013] [debug] POST "/user/signup".
+[Sat Jun 22 02:27:53 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 02:27:53 2013] [debug] {
+  'signUpEmail' => 'mojotest924839@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 02:27:53 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-22 02:27:53',
+  'email' => 'mojotest924839@user.com',
+  'first_name' => 'test script',
+  'id' => '7',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'password' => '{SSHA512}OwJjMSmNTEyDtoMbUqwqSUZHrg77+lJurM+BJiEaW90JNebdIXGFjGlYyBOFR6ihDWI8RRd2d0A8rlbMu2yWZesMFPA=',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sat Jun 22 02:27:53 2013] [debug] 200 OK (0.003952s, 253.036/s).
+[Sat Jun 22 02:27:53 2013] [debug] POST "/user/signup".
+[Sat Jun 22 02:27:53 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 02:27:53 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 02:27:53 2013] [debug] 406 Not Acceptable (0.000376s, 2659.574/s).
+[Sat Jun 22 02:27:53 2013] [debug] POST "/user/signup".
+[Sat Jun 22 02:27:53 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 02:27:53 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 02:27:53 2013] [debug] '1'
+
+[Sat Jun 22 02:27:53 2013] [debug] 406 Not Acceptable (0.000806s, 1240.695/s).
+[Sat Jun 22 02:27:53 2013] [debug] POST "/user/signup".
+[Sat Jun 22 02:27:53 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 02:27:53 2013] [debug] {
+  'signUpEmail' => 'mojotest924839@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 02:27:53 2013] [debug] '2'
+
+[Sat Jun 22 02:27:53 2013] [debug] 406 Not Acceptable (0.001729s, 578.369/s).
+[Sat Jun 22 02:27:53 2013] [debug] POST "/user/signup".
+[Sat Jun 22 02:27:53 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 02:27:53 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sat Jun 22 02:27:53 2013] [debug] 3
+
+[Sat Jun 22 02:27:53 2013] [debug] 406 Not Acceptable (0.000406s, 2463.054/s).
+[Sat Jun 22 02:27:53 2013] [debug] POST "/user/signup".
+[Sat Jun 22 02:27:53 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 02:27:53 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sat Jun 22 02:27:53 2013] [debug] 4
+
+[Sat Jun 22 02:27:53 2013] [debug] 406 Not Acceptable (0.000367s, 2724.796/s).
+[Sat Jun 22 02:27:53 2013] [debug] POST "/user/signup".
+[Sat Jun 22 02:27:53 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 02:27:53 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sat Jun 22 02:27:53 2013] [debug] 5
+
+[Sat Jun 22 02:27:53 2013] [debug] 406 Not Acceptable (0.000367s, 2724.796/s).
+[Sat Jun 22 02:27:53 2013] [debug] DELETE "/user/7".
+[Sat Jun 22 02:27:53 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sat Jun 22 02:27:53 2013] [debug] 200 OK (0.001620s, 617.284/s).
+[Sat Jun 22 11:53:18 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:53:18 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:53:18 2013] [debug] {
+  'signUpEmail' => 'mojotest11662@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:53:18 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:53:18 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:53:18 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:53:18 2013] [debug] Rendering inline template.
+[Sat Jun 22 11:53:18 2013] [debug] Rendering inline template.
+[Sat Jun 22 11:53:18 2013] [debug] 500 Internal Server Error (0.018461s, 54.168/s).
+[Sat Jun 22 11:53:18 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:53:18 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:53:18 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:53:18 2013] [debug] 406 Not Acceptable (0.000396s, 2525.253/s).
+[Sat Jun 22 11:53:18 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:53:18 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:53:18 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:53:18 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:53:18 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:53:18 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:53:18 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:53:18 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:53:18 2013] [debug] 500 Internal Server Error (0.007036s, 142.126/s).
+[Sat Jun 22 11:53:18 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:53:18 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:53:18 2013] [debug] {
+  'signUpEmail' => 'mojotest11662@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:53:18 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:53:18 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:53:18 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:53:18 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:53:18 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:53:18 2013] [debug] 500 Internal Server Error (0.007089s, 141.064/s).
+[Sat Jun 22 11:53:18 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:53:18 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:53:18 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sat Jun 22 11:53:18 2013] [debug] 3
+
+[Sat Jun 22 11:53:18 2013] [debug] 406 Not Acceptable (0.000604s, 1655.629/s).
+[Sat Jun 22 11:53:18 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:53:18 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:53:18 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sat Jun 22 11:53:18 2013] [debug] 4
+
+[Sat Jun 22 11:53:18 2013] [debug] 406 Not Acceptable (0.000535s, 1869.159/s).
+[Sat Jun 22 11:53:18 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:53:18 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:53:18 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sat Jun 22 11:53:18 2013] [debug] 5
+
+[Sat Jun 22 11:53:18 2013] [debug] 406 Not Acceptable (0.000381s, 2624.672/s).
+[Sat Jun 22 11:53:18 2013] [debug] DELETE "/user/".
+[Sat Jun 22 11:53:18 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sat Jun 22 11:53:18 2013] [debug] Template "not_found.html.ep" not found.
+[Sat Jun 22 11:53:18 2013] [debug] Rendering inline template.
+[Sat Jun 22 11:53:18 2013] [debug] Rendering inline template.
+[Sat Jun 22 11:53:18 2013] [debug] 404 Not Found (0.010440s, 95.785/s).
+[Sat Jun 22 11:54:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:54:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:54:22 2013] [debug] {
+  'signUpEmail' => 'mojotest445639@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:54:22 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:54:22 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:54:22 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:54:22 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:54:22 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:54:22 2013] [debug] 500 Internal Server Error (0.007030s, 142.248/s).
+[Sat Jun 22 11:54:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:54:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:54:22 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:54:22 2013] [debug] 406 Not Acceptable (0.000438s, 2283.105/s).
+[Sat Jun 22 11:54:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:54:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:54:22 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:54:22 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:54:22 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:54:22 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:54:22 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:54:22 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:54:22 2013] [debug] 500 Internal Server Error (0.006887s, 145.201/s).
+[Sat Jun 22 11:54:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:54:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:54:22 2013] [debug] {
+  'signUpEmail' => 'mojotest445639@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:54:22 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:54:22 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:54:22 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:54:22 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:54:22 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:54:22 2013] [debug] 500 Internal Server Error (0.008093s, 123.564/s).
+[Sat Jun 22 11:54:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:54:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:54:22 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sat Jun 22 11:54:22 2013] [debug] 3
+
+[Sat Jun 22 11:54:22 2013] [debug] 406 Not Acceptable (0.000472s, 2118.644/s).
+[Sat Jun 22 11:54:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:54:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:54:22 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sat Jun 22 11:54:22 2013] [debug] 4
+
+[Sat Jun 22 11:54:22 2013] [debug] 406 Not Acceptable (0.000411s, 2433.090/s).
+[Sat Jun 22 11:54:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:54:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:54:22 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sat Jun 22 11:54:22 2013] [debug] 5
+
+[Sat Jun 22 11:54:22 2013] [debug] 406 Not Acceptable (0.000421s, 2375.297/s).
+[Sat Jun 22 11:54:22 2013] [debug] DELETE "/user/".
+[Sat Jun 22 11:54:22 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sat Jun 22 11:54:22 2013] [debug] Template "not_found.html.ep" not found.
+[Sat Jun 22 11:54:22 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:54:22 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:54:22 2013] [debug] 404 Not Found (0.003502s, 285.551/s).
+[Sat Jun 22 11:55:14 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:55:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:55:14 2013] [debug] {
+  'signUpEmail' => 'mojotest118240@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:55:14 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:55:14 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:55:14 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:55:14 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:14 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:14 2013] [debug] 500 Internal Server Error (0.006915s, 144.613/s).
+[Sat Jun 22 11:55:14 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:55:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:55:14 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:55:14 2013] [debug] 406 Not Acceptable (0.000412s, 2427.184/s).
+[Sat Jun 22 11:55:14 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:55:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:55:14 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:55:14 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:55:14 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:55:14 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:55:14 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:14 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:14 2013] [debug] 500 Internal Server Error (0.006841s, 146.177/s).
+[Sat Jun 22 11:55:14 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:55:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:55:14 2013] [debug] {
+  'signUpEmail' => 'mojotest118240@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:55:14 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:55:14 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:55:14 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:55:14 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:14 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:14 2013] [debug] 500 Internal Server Error (0.007144s, 139.978/s).
+[Sat Jun 22 11:55:14 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:55:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:55:14 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sat Jun 22 11:55:14 2013] [debug] 3
+
+[Sat Jun 22 11:55:14 2013] [debug] 406 Not Acceptable (0.000453s, 2207.506/s).
+[Sat Jun 22 11:55:14 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:55:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:55:14 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sat Jun 22 11:55:14 2013] [debug] 4
+
+[Sat Jun 22 11:55:14 2013] [debug] 406 Not Acceptable (0.000370s, 2702.703/s).
+[Sat Jun 22 11:55:14 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:55:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:55:14 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sat Jun 22 11:55:14 2013] [debug] 5
+
+[Sat Jun 22 11:55:14 2013] [debug] 406 Not Acceptable (0.000381s, 2624.672/s).
+[Sat Jun 22 11:55:14 2013] [debug] DELETE "/user/".
+[Sat Jun 22 11:55:14 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sat Jun 22 11:55:14 2013] [debug] Template "not_found.html.ep" not found.
+[Sat Jun 22 11:55:14 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:14 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:14 2013] [debug] 404 Not Found (0.003488s, 286.697/s).
+[Sat Jun 22 11:55:46 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:55:46 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:55:46 2013] [debug] {
+  'signUpEmail' => 'mojotest953636@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:55:46 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:55:46 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:55:46 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:55:46 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:46 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:46 2013] [debug] 500 Internal Server Error (0.007034s, 142.167/s).
+[Sat Jun 22 11:55:46 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:55:46 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:55:46 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:55:46 2013] [debug] 406 Not Acceptable (0.000396s, 2525.253/s).
+[Sat Jun 22 11:55:46 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:55:46 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:55:46 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:55:46 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:55:46 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:55:46 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:55:46 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:46 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:46 2013] [debug] 500 Internal Server Error (0.007077s, 141.303/s).
+[Sat Jun 22 11:55:46 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:55:46 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:55:46 2013] [debug] {
+  'signUpEmail' => 'mojotest953636@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:55:46 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:55:46 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:55:46 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:55:46 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:46 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:46 2013] [debug] 500 Internal Server Error (0.007042s, 142.005/s).
+[Sat Jun 22 11:55:46 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:55:46 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:55:46 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sat Jun 22 11:55:46 2013] [debug] 3
+
+[Sat Jun 22 11:55:46 2013] [debug] 406 Not Acceptable (0.000472s, 2118.644/s).
+[Sat Jun 22 11:55:46 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:55:46 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:55:46 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sat Jun 22 11:55:46 2013] [debug] 4
+
+[Sat Jun 22 11:55:46 2013] [debug] 406 Not Acceptable (0.000405s, 2469.136/s).
+[Sat Jun 22 11:55:46 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:55:46 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:55:46 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sat Jun 22 11:55:46 2013] [debug] 5
+
+[Sat Jun 22 11:55:46 2013] [debug] 406 Not Acceptable (0.000384s, 2604.167/s).
+[Sat Jun 22 11:55:46 2013] [debug] DELETE "/user/".
+[Sat Jun 22 11:55:46 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sat Jun 22 11:55:46 2013] [debug] Template "not_found.html.ep" not found.
+[Sat Jun 22 11:55:46 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:46 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:55:46 2013] [debug] 404 Not Found (0.003445s, 290.276/s).
+[Sat Jun 22 11:56:04 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:56:04 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:56:04 2013] [debug] {
+  'signUpEmail' => 'mojotest283286@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:56:04 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:56:04 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:56:04 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:56:04 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:56:04 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:56:04 2013] [debug] 500 Internal Server Error (0.007122s, 140.410/s).
+[Sat Jun 22 11:56:04 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:56:04 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:56:04 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:56:04 2013] [debug] 406 Not Acceptable (0.000398s, 2512.563/s).
+[Sat Jun 22 11:56:04 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:56:04 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:56:04 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:56:04 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:56:04 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:56:04 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:56:04 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:56:04 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:56:04 2013] [debug] 500 Internal Server Error (0.007035s, 142.146/s).
+[Sat Jun 22 11:56:04 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:56:04 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:56:04 2013] [debug] {
+  'signUpEmail' => 'mojotest283286@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:56:04 2013] [error] DBD::mysql::st execute failed: MySQL server has gone away. Following SQL is executed.
+ call create_user(? , ? , ? , ? , ? , ? , ? )
+(DBIx::Custom::execute) at /home/matt/Documents/AnnoTree/WebServices/anno_tree/script/../lib/AnnoTree/Model/User.pm line 62.
+
+[Sat Jun 22 11:56:04 2013] [debug] Template "exception.development.html.ep" not found.
+[Sat Jun 22 11:56:04 2013] [debug] Template "exception.html.ep" not found.
+[Sat Jun 22 11:56:04 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:56:04 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:56:04 2013] [debug] 500 Internal Server Error (0.007108s, 140.687/s).
+[Sat Jun 22 11:56:04 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:56:04 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:56:04 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sat Jun 22 11:56:04 2013] [debug] 3
+
+[Sat Jun 22 11:56:04 2013] [debug] 406 Not Acceptable (0.000461s, 2169.197/s).
+[Sat Jun 22 11:56:04 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:56:04 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:56:04 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sat Jun 22 11:56:04 2013] [debug] 4
+
+[Sat Jun 22 11:56:04 2013] [debug] 406 Not Acceptable (0.000402s, 2487.562/s).
+[Sat Jun 22 11:56:04 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:56:04 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:56:04 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sat Jun 22 11:56:04 2013] [debug] 5
+
+[Sat Jun 22 11:56:04 2013] [debug] 406 Not Acceptable (0.000402s, 2487.562/s).
+[Sat Jun 22 11:56:04 2013] [debug] DELETE "/user/".
+[Sat Jun 22 11:56:04 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sat Jun 22 11:56:04 2013] [debug] Template "not_found.html.ep" not found.
+[Sat Jun 22 11:56:04 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:56:04 2013] [debug] Rendering cached inline template.
+[Sat Jun 22 11:56:04 2013] [debug] 404 Not Found (0.003483s, 287.109/s).
+[Sat Jun 22 11:57:25 2013] [info] Listening at "http://*:3000".
+[Sat Jun 22 11:57:30 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:57:30 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:57:30 2013] [debug] {
+  'signUpEmail' => 'mojotest339692@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:57:30 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-22 11:57:30',
+  'email' => 'mojotest339692@user.com',
+  'first_name' => 'test script',
+  'id' => '9',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'password' => '{SSHA512}JZRVDdkQz9l46i8JlT8M5fc/s+Q37YJPpQhOrqPD+y8jPiFBMJ130qwfhGdCmYzsXZB2fra9h4cYFZ8bpY1LuPjDZ1E=',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sat Jun 22 11:57:30 2013] [debug] 200 OK (0.005623s, 177.841/s).
+[Sat Jun 22 11:57:30 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:57:30 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:57:30 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:57:30 2013] [debug] 406 Not Acceptable (0.000399s, 2506.266/s).
+[Sat Jun 22 11:57:30 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:57:30 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:57:30 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:57:30 2013] [debug] '1'
+
+[Sat Jun 22 11:57:30 2013] [debug] 406 Not Acceptable (0.000912s, 1096.491/s).
+[Sat Jun 22 11:57:30 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:57:30 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:57:30 2013] [debug] {
+  'signUpEmail' => 'mojotest339692@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 11:57:30 2013] [debug] '2'
+
+[Sat Jun 22 11:57:30 2013] [debug] 406 Not Acceptable (0.001666s, 600.240/s).
+[Sat Jun 22 11:57:30 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:57:30 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:57:30 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sat Jun 22 11:57:30 2013] [debug] 3
+
+[Sat Jun 22 11:57:30 2013] [debug] 406 Not Acceptable (0.000402s, 2487.562/s).
+[Sat Jun 22 11:57:30 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:57:30 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:57:30 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sat Jun 22 11:57:30 2013] [debug] 4
+
+[Sat Jun 22 11:57:30 2013] [debug] 406 Not Acceptable (0.000391s, 2557.545/s).
+[Sat Jun 22 11:57:30 2013] [debug] POST "/user/signup".
+[Sat Jun 22 11:57:30 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 11:57:30 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sat Jun 22 11:57:30 2013] [debug] 5
+
+[Sat Jun 22 11:57:30 2013] [debug] 406 Not Acceptable (0.000418s, 2392.344/s).
+[Sat Jun 22 11:57:30 2013] [debug] DELETE "/user/9".
+[Sat Jun 22 11:57:30 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sat Jun 22 11:57:30 2013] [debug] 200 OK (0.001794s, 557.414/s).
+[Sat Jun 22 12:01:09 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:01:09 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:01:09 2013] [debug] {
+  'signUpEmail' => 'mojotest491448@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:01:09 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-22 12:01:09',
+  'email' => 'mojotest491448@user.com',
+  'first_name' => 'test script',
+  'id' => '11',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'password' => '{SSHA512}h2wi7sXJdHRd50Uw2HM6L9YZV2lAqUMR/Yv8HV/jR1UfEcnniiT9vktO+rYfnxNu3OnzODAmG+4hEIfN95Y2IavLG0I=',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sat Jun 22 12:01:09 2013] [debug] 200 OK (0.004188s, 238.777/s).
+[Sat Jun 22 12:01:09 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:01:09 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:01:09 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:01:09 2013] [debug] 406 Not Acceptable (0.000352s, 2840.909/s).
+[Sat Jun 22 12:01:09 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:01:09 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:01:09 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:01:09 2013] [debug] '1'
+
+[Sat Jun 22 12:01:09 2013] [debug] 406 Not Acceptable (0.000743s, 1345.895/s).
+[Sat Jun 22 12:01:09 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:01:09 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:01:09 2013] [debug] {
+  'signUpEmail' => 'mojotest491448@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:01:09 2013] [debug] '2'
+
+[Sat Jun 22 12:01:09 2013] [debug] 406 Not Acceptable (0.001826s, 547.645/s).
+[Sat Jun 22 12:01:09 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:01:09 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:01:09 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sat Jun 22 12:01:09 2013] [debug] 3
+
+[Sat Jun 22 12:01:09 2013] [debug] 406 Not Acceptable (0.000424s, 2358.491/s).
+[Sat Jun 22 12:01:09 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:01:09 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:01:09 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sat Jun 22 12:01:09 2013] [debug] 4
+
+[Sat Jun 22 12:01:09 2013] [debug] 406 Not Acceptable (0.000385s, 2597.403/s).
+[Sat Jun 22 12:01:09 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:01:09 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:01:09 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sat Jun 22 12:01:09 2013] [debug] 5
+
+[Sat Jun 22 12:01:09 2013] [debug] 406 Not Acceptable (0.000375s, 2666.667/s).
+[Sat Jun 22 12:01:09 2013] [debug] DELETE "/user/11".
+[Sat Jun 22 12:01:09 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sat Jun 22 12:01:09 2013] [debug] 200 OK (0.001547s, 646.412/s).
+[Sat Jun 22 12:01:09 2013] [debug] DELETE "/user/0".
+[Sat Jun 22 12:01:09 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sat Jun 22 12:01:09 2013] [debug] 404 Not Found (0.000735s, 1360.544/s).
+[Sat Jun 22 12:41:05 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:41:05 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:41:05 2013] [debug] {
+  'signUpEmail' => 'mojotest@forest.com',
+  'signUpName' => 'forest test user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:41:05 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-22 12:41:05',
+  'email' => 'mojotest@forest.com',
+  'first_name' => 'forest test',
+  'id' => '13',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'password' => '{SSHA512}JZRVDdkQz9l46i8JlT8M5fc/s+Q37YJPpQhOrqPD+y8jPiFBMJ130qwfhGdCmYzsXZB2fra9h4cYFZ8bpY1LuPjDZ1E=',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sat Jun 22 12:41:05 2013] [debug] 200 OK (0.004488s, 222.816/s).
+[Sat Jun 22 12:41:05 2013] [debug] POST "/13/forest".
+[Sat Jun 22 12:41:05 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 12:41:05 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 12:41:05 2013] [debug] 200 OK (0.003019s, 331.236/s).
+[Sat Jun 22 12:41:05 2013] [debug] POST "/13/forest".
+[Sat Jun 22 12:41:05 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 12:41:05 2013] [debug] {
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 12:41:05 2013] [debug] 406 Not Acceptable (0.000417s, 2398.082/s).
+[Sat Jun 22 12:44:51 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:44:51 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:44:51 2013] [debug] {
+  'signUpEmail' => 'mojotest@forest.com',
+  'signUpName' => 'forest test user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:44:51 2013] [debug] '2'
+
+[Sat Jun 22 12:44:51 2013] [debug] 406 Not Acceptable (0.003891s, 257.003/s).
+[Sat Jun 22 12:44:51 2013] [debug] POST "/user/login".
+[Sat Jun 22 12:44:51 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Sat Jun 22 12:44:51 2013] [debug] {
+  'loginEmail' => 'mojotest@forest.com',
+  'loginPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:44:51 2013] [debug] 200 OK (0.001183s, 845.309/s).
+[Sat Jun 22 12:44:51 2013] [debug] POST "/13/forest".
+[Sat Jun 22 12:44:51 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 12:44:51 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 12:44:51 2013] [debug] 200 OK (0.002329s, 429.369/s).
+[Sat Jun 22 12:44:51 2013] [debug] POST "/13/forest".
+[Sat Jun 22 12:44:51 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 12:44:51 2013] [debug] {
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 12:44:51 2013] [debug] 406 Not Acceptable (0.000356s, 2808.989/s).
+[Sat Jun 22 12:44:51 2013] [debug] POST "/0/forest".
+[Sat Jun 22 12:44:51 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 12:44:51 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 12:44:51 2013] [debug] 404 Not Found (0.000853s, 1172.333/s).
+[Sat Jun 22 12:49:31 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:49:31 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:49:31 2013] [debug] {
+  'signUpEmail' => 'mojotest@forest.com',
+  'signUpName' => 'forest test user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:49:31 2013] [debug] '2'
+
+[Sat Jun 22 12:49:31 2013] [debug] 406 Not Acceptable (0.005517s, 181.258/s).
+[Sat Jun 22 12:49:31 2013] [debug] POST "/user/login".
+[Sat Jun 22 12:49:31 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Sat Jun 22 12:49:31 2013] [debug] {
+  'loginEmail' => 'mojotest@forest.com',
+  'loginPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:49:31 2013] [debug] 200 OK (0.001104s, 905.797/s).
+[Sat Jun 22 12:49:31 2013] [debug] POST "/13/forest".
+[Sat Jun 22 12:49:31 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 12:49:31 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 12:49:31 2013] [debug] 200 OK (0.003146s, 317.864/s).
+[Sat Jun 22 12:49:31 2013] [debug] POST "/13/forest".
+[Sat Jun 22 12:49:31 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 12:49:31 2013] [debug] {
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 12:49:31 2013] [debug] 406 Not Acceptable (0.000362s, 2762.431/s).
+[Sat Jun 22 12:49:31 2013] [debug] POST "/0/forest".
+[Sat Jun 22 12:49:31 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 12:49:31 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 12:49:31 2013] [debug] 404 Not Found (0.000897s, 1114.827/s).
+[Sat Jun 22 12:49:32 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:49:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:49:32 2013] [debug] {
+  'signUpEmail' => 'mojotest@login.com',
+  'signUpName' => 'login test user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:49:32 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-22 12:49:32',
+  'email' => 'mojotest@login.com',
+  'first_name' => 'login test',
+  'id' => '16',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'password' => '{SSHA512}GhFXBB6/1GCpFC7hictTc1EgvOwLaCGast+LdvKmwUlXLoqftwiINhUyiauMumwGX/UfDs/EV/e/M0J1namdROtKEt8=',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sat Jun 22 12:49:32 2013] [debug] 200 OK (0.003418s, 292.569/s).
+[Sat Jun 22 12:49:32 2013] [debug] POST "/user/login".
+[Sat Jun 22 12:49:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Sat Jun 22 12:49:32 2013] [debug] {
+  'loginEmail' => 'mojotest@login.com',
+  'loginPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:49:32 2013] [debug] 200 OK (0.000927s, 1078.749/s).
+[Sat Jun 22 12:49:32 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:49:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:49:32 2013] [debug] {
+  'signUpEmail' => 'mojotest@login.com'
+}
+
+[Sat Jun 22 12:49:32 2013] [debug] 406 Not Acceptable (0.000315s, 3174.603/s).
+[Sat Jun 22 12:49:32 2013] [debug] POST "/user/login".
+[Sat Jun 22 12:49:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Sat Jun 22 12:49:32 2013] [debug] {
+  'loginEmail' => 'mojotest@login.com',
+  'loginPassword' => 'invalidpassword1'
+}
+
+[Sat Jun 22 12:49:32 2013] [debug] 406 Not Acceptable (0.000921s, 1085.776/s).
+[Sat Jun 22 12:49:32 2013] [debug] POST "/user/login".
+[Sat Jun 22 12:49:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Sat Jun 22 12:49:32 2013] [debug] {
+  'loginEmail' => 'mojotest1234@login.com',
+  'loginPassword' => 'invalidpassword1'
+}
+
+[Sat Jun 22 12:49:32 2013] [debug] 404 Not Found (0.000833s, 1200.480/s).
+[Sat Jun 22 12:49:32 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:49:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:49:32 2013] [debug] {
+  'signUpEmail' => 'mojotest455685@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:49:32 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-22 12:49:32',
+  'email' => 'mojotest455685@user.com',
+  'first_name' => 'test script',
+  'id' => '17',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'password' => '{SSHA512}paaAJWwqqWuMs73cZZBNBjopWdvUkciypuBU/zU67ChWrrD6usO2zK11qDU9fzi7CTsM8SSC2z9V49liKHPn3fZ6m8s=',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sat Jun 22 12:49:32 2013] [debug] 200 OK (0.003354s, 298.151/s).
+[Sat Jun 22 12:49:32 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:49:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:49:32 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:49:32 2013] [debug] 406 Not Acceptable (0.000404s, 2475.248/s).
+[Sat Jun 22 12:49:32 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:49:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:49:32 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:49:32 2013] [debug] '1'
+
+[Sat Jun 22 12:49:32 2013] [debug] 406 Not Acceptable (0.000905s, 1104.972/s).
+[Sat Jun 22 12:49:32 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:49:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:49:32 2013] [debug] {
+  'signUpEmail' => 'mojotest455685@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 12:49:32 2013] [debug] '2'
+
+[Sat Jun 22 12:49:32 2013] [debug] 406 Not Acceptable (0.001728s, 578.704/s).
+[Sat Jun 22 12:49:32 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:49:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:49:32 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sat Jun 22 12:49:32 2013] [debug] 3
+
+[Sat Jun 22 12:49:32 2013] [debug] 406 Not Acceptable (0.000408s, 2450.980/s).
+[Sat Jun 22 12:49:32 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:49:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:49:32 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sat Jun 22 12:49:32 2013] [debug] 4
+
+[Sat Jun 22 12:49:32 2013] [debug] 406 Not Acceptable (0.000365s, 2739.726/s).
+[Sat Jun 22 12:49:32 2013] [debug] POST "/user/signup".
+[Sat Jun 22 12:49:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 12:49:32 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sat Jun 22 12:49:32 2013] [debug] 5
+
+[Sat Jun 22 12:49:32 2013] [debug] 406 Not Acceptable (0.000359s, 2785.515/s).
+[Sat Jun 22 12:49:32 2013] [debug] DELETE "/user/17".
+[Sat Jun 22 12:49:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sat Jun 22 12:49:32 2013] [debug] 200 OK (0.001807s, 553.403/s).
+[Sat Jun 22 12:49:32 2013] [debug] DELETE "/user/0".
+[Sat Jun 22 12:49:32 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sat Jun 22 12:49:32 2013] [debug] 404 Not Found (0.000736s, 1358.696/s).
+[Sat Jun 22 12:57:51 2013] [debug] GET "/1/forest".
+[Sat Jun 22 12:57:51 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sat Jun 22 12:57:51 2013] [debug] 200 OK (0.002300s, 434.783/s).
+[Sat Jun 22 13:04:36 2013] [debug] POST "/user/signup".
+[Sat Jun 22 13:04:36 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 13:04:36 2013] [debug] {
+  'signUpEmail' => 'mojotest@forest.com',
+  'signUpName' => 'forest test user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 13:04:36 2013] [debug] '2'
+
+[Sat Jun 22 13:04:36 2013] [debug] 406 Not Acceptable (0.006038s, 165.618/s).
+[Sat Jun 22 13:04:36 2013] [debug] POST "/user/login".
+[Sat Jun 22 13:04:36 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Sat Jun 22 13:04:36 2013] [debug] {
+  'loginEmail' => 'mojotest@forest.com',
+  'loginPassword' => 'tester1'
+}
+
+[Sat Jun 22 13:04:36 2013] [debug] 200 OK (0.001103s, 906.618/s).
+[Sat Jun 22 13:04:36 2013] [debug] POST "/13/forest".
+[Sat Jun 22 13:04:36 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 13:04:36 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 13:04:36 2013] [debug] 200 OK (0.002312s, 432.526/s).
+[Sat Jun 22 13:04:36 2013] [debug] POST "/13/forest".
+[Sat Jun 22 13:04:36 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 13:04:36 2013] [debug] {
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 13:04:36 2013] [debug] 406 Not Acceptable (0.000322s, 3105.590/s).
+[Sat Jun 22 13:04:36 2013] [debug] POST "/0/forest".
+[Sat Jun 22 13:04:36 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 13:04:36 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 13:04:36 2013] [debug] 404 Not Found (0.000724s, 1381.215/s).
+[Sat Jun 22 13:04:36 2013] [debug] GET "/13/forest".
+[Sat Jun 22 13:04:36 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sat Jun 22 13:04:36 2013] [debug] 200 OK (0.001052s, 950.570/s).
+[Sat Jun 22 13:05:16 2013] [debug] GET "/13/forest".
+[Sat Jun 22 13:05:16 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sat Jun 22 13:05:16 2013] [debug] 200 OK (0.001132s, 883.392/s).
+[Sat Jun 22 13:05:43 2013] [debug] GET "/7/forest".
+[Sat Jun 22 13:05:43 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sat Jun 22 13:05:43 2013] [debug] 204 No Content (0.001071s, 933.707/s).
+[Sat Jun 22 13:15:13 2013] [debug] GET "/13/forest".
+[Sat Jun 22 13:15:13 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sat Jun 22 13:15:13 2013] [debug] 200 OK (0.002262s, 442.087/s).
+[Sat Jun 22 13:15:25 2013] [debug] GET "/1/forest".
+[Sat Jun 22 13:15:25 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sat Jun 22 13:15:25 2013] [debug] 200 OK (0.001251s, 799.361/s).
+[Sat Jun 22 13:27:29 2013] [debug] POST "/user/signup".
+[Sat Jun 22 13:27:29 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 13:27:29 2013] [debug] {
+  'signUpEmail' => 'mojotest@forest.com',
+  'signUpName' => 'forest test user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 13:27:29 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-22 13:27:29',
+  'email' => 'mojotest@forest.com',
+  'first_name' => 'forest test',
+  'id' => '3',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'password' => '{SSHA512}JZRVDdkQz9l46i8JlT8M5fc/s+Q37YJPpQhOrqPD+y8jPiFBMJ130qwfhGdCmYzsXZB2fra9h4cYFZ8bpY1LuPjDZ1E=',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sat Jun 22 13:27:29 2013] [debug] 200 OK (0.005988s, 167.001/s).
+[Sat Jun 22 13:27:29 2013] [debug] POST "/3/forest".
+[Sat Jun 22 13:27:29 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 13:27:29 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 13:27:29 2013] [debug] 200 OK (0.003386s, 295.334/s).
+[Sat Jun 22 13:27:29 2013] [debug] POST "/3/forest".
+[Sat Jun 22 13:27:29 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 13:27:29 2013] [debug] {
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 13:27:29 2013] [debug] 406 Not Acceptable (0.000375s, 2666.667/s).
+[Sat Jun 22 13:27:29 2013] [debug] POST "/0/forest".
+[Sat Jun 22 13:27:29 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 13:27:29 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 13:27:29 2013] [debug] 404 Not Found (0.000881s, 1135.074/s).
+[Sat Jun 22 13:27:29 2013] [debug] GET "/3/forest".
+[Sat Jun 22 13:27:29 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sat Jun 22 13:27:29 2013] [debug] 200 OK (0.001076s, 929.368/s).
+[Sat Jun 22 13:29:12 2013] [debug] GET "/2/forest".
+[Sat Jun 22 13:29:12 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sat Jun 22 13:29:12 2013] [debug] 204 No Content (0.001055s, 947.867/s).
+[Sat Jun 22 13:30:12 2013] [debug] POST "/user/signup".
+[Sat Jun 22 13:30:12 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 13:30:12 2013] [debug] {
+  'signUpEmail' => 'mojotest@forest.com',
+  'signUpName' => 'forest test user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 13:30:12 2013] [debug] '2'
+
+[Sat Jun 22 13:30:12 2013] [debug] 406 Not Acceptable (0.004495s, 222.469/s).
+[Sat Jun 22 13:30:12 2013] [debug] POST "/user/login".
+[Sat Jun 22 13:30:12 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Sat Jun 22 13:30:12 2013] [debug] {
+  'loginEmail' => 'mojotest@forest.com',
+  'loginPassword' => 'tester1'
+}
+
+[Sat Jun 22 13:30:12 2013] [debug] 200 OK (0.001153s, 867.303/s).
+[Sat Jun 22 13:30:12 2013] [debug] POST "/3/forest".
+[Sat Jun 22 13:30:12 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 13:30:12 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 13:30:12 2013] [debug] 200 OK (0.002245s, 445.434/s).
+[Sat Jun 22 13:30:12 2013] [debug] POST "/3/forest".
+[Sat Jun 22 13:30:12 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 13:30:12 2013] [debug] {
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 13:30:12 2013] [debug] 406 Not Acceptable (0.000370s, 2702.703/s).
+[Sat Jun 22 13:30:12 2013] [debug] POST "/0/forest".
+[Sat Jun 22 13:30:12 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 13:30:12 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 13:30:12 2013] [debug] 404 Not Found (0.000755s, 1324.503/s).
+[Sat Jun 22 13:30:12 2013] [debug] GET "/3/forest".
+[Sat Jun 22 13:30:12 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sat Jun 22 13:30:12 2013] [debug] 200 OK (0.000802s, 1246.883/s).
+[Sat Jun 22 14:08:57 2013] [debug] POST "/user/signup".
+[Sat Jun 22 14:08:57 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 14:08:57 2013] [debug] {
+  'signUpEmail' => 'mojotest@forest.com',
+  'signUpName' => 'forest test user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 14:08:57 2013] [debug] '2'
+
+[Sat Jun 22 14:08:57 2013] [debug] 406 Not Acceptable (0.003629s, 275.558/s).
+[Sat Jun 22 14:08:57 2013] [debug] POST "/user/login".
+[Sat Jun 22 14:08:57 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Sat Jun 22 14:08:57 2013] [debug] {
+  'loginEmail' => 'mojotest@forest.com',
+  'loginPassword' => 'tester1'
+}
+
+[Sat Jun 22 14:08:57 2013] [debug] 200 OK (0.000963s, 1038.422/s).
+[Sat Jun 22 14:08:57 2013] [debug] POST "/3/forest".
+[Sat Jun 22 14:08:57 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 14:08:57 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 14:08:57 2013] [debug] 200 OK (0.001926s, 519.211/s).
+[Sat Jun 22 14:08:57 2013] [debug] POST "/3/forest".
+[Sat Jun 22 14:08:57 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 14:08:57 2013] [debug] {
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 14:08:57 2013] [debug] 406 Not Acceptable (0.000362s, 2762.431/s).
+[Sat Jun 22 14:08:57 2013] [debug] POST "/0/forest".
+[Sat Jun 22 14:08:57 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 14:08:57 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 14:08:57 2013] [debug] 404 Not Found (0.000686s, 1457.726/s).
+[Sat Jun 22 14:08:57 2013] [debug] GET "/3/forest".
+[Sat Jun 22 14:08:57 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sat Jun 22 14:08:57 2013] [debug] 200 OK (0.000796s, 1256.281/s).
+[Sat Jun 22 14:15:54 2013] [debug] POST "/user/signup".
+[Sat Jun 22 14:15:54 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 14:15:54 2013] [debug] {
+  'signUpEmail' => 'mojotest@forest.com',
+  'signUpName' => 'forest test user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 14:15:54 2013] [debug] '2'
+
+[Sat Jun 22 14:15:54 2013] [debug] 406 Not Acceptable (0.003982s, 251.130/s).
+[Sat Jun 22 14:15:54 2013] [debug] POST "/user/login".
+[Sat Jun 22 14:15:54 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Sat Jun 22 14:15:54 2013] [debug] {
+  'loginEmail' => 'mojotest@forest.com',
+  'loginPassword' => 'tester1'
+}
+
+[Sat Jun 22 14:15:54 2013] [debug] 200 OK (0.000875s, 1142.857/s).
+[Sat Jun 22 14:15:54 2013] [debug] POST "/3/forest".
+[Sat Jun 22 14:15:54 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 14:15:54 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 14:15:54 2013] [debug] 200 OK (0.002297s, 435.350/s).
+[Sat Jun 22 14:15:54 2013] [debug] POST "/3/forest".
+[Sat Jun 22 14:15:54 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 14:15:54 2013] [debug] {
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 14:15:54 2013] [debug] 406 Not Acceptable (0.000366s, 2732.240/s).
+[Sat Jun 22 14:15:54 2013] [debug] POST "/0/forest".
+[Sat Jun 22 14:15:54 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 14:15:54 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 14:15:54 2013] [debug] 404 Not Found (0.000750s, 1333.333/s).
+[Sat Jun 22 14:15:54 2013] [debug] GET "/3/forest".
+[Sat Jun 22 14:15:54 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sat Jun 22 14:15:54 2013] [debug] 200 OK (0.000870s, 1149.425/s).
+[Sat Jun 22 14:19:36 2013] [debug] POST "/user/signup".
+[Sat Jun 22 14:19:36 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 14:19:36 2013] [debug] {
+  'signUpEmail' => 'mojotest@forest.com',
+  'signUpName' => 'forest test user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 14:19:36 2013] [debug] '2'
+
+[Sat Jun 22 14:19:36 2013] [debug] 406 Not Acceptable (0.003717s, 269.034/s).
+[Sat Jun 22 14:19:36 2013] [debug] POST "/user/login".
+[Sat Jun 22 14:19:36 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Sat Jun 22 14:19:36 2013] [debug] {
+  'loginEmail' => 'mojotest@forest.com',
+  'loginPassword' => 'tester1'
+}
+
+[Sat Jun 22 14:19:36 2013] [debug] 200 OK (0.001038s, 963.391/s).
+[Sat Jun 22 14:19:36 2013] [debug] POST "/3/forest".
+[Sat Jun 22 14:19:36 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 14:19:36 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 14:19:36 2013] [debug] 200 OK (0.002019s, 495.295/s).
+[Sat Jun 22 14:19:36 2013] [debug] POST "/3/forest".
+[Sat Jun 22 14:19:36 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 14:19:36 2013] [debug] {
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 14:19:36 2013] [debug] 406 Not Acceptable (0.000368s, 2717.391/s).
+[Sat Jun 22 14:19:36 2013] [debug] POST "/0/forest".
+[Sat Jun 22 14:19:36 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 14:19:36 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 14:19:36 2013] [debug] 404 Not Found (0.000741s, 1349.528/s).
+[Sat Jun 22 14:19:36 2013] [debug] GET "/3/forest".
+[Sat Jun 22 14:19:36 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sat Jun 22 14:19:36 2013] [debug] 200 OK (0.000846s, 1182.033/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'signUpEmail' => 'mojotest@forest.com',
+  'signUpName' => 'forest test user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-22 14:22:22',
+  'email' => 'mojotest@forest.com',
+  'first_name' => 'forest test',
+  'id' => '3',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'password' => '{SSHA512}YWpLz+sMc+wGHZF66xxHdKr7o6bYNi5PI2TSXsu9W58uEE/fhxtz+IgdQly7qR4nAQ/PGMedCXhDwpM0BWzIyyG8Dmw=',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] 200 OK (0.003312s, 301.932/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/3/forest".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] 200 OK (0.002343s, 426.803/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/3/forest".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] 406 Not Acceptable (0.000331s, 3021.148/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/0/forest".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "create".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'description' => 'This is a forest created by the automated Mojolicious test suite',
+  'name' => 'Test Suite Forest'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] 404 Not Found (0.000778s, 1285.347/s).
+[Sat Jun 22 14:22:22 2013] [debug] GET "/3/forest".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sat Jun 22 14:22:22 2013] [debug] 200 OK (0.001032s, 968.992/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'signUpEmail' => 'mojotest@login.com',
+  'signUpName' => 'login test user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-22 14:22:22',
+  'email' => 'mojotest@login.com',
+  'first_name' => 'login test',
+  'id' => '4',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'password' => '{SSHA512}WDYchVADzkqY0b3iZFDYiWfWtCA4DjWYM5VgvjDVvEjD0P1k2AZVnnas1JEhq223nn7Rr2V1mF+6JDCMiLpQg3k3m8k=',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] 200 OK (0.003599s, 277.855/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/user/login".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'loginEmail' => 'mojotest@login.com',
+  'loginPassword' => 'tester1'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] 200 OK (0.001032s, 968.992/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'signUpEmail' => 'mojotest@login.com'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] 406 Not Acceptable (0.000316s, 3164.557/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/user/login".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'loginEmail' => 'mojotest@login.com',
+  'loginPassword' => 'invalidpassword1'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] 406 Not Acceptable (0.000933s, 1071.811/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/user/login".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "login".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'loginEmail' => 'mojotest1234@login.com',
+  'loginPassword' => 'invalidpassword1'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] 404 Not Found (0.000817s, 1223.990/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'signUpEmail' => 'mojotest292833@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-22 14:22:22',
+  'email' => 'mojotest292833@user.com',
+  'first_name' => 'test script',
+  'id' => '5',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'password' => '{SSHA512}bl08DS5cTncFauNx9DhywYs8y9Jfq3LXws8nPdyqb28PAUbSJaeJ5urdfWcrgdKV6bdQUEzQ7ttGfU2XTJKgvam1Yto=',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] 200 OK (0.003285s, 304.414/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] 406 Not Acceptable (0.000352s, 2840.909/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] '1'
+
+[Sat Jun 22 14:22:22 2013] [debug] 406 Not Acceptable (0.000860s, 1162.791/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'signUpEmail' => 'mojotest292833@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] '2'
+
+[Sat Jun 22 14:22:22 2013] [debug] 406 Not Acceptable (0.001874s, 533.618/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] 3
+
+[Sat Jun 22 14:22:22 2013] [debug] 406 Not Acceptable (0.000419s, 2386.635/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] 4
+
+[Sat Jun 22 14:22:22 2013] [debug] 406 Not Acceptable (0.000368s, 2717.391/s).
+[Sat Jun 22 14:22:22 2013] [debug] POST "/user/signup".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "signup".
+[Sat Jun 22 14:22:22 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sat Jun 22 14:22:22 2013] [debug] 5
+
+[Sat Jun 22 14:22:22 2013] [debug] 406 Not Acceptable (0.000388s, 2577.320/s).
+[Sat Jun 22 14:22:22 2013] [debug] DELETE "/user/5".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sat Jun 22 14:22:22 2013] [debug] 200 OK (0.001578s, 633.714/s).
+[Sat Jun 22 14:22:22 2013] [debug] DELETE "/user/0".
+[Sat Jun 22 14:22:22 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sat Jun 22 14:22:22 2013] [debug] 404 Not Found (0.000647s, 1545.595/s).

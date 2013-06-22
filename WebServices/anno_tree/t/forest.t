@@ -61,10 +61,11 @@ ok(200 == $tx->res->code,                           $testname . 'Response Code i
 ok(exists $jsonBody->{id},                          $testname . 'Response JSON ID exists');
 ok($validForestName eq $jsonBody->{name},           $testname . "Response JSON name matches");
 ok($validForestDesc eq $jsonBody->{description},    $testname . "Response JSON description matches");
+my $validForestID = $jsonBody->{id};
 ######### END VALID FOREST CREATION TEST #########
 
-######### START MISSING REQUEST JSON PARAMETERS TEST #########
-# this test creates a new valid user
+######### START MISSING REQUEST JSON VALUES TEST #########
+# this test creates a forest with missing JSON values in the request
 my $testname = 'Missing request parameters forest creation: ';
 $tx = $ua->post($forestCreationURL => json => {
     name            => $validForestName
@@ -73,8 +74,42 @@ $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
 ok(6 == $jsonBody->{error},                     $testname . "Response JSON error result is 6");
-######### END MISSING REQUEST JSON PARAMETERS TEST #########
+######### END MISSING REQUEST JSON VALUES TEST #########
 
+######### START INVALID USER FOREST CREATION TEST #########
+# this test attempts to create a forest with a non-existing user
+my $testname = 'Missing request parameters forest creation: ';
+$tx = $ua->post('http://localhost:3000/0/forest' => json => {
+    name            => $validForestName,
+    description     => $validForestDesc
+});
+$jsonBody = $json->decode($tx->res->body);
+
+ok(404 == $tx->res->code,                       $testname . 'Response Code is 404');
+ok(1 == $jsonBody->{error},                     $testname . "Response JSON error result is 1");
+######### END INVALID USER FOREST CREATION TEST #########
+
+######### START VALID USER FOREST GET TEST #########
+# this test grabs the existing forests for an user
+my $testname = 'Valid user forest retrieval: ';
+my $getForestURL = 'http://localhost:3000/' . $forestUserID .'/forest'; 
+$tx = $ua->get($getForestURL);
+$jsonBody = $json->decode($tx->res->body);
+
+ok(200 == $tx->res->code,                       $testname . 'Response Code is 200');
+ok(exists $jsonBody->{forests},                 $testname . "Response JSON forests element exists");
+
+# have to iterate through the JSON to find the forest
+my $foundForest;
+foreach $element (@{$jsonBody->{forests}}) {
+    next unless $element->{id} == $validForestID;
+    $foundForest = $element;
+}
+
+ok($validForestID == $foundForest->{id},            $testname . "GET /:userid/forest Response JSON matches created forest id");
+ok($validForestName eq $foundForest->{name},        $testname . "GET /:userid/forest Response JSON matches created forest name");
+ok($validForestDesc eq $foundForest->{description}, $testname . "GET /:userid/forest Response JSON matches created forest description");
+######### END VALID USER FOREST GET TEST #########
 
 =begin oldtests
 # Test that the forest creation form exists

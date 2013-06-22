@@ -4,17 +4,6 @@ use Mojo::Base 'Mojolicious::Controller';
 use AnnoTree::Model::Forest;
 use Scalar::Util qw(looks_like_number);
 
-sub uniqueForest {
-    my $self = shift;
-
-    my $id = $self->param('id');
-
-    $self->debug("before go id is $id");
-    
-    my $model = AnnoTree::Model::Forest->uniqueForest($id);
-    $self->render(json => $model);
-}
-
 sub create {
     my $self = shift;
     
@@ -47,11 +36,18 @@ sub forestsForUser {
 
     my $result = AnnoTree::Model::Forest->forestsForUser($params);
     
-    if (looks_like_number($result)) {
-        $self->render(status => 204, json => {txt => 'No forests were found for this user'});
-    } else {
-        $self->render(json => $result);
+    my $status = 200;
+    if (exists $result->{error}) {
+        my $error = $result->{error};
+        if ($error == 0) {
+            $status = 204;
+        } elsif ($error = 1) {
+            $status = 404;
+        }
     }
+    
+    $self->render(json => $result, status => $status);
+
 }
 
 return 1;

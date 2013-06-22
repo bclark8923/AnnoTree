@@ -65,7 +65,7 @@ sub signup {
 sub deleteUser {
     my $self = shift;
 
-    my $userid = $self->param('uid');
+    my $userid = $self->param('userid');
 
     my $result = AnnoTree::Model::User->deleteUser($userid);
     

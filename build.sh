@@ -32,7 +32,7 @@ if [ $1 = "aws-dev1" ]; then #|| [ $1 = "matt" ]
     if [ -z $2 ]; then
         usage
     else
-        sudo chown -R matt:dev ,git
+        sudo chown -R $USER:dev .git
         git stash
         git pull $2 master
         cd Database

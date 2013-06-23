@@ -15,13 +15,13 @@ usage() {
 }
 
 build() {
-    sudo chown -R matt:dev ,git
+    sudo chown -R $USER:dev .git
     git stash
     git pull $1 master
     cd Database
     ./install.py
     cd ..
-    nohup morbo WebServices/anno_tree/script/anno_tree &
+    nohup morbo Website/anno_tree/script/anno_tree &
 }
 
 if [ -z $1 ]; then
@@ -38,7 +38,7 @@ if [ $1 = "aws-dev1" ]; then #|| [ $1 = "matt" ]
         cd Database
         ./install.py
         cd ..
-        nohup morbo WebServices/anno_tree/script/anno_tree &
+        nohup morbo Website/anno_tree/script/anno_tree &
     fi
     #build $2
 elif [ $1 = "matt" ]; then
@@ -46,7 +46,7 @@ elif [ $1 = "matt" ]; then
     cd Database
     ./install.py
     cd ..
-    nohup morbo WebServices/anno_tree/script/anno_tree &
+    nohup morbo Website/anno_tree/script/anno_tree &
 else 
     usage
 fi

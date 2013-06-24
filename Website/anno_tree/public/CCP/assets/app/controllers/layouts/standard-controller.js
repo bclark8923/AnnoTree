@@ -4,7 +4,7 @@
 
 	app.controller(
 		"layouts.StandardController",
-		function( $scope, $cookies, $location, authenticateService, requestContext, _ ) {
+		function( $scope, localStorageService, $location, authenticateService, requestContext, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
@@ -52,7 +52,11 @@
 			// Get the current year for copyright output.
 			$scope.copyrightYear = ( new Date() ).getFullYear();
 
-            $scope.user = $cookies['name'];
+            $scope.user = {name : localStorageService.get('username'), avatar : localStorageService.get('useravatar')};
+
+            if($scope.user.avatar == "NULL") {
+            	$scope.user.avatar = "img/user.png";
+            }
 
 
 			// --- Bind To Scope Events. ------------------------ //
@@ -79,7 +83,7 @@
 
 			// --- Initialize. ---------------------------------- //
 
-
+			window.Gumby.init();
 			// ...
 
 

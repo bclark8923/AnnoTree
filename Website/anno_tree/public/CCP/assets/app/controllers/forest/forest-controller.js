@@ -11,11 +11,11 @@
 
 
 			// I apply the remote data to the local view model.
-			function applyRemoteData( userTrees ) {
+			function applyRemoteData( trees ) {
 
 				//$scope.categories = _.sortOnProperty( categories, "name", "asc" );
                    
-                   $scope.userTrees = _.sortOnProperty( userTrees.data, "name", "asc");
+                   $scope.getTrees = _.sortOnProperty( trees.data, "name", "asc");
 			}
 
 
@@ -64,8 +64,7 @@
 			$scope.isLoading = true;
 
 			// I hold the categories to render.
-			$scope.categories = [];
-            $scope.userTrees = [];
+            $scope.forest = [];
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

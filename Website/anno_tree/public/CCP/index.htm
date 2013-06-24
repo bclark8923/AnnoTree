@@ -1,92 +1,99 @@
 
 <!doctype html>
 <html ng-app="AnnoTree" ng-controller="AppController">
-<head>
-	<meta charset="utf-8" /> 
-	<meta id="viewport" name="viewport" content ="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<head>
+		<meta charset="utf-8" /> 
+		<meta id="viewport" name="viewport" content ="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-	<title ng-bind="windowTitle">AnnoTree</title>
-	 
+		<title ng-bind="windowTitle">AnnoTree</title>
 
-    <link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
-    
-    <link rel="stylesheet" href="css/gumby.css">
-    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.3.custom.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="icon" type="image/png" href="favicon.png" />
-</head>
-<body>
+	    <link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
+	    
+	    <link rel="stylesheet" href="css/gumby.css">
+	    <link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.3.custom.min.css">
+	    <link rel="stylesheet" href="css/style.css">
+	    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+	    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	    <link rel="icon" type="image/png" href="favicon.png" />
 
-	<div ng-switch="subview">
-		<!--
-			This subview will show while the AngularJS app is loading since it's visible right in 
-			the page. Once the app kicks in, however, the calculated subview will determine the
-			appropriate layout to render.
-		-->
-		<div ng-switch-when="loading" class="l-loading">
-			
-			<div style="text-align:center;">
-    			<img src="img/AnnoTreeLoading.png" style="width:200px;margin-top: 200px;"/>
-			</div>	
+		<script src="assets/vendor/modernizr/modernizr-2.6.2.min.js"></script>
+	</head>
+	<body>
 
+		<div ng-switch="subview">
+			<!--
+				This subview will show while the AngularJS app is loading since it's visible right in 
+				the page. Once the app kicks in, however, the calculated subview will determine the
+				appropriate layout to render.
+			-->
+			<div ng-switch-when="loading" class="l-loading">
+				
+				<div style="text-align:center;">
+	    			<img src="img/AnnoTreeLoading.png" style="width:200px;margin-top: 200px;"/>
+				</div>	
+
+			</div>
+
+			<!-- Core layouts. -->
+			<div ng-switch-when="authenticate" ng-include=" 'assets/app/views/layouts/Authenticate.html' "></div>
+			<div ng-switch-when="standard" ng-include=" 'assets/app/views/layouts/CCPHeader.html' "></div>
 		</div>
 
-		<!-- Core layouts. -->
-		<div ng-switch-when="authenticate" ng-include=" 'assets/app/views/layouts/Authenticate.html' "></div>
-		<div ng-switch-when="standard" ng-include=" 'assets/app/views/layouts/CCPHeader.html' "></div>
-	</div>
+
+		<!-- ### JavaScript Modules. ### -->
 
 
-	<!-- ### JavaScript Modules. ### -->
+		<!-- Load vendor scripts. -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="assets/vendor/jquery/jquery-1.9.1.min.js"><\/script>')</script>
 
+		<script type="text/javascript" src="assets/vendor/lodash/lodash.min.js"></script>
+	  	<script type="text/javascript" src="assets/vendor/gumby/gumby.min.js"></script>
+	  	<!-- <script type="text/javascript" src="assets/vendor/gumby/gumby.toggleswitch.js"></script>
+	  	<script type="text/javascript" src="assets/vendor/gumby/gumby.init.js"></script> -->
+	  	<script type="text/javascript" src="assets/vendor/gumby/plugins.js"></script>
+	  	<script type="text/javascript" src="assets/vendor/gumby/main.js"></script>
 
-	<!-- Load vendor scripts. -->
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="assets/vendor/jquery/jquery-1.9.1.min.js"><\/script>')</script>
-	<script type="text/javascript" src="assets/vendor/modernizr/modernizr-2.6.2.min.js"></script>
+		<script type="text/javascript" src="assets/vendor/angularjs/angular.min.js"></script>
+		<script type="text/javascript" src="assets/vendor/angularjs/angular-cookies.js"></script>
 
-	<script type="text/javascript" src="assets/vendor/angularjs/angular.min.js"></script>
-	<script type="text/javascript" src="assets/vendor/angularjs/angular-cookies.js"></script>
+		<script type="text/javascript" src="assets/vendor/sliding-pane.js"></script> 
 
-	<script type="text/javascript" src="assets/vendor/lodash/lodash.min.js"></script>
-	<script type="text/javascript" src="assets/vendor/jquery/jquery-ui-1.10.3.custom.min.js"></script>
-  	<script type="text/javascript" src="assets/vendor/gumby/gumby.min.js"></script>
+		<!-- Load AngularJS application module. -->
+		<script type="text/javascript" src="assets/app/main.js"></script>
 
-	<script type="text/javascript" src="assets/vendor/sliding-pane.js"></script> 
+		<!-- Load Controllers. -->
+		<script type="text/javascript" src="assets/app/controllers/contact/contact-controller.js"></script>
+		<script type="text/javascript" src="assets/app/controllers/home/home-controller.js"></script>
 
-	<!-- Load AngularJS application module. -->
-	<script type="text/javascript" src="assets/app/main.js"></script>
+		<script type="text/javascript" src="assets/app/controllers/layouts/splash-controller.js"></script>
+		<script type="text/javascript" src="assets/app/controllers/layouts/standard-controller.js"></script>
 
-	<!-- Load Controllers. -->
-	<script type="text/javascript" src="assets/app/controllers/contact/contact-controller.js"></script>
-	<script type="text/javascript" src="assets/app/controllers/home/home-controller.js"></script>
-	<script type="text/javascript" src="assets/app/controllers/layouts/splash-controller.js"></script>
-	<script type="text/javascript" src="assets/app/controllers/layouts/standard-controller.js"></script>
-	<script type="text/javascript" src="assets/app/controllers/forest/forest-controller.js"></script>
-	<script type="text/javascript" src="assets/app/controllers/forest/detail/detail-controller.js"></script>
-	<script type="text/javascript" src="assets/app/controllers/forest/detail/random-controller.js"></script>
-	<script type="text/javascript" src="assets/app/controllers/forest/list-controller.js"></script>
-	<script type="text/javascript" src="assets/app/controllers/forest/pets-controller.js"></script>
-	<script type="text/javascript" src="assets/app/controllers/authenticate/authenticate-controller.js"></script>
-	<script type="text/javascript" src="assets/app/controllers/authenticate/login-controller.js"></script>
-	<script type="text/javascript" src="assets/app/controllers/authenticate/signup-controller.js"></script>
-	<script type="text/javascript" src="assets/app/controllers/authenticate/resetPassword-controller.js"></script>
-	<script type="text/javascript" src="assets/app/controllers/authenticate/requestPassword-controller.js"></script>
-	<script type="text/javascript" src="assets/app/controllers/app-controller.js"></script>
+		<script type="text/javascript" src="assets/app/controllers/forest/forest-controller.js"></script>
+		<script type="text/javascript" src="assets/app/controllers/forest/detail/detail-controller.js"></script>
+		<script type="text/javascript" src="assets/app/controllers/forest/detail/random-controller.js"></script>
+		<script type="text/javascript" src="assets/app/controllers/forest/list-controller.js"></script>
+		<script type="text/javascript" src="assets/app/controllers/forest/pets-controller.js"></script>
 
-	<!-- Load Services. -->
-	<script type="text/javascript" src="assets/app/services/category-service.js"></script>
-	<script type="text/javascript" src="assets/app/services/lodash.js"></script>
-	<script type="text/javascript" src="assets/app/services/forest-service.js"></script>
-	<script type="text/javascript" src="assets/app/services/authenticate-service.js"></script>
-	<script type="text/javascript" src="assets/app/services/request-context.js"></script>
-	
-	<!-- Load Beans. -->
-	<script type="text/javascript" src="assets/app/beans/render-context.js"></script>
+		<script type="text/javascript" src="assets/app/controllers/authenticate/authenticate-controller.js"></script>
+		<script type="text/javascript" src="assets/app/controllers/authenticate/login-controller.js"></script>
+		<script type="text/javascript" src="assets/app/controllers/authenticate/signup-controller.js"></script>
+		<script type="text/javascript" src="assets/app/controllers/authenticate/resetPassword-controller.js"></script>
+		<script type="text/javascript" src="assets/app/controllers/authenticate/requestPassword-controller.js"></script>
+		<script type="text/javascript" src="assets/app/controllers/app-controller.js"></script>
 
-</body>
+		<!-- Load Services. -->
+		<script type="text/javascript" src="assets/app/services/category-service.js"></script>
+		<script type="text/javascript" src="assets/app/services/lodash.js"></script>
+		<script type="text/javascript" src="assets/app/services/forest-service.js"></script>
+		<script type="text/javascript" src="assets/app/services/authenticate-service.js"></script>
+		<script type="text/javascript" src="assets/app/services/localStorage-service.js"></script> 
+		<script type="text/javascript" src="assets/app/services/request-context.js"></script>
+		
+		<!-- Load Beans. -->
+		<script type="text/javascript" src="assets/app/beans/render-context.js"></script>
+
+	</body>
 </html>

@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-  font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif;
+  font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
   /*background: url('../img/gray-fabric-pattern-light.jpg') no-repeat center center fixed;*/
   background-color: #f4f4f4;/*#fafafa;*/
   -webkit-background-size: cover; /*for webKit*/
@@ -14,6 +14,11 @@ body {
   background-size: cover; /*generic*/
   height: 100%;
   width: 100%;
+}
+
+div[ng-switch], div[ng-switch-when], div[ng-controller] {
+    height: 100%;
+    width: 100%;
 }
 
 p {
@@ -64,6 +69,18 @@ a:hover{
   height: 45px;
 }
 
+.authenticateHeader {
+  height:80px;
+  background-color:#f7f8f5;
+  text-align:center;
+  border-bottom: 1px solid #ccc;
+}
+
+.authenticateFooter {
+  height:85px;
+  background-color:#f7f8f5;
+  border-top:1px solid #ccc;
+}
 
 .forgotPassword {
     margin-bottom: 0px;
@@ -218,7 +235,9 @@ a:hover{
 #mainContent {
   height: 100%;
 	width:100%;
-	background-color: #f4f4f4;/*#eae6e1;*/
+	background-color: transparent; /*#f4f4f4;*/ /*#eae6e1;*/
+  border-top: 60px solid transparent;
+  margin-top: -60px;
   /*padding: 30px;*/
   /*-moz-box-shadow: 0 0 10px #444;
   -webkit-box-shadow: 0 0 10px #444;
@@ -284,12 +303,14 @@ a:hover{
 }
 
 .treeLogoContainer {
-    height: 175px;
+  height: 175px;
 }
 
 .cardLabel {
 	color: #444;
   padding: 5px;
+  font-size: 10pt;
+  line-height: 12pt;
 }
 
 .leaf {
@@ -367,6 +388,10 @@ a:hover{
   background-image: -moz-linear-gradient(#aff19a, #84db69);
   background-image: -o-linear-gradient(#aff19a, #84db69);
   background-image: -webkit-linear-gradient(top, #aff19a, #84db69);
+}
+
+.fontAwesomeRemove {
+  display: inline-block !important;
 }
 
 #treeElements {

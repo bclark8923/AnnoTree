@@ -16,8 +16,9 @@ CREATE procedure `create_user`(
   time_zone VARCHAR(15),
   profile_image_path VARCHAR(45))
 BEGIN
-DECLARE CONTINUE HANDLER FOR SQLSTATE '23000' select '2';
-IF email REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
+If (select id from user where email = user.email) then
+select '2'; 
+elseIF email REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
 insert into `annotree`.`user`
   (password, first_name, last_name, email, lang, time_zone, profile_image_path) 
 values 

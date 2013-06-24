@@ -13,10 +13,12 @@ my $jsonBody; # this should be the body of the returned message if JSON
 ######### START VALID USER SIGNUP TEST #########
 # this test creates a new valid user
 my $testname = 'Valid user signup: ';
+my $validUserEmail = 'mojotest' . int(rand(1000000)) . '@user.com';
+my $validUserPass = 'tester1';
 $tx = $ua->post('http://localhost:3000/user/signup' => json => {
     signUpName      => 'login test user',
-    signUpEmail     => 'mojotest@login.com',
-    signUpPassword  => 'tester1'
+    signUpEmail     => $validUserEmail,
+    signUpPassword  => $validUserPass
 });
 $jsonBody = $json->decode($tx->res->body);
 
@@ -30,15 +32,15 @@ ok(1 == $jsonBody->{active},                    $testname . 'Response JSON activ
 ok('EST' eq $jsonBody->{time_zone},             $testname . "Response JSON time zone is EST");
 ok(exists $jsonBody->{password},                $testname . 'Response JSON password exists');
 ok('NULL' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is NULL");
-ok('mojotest@login.com' eq $jsonBody->{email},  $testname . "Response JSON email is 'mojotest\@user.com'");
+ok($validUserEmail eq $jsonBody->{email},  $testname . "Response JSON email is 'mojotest\@user.com'");
 ######### END VALID USER SIGNUP TEST #########
 
 ######### START VALID USER LOGIN TEST #########
 # this test logs on a valid user
 my $testname = 'Valid user login: ';
 $tx = $ua->post('http://localhost:3000/user/login' => json => {
-    loginEmail     => 'mojotest@login.com',
-    loginPassword  => 'tester1'
+    loginEmail     => $validUserEmail,
+    loginPassword  => $validUserPass
 });
 $jsonBody = $json->decode($tx->res->body);
 
@@ -52,7 +54,7 @@ ok(1 == $jsonBody->{active},                    $testname . 'Response JSON activ
 ok('EST' eq $jsonBody->{time_zone},             $testname . "Response JSON time zone is EST");
 ok(exists $jsonBody->{password},                $testname . 'Response JSON password exists');
 ok('NULL' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is NULL");
-ok('mojotest@login.com' eq $jsonBody->{email},  $testname . "Response JSON email is 'mojotest\@login.com'");
+ok($validUserEmail eq $jsonBody->{email},  $testname . "Response JSON email is 'mojotest\@login.com'");
 ######### END VALID USER TEST #########
 
 ######### START MISSING REQUEST JSON PARAMETERS TEST #########
@@ -71,7 +73,7 @@ ok(6 == $jsonBody->{error},                     $testname . 'Response JSON resul
 # this test logs on a valid user
 my $testname = 'Invalid password user login: ';
 $tx = $ua->post('http://localhost:3000/user/login' => json => {
-    loginEmail     => 'mojotest@login.com',
+    loginEmail     => $validUserEmail,
     loginPassword  => 'invalidpassword1'
 });
 $jsonBody = $json->decode($tx->res->body);
@@ -89,7 +91,7 @@ $tx = $ua->post('http://localhost:3000/user/login' => json => {
 });
 $jsonBody = $json->decode($tx->res->body);
 
-ok(404 == $tx->res->code,                       $testname . 'Response Code is 404');
+ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
 ok(1 == $jsonBody->{error},                     $testname . 'Response JSON result is 1');
 ######### END INVALID EMAIL/USER TEST #########
 

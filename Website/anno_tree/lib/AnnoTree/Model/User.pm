@@ -17,18 +17,15 @@ sub createSaltedHash {
     return $shash;
 }
 
-# validates a user attempting to log in
-# returns 0 if invalid email
-# returns 1 if password is incorrect
-# returns the user's info in a hash otherwise
-sub login {
-    my ($controller, $params) = @_;
+# returns a user's information
+sub getUserInfo {
+    my ($class, $email) = @_;
     
     #$controller->debug('before query');
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call get_user(:email)",
         {
-            email => $params->{email}
+            email => $email
         }
     );
 
@@ -36,15 +33,12 @@ sub login {
     my $cols = $result->fetch; # get the columns (keys for json)
     
     my $userInfo = $result->fetch; # get the newly created user's info
-    return {error => '1'} unless ($userInfo->[0]); # user does not exist
+    return {error => '0', txt => 'User does not exist'} unless ($userInfo->[0]); # user does not exist
     
     for(my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $userInfo->[$i];
     }
-    my $shash = $json->{password};
-    my $valid = Crypt::SaltedHash->validate($shash, $params->{password});
-    return {error => '0'} unless ($valid); # passwords do not match
-    
+
     return $json;
 }
 
@@ -54,9 +48,9 @@ sub signup {
     
     my $pass = $params->{'password'};
     
-    return 3 if (length($pass) < 6); # password must be at least 6 characters
-    return 4 if ($pass !~ m/\d/);
-    return 5 if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
+    return {error => '3', txt => 'Password must be at least six characters'} if (length($pass) < 6); # password must be at least 6 characters
+    return {error => '4', txt => 'Password must contain at least one number'} if ($pass !~ m/\d/);
+    return {error => 5, txt => 'Valid password characters are alphanumeric or !@#$%^&*()'} if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
     $pass = createSaltedHash($pass);
     
     my $result = AnnoTree::Model::MySQL->db->execute("call create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage)", 
@@ -73,8 +67,13 @@ sub signup {
 
     my $json = {};
     my $cols = $result->fetch; # get the columns (keys for json)
-    return $cols->[0] if (looks_like_number($cols->[0])); # if there is an error return
-    
+    if (looks_like_number($cols->[0])) { # if there is an error return
+        if ($cols->[0] == 1) {
+            return {error => $cols->[0], txt => 'Invalid email submitted'};
+        } elsif ($cols->[0] == 2) {
+            return {error => $cols->[0], txt => 'Email already exists'};
+        } 
+    }
     my $userInfo = $result->fetch; # get the newly created user's info
     for (my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $userInfo->[$i];

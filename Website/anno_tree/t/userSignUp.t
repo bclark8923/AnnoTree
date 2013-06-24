@@ -5,7 +5,7 @@ use Data::Dumper;
 use Mojo::JSON;
 
 #my $t = Test::Mojo->new('AnnoTree');
-my $ua = Mojo::UserAgent->new; # use to make the JSON POST requests
+my $uaInvalidUser = Mojo::UserAgent->new;
 my $json = Mojo::JSON->new; # use to help turn the response JSON into a Perl hash
 my $tx; # this shuld be the Mojo::Transaction element return from the UA transaction
 my $jsonBody; # this should be the body of the returned message if JSON
@@ -15,13 +15,14 @@ my $jsonBody; # this should be the body of the returned message if JSON
 my $testname = 'Valid user signup: ';
 my $validUserEmail = 'mojotest' . int(rand(1000000)) . '@user.com';
 my $validUserPass = 'tester1';
-$tx = $ua->post('http://localhost:3000/user/signup' => json => {
+my $uaValidUser = Mojo::UserAgent->new;
+$tx = $uaValidUser->post('http://localhost:3000/user/signup' => json => {
     signUpName      => 'test script user',
     signUpEmail     => $validUserEmail,
     signUpPassword  => $validUserPass
 });
 $jsonBody = $json->decode($tx->res->body);
-
+#print Dumper($uaValidUser->cookie_jar);
 ok(200 == $tx->res->code,                       $testname . 'Response Code is 200');
 ok(exists $jsonBody->{id},                      $testname . 'Response JSON ID exists');
 ok('test script' eq $jsonBody->{first_name},    $testname . "Response JSON first name is 'test script'");
@@ -30,29 +31,28 @@ ok(exists $jsonBody->{created_at},              $testname . 'Response JSON creat
 ok('ENG' eq $jsonBody->{lang},                  $testname . "Response JSON language is ENG");
 ok(1 == $jsonBody->{active},                    $testname . 'Response JSON active is 1');
 ok('EST' eq $jsonBody->{time_zone},             $testname . "Response JSON time zone is EST");
-ok(exists $jsonBody->{password},                $testname . 'Response JSON password exists');
 ok('NULL' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is NULL");
 ok($validUserEmail eq $jsonBody->{email},       $testname . "Response JSON email is $validUserEmail");
-my $validUserID = $jsonBody->{id};
 ######### END VALID USER TEST #########
 
 ######### START MISSING REQUEST JSON VALUES TEST #########
 # this test attempts to create a user with missing JSON values in the request
 my $testname = 'Missing request parameters user signup: ';
-$tx = $ua->post('http://localhost:3000/user/signup' => json => {
+$tx = $uaInvalidUser->post('http://localhost:3000/user/signup' => json => {
     signUpEmail     => 'mojotest@user.com',
     signUpPassword  => 'tester1'
 });
 $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
-ok(6 == $jsonBody->{error},                     $testname . 'Response JSON result is 6');
+ok(0 == $jsonBody->{error},                     $testname . 'Response JSON error is 0');
+ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END MISSING REQUEST JSON VALUES TEST #########
 
 ######### START INVALID EMAIL TEST #########
 # this test tries to create an user with an invalid email
 my $testname = 'Invalid email user signup: ';
-$tx = $ua->post('http://localhost:3000/user/signup' => json => {
+$tx = $uaInvalidUser->post('http://localhost:3000/user/signup' => json => {
     signUpName      => 'test script user',
     signUpEmail     => 'mojotest@u.c',
     signUpPassword  => 'tester1'
@@ -61,12 +61,13 @@ $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
 ok(1 == $jsonBody->{error},                     $testname . 'Response JSON result is 1');
+ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END INVALID EMAIL TEST #########
 
 ######### START EXISTING EMAIL TEST #########
 # this test attempts to signup an user who already exists
 my $testname = 'Existing email user signup: ';
-$tx = $ua->post('http://localhost:3000/user/signup' => json => {
+$tx = $uaInvalidUser->post('http://localhost:3000/user/signup' => json => {
     signUpName      => 'test script user',
     signUpEmail     => $validUserEmail,
     signUpPassword  => $validUserPass
@@ -75,12 +76,13 @@ $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
 ok(2 == $jsonBody->{error},                     $testname . 'Response JSON result is 2');
+ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END EXISTING EMAIL TEST #########
 
 ######### START SHORT PASSWORD LENGTH TEST #########
 # this test has a password that is not 6 characters in length
 my $testname = 'Password too short user signup: ';
-$tx = $ua->post('http://localhost:3000/user/signup' => json => {
+$tx = $uaInvalidUser->post('http://localhost:3000/user/signup' => json => {
     signUpName      => 'test script user',
     signUpEmail     => 'mojotest@user.com',
     signUpPassword  => 'test'
@@ -89,12 +91,13 @@ $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
 ok(3 == $jsonBody->{error},                     $testname . 'Response JSON result is 3');
+ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END SHORT PASSWORD LENGTH TEST #########
 
 ######### START MISSING NUMBER IN PASSWORD TEST #########
 # this test does not include a numeric character in the password
-my $testname = 'Password too short user signup: ';
-$tx = $ua->post('http://localhost:3000/user/signup' => json => {
+my $testname = 'Password missing number: ';
+$tx = $uaInvalidUser->post('http://localhost:3000/user/signup' => json => {
     signUpName      => 'test script user',
     signUpEmail     => 'mojotest@user.com',
     signUpPassword  => 'tester'
@@ -103,12 +106,13 @@ $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
 ok(4 == $jsonBody->{error},                     $testname . 'Response JSON result is 4');
+ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END MISSING NUMBER IN PASSWORD TEST #########
 
 ######### START INVALID CHARACTER IN PASSWORD TEST #########
 # this test includes an invalid character in the password
-my $testname = 'Password too short user signup: ';
-$tx = $ua->post('http://localhost:3000/user/signup' => json => {
+my $testname = 'Password includes an invalid character: ';
+$tx = $uaInvalidUser->post('http://localhost:3000/user/signup' => json => {
     signUpName      => 'test script user',
     signUpEmail     => 'mojotest@user.com',
     signUpPassword  => 'tester;6'
@@ -117,37 +121,10 @@ $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
 ok(5 == $jsonBody->{error},                     $testname . 'Response JSON result is 5');
+ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END INVALID CHARACTER IN PASSWORD TEST #########
 
-######### START DELETE USER TEST #########
-# this test deletes the valid user
-my $testname = 'Delete valid user: ';
-$tx = $ua->delete('http://localhost:3000/user/' . $validUserID);
-$jsonBody = $json->decode($tx->res->body);
 
-ok(200 == $tx->res->code,                       $testname . 'Response Code is 200');
-ok($validUserID == $jsonBody->{id},             $testname . 'Response JSON ID exists');
-ok('test script' eq $jsonBody->{first_name},    $testname . "Response JSON first name is 'test script'");
-ok('user' eq $jsonBody->{last_name},            $testname . "Response JSON last name is 'user'");
-ok(exists $jsonBody->{created_at},              $testname . 'Response JSON created date exists');
-ok('ENG' eq $jsonBody->{lang},                  $testname . "Response JSON language is ENG");
-ok(0 == $jsonBody->{active},                    $testname . 'Response JSON active is 0');
-ok('EST' eq $jsonBody->{time_zone},             $testname . "Response JSON time zone is EST");
-ok(exists $jsonBody->{password},                $testname . 'Response JSON password exists');
-ok('NULL' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is NULL");
-ok($validUserEmail eq $jsonBody->{email},       $testname . "Response JSON email is 'mojotest\@user.com'");
-#ok(5 == $jsonBody->{error},                     $testname . 'Response JSON result is 5');
-######### END DELETE USER TEST #########
-
-######### START DELETE INVALID USER TEST #########
-# this test attempts to delete a user that does not exist
-my $testname = 'Delete invalid user: ';
-$tx = $ua->delete('http://localhost:3000/user/0');
-$jsonBody = $json->decode($tx->res->body);
-
-ok(404 == $tx->res->code,                       $testname . 'Response Code is 404');
-ok(1 == $jsonBody->{error},                     $testname . 'Response JSON error is 1');
-######### START DELETE INVALID USER TEST #########
 
 =begin oldtests
 # Test that the signup form exists

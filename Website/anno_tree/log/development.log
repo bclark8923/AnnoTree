@@ -1,0 +1,3082 @@
+[Sun Jun 23 19:10:33 2013] [info] Listening at "http://*:3000".
+[Sun Jun 23 19:10:47 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:10:47 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:10:47 2013] [debug] 200 OK (0.002610s, 383.142/s).
+[Sun Jun 23 19:10:47 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:10:47 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:10:47 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sun Jun 23 19:10:47 2013] [debug] 200 OK (0.001865s, 536.193/s).
+[Sun Jun 23 19:10:47 2013] [debug] GET "/user/logout".
+[Sun Jun 23 19:10:47 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "logoutUser".
+[Sun Jun 23 19:10:47 2013] [debug] {
+  'userid' => '3'
+}
+
+[Sun Jun 23 19:10:47 2013] [debug] 200 OK (0.000517s, 1934.236/s).
+[Sun Jun 23 19:10:47 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:10:47 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:10:47 2013] [debug] 401 Unauthorized (0.000966s, 1035.197/s).
+[Sun Jun 23 19:10:47 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:10:47 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:10:47 2013] [debug] 401 Unauthorized (0.000694s, 1440.922/s).
+[Sun Jun 23 19:10:47 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:10:47 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:10:47 2013] [debug] 401 Unauthorized (0.000196s, 5102.041/s).
+[Sun Jun 23 19:11:04 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:11:04 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:11:04 2013] [debug] 200 OK (0.002640s, 378.788/s).
+[Sun Jun 23 19:11:04 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:11:04 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:11:04 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sun Jun 23 19:11:04 2013] [debug] 200 OK (0.001805s, 554.017/s).
+[Sun Jun 23 19:11:04 2013] [debug] GET "/user/logout".
+[Sun Jun 23 19:11:04 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "logoutUser".
+[Sun Jun 23 19:11:04 2013] [debug] {
+  'userid' => '3'
+}
+
+[Sun Jun 23 19:11:04 2013] [debug] 200 OK (0.000500s, 2000.000/s).
+[Sun Jun 23 19:11:04 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:11:04 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:11:04 2013] [debug] 401 Unauthorized (0.000796s, 1256.281/s).
+[Sun Jun 23 19:11:04 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:11:04 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:11:04 2013] [debug] 401 Unauthorized (0.000678s, 1474.926/s).
+[Sun Jun 23 19:11:04 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:11:04 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:11:04 2013] [debug] 401 Unauthorized (0.000203s, 4926.108/s).
+[Sun Jun 23 19:12:03 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:12:03 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:12:03 2013] [debug] 200 OK (0.001210s, 826.446/s).
+[Sun Jun 23 19:12:03 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:12:03 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:12:03 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sun Jun 23 19:12:03 2013] [debug] 200 OK (0.000937s, 1067.236/s).
+[Sun Jun 23 19:12:03 2013] [debug] GET "/user/logout".
+[Sun Jun 23 19:12:03 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "logoutUser".
+[Sun Jun 23 19:12:03 2013] [debug] {
+  'userid' => '3'
+}
+
+[Sun Jun 23 19:12:03 2013] [debug] 200 OK (0.000305s, 3278.689/s).
+[Sun Jun 23 19:12:03 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:12:03 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:12:03 2013] [debug] 401 Unauthorized (0.000192s, 5208.333/s).
+[Sun Jun 23 19:12:03 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:12:03 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:12:03 2013] [debug] 401 Unauthorized (0.000820s, 1219.512/s).
+[Sun Jun 23 19:12:03 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:12:03 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:12:03 2013] [debug] 401 Unauthorized (0.000652s, 1533.742/s).
+[Sun Jun 23 19:12:03 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:12:03 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:12:03 2013] [debug] 401 Unauthorized (0.000213s, 4694.836/s).
+[Sun Jun 23 19:40:18 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:40:18 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:40:18 2013] [debug] 200 OK (0.002683s, 372.717/s).
+[Sun Jun 23 19:40:18 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:40:18 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:40:18 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sun Jun 23 19:40:18 2013] [debug] 200 OK (0.001873s, 533.903/s).
+[Sun Jun 23 19:40:18 2013] [debug] POST "/user/logout".
+[Sun Jun 23 19:40:18 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "logoutUser".
+[Sun Jun 23 19:40:18 2013] [debug] {
+  'userid' => '3'
+}
+
+[Sun Jun 23 19:40:18 2013] [debug] 200 OK (0.000491s, 2036.660/s).
+[Sun Jun 23 19:40:18 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:40:18 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:40:18 2013] [debug] 401 Unauthorized (0.000245s, 4081.633/s).
+[Sun Jun 23 19:40:18 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:40:18 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:40:18 2013] [debug] 401 Unauthorized (0.000754s, 1326.260/s).
+[Sun Jun 23 19:40:18 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:40:18 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:40:18 2013] [debug] 401 Unauthorized (0.000647s, 1545.595/s).
+[Sun Jun 23 19:40:18 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:40:18 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:40:18 2013] [debug] 401 Unauthorized (0.000198s, 5050.505/s).
+[Sun Jun 23 19:47:42 2013] [debug] GET "/user/signup".
+[Sun Jun 23 19:47:42 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sun Jun 23 19:47:42 2013] [debug] Template "not_found.html.ep" not found.
+[Sun Jun 23 19:47:42 2013] [debug] Rendering inline template.
+[Sun Jun 23 19:47:42 2013] [debug] Rendering inline template.
+[Sun Jun 23 19:47:42 2013] [debug] 404 Not Found (0.012195s, 82.001/s).
+[Sun Jun 23 19:56:49 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:56:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:56:49 2013] [debug] 200 OK (0.002644s, 378.215/s).
+[Sun Jun 23 19:56:49 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:56:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:56:49 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sun Jun 23 19:56:49 2013] [debug] 200 OK (0.002226s, 449.236/s).
+[Sun Jun 23 19:56:49 2013] [debug] POST "/user/logout".
+[Sun Jun 23 19:56:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "logoutUser".
+[Sun Jun 23 19:56:49 2013] [debug] '3'
+
+[Sun Jun 23 19:56:49 2013] [debug] 200 OK (0.000555s, 1801.802/s).
+[Sun Jun 23 19:56:49 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:56:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:56:49 2013] [debug] 401 Unauthorized (0.000325s, 3076.923/s).
+[Sun Jun 23 19:56:49 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:56:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:56:49 2013] [debug] 401 Unauthorized (0.000811s, 1233.046/s).
+[Sun Jun 23 19:56:49 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:56:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:56:49 2013] [debug] 401 Unauthorized (0.000685s, 1459.854/s).
+[Sun Jun 23 19:56:49 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:56:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:56:49 2013] [debug] 401 Unauthorized (0.000258s, 3875.969/s).
+[Sun Jun 23 19:58:49 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:58:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:58:49 2013] [debug] 200 OK (0.002621s, 381.534/s).
+[Sun Jun 23 19:58:49 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:58:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:58:49 2013] [debug] Routing to controller "AnnoTree::Controller::Forest" and action "forestsForUser".
+[Sun Jun 23 19:58:49 2013] [debug] 200 OK (0.001880s, 531.915/s).
+[Sun Jun 23 19:58:49 2013] [debug] POST "/user/logout".
+[Sun Jun 23 19:58:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:58:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "logoutUser".
+[Sun Jun 23 19:58:49 2013] [debug] '3'
+
+[Sun Jun 23 19:58:49 2013] [debug] 200 OK (0.000524s, 1908.397/s).
+[Sun Jun 23 19:58:49 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:58:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:58:49 2013] [debug] 401 Unauthorized (0.000382s, 2617.801/s).
+[Sun Jun 23 19:58:49 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:58:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:58:49 2013] [debug] 401 Unauthorized (0.000724s, 1381.215/s).
+[Sun Jun 23 19:58:49 2013] [debug] POST "/user/login".
+[Sun Jun 23 19:58:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "login".
+[Sun Jun 23 19:58:49 2013] [debug] 401 Unauthorized (0.000624s, 1602.564/s).
+[Sun Jun 23 19:58:49 2013] [debug] GET "/3/forest".
+[Sun Jun 23 19:58:49 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 19:58:49 2013] [debug] 401 Unauthorized (0.000199s, 5025.126/s).
+[Sun Jun 23 20:27:34 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:27:34 2013] [error] Global symbol "$result" requires explicit package name at /home/matt/Documents/AnnoTree/Website/anno_tree/script/../lib/AnnoTree/Controller/Auth.pm line 25.
+Global symbol "$result" requires explicit package name at /home/matt/Documents/AnnoTree/Website/anno_tree/script/../lib/AnnoTree/Controller/Auth.pm line 33.
+Compilation failed in require at (eval 310) line 1.
+
+[Sun Jun 23 20:27:34 2013] [debug] Template "exception.development.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "exception.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering inline template.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering inline template.
+[Sun Jun 23 20:27:34 2013] [debug] 500 Internal Server Error (0.017323s, 57.727/s).
+[Sun Jun 23 20:27:34 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:27:34 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:27:34 2013] [debug] Action not found in controller.
+[Sun Jun 23 20:27:34 2013] [debug] Template "controller/auth/signup.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering inline template.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering inline template.
+[Sun Jun 23 20:27:34 2013] [debug] 404 Not Found (0.010778s, 92.782/s).
+[Sun Jun 23 20:27:34 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:27:34 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:27:34 2013] [debug] Action not found in controller.
+[Sun Jun 23 20:27:34 2013] [debug] Template "controller/auth/signup.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering cached inline template.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering cached inline template.
+[Sun Jun 23 20:27:34 2013] [debug] 404 Not Found (0.003552s, 281.532/s).
+[Sun Jun 23 20:27:34 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:27:34 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:27:34 2013] [debug] Action not found in controller.
+[Sun Jun 23 20:27:34 2013] [debug] Template "controller/auth/signup.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering cached inline template.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering cached inline template.
+[Sun Jun 23 20:27:34 2013] [debug] 404 Not Found (0.003486s, 286.862/s).
+[Sun Jun 23 20:27:34 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:27:34 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:27:34 2013] [debug] Action not found in controller.
+[Sun Jun 23 20:27:34 2013] [debug] Template "controller/auth/signup.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering cached inline template.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering cached inline template.
+[Sun Jun 23 20:27:34 2013] [debug] 404 Not Found (0.003432s, 291.375/s).
+[Sun Jun 23 20:27:34 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:27:34 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:27:34 2013] [debug] Action not found in controller.
+[Sun Jun 23 20:27:34 2013] [debug] Template "controller/auth/signup.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering cached inline template.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering cached inline template.
+[Sun Jun 23 20:27:34 2013] [debug] 404 Not Found (0.003471s, 288.101/s).
+[Sun Jun 23 20:27:34 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:27:34 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:27:34 2013] [debug] Action not found in controller.
+[Sun Jun 23 20:27:34 2013] [debug] Template "controller/auth/signup.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering cached inline template.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering cached inline template.
+[Sun Jun 23 20:27:34 2013] [debug] 404 Not Found (0.003709s, 269.614/s).
+[Sun Jun 23 20:27:34 2013] [debug] DELETE "/user/".
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering inline template.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering inline template.
+[Sun Jun 23 20:27:34 2013] [debug] 404 Not Found (0.011220s, 89.127/s).
+[Sun Jun 23 20:27:34 2013] [debug] DELETE "/user/0".
+[Sun Jun 23 20:27:34 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 20:27:34 2013] [debug] Action not found in controller.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Template "not_found.html.ep" not found.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering cached inline template.
+[Sun Jun 23 20:27:34 2013] [debug] Rendering cached inline template.
+[Sun Jun 23 20:27:34 2013] [debug] 404 Not Found (0.004352s, 229.779/s).
+[Sun Jun 23 20:28:58 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:28:58 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:28:58 2013] [debug] Action not found in controller.
+[Sun Jun 23 20:28:58 2013] [debug] Template "controller/auth/signup.html.ep" not found.
+[Sun Jun 23 20:28:58 2013] [debug] Template "not_found.development.html.ep" not found.
+[Sun Jun 23 20:28:58 2013] [debug] Template "not_found.html.ep" not found.
+[Sun Jun 23 20:28:58 2013] [debug] Rendering cached inline template.
+[Sun Jun 23 20:28:58 2013] [debug] Rendering cached inline template.
+[Sun Jun 23 20:28:58 2013] [debug] 404 Not Found (0.003853s, 259.538/s).
+[Sun Jun 23 20:29:37 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:29:37 2013] [error] Global symbol "$result" requires explicit package name at /home/matt/Documents/AnnoTree/Website/anno_tree/script/../lib/AnnoTree/Controller/Auth.pm line 25.
+Global symbol "$result" requires explicit package name at /home/matt/Documents/AnnoTree/Website/anno_tree/script/../lib/AnnoTree/Controller/Auth.pm line 33.
+Compilation failed in require at (eval 310) line 1.
+
+[Sun Jun 23 20:29:37 2013] [debug] Template "exception.development.html.ep" not found.
+[Sun Jun 23 20:29:37 2013] [debug] Template "exception.html.ep" not found.
+[Sun Jun 23 20:29:37 2013] [debug] Rendering inline template.
+[Sun Jun 23 20:29:37 2013] [debug] Rendering inline template.
+[Sun Jun 23 20:29:37 2013] [debug] 500 Internal Server Error (0.017175s, 58.224/s).
+[Sun Jun 23 20:30:18 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:30:18 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:30:18 2013] [debug] {
+  'signUpEmail' => 'mojotest855738@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:30:18 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:30:18',
+  'email' => 'mojotest855738@user.com',
+  'first_name' => 'test script',
+  'id' => '3',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:30:18 2013] [debug] 200 OK (0.004628s, 216.076/s).
+[Sun Jun 23 20:32:03 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:32:03 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:32:03 2013] [debug] {
+  'signUpEmail' => 'mojotest447974@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:32:03 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:32:03',
+  'email' => 'mojotest447974@user.com',
+  'first_name' => 'test script',
+  'id' => '4',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:32:03 2013] [debug] 401 Unauthorized (0.005155s, 193.986/s).
+[Sun Jun 23 20:32:37 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:32:37 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:32:37 2013] [debug] {
+  'signUpEmail' => 'mojotest123013@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:32:37 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:32:37',
+  'email' => 'mojotest123013@user.com',
+  'first_name' => 'test script',
+  'id' => '5',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:32:37 2013] [debug] 401 Unauthorized (0.005855s, 170.794/s).
+[Sun Jun 23 20:32:51 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:32:51 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:32:51 2013] [debug] {
+  'signUpEmail' => 'mojotest778655@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:32:51 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:32:51',
+  'email' => 'mojotest778655@user.com',
+  'first_name' => 'test script',
+  'id' => '6',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:32:51 2013] [debug] 200 OK (0.006565s, 152.323/s).
+[Sun Jun 23 20:37:20 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:37:20 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:37:20 2013] [debug] {
+  'signUpEmail' => 'mojotest770068@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:37:20 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:37:20',
+  'email' => 'mojotest770068@user.com',
+  'first_name' => 'test script',
+  'id' => '7',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:37:20 2013] [debug] 200 OK (0.005378s, 185.943/s).
+[Sun Jun 23 20:37:20 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:37:20 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:37:20 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:37:20 2013] [debug] 406 Not Acceptable (0.000351s, 2849.003/s).
+[Sun Jun 23 20:37:20 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:37:20 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:37:20 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:37:20 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:37:20 2013] [debug] 406 Not Acceptable (0.000904s, 1106.195/s).
+[Sun Jun 23 20:37:20 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:37:20 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:37:20 2013] [debug] {
+  'signUpEmail' => 'mojotest770068@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:37:20 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:37:20 2013] [debug] 406 Not Acceptable (0.001742s, 574.053/s).
+[Sun Jun 23 20:37:20 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:37:20 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:37:20 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:37:20 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:37:20 2013] [debug] 406 Not Acceptable (0.000399s, 2506.266/s).
+[Sun Jun 23 20:37:20 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:37:20 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:37:20 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:37:20 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:37:20 2013] [debug] 406 Not Acceptable (0.000381s, 2624.672/s).
+[Sun Jun 23 20:37:20 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:37:20 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:37:20 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:37:20 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:37:20 2013] [debug] 406 Not Acceptable (0.000390s, 2564.103/s).
+[Sun Jun 23 20:37:20 2013] [debug] DELETE "/user/7".
+[Sun Jun 23 20:37:20 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 20:37:20 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sun Jun 23 20:37:20 2013] [debug] 200 OK (0.002263s, 441.891/s).
+[Sun Jun 23 20:37:20 2013] [debug] DELETE "/user/0".
+[Sun Jun 23 20:37:20 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 20:37:20 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sun Jun 23 20:37:20 2013] [debug] 404 Not Found (0.000784s, 1275.510/s).
+[Sun Jun 23 20:38:25 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:38:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:38:25 2013] [debug] {
+  'signUpEmail' => 'mojotest101117@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:38:25 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:38:25',
+  'email' => 'mojotest101117@user.com',
+  'first_name' => 'test script',
+  'id' => '9',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:38:25 2013] [debug] 200 OK (0.003497s, 285.959/s).
+[Sun Jun 23 20:38:25 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:38:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:38:25 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:38:25 2013] [debug] 406 Not Acceptable (0.000345s, 2898.551/s).
+[Sun Jun 23 20:38:25 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:38:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:38:25 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:38:25 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:38:25 2013] [debug] 406 Not Acceptable (0.000819s, 1221.001/s).
+[Sun Jun 23 20:38:25 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:38:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:38:25 2013] [debug] {
+  'signUpEmail' => 'mojotest101117@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:38:25 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:38:25 2013] [debug] 406 Not Acceptable (0.001715s, 583.090/s).
+[Sun Jun 23 20:38:25 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:38:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:38:25 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:38:25 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:38:25 2013] [debug] 406 Not Acceptable (0.000421s, 2375.297/s).
+[Sun Jun 23 20:38:25 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:38:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:38:25 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:38:25 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:38:25 2013] [debug] 406 Not Acceptable (0.000379s, 2638.522/s).
+[Sun Jun 23 20:38:25 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:38:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:38:25 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:38:25 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:38:25 2013] [debug] 406 Not Acceptable (0.000417s, 2398.082/s).
+[Sun Jun 23 20:38:25 2013] [debug] DELETE "/user/9".
+[Sun Jun 23 20:38:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 20:38:25 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sun Jun 23 20:38:25 2013] [debug] 200 OK (0.001565s, 638.978/s).
+[Sun Jun 23 20:38:25 2013] [debug] DELETE "/user/0".
+[Sun Jun 23 20:38:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 20:38:25 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sun Jun 23 20:38:25 2013] [debug] 404 Not Found (0.000674s, 1483.680/s).
+[Sun Jun 23 20:42:27 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:27 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:27 2013] [debug] {
+  'signUpEmail' => 'mojotest435967@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:42:27 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:42:27',
+  'email' => 'mojotest435967@user.com',
+  'first_name' => 'test script',
+  'id' => '11',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:42:27 2013] [debug] 200 OK (0.004136s, 241.779/s).
+[Sun Jun 23 20:42:27 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:27 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:27 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:42:27 2013] [debug] 406 Not Acceptable (0.000341s, 2932.551/s).
+[Sun Jun 23 20:42:27 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:27 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:27 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:42:27 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:42:27 2013] [debug] 406 Not Acceptable (0.000847s, 1180.638/s).
+[Sun Jun 23 20:42:27 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:27 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:27 2013] [debug] {
+  'signUpEmail' => 'mojotest435967@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:42:27 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:42:27 2013] [debug] 406 Not Acceptable (0.001738s, 575.374/s).
+[Sun Jun 23 20:42:27 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:27 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:27 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:42:27 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:42:27 2013] [debug] 406 Not Acceptable (0.000403s, 2481.390/s).
+[Sun Jun 23 20:42:27 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:27 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:27 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:42:27 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:42:27 2013] [debug] 406 Not Acceptable (0.000390s, 2564.103/s).
+[Sun Jun 23 20:42:27 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:27 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:27 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:42:27 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:42:27 2013] [debug] 406 Not Acceptable (0.000580s, 1724.138/s).
+[Sun Jun 23 20:42:28 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:28 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:28 2013] [debug] {
+  'signUpEmail' => 'mojotest39255@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:42:28 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:42:28',
+  'email' => 'mojotest39255@user.com',
+  'first_name' => 'test script',
+  'id' => '13',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:42:28 2013] [debug] 200 OK (0.003812s, 262.329/s).
+[Sun Jun 23 20:42:28 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:28 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:28 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:42:28 2013] [debug] 406 Not Acceptable (0.000352s, 2840.909/s).
+[Sun Jun 23 20:42:28 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:28 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:28 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:42:28 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:42:28 2013] [debug] 406 Not Acceptable (0.000850s, 1176.471/s).
+[Sun Jun 23 20:42:28 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:28 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:28 2013] [debug] {
+  'signUpEmail' => 'mojotest39255@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:42:28 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:42:28 2013] [debug] 406 Not Acceptable (0.001758s, 568.828/s).
+[Sun Jun 23 20:42:28 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:28 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:28 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:42:28 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:42:28 2013] [debug] 406 Not Acceptable (0.000403s, 2481.390/s).
+[Sun Jun 23 20:42:28 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:28 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:28 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:42:28 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:42:28 2013] [debug] 406 Not Acceptable (0.000372s, 2688.172/s).
+[Sun Jun 23 20:42:28 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:28 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:28 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:42:28 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:42:28 2013] [debug] 406 Not Acceptable (0.000593s, 1686.341/s).
+[Sun Jun 23 20:42:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:33 2013] [debug] {
+  'signUpEmail' => 'mojotest28200@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:42:33 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:42:33',
+  'email' => 'mojotest28200@user.com',
+  'first_name' => 'test script',
+  'id' => '15',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:42:33 2013] [debug] 200 OK (0.003911s, 255.689/s).
+[Sun Jun 23 20:42:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:42:33 2013] [debug] 406 Not Acceptable (0.000425s, 2352.941/s).
+[Sun Jun 23 20:42:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:42:33 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:42:33 2013] [debug] 406 Not Acceptable (0.000885s, 1129.944/s).
+[Sun Jun 23 20:42:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:33 2013] [debug] {
+  'signUpEmail' => 'mojotest28200@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:42:33 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:42:33 2013] [debug] 406 Not Acceptable (0.001689s, 592.066/s).
+[Sun Jun 23 20:42:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:42:33 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:42:33 2013] [debug] 406 Not Acceptable (0.000427s, 2341.920/s).
+[Sun Jun 23 20:42:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:42:33 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:42:33 2013] [debug] 406 Not Acceptable (0.000429s, 2331.002/s).
+[Sun Jun 23 20:42:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:42:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:42:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:42:33 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:42:33 2013] [debug] 406 Not Acceptable (0.000440s, 2272.727/s).
+[Sun Jun 23 20:44:38 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:38 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:38 2013] [debug] {
+  'signUpEmail' => 'mojotest570811@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:38 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:44:38',
+  'email' => 'mojotest570811@user.com',
+  'first_name' => 'test script',
+  'id' => '3',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:44:38 2013] [debug] 200 OK (0.004308s, 232.126/s).
+[Sun Jun 23 20:44:38 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:38 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:38 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:38 2013] [debug] 406 Not Acceptable (0.000365s, 2739.726/s).
+[Sun Jun 23 20:44:38 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:38 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:38 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:38 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:44:38 2013] [debug] 406 Not Acceptable (0.000893s, 1119.821/s).
+[Sun Jun 23 20:44:38 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:38 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:38 2013] [debug] {
+  'signUpEmail' => 'mojotest570811@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:38 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:44:38 2013] [debug] 406 Not Acceptable (0.001965s, 508.906/s).
+[Sun Jun 23 20:44:38 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:38 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:38 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:44:38 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:44:38 2013] [debug] 406 Not Acceptable (0.000411s, 2433.090/s).
+[Sun Jun 23 20:44:38 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:38 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:38 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:44:38 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:44:38 2013] [debug] 406 Not Acceptable (0.000379s, 2638.522/s).
+[Sun Jun 23 20:44:38 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:38 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:38 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:44:38 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:44:38 2013] [debug] 406 Not Acceptable (0.000375s, 2666.667/s).
+[Sun Jun 23 20:44:39 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:39 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:39 2013] [debug] {
+  'signUpEmail' => 'mojotest955765@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:39 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:44:39',
+  'email' => 'mojotest955765@user.com',
+  'first_name' => 'test script',
+  'id' => '5',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:44:39 2013] [debug] 200 OK (0.002496s, 400.641/s).
+[Sun Jun 23 20:44:39 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:39 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:39 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:39 2013] [debug] 406 Not Acceptable (0.000346s, 2890.173/s).
+[Sun Jun 23 20:44:39 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:39 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:39 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:39 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:44:39 2013] [debug] 406 Not Acceptable (0.000833s, 1200.480/s).
+[Sun Jun 23 20:44:39 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:39 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:39 2013] [debug] {
+  'signUpEmail' => 'mojotest955765@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:39 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:44:39 2013] [debug] 406 Not Acceptable (0.001744s, 573.394/s).
+[Sun Jun 23 20:44:39 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:39 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:39 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:44:39 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:44:39 2013] [debug] 406 Not Acceptable (0.000436s, 2293.578/s).
+[Sun Jun 23 20:44:39 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:39 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:39 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:44:39 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:44:39 2013] [debug] 406 Not Acceptable (0.000379s, 2638.522/s).
+[Sun Jun 23 20:44:39 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:39 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:39 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:44:39 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:44:39 2013] [debug] 406 Not Acceptable (0.000424s, 2358.491/s).
+[Sun Jun 23 20:44:41 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:41 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:41 2013] [debug] {
+  'signUpEmail' => 'mojotest154361@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:41 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:44:41',
+  'email' => 'mojotest154361@user.com',
+  'first_name' => 'test script',
+  'id' => '7',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:44:41 2013] [debug] 200 OK (0.004068s, 245.821/s).
+[Sun Jun 23 20:44:41 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:41 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:41 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:41 2013] [debug] 406 Not Acceptable (0.000359s, 2785.515/s).
+[Sun Jun 23 20:44:41 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:41 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:41 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:41 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:44:41 2013] [debug] 406 Not Acceptable (0.000831s, 1203.369/s).
+[Sun Jun 23 20:44:41 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:41 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:41 2013] [debug] {
+  'signUpEmail' => 'mojotest154361@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:41 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:44:41 2013] [debug] 406 Not Acceptable (0.001735s, 576.369/s).
+[Sun Jun 23 20:44:41 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:41 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:41 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:44:41 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:44:41 2013] [debug] 406 Not Acceptable (0.000434s, 2304.147/s).
+[Sun Jun 23 20:44:41 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:41 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:41 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:44:41 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:44:41 2013] [debug] 406 Not Acceptable (0.000385s, 2597.403/s).
+[Sun Jun 23 20:44:41 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:41 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:41 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:44:41 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:44:41 2013] [debug] 406 Not Acceptable (0.000405s, 2469.136/s).
+[Sun Jun 23 20:44:42 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:42 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:42 2013] [debug] {
+  'signUpEmail' => 'mojotest691623@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:42 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:44:42',
+  'email' => 'mojotest691623@user.com',
+  'first_name' => 'test script',
+  'id' => '9',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:44:42 2013] [debug] 200 OK (0.004540s, 220.264/s).
+[Sun Jun 23 20:44:42 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:42 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:42 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:42 2013] [debug] 406 Not Acceptable (0.000348s, 2873.563/s).
+[Sun Jun 23 20:44:42 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:42 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:42 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:42 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:44:42 2013] [debug] 406 Not Acceptable (0.000843s, 1186.240/s).
+[Sun Jun 23 20:44:42 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:42 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:42 2013] [debug] {
+  'signUpEmail' => 'mojotest691623@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:44:42 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:44:42 2013] [debug] 406 Not Acceptable (0.001655s, 604.230/s).
+[Sun Jun 23 20:44:42 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:42 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:42 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:44:42 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:44:42 2013] [debug] 406 Not Acceptable (0.000400s, 2500.000/s).
+[Sun Jun 23 20:44:42 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:42 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:42 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:44:42 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:44:42 2013] [debug] 406 Not Acceptable (0.000408s, 2450.980/s).
+[Sun Jun 23 20:44:42 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:44:42 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:44:42 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:44:42 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:44:42 2013] [debug] 406 Not Acceptable (0.000394s, 2538.071/s).
+[Sun Jun 23 20:48:13 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:48:13 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:48:13 2013] [debug] {
+  'signUpEmail' => 'mojotest404805@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:48:13 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:48:13',
+  'email' => 'mojotest404805@user.com',
+  'first_name' => 'test script',
+  'id' => '3',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:48:13 2013] [debug] 200 OK (0.003619s, 276.319/s).
+[Sun Jun 23 20:48:13 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:48:13 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:48:13 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:48:13 2013] [debug] 406 Not Acceptable (0.000340s, 2941.176/s).
+[Sun Jun 23 20:48:13 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:48:13 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:48:13 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:48:13 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:48:13 2013] [debug] 406 Not Acceptable (0.000824s, 1213.592/s).
+[Sun Jun 23 20:48:14 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:48:14 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:48:14 2013] [debug] {
+  'signUpEmail' => 'mojotest404805@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:48:14 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:48:14 2013] [debug] 406 Not Acceptable (0.001759s, 568.505/s).
+[Sun Jun 23 20:48:14 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:48:14 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:48:14 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:48:14 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:48:14 2013] [debug] 406 Not Acceptable (0.000400s, 2500.000/s).
+[Sun Jun 23 20:48:14 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:48:14 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:48:14 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:48:14 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:48:14 2013] [debug] 406 Not Acceptable (0.000384s, 2604.167/s).
+[Sun Jun 23 20:48:14 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:48:14 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:48:14 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:48:14 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:48:14 2013] [debug] 406 Not Acceptable (0.000411s, 2433.090/s).
+[Sun Jun 23 20:48:14 2013] [debug] DELETE "/user/3".
+[Sun Jun 23 20:48:14 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 20:48:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sun Jun 23 20:48:14 2013] [debug] 200 OK (0.001725s, 579.710/s).
+[Sun Jun 23 20:48:14 2013] [debug] DELETE "/user/0".
+[Sun Jun 23 20:48:14 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 20:48:14 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sun Jun 23 20:48:14 2013] [debug] 404 Not Found (0.000643s, 1555.210/s).
+[Sun Jun 23 20:48:17 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:48:17 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:48:17 2013] [debug] {
+  'signUpEmail' => 'mojotest873537@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:48:17 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:48:17',
+  'email' => 'mojotest873537@user.com',
+  'first_name' => 'test script',
+  'id' => '5',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:48:17 2013] [debug] 200 OK (0.003729s, 268.168/s).
+[Sun Jun 23 20:48:17 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:48:17 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:48:17 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:48:17 2013] [debug] 406 Not Acceptable (0.000352s, 2840.909/s).
+[Sun Jun 23 20:48:17 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:48:17 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:48:17 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:48:17 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:48:17 2013] [debug] 406 Not Acceptable (0.000764s, 1308.901/s).
+[Sun Jun 23 20:48:17 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:48:17 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:48:17 2013] [debug] {
+  'signUpEmail' => 'mojotest873537@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:48:17 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:48:17 2013] [debug] 406 Not Acceptable (0.001748s, 572.082/s).
+[Sun Jun 23 20:48:17 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:48:17 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:48:17 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:48:17 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:48:17 2013] [debug] 406 Not Acceptable (0.000419s, 2386.635/s).
+[Sun Jun 23 20:48:17 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:48:17 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:48:17 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:48:17 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:48:17 2013] [debug] 406 Not Acceptable (0.000384s, 2604.167/s).
+[Sun Jun 23 20:48:17 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:48:17 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:48:17 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:48:17 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:48:17 2013] [debug] 406 Not Acceptable (0.000410s, 2439.024/s).
+[Sun Jun 23 20:48:17 2013] [debug] DELETE "/user/5".
+[Sun Jun 23 20:48:17 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 20:48:17 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sun Jun 23 20:48:17 2013] [debug] 200 OK (0.001551s, 644.745/s).
+[Sun Jun 23 20:48:17 2013] [debug] DELETE "/user/0".
+[Sun Jun 23 20:48:17 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "check".
+[Sun Jun 23 20:48:17 2013] [debug] Routing to controller "AnnoTree::Controller::User" and action "deleteUser".
+[Sun Jun 23 20:48:17 2013] [debug] 404 Not Found (0.000664s, 1506.024/s).
+[Sun Jun 23 20:54:05 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:54:05 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:54:05 2013] [debug] {
+  'signUpEmail' => 'mojotest346878@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:54:05 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:54:05',
+  'email' => 'mojotest346878@user.com',
+  'first_name' => 'test script',
+  'id' => '3',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:54:05 2013] [debug] 200 OK (0.004285s, 233.372/s).
+[Sun Jun 23 20:54:24 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:54:24 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:54:24 2013] [debug] {
+  'signUpEmail' => 'mojotest455948@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:54:24 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:54:24',
+  'email' => 'mojotest455948@user.com',
+  'first_name' => 'test script',
+  'id' => '4',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:54:24 2013] [debug] 200 OK (0.004460s, 224.215/s).
+[Sun Jun 23 20:56:07 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:07 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:07 2013] [debug] {
+  'signUpEmail' => 'mojotest310527@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:07 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:56:07',
+  'email' => 'mojotest310527@user.com',
+  'first_name' => 'test script',
+  'id' => '5',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:56:07 2013] [debug] 200 OK (0.003650s, 273.973/s).
+[Sun Jun 23 20:56:07 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:07 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:07 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:07 2013] [debug] 406 Not Acceptable (0.000379s, 2638.522/s).
+[Sun Jun 23 20:56:07 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:07 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:07 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:07 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:56:07 2013] [debug] 406 Not Acceptable (0.000871s, 1148.106/s).
+[Sun Jun 23 20:56:07 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:07 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:07 2013] [debug] {
+  'signUpEmail' => 'mojotest310527@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:07 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:56:07 2013] [debug] 406 Not Acceptable (0.001856s, 538.793/s).
+[Sun Jun 23 20:56:07 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:07 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:07 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:56:07 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:56:07 2013] [debug] 406 Not Acceptable (0.000436s, 2293.578/s).
+[Sun Jun 23 20:56:07 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:07 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:07 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:56:07 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:56:07 2013] [debug] 406 Not Acceptable (0.000394s, 2538.071/s).
+[Sun Jun 23 20:56:07 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:07 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:07 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:56:07 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:56:07 2013] [debug] 406 Not Acceptable (0.000372s, 2688.172/s).
+[Sun Jun 23 20:56:31 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:31 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:31 2013] [debug] {
+  'signUpEmail' => 'mojotest933070@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:31 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:56:31',
+  'email' => 'mojotest933070@user.com',
+  'first_name' => 'test script',
+  'id' => '7',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:56:31 2013] [debug] 200 OK (0.004272s, 234.082/s).
+[Sun Jun 23 20:56:31 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:31 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:31 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:31 2013] [debug] 406 Not Acceptable (0.000377s, 2652.520/s).
+[Sun Jun 23 20:56:31 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:31 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:31 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:31 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:56:31 2013] [debug] 406 Not Acceptable (0.000873s, 1145.475/s).
+[Sun Jun 23 20:56:31 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:31 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:31 2013] [debug] {
+  'signUpEmail' => 'mojotest933070@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:31 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:56:31 2013] [debug] 406 Not Acceptable (0.001677s, 596.303/s).
+[Sun Jun 23 20:56:31 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:31 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:31 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:56:31 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:56:31 2013] [debug] 406 Not Acceptable (0.000478s, 2092.050/s).
+[Sun Jun 23 20:56:31 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:31 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:31 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:56:31 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:56:31 2013] [debug] 406 Not Acceptable (0.000456s, 2192.982/s).
+[Sun Jun 23 20:56:31 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:31 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:31 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:56:31 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:56:31 2013] [debug] 406 Not Acceptable (0.000457s, 2188.184/s).
+[Sun Jun 23 20:56:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'signUpEmail' => 'mojotest550016@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:56:33',
+  'email' => 'mojotest550016@user.com',
+  'first_name' => 'test script',
+  'id' => '9',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] 200 OK (0.003705s, 269.906/s).
+[Sun Jun 23 20:56:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] 406 Not Acceptable (0.000381s, 2624.672/s).
+[Sun Jun 23 20:56:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] 406 Not Acceptable (0.000868s, 1152.074/s).
+[Sun Jun 23 20:56:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'signUpEmail' => 'mojotest550016@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] 406 Not Acceptable (0.001754s, 570.125/s).
+[Sun Jun 23 20:56:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] 406 Not Acceptable (0.000409s, 2444.988/s).
+[Sun Jun 23 20:56:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] 406 Not Acceptable (0.000389s, 2570.694/s).
+[Sun Jun 23 20:56:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] 406 Not Acceptable (0.000397s, 2518.892/s).
+[Sun Jun 23 20:56:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'signUpEmail' => 'mojotest621754@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:56:33',
+  'email' => 'mojotest621754@user.com',
+  'first_name' => 'test script',
+  'id' => '11',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] 200 OK (0.004413s, 226.603/s).
+[Sun Jun 23 20:56:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] 406 Not Acceptable (0.000386s, 2590.674/s).
+[Sun Jun 23 20:56:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] 406 Not Acceptable (0.000832s, 1201.923/s).
+[Sun Jun 23 20:56:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'signUpEmail' => 'mojotest621754@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] 406 Not Acceptable (0.001490s, 671.141/s).
+[Sun Jun 23 20:56:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] 406 Not Acceptable (0.000502s, 1992.032/s).
+[Sun Jun 23 20:56:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] 406 Not Acceptable (0.000458s, 2183.406/s).
+[Sun Jun 23 20:56:33 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:33 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:56:33 2013] [debug] 406 Not Acceptable (0.000482s, 2074.689/s).
+[Sun Jun 23 20:56:52 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:52 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:52 2013] [debug] {
+  'signUpEmail' => 'mojotest193886@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:52 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:56:52',
+  'email' => 'mojotest193886@user.com',
+  'first_name' => 'test script',
+  'id' => '3',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:56:52 2013] [debug] 200 OK (0.002743s, 364.564/s).
+[Sun Jun 23 20:56:52 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:52 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:52 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:52 2013] [debug] 406 Not Acceptable (0.000367s, 2724.796/s).
+[Sun Jun 23 20:56:52 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:52 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:52 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:52 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:56:52 2013] [debug] 406 Not Acceptable (0.000906s, 1103.753/s).
+[Sun Jun 23 20:56:52 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:52 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:52 2013] [debug] {
+  'signUpEmail' => 'mojotest193886@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:52 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:56:52 2013] [debug] 406 Not Acceptable (0.001812s, 551.876/s).
+[Sun Jun 23 20:56:52 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:52 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:52 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:56:52 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:56:52 2013] [debug] 406 Not Acceptable (0.000416s, 2403.846/s).
+[Sun Jun 23 20:56:52 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:52 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:52 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:56:52 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:56:52 2013] [debug] 406 Not Acceptable (0.000413s, 2421.308/s).
+[Sun Jun 23 20:56:52 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:52 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:52 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:56:52 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:56:52 2013] [debug] 406 Not Acceptable (0.000414s, 2415.459/s).
+[Sun Jun 23 20:56:53 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:53 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:53 2013] [debug] {
+  'signUpEmail' => 'mojotest506309@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:53 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:56:53',
+  'email' => 'mojotest506309@user.com',
+  'first_name' => 'test script',
+  'id' => '5',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:56:53 2013] [debug] 200 OK (0.003910s, 255.754/s).
+[Sun Jun 23 20:56:53 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:53 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:53 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:53 2013] [debug] 406 Not Acceptable (0.000377s, 2652.520/s).
+[Sun Jun 23 20:56:53 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:53 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:53 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:53 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:56:53 2013] [debug] 406 Not Acceptable (0.000925s, 1081.081/s).
+[Sun Jun 23 20:56:53 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:53 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:53 2013] [debug] {
+  'signUpEmail' => 'mojotest506309@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:53 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:56:53 2013] [debug] 406 Not Acceptable (0.001697s, 589.275/s).
+[Sun Jun 23 20:56:53 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:53 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:53 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:56:53 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:56:53 2013] [debug] 406 Not Acceptable (0.000406s, 2463.054/s).
+[Sun Jun 23 20:56:53 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:53 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:53 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:56:53 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:56:53 2013] [debug] 406 Not Acceptable (0.000409s, 2444.988/s).
+[Sun Jun 23 20:56:53 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:53 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:53 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:56:53 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:56:53 2013] [debug] 406 Not Acceptable (0.000394s, 2538.071/s).
+[Sun Jun 23 20:56:54 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:54 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:54 2013] [debug] {
+  'signUpEmail' => 'mojotest288174@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:54 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:56:54',
+  'email' => 'mojotest288174@user.com',
+  'first_name' => 'test script',
+  'id' => '7',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:56:54 2013] [debug] 200 OK (0.003979s, 251.319/s).
+[Sun Jun 23 20:56:54 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:54 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:54 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:54 2013] [debug] 406 Not Acceptable (0.000377s, 2652.520/s).
+[Sun Jun 23 20:56:54 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:54 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:54 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:54 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:56:54 2013] [debug] 406 Not Acceptable (0.000844s, 1184.834/s).
+[Sun Jun 23 20:56:54 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:54 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:54 2013] [debug] {
+  'signUpEmail' => 'mojotest288174@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:56:54 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:56:54 2013] [debug] 406 Not Acceptable (0.001648s, 606.796/s).
+[Sun Jun 23 20:56:54 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:54 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:54 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:56:54 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:56:54 2013] [debug] 406 Not Acceptable (0.000407s, 2457.002/s).
+[Sun Jun 23 20:56:54 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:54 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:54 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:56:54 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:56:54 2013] [debug] 406 Not Acceptable (0.000389s, 2570.694/s).
+[Sun Jun 23 20:56:54 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:56:54 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:56:54 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:56:54 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:56:54 2013] [debug] 406 Not Acceptable (0.000387s, 2583.979/s).
+[Sun Jun 23 20:57:24 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:24 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:24 2013] [debug] {
+  'signUpEmail' => 'mojotest373075@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:24 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:57:24',
+  'email' => 'mojotest373075@user.com',
+  'first_name' => 'test script',
+  'id' => '3',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:57:24 2013] [debug] 200 OK (0.003826s, 261.370/s).
+[Sun Jun 23 20:57:25 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:25 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:25 2013] [debug] 406 Not Acceptable (0.000374s, 2673.797/s).
+[Sun Jun 23 20:57:25 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:25 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:25 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:57:25 2013] [debug] 406 Not Acceptable (0.000881s, 1135.074/s).
+[Sun Jun 23 20:57:25 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:25 2013] [debug] {
+  'signUpEmail' => 'mojotest373075@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:25 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:57:25 2013] [debug] 406 Not Acceptable (0.001884s, 530.786/s).
+[Sun Jun 23 20:57:25 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:25 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:57:25 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:57:25 2013] [debug] 406 Not Acceptable (0.000407s, 2457.002/s).
+[Sun Jun 23 20:57:25 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:25 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:57:25 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:57:25 2013] [debug] 406 Not Acceptable (0.000360s, 2777.778/s).
+[Sun Jun 23 20:57:25 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:25 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:25 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:57:25 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:57:25 2013] [debug] 406 Not Acceptable (0.000359s, 2785.515/s).
+[Sun Jun 23 20:57:26 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:26 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:26 2013] [debug] {
+  'signUpEmail' => 'mojotest879777@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:26 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:57:26',
+  'email' => 'mojotest879777@user.com',
+  'first_name' => 'test script',
+  'id' => '5',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:57:26 2013] [debug] 200 OK (0.004509s, 221.779/s).
+[Sun Jun 23 20:57:26 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:26 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:26 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:26 2013] [debug] 406 Not Acceptable (0.000378s, 2645.503/s).
+[Sun Jun 23 20:57:26 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:26 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:26 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:26 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:57:26 2013] [debug] 406 Not Acceptable (0.000859s, 1164.144/s).
+[Sun Jun 23 20:57:26 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:26 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:26 2013] [debug] {
+  'signUpEmail' => 'mojotest879777@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:26 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:57:26 2013] [debug] 406 Not Acceptable (0.001686s, 593.120/s).
+[Sun Jun 23 20:57:26 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:26 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:26 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:57:26 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:57:26 2013] [debug] 406 Not Acceptable (0.000430s, 2325.581/s).
+[Sun Jun 23 20:57:26 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:26 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:26 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:57:26 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:57:26 2013] [debug] 406 Not Acceptable (0.000362s, 2762.431/s).
+[Sun Jun 23 20:57:26 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:26 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:26 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:57:26 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:57:26 2013] [debug] 406 Not Acceptable (0.000402s, 2487.562/s).
+[Sun Jun 23 20:57:32 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:32 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:32 2013] [debug] {
+  'signUpEmail' => 'mojotest167726@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:32 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:57:32',
+  'email' => 'mojotest167726@user.com',
+  'first_name' => 'test script',
+  'id' => '7',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:57:32 2013] [debug] 200 OK (0.003741s, 267.308/s).
+[Sun Jun 23 20:57:32 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:32 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:32 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:32 2013] [debug] 406 Not Acceptable (0.000372s, 2688.172/s).
+[Sun Jun 23 20:57:32 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:32 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:32 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:32 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:57:32 2013] [debug] 406 Not Acceptable (0.000862s, 1160.093/s).
+[Sun Jun 23 20:57:32 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:32 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:32 2013] [debug] {
+  'signUpEmail' => 'mojotest167726@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:32 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:57:32 2013] [debug] 406 Not Acceptable (0.001701s, 587.889/s).
+[Sun Jun 23 20:57:32 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:32 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:32 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:57:32 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:57:32 2013] [debug] 406 Not Acceptable (0.000417s, 2398.082/s).
+[Sun Jun 23 20:57:32 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:32 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:32 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:57:32 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:57:32 2013] [debug] 406 Not Acceptable (0.000380s, 2631.579/s).
+[Sun Jun 23 20:57:32 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:32 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:32 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:57:32 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:57:32 2013] [debug] 406 Not Acceptable (0.000362s, 2762.431/s).
+[Sun Jun 23 20:57:43 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:43 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:43 2013] [debug] {
+  'signUpEmail' => 'mojotest15558@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:43 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:57:43',
+  'email' => 'mojotest15558@user.com',
+  'first_name' => 'test script',
+  'id' => '3',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:57:43 2013] [debug] 200 OK (0.003780s, 264.550/s).
+[Sun Jun 23 20:57:43 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:43 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:43 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:43 2013] [debug] 406 Not Acceptable (0.000419s, 2386.635/s).
+[Sun Jun 23 20:57:43 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:43 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:43 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:43 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:57:43 2013] [debug] 406 Not Acceptable (0.001057s, 946.074/s).
+[Sun Jun 23 20:57:43 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:43 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:43 2013] [debug] {
+  'signUpEmail' => 'mojotest15558@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:43 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:57:43 2013] [debug] 406 Not Acceptable (0.001860s, 537.634/s).
+[Sun Jun 23 20:57:43 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:43 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:43 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:57:43 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:57:43 2013] [debug] 406 Not Acceptable (0.000569s, 1757.469/s).
+[Sun Jun 23 20:57:43 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:43 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:43 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:57:43 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:57:43 2013] [debug] 406 Not Acceptable (0.000518s, 1930.502/s).
+[Sun Jun 23 20:57:43 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:43 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:43 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:57:43 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:57:43 2013] [debug] 406 Not Acceptable (0.000473s, 2114.165/s).
+[Sun Jun 23 20:57:48 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:48 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:48 2013] [debug] {
+  'signUpEmail' => 'mojotest495254@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:48 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 20:57:48',
+  'email' => 'mojotest495254@user.com',
+  'first_name' => 'test script',
+  'id' => '5',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 20:57:48 2013] [debug] 200 OK (0.003774s, 264.971/s).
+[Sun Jun 23 20:57:48 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:48 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:48 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:48 2013] [debug] 406 Not Acceptable (0.000376s, 2659.574/s).
+[Sun Jun 23 20:57:48 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:48 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:48 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:48 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 20:57:48 2013] [debug] 406 Not Acceptable (0.000893s, 1119.821/s).
+[Sun Jun 23 20:57:48 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:48 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:48 2013] [debug] {
+  'signUpEmail' => 'mojotest495254@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 20:57:48 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 20:57:48 2013] [debug] 406 Not Acceptable (0.001637s, 610.874/s).
+[Sun Jun 23 20:57:48 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:48 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:48 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 20:57:48 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 20:57:48 2013] [debug] 406 Not Acceptable (0.000420s, 2380.952/s).
+[Sun Jun 23 20:57:48 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:48 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:48 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 20:57:48 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 20:57:48 2013] [debug] 406 Not Acceptable (0.000394s, 2538.071/s).
+[Sun Jun 23 20:57:48 2013] [debug] POST "/user/signup".
+[Sun Jun 23 20:57:48 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 20:57:48 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 20:57:48 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 20:57:48 2013] [debug] 406 Not Acceptable (0.000373s, 2680.965/s).
+[Sun Jun 23 21:03:56 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:03:56 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:03:56 2013] [debug] {
+  'signUpEmail' => 'mojotest631527@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:03:56 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 21:03:56',
+  'email' => 'mojotest631527@user.com',
+  'first_name' => 'test script',
+  'id' => '7',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 21:03:56 2013] [debug] 200 OK (0.005954s, 167.954/s).
+[Sun Jun 23 21:03:56 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:03:56 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:03:56 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:03:56 2013] [debug] 406 Not Acceptable (0.000393s, 2544.529/s).
+[Sun Jun 23 21:03:56 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:03:56 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:03:56 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:03:56 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 21:03:56 2013] [debug] 406 Not Acceptable (0.000885s, 1129.944/s).
+[Sun Jun 23 21:03:56 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:03:56 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:03:56 2013] [debug] {
+  'signUpEmail' => 'mojotest631527@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:03:56 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 21:03:56 2013] [debug] 406 Not Acceptable (0.001758s, 568.828/s).
+[Sun Jun 23 21:03:56 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:03:56 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:03:56 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 21:03:56 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 21:03:56 2013] [debug] 406 Not Acceptable (0.000392s, 2551.020/s).
+[Sun Jun 23 21:03:56 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:03:56 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:03:56 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 21:03:56 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 21:03:56 2013] [debug] 406 Not Acceptable (0.000392s, 2551.020/s).
+[Sun Jun 23 21:03:56 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:03:56 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:03:56 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 21:03:56 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 21:03:56 2013] [debug] 406 Not Acceptable (0.000359s, 2785.515/s).
+[Sun Jun 23 21:05:00 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:05:00 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:05:00 2013] [debug] {
+  'signUpEmail' => 'mojotest74578@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:05:00 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 21:05:00',
+  'email' => 'mojotest74578@user.com',
+  'first_name' => 'test script',
+  'id' => '9',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 21:05:00 2013] [debug] 200 OK (0.005232s, 191.131/s).
+[Sun Jun 23 21:05:00 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:05:00 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:05:00 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:05:00 2013] [debug] 406 Not Acceptable (0.000388s, 2577.320/s).
+[Sun Jun 23 21:05:00 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:05:00 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:05:00 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:05:00 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 21:05:00 2013] [debug] 406 Not Acceptable (0.000921s, 1085.776/s).
+[Sun Jun 23 21:05:00 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:05:00 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:05:00 2013] [debug] {
+  'signUpEmail' => 'mojotest74578@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:05:00 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 21:05:00 2013] [debug] 406 Not Acceptable (0.001735s, 576.369/s).
+[Sun Jun 23 21:05:00 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:05:00 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:05:00 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 21:05:00 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 21:05:00 2013] [debug] 406 Not Acceptable (0.000391s, 2557.545/s).
+[Sun Jun 23 21:05:00 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:05:00 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:05:00 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 21:05:00 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 21:05:00 2013] [debug] 406 Not Acceptable (0.000392s, 2551.020/s).
+[Sun Jun 23 21:05:00 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:05:00 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:05:00 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 21:05:00 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 21:05:00 2013] [debug] 406 Not Acceptable (0.000432s, 2314.815/s).
+[Sun Jun 23 21:06:02 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:06:02 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:06:02 2013] [debug] {
+  'signUpEmail' => 'mojotest572057@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:06:02 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 21:06:02',
+  'email' => 'mojotest572057@user.com',
+  'first_name' => 'test script',
+  'id' => '11',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 21:06:02 2013] [debug] 200 OK (0.005787s, 172.801/s).
+[Sun Jun 23 21:06:02 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:06:02 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:06:02 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:06:02 2013] [debug] 406 Not Acceptable (0.000405s, 2469.136/s).
+[Sun Jun 23 21:06:02 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:06:02 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:06:02 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:06:02 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 21:06:02 2013] [debug] 406 Not Acceptable (0.000888s, 1126.126/s).
+[Sun Jun 23 21:06:02 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:06:02 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:06:02 2013] [debug] {
+  'signUpEmail' => 'mojotest572057@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:06:02 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 21:06:02 2013] [debug] 406 Not Acceptable (0.001632s, 612.745/s).
+[Sun Jun 23 21:06:02 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:06:02 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:06:02 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 21:06:02 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 21:06:02 2013] [debug] 406 Not Acceptable (0.000437s, 2288.330/s).
+[Sun Jun 23 21:06:02 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:06:02 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:06:02 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 21:06:02 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 21:06:02 2013] [debug] 406 Not Acceptable (0.000378s, 2645.503/s).
+[Sun Jun 23 21:06:02 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:06:02 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:06:02 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 21:06:02 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 21:06:02 2013] [debug] 406 Not Acceptable (0.000379s, 2638.522/s).
+[Sun Jun 23 21:23:47 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:23:47 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:23:47 2013] [debug] {
+  'signUpEmail' => 'mojotest89246@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:23:47 2013] [debug] {
+  'active' => '1',
+  'created_at' => '2013-06-23 21:23:47',
+  'email' => 'mojotest89246@user.com',
+  'first_name' => 'test script',
+  'id' => '13',
+  'lang' => 'ENG',
+  'last_name' => 'user',
+  'profile_image_path' => 'NULL',
+  'time_zone' => 'EST'
+}
+
+[Sun Jun 23 21:23:47 2013] [debug] 200 OK (0.005128s, 195.008/s).
+[Sun Jun 23 21:23:47 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:23:47 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:23:47 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:23:47 2013] [debug] 406 Not Acceptable (0.000388s, 2577.320/s).
+[Sun Jun 23 21:23:47 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:23:47 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:23:47 2013] [debug] {
+  'signUpEmail' => 'mojotest@u.c',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:23:47 2013] [debug] {
+  'error' => 1,
+  'txt' => 'Invalid email submitted'
+}
+
+[Sun Jun 23 21:23:47 2013] [debug] 406 Not Acceptable (0.000867s, 1153.403/s).
+[Sun Jun 23 21:23:47 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:23:47 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:23:47 2013] [debug] {
+  'signUpEmail' => 'mojotest89246@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester1'
+}
+
+[Sun Jun 23 21:23:47 2013] [debug] {
+  'error' => 2,
+  'txt' => 'Email already exists'
+}
+
+[Sun Jun 23 21:23:47 2013] [debug] 406 Not Acceptable (0.001700s, 588.235/s).
+[Sun Jun 23 21:23:47 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:23:47 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:23:47 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'test'
+}
+
+[Sun Jun 23 21:23:47 2013] [debug] {
+  'error' => '3',
+  'txt' => 'Password must be at least six characters'
+}
+
+[Sun Jun 23 21:23:47 2013] [debug] 406 Not Acceptable (0.000432s, 2314.815/s).
+[Sun Jun 23 21:23:47 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:23:47 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:23:47 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester'
+}
+
+[Sun Jun 23 21:23:47 2013] [debug] {
+  'error' => '4',
+  'txt' => 'Password must contain at least one number'
+}
+
+[Sun Jun 23 21:23:47 2013] [debug] 406 Not Acceptable (0.000393s, 2544.529/s).
+[Sun Jun 23 21:23:47 2013] [debug] POST "/user/signup".
+[Sun Jun 23 21:23:47 2013] [debug] Routing to controller "AnnoTree::Controller::Auth" and action "signup".
+[Sun Jun 23 21:23:47 2013] [debug] {
+  'signUpEmail' => 'mojotest@user.com',
+  'signUpName' => 'test script user',
+  'signUpPassword' => 'tester;6'
+}
+
+[Sun Jun 23 21:23:47 2013] [debug] {
+  'error' => 5,
+  'txt' => 'Valid password characters are alphanumeric or !@#$%^&*()'
+}
+
+[Sun Jun 23 21:23:47 2013] [debug] 406 Not Acceptable (0.000424s, 2358.491/s).

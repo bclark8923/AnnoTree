@@ -4,11 +4,28 @@
 
 	app.controller(
 		"layouts.StandardController",
-		function( $scope, requestContext, _ ) {
+		function( $scope, $cookies, $location, authenticateService, requestContext, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
 
+			$scope.logout = function() {
+
+				var promise = authenticateService.logout();
+
+				promise.then(
+					function( response ) {
+
+						$location.path('authenticate/login');
+
+					},
+					function( response ) {
+
+						$scope.openModalWindow( "error", "Sorry, the logout service is currently down." );
+
+					}
+				);
+			}
 
 			// ...
 
@@ -34,6 +51,8 @@
 
 			// Get the current year for copyright output.
 			$scope.copyrightYear = ( new Date() ).getFullYear();
+
+            $scope.user = $cookies['name'];
 
 
 			// --- Bind To Scope Events. ------------------------ //

@@ -4,7 +4,7 @@
 
 	app.controller(
 		"forest.ForestController",
-		function( $scope, requestContext, forestService, _ ) {
+		function( $scope, $cookies, requestContext, forestService, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
@@ -16,7 +16,6 @@
 				//$scope.categories = _.sortOnProperty( categories, "name", "asc" );
                    
                    $scope.userTrees = _.sortOnProperty( userTrees.data, "name", "asc");
-
 			}
 
 

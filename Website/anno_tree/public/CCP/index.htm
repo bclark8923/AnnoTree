@@ -29,9 +29,9 @@
 		-->
 		<div ng-switch-when="loading" class="l-loading">
 			
-			<p>
-				Loading Application
-			</p>	
+			<div style="text-align:center;">
+    			<img src="img/AnnoTreeLoading.png" style="width:200px;margin-top: 200px;"/>
+			</div>	
 
 		</div>
 
@@ -45,11 +45,18 @@
 
 
 	<!-- Load vendor scripts. -->
-	<script type="text/javascript" src="assets/vendor/jquery/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="assets/vendor/jquery/jquery-1.9.1.min.js"><\/script>')</script>
+	<script type="text/javascript" src="assets/vendor/modernizr/modernizr-2.6.2.min.js"></script>
+
 	<script type="text/javascript" src="assets/vendor/angularjs/angular.min.js"></script>
 	<script type="text/javascript" src="assets/vendor/angularjs/angular-cookies.js"></script>
+
 	<script type="text/javascript" src="assets/vendor/lodash/lodash.min.js"></script>
-	<script type="text/javascript" src="assets/vendor/sliding-pane.js"></script>
+	<script type="text/javascript" src="assets/vendor/jquery/jquery-ui-1.10.3.custom.min.js"></script>
+  	<script type="text/javascript" src="assets/vendor/gumby/gumby.min.js"></script>
+
+	<script type="text/javascript" src="assets/vendor/sliding-pane.js"></script> 
 
 	<!-- Load AngularJS application module. -->
 	<script type="text/javascript" src="assets/app/main.js"></script>

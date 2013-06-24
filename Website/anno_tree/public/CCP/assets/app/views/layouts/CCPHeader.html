@@ -8,20 +8,22 @@
                 <p class="userSettingsName">Brian Clark</p>
             </div>
             <div>
-                <p class="btn info small settingsButton"><a href="#" class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p>
-                <p class="btn success small logoutButton"><a href="loginScreen.html">Logout</a></p>
+                <!-- <p class="btn info small settingsButton"><a href="#" class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p> -->
+                <p class="btn success small logoutButton"><a href="" ng-click="logout()">Logout</a></p>
             </div>
         </div>
 
         <!-- App -->
-        <div id="wrapper" class="switch" gumby-trigger="|.userSettings">
+        <div id="wrapper" class="switch" gumby-trigger=".userSettings">
             <div class="navbar pretty" id="nav1">
                 <div>
                     <h1 class="logo">
                         <a href="http://ccp.annotree.com" class="logoLink"><img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina /></a>
                     </h1>
                     <div class="userLinkDiv">
-                        <a href="" class="userLink toggle responsiveHide" gumby-trigger=".userSettings"><img id="userIcon" src="img/user.png" gumby-retina /></a>
+                        <a href class="userLink toggle responsiveHide" gumby-trigger=".userSettings">
+                            <img id="userIcon" src="img/user.png" gumby-retina />
+                        </a>
                         <span class="logoutArrow userSettings"></span>
                         <div class="btn pretty success responsiveShow" style="width: 50px;
                             height: 40px;

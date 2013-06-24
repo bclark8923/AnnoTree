@@ -13,6 +13,10 @@
 				return $http.post(apiRoot.getRoot() + '/user/login', {loginEmail: email, loginPassword: password});
 			}
 
+			function logout() {
+				return $http.post(apiRoot.getRoot() + '/user/logout');
+			}
+
 			function requestPassword() {
 				return $http.get(apiRoot.getRoot() + '/2/tree');
 			}
@@ -36,6 +40,7 @@
 			return({
 				signup: signup,
 				login: login,
+				logout: logout,
 				requestPassword: requestPassword,
 				resetPassword: resetPassword
 			});

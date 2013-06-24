@@ -16,7 +16,7 @@
 				var date = new Date().getTime();
 				$cookies.sessionid = response.data.id;
 				$cookies.username = response.data.first_name + " " + response.data.last_name;
-				$cookies.userid = response.data.id;
+				//$cookies.userid = response.data.id;
 				$cookies.avatar = response.data.profile_image_path;
 
 				//redirect to app

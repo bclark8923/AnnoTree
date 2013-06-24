@@ -13,11 +13,8 @@
 			// I apply the remote data to the local view model.
 			function completeSignup ( response ) {
 				//set session information
-				var date = new Date().getTime();
-				$cookies.sessionid = response.data.id;
-				$cookies.username = response.data.first_name + " " + response.data.last_name;
-				$cookies.userid = response.data.id;
-				$cookies.avatar = response.data.profile_image_path;
+				$cookies.user = {name: response.data.first_name + " " + response.data.last_name,
+								 avatar: response.data.profile_image_path};
 
 				//redirect to app
 				$location.path("app");

@@ -23,9 +23,9 @@ insert into `annotree`.`user`
 values 
   (password, first_name, last_name, email, lang, time_zone, profile_image_path);
 set @id = LAST_INSERT_ID();
-select 'id', 'password', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'active' 
+select 'id', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'active' 
 union
-select * from user where id = @id;
+select id, first_name, last_name, email, created_at, lang, time_zone, profile_image_path, active from user where id = @id;
 ELSE
 select '1';
 END IF;

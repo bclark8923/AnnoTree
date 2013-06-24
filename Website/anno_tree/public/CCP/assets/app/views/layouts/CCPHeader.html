@@ -18,13 +18,18 @@
 
         <!-- Static User Settigs Box -->
         <div id="userSettings" class="userSettingsBox userSettings">
-            <p class="userSettingsClose"><a href="#" class="switch" gumby-trigger="|.userSettings"><i class="icon-remove-sign"></i></a></p>
+            <!-- <p class="userSettingsClose"><a href="#" class="switch" gumby-trigger="|.userSettings"><i class="icon-remove-sign"></i></a></p> -->
             <div>
-                <p class="userSettingsName">{{user.name}}</p>
+                <img id="userIcon" src="{{user.avatar}}" gumby-retina="" style="
+                    float: left;
+                    height: 60px;
+                    margin-left: 10px;
+                ">                
+                <p class="userSettingsName" style="margin-left:80px;">{{user.name}}</p>
             </div>
-            <div>
+            <div style="position: absolute; bottom: 0; height: 40px; width: 248px; background-color: #eee">
                 <!-- <p class="btn info small settingsButton"><a class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p> -->
-                <p class="btn success small logoutButton"><a href ng-click="logout()">Logout</a></p>
+                <p style="margin-top:10px;" class="btn success small logoutButton"><a href="" ng-click="logout()">Logout</a></p>
             </div>
         </div>
 

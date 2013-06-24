@@ -130,12 +130,12 @@ a:hover{
 .userSettingsBox {
   box-shadow: 1px 1px 10px #bbb;
   background-color: white;
-  width: 200px;
+  width: 250px;
   float: right;
   position: absolute;
   top: 63px;
   right: 15px;
-  height: 70px;
+  height: 120px;
   z-index: 999;
   border: 1px solid #bbb;
   display: none;

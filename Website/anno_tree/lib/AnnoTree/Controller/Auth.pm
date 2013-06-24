@@ -11,7 +11,7 @@ sub signup {
     my $self = shift;
     
     my $jsonReq = $self->req->json;
-    $self->debug($self->dumper($jsonReq));
+    #$self->debug($self->dumper($jsonReq));
     
     # returns a 406 if the right parameters are not provided
     $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{signUpName} && exists $jsonReq->{signUpEmail} && exists $jsonReq->{signUpPassword});
@@ -22,7 +22,7 @@ sub signup {
     $params->{'password'} = $jsonReq->{'signUpPassword'};
     
     my $json = AnnoTree::Model::User->signup($params);
-    $self->debug($self->dumper($json));
+    #$self->debug($self->dumper($json));
     # something was wrong with one of the passed in parameters
     # 1: email sucks
     # 2: email already exists
@@ -32,7 +32,7 @@ sub signup {
     $self->render(json => $json, status => 406) and return if (exists $json->{error});
     
     # this should just authenticate the user without returning a 401 since the user was created successfully above
-    $self->render(json => {error => '0', txt => 'Invalid credentials provided'}, status => 401) and return unless $self->authenticate($params->{email}, $params->{password});
+    $self->render(json => {error => '1', txt => 'Invalid credentials provided'}, status => 401) and return unless $self->authenticate($params->{email}, $params->{password});
 
     # check to see if user already belongs to a forest
     # if user does not then create sample
@@ -48,7 +48,7 @@ sub login {
     #$self->debug($self->dumper($jsonReq));
     $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{loginEmail} && exists $jsonReq->{loginPassword});
     
-    $self->render(json => {error => '0', txt => 'Invalid credentials provided'}, status => 401) and return unless $self->authenticate($jsonReq->{loginEmail}, $jsonReq->{loginPassword});
+    $self->render(json => {error => '1', txt => 'Invalid credentials provided'}, status => 401) and return unless $self->authenticate($jsonReq->{loginEmail}, $jsonReq->{loginPassword});
     #$self->debug('We have ourselves a valid user');
     
     my $json = AnnoTree::Model::User->getUserInfo($jsonReq->{loginEmail});
@@ -56,7 +56,7 @@ sub login {
     my $status = 200;
     if (exists $json->{error}) {
         my $error = $json->{error};
-        if ($error == 0) { # user does not exist (this should never occur if the user has been authenticated above)
+        if ($error == 1) { # user does not exist (this should never occur if the user has been authenticated above)
             $status = 406;
         }
     }
@@ -78,7 +78,7 @@ sub logoutUser {
     
     #$self->debug($self->dumper($self->current_user->{userid}));
     $self->logout();
-    $self->render(json => {status => '1', txt => 'Logged out successfully'}, status => 200);
+    $self->render(json => {status => '0', txt => 'Logged out successfully'});
 }
 
 return 1;

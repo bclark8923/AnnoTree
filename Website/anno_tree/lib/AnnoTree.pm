@@ -83,14 +83,14 @@ sub startup {
     my $authr = $r->bridge->to('controller-auth#check');
 
     # ===== USERS =====
-    $r->post('/user/signup')                        ->to('controller-auth#signup'); # working - need to create trees, etc. when not a referral - referrals need to be added to forest/tree?, also need to figure out how to activate users
-    $r->post('/user/login')                         ->to('controller-auth#login'); # working - should it return the list of forests the user has access to?
-    $authr->post('/user/logout')                        ->to('controller-auth#logoutUser');
-    $authr->delete('/user/:userid' => [userid => qr/\d+/])    ->to('controller-user#deleteUser'); # working
+    $r->post('/user/signup')                                ->to('controller-auth#signup'); # working - need to create trees, etc. when not a referral - referrals need to be added to forest/tree?, also need to figure out how to activate users
+    $r->post('/user/login')                                 ->to('controller-auth#login'); # working - should it return the list of forests the user has access to?
+    $authr->post('/user/logout')                            ->to('controller-auth#logoutUser');
+    $authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser'); # working
 
     # ===== FORESTS =====
-    $r->post('/:userid/forest' => [userid => qr/\d+/])->to('controller-forest#create');
-    $authr->get('/:userid/forest' => [userid => qr/\d+/])->to('controller-forest#forestsForUser'); # done
+    $authr->post('/:userid/forest')->to('controller-forest#create');
+    $authr->get('/forest')->to('controller-forest#forestsForUser'); # done
 
     # ===== TREES =====
     $r->get('/:forestid/tree' => [forestid => qr/\d+/])->to('controller-tree#list');

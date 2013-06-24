@@ -33,7 +33,7 @@ sub getUserInfo {
     my $cols = $result->fetch; # get the columns (keys for json)
     
     my $userInfo = $result->fetch; # get the newly created user's info
-    return {error => '0', txt => 'User does not exist'} unless ($userInfo->[0]); # user does not exist
+    return {error => '1', txt => 'User does not exist'} unless ($userInfo->[0]); # user does not exist
     
     for(my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $userInfo->[$i];

@@ -60,7 +60,7 @@ $tx = $uaInvalidUser->post('http://localhost:3000/user/signup' => json => {
 $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
-ok(1 == $jsonBody->{error},                     $testname . 'Response JSON result is 1');
+ok(1 == $jsonBody->{error},                     $testname . 'Response JSON error is 1');
 ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END INVALID EMAIL TEST #########
 
@@ -75,7 +75,7 @@ $tx = $uaInvalidUser->post('http://localhost:3000/user/signup' => json => {
 $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
-ok(2 == $jsonBody->{error},                     $testname . 'Response JSON result is 2');
+ok(2 == $jsonBody->{error},                     $testname . 'Response JSON error is 2');
 ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END EXISTING EMAIL TEST #########
 
@@ -90,7 +90,7 @@ $tx = $uaInvalidUser->post('http://localhost:3000/user/signup' => json => {
 $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
-ok(3 == $jsonBody->{error},                     $testname . 'Response JSON result is 3');
+ok(3 == $jsonBody->{error},                     $testname . 'Response JSON error is 3');
 ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END SHORT PASSWORD LENGTH TEST #########
 
@@ -105,7 +105,7 @@ $tx = $uaInvalidUser->post('http://localhost:3000/user/signup' => json => {
 $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
-ok(4 == $jsonBody->{error},                     $testname . 'Response JSON result is 4');
+ok(4 == $jsonBody->{error},                     $testname . 'Response JSON error is 4');
 ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END MISSING NUMBER IN PASSWORD TEST #########
 
@@ -120,7 +120,7 @@ $tx = $uaInvalidUser->post('http://localhost:3000/user/signup' => json => {
 $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
-ok(5 == $jsonBody->{error},                     $testname . 'Response JSON result is 5');
+ok(5 == $jsonBody->{error},                     $testname . 'Response JSON error is 5');
 ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END INVALID CHARACTER IN PASSWORD TEST #########
 

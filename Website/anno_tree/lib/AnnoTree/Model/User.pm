@@ -50,7 +50,7 @@ sub signup {
     
     return {error => '3', txt => 'Password must be at least six characters'} if (length($pass) < 6); # password must be at least 6 characters
     return {error => '4', txt => 'Password must contain at least one number'} if ($pass !~ m/\d/);
-    return {error => 5, txt => 'Valid password characters are alphanumeric or !@#$%^&*()'} if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
+    return {error => '5', txt => 'Valid password characters are alphanumeric or !@#$%^&*()'} if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
     $pass = createSaltedHash($pass);
     
     my $result = AnnoTree::Model::MySQL->db->execute("call create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage)", 
@@ -68,10 +68,11 @@ sub signup {
     my $json = {};
     my $cols = $result->fetch; # get the columns (keys for json)
     if (looks_like_number($cols->[0])) { # if there is an error return
-        if ($cols->[0] == 1) {
-            return {error => $cols->[0], txt => 'Invalid email submitted'};
-        } elsif ($cols->[0] == 2) {
-            return {error => $cols->[0], txt => 'Email already exists'};
+        my $error = $cols->[0];
+        if ($error == 1) {
+            return {error => $error, txt => 'Invalid email submitted'};
+        } elsif ($error == 2) {
+            return {error => $error, txt => 'Email already exists'};
         } 
     }
     my $userInfo = $result->fetch; # get the newly created user's info

@@ -22,7 +22,11 @@ insert into `annotree`.`user_forest`
   (user_id, forest_id)
 values
   (user, @id);
-select 'id', 'name', 'description' union select @id, n, d;
+select 'id', 'name', 'description', 'created_at' 
+union 
+select id, name, description, created_at
+from forest
+where id = @id;
 ELSE
 SELECT '1';
 END IF;

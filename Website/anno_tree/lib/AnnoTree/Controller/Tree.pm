@@ -1,88 +1,34 @@
 package AnnoTree::Controller::Tree;
 
 use Mojo::Base 'Mojolicious::Controller';
+use AnnoTree::Model::Tree;
 
-# placeholder data until I build the DB
-my @trees = (
-    [
-        {
-            id              => "0",
-            name            => "AnnoTree",
-            created         => "2013-05-20 23:34:43",
-            icon            => "img/tree01.png",
-            description     => "A platform for design, bug testing, and collaboration for mobile applications"
-        },
-        {
-            id              => "1",
-            name            => "Radia",
-            created         => "2012-07-23 14:13:12",
-            icon            => "img/tree01.png",
-            description     => "A tilt based iOS arcade game"
-        }
-    ],
-    [
-        {
-            id              => "0",
-            name            => "Rustled",
-            created         => "2010-02-25 01:00:01",
-            icon            => "img/tree01.png",
-            description     => "An application for those who have had their jimmies rustled"
-        },
-        {
-            id              => "1",
-            name            => "My",
-            created         => "2010-03-03 16:16:16",
-            icon            => "img/tree01.png",
-            description     => "It's mine I say.  MINE!"
-        },
-        {
-            id              => "2",
-            name            => "Jimmies",
-            created         => "2011-11-11 11:11:11",
-            icon            => "img/tree01.png",
-            description     => "Jimmy's personal project"
-        }
-    ],
-    [
-        {
-            id              => "0",
-            name            => "MattOS",
-            created         => "2013-05-21 12:48:08",
-            icon            => "img/tree01.png",
-            description     => "An OS built completely in JS because JS is just so cool and does everything"
-        },
-        {
-            id              => "1",
-            name            => "HaHaHaHa",
-            created         => "2007-06-29 00:00:01",
-            icon            => "img/tree01.png",
-            description     => "The ladies\' default response to Brian"
-        },
-        {
-            id              => "2",
-            name            => "Marketing",
-            created         => "2010-08-17 08:00:00",
-            icon            => "img/tree01.png",
-            description     => "What I want no part of.  I just build cool shit"
-        },
-        {
-            id              => "3",
-            name            => "Stock Market Up",
-            created         => "2013-01-01 00:00:00",
-            icon            => "img/tree01.png",
-            description     => "Seriously how does the market only continue to go up?  I don't get it"
-        }
-    ]
-);
-
-# list all of the available trees for a forest
-sub list {
+# creates a new tree
+sub create {
     my $self = shift;
-    my $forestid = $self->param('forestid');
-    #my $numTrees = scalar @{$trees[$forestid]};
-    #my $treeRef = $trees[$forestid];
     
-    $self->render(json => @trees[$forestid]);
+    my $jsonReq = $self->req->json;
+    $self->debug($self->dumper($jsonReq));
+    $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{name} && exists $jsonReq->{description}); 
+    
+    my $params = {};
+    $params->{forestid} = $self->param('forestid');
+    $params->{userid} = $self->current_user->{userid};
+    $params->{name} = $jsonReq->{name};
+    $params->{desc} = $jsonReq->{description};
+    $self->render(json => {error => '4', txt => 'No name for the tree provided - include at least one alphanumeric character'}, status => 406) and return unless ($params->{name} =~ m/[A-Za-z0-9]/);
+
+    my $json = AnnoTree::Model::Tree->create($params);
+    my $status = 200;
+    if (exists $json->{error}) {
+        my $error = $json->{error};
+        if ($error == 1 || $error == 2) { # user does not exist or was deleted, forest does not exist
+           $status = 406;
+        } elsif ($error == 3) {
+            $status = 403;
+        }
+    }
+    $self->render(json => $json, status => $status); 
 }
 
 return 1;

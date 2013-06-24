@@ -64,7 +64,7 @@ $jsonBody = $json->decode($tx->res->body);
 
 ok(200 == $tx->res->code,                       $testname . 'Response Code is 200');
 ok(0 == $jsonBody->{status},                    $testname . 'Response JSON status is 0');
-ok(exists $jsonBody->{txt},                     $testname . 'Response JSON logout txt exists');
+ok(exists $jsonBody->{txt},                     $testname . 'Response JSON logout text exists');
 ######### START VALID USER LOGOUT TEST #########
 
 ######### START MISSING REQUEST JSON PARAMETERS TEST #########
@@ -78,7 +78,7 @@ $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
 ok(0 == $jsonBody->{error},                     $testname . 'Response JSON error is 0');
-ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error txt exists');
+ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END MISSING REQUEST JSON PARAMETERS TEST #########
 
 ######### START INVALID PASSWORD TEST #########
@@ -92,7 +92,7 @@ $jsonBody = $json->decode($tx->res->body);
 
 ok(401 == $tx->res->code,                       $testname . 'Response Code is 401');
 ok(1 == $jsonBody->{error},                     $testname . 'Response JSON result is 1');
-ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error txt exists');
+ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END INVALID PASSWORD TEST #########
 
 ######### START INVALID EMAIL/USER TEST #########
@@ -106,7 +106,7 @@ $jsonBody = $json->decode($tx->res->body);
 
 ok(401 == $tx->res->code,                       $testname . 'Response Code is 401');
 ok(1 == $jsonBody->{error},                     $testname . 'Response JSON result is 1');
-ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error txt exists');
+ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END INVALID EMAIL/USER TEST #########
 
 done_testing();

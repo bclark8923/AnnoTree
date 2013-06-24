@@ -75,9 +75,7 @@ sub startup {
     # Documentation browser under "/perldoc"
     #$self->plugin('PODRenderer');
     
-    
-
-    # Router
+    # Routes
     my $r = $self->routes;
     # Bridge for services that required an authenticated user
     my $authr = $r->bridge->to('controller-auth#check');
@@ -89,11 +87,11 @@ sub startup {
     $authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser'); # working
 
     # ===== FORESTS =====
-    $authr->post('/:userid/forest')->to('controller-forest#create');
+    $authr->post('/forest')->to('controller-forest#create');
     $authr->get('/forest')->to('controller-forest#forestsForUser'); # done
 
     # ===== TREES =====
-    $r->get('/:forestid/tree' => [forestid => qr/\d+/])->to('controller-tree#list');
+    $authr->post('/:forestid/tree' => [forestid => qr/\d+/])->to('controller-tree#create');
 
     # ===== BRANCHES =====
     $r->get('/:forestid/:treeid/branch' => [forestid => qr/\d+/, treeid => qr/\d+/])->to('branch#list');

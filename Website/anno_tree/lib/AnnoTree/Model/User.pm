@@ -61,7 +61,7 @@ sub signup {
             lastName        => $params->{'lastName'},
             lang            => 'ENG',
             timezone        => 'EST',
-            profileImage    => 'NULL'
+            profileImage    => 'img/user.png'
         }
     );
 

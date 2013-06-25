@@ -9,7 +9,9 @@ my $uaValid = Mojo::UserAgent->new; # use to make the JSON POST requests
 my $json = Mojo::JSON->new; # use to help turn the response JSON into a Perl hash
 my $tx; # this shuld be the Mojo::Transaction element return from the UA transaction
 my $jsonBody; # this should be the body of the returned message if JSON
-my $forestCreationURL = 'http://localhost:3000/forest';
+my $server = 'http://localhost';
+my $port = ':3000';
+my $forestURL = $server . $port . '/forest';
 
 ######### START VALID USER SIGNUP/LOGIN TEST #########
 # this test creates a new valid user
@@ -45,64 +47,37 @@ ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JS
 ok($validUserEmail eq $jsonBody->{email}, $testname . "Response JSON email is '" . $validUserEmail . "'");
 ######### END VALID USER SIGNUP/LOGIN TEST #########
 
+=begin forcre
 ######### START VALID FOREST CREATION TEST #########
 # this test creates a new forest
-my $testname = 'Valid forest creation: ';
+$testname = 'Valid forest creation: ';
 my $validForestName = 'Test Suite Forest';
 my $validForestDesc = 'This is a forest created by the automated Mojolicious test suite';
-$tx = $uaValid->post($forestCreationURL => json => {
+$tx = $uaValid->post($forestURL => json => {
     name            => $validForestName,
     description     => $validForestDesc
 });
 $jsonBody = $json->decode($tx->res->body);
-
+ 
 ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
 ok(exists $jsonBody->{id},                          $testname . 'Response JSON ID exists');
 ok($validForestName eq $jsonBody->{name},           $testname . "Response JSON name matches");
 ok($validForestDesc eq $jsonBody->{description},    $testname . "Response JSON description matches");
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON create_at exists');
 ######### END VALID FOREST CREATION TEST #########
-
-######### START INVALID FOREST NAME CREATION TEST #########
-# this test attempts to create a forest without a name
-my $testname = 'Invalid forest name creation: ';
-$tx = $uaValid->post($forestCreationURL => json => {
-    name            => '',
-    description     => $validForestDesc
-});
+=end forcre
+=cut
+######### START VALID FOREST RETRIEVAL TEST #########
+# this test creates a new forest
+$testname = 'Valid forest creation: ';
+$tx = $uaValid->get($forestURL);
 $jsonBody = $json->decode($tx->res->body);
-
-ok(406 == $tx->res->code,                   $testname . 'Response Code is 406');
-ok(2 == $jsonBody->{error},                 $testname . "Response JSON error is 2");
-ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
-######### END INVALID FOREST NAME CREATION TEST #########
-
-######### START MISSING REQUEST JSON VALUES TEST #########
-# this test creates a forest with missing JSON values in the request
-my $testname = 'Missing request parameters forest creation: ';
-$tx = $uaValid->post($forestCreationURL => json => {
-    name            => $validForestName
-});
-$jsonBody = $json->decode($tx->res->body);
-
-ok(406 == $tx->res->code,                   $testname . 'Response Code is 406');
-ok(0 == $jsonBody->{error},                 $testname . "Response JSON error is 0");
-ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
-######### END MISSING REQUEST JSON VALUES TEST #########
-
-######### START UNAUTHENTICATED USER FOREST CREATION TEST #########
-# this test attempts to create a forest with an unauthenticated user
-my $testname = 'Unauthenticated user forest creation: ';
-my $uaUnauth = Mojo::UserAgent->new;
-$tx = $uaUnauth->post($forestCreationURL => json => {
-    name            => $validForestName,
-    description     => $validForestDesc
-});
-$jsonBody = $json->decode($tx->res->body);
-
-ok(401 == $tx->res->code,                   $testname . 'Response Code is 401');
-ok(0 == $jsonBody->{error},                 $testname . "Response JSON error result is 0");
-ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
-######### END UNAUTHENTICATED USER FOREST CREATION TEST #########
+print Dumper($jsonBody);
+ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
+#ok(exists $jsonBody->{id},                          $testname . 'Response JSON ID exists');
+#ok($validForestName eq $jsonBody->{name},           $testname . "Response JSON name matches");
+#ok($validForestDesc eq $jsonBody->{description},    $testname . "Response JSON description matches");
+#ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON create_at exists');
+######### END VALID FOREST RETRIEVAL TEST #########
 
 done_testing();

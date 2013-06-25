@@ -33,22 +33,21 @@ sub create {
 sub forestsForUser {
     my $self = shift;
 
-    my $params = {};
-    $params->{userid} = $self->param('userid');
+    my $userid = $self->current_user->{userid};
 
-    my $result = AnnoTree::Model::Forest->forestsForUser($params);
+    my $json = AnnoTree::Model::Forest->forestsForUser($userid);
     
     my $status = 200;
-    if (exists $result->{error}) {
-        my $error = $result->{error};
-        if ($error == 0) {
+    if (exists $json->{error}) {
+        my $error = $json->{error};
+        if ($error == 2) { # no forests for user
             $status = 204;
-        } elsif ($error = 1) {
+        } elsif ($error = 1) { # user does not exist or was deleted
             $status = 404;
         }
     }
     
-    $self->render(json => $result, status => $status);
+    $self->render(json => $json, status => $status);
 
 }
 

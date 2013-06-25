@@ -41,12 +41,10 @@ ok(exists $jsonBody->{created_at},              $testname . 'Response JSON creat
 ok('ENG' eq $jsonBody->{lang},                  $testname . "Response JSON language is ENG");
 ok(1 == $jsonBody->{active},                    $testname . 'Response JSON active is 1');
 ok('EST' eq $jsonBody->{time_zone},             $testname . "Response JSON time zone is EST");
-ok('NULL' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is NULL");
+ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
 ok($validUserEmail eq $jsonBody->{email}, $testname . "Response JSON email is '" . $validUserEmail . "'");
 ######### END VALID USER SIGNUP/LOGIN TEST #########
 
-# temporary fix until I can call get forests and use that to create a tree
-=begin forest
 ######### START VALID FOREST CREATION TEST #########
 # this test creates a new valid user
 my $testname = 'Valid forest creation: ';
@@ -63,14 +61,13 @@ ok(exists $jsonBody->{id},                          $testname . 'Response JSON I
 ok($validForestName eq $jsonBody->{name},           $testname . "Response JSON name matches");
 ok($validForestDesc eq $jsonBody->{description},    $testname . "Response JSON description matches");
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON create_at exists');
+my $validForestID = $jsonBody->{id};
 ######### END VALID FOREST CREATION TEST ##########
-=end forest
-=cut
 
 ######### START VALID TREE CREATION TEST #########
 # this test creates a new tree
 $testname = 'Valid tree creation: ';
-my $validForestID = 6; #$jsonBody->{id}; TEMPORARY FIX
+#my $validForestID = 6; #$jsonBody->{id}; TEMPORARY FIX
 my $treeCreationURL = 'http://localhost:3000/' . $validForestID . '/tree';
 my $validTreeName = 'Test Suite Tree';
 my $validTreeDesc = 'This is a tree created by the automated Mojolicious test suite';

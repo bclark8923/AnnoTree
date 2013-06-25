@@ -21,16 +21,16 @@ IF (select id from user where id = u and active = true) THEN
     IF (select id from forest where id = f) THEN
         IF (select id from user_forest where user_id = u and forest_id = f) THEN
             insert into `annotree`.`tree` 
-              (forest_id, name, description)
-              values (f, n, d);
+              (forest_id, name, description, logo)
+              values (f, n, d, 'img/logo.png');
             set @id = LAST_INSERT_ID();
             insert into `annotree`.`user_tree`
               (user_id, tree_id)
             values
               (u, @id);
-            select 'id', 'forest_id', 'name', 'description', 'created_at' 
+            select 'id', 'forest_id', 'name', 'description', 'created_at', 'logo' 
             union 
-            select id, forest_id, name, description, created_at
+            select id, forest_id, name, description, created_at, logo
             from tree
             where
             id = @id;

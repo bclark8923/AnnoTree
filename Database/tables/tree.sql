@@ -13,6 +13,7 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`tree` (
   `name` VARCHAR(45) NULL,
   `forest_id` INT NULL,
   `description` VARCHAR(1024) NULL,
+  `logo` VARCHAR(1024) NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) ,
   INDEX `fk_project_1` (`forest_id` ASC) ,

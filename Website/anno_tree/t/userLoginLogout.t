@@ -30,7 +30,7 @@ ok(exists $jsonBody->{created_at},              $testname . 'Response JSON creat
 ok('ENG' eq $jsonBody->{lang},                  $testname . "Response JSON language is ENG");
 ok(1 == $jsonBody->{active},                    $testname . 'Response JSON active is 1');
 ok('EST' eq $jsonBody->{time_zone},             $testname . "Response JSON time zone is EST");
-ok('NULL' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is NULL");
+ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
 ok($validUserEmail eq $jsonBody->{email},  $testname . "Response JSON email is 'mojotest\@user.com'");
 ######### END VALID USER SIGNUP TEST #########
 
@@ -52,7 +52,7 @@ ok(exists $jsonBody->{created_at},              $testname . 'Response JSON creat
 ok('ENG' eq $jsonBody->{lang},                  $testname . "Response JSON language is ENG");
 ok(1 == $jsonBody->{active},                    $testname . 'Response JSON active is 1');
 ok('EST' eq $jsonBody->{time_zone},             $testname . "Response JSON time zone is EST");
-ok('NULL' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is NULL");
+ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
 ok($validUserEmail eq $jsonBody->{email},  $testname . "Response JSON email is 'mojotest\@login.com'");
 ######### END VALID USER TEST #########
 

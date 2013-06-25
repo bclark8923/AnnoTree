@@ -248,6 +248,18 @@ a:hover{
   border-radius: 15px;*/
 }
 
+.forestHeader {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.forestHR {
+  margin-top: -12px;
+  width: 90%;
+  margin-left: 5%;
+  border-bottom: none;
+}
+
 #trees {
   height: 100%;
   width: 100%;
@@ -298,6 +310,7 @@ a:hover{
 
 .treeLogo {
   max-height: 90px;
+  max-width: 90px;
   margin-top: 10px;
   margin-bottom: 10px;
 }

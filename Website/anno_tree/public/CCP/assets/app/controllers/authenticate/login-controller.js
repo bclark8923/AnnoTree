@@ -141,6 +141,10 @@
 
 			// Set the window title.
 			$scope.setWindowTitle( "AnnoTree" );
+			
+			if(!$scope.subview) {
+				window.Gumby.init();
+			}
 
 
 		}

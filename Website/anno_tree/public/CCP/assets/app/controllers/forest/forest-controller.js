@@ -11,11 +11,11 @@
 
 
 			// I apply the remote data to the local view model.
-			function applyRemoteData( trees ) {
+			function loadTrees( forests ) {
 
 				//$scope.categories = _.sortOnProperty( categories, "name", "asc" );
                    
-                   $scope.getTrees = _.sortOnProperty( trees.data, "name", "asc");
+                   $scope.forests = forests.forests;//_.sortOnProperty( trees.data, "name", "asc");
 			}
 
 
@@ -31,12 +31,70 @@
 
 						$scope.isLoading = false;
 
-						applyRemoteData( response );
+						loadTrees( response.data );
 
 					},
 					function( response ) {
 
-						$scope.openModalWindow( "error", "For some reason we couldn't load the categories. Try refreshing your browser." );
+						var fake = {
+							forests : 	[
+											{
+												description: "A company for only the truly brave",
+												name: "Silith.io",
+												created_at: "2013-06-22 02:15:31",
+												id: "1",
+												trees: [
+														{ 
+															id: "1",
+													   		name: "Test01",
+														   	description: "description",
+														   	logo: "img/user.png"
+														},
+														{ 
+															id: "2",
+													   		name: "Test02",
+														   	description: "description",
+														   	logo: "NULL"
+														},
+														{ 
+															id: "1",
+													   		name: "Test01",
+														   	description: "description",
+														   	logo: "NULL"
+														},
+														{ 
+															id: "2",
+													   		name: "Test02",
+														   	description: "description",
+														   	logo: "NULL"
+														}
+												]
+											},
+											{
+												description: "The best iOS Game Studio EVER",
+												name: "Shock Games Studios",
+												created_at: "2011-06-22 02:15:31",
+												id: "2",
+												trees: [
+														{ 
+															id: "1",
+													   		name: "Test01",
+														   	description: "description",
+														   	logo: "NULL"
+														},
+														{ 
+															id: "2",
+													   		name: "Test02",
+														   	description: "description",
+														   	logo: "NULL"
+														},
+												]
+											}
+										]
+									};
+
+						loadTrees( fake );
+						//$scope.openModalWindow( "error", "For some reason we couldn't load the categories. Try refreshing your browser." );
 
 					}
 				);
@@ -46,6 +104,41 @@
 
 			// --- Define Scope Methods. ------------------------ //
 
+			$scope.newTree = function() {
+
+				var newTree = { 
+								id: "17",
+						   		name: "Test17",
+							   	description: "fuuuuckkk",
+							   	logo: "NULL"
+							};
+				var newForest = {
+					description: "The best iOS Game Studio EVER",
+					name: "Shock Games Studios",
+					created_at: "2011-06-22 02:15:31",
+					id: "2",
+					trees: [
+							{ 
+								id: "1",
+						   		name: "Test01",
+							   	description: "description",
+							   	logo: "NULL"
+							},
+							{ 
+								id: "2",
+						   		name: "Test02",
+							   	description: "description",
+							   	logo: "NULL"
+							},
+					]
+				};
+
+				$scope.forests[0].name = "fucked";
+				$scope.forests[0].trees.push(newTree);
+				//$scope.forests.push(newForest);
+
+				$scope.$apply;
+			}
 
 			// ...
 
@@ -99,8 +192,11 @@
 			$scope.setWindowTitle( "AnnoTree" );
 
 			// Load the "remote" data.
-			loadRemoteData();
+			if(!$scope.subview) {
+				window.Gumby.init();
+			}
 
+			loadRemoteData();
 
 		}
 	);

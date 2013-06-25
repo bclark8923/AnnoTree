@@ -82,8 +82,11 @@
 
 
 			// --- Initialize. ---------------------------------- //
+			$scope.setWindowTitle( "AnnoTree" );
 
-			window.Gumby.init();
+			if(!$scope.subview) {
+				window.Gumby.init();
+			}
 			// ...
 
 

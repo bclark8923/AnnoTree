@@ -4,7 +4,7 @@
 
 	app.controller(
 		"authenticate.SignupController",
-		function( $scope, $cookies, $location, requestContext, authenticateService, _ ) {
+		function( $scope, localStorageService, $location, requestContext, authenticateService, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
@@ -13,8 +13,8 @@
 			// I apply the remote data to the local view model.
 			function completeSignup ( response ) {
 				//set session information
-				$cookies.user = {name: response.data.first_name + " " + response.data.last_name,
-								 avatar: response.data.profile_image_path};
+				localStorageService.add('username', response.data.first_name + ' ' + response.data.last_name);
+				localStorageService.add('useravatar', response.data.profile_image_path);
 
 				//redirect to app
 				$location.path("app");
@@ -155,6 +155,10 @@
 
 			// Set the window title.
 			$scope.setWindowTitle( "AnnoTree" );
+
+			if(!$scope.subview) {
+				window.Gumby.init();
+			}
 
 		}
 	);

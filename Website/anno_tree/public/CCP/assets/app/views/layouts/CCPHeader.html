@@ -1,26 +1,14 @@
 <div ng-controller="layouts.StandardController" class="l-standard">
 
 
-  <!-- New Tree Modal -->
-  <div class="modal" id="newTreeModal">
-    <div class="content">
-      <a class="close switch" gumby-trigger="|#newTreeModal"><i class="icon-cancel"></i></a>
-      <div class="row">
-        <div class="ten columns centered center-text">
-          <h2>Add Tree</h2>
-          <p>Gumby modals are easy to make using Toggles &amp; Switches. The <span class="label default">.modal</span> class already has the required styles which you can open and close using Toggles &amp; Switches.</p>
 
-          <p class="btn primary medium"><a href="#" class="switch active" gumby-trigger="|#newTreeModal">Close Modal</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div ng-include=" 'assets/app/views/layouts/modals.html' "></div>
 
         <!-- Static User Settigs Box -->
         <div id="userSettings" class="userSettingsBox userSettings">
             <!-- <p class="userSettingsClose"><a href="#" class="switch" gumby-trigger="|.userSettings"><i class="icon-remove-sign"></i></a></p> -->
             <div>
-                <img src="{{user.avatar}}" gumby-retina="" style="
+                <img ng-src="{{user.avatar}}" gumby-retina="" style="
                     float: left;
                     height: 60px;
                     margin-left: 10px;
@@ -29,7 +17,7 @@
                 <p class="userSettingsName" style="margin-left:80px;">{{user.name}}</p>
             </div>
             <div style="position: absolute; bottom: 0; height: 40px; width: 248px; background-color: #eee;border-top:1px solid #bbb;">
-                <p class="btn success small settingsButton" style="margin-top:10px;border:1px solid #bbb;"><a class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p>
+                <!-- <p class="btn success small settingsButton" style="margin-top:10px;border:1px solid #bbb;"><a class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p> -->
                 <p style="margin-top:10px;border:1px solid #bbb;" class="btn success small logoutButton"><a href="" ng-click="logout()">Logout</a></p>
             </div>
         </div>
@@ -43,7 +31,7 @@
                     </h1>
                     <div class="userLinkDiv">
                         <a href class="userLink toggle responsiveHide" gumby-trigger=".userSettings">
-                            <img id="userIcon" src="{{user.avatar}}" gumby-retina />
+                            <img id="userIcon" ng-src="{{user.avatar}}" gumby-retina />
                         </a>
                         <span class="logoutArrow userSettings"></span>
                         <div class="btn pretty success responsiveShow" style="width: 50px;

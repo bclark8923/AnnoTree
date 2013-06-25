@@ -8,40 +8,60 @@
                 <div class="responsiveShowTC" style="text-align:center;width:100%">
                     Welcome to AnnoTree!
                 </div>
-                <div id="newElementHolder">
-                    <div id="newElementButton" class="pretty medium success btn switch" gumby-trigger="#newTreeModal">
-                        <button>
-                            <a id="newElementLink">
-                                <i class="icon-ne icon-plus-sign" style="margin-right:0px;"></i><span class="responsiveHide" style="margin-left:5px;"> New Tree</span>
-                            </a>
-                        </button>
+                <div id="newElementHolder"  class="switch" gumby-trigger="#newTreeModal">
+                    <div id="newElementButton" class="pretty medium success btn">
+                        <div style="width:100%;height:100%;">
+                            <button>
+                                <a href="" id="newElementLink" class="switch" gumby-trigger="#newTreeModal">
+                                
+                                    <i class="icon-ne icon-plus-sign" style="margin-right:0px;"></i>
+                                    <span class="responsiveHide" style="margin-left:5px;"> New Tree</span>
+                                </a>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div id="trees">
-                <div class="twelve colgrid">
-                    <div class="row" ng-repeat="treeRow in (forest.length/3 | treeRowFilter)"> 
-                        
-                        <div class="four columns" ng-repeat="tree in forest.slice(3*$index, 3*$index + 3)"> 
-                            <div class="cardHolder">
-                                <div class="card">
-                                    <div class="cardTitleBar valign"><div>{{tree.name}}</div></div>
-                                    <div class="treeLogoContainer">
-                                        <a href="#app/{{tree.ID}}">
-                                            <div class="logo"><img class="treeLogo" ng-src="{{tree.icon}}" gumby-retina /></div>
-                                        </a>
-                                        <div class="cardLabel">{{tree.description}}</div>
-                                    </div>
-                                    <div class="treeModify">
-                                        <a href="#" class="switch" gumby-trigger="#modifyTreeModal"><i class="icon-cog"></i></a>
+                <div ng-repeat="forest in forests">
+                    <div class="twelve colgrid">
+                        <div class="forestHeader"> 
+                            <span style="background-color:white;padding: 0px 10px;">{{forest.name}}</span>
+                            <hr class="forestHR"/>
+                        </div>
+                        <div class="row" ng-repeat="treeRow in (forest.trees.length/3 | treeRowFilter)"> 
+                            
+                            <div class="four columns" ng-repeat="tree in forest.trees.slice(3*$index, 3*$index + 3)"> 
+                                <div class="cardHolder">
+                                    <div class="card">
+                                        <div class="cardTitleBar valign"><div>{{tree.name}}</div></div>
+                                        <div class="treeLogoContainer">
+                                            <a href="#app/{{tree.id}}">
+                                                <div ng-switch="tree.logo" style="max-height:130px;padding-top:10px;">
+                                                    <div ng-switch-when="NULL">
+                                                        <div class="logo">
+                                                            <img class="treeLogo" src="img/tree01.png" gumby-retina />
+                                                        </div>
+                                                    </div>
+                                                    <div ng-switch-default> 
+                                                        <div class="logo">
+                                                            <img class="treeLogo" ng-src="{{tree.logo}}" gumby-retina />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class="cardLabel">{{tree.description}}</div>
+                                        </div>
+                                        <div class="treeModify">
+                                            <a href class="switch" gumby-trigger="#modifyTreeModal"><i class="icon-cog"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
-                        
                     </div>
-                    
                 </div>
             </div>
         </div>

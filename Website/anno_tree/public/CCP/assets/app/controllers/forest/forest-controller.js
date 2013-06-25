@@ -13,19 +13,13 @@
 			// I apply the remote data to the local view model.
 			function loadTrees( forests ) {
 
-				//$scope.categories = _.sortOnProperty( categories, "name", "asc" );
-                   var newTree = { 
-								id: "-1",
-						   		name: "New Tree",
-							   	description: "Click here to add a new tree.",
-							   	logo: "NULL"
-							};
+				for(var i = 0; i < forests.forests.length; i++) {
+					forests.forests[i].trees.push($scope.newTreeHolder);
+				}
 
-						for(var i = 0; i < forests.forests.length; i++) {
-							forests.forests[i].trees.push(newTree);
-						}
+               	$scope.forests = forests.forests;
 
-                   $scope.forests = forests.forests;//_.sortOnProperty( trees.data, "name", "asc");
+				window.Gumby.init();
 			}
 
 
@@ -46,7 +40,7 @@
 					},
 					function( response ) {
 
-						var fake = {
+						/*var fake = {
 							forests : 	[
 											{
 												description: "A company for only the truly brave",
@@ -114,8 +108,8 @@
 							//fake.forests[i].trees.push(newTree);
 						}
 
-						loadTrees( fake );
-						//$scope.openModalWindow( "error", "For some reason we couldn't load the categories. Try refreshing your browser." );
+						loadTrees( fake );*/
+						$scope.openModalWindow( "error", "For some reason we couldn't load the categories. Try refreshing your browser." );
 
 					}
 				);
@@ -133,6 +127,15 @@
 							   	description: "fuuuuckkk",
 							   	logo: "NULL"
 							};
+							
+				$scope.forests[0].trees.pop();
+				$scope.forests[0].trees.push(newTree);
+				$scope.forests[0].trees.push($scope.newTreeHolder);
+
+				//$scope.$apply;
+			}
+
+			$scope.newForest = function() {
 
 				var newForest = {
 					description: "The best iOS Game Studio EVER",
@@ -156,9 +159,7 @@
 				};
 
 				$scope.forests[0].name = "fucked";
-				$scope.forests[0].trees.push(newTree);
-				var test = $rootScope;
-				//$scope.forests.push(newForest);
+				$scope.forests.push(newForest);
 
 				//$scope.$apply;
 			}
@@ -184,6 +185,13 @@
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();
+
+			$scope.newTreeHolder = { 
+								id: "-1",
+						   		name: "New Tree",
+							   	description: "Click here to add a new tree to this forest.",
+							   	logo: "NULL"
+							};
 			
 
 			// --- Bind To Scope Events. ------------------------ //
@@ -215,10 +223,6 @@
 			$scope.setWindowTitle( "AnnoTree" );
 
 			// Load the "remote" data.
-			if(!$scope.subview) {
-				window.Gumby.init();
-			}
-
 			loadRemoteData();
 
 		}
@@ -236,22 +240,4 @@
         return arr;
     };
 });
-/*
-$(document).ready(function() {
-	  var width = 80;
-	  settingsPane = new SlidingPane({
-	    id: 'mobileOptions',
-	    targetId: 'wrapper',
-	    side: 'right',
-	    width: 240,
-	    duration: 0.75,
-	    timingFunction: 'ease',
-	    shadowStyle: '0px 0px 0px #000'
-	  });
-	
-  $("#paneToggle").click(function() {
-  	if($("#mobileOptions").length) {
-    	settingsPane.toggle();
-	}
-  });
-});*/
+/**/

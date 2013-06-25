@@ -94,3 +94,21 @@
 	);
 
 })( angular, AnnoTree );
+
+$(document).ready(function() {
+	  settingsPane = new SlidingPane({
+	    id: 'mobileOptions',
+	    targetId: 'wrapper',
+	    side: 'right',
+	    width: 240,
+	    duration: 0.75,
+	    timingFunction: 'ease',
+	    shadowStyle: '0px 0px 0px #000'
+	  });
+	
+  $("#paneToggle").click(function() {
+  	if($("#mobileOptions").length) {
+    	settingsPane.toggle();
+	}
+  });
+});

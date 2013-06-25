@@ -46,26 +46,26 @@
 												trees: [
 														{ 
 															id: "1",
-													   		name: "Test01",
-														   	description: "description",
+													   		name: "Mobile SDK",
+														   	description: "The iOS/Android library for annotations.",
 														   	logo: "img/user.png"
 														},
 														{ 
 															id: "2",
-													   		name: "Test02",
-														   	description: "description",
+													   		name: "CCP",
+														   	description: "The main platform for AnnoTree collaboration.",
 														   	logo: "NULL"
 														},
 														{ 
 															id: "1",
-													   		name: "Test01",
-														   	description: "description",
+													   		name: "AnnoTree Marketing Site",
+														   	description: "The marketing site for AnnoTree information.",
 														   	logo: "NULL"
 														},
 														{ 
 															id: "2",
-													   		name: "Test02",
-														   	description: "description",
+													   		name: "Silith.IO Main Site",
+														   	description: "The website for our overall company",
 														   	logo: "NULL"
 														}
 												]
@@ -78,14 +78,14 @@
 												trees: [
 														{ 
 															id: "1",
-													   		name: "Test01",
-														   	description: "description",
+													   		name: "Radia",
+														   	description: "The best tilt based game you've ever played.",
 														   	logo: "NULL"
 														},
 														{ 
 															id: "2",
-													   		name: "Test02",
-														   	description: "description",
+													   		name: "Fireballin' Lite",
+														   	description: "The predecessor to Radia.",
 														   	logo: "NULL"
 														},
 												]

@@ -11,11 +11,11 @@
 
 
 			// I apply the remote data to the local view model.
-			function applyRemoteData( userTrees ) {
+			function loadTrees( forests ) {
 
 				//$scope.categories = _.sortOnProperty( categories, "name", "asc" );
                    
-                   $scope.userTrees = _.sortOnProperty( userTrees.data, "name", "asc");
+                   $scope.forests = forests.forests;//_.sortOnProperty( trees.data, "name", "asc");
 			}
 
 
@@ -31,12 +31,70 @@
 
 						$scope.isLoading = false;
 
-						applyRemoteData( response );
+						loadTrees( response.data );
 
 					},
 					function( response ) {
 
-						$scope.openModalWindow( "error", "For some reason we couldn't load the categories. Try refreshing your browser." );
+						var fake = {
+							forests : 	[
+											{
+												description: "A company for only the truly brave",
+												name: "Silith.io",
+												created_at: "2013-06-22 02:15:31",
+												id: "1",
+												trees: [
+														{ 
+															id: "1",
+													   		name: "Mobile SDK",
+														   	description: "The iOS/Android library for annotations.",
+														   	logo: "img/user.png"
+														},
+														{ 
+															id: "2",
+													   		name: "CCP",
+														   	description: "The main platform for AnnoTree collaboration.",
+														   	logo: "NULL"
+														},
+														{ 
+															id: "1",
+													   		name: "AnnoTree Marketing Site",
+														   	description: "The marketing site for AnnoTree information.",
+														   	logo: "NULL"
+														},
+														{ 
+															id: "2",
+													   		name: "Silith.IO Main Site",
+														   	description: "The website for our overall company",
+														   	logo: "NULL"
+														}
+												]
+											},
+											{
+												description: "The best iOS Game Studio EVER",
+												name: "Shock Games Studios",
+												created_at: "2011-06-22 02:15:31",
+												id: "2",
+												trees: [
+														{ 
+															id: "1",
+													   		name: "Radia",
+														   	description: "The best tilt based game you've ever played.",
+														   	logo: "NULL"
+														},
+														{ 
+															id: "2",
+													   		name: "Fireballin' Lite",
+														   	description: "The predecessor to Radia.",
+														   	logo: "NULL"
+														},
+												]
+											}
+										]
+									};
+
+						loadTrees( fake );
+						//$scope.openModalWindow( "error", "For some reason we couldn't load the categories. Try refreshing your browser." );
 
 					}
 				);
@@ -46,6 +104,41 @@
 
 			// --- Define Scope Methods. ------------------------ //
 
+			$scope.newTree = function() {
+
+				var newTree = { 
+								id: "17",
+						   		name: "Test17",
+							   	description: "fuuuuckkk",
+							   	logo: "NULL"
+							};
+				var newForest = {
+					description: "The best iOS Game Studio EVER",
+					name: "Shock Games Studios",
+					created_at: "2011-06-22 02:15:31",
+					id: "2",
+					trees: [
+							{ 
+								id: "1",
+						   		name: "Test01",
+							   	description: "description",
+							   	logo: "NULL"
+							},
+							{ 
+								id: "2",
+						   		name: "Test02",
+							   	description: "description",
+							   	logo: "NULL"
+							},
+					]
+				};
+
+				$scope.forests[0].name = "fucked";
+				$scope.forests[0].trees.push(newTree);
+				//$scope.forests.push(newForest);
+
+				$scope.$apply;
+			}
 
 			// ...
 
@@ -64,8 +157,7 @@
 			$scope.isLoading = true;
 
 			// I hold the categories to render.
-			$scope.categories = [];
-            $scope.userTrees = [];
+            $scope.forest = [];
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();
@@ -100,8 +192,11 @@
 			$scope.setWindowTitle( "AnnoTree" );
 
 			// Load the "remote" data.
-			loadRemoteData();
+			if(!$scope.subview) {
+				window.Gumby.init();
+			}
 
+			loadRemoteData();
 
 		}
 	);

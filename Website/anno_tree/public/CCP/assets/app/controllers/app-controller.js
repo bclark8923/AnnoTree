@@ -117,7 +117,9 @@
 
 			// --- Initialize. ---------------------------------- //
 
-
+			if(!$scope.subview) {
+				window.Gumby.init();
+			}
 			// ...
 
 

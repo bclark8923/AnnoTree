@@ -1,20 +1,29 @@
 <div ng-controller="layouts.StandardController" class="l-standard">
 
 
+
+        <div ng-include=" 'assets/app/views/layouts/modals.html' "></div>
+
         <!-- Static User Settigs Box -->
         <div id="userSettings" class="userSettingsBox userSettings">
-            <p class="userSettingsClose"><a href="#" class="switch" gumby-trigger="|.userSettings"><i class="icon-remove-sign"></i></a></p>
+            <!-- <p class="userSettingsClose"><a href="#" class="switch" gumby-trigger="|.userSettings"><i class="icon-remove-sign"></i></a></p> -->
             <div>
-                <p class="userSettingsName">Brian Clark</p>
+                <img ng-src="{{user.avatar}}" gumby-retina="" style="
+                    float: left;
+                    height: 60px;
+                    margin-left: 10px;
+                    margin-top: 3px;
+                ">                
+                <p class="userSettingsName" style="margin-left:80px;">{{user.name}}</p>
             </div>
-            <div>
-                <!-- <p class="btn info small settingsButton"><a href="#" class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p> -->
-                <p class="btn success small logoutButton"><a href="" ng-click="logout()">Logout</a></p>
+            <div style="position: absolute; bottom: 0; height: 40px; width: 248px; background-color: #eee;border-top:1px solid #bbb;">
+                <!-- <p class="btn success small settingsButton" style="margin-top:10px;border:1px solid #bbb;"><a class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p> -->
+                <p style="margin-top:10px;border:1px solid #bbb;" class="btn success small logoutButton"><a href="" ng-click="logout()">Logout</a></p>
             </div>
         </div>
 
         <!-- App -->
-        <div id="wrapper" class="switch" gumby-trigger=".userSettings">
+        <div id="wrapper" class="switch" gumby-trigger="|.userSettings">
             <div class="navbar pretty" id="nav1">
                 <div>
                     <h1 class="logo">
@@ -22,13 +31,13 @@
                     </h1>
                     <div class="userLinkDiv">
                         <a href class="userLink toggle responsiveHide" gumby-trigger=".userSettings">
-                            <img id="userIcon" src="img/user.png" gumby-retina />
+                            <img id="userIcon" ng-src="{{user.avatar}}" gumby-retina />
                         </a>
                         <span class="logoutArrow userSettings"></span>
                         <div class="btn pretty success responsiveShow" style="width: 50px;
-                            height: 40px;
+                            height: 25px;
                             margin-top: 5px;">
-                            <a href="" id="paneToggle" style="padding:0;text-align:center;"><i class="icon-cog responsiveShow" style="color:white;font-size:22pt;padding-top:4px;"></i></a>
+                            <a href id="paneToggle" style="padding:0;text-align:center;"><i class="icon-cog responsiveShow" style="color:white;font-size:14pt;padding-top:4px;"></i></a>
                         </div>
                     </div>
                 </div>

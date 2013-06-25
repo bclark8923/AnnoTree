@@ -90,7 +90,7 @@
 									errorData = "Please fill out all of the fields";
 									break;
 								default:
-									//stuff
+									//pre-defined
 							}
 							$("#validateError").html(errorData);
 							//$scope.openModalWindow( "error", errorData );

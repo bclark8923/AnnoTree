@@ -4,7 +4,7 @@
 
 	app.controller(
 		"forest.ForestController",
-		function( $scope, $cookies, requestContext, forestService, _ ) {
+		function( $scope, $cookies, $rootScope, requestContext, forestService, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
@@ -14,7 +14,17 @@
 			function loadTrees( forests ) {
 
 				//$scope.categories = _.sortOnProperty( categories, "name", "asc" );
-                   
+                   var newTree = { 
+								id: "-1",
+						   		name: "New Tree",
+							   	description: "Click here to add a new tree.",
+							   	logo: "NULL"
+							};
+
+						for(var i = 0; i < forests.forests.length; i++) {
+							forests.forests[i].trees.push(newTree);
+						}
+
                    $scope.forests = forests.forests;//_.sortOnProperty( trees.data, "name", "asc");
 			}
 
@@ -87,11 +97,22 @@
 													   		name: "Fireballin' Lite",
 														   	description: "The predecessor to Radia.",
 														   	logo: "NULL"
-														},
+														}
 												]
 											}
 										]
 									};
+
+						var newTree = { 
+								id: "-1",
+						   		name: "New Tree",
+							   	description: "Click here to add a new tree.",
+							   	logo: "NULL"
+							};
+
+						for(var i = 0; i < fake.forests.length; i++) {
+							//fake.forests[i].trees.push(newTree);
+						}
 
 						loadTrees( fake );
 						//$scope.openModalWindow( "error", "For some reason we couldn't load the categories. Try refreshing your browser." );
@@ -112,6 +133,7 @@
 							   	description: "fuuuuckkk",
 							   	logo: "NULL"
 							};
+
 				var newForest = {
 					description: "The best iOS Game Studio EVER",
 					name: "Shock Games Studios",
@@ -135,9 +157,10 @@
 
 				$scope.forests[0].name = "fucked";
 				$scope.forests[0].trees.push(newTree);
+				var test = $rootScope;
 				//$scope.forests.push(newForest);
 
-				$scope.$apply;
+				//$scope.$apply;
 			}
 
 			// ...
@@ -157,7 +180,7 @@
 			$scope.isLoading = true;
 
 			// I hold the categories to render.
-            $scope.forest = [];
+            $scope.forests = [];
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

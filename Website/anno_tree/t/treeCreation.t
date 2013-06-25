@@ -33,16 +33,16 @@ if ($tx->res->code == 406 && $jsonBody->{error} == 2) {
     $jsonBody = $json->decode($tx->res->body);
 }
 
-ok(200 == $tx->res->code,                       $testname . 'Response Code is 200');
-ok(exists $jsonBody->{id},                      $testname . 'Response JSON ID exists');
-ok('test suite' eq $jsonBody->{first_name},    $testname . "Response JSON first name is 'test suite'");
-ok('user' eq $jsonBody->{last_name},            $testname . "Response JSON last name is 'user'");
-ok(exists $jsonBody->{created_at},              $testname . 'Response JSON created date exists');
-ok('ENG' eq $jsonBody->{lang},                  $testname . "Response JSON language is ENG");
-ok(1 == $jsonBody->{active},                    $testname . 'Response JSON active is 1');
-ok('EST' eq $jsonBody->{time_zone},             $testname . "Response JSON time zone is EST");
+ok(200 == $tx->res->code,                               $testname . 'Response Code is 200');
+ok(exists $jsonBody->{id},                              $testname . 'Response JSON ID exists');
+ok('test suite' eq $jsonBody->{first_name},             $testname . "Response JSON first name is 'test suite'");
+ok('user' eq $jsonBody->{last_name},                    $testname . "Response JSON last name is 'user'");
+ok(exists $jsonBody->{created_at},                      $testname . 'Response JSON created date exists');
+ok('ENG' eq $jsonBody->{lang},                          $testname . "Response JSON language is ENG");
+ok(1 == $jsonBody->{active},                            $testname . 'Response JSON active is 1');
+ok('EST' eq $jsonBody->{time_zone},                     $testname . "Response JSON time zone is EST");
 ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
-ok($validUserEmail eq $jsonBody->{email}, $testname . "Response JSON email is '" . $validUserEmail . "'");
+ok($validUserEmail eq $jsonBody->{email},               $testname . "Response JSON email is '" . $validUserEmail . "'");
 ######### END VALID USER SIGNUP/LOGIN TEST #########
 
 ######### START VALID FOREST CREATION TEST #########
@@ -67,7 +67,6 @@ my $validForestID = $jsonBody->{id};
 ######### START VALID TREE CREATION TEST #########
 # this test creates a new tree
 $testname = 'Valid tree creation: ';
-#my $validForestID = 6; #$jsonBody->{id}; TEMPORARY FIX
 my $treeCreationURL = 'http://localhost:3000/' . $validForestID . '/tree';
 my $validTreeName = 'Test Suite Tree';
 my $validTreeDesc = 'This is a tree created by the automated Mojolicious test suite';
@@ -79,9 +78,10 @@ $jsonBody = $json->decode($tx->res->body);
 
 ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
 ok(exists $jsonBody->{id},                          $testname . 'Response JSON ID exists');
-ok($validForestID == $jsonBody->{forest_id},           $testname . "Response JSON forest_id matches");
-ok($validTreeName eq $jsonBody->{name},           $testname . "Response JSON name matches");
-ok($validTreeDesc eq $jsonBody->{description},    $testname . "Response JSON description matches");
+ok($validForestID == $jsonBody->{forest_id},        $testname . "Response JSON forest_id matches");
+ok($validTreeName eq $jsonBody->{name},             $testname . "Response JSON name matches");
+ok($validTreeDesc eq $jsonBody->{description},      $testname . "Response JSON description matches");
+ok('img/logo.png' eq $jsonBody->{logo},             $testname . "Response JSON logo matches");
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON create_at exists');
 ######### END VALID TREE CREATION TEST #########
 

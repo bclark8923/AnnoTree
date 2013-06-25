@@ -22,16 +22,16 @@ $tx = $uaValidSignUp->post('http://localhost:3000/user/signup' => json => {
 });
 $jsonBody = $json->decode($tx->res->body);
 
-ok(200 == $tx->res->code,                       $testname . 'Response Code is 200');
-ok(exists $jsonBody->{id},                      $testname . 'Response JSON ID exists');
-ok('login test' eq $jsonBody->{first_name},     $testname . "Response JSON first name is 'login test'");
-ok('user' eq $jsonBody->{last_name},            $testname . "Response JSON last name is 'user'");
-ok(exists $jsonBody->{created_at},              $testname . 'Response JSON created date exists');
-ok('ENG' eq $jsonBody->{lang},                  $testname . "Response JSON language is ENG");
-ok(1 == $jsonBody->{active},                    $testname . 'Response JSON active is 1');
-ok('EST' eq $jsonBody->{time_zone},             $testname . "Response JSON time zone is EST");
+ok(200 == $tx->res->code,                               $testname . 'Response Code is 200');
+ok(exists $jsonBody->{id},                              $testname . 'Response JSON ID exists');
+ok('login test' eq $jsonBody->{first_name},             $testname . "Response JSON first name is 'login test'");
+ok('user' eq $jsonBody->{last_name},                    $testname . "Response JSON last name is 'user'");
+ok(exists $jsonBody->{created_at},                      $testname . 'Response JSON created date exists');
+ok('ENG' eq $jsonBody->{lang},                          $testname . "Response JSON language is ENG");
+ok(1 == $jsonBody->{active},                            $testname . 'Response JSON active is 1');
+ok('EST' eq $jsonBody->{time_zone},                     $testname . "Response JSON time zone is EST");
 ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
-ok($validUserEmail eq $jsonBody->{email},  $testname . "Response JSON email is 'mojotest\@user.com'");
+ok($validUserEmail eq $jsonBody->{email},               $testname . "Response JSON email is 'mojotest\@user.com'");
 ######### END VALID USER SIGNUP TEST #########
 
 ######### START VALID USER LOGIN TEST #########
@@ -44,16 +44,16 @@ $tx = $uaValidLogin->post('http://localhost:3000/user/login' => json => {
 });
 $jsonBody = $json->decode($tx->res->body);
 
-ok(200 == $tx->res->code,                       $testname . 'Response Code is 200');
-ok(exists $jsonBody->{id},                      $testname . 'Response JSON ID exists');
-ok('login test' eq $jsonBody->{first_name},     $testname . "Response JSON first name is 'test script'");
-ok('user' eq $jsonBody->{last_name},            $testname . "Response JSON last name is 'user'");
-ok(exists $jsonBody->{created_at},              $testname . 'Response JSON created date exists');
-ok('ENG' eq $jsonBody->{lang},                  $testname . "Response JSON language is ENG");
-ok(1 == $jsonBody->{active},                    $testname . 'Response JSON active is 1');
-ok('EST' eq $jsonBody->{time_zone},             $testname . "Response JSON time zone is EST");
+ok(200 == $tx->res->code,                               $testname . 'Response Code is 200');
+ok(exists $jsonBody->{id},                              $testname . 'Response JSON ID exists');
+ok('login test' eq $jsonBody->{first_name},             $testname . "Response JSON first name is 'test script'");
+ok('user' eq $jsonBody->{last_name},                    $testname . "Response JSON last name is 'user'");
+ok(exists $jsonBody->{created_at},                      $testname . 'Response JSON created date exists');
+ok('ENG' eq $jsonBody->{lang},                          $testname . "Response JSON language is ENG");
+ok(1 == $jsonBody->{active},                            $testname . 'Response JSON active is 1');
+ok('EST' eq $jsonBody->{time_zone},                     $testname . "Response JSON time zone is EST");
 ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
-ok($validUserEmail eq $jsonBody->{email},  $testname . "Response JSON email is 'mojotest\@login.com'");
+ok($validUserEmail eq $jsonBody->{email},               $testname . "Response JSON email is 'mojotest\@login.com'");
 ######### END VALID USER TEST #########
 
 ######### START VALID USER LOGOUT TEST #########

@@ -109,8 +109,9 @@
 						}
 
 						loadTrees( fake );*/
-						$scope.openModalWindow( "error", "For some reason we couldn't load the categories. Try refreshing your browser." );
-
+						if(response.status != 401 && response.data.error != 0) {
+							$scope.openModalWindow( "error", "Get Forest Failed :(." );
+						}
 					}
 				);
 
@@ -127,7 +128,7 @@
 							   	description: "fuuuuckkk",
 							   	logo: "NULL"
 							};
-							
+
 				$scope.forests[0].trees.pop();
 				$scope.forests[0].trees.push(newTree);
 				$scope.forests[0].trees.push($scope.newTreeHolder);

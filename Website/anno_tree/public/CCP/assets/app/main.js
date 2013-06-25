@@ -11,7 +11,7 @@ AnnoTree.run(function($rootScope, $templateCache) {
 // Configure the routing. The $routeProvider will be automatically injected into 
 // the configurator.
 AnnoTree.config(
-	function( $routeProvider, $locationProvider ){
+	function( $routeProvider, $locationProvider, $httpProvider ){
 
 		// Typically, when defining routes, you will map the route to a Template to be 
 		// rendered; however, this only makes sense for simple web sites. When you are 
@@ -94,6 +94,8 @@ AnnoTree.config(
 				}
 			)
 		;
+  	
+  		$httpProvider.responseInterceptors.push( interceptor );
 
 	}
 );
@@ -105,6 +107,33 @@ AnnoTree.factory('apiRoot', function() {
 		}
 	}
 });
+
+var interceptor = function( $q, $location ) {
+  return function( promise ) {
+ 
+    // convert the returned data using values passed to $http.get()'s config param
+    var resolve = function( value ) {
+      //console.log( "rejected because: ", value );
+      //convertList( value.data, value.config.cls, value.config.initFn );
+    };
+ 
+    var reject = function( reason ) {
+    	if(reason.status == 401) {
+    		if(reason.data.error == 0) {
+    			$location.path("/authenticate/login");
+    			return;
+    		}
+    	}
+      	//console.log( "rejected because: ", reason );
+    };
+ 
+    // attach our actions
+    promise.then( resolve, reject );
+ 
+    // return the original promise
+    return promise;
+  }
+};
 /*
 angular.module('MyApp', [])
   .config(['$httpProvider', function($httpProvider) {

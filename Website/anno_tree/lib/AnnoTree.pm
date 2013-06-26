@@ -79,12 +79,16 @@ sub startup {
     my $r = $self->routes;
     # Bridge for services that required an authenticated user
     my $authr = $r->bridge->to('controller-auth#check');
+    
+    # ===== STATIC FILES =====
+    $r->get('/')        ->to('controller-static#splash');
+    $r->get('/login')   ->to('controller-static#login');
 
     # ===== USERS =====
-    $r->post('/user/signup')                                ->to('controller-auth#signup'); # working - need to create trees, etc. when not a referral - referrals need to be added to forest/tree?, also need to figure out how to activate users
-    $r->post('/user/login')                                 ->to('controller-auth#login'); # working - should it return the list of forests the user has access to?
+    $r->post('/user/signup')                                ->to('controller-auth#signup'); # invites need to be added to existing forest, new users have sample forest, etc. created automatically
+    $r->post('/user/login')                                 ->to('controller-auth#login');
     $authr->post('/user/logout')                            ->to('controller-auth#logoutUser');
-    $authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser'); # working
+    $authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser'); # not working
 
     # ===== FORESTS =====
     $authr->post('/forest')->to('controller-forest#create');

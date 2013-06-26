@@ -43,7 +43,7 @@ sub forestsForUser {
         if ($error == 2) { # no forests for user
             $status = 204;
         } elsif ($error = 1) { # user does not exist or was deleted
-            $status = 404;
+            $status = 406;
         }
     }
     

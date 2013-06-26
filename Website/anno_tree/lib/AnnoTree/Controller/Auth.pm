@@ -4,14 +4,13 @@ use Mojo::Base 'Mojolicious::Controller';
 use AnnoTree::Model::User;
 
 # handles user signup
-# Need to add:
+# Need to add: (now being handled on DB side)
 # 1) Create a sample forest, tree, branch, sample leaves if not an invited user
 # 2) If an invited user than don't create sample
 sub signup {
     my $self = shift;
     
     my $jsonReq = $self->req->json;
-    #$self->debug($self->dumper($jsonReq));
     
     # returns a 406 if the right parameters are not provided
     $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{signUpName} && exists $jsonReq->{signUpEmail} && exists $jsonReq->{signUpPassword});
@@ -22,7 +21,6 @@ sub signup {
     $params->{'password'} = $jsonReq->{'signUpPassword'};
     
     my $json = AnnoTree::Model::User->signup($params);
-    #$self->debug($self->dumper($json));
     # something was wrong with one of the passed in parameters
     # 1: email sucks
     # 2: email already exists
@@ -45,11 +43,10 @@ sub login {
     my $self = shift;
 
     my $jsonReq = $self->req->json;
-    #$self->debug($self->dumper($jsonReq));
+    
     $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{loginEmail} && exists $jsonReq->{loginPassword});
     
     $self->render(json => {error => '1', txt => 'Invalid credentials provided'}, status => 401) and return unless $self->authenticate($jsonReq->{loginEmail}, $jsonReq->{loginPassword});
-    #$self->debug('We have ourselves a valid user');
     
     my $json = AnnoTree::Model::User->getUserInfo($jsonReq->{loginEmail});
     
@@ -69,14 +66,14 @@ sub check {
     if ($self->is_user_authenticated) {
         return 1;
     }
-    $self->render(json => {error => 0, txt => 'You are not authorized to access this service'}, status => 401) and return 0;
+    $self->redirect_to('/CCP/index.htm');
+    #$self->render(json => {error => 0, txt => 'You are not authorized to access this service'}, status => 401) and return 0;
 }
 
 # destroys the user's session
 sub logoutUser {
     my $self = shift;
     
-    #$self->debug($self->dumper($self->current_user->{userid}));
     $self->logout();
     $self->render(json => {status => '0', txt => 'Logged out successfully'});
 }

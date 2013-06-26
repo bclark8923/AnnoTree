@@ -81,8 +81,9 @@ sub startup {
     my $authr = $r->bridge->to('controller-auth#check');
     
     # ===== STATIC FILES =====
-    $r->get('/')        ->to('controller-static#splash');
-    $r->get('/login')   ->to('controller-static#login');
+    $r->get('/')                ->to('controller-static#splash');
+    $r->get('/login')           ->to('controller-static#login');
+    $authr->get('/testauth')    ->to('controller-static#testAuth');
 
     # ===== USERS =====
     $r->post('/user/signup')                                ->to('controller-auth#signup'); # invites need to be added to existing forest, new users have sample forest, etc. created automatically
@@ -98,17 +99,10 @@ sub startup {
     $authr->post('/:forestid/tree' => [forestid => qr/\d+/])->to('controller-tree#create');
 
     # ===== BRANCHES =====
-    $r->get('/:forestid/:treeid/branch' => [forestid => qr/\d+/, treeid => qr/\d+/])->to('branch#list');
 
     # ===== Leaves =====
-    $r->get('/:forestid/:treeid/:branchid/leaf' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/])->to('leaves-leaf#list');
 
     # ===== Annotations =====
-    $r->get('/:forestid/:treeid/:branchid/:leafid/annotation' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])->to('leaves-annotation#list');
-    $r->get('/:forestid/:treeid/:branchid/:leafid/annotation/testupload' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])->to('leaves-annotation#testScreenshotUpload');
-    $r->post('/:forestid/:treeid/:branchid/:leafid/annotation' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])->to('leaves-annotation#annotationCreation');
-    $r->get('/:forestid/:treeid/:branchid/:leafid/annotation/display' => [forestid => qr/\d+/, treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])->to('leaves-annotation#annotationDisplay');
-
 
 }
 

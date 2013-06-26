@@ -14,4 +14,10 @@ sub login {
     $self->redirect_to('/CCP/index.htm');
 }
 
+sub testAuth {
+    my $self = shift;
+    
+    $self->render(txt => 'You are authenticated');
+}
+
 return 1;

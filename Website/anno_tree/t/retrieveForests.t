@@ -147,8 +147,9 @@ $tx = $uaNoForests->get($forestURL);
 $jsonBody = $json->decode($tx->res->body);
 print Dumper($jsonBody);
 ok(204 == $tx->res->code,                       $testname . 'Response Code is 204');
-ok(2 == $jsonBody->{error},                     $testname . 'Response JSON error is 2');
-ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
+# don't believe that a 204 sends any content in the body
+#ok(2 == $jsonBody->{error},                     $testname . 'Response JSON error is 2');
+#ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END FOREST RETRIEVAL TEST WITH NO FORESTS #########
 
 ######### START UNAUTHENTICATED USER FOREST RETRIEVAL TEST #########

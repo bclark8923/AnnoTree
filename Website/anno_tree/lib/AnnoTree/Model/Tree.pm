@@ -10,12 +10,13 @@ sub create {
     
     print Dumper($params);
     my $result = AnnoTree::Model::MySQL->db->execute(
-        "call create_tree(:userid, :forestid, :name, :desc)",
+        "call create_tree(:userid, :forestid, :name, :desc, :logo)",
         {
             userid      => $params->{userid},
             forestid    => $params->{forestid},
             name        => $params->{name},
-            desc        => $params->{desc}
+            desc        => $params->{desc},
+            logo        => $params->{logo}
         }
     );
 

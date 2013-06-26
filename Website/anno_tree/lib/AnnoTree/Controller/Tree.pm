@@ -16,6 +16,7 @@ sub create {
     $params->{userid} = $self->current_user->{userid};
     $params->{name} = $jsonReq->{name};
     $params->{desc} = $jsonReq->{description};
+    $params->{logo} = 'img/logo.png';
     $self->render(json => {error => '4', txt => 'No name for the tree provided - include at least one alphanumeric character'}, status => 406) and return unless ($params->{name} =~ m/[A-Za-z0-9]/);
 
     my $json = AnnoTree::Model::Tree->create($params);

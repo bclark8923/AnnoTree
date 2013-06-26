@@ -64,30 +64,6 @@ AnnoTree.config(
                     action: "standard.leaf"
                 }
             )
-			.when(
-				"/pets/:categoryID/:petID",
-				{
-					action: "standard.pets.detail.background"
-				}
-			)
-			.when(
-				"/pets/:categoryID/:petID/diet",
-				{
-					action: "standard.pets.detail.diet"
-				}
-			)
-			.when(
-				"/pets/:categoryID/:petID/medical-history",
-				{
-					action: "standard.pets.detail.medicalHistory"
-				}
-			)
-			.when(
-				"/contact",
-				{
-					action: "standard.contact"
-				}
-			)
 			.otherwise(
 				{
 					redirectTo: "/authenticate/login"

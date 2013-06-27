@@ -1,28 +1,28 @@
 -- -----------------------------------------------------
--- Table `annotree`.`leaf_link`
+-- Table `annotree`.`branch_link`
 -- -----------------------------------------------------
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=`TRADITIONAL`;
 
-DROP TABLE IF EXISTS `annotree`.`leaf_link` ;
+DROP TABLE IF EXISTS `annotree`.`branch_link` ;
 
-CREATE  TABLE IF NOT EXISTS `annotree`.`leaf_link` (
+CREATE  TABLE IF NOT EXISTS `annotree`.`branch_link` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `source_leaf_id` INT NULL ,
-  `destination_leaf_id` INT NULL ,
+  `source_branch_id` INT NULL ,
+  `destination_branch_id` INT NULL ,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_leafLink_1` (`source_leaf_id` ASC) ,
-  INDEX `fk_leaf_link_2` (`destination_leaf_id` ASC) ,
-  CONSTRAINT `fk_leafLink_1`
-    FOREIGN KEY (`source_leaf_id` )
-    REFERENCES `annotree`.`leaf` (`id` )
+  INDEX `fk_branchLink_1` (`source_branch_id` ASC) ,
+  INDEX `fk_branch_link_2` (`destination_branch_id` ASC) ,
+  CONSTRAINT `fk_branchLink_1`
+    FOREIGN KEY (`source_branch_id` )
+    REFERENCES `annotree`.`branch` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_leaf_link_2`
-    FOREIGN KEY (`destination_leaf_id` )
-    REFERENCES `annotree`.`leaf` (`id` )
+  CONSTRAINT `fk_branch_link_2`
+    FOREIGN KEY (`destination_branch_id` )
+    REFERENCES `annotree`.`branch` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

@@ -1,5 +1,7 @@
 -- -----------------------------------------------------
 -- Table `annotree`.`path`
+-- /1/2/5/
+-- select * from path where path like "/1%"
 -- -----------------------------------------------------
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;

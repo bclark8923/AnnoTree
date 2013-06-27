@@ -12,8 +12,8 @@ CREATE Procedure `get_leafs`(
   in branch INT
   )
 BEGIN
-select 'id', 'name', 'comment', 'owner_user_id', 'assignee_user_id', 'branch_id', 'created_at' union
-select l.id, l.name, l.comment, l.owner_user_id, l.assignee_user_id, l.branch_id, l.created_at 
+select 'id', 'name', 'comment', 'owner_user_id', 'branch_id', 'created_at' union
+select l.id, l.name, l.comment, l.owner_user_id, l.branch_id, l.created_at 
 from leaf as l 
     join user_leaf ul on
         ul.leaf_id = l.id and

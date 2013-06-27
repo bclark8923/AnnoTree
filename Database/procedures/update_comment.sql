@@ -22,7 +22,7 @@ Set @updated = ROW_COUNT();
 if @updated = 1 then
 select '1';
 elseif (select minute(current_timestamp()) - minute(c.created_at) > @update_timeout from comment as c) then
-select concat('More than ', @update_timeout, ' minutes have passed');
+select '2', concat('More than ', @update_timeout, ' minutes have passed');
 else
 select '0';
 end if;

@@ -8,6 +8,10 @@
 			function getTrees() {
 				return $http.get(apiRoot.getRoot() + '/forest');
 			}
+
+			function createForest(forestName, forestDescription) {
+				return $http.post(apiRoot.getRoot() + '/forest', {name: forestName, description: forestDescription});
+			}
 /*
 			function createForest(forestName, forestDescription) {
 				return $http.post(apiRoot.getRoot() + '/forest', {name: forestName, description: forestDescription});
@@ -17,7 +21,7 @@
 				return $http.get(apiRoot.getRoot() + '/' + forestID + '/' + treeID);
 			}
 
-			function createTree(treeName, treeDescription) {
+			function createTree(forestID, treeName, treeDescription) {
 				return $http.post(apiRoot.getRoot() + '/' + forestID + '/tree', {name: treeName, description: treeDescription});
 			}
 
@@ -36,7 +40,7 @@
 			// Return the public API.
 			return({
 				getTrees: getTrees,
-				//createForest: createForest,
+				createForest: createForest,
 				getTree: getTree,
 				createTree: createTree,
 				getLeaf: getLeaf,

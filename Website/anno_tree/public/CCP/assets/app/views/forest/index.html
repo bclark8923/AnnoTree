@@ -8,7 +8,7 @@
                 <div class="responsiveShowTC" style="text-align:center;width:100%">
                     Welcome to AnnoTree!
                 </div>
-                <div id="newElementHolder"  class="switch" gumby-trigger="#newTreeModal">
+                <div id="newElementHolder"  class="switch" gumby-trigger="#newForestModal">
                     <div id="newElementButton" class="pretty medium success btn">
                         <div style="width:100%;height:100%;">
                             <button>
@@ -36,8 +36,8 @@
                                 <div ng-switch="tree.id">
                                     <div ng-switch-when="-1">
                                         <div class="cardHolder">
-                                            <div class="card switch active" style="opacity:0.4;"  gumby-trigger="#newTreeModal">
-                                                <a id="#newTreeLink" href class="switch active" gumby-trigger="#newTreeModal">
+                                            <div class="card switch active" style="opacity:0.4;">
+                                                <a id="newTreeLink-{{forest.id}}" href class="switch newTreeLinkClass" gumby-trigger="#newTreeModal, #newTreeLink-{{forest.id}}">
                                                     <div class="cardTitleBar valign"><div>{{tree.name}}</div></div>
                                                     <div class="treeLogoContainer">
                                                         <div style="margin-top:50px;color:#444;font-size:130pt;font-weight:800;">

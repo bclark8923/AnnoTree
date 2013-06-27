@@ -40,75 +40,6 @@
 					},
 					function( response ) {
 
-						/*var fake = {
-							forests : 	[
-											{
-												description: "A company for only the truly brave",
-												name: "Silith.io",
-												created_at: "2013-06-22 02:15:31",
-												id: "1",
-												trees: [
-														{ 
-															id: "1",
-													   		name: "Mobile SDK",
-														   	description: "The iOS/Android library for annotations.",
-														   	logo: "img/user.png"
-														},
-														{ 
-															id: "2",
-													   		name: "CCP",
-														   	description: "The main platform for AnnoTree collaboration.",
-														   	logo: "NULL"
-														},
-														{ 
-															id: "1",
-													   		name: "AnnoTree Marketing Site",
-														   	description: "The marketing site for AnnoTree information.",
-														   	logo: "NULL"
-														},
-														{ 
-															id: "2",
-													   		name: "Silith.IO Main Site",
-														   	description: "The website for our overall company",
-														   	logo: "NULL"
-														}
-												]
-											},
-											{
-												description: "The best iOS Game Studio EVER",
-												name: "Shock Games Studios",
-												created_at: "2011-06-22 02:15:31",
-												id: "2",
-												trees: [
-														{ 
-															id: "1",
-													   		name: "Radia",
-														   	description: "The best tilt based game you've ever played.",
-														   	logo: "NULL"
-														},
-														{ 
-															id: "2",
-													   		name: "Fireballin' Lite",
-														   	description: "The predecessor to Radia.",
-														   	logo: "NULL"
-														}
-												]
-											}
-										]
-									};
-
-						var newTree = { 
-								id: "-1",
-						   		name: "New Tree",
-							   	description: "Click here to add a new tree.",
-							   	logo: "NULL"
-							};
-
-						for(var i = 0; i < fake.forests.length; i++) {
-							//fake.forests[i].trees.push(newTree);
-						}
-
-						loadTrees( fake );*/
 						if(response.status != 401 && response.data.error != 0) {
 							$scope.openModalWindow( "error", "Get Forest Failed :(." );
 						}
@@ -120,53 +51,114 @@
 
 			// --- Define Scope Methods. ------------------------ //
 
+			function addTree(newTree) {
+
+				for(var i = 0; i < $scope.forests.length; i++) { 
+					if($scope.forests[i].id == newTree.forest_id) {
+						$scope.forests[i].trees.pop();
+						$scope.forests[i].trees.push(newTree);
+						$scope.forests[i].trees.push($scope.newTreeHolder);
+						break;
+					}
+				}
+
+				$("#newTreeClose").click();
+
+				$scope.invalidAddTree = false;
+
+				//window.Gumby.init();
+
+			}
+
 			$scope.newTree = function() {
 
-				var newTree = { 
-								id: "17",
-						   		name: "Test17",
-							   	description: "fuuuuckkk",
-							   	logo: "NULL"
-							};
+				var treeName = $scope.treeName;
+				var treeDescription = $scope.treeDescription;
+				var formValid = $scope.createTreeForm.$valid;
+				var forestID = $(".newTreeLinkClass.active").attr('id').split("-")[1];
 
-				$scope.forests[0].trees.pop();
-				$scope.forests[0].trees.push(newTree);
-				$scope.forests[0].trees.push($scope.newTreeHolder);
+				//validate form
+				if(!formValid) {
+					$scope.invalidAddTree = true;
+					if(!treeName) {
+						$("#invalidAddTree").html("Please fill out a tree name.");
+					}
+					else if(!treeDescription) {
+						$("#invalidAddTree").html("Please fill out a tree description.");
+					} else {
+						//shouldn't happen
+						$("#invalidAddTree").html("Please enter valid information.");
+					}
+				} else {
+					//return;
+					var promise = forestService.createTree(forestID, treeName, treeDescription);
 
-				$scope.$apply();
+					promise.then(
+						function( response ) {
+
+							$scope.isLoading = false;
+
+							addTree( response.data );
+
+						},
+						function( response ) {
+
+							$("#invalidAddTree").html("The tree failed to add. Please try again later.");
+
+						}
+					);
+				}
+			}
+
+			function addForest(newForest) {
+
+				newForest.trees = [];
+				newForest.trees.push($scope.newTreeHolder);
+				$scope.forests.push(newForest);
+
+				//$scope.$apply();
+				$("#newForestClose").click();
+				$scope.invalidAddForest = false;
 
 				window.Gumby.init();
+
 			}
 
 			$scope.newForest = function() {
+				var forestName = $scope.forestName;
+				var forestDescription = $scope.forestDescription;
+				var formValid = $scope.createForestForm.$valid;
 
-				var newForest = {
-					description: "The best iOS Game Studio EVER",
-					name: "Shock Games Studios",
-					created_at: "2011-06-22 02:15:31",
-					id: "2",
-					trees: [
-							{ 
-								id: "1",
-						   		name: "Test01",
-							   	description: "description",
-							   	logo: "NULL"
-							},
-							{ 
-								id: "2",
-						   		name: "Test02",
-							   	description: "description",
-							   	logo: "NULL"
-							},
-					]
-				};
+				//validate form
+				if(!formValid) {
+					$scope.invalidAddForest = true;
+					if(!forestName) {
+						$("#invalidAddForest").html("Please fill out a forest name.");
+					}
+					else if(!forestDescription) {
+						$("#invalidAddForest").html("Please fill out a forest description.");
+					} else {
+						//shouldn't happen
+						$("#invalidAddForest").html("Please enter valid information.");
+					}
+				} else {
+					var promise = forestService.createForest(forestName, forestDescription);
 
-				$scope.forests[0].name = "fucked";
-				$scope.forests.push(newForest);
+					promise.then(
+						function( response ) {
 
-				$scope.$apply();
+							$scope.isLoading = false;
 
-				window.Gumby.init();
+							addForest( response.data );
+
+						},
+						function( response ) {
+
+							$("#invalidAddForest").html("The forest failed to add. Please try again later.");
+
+						}
+					);
+				}
 			}
 
 			// ...
@@ -195,7 +187,7 @@
 								id: "-1",
 						   		name: "New Tree",
 							   	description: "Click here to add a new tree to this forest.",
-							   	logo: "NULL"
+							   	logo: "img/tree01.png"
 							};
 			
 
@@ -229,6 +221,8 @@
 
 			// Load the "remote" data.
 			loadRemoteData();
+
+			window.Gumby.init();
 
 		}
 	);

@@ -99,6 +99,7 @@ sub startup {
     $authr->post('/:forestid/tree' => [forestid => qr/\d+/])->to('controller-tree#create');
 
     # ===== BRANCHES =====
+    $authr->post('/:treeid/branch' => [treeid => qr/\d+/])->to('controller-branch#create');
 
     # ===== Leaves =====
 

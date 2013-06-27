@@ -66,7 +66,7 @@ sub check {
     if ($self->is_user_authenticated) {
         return 1;
     }
-    $self->redirect_to('/CCP/index.htm');
+    $self->redirect_to('/CCP/index.htm') and return 0;
     #$self->render(json => {error => 0, txt => 'You are not authorized to access this service'}, status => 401) and return 0;
 }
 

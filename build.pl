@@ -92,9 +92,10 @@ sub usage {
 
 # grabs the lastest code from the specified branch (master if branch is not given)
 sub pull {
+    say OUTPUT 'Preparing to pull code from the remote git repo ' . $repo . ' and branch ' . $branch if $verbose;
     if ($server eq 'awsdev') {
-        `sudo chown -r matt:dev $root/*`;
-        `sudo chown -r matt:dev $root/.git`;
+        `sudo chown -R matt:dev $root/*`;
+        `sudo chown -R matt:dev $root/.git`;
         `git stash`;
     }
     `git pull $repo $branch`;

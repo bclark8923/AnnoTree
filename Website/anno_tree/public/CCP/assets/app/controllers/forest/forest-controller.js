@@ -13,11 +13,11 @@
 			// I apply the remote data to the local view model.
 			function loadTrees( forests ) {
 
-				for(var i = 0; i < forests.forests.length; i++) {
-					forests.forests[i].trees.push($scope.newTreeHolder);
+				for(var i = 0; i < forests.length; i++) {
+					forests[i].trees.push($scope.newTreeHolder);
 				}
 
-               	$scope.forests = forests.forests;
+               	$scope.forests = forests;
 
 				window.Gumby.init();
 			}
@@ -35,7 +35,7 @@
 
 						$scope.isLoading = false;
 
-						loadTrees( response.data );
+						loadTrees( response.data.forests );
 
 					},
 					function( response ) {
@@ -133,7 +133,9 @@
 				$scope.forests[0].trees.push(newTree);
 				$scope.forests[0].trees.push($scope.newTreeHolder);
 
-				//$scope.$apply;
+				$scope.$apply();
+
+				window.Gumby.init();
 			}
 
 			$scope.newForest = function() {
@@ -162,7 +164,9 @@
 				$scope.forests[0].name = "fucked";
 				$scope.forests.push(newForest);
 
-				//$scope.$apply;
+				$scope.$apply();
+
+				window.Gumby.init();
 			}
 
 			// ...

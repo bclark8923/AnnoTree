@@ -90,7 +90,7 @@
 	);
 
 })( angular, AnnoTree );
-
+/*
 $(document).ready(function() {
 	  settingsPane = new SlidingPane({
 	    id: 'mobileOptions',
@@ -108,3 +108,4 @@ $(document).ready(function() {
 	}
   });
 });
+*/

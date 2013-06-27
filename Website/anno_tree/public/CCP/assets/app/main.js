@@ -89,6 +89,10 @@ var interceptor = function( $q, $location ) {
  
     // convert the returned data using values passed to $http.get()'s config param
     var resolve = function( value ) {
+    	if(value.redirect) {
+			$location.path("/authenticate/login");
+			return;
+    	}
       //console.log( "rejected because: ", value );
       //convertList( value.data, value.config.cls, value.config.initFn );
     };

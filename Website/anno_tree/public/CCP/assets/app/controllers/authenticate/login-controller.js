@@ -24,7 +24,7 @@
 			$scope.validateLogin = function() {
 				
 				//Mark the form as valid
-				$scope.invalidLogin = false;
+				//$scope.invalidLogin = false;
 
 				//check for validation
 				$scope.$broadcast('$validate');

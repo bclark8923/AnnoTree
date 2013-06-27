@@ -34,6 +34,8 @@ GetOptions(
 usage() and exit 0 if $help;
 usage() and exit 0 unless ($server && $action);
 
+($branch = 'master') unless defined $branch;
+
 if ($server eq 'awsdev') {
     $root = $awsdevRoot;
 } elsif ($server eq 'matt') {

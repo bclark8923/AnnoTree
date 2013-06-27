@@ -54,10 +54,6 @@
 
             $scope.user = {name : localStorageService.get('username'), avatar : localStorageService.get('useravatar')};
 
-            if($scope.user.avatar == "NULL") {
-            	$scope.user.avatar = "img/user.png";
-            }
-
 
 			// --- Bind To Scope Events. ------------------------ //
 
@@ -94,7 +90,7 @@
 	);
 
 })( angular, AnnoTree );
-
+/*
 $(document).ready(function() {
 	  settingsPane = new SlidingPane({
 	    id: 'mobileOptions',
@@ -112,3 +108,4 @@ $(document).ready(function() {
 	}
   });
 });
+*/

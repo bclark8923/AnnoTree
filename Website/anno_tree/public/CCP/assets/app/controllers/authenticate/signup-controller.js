@@ -93,7 +93,6 @@
 									//pre-defined
 							}
 							$("#validateError").html(errorData);
-							//$scope.openModalWindow( "error", errorData );
 
 						}
 					);

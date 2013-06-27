@@ -24,7 +24,7 @@
 			$scope.validateLogin = function() {
 				
 				//Mark the form as valid
-				$scope.invalidLogin = false;
+				//$scope.invalidLogin = false;
 
 				//check for validation
 				$scope.$broadcast('$validate');
@@ -79,6 +79,8 @@
 									//stuff
 							}
 							$("#validateError").html(errorData);
+
+							//Function for popping up alerts
 							//$scope.openModalWindow( "error", "Our login service is currently down, please try again later." );
 
 						}
@@ -141,7 +143,7 @@
 
 			// Set the window title.
 			$scope.setWindowTitle( "AnnoTree" );
-			
+
 			if(!$scope.subview) {
 				window.Gumby.init();
 			}

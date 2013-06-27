@@ -24,14 +24,6 @@
 			function resetPassword() {
 				return $http.get(apiRoot.getRoot() + '/2/tree');
 			}
-
-	        function isLoggedIn() {
-	            if($cookies.sessionid) {
-	                return true;
-	            }
-
-	            $location.path("login");
-	        }
 			// ---------------------------------------------- //
 			// ---------------------------------------------- //
 

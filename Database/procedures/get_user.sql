@@ -9,7 +9,6 @@ DELIMITER $$
 CREATE procedure `get_user`(
   e VARCHAR(255))
 BEGIN
-DECLARE user_data varchar(1024) default '0';
 select 'id', 'first_name',  'last_name', 'email', 'lang', 'time_zone', 'profile_image_path', 'created_at', 'active'
 union
 select id, first_name,  last_name, email, lang, time_zone, profile_image_path, created_at, active

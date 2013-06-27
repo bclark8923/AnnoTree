@@ -19,7 +19,7 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`user` (
   `profile_image_path` VARCHAR(45) NULL ,
   `active` boolean default true,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`(45))
+  UNIQUE KEY `email` (`email`(255))
  )
 ENGINE = InnoDB;
 

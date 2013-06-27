@@ -11,7 +11,6 @@ CREATE Procedure `create_leaf`(
   in name VARCHAR(45),
   in `comment` VARCHAR(1024),
   in owner_user_id INT,
-  in assignee_user_id INT,
   in b_id INT
   )
 BEGIN
@@ -25,7 +24,7 @@ insert into `annotree`.`user_leaf`
 values
   (owner_user_id, @id);
 -- TODO improve this
-select 'id', 'name', 'comment', 'owner_user_id', 'assignee_user_id', 'branch_id', 'created_at' 
+select 'id', 'name', 'comment', 'owner_user_id', 'branch_id', 'created_at' 
 union 
 select * from leaf where id = @id;
 END IF;

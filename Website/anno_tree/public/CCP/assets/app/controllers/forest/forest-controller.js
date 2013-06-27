@@ -4,7 +4,7 @@
 
 	app.controller(
 		"forest.ForestController",
-		function( $scope, $cookies, $rootScope, requestContext, forestService, _ ) {
+		function( $scope, $cookies, $rootScope, $location, requestContext, forestService, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
@@ -66,6 +66,8 @@
 
 				$scope.invalidAddTree = false;
 
+				$location.path("/app");
+
 				//window.Gumby.init();
 
 			}
@@ -119,6 +121,8 @@
 				//$scope.$apply();
 				$("#newForestClose").click();
 				$scope.invalidAddForest = false;
+
+				$location.path("/app");
 
 				window.Gumby.init();
 

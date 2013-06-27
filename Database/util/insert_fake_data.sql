@@ -16,7 +16,7 @@ call create_tree(1, (select id from forest where name = 'World of Trees'), 'Tree
 
 call create_branch(1, (select distinct id from tree where name = 'Tree Dwarves' LIMIT 1), 'Tree Dwarve Racial Traits', 'A racial trait, commonly referred to as a racial, is a special ability or power granted to a character based on race. These traits come in both active and passive forms. Each race receives at least 3 traits (several passive and at least one active trait per race).');
 
-call create_leaf('Stoneform', 'Stoneform Tree Dwarves can temporarily turn to living stone, neutralizing any poisons, diseases, and bleeding wounds, and adding natural armor.', 1, 2, (select id from branch where name = 'Tree Dwarve Racial Traits'));
+call create_leaf('Stoneform', 'Stoneform Tree Dwarves can temporarily turn to living stone, neutralizing any poisons, diseases, and bleeding wounds, and adding natural armor.', 1, (select id from branch where name = 'Tree Dwarve Racial Traits'));
 
 call create_comment(1, 'Removes all rogue poisons as well as Rupture and Garrote. ', (select id from leaf where name = 'Stoneform'));
 

@@ -14,7 +14,7 @@ CREATE Procedure `delete_forest`(
 BEGIN
 IF (select id from user where id = user and active = true) then
 SET FOREIGN_KEY_CHECKS=0;
---TODO: leafs
+-- TODO: leafs
 delete f, uf, t, ut, b, ub 
         from forest as f 
         inner join user_forest as uf on

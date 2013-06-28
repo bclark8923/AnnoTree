@@ -4,7 +4,7 @@
 
 	app.controller(
 		"forest.ForestController",
-		function( $scope, $cookies, $rootScope, $location, requestContext, forestService, _ ) {
+		function( $scope, $cookies, $rootScope, $location, $timeout, requestContext, forestService, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
@@ -18,8 +18,6 @@
 				}
 
                	$scope.forests = forests;
-
-				window.Gumby.init();
 			}
 
 
@@ -37,11 +35,32 @@
 
 						loadTrees( response.data.forests );
 
+ 						$timeout(function() { window.Gumby.init() }, 0);
+
 					},
 					function( response ) {
-
-						if(response.status != 401 && response.data.error != 0) {
-							$scope.openModalWindow( "error", "Get Forest Failed :(." );
+						var errorData = "Our Create Tree Service is currently down, please try again later.";
+						var errorNumber = parseInt(response.data.error);
+						if(response.data.status == 406) {
+							switch(errorNumber)
+							{
+								case 1:
+									errorData = "This user does not exist in our system. Please contact Us.";
+									break;
+								default:
+									//go to Fail Page
+							}
+						} else if(response.data.status == 204) {
+							switch(errorNumber)
+							{
+								case 2:
+									errorData = "This user currently has no forests."; // load a sample page maybe?
+									break;
+								default:
+									//go to Fail Page
+							}
+						} else {
+							//go to Fail Page
 						}
 					}
 				);
@@ -67,8 +86,6 @@
 				$scope.invalidAddTree = false;
 
 				$location.path("/app");
-
-				//window.Gumby.init();
 
 			}
 
@@ -101,11 +118,44 @@
 							$scope.isLoading = false;
 
 							addTree( response.data );
+ 				
+ 							$timeout(function() { Gumby.initialize('switches') }, 0);
 
 						},
 						function( response ) {
-
-							$("#invalidAddTree").html("The tree failed to add. Please try again later.");
+							var errorData = "Our Create Tree Service is currently down, please try again later.";
+							var errorNumber = parseInt(response.data.error);
+							if(response.data.status == 406) {
+								switch(errorNumber)
+								{
+									case 0:
+										errorData = "Please fill out all of the fields";
+										break;
+									case 1:
+										errorData = "This user does not exist in our system. Please contact Us.";
+										break;
+									case 2:
+										errorData = "The forest you attempted to add to no longer exists.";
+										break;
+									case 4:
+										errorData = "Please enter a valid forest name.";
+										break;
+									default:
+										//go to Fail Page
+								}
+							} else if(response.data.status == 403) {
+								switch(errorNumber)
+								{
+									case 3:
+										errorData = "You currently don't have permission to create a tree in this forest.";
+										break;
+									default:
+										//go to Fail Page
+								}
+							} else {
+								//go to Fail Page
+							}
+							$("#invalidAddTree").html(errorData);
 
 						}
 					);
@@ -123,8 +173,6 @@
 				$scope.invalidAddForest = false;
 
 				$location.path("/app");
-
-				window.Gumby.init();
 
 			}
 
@@ -154,11 +202,32 @@
 							$scope.isLoading = false;
 
 							addForest( response.data );
+ 				
+ 							$timeout(function() { Gumby.initialize('switches') }, 0);
 
 						},
 						function( response ) {
-
-							$("#invalidAddForest").html("The forest failed to add. Please try again later.");
+							var errorData = "Our Create Forest Service is currently down, please try again later.";
+							var errorNumber = parseInt(response.data.error);
+							if(response.data.status == 406) {
+								switch(errorNumber)
+								{
+									case 0:
+										errorData = "Please fill out all of the fields";
+										break;
+									case 1:
+										errorData = "This user does not exist in our system. Please contact Us.";
+										break;
+									case 2:
+										errorData = "Please enter a valid forest name.";
+										break;
+									default:
+										//go to Fail Page
+								}
+							} else {
+								//go to Fail Page
+							}
+							$("#invalidAddForest").html(errorData);
 
 						}
 					);
@@ -224,9 +293,9 @@
 			$scope.setWindowTitle( "AnnoTree" );
 
 			// Load the "remote" data.
-			loadRemoteData();
+			$scope.$evalAsync(loadRemoteData());
 
-			window.Gumby.init();
+			Gumby.init();
 
 		}
 	);

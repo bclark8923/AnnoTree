@@ -126,7 +126,8 @@
 		// always combine switch and first target
 		} else if(this.targets.length > 1) {
 			this.$el.add(this.targets[0]).addClass('active');
-			this.targets[1].removeClass('active');
+			$(this.targets[1].selector).removeClass('active');
+			//this.targets[1].removeClass('active');
 		}
 
 		// call event handler here, applying scope of object Switch/Toggle

@@ -1,4 +1,4 @@
-package AnnoTree::Model::Branch;
+package AnnoTree::Model::Leaf;
 
 use Mojo::Base -strict;
 use AnnoTree::Model::MySQL;
@@ -10,10 +10,10 @@ sub create {
     
     print Dumper($params);
     my $result = AnnoTree::Model::MySQL->db->execute(
-        "call create_branch(:userid, :treeid, :name, :desc)",
+        "call create_leaf(:name, :desc, :userid, :branchid)",
         {
             userid      => $params->{userid},
-            treeid      => $params->{treeid},
+            branchid    => $params->{branchid},
             name        => $params->{name},
             desc        => $params->{desc},
         }
@@ -21,17 +21,18 @@ sub create {
 
     my $json = {};
     my $cols = $result->fetch;
+    print Dumper($cols);
     if (looks_like_number($cols->[0])) { 
         my $error = $cols->[0];
         if ($error == 1) {
-            return {error => $error, txt => 'Can\'t create a branch with a user that is not active'};
+            return {error => $error, txt => 'Can\'t create a leaf with a user that is not active'};
         } elsif ($error == 2) { 
-            return {error => $error, txt => 'Tree does not exist'};
+            return {error => $error, txt => 'Branch does not exist'};
         } 
     }
-    my $branchInfo = $result->fetch;
+    my $leafInfo = $result->fetch;
     for (my $i = 0; $i < @{$cols}; $i++) {
-        $json->{$cols->[$i]} = $branchInfo->[$i];
+        $json->{$cols->[$i]} = $leafInfo->[$i];
     }
     
     return $json;

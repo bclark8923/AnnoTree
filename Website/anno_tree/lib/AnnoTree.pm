@@ -52,23 +52,18 @@ sub startup {
         },
         validate_user => sub {
             my ($self, $email, $pw) = @_;
-            #$self->debug("user email is $email and pw is $pw");
             my $result = AnnoTree::Model::MySQL->db->execute(
                 'call validate_user(:email)',
                 {
                     email => $email
                 }
             );
-            #print Dumper($self);
             while (my $return = $result->fetch) {
                 my $shash = $return->[1];
-                #print "users shash is $shash"; 
                 my $valid = Crypt::SaltedHash->validate($shash, $pw);
-                #$self->debug("valid is $valid");
                 return undef unless $valid;
                 return $return->[0];
             }
-            #$self->debug('user does not exist');
             return undef;
         }
     });
@@ -101,9 +96,10 @@ sub startup {
     # ===== BRANCHES =====
     $authr->post('/:treeid/branch' => [treeid => qr/\d+/])->to('controller-branch#create');
 
-    # ===== Leaves =====
+    # ===== LEAVES =====
+    $authr->post('/:branchid/leaf' => [branchid => qr/\d+/])->to('controller-leaf#create');
 
-    # ===== Annotations =====
+    # ===== ANNOTATIONS =====
 
 }
 

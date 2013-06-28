@@ -17,7 +17,7 @@ BEGIN
 IF (select id from user where id = owner_user_id and active = true) THEN
     IF (select id from branch where id = b_id) THEN
         insert into `annotree`.`leaf` 
-          (n, d, owner_user_id, branch_id)
+          (name, description, owner_user_id, branch_id)
           values (n, d, owner_user_id, b_id);
         set @id = LAST_INSERT_ID();
         insert into `annotree`.`user_leaf`

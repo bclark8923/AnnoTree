@@ -112,7 +112,7 @@ var interceptor = function( $q, $location ) {
     var reject = function( reason ) {
     	if(reason.status == 401) {
     		if(reason.data.error == 0) {
-    			//$location.path("/authenticate/login");
+    			$location.path("/authenticate/login");
     			return;
     		}
     	}

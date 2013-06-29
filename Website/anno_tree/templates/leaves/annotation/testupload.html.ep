@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-    <head><title>Upload</title></head>
+    <head><title>Test Uploading Annotation</title></head>
     <body>
-        %= form_for "/3/annotation" => (enctype => 'multipart/form-data') => (method => 'POST')=> begin
+        %= form_for "/$leafid/annotation" => (enctype => 'multipart/form-data') => (method => 'POST')=> begin
         %= file_field 'uploadedFile'
         %= submit_button 'Upload'
     % end

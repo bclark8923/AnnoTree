@@ -27,7 +27,7 @@ $jsonBody = $json->decode($tx->res->body);
 # if the user already exists then log them in
 if ($tx->res->code == 406 && $jsonBody->{error} == 2) {
     $testname = 'Valid user login: ';
-    $tx = $uaValid->post('http://localhost:3000/user/login' => json => {
+    $tx = $uaValid->post($server . $port . '/user/login' => json => {
         loginEmail     => $validUserEmail,
         loginPassword  => $validUserPass
     });
@@ -40,7 +40,7 @@ ok('test suite' eq $jsonBody->{first_name},             $testname . "Response JS
 ok('user' eq $jsonBody->{last_name},                    $testname . "Response JSON last name is 'user'");
 ok(exists $jsonBody->{created_at},                      $testname . 'Response JSON created date exists');
 ok('ENG' eq $jsonBody->{lang},                          $testname . "Response JSON language is ENG");
-ok(1 == $jsonBody->{active},                            $testname . 'Response JSON active is 1');
+ok(3 == $jsonBody->{status},                            $testname . 'Response JSON status is 3');
 ok('EST' eq $jsonBody->{time_zone},                     $testname . "Response JSON time zone is EST");
 ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
 ok($validUserEmail eq $jsonBody->{email},               $testname . "Response JSON email is '" . $validUserEmail . "'");
@@ -160,7 +160,7 @@ $testname = 'Valid tree retrieval: ';
 my $treeGetURL = $server . $port . '/tree/' . $validTreeID;
 $tx = $uaValid->get($treeGetURL);
 $jsonBody = $json->decode($tx->res->body);
-print Dumper($jsonBody);
+#print Dumper($jsonBody);
 
 ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
 ok($validTreeID == $jsonBody->{id},                 $testname . 'Response JSON tree ID matches');
@@ -173,7 +173,7 @@ ok(exists $jsonBody->{branches},                    $testname . 'Response JSON b
 ######### END VALID TREE RETRIEVAL TEST #########
 
 ######### START INVALID TREE RETRIEVAL TEST #########
-# this test attempts to create a forest with an unauthenticated user
+# this test attempts to retrieve a tree that does not exist
 my $testname = 'Invalid tree retrieval: ';
 my $invalidTreeGetURL = $server . $port . '/tree/0';
 $tx = $uaValid->get($invalidTreeGetURL);
@@ -183,6 +183,18 @@ ok(406 == $tx->res->code,                   $testname . 'Response Code is 406');
 ok(1 == $jsonBody->{error},                 $testname . "Response JSON error result is 1");
 ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
 ######### END INVALID TREE RETRIEVAL TEST #########
+
+######### START EXISTING TREE NO PERMISSIONS RETRIEVAL TEST #########
+# this test attempts to retrieve a tree that exists but the user does not have access to
+my $testname = 'Existing tree no permissions retrieval: ';
+my $invalidTreeGetURL = $server . $port . '/tree/1';
+$tx = $uaValid->get($invalidTreeGetURL);
+$jsonBody = $json->decode($tx->res->body);
+
+ok(406 == $tx->res->code,                   $testname . 'Response Code is 406');
+ok(1 == $jsonBody->{error},                 $testname . "Response JSON error result is 1");
+ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
+######### END EXISTING TREE NO PERMISSIONS RETRIEVAL TEST #########
 
 ######### START UNAUTHENTICATED USER TREE RETRIEVAL TEST #########
 # this test attempts to create a forest with an unauthenticated user

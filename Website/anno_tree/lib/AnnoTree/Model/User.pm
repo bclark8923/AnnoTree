@@ -53,7 +53,7 @@ sub signup {
     return {error => '5', txt => 'Valid password characters are alphanumeric or !@#$%^&*()'} if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
     $pass = createSaltedHash($pass);
     
-    my $result = AnnoTree::Model::MySQL->db->execute("call create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage)", 
+    my $result = AnnoTree::Model::MySQL->db->execute("call create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage, :status)", 
         {
             email           => $params->{'email'}, 
             password        => '' . $pass,
@@ -61,7 +61,8 @@ sub signup {
             lastName        => $params->{'lastName'},
             lang            => 'ENG',
             timezone        => 'EST',
-            profileImage    => 'img/user.png'
+            profileImage    => 'img/user.png',
+            status          => '3'
         }
     );
 

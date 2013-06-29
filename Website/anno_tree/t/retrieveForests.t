@@ -41,7 +41,7 @@ ok('test suite' eq $jsonBody->{first_name},             $testname . "Response JS
 ok('user' eq $jsonBody->{last_name},                    $testname . "Response JSON last name is 'user'");
 ok(exists $jsonBody->{created_at},                      $testname . 'Response JSON created date exists');
 ok('ENG' eq $jsonBody->{lang},                          $testname . "Response JSON language is ENG");
-ok(1 == $jsonBody->{active},                            $testname . 'Response JSON active is 1');
+ok(3 == $jsonBody->{status},                            $testname . 'Response JSON status is 1');
 ok('EST' eq $jsonBody->{time_zone},                     $testname . "Response JSON time zone is EST");
 ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
 ok($validUserEmail eq $jsonBody->{email},               $testname . "Response JSON email is '" . $validUserEmail . "'");
@@ -57,7 +57,7 @@ $tx = $uaValid->post($forestURL => json => {
     description     => $validForestDesc
 });
 $jsonBody = $json->decode($tx->res->body);
- 
+
 ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
 ok(exists $jsonBody->{id},                          $testname . 'Response JSON ID exists');
 ok($validForestName eq $jsonBody->{name},           $testname . "Response JSON name matches");
@@ -70,7 +70,7 @@ my $validForestCreated = $jsonBody->{created_at};
 ######### START VALID TREE CREATION TEST #########
 # this test creates a new tree
 $testname = 'Valid tree creation: ';
-my $treeCreationURL = 'http://localhost:3000/' . $validForestID . '/tree';
+my $treeCreationURL = $server . $port . '/' . $validForestID . '/tree';
 my $validTreeName = 'Test Suite Tree';
 my $validTreeDesc = 'This is a tree created by the automated Mojolicious test suite';
 $tx = $uaValid->post($treeCreationURL => json => {
@@ -91,7 +91,7 @@ my $validTreeCreated = $jsonBody->{created_at};
 ######### END VALID TREE CREATION TEST #########
 
 ######### START VALID FOREST RETRIEVAL TEST #########
-# this test creates a new forest
+# this test retrieves the forests/trees associated with a user
 $testname = 'Valid forest retreival: ';
 $tx = $uaValid->get($forestURL);
 $jsonBody = $json->decode($tx->res->body);
@@ -101,8 +101,8 @@ my $testForest;
 foreach my $forest (@{$jsonBody->{forests}}) {
     next unless $forest->{id} = $validForestID;
     $testForest = $forest;
-    last;
 }
+
 ok($validForestID == $testForest->{id},                             $testname . 'Response JSON forest ID matches');
 ok($validForestName eq $testForest->{name},                         $testname . "Response JSON forest name matches");
 ok($validForestDesc eq $testForest->{description},                  $testname . "Response JSON forest description matches");
@@ -134,7 +134,7 @@ ok('test script' eq $jsonBody->{first_name},            $testname . "Response JS
 ok('user' eq $jsonBody->{last_name},                    $testname . "Response JSON last name is 'user'");
 ok(exists $jsonBody->{created_at},                      $testname . 'Response JSON created date exists');
 ok('ENG' eq $jsonBody->{lang},                          $testname . "Response JSON language is ENG");
-ok(1 == $jsonBody->{active},                            $testname . 'Response JSON active is 1');
+ok(3 == $jsonBody->{status},                            $testname . 'Response JSON status is 3');
 ok('EST' eq $jsonBody->{time_zone},                     $testname . "Response JSON time zone is EST");
 ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
 ok($validUserEmail eq $jsonBody->{email},               $testname . "Response JSON email is $validUserEmail");
@@ -146,7 +146,7 @@ ok($validUserEmail eq $jsonBody->{email},               $testname . "Response JS
 $testname = 'No forests retrieval: ';
 $tx = $uaNoForests->get($forestURL);
 $jsonBody = $json->decode($tx->res->body);
-print Dumper($jsonBody);
+
 ok(204 == $tx->res->code,                       $testname . 'Response Code is 204');
 # don't believe that a 204 sends any content in the body
 #ok(2 == $jsonBody->{error},                     $testname . 'Response JSON error is 2');
@@ -154,7 +154,7 @@ ok(204 == $tx->res->code,                       $testname . 'Response Code is 20
 ######### END FOREST RETRIEVAL TEST WITH NO FORESTS #########
 
 ######### START UNAUTHENTICATED USER FOREST RETRIEVAL TEST #########
-# this test attempts to retrieve a forest with an unauthenticated user
+# this test attempts to retrieve forests with an unauthenticated user
 my $testname = 'Unauthenticated user forest retrieval: ';
 my $uaUnauth = Mojo::UserAgent->new;
 $tx = $uaUnauth->get($forestURL);
@@ -164,6 +164,5 @@ ok(401 == $tx->res->code,                   $testname . 'Response Code is 401');
 ok(0 == $jsonBody->{error},                 $testname . "Response JSON error result is 0");
 ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
 ######### END UNAUTHENTICATED USER FOREST RETRIEVAL TEST #########
-
 
 done_testing();

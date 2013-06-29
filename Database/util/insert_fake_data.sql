@@ -2,8 +2,8 @@ USE annotree;
 
 
 -- fake data for users
-call create_user('{SSHA512}UX9sgqjO+B6T4x+ymVTOX+ZfBl5QI1DbJKwMuDijfgwwDQoTHHm/waUNdSI4VlqLOg/gn6GSCvcBdFWSRJTM7NtAC+c=', 'matt', 'price', 'matt@price.com', 'ENG', 'EST', null);
-call create_user('password', 'mike', 'max', 'unrealdps@gmail.com', 'ENG', 'EST', null);
+call create_user('{SSHA512}UX9sgqjO+B6T4x+ymVTOX+ZfBl5QI1DbJKwMuDijfgwwDQoTHHm/waUNdSI4VlqLOg/gn6GSCvcBdFWSRJTM7NtAC+c=', 'matt', 'price', 'matt@price.com', 'ENG', 'EST', 'img/user.png', 3);
+call create_user('password', 'mike', 'max', 'unrealdps@gmail.com', 'ENG', 'EST', 'img/user.png', 3);
 
 -- fake data for forests
 call create_forest(1,"Silith.io", "A company for only the truly brave");

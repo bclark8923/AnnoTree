@@ -102,7 +102,7 @@ sub startup {
 
     # ===== ANNOTATIONS =====
     $authr->post('/:leafid/annotation' => [leafid => qr/\d+/])->to('controller-annotation#create');
-    $authr->get('/leaftest')->to('controller-annotation#testFileUpload');
+    $authr->get('/:leafid/leaftest' => [leafid => qr/\d+/])->to('controller-annotation#testFileUpload');
 
  
 

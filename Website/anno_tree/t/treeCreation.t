@@ -9,14 +9,16 @@ my $uaValid = Mojo::UserAgent->new; # use to make the JSON POST requests
 my $json = Mojo::JSON->new; # use to help turn the response JSON into a Perl hash
 my $tx; # this shuld be the Mojo::Transaction element return from the UA transaction
 my $jsonBody; # this should be the body of the returned message if JSON
-my $forestCreationURL = 'http://localhost:3000/forest';
+my $server = 'http://localhost';
+my $port = ':3000';
+my $forestCreationURL = $server . $port . '/forest';
 
 ######### START VALID USER SIGNUP/LOGIN TEST #########
 # this test creates a new valid user
 my $testname = 'Valid user signup: ';
 my $validUserEmail = 'mojotest@user.com';
 my $validUserPass = 'tester1';
-$tx = $uaValid->post('http://localhost:3000/user/signup' => json => {
+$tx = $uaValid->post($server . $port . '/user/signup' => json => {
     signUpName      => 'test suite user',
     signUpEmail     => $validUserEmail,
     signUpPassword  => $validUserPass
@@ -26,7 +28,7 @@ $jsonBody = $json->decode($tx->res->body);
 # if the user already exists then log them in
 if ($tx->res->code == 406 && $jsonBody->{error} == 2) {
     $testname = 'Valid user login: ';
-    $tx = $uaValid->post('http://localhost:3000/user/login' => json => {
+    $tx = $uaValid->post($server . $port . '/user/login' => json => {
         loginEmail     => $validUserEmail,
         loginPassword  => $validUserPass
     });
@@ -39,14 +41,14 @@ ok('test suite' eq $jsonBody->{first_name},             $testname . "Response JS
 ok('user' eq $jsonBody->{last_name},                    $testname . "Response JSON last name is 'user'");
 ok(exists $jsonBody->{created_at},                      $testname . 'Response JSON created date exists');
 ok('ENG' eq $jsonBody->{lang},                          $testname . "Response JSON language is ENG");
-ok(1 == $jsonBody->{active},                            $testname . 'Response JSON active is 1');
+ok(3 == $jsonBody->{status},                            $testname . 'Response JSON status is 3');
 ok('EST' eq $jsonBody->{time_zone},                     $testname . "Response JSON time zone is EST");
 ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
 ok($validUserEmail eq $jsonBody->{email},               $testname . "Response JSON email is '" . $validUserEmail . "'");
 ######### END VALID USER SIGNUP/LOGIN TEST #########
 
 ######### START VALID FOREST CREATION TEST #########
-# this test creates a new valid user
+# this test creates a new forest
 my $testname = 'Valid forest creation: ';
 my $validForestName = 'Test Suite Forest';
 my $validForestDesc = 'This is a forest created by the automated Mojolicious test suite';
@@ -67,7 +69,7 @@ my $validForestID = $jsonBody->{id};
 ######### START VALID TREE CREATION TEST #########
 # this test creates a new tree
 $testname = 'Valid tree creation: ';
-my $treeCreationURL = 'http://localhost:3000/' . $validForestID . '/tree';
+my $treeCreationURL = $server . $port . '/' . $validForestID . '/tree';
 my $validTreeName = 'Test Suite Tree';
 my $validTreeDesc = 'This is a tree created by the automated Mojolicious test suite';
 $tx = $uaValid->post($treeCreationURL => json => {
@@ -114,8 +116,8 @@ ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error tex
 # this test attempts to create a tree on a forest that does not exist
 $testname = 'Missing forest tree creation: ';
 my $missingForestID = 0;
-$treeCreationURL = 'http://localhost:3000/' . $missingForestID . '/tree';
-$tx = $uaValid->post($treeCreationURL => json => {
+my $treeMissingURL = $server . $port . '/' . $missingForestID . '/tree';
+$tx = $uaValid->post($treeMissingURL => json => {
     name            => $validTreeName,
     description     => $validTreeDesc
 });
@@ -130,8 +132,8 @@ ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error tex
 # this test attempts to create a tree on a forest the user does not have access to
 $testname = 'Forbidden tree creation: ';
 my $forbiddenForestID = 1;
-$treeCreationURL = 'http://localhost:3000/' . $forbiddenForestID . '/tree';
-$tx = $uaValid->post($treeCreationURL => json => {
+my $treeForbiddenURL = $server . $port . '/' . $forbiddenForestID . '/tree';
+$tx = $uaValid->post($treeForbiddenURL => json => {
     name            => $validTreeName,
     description     => $validTreeDesc
 });
@@ -146,7 +148,7 @@ ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error tex
 # this test attempts to create a forest with an unauthenticated user
 $testname = 'Unauthenticated user tree creation: ';
 my $uaUnauth = Mojo::UserAgent->new;
-$treeCreationURL = 'http://localhost:3000/' . $validForestID . '/tree';
+#$treeCreationURL = 'http://localhost:3000/' . $validForestID . '/tree';
 $tx = $uaUnauth->post($forestCreationURL => json => {
     name            => $validForestName,
     description     => $validForestDesc

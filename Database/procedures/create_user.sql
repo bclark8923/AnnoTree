@@ -14,15 +14,17 @@ CREATE procedure `create_user`(
   email VARCHAR(255),
   lang VARCHAR(3),
   time_zone VARCHAR(15),
-  profile_image_path VARCHAR(45))
+  profile_image_path VARCHAR(45),
+  status INTEGER
+)
 BEGIN
 If (select id from user where email = user.email) then
 select '2'; 
 elseIF email REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
 insert into `annotree`.`user`
-  (password, first_name, last_name, email, lang, time_zone, profile_image_path) 
+  (password, first_name, last_name, email, lang, time_zone, profile_image_path, status) 
 values 
-  (password, first_name, last_name, email, lang, time_zone, profile_image_path);
+  (password, first_name, last_name, email, lang, time_zone, profile_image_path, status);
 set @id = LAST_INSERT_ID();
 select 'id', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status' 
 union

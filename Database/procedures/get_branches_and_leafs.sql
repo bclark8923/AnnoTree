@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 -- get_branches
--- Note: Returns a list of forest associated with a user's id
+-- Note: Returns a list of branches and leaves associated with a tree
 -- --------------------------------------------------------------------------------
 use annotree;
 drop  procedure IF EXISTS `get_branches_and_leafs`;
@@ -12,8 +12,8 @@ CREATE Procedure `get_branches_and_leafs`(
   in tree INT
   )
 BEGIN
-select 'branch id', 'branch name', 'branch description', 'branch tree_id', 'branch created_at', 'leaf name', 'leaf comment', 'leaf owner', 'leaf created_at' union
-select b.id, b.name, b.description, b.tree_id, b.created_at, l.name, l.`comment`, l.owner_user_id, l.created_at
+select 'branch id', 'branch name', 'branch description', 'branch tree_id', 'branch created_at', 'leaf name', 'leaf description', 'leaf owner', 'leaf created_at' union
+select b.id, b.name, b.description, b.tree_id, b.created_at, l.name, l.description, l.owner_user_id, l.created_at
 from branch as b 
     join user_branch ub on
         ub.branch_id = b.id and

@@ -17,11 +17,5 @@ union
 select l.id, l.name, l.description, l.owner_user_id, l.branch_id, l.created_at 
 from leaf as l
 where l.branch_id = b;
-/*
-    join user_leaf ul on
-        ul.leaf_id = l.id and
-        user = ul.user_id and
-        l.branch_id = branch;
-*/
 END $$ 
 DELIMITER ; $$

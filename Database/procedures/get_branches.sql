@@ -19,13 +19,6 @@ IF (select id from user_tree where user_id = user and tree_id = tree) THEN
     from branch b, user_branch ub
     where b.id = ub.branch_id
     and b.tree_id = tree;
-/*
-from branch as b 
-    join user_branch ub on
-        ub.branch_id = b.id and
-        user = ub.user_id and
-        b.tree_id = tree;
-*/
 ELSE
     select '1';
 END IF;

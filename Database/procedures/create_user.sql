@@ -20,7 +20,7 @@ CREATE procedure `create_user`(
 BEGIN
 If (select id from user where email = user.email) then
 select '2'; 
-elseIF email REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
+ELSEIF email REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
 insert into `annotree`.`user`
   (password, first_name, last_name, email, lang, time_zone, profile_image_path, status) 
 values 

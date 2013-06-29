@@ -8,7 +8,6 @@ sub create {
     my $self = shift;
     
     my $jsonReq = $self->req->json;
-    $self->debug($self->dumper($jsonReq));
     $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{name} && exists $jsonReq->{description});
 
     my $params = {};

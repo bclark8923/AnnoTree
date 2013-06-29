@@ -175,7 +175,7 @@ ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error tex
 
 ######### START UNAUTHENTICATED USER LEAF CREATION TEST #########
 # this test attempts to create a leaf with an unauthenticated user
-$testname = 'Unauthenticated user branch creation: ';
+$testname = 'Unauthenticated user leaf creation: ';
 my $uaUnauth = Mojo::UserAgent->new;
 $tx = $uaUnauth->post($leafCreationURL => json => {
     name            => $validLeafName,

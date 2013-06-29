@@ -9,8 +9,9 @@ DROP TABLE IF EXISTS `annotree`.`annotation` ;
 
 CREATE  TABLE IF NOT EXISTS `annotree`.`annotation` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `mime_type` VARCHAR(45) NULL ,
-  `path` VARCHAR(45) NULL ,
+  `mime_type` VARCHAR(128) NULL ,
+  `path` VARCHAR(1024) NULL ,
+  `filename` VARCHAR(128) NULL ,
   `leaf_id` INT,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),

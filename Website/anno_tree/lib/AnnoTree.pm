@@ -101,8 +101,8 @@ sub startup {
     $authr->post('/:branchid/leaf' => [branchid => qr/\d+/])->to('controller-leaf#create');
 
     # ===== ANNOTATIONS =====
-    $r->post('/:leafid/annotation' => [leafid => qr/\d+/])->to('controller-annotation#create');
-    $r->get('/:leafid/leaftest' => [leafid => qr/\d+/])->to('controller-annotation#testFileUpload');
+    $authr->post('/:leafid/annotation' => [leafid => qr/\d+/])->to('controller-annotation#create');
+    $authr->get('/:leafid/testAnnotationUpload' => [leafid => qr/\d+/])->to('controller-annotation#testFileUpload');
 
  
 

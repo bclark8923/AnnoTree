@@ -11,7 +11,6 @@ CREATE procedure `validate_user`(
 BEGIN
 select id, password
             from user 
-            where email = e
-            and active = true;
+            where email = e;
 END $$
 delimiter ; $$

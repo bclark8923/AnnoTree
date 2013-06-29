@@ -16,7 +16,7 @@ CREATE procedure `update_user`(
 BEGIN
 update `annotree`.`user` set
   password = p , first_name = fn, last_name = lastn, lang = lan, time_zone = t, profile_image_path = pip  where email = e; 
-select 'id', 'password', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'active' 
+select 'id', 'password', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status' 
 union
 select * from user where email = e;
 END

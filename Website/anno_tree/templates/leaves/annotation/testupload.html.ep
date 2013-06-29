@@ -2,8 +2,8 @@
 <html>
     <head><title>Upload</title></head>
     <body>
-        %= form_for "/$forestid/$treeid/$branchid/$leafid/annotation" => (enctype => 'multipart/form-data') => (method => 'POST')=> begin
-        %= file_field 'screenshot'
+        %= form_for "/3/annotation" => (enctype => 'multipart/form-data') => (method => 'POST')=> begin
+        %= file_field 'uploadedFile'
         %= submit_button 'Upload'
     % end
     </body>

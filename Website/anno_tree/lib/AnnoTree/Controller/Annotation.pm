@@ -8,6 +8,8 @@ sub create {
     my $self = shift;
     
     $self->debug($self->dumper($self->req));
+    my $upload = $self->req->upload('uploadedFile');
+    $upload->move_to('/opt/' . $upload->{filename});
     
     $self->render(txt => 'fuck the p0lice');
 }

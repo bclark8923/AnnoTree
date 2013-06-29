@@ -10,7 +10,7 @@ DELIMITER $$
 CREATE PROCEDURE `delete_user`(
   id INT)
 BEGIN
-update user set active = false where user.id = id;
+update user set status = 0 where user.id = id;
 if ROW_COUNT() = 1 then
 select 'id', 'password', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'active' 
 union

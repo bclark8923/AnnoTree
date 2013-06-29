@@ -9,7 +9,7 @@ DELIMITER $$
 CREATE PROCEDURE `get_forest_by_user`(
   in u INT)
 BEGIN
-if (select id from user where id = u and active = true) then
+if (select id from user where id = u) then
 select 'id', 'name', 'description', 'created_at'
 union
 select forest.id, forest.name, forest.description, forest.created_at

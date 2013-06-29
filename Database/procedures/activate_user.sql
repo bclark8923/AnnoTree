@@ -12,7 +12,7 @@ CREATE procedure `activate_user`(
   status bit(3))
 BEGIN
 update user set user.status = status where email = e;
-select 'id', 'password', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'active' 
+select 'id', 'password', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status' 
 union
 select * from user where e = email;
 END $$

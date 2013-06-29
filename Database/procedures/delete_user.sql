@@ -12,7 +12,7 @@ CREATE PROCEDURE `delete_user`(
 BEGIN
 update user set status = 0 where user.id = id;
 if ROW_COUNT() = 1 then
-select 'id', 'password', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'active' 
+select 'id', 'password', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status' 
 union
 select * from user where user.id = id;
 else

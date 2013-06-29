@@ -14,7 +14,7 @@ CREATE Procedure `create_leaf`(
   in b_id INT
   )
 BEGIN
-IF (select id from user where id = owner_user_id and active = true) THEN
+IF (select id from user where id = owner_user_id) THEN
     IF (select id from branch where id = b_id) THEN
         insert into `annotree`.`leaf` 
           (name, description, owner_user_id, branch_id)

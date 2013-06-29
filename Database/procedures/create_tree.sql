@@ -18,7 +18,7 @@ CREATE Procedure `create_tree`(
   in l varchar(1024)
   )
 BEGIN
-IF (select id from user where id = u and active = true) THEN
+IF (select id from user where id = u) THEN
     IF (select id from forest where id = f) THEN
         IF (select id from user_forest where user_id = u and forest_id = f) THEN
             insert into `annotree`.`tree` 

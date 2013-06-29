@@ -13,7 +13,7 @@ CREATE Procedure `create_forest`(
   in d varchar(1024)
   )
 BEGIN
-IF (select id from user where id = user and active = true) then
+IF (select id from user where id = user) then
 insert into `annotree`.`forest` 
   (name, description)
   values (n, d);

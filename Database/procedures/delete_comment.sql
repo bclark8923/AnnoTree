@@ -17,8 +17,7 @@ SET FOREIGN_KEY_CHECKS=0;
 delete c 
         from `comment` as c 
         inner join user as u on
-            c.user_id = user and
-            u.active = true
+            c.user_id = user
             and u.id = c.user_id
     where
         c.id = comment_id and

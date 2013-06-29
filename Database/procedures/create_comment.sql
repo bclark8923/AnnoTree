@@ -19,7 +19,7 @@ CREATE Procedure `create_comment`(
   in leaf_id INT
   )
 BEGIN
-IF (select id from user where id = user and active = true) and (select id from leaf where id = leaf_id) then
+IF (select id from user where id = user) and (select id from leaf where id = leaf_id) then
 insert into `annotree`.`comment` 
   (user_id, `comment`, leaf_id, updated_at)
   values (user, c, leaf_id, now());

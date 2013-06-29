@@ -12,7 +12,7 @@ CREATE Procedure `delete_tree`(
   in tree_id INT
   )
 BEGIN
-IF (select id from user where id = user and active = true) then
+IF (select id from user where id = user) then
 SET FOREIGN_KEY_CHECKS=0;
 delete t, tu 
         from tree as t 

@@ -14,7 +14,7 @@ CREATE Procedure `create_branch`(
   in d varchar(1024)
   )
 BEGIN
-IF (select id from user where id = user and active = true) then
+IF (select id from user where id = user) then
     IF (select id from tree where id = t) then
         insert into `annotree`.`branch` 
           (tree_id, name, description)

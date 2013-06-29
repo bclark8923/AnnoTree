@@ -12,7 +12,7 @@ CREATE Procedure `delete_branch`(
   in branch_id INT
   )
 BEGIN
-IF (select id from user where id = user and active = true) then
+IF (select id from user where id = user) then
 SET FOREIGN_KEY_CHECKS=0;
 delete b, ub 
         from branch as b 

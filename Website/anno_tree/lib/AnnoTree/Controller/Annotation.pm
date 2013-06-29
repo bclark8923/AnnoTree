@@ -5,7 +5,7 @@ use Mojo::Base 'Mojolicious::Controller';
 
 my $mattPath = '/home/matt/reserve/AnnoTree/';
 my $awsPath = '/opt/www/';
-my $path = $awsPath . 'Website/anno_tree/public/annotation_files';
+my $path = $mattPath . 'Website/anno_tree/public/annotation_files/';
 
 # creates a new annotation
 sub create {
@@ -15,7 +15,7 @@ sub create {
     my $upload = $self->req->upload('uploadedFile');
     $upload->move_to($path . $upload->{filename});
     
-    $self->render(txt => 'fuck the p0lice');
+    $self->render(status => 200, json => {something => 'something'});
 }
 
 sub testFileUpload {

@@ -72,13 +72,29 @@
 </div>
 
 <!-- New Leaf Modal -->
-<div class="modal" id="newLeafModal">
+<div class="modal" id="newLeafModal" ng-controller="forest.TreeController">
   <div class="content">
     <a class="close switch" gumby-trigger="|#newLeafModal"><i class="icon-cancel"></i></a>
     <div class="row">
       <div class="ten columns centered center-text">
         <h2>Add Leaf</h2>
-        <p>Gumby modals are easy to make using Toggles &amp; Switches. The <span class="label default">.modal</span> class already has the required styles which you can open and close using Toggles &amp; Switches.</p>
+        <form name="createLeafForm" ng-submit="newLeafTest()" style="margin: 0;">
+          <div class="row" style="padding-bottom:30px;padding-top:30px;">
+            <div class="ten columns centered center-text">
+              <ul>
+                <li class="danger alert" id="validateError" ng-show="invalidAddTree"></li>
+                <li class="field" style="text-align:center;"><input name="annotationImage" id="annotationImage" class="text file" type="file" placeholder="Annotation" style="max-width:380px;" ng-model="annotationImage" required></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row authenticateFooter">
+            <div style="text-align: center; padding-top:15px;">
+              <div>
+                <button type="submit" class="medium oval btn success"><a ng-click="newLeafTest()">Add Tree</a></button>
+              </div>
+            </div>
+          </div>
+        </form>
 
         <p class="btn primary medium"><a href="#" class="switch active" gumby-trigger="|#newLeafModal">Close Modal</a></p>
       </div>

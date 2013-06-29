@@ -28,24 +28,24 @@ AnnoTree.config(
 					action: "authenticate.login"
 				}
 			)
-            .when(
-                "/authenticate/signUp",
-                {
-                    action: "authenticate.signup"
-                }
-            )
-            .when(
-                "/authenticate/requestPassword",
-                {
-                    action: "authenticate.requestPassword"
-                }
-            )
-            .when(
-                "/authenticate/resetPassword",
-                {
-                    action: "authenticate.resetPassword"
-                }
-            )
+      .when(
+          "/authenticate/signUp",
+          {
+              action: "authenticate.signup"
+          }
+      )
+      .when(
+          "/authenticate/requestPassword",
+          {
+              action: "authenticate.requestPassword"
+          }
+      )
+      .when(
+          "/authenticate/resetPassword",
+          {
+              action: "authenticate.resetPassword"
+          }
+      )
 			.when(
 				"/app",
 				{
@@ -57,13 +57,13 @@ AnnoTree.config(
 				{
 					action: "standard.tree"
 				}
-            )
-            .when(
-                "/app/:treeID/:leafID",
-                {
-                    action: "standard.leaf"
-                }
-            )
+      )
+      .when(
+          "/app/:treeID/:leafID",
+          {
+              action: "standard.leaf"
+          }
+      )
 			.otherwise(
 				{
 					redirectTo: "/authenticate/login"
@@ -126,6 +126,17 @@ var interceptor = function( $q, $location ) {
     return promise;
   }
 };
+ 
+AnnoTree.filter('threeColumnFilter', function() {
+    return function(arrayLength) {
+        arrayLength = Math.ceil(arrayLength);
+        var arr = new Array(arrayLength), i = 0;
+        for (; i < arrayLength; i++) {
+            arr[i] = i;
+        }
+        return arr;
+    };
+});
 /*
 angular.module('MyApp', [])
   .config(['$httpProvider', function($httpProvider) {

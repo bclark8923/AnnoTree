@@ -22,14 +22,14 @@
                 </div>
             </div>
             
-            <div id="trees">
+            <div id="treesContainer">
                 <div ng-repeat="forest in forests" post-render>
                     <div class="twelve colgrid">
                         <div class="forestHeader"> 
                             <span style="background-color:#f7f8f5;padding: 0px 10px;">{{forest.name}}</span>
                             <hr class="forestHR"/>
                         </div>
-                        <div class="row" ng-repeat="treeRow in (forest.trees.length/3 | treeRowFilter)"> 
+                        <div class="row" ng-repeat="treeRow in (forest.trees.length/3 | threeColumnFilter)"> 
                             
                             <div class="four columns" ng-repeat="tree in forest.trees.slice(3*$index, 3*$index + 3)"> 
                                 <!-- if tree id is -1 do new tree else -->

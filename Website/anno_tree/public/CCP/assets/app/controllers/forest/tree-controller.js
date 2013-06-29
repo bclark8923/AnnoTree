@@ -3,7 +3,7 @@
 	"use strict";
 
 	app.controller(
-		"forest.ForestController",
+		"forest.TreeController",
 		function( $scope, $cookies, $rootScope, $location, $timeout, $route, requestContext, forestService, _ ) {
 
 
@@ -11,13 +11,9 @@
 
 
 			// I apply the remote data to the local view model.
-			function loadTrees( forests ) {
+			function loadLeafs( leaves ) {
 
-				for(var i = 0; i < forests.length; i++) {
-					forests[i].trees.push($scope.newTreeHolder);
-				}
-
-               	$scope.forests = forests;
+               	$scope.leaves = leaves;
 			}
 
 
@@ -26,19 +22,62 @@
 
 				$scope.isLoading = true;
 
-				var promise = forestService.getTrees();
+				var promise = forestService.getTree(500,500);
 
 				promise.then(
 					function( response ) {
 
 						$scope.isLoading = false;
 
-						loadTrees( response.data.forests );
+						loadTrees( response.data.branches[0].leaves );
 
  						$timeout(function() { window.Gumby.init() }, 0);
 
 					},
 					function( response ) {
+
+						var fakeStuff = {
+				          logo: 'img/logo.png',
+				          id: '2',
+				          branches: [
+				                        {
+				                          id: '2',
+				                          description: 'This is a branch created by the automated Mojolicious test suite',
+				                          name: 'Test Suite Branch',
+				                          tree_id: '2',
+				                          created_at: '2013-06-28 20:55:58',
+				                          leaves: [
+				                                      {
+				                                      	id: '1',
+				                                        owner: '3',
+				                                        created_at: '2013-06-28 20:55:58',
+				                                        description: 'This is a leaf created by the automated Mojolicious test suite',
+				                                        name: 'Test Suite Leaf',
+				                                        annotation: 'img/leaf01small.png'
+				                                      },
+				                                      {
+				                                      	id: '2',
+				                                        owner: '3',
+				                                        created_at: '2013-06-28 20:55:58',
+				                                        description: 'This is a leaf created by the automated Mojolicious test suite',
+				                                        name: 'Test Suite Leaf 2',
+				                                        annotation: 'img/leaf02small.png'
+				                                      }
+				                                    ]
+				                        }
+				                      ],
+				          name: 'Test Suite Tree',
+				          description: 'This is a tree created by the automated Mojolicious test suite',
+				          forest_id: '6',
+				          created_at: '2013-06-28 20:55:58'
+				        };
+
+				        $scope.treeInfo = fakeStuff;
+
+				        loadLeafs(fakeStuff.branches[0].leaves);
+
+				        return;
+
 						var errorData = "Our Create Tree Service is currently down, please try again later.";
 						var errorNumber = parseInt(response.data.error);
 						if(response.data.status == 406) {
@@ -70,16 +109,9 @@
 
 			// --- Define Scope Methods. ------------------------ //
 
-			function addTree(newTree) {
+			function addLeaf(newLeaf) {
 
-				for(var i = 0; i < $scope.forests.length; i++) { 
-					if($scope.forests[i].id == newTree.forest_id) {
-						$scope.forests[i].trees.pop();
-						$scope.forests[i].trees.push(newTree);
-						$scope.forests[i].trees.push($scope.newTreeHolder);
-						break;
-					}
-				}
+				$scope.leaves.push(newLeaf);
 
 				$("#newTreeClose").click();
 
@@ -89,15 +121,55 @@
 
 				$route.reload();
 
-
 			}
 
-			$scope.newTree = function() {
+			$scope.annotationImage = {};
+			$scope.$watch('annotationImage', function(){
+			    //this seems to be a fake array, because for (i in files) will traverse on the "length" attribute as well,
+			    //and it doesn't have a forEach method
+			    // scope.files = document.getElementById('fileToUpload').files
+			    //...so we need to copy the files to a new array
+			    $scope.files = []
+			    var annotim = document.getElementById('annotationImage');
+			    var files = annotim.files
+			    console.log('files:', files)
+			    for (var i = 0; i < files.length; i++) {
+			        $scope.files.push(files[i])
+			    }
+			    //$scope.progressVisible = false
+			})
 
-				var treeName = $scope.treeName;
-				var treeDescription = $scope.treeDescription;
+			$scope.newLeafTest = function() {
+			    $scope.files = []
+			    var annotim = document.getElementById('annotationImage');
+			    var files = annotim.files
+			    console.log('files:', files)
+			    for (var i = 0; i < files.length; i++) {
+			        $scope.files.push(files[i])
+			    }
+				var fd = new FormData()
+		        for (var i in $scope.files) {
+		            fd.append("uploadedFile", $scope.files[i]);
+		        }
+		        var xhr = new XMLHttpRequest();
+		        //xhr.upload.addEventListener("progress", uploadProgress, false)
+		        //xhr.addEventListener("load", uploadComplete, false)
+		        //xhr.addEventListener("error", uploadFailed, false)
+		        //xhr.addEventListener("abort", uploadCanceled, false)
+		        //return;
+		        xhr.open("POST", "http://23.21.235.254:3000/3/annotation");
+		        //$scope.progressVisible = true
+		        xhr.send(fd);
+
+				//alert($scope.annotationImage);
+			}
+
+			$scope.newLeaf = function() {
+
+				var leafName = $scope.leafName;
+				var leafAnnotation = $scope.leafAnnotation;
 				var formValid = $scope.createTreeForm.$valid;
-				var forestID = $(".newTreeLinkClass.active").attr('id').split("-")[1];
+				var branchID = $scope.leaves[0].branch_id;
 
 				//validate form
 				if(!formValid) {
@@ -165,80 +237,6 @@
 				}
 			}
 
-			function addForest(newForest) {
-
-				newForest.trees = [];
-				newForest.trees.push($scope.newTreeHolder);
-				$scope.forests.push(newForest);
-
-				//$scope.$apply();
-				$("#newForestClose").click();
-				$scope.invalidAddForest = false;
-
-				$location.path("/app");
-
-				$route.reload();
-
-			}
-
-			$scope.newForest = function() {
-				var forestName = $scope.forestName;
-				var forestDescription = $scope.forestDescription;
-				var formValid = $scope.createForestForm.$valid;
-
-				//validate form
-				if(!formValid) {
-					$scope.invalidAddForest = true;
-					if(!forestName) {
-						$("#invalidAddForest").html("Please fill out a forest name.");
-					}
-					else if(!forestDescription) {
-						$("#invalidAddForest").html("Please fill out a forest description.");
-					} else {
-						//shouldn't happen
-						$("#invalidAddForest").html("Please enter valid information.");
-					}
-				} else {
-					var promise = forestService.createForest(forestName, forestDescription);
-
-					promise.then(
-						function( response ) {
-
-							$scope.isLoading = false;
-
-							addForest( response.data );
- 				
- 							$timeout(function() { Gumby.initialize('switches') }, 0);
-
-						},
-						function( response ) {
-							var errorData = "Our Create Forest Service is currently down, please try again later.";
-							var errorNumber = parseInt(response.data.error);
-							if(response.data.status == 406) {
-								switch(errorNumber)
-								{
-									case 0:
-										errorData = "Please fill out all of the fields";
-										break;
-									case 1:
-										errorData = "This user does not exist in our system. Please contact Us.";
-										break;
-									case 2:
-										errorData = "Please enter a valid forest name.";
-										break;
-									default:
-										//go to Fail Page
-								}
-							} else {
-								//go to Fail Page
-							}
-							$("#invalidAddForest").html(errorData);
-
-						}
-					);
-				}
-			}
-
 			// ...
 
 
@@ -260,13 +258,6 @@
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();
-
-			$scope.newTreeHolder = { 
-								id: "-1",
-						   		name: "New Tree",
-							   	description: "Click here to add a new tree to this forest.",
-							   	logo: "img/tree01.png"
-							};
 			
 
 			// --- Bind To Scope Events. ------------------------ //
@@ -306,4 +297,15 @@
 	);
 
  })( angular, AnnoTree );
+ 
+ AnnoTree.filter('treeRowFilter', function() {
+    return function(arrayLength) {
+        arrayLength = Math.ceil(arrayLength);
+        var arr = new Array(arrayLength), i = 0;
+        for (; i < arrayLength; i++) {
+            arr[i] = i;
+        }
+        return arr;
+    };
+});
 /**/

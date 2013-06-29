@@ -274,7 +274,7 @@ a:hover{
   border-bottom: none;
 }
 
-#trees {
+#treesContainer {
   height: 100%;
   width: 100%;
   overflow: auto;
@@ -436,7 +436,7 @@ a:hover{
 }
 
 .treeBG {
-  background-color: white;
+  /*background-color: white;*/
   /*background-color: rgb(219, 255, 225);*/
 }
 

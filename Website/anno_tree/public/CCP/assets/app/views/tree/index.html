@@ -3,11 +3,11 @@
   <div id="scaffold">
 
       <div id="mainContent" style="margin:0;border:0;">
-        <div id="treeContainer">
+        <div id="treeContainer" ng-controller="forest.TreeController">
           <div id="treeHeader" class="valign">
             <div id="crumbHolder">
               <span class="responsiveHide">
-                <a href="#/app">Home</a> > AnnoTree
+                <a href="#/app">Home</a> > {{treeInfo.name}}
               </span>
               <span class="responsiveShow">
                 <a href="#/app"><i class="icon-arrow-left" style="color:#444;font-size:16pt"></i></a>
@@ -30,15 +30,15 @@
           </div>
           <div id="treeElements">
             <div class="twelve colgrid treeBG">
-                <div class="row" data-ng-repeat="element in tree">
-                    <div class="four columns" data-ng-repeat="tree in trees.col">
+                <div class="row" ng-repeat="leafRow in (leaves.length/3 | threeColumnFilter)"> 
+                    <div class="four columns" ng-repeat="leaf in leaves.slice(3*$index, 3*$index + 3)"> 
                         <div class="cardHolder">
                             <div class="card">
-                                <div class="cardTitleBar valign"><div>{{tree.name}}</div></div>
-                                <a href="leafScreen.html">
+                                <div class="cardTitleBar valign"><div>{{leaf.name}}</div></div>
+                                <a href="#/app/{{treeInfo.id}}/{{leaf.id}}">
                                     <div class="leaf valign">
                                         <div>
-                                            <img class="leafImage" ng-src="{{tree.image}}" gumby-retina />
+                                            <img class="leafImage" ng-src="{{leaf.annotation}}" gumby-retina />
                                         </div>
                                     </div>
                                 </a>

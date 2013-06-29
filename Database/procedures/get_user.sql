@@ -9,9 +9,9 @@ DELIMITER $$
 CREATE procedure `get_user`(
   e VARCHAR(255))
 BEGIN
-select 'id', 'first_name',  'last_name', 'email', 'lang', 'time_zone', 'profile_image_path', 'created_at', 'active'
+select 'id', 'first_name',  'last_name', 'email', 'lang', 'time_zone', 'profile_image_path', 'created_at', 'status'
 union
-select id, first_name,  last_name, email, lang, time_zone, profile_image_path, created_at, active
+select id, first_name,  last_name, email, lang, time_zone, profile_image_path, created_at, status
             from user 
             where email = e;
 END $$

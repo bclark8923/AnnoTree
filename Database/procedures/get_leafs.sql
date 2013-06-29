@@ -8,16 +8,20 @@ DELIMITER $$
 
 
 CREATE Procedure `get_leafs`(
-  in user INT,
-  in branch INT
+  -- in user INT,
+  in b INT
   )
 BEGIN
-select 'id', 'name', 'comment', 'owner_user_id', 'branch_id', 'created_at' union
-select l.id, l.name, l.comment, l.owner_user_id, l.branch_id, l.created_at 
-from leaf as l 
+select 'id', 'name', 'comment', 'owner_user_id', 'branch_id', 'created_at' 
+union
+select l.id, l.name, l.description, l.owner_user_id, l.branch_id, l.created_at 
+from leaf as l
+where l.branch_id = b;
+/*
     join user_leaf ul on
         ul.leaf_id = l.id and
         user = ul.user_id and
         l.branch_id = branch;
+*/
 END $$ 
 DELIMITER ; $$

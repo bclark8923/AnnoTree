@@ -14,7 +14,12 @@ CREATE Procedure `get_branches_and_leafs`(
 BEGIN
 select 'branch id', 'branch name', 'branch description', 'branch tree_id', 'branch created_at', 'leaf name', 'leaf description', 'leaf owner', 'leaf created_at' union
 select b.id, b.name, b.description, b.tree_id, b.created_at, l.name, l.description, l.owner_user_id, l.created_at
-from branch as b 
+from branch as b
+join leaf l on
+b.tree_id = tree
+and l.branch_id = b.id;
+/*
+old code - the joins do not work correctly
     join user_branch ub on
         ub.branch_id = b.id and
         user = ub.user_id and
@@ -23,5 +28,6 @@ from branch as b
         l.branch_id = b.id
     join user_leaf as ul on
         ul.user_id = user;
+*/
 END $$ 
 DELIMITER ; $$

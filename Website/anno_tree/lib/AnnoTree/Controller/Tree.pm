@@ -31,4 +31,23 @@ sub create {
     $self->render(json => $json, status => $status); 
 }
 
+sub branchLeafInfo {
+    my $self = shift;
+    
+    my $params = {};
+    $params->{treeid} = $self->param('treeid');
+    $params->{userid} = $self->current_user->{userid};
+    my $json = AnnoTree::Model::Tree->branchLeafInfo($params);
+
+    my $status = 200;
+    if (exists $json->{error}) {
+        my $error = $json->{error};
+        if ($error == 1) { # tree does not exist
+           $status = 406;
+        }
+    }
+    
+    $self->render(json => $json, status => $status); 
+}
+
 return 1;

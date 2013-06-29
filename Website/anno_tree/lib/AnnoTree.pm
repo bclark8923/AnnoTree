@@ -91,8 +91,9 @@ sub startup {
     $authr->get('/forest')->to('controller-forest#forestsForUser'); # done
 
     # ===== TREES =====
-    $authr->post('/:forestid/tree' => [forestid => qr/\d+/])->to('controller-tree#create');
-
+    $authr->post('/:forestid/tree' => [forestid => qr/\d+/])    ->to('controller-tree#create');
+    $authr->get('/tree/:treeid' => [treeid => qr/\d+/])         ->to('controller-tree#branchLeafInfo');
+ 
     # ===== BRANCHES =====
     $authr->post('/:treeid/branch' => [treeid => qr/\d+/])->to('controller-branch#create');
 
@@ -100,6 +101,10 @@ sub startup {
     $authr->post('/:branchid/leaf' => [branchid => qr/\d+/])->to('controller-leaf#create');
 
     # ===== ANNOTATIONS =====
+    $authr->post('/:leafid/annotation' => [leafid => qr/\d+/])->to('controller-annotation#create');
+    $authr->get('/leaftest')->to('controller-annotation#testFileUplaod');
+
+ 
 
 }
 

@@ -101,6 +101,7 @@ my $testForest;
 foreach my $forest (@{$jsonBody->{forests}}) {
     next unless $forest->{id} = $validForestID;
     $testForest = $forest;
+    last;
 }
 ok($validForestID == $testForest->{id},                             $testname . 'Response JSON forest ID matches');
 ok($validForestName eq $testForest->{name},                         $testname . "Response JSON forest name matches");
@@ -153,8 +154,8 @@ ok(204 == $tx->res->code,                       $testname . 'Response Code is 20
 ######### END FOREST RETRIEVAL TEST WITH NO FORESTS #########
 
 ######### START UNAUTHENTICATED USER FOREST RETRIEVAL TEST #########
-# this test attempts to create a forest with an unauthenticated user
-my $testname = 'Unauthenticated user forest creation: ';
+# this test attempts to retrieve a forest with an unauthenticated user
+my $testname = 'Unauthenticated user forest retrieval: ';
 my $uaUnauth = Mojo::UserAgent->new;
 $tx = $uaUnauth->get($forestURL);
 $jsonBody = $json->decode($tx->res->body);

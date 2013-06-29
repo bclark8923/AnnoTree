@@ -8,7 +8,6 @@ use Data::Dumper;
 sub create {
     my ($class, $params) = @_;
     
-    print Dumper($params);
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call create_branch(:userid, :treeid, :name, :desc)",
         {

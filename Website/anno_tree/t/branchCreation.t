@@ -164,4 +164,5 @@ ok(401 == $tx->res->code,                   $testname . 'Response Code is 401');
 ok(0 == $jsonBody->{error},                 $testname . "Response JSON error result is 0");
 ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
 ######### END UNAUTHENTICATED USER BRANCH CREATION TEST #########
+
 done_testing();

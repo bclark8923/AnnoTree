@@ -8,7 +8,6 @@ use Data::Dumper;
 sub create {
     my ($class, $params) = @_;
     
-    print Dumper($params);
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call create_tree(:userid, :forestid, :name, :desc, :logo)",
         {
@@ -38,6 +37,117 @@ sub create {
         $json->{$cols->[$i]} = $treeInfo->[$i];
     }
     
+    return $json;
+}
+
+sub branchLeafInfo {
+    my ($class, $params) = @_;
+    
+    my $json = {};
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call get_tree(:userid, :treeid)",
+        {
+            userid  => $params->{userid},
+            treeid  => $params->{treeid}
+        }
+    ); 
+    my $cols = $result->fetch;
+     if (looks_like_number($cols->[0])) {
+        my $error = $cols->[0];
+        if ($error == 1) {
+            return {error => $error, txt => 'Tree does not exist or user does not have access to that tree'};
+        } 
+     }
+    my $treeInfo = $result->fetch;
+    for (my $i = 0; $i < @{$cols}; $i++) {
+        $json->{$cols->[$i]} = $treeInfo->[$i];
+    }
+    
+    $json->{branches} = [];
+    my $branchResult = AnnoTree::Model::MySQL->db->execute(
+        "call get_branches(:userid, :treeid)",
+        {
+            userid      => $params->{userid},
+            treeid      => $params->{treeid}
+        }
+    ); 
+    $cols = $branchResult->fetch;
+    if (looks_like_number($cols->[0])) {
+        my $error = $cols->[0];
+        if ($error == 1) {
+            return {error => $error, txt => 'Tree does not exist or user does not have access to that tree'};
+        }
+    }
+    my $branchIndex = 0;
+    while (my $branch = $branchResult->fetch) {
+        for (my $i = 0; $i < @{$cols}; $i++) {
+            $json->{branches}->[$branchIndex]->{$cols->[$i]} = $branch->[$i];
+        }
+        $json->{branches}->[$branchIndex]->{leaves} = [];
+        my $leafResult = AnnoTree::Model::MySQL->db->execute(
+            "call get_leafs(:branchid)",
+            {
+                branchid => $branch->[0]
+            }
+        );
+        my $leafCols = $leafResult->fetch;
+        my $leafIndex = 0;
+        while (my $leaf = $leafResult->fetch) {
+            for (my $i = 0; $i < @{$leafCols}; $i++) {
+                $json->{branches}->[$branchIndex]->{leaves}->[$leafIndex]->{$leafCols->[$i]} = $leaf->[$i]; 
+            }
+            $leafIndex++;
+        }
+        $branchIndex++;
+    }
+=begin oldcode
+    $result = AnnoTree::Model::MySQL->db->execute(
+        "call get_branches_and_leafs(:userid, :treeid)",
+        {
+            userid      => $params->{userid},
+            treeid      => $params->{treeid}
+        }
+    ); 
+    $cols = $result->fetch;
+    return $json unless defined $cols->[0];
+    my @tempCols = grep(m/branch/, @{$cols});
+    my @branchCols;
+    while (@tempCols) {
+        my $temp = shift @tempCols;
+        ($temp) = $temp =~ m/branch (\w+)/;
+        push @branchCols, $temp;
+    }
+    my @leafCols;
+    @tempCols = grep(m/leaf/, @{$cols});
+    while (@tempCols) {
+        my $temp = shift @tempCols;
+        ($temp) = $temp =~ m/leaf (\w+)/;
+        push @leafCols, $temp;
+    }
+    my $index;
+    my $numBranches = 0;
+    while (my $return = $result->fetch) {
+        my $foundBranch = -1;
+        for (my $i = 0; $i < @{$json->{branches}}; $i++) {
+            next unless $json->{branches}->[$i]->{id} == $return->[0];
+            print 'found branch';
+            $foundBranch = $i;
+        }
+        if ($foundBranch == -1) {
+            for (my $i = 0; $i < @branchCols; $i++) {
+                $json->{branches}->[$numBranches]->{$branchCols[$i]} = $return->[$i];
+            }
+        }
+        my $branchSpot = ($foundBranch == -1 ? $numBranches : $foundBranch);
+        $json->{branches}->[$branchSpot]->{leaves} = [] unless exists $json->{branches}->[$branchSpot]->{leaves};
+        my $leafCount = @{$json->{branches}->[$branchSpot]->{leaves}};
+        for (my $i = 0; $i < @leafCols; $i++) {
+            $json->{branches}->[$branchSpot]->{leaves}->[$leafCount]->{$leafCols[$i]} = $return->[$i + @branchCols];
+        }
+        $numBranches++;
+    }
+=end oldcode
+=cut
     return $json;
 }
 

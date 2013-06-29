@@ -8,7 +8,6 @@ use Data::Dumper;
 sub create {
     my ($class, $params) = @_;
     
-    print Dumper($params);
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call create_leaf(:name, :desc, :userid, :branchid)",
         {
@@ -21,7 +20,7 @@ sub create {
 
     my $json = {};
     my $cols = $result->fetch;
-    print Dumper($cols);
+    
     if (looks_like_number($cols->[0])) { 
         my $error = $cols->[0];
         if ($error == 1) {

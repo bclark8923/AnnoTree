@@ -64,19 +64,31 @@
 							$scope.invalidLogin = true;
 							var errorData = "Our Login Service is currently down, please try again later.";
 							var errorNumber = parseInt(response.data.error);
-							switch(errorNumber)
-							{
-								case 0:
-									errorData = "No Access.";
-									break;
-								case 1:
-									errorData = "Invalid Email/Password information.";
-									break;
-								case 6:
-									errorData = "Please fill out all of the fields";
-									break;
-								default:
-									//stuff
+							if(response.data.status == 406) {
+								switch(errorNumber)
+								{
+									case 0:
+										errorData = "No Access.";
+										break;
+									case 1:
+										errorData = "This email does not exist in our system.";
+										break;
+									default:
+										//stuff
+										// go to fail page
+								}
+							} else if (response.data.status == 401) {
+								switch(errorNumber)
+								{
+									case 0:
+										errorData = "Invalid Email/Password information.";
+										break;
+									default:
+										//stuff
+										// go to fail page
+								}
+							} else {
+								//go to fail page
 							}
 							$("#validateError").html(errorData);
 

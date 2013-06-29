@@ -69,28 +69,33 @@
 							$scope.invalidSignUp = true;
 							var errorData = "Our Sign Up Service is currently down, please try again later.";
 							var errorNumber = parseInt(response.data.error);
-							switch(errorNumber)
-							{
-								case 1:
-									errorData = "Please check your email format.";
-									break;
-								case 2:
-									errorData = "A user with this email already exists.";
-									break;
-								case 3:
-									errorData = "Your password must be at least 6 characters in length.";
-									break;
-								case 4:
-									errorData = "Your password must contain at least one number.";
-									break;
-								case 5:
-									errorData = "a nonvalid character was used, valid characters are alphanumeric and !@#$%^&*()";
-									break;
-								case 6:
-									errorData = "Please fill out all of the fields";
-									break;
-								default:
-									//pre-defined
+							if(response.data.status == 406) {
+								switch(errorNumber)
+								{
+									case 0:
+										errorData = "Please fill out all of the fields";
+										break;
+									case 1:
+										errorData = "Please check your email format.";
+										break;
+									case 2:
+										errorData = "A user with this email already exists.";
+										break;
+									case 3:
+										errorData = "Your password must be at least 6 characters in length.";
+										break;
+									case 4:
+										errorData = "Your password must contain at least one number.";
+										break;
+									case 5:
+										errorData = "a nonvalid character was used, valid characters are alphanumeric and !@#$%^&*()";
+										break;
+									default:
+										//pre-defined
+										//go to Fail Page
+								}
+							} else {
+								//go to Fail Page
 							}
 							$("#validateError").html(errorData);
 

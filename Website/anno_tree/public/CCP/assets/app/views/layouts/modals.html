@@ -6,7 +6,7 @@
       <h3 style="padding-top:20px;">Create New Forest</h3>
     </div>
     <form name="createForestForm" ng-submit="newForest()" style="margin: 0;">
-      <div class="row" style="min-height:150px;padding-top:30px;">
+      <div class="row" style="padding-bottom:30px;padding-top:30px;">
         <div class="ten columns centered center-text">
           <ul>
             <li class="danger alert" id="validateError" ng-show="invalidAddForest"></li>
@@ -30,13 +30,13 @@
 <div class="modal" id="newTreeModal" ng-controller="forest.ForestController">
   <div class="content" style="padding: 0;">
     <div class="row authenticateHeader" style="padding:0;">
-      <a id="newTreeClose" class="close switch" gumby-trigger=" | #newTreeModal, .newTreeLinkClass" style="float:right;color:#444">
+      <a id="newTreeClose" class="close switch" gumby-trigger=" | #newTreeModal, .newTreeLinkClass " style="float:right;color:#444">
         <i class="icon-remove-circle"></i>
       </a>
       <h3 style="padding-top:20px;">Create New Tree</h3>
     </div>
     <form name="createTreeForm" ng-submit="newTree()" style="margin: 0;">
-      <div class="row" style="min-height:150px;padding-top:30px;">
+      <div class="row" style="padding-bottom:30px;padding-top:30px;">
         <div class="ten columns centered center-text">
           <ul>
             <li class="danger alert" id="validateError" ng-show="invalidAddTree"></li>

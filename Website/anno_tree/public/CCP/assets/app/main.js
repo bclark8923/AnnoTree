@@ -84,6 +84,18 @@ AnnoTree.factory('apiRoot', function() {
 	}
 });
 
+AnnoTree.directive('postRender', function($timeout) {
+  return  { 
+    link: function(scope, elm, attrs) { 
+      $timeout( 
+        function() {
+          window.Gumby.init() 
+        }, 0
+      );
+    }
+  }
+});
+
 var interceptor = function( $q, $location ) {
   return function( promise ) {
  

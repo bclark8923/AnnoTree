@@ -40,7 +40,7 @@ sub create {
     return $json;
 }
 
-sub branchLeafInfo {
+sub treeInfo {
     my ($class, $params) = @_;
     
     my $json = {};

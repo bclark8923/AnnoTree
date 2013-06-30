@@ -3,6 +3,18 @@ use Test::More;
 use Mojo::UserAgent;
 use Data::Dumper;
 use Mojo::JSON;
+use AppConfig;
+
+# grab the inforamtion from the configuration file
+my $config = AppConfig->new();
+$config->define('server=s');
+$config->define('port=s');
+$config->define('screenshot=s');
+$config->define('annotationpath=s');
+$config->file('/opt/config.txt');
+my $server = $config->get('server');
+my $port = ':' . $config->get('port');
+my $fileToUpload = $config->get('screenshot');
 
 #my $t = Test::Mojo->new('AnnoTree');
 my $uaValid = Mojo::UserAgent->new; # use to make the JSON POST requests

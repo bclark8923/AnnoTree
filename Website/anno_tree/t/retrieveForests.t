@@ -3,14 +3,24 @@ use Test::More;
 use Mojo::UserAgent;
 use Data::Dumper;
 use Mojo::JSON;
+use AppConfig;
+
+# grab the inforamtion from the configuration file
+my $config = AppConfig->new();
+$config->define('server=s');
+$config->define('port=s');
+$config->define('screenshot=s');
+$config->define('annotationpath=s');
+$config->file('/opt/config.txt');
+my $server = $config->get('server');
+my $port = ':' . $config->get('port');
+my $fileToUpload = $config->get('screenshot');
 
 #my $t = Test::Mojo->new('AnnoTree');
 my $uaValid = Mojo::UserAgent->new; # use to make the JSON POST requests
 my $json = Mojo::JSON->new; # use to help turn the response JSON into a Perl hash
 my $tx; # this shuld be the Mojo::Transaction element return from the UA transaction
 my $jsonBody; # this should be the body of the returned message if JSON
-my $server = 'http://localhost';
-my $port = ':3000';
 my $forestURL = $server . $port . '/forest';
 
 ######### START VALID USER SIGNUP/LOGIN TEST #########

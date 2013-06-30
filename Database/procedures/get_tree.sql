@@ -12,9 +12,9 @@ CREATE PROCEDURE `get_tree`(
 )
 BEGIN
 IF (select id from user_tree where user_id = u and tree_id = t) THEN
-    select 'id', 'name', 'forest_id', 'description', 'logo', 'created_at'
+    select 'id', 'name', 'forest_id', 'description', 'logo', 'token', 'created_at'
     union
-    select id, name, forest_id, description, logo, created_at
+    select id, name, forest_id, description, logo, token, created_at
     from tree
     where id = t;
 ELSE

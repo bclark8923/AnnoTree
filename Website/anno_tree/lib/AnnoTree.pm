@@ -100,12 +100,11 @@ sub startup {
     # ===== LEAVES =====
     $authr->post('/:branchid/leaf' => [branchid => qr/\d+/])    ->to('controller-leaf#create');
     $authr->get('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#leafInfo');
+    $r->post('/ios/:leafid/leaf' => [leafid => qr/\d+/]) ->to('controller-leaf#iosUpload');
+    $r->get('/ios/:leafid/testleaf' => [leafid => qr/\d+/]) ->to('controller-leaf#iosTestUpload');
 
     # ===== ANNOTATIONS =====
     $authr->post('/:leafid/annotation' => [leafid => qr/\d+/])          ->to('controller-annotation#create');
-    $authr->get('/:leafid/testAnnotationUpload' => [leafid => qr/\d+/]) ->to('controller-annotation#testFileUpload');
-
- 
 
 }
 

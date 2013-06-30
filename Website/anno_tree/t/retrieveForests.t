@@ -94,10 +94,12 @@ ok(exists $jsonBody->{id},                          $testname . 'Response JSON I
 ok($validForestID == $jsonBody->{forest_id},        $testname . "Response JSON forest_id matches");
 ok($validTreeName eq $jsonBody->{name},             $testname . "Response JSON name matches");
 ok($validTreeDesc eq $jsonBody->{description},      $testname . "Response JSON description matches");
+ok(exists $jsonBody->{token},                       $testname . "Response JSON token exists");
 ok('img/logo.png' eq $jsonBody->{logo},             $testname . "Response JSON logo matches");
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
 my $validTreeID = $jsonBody->{id};
 my $validTreeCreated = $jsonBody->{created_at};
+my $validTreeToken = $jsonBody->{token};
 ######### END VALID TREE CREATION TEST #########
 
 ######### START VALID FOREST RETRIEVAL TEST #########
@@ -112,7 +114,7 @@ foreach my $forest (@{$jsonBody->{forests}}) {
     next unless $forest->{id} = $validForestID;
     $testForest = $forest;
 }
-
+print Dumper($testForest);
 ok($validForestID == $testForest->{id},                             $testname . 'Response JSON forest ID matches');
 ok($validForestName eq $testForest->{name},                         $testname . "Response JSON forest name matches");
 ok($validForestDesc eq $testForest->{description},                  $testname . "Response JSON forest description matches");
@@ -121,6 +123,7 @@ ok($validTreeID == $testForest->{trees}->[0]->{id},                 $testname . 
 ok($validTreeCreated eq $testForest->{trees}->[0]->{created_at},    $testname . 'Response JSON tree created_at matches');
 ok($validTreeDesc eq $testForest->{trees}->[0]->{description},      $testname . 'Response JSON tree description matches');
 ok($validTreeName eq $testForest->{trees}->[0]->{name},             $testname . 'Response JSON tree name matches');
+ok($validTreeToken eq $testForest->{trees}->[0]->{token},           $testname . "Response JSON token matches");
 ok('img/logo.png' eq $testForest->{trees}->[0]->{logo},             $testname . 'Response JSON tree logo matches');
 ok($validForestID eq $testForest->{trees}->[0]->{forest_id},        $testname . 'Response JSON tree forest_id matches');
 ######### END VALID FOREST RETRIEVAL TEST #########

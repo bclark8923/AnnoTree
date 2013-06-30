@@ -96,10 +96,12 @@ ok($validForestID == $jsonBody->{forest_id},        $testname . "Response JSON f
 ok($validTreeName eq $jsonBody->{name},             $testname . "Response JSON name matches");
 ok($validTreeDesc eq $jsonBody->{description},      $testname . "Response JSON description matches");
 ok('img/logo.png' eq $jsonBody->{logo},             $testname . "Response JSON logo matches");
+ok(exists $jsonBody->{token},                       $testname . "Response JSON token exists");
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
 my $validTreeID = $jsonBody->{id};
 my $validTreeCreated = $jsonBody->{created_at};
 my $validTreeLogo = $jsonBody->{logo};
+my $validTreeToken = $jsonBody->{token};
 ######### END VALID TREE CREATION TEST #########
 
 ######### START VALID BRANCH CREATION TEST #########
@@ -215,6 +217,7 @@ ok($validForestID == $jsonBody->{forest_id},            $testname . "Response JS
 ok($validTreeName eq $jsonBody->{name},                 $testname . "Response JSON name matches");
 ok($validTreeDesc eq $jsonBody->{description},          $testname . "Response JSON description matches");
 ok($validTreeLogo eq $jsonBody->{logo},                 $testname . "Response JSON logo matches");
+ok($validTreeToken eq $jsonBody->{token},                 $testname . "Response JSON token matches");
 ok(exists $jsonBody->{branches},                        $testname . 'Response JSON branches exists');
 ok($validBranchID == $testBranch->{id},                 $testname . 'Response JSON branch id matches');
 ok($validTreeID == $testBranch->{tree_id},              $testname . 'Response JSON tree id matches');

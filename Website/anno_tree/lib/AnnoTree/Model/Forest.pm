@@ -39,8 +39,6 @@ sub create {
 sub forestInfo {
     my ($class, $userid) = @_;
     
-    #print 'Forest model userid: ' . $params->{userid};
- 
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call get_forest_by_user(:userid)",
         {
@@ -58,8 +56,7 @@ sub forestInfo {
         for (my $i = 0; $i < @{$cols}; $i++) {
             $json->{forests}->[$forestCount]->{$cols->[$i]} = $forest->[$i];
         }
-        #print 'forestid is: ' . $json->{forests}->[$forestCount]->{id} . "\n";
-        # get trees for that forest and user
+        
         my $treeResult = AnnoTree::Model::MySQL->db->execute(
             'call get_trees_by_user_by_forest(:userid, :forestid)',
             {

@@ -48,4 +48,10 @@ sub leafInfo {
     $self->render(json => $json, status => $status);
 }
 
+sub iosTestUpload {
+    my $self = shift;
+
+    $self->render(template => 'leaves/testupload');
+}
+
 return 1;

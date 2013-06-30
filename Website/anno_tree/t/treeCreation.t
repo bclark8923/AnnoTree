@@ -87,12 +87,13 @@ $tx = $uaValid->post($treeCreationURL => json => {
     description     => $validTreeDesc
 });
 $jsonBody = $json->decode($tx->res->body);
-
+print Dumper($jsonBody);
 ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
 ok(exists $jsonBody->{id},                          $testname . 'Response JSON ID exists');
 ok($validForestID == $jsonBody->{forest_id},        $testname . "Response JSON forest_id matches");
 ok($validTreeName eq $jsonBody->{name},             $testname . "Response JSON name matches");
 ok($validTreeDesc eq $jsonBody->{description},      $testname . "Response JSON description matches");
+ok(exists $jsonBody->{token},                       $testname . "Response JSON token exists");
 ok('img/logo.png' eq $jsonBody->{logo},             $testname . "Response JSON logo matches");
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON create_at exists');
 ######### END VALID TREE CREATION TEST #########

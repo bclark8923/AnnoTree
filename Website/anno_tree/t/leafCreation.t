@@ -95,6 +95,7 @@ ok(exists $jsonBody->{id},                          $testname . 'Response JSON I
 ok($validForestID == $jsonBody->{forest_id},        $testname . "Response JSON forest_id matches");
 ok($validTreeName eq $jsonBody->{name},             $testname . "Response JSON name matches");
 ok($validTreeDesc eq $jsonBody->{description},      $testname . "Response JSON description matches");
+ok(exists $jsonBody->{token},                       $testname . "Response JSON token exists");
 ok('img/logo.png' eq $jsonBody->{logo},             $testname . "Response JSON logo matches");
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
 my $validTreeID = $jsonBody->{id};

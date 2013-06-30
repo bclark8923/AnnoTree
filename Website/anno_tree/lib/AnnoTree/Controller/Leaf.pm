@@ -28,4 +28,24 @@ sub create {
     $self->render(json => $json, status => $status); 
 }
 
+sub leafInfo {
+    my $self = shift;
+
+    my $params = {};
+    $params->{userid} = $self->current_user->{userid};
+    $params->{leafid} = $self->param('leafid');
+
+    my $json = AnnoTree::Model::Leaf->leafInfo($params);
+    
+    my $status = 200;
+    if (exists $json->{error}) {
+        my $error = $json->{error};
+        if ($error == 1) { # leaf does not exist
+           $status = 406;
+        }
+    }
+    
+    $self->render(json => $json, status => $status);
+}
+
 return 1;

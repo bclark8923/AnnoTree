@@ -36,7 +36,7 @@ sub create {
     return $json;
 }
 
-sub forestsForUser {
+sub forestInfo {
     my ($class, $userid) = @_;
     
     #print 'Forest model userid: ' . $params->{userid};

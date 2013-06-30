@@ -87,8 +87,8 @@ sub startup {
     $authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser'); # not working
 
     # ===== FORESTS =====
-    $authr->post('/forest')->to('controller-forest#create');
-    $authr->get('/forest')->to('controller-forest#forestsForUser'); # done
+    $authr->post('/forest') ->to('controller-forest#create');
+    $authr->get('/forest')  ->to('controller-forest#forestInfo');
 
     # ===== TREES =====
     $authr->post('/:forestid/tree' => [forestid => qr/\d+/])    ->to('controller-tree#create');
@@ -98,11 +98,12 @@ sub startup {
     $authr->post('/:treeid/branch' => [treeid => qr/\d+/])->to('controller-branch#create');
 
     # ===== LEAVES =====
-    $authr->post('/:branchid/leaf' => [branchid => qr/\d+/])->to('controller-leaf#create');
+    $authr->post('/:branchid/leaf' => [branchid => qr/\d+/])    ->to('controller-leaf#create');
+    $authr->get('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#leafInfo');
 
     # ===== ANNOTATIONS =====
-    $authr->post('/:leafid/annotation' => [leafid => qr/\d+/])->to('controller-annotation#create');
-    $authr->get('/:leafid/testAnnotationUpload' => [leafid => qr/\d+/])->to('controller-annotation#testFileUpload');
+    $authr->post('/:leafid/annotation' => [leafid => qr/\d+/])          ->to('controller-annotation#create');
+    $authr->get('/:leafid/testAnnotationUpload' => [leafid => qr/\d+/]) ->to('controller-annotation#testFileUpload');
 
  
 

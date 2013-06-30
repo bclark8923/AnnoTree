@@ -21,12 +21,9 @@ my $url = $server . $port . '/annotation_files/';
 sub create {
     my $self = shift;
     
-    $self->debug($self->dumper($self->req));
-    $self->debug("path is: $path");
     my $params = {};
     my $upload = $self->req->upload('uploadedFile');
     $self->render(json => {error => '0', txt => 'You must include a file'}, status => 406) and return unless defined $upload;
-    $self->debug($self->dumper($upload->headers->content_type));
     $params->{leafid} = $self->param('leafid');
     my $fsName = $params->{leafid} . '_' . $upload->{filename};
     $params->{filename} = $upload->{filename};

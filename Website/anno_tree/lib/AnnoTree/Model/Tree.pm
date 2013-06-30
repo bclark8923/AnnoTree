@@ -107,7 +107,7 @@ sub treeInfo {
             unless (looks_like_number($annoCols->[0])) {
                 my $annoIndex = 0;
                 while (my $anno = $annoResult->fetch) {
-                    for (my $i = 0; $i < @{$leafCols}; $i++) {
+                    for (my $i = 0; $i < @{$annoCols}; $i++) {
                         $json->{branches}->[$branchIndex]->{leaves}->[$leafIndex]->{annotations}->[$annoIndex]->{$annoCols->[$i]} = $anno->[$i]; 
                     }
                     $annoIndex++;

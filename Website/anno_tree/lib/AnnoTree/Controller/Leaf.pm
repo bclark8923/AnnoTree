@@ -48,6 +48,14 @@ sub leafInfo {
     $self->render(json => $json, status => $status);
 }
 
+sub iosUpload {
+    my $self = shift;
+
+    # get branch id (based on tree token)
+    # create new leaf on branch
+    # add annotation to leaf
+}
+
 sub iosTestUpload {
     my $self = shift;
 

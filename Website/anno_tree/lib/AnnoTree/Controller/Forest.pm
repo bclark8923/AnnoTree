@@ -29,12 +29,12 @@ sub create {
     $self->render(json => $json, status => $status);
 }
 
-sub forestsForUser {
+sub forestInfo {
     my $self = shift;
 
     my $userid = $self->current_user->{userid};
 
-    my $json = AnnoTree::Model::Forest->forestsForUser($userid);
+    my $json = AnnoTree::Model::Forest->forestInfo($userid);
     
     my $status = 200;
     if (exists $json->{error}) {

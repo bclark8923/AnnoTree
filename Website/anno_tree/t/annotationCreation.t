@@ -21,8 +21,7 @@ my $uaValid = Mojo::UserAgent->new; # use to make the JSON POST requests
 my $json = Mojo::JSON->new; # use to help turn the response JSON into a Perl hash
 my $tx; # this shuld be the Mojo::Transaction element return from the UA transaction
 my $jsonBody; # this should be the body of the returned message if JSON
-my $server = 'http://localhost';
-my $port = ':3000';
+
 
 ######### START VALID USER SIGNUP/LOGIN TEST #########
 # this test creates a new valid user
@@ -56,6 +55,7 @@ ok(3 == $jsonBody->{status},                            $testname . 'Response JS
 ok('EST' eq $jsonBody->{time_zone},                     $testname . "Response JSON time zone is EST");
 ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
 ok($validUserEmail eq $jsonBody->{email},               $testname . "Response JSON email is '" . $validUserEmail . "'");
+my $validUserID = $jsonBody->{id};
 ######### END VALID USER SIGNUP/LOGIN TEST #########
 
 ######### START VALID FOREST CREATION TEST #########
@@ -120,62 +120,80 @@ ok($validTreeID == $jsonBody->{tree_id},            $testname . "Response JSON t
 ok($validBranchName eq $jsonBody->{name},           $testname . "Response JSON name matches");
 ok($validBranchDesc eq $jsonBody->{description},    $testname . "Response JSON description matches");
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
+my $validBranchID = $jsonBody->{id};
 ######### END VALID BRANCH CREATION TEST #########
 
-######### START INVALID BRANCH NAME CREATION TEST #########
-# this test attempts to create a branch without including one alphanumeric character
-$testname = 'Invalid branch name creation: ';
-$tx = $uaValid->post($branchCreationURL => json => {
-    name            => '',
-    description     => $validBranchDesc
-});
-$jsonBody = $json->decode($tx->res->body);
-ok(406 == $tx->res->code,                   $testname . 'Response Code is 406');
-ok(4 == $jsonBody->{error},                 $testname . "Response JSON error is 4");
-ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
-######### START INVALID BRANCH NAME CREATION TEST #########
-
-######### START MISSING REQUEST JSON VALUES TEST #########
-# this test attempts to create a branch without including all the JSON request name/value pairs
-$testname = 'Missing request parameters for branch creation: ';
-$tx = $uaValid->post($branchCreationURL => json => {
-    name            => $validBranchName
-});
-$jsonBody = $json->decode($tx->res->body);
-ok(406 == $tx->res->code,                   $testname . 'Response Code is 406');
-ok(0 == $jsonBody->{error},                 $testname . "Response JSON error is 0");
-ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
-######### END MISSING REQUEST JSON VALUES TEST #########
-
-######### START MISSING TREE BRANCH CREATION TEST #########
-# this test attempts to create a branch on a tree that does not exist
-$testname = 'Missing tree branch creation: ';
-my $missingTreeID = 0;
-my $branchInvalidURL = $server . $port . '/' . $missingTreeID . '/branch';
-$tx = $uaValid->post($branchInvalidURL => json => {
-    name            => $validBranchName,
-    description     => $validBranchDesc
+######### START VALID LEAF CREATION TEST #########
+# this test creates a new leaf
+$testname = 'Valid leaf creation: ';
+my $leafCreationURL = $server . $port . '/' . $validBranchID . '/leaf';
+my $validLeafName = 'Test Suite Leaf';
+my $validLeafDesc = 'This is a leaf created by the automated Mojolicious test suite';
+$tx = $uaValid->post($leafCreationURL => json => {
+    name            => $validLeafName,
+    description     => $validLeafDesc
 });
 $jsonBody = $json->decode($tx->res->body);
 
-ok(406 == $tx->res->code,                   $testname . 'Response Code is 406');
-ok(2 == $jsonBody->{error},                 $testname . "Response JSON error is 2");
-ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
-######### END MISSING TREE BRANCH CREATION TEST #########
+ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
+ok(exists $jsonBody->{id},                          $testname . 'Response JSON ID exists');
+ok($validUserID == $jsonBody->{owner_user_id},      $testname . "Response JSON owner_user_id matches");
+ok($validBranchID == $jsonBody->{branch_id},        $testname . "Response JSON branch_id matches");
+ok($validLeafName eq $jsonBody->{name},             $testname . "Response JSON name matches");
+ok($validLeafDesc eq $jsonBody->{description},      $testname . "Response JSON description matches");
+ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
+my $validLeafID = $jsonBody->{id};
+######### END VALID LEAF CREATION TEST #########
 
-######### START UNAUTHENTICATED USER BRANCH CREATION TEST #########
-# this test attempts to create a branch with an unauthenticated user
-$testname = 'Unauthenticated user branch creation: ';
+########## START VALID ANNOTATION CREATION TEST #########
+# this test creates a new leaf
+$testname = 'Valid annotation creation: ';
+my $annoCreationURL = $server . $port . '/' . $validLeafID . '/annotation';
+$tx = $uaValid->post($annoCreationURL => form => {uploadedFile => {file => $fileToUpload, 'Content-Type' => 'image/png'}});
+$jsonBody = $json->decode($tx->res->body);
+
+ok(200 == $tx->res->code,                       $testname . 'Response Code is 200');
+ok(exists $jsonBody->{id},                      $testname . 'Response JSON ID exists');
+ok($validLeafID == $jsonBody->{leaf_id},        $testname . "Response JSON leaf_id matches");
+ok('image/png' eq $jsonBody->{mime_type},       $testname . "Response JSON mime_type matches");
+ok(exists $jsonBody->{path},                    $testname . "Response JSON name matches");
+ok(exists $jsonBody->{filename},                $testname . "Response JSON description matches");
+ok(exists $jsonBody->{created_at},              $testname . 'Response JSON created_at exists');
+######### END VALID ANNOTATION CREATION TEST #########
+
+########## START NO FILE ANNOTATION CREATION TEST #########
+# this test attempts to create an annotation without a file
+$testname = 'No file annotation creation: ';
+$tx = $uaValid->post($annoCreationURL => form);
+$jsonBody = $json->decode($tx->res->body);
+
+ok(406 == $tx->res->code,           $testname . 'Response Code is 406');
+ok(0 == $jsonBody->{error},         $testname . "Response JSON error is 0");
+ok(exists $jsonBody->{txt},         $testname . 'Response JSON error text exists');
+######### END NO FILE ANNOTATION CREATION TEST #########
+
+########## START MISSING LEAF ANNOTATION CREATION TEST #########
+# this test attempts to create an annotation on a leaf that does not exist
+$testname = 'Missing leaf annotation creation: ';
+my $annoMissingURL = $server . $port . '/0/annotation';
+$tx = $uaValid->post($annoMissingURL => form => {uploadedFile => {file => $fileToUpload, 'Content-Type' => 'image/png'}});
+$jsonBody = $json->decode($tx->res->body);
+
+ok(406 == $tx->res->code,           $testname . 'Response Code is 406');
+ok(1 == $jsonBody->{error},         $testname . "Response JSON error is 1");
+ok(exists $jsonBody->{txt},         $testname . 'Response JSON error text exists');
+######### END MISSING LEAF ANNOTATION CREATION TEST #########
+
+######### START UNAUTHENTICATED USER ANNOTATION CREATION TEST #########
+# this test attempts to create a annotation with an unauthenticated user
+$testname = 'Unauthenticated user annotation creation: ';
 my $uaUnauth = Mojo::UserAgent->new;
-$tx = $uaUnauth->post($branchCreationURL => json => {
-    name            => $validBranchName,
-    description     => $validBranchDesc
-});
+$tx = $uaUnauth->post($annoCreationURL => form => {uploadedFile => {file => $fileToUpload, 'Content-Type' => 'image/png'}});
 $jsonBody = $json->decode($tx->res->body);
 
 ok(401 == $tx->res->code,                   $testname . 'Response Code is 401');
 ok(0 == $jsonBody->{error},                 $testname . "Response JSON error result is 0");
 ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
-######### END UNAUTHENTICATED USER BRANCH CREATION TEST #########
+######### END UNAUTHENTICATED USER ANNOTATION CREATION TEST #########
 
 done_testing();

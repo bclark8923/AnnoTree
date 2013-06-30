@@ -3,14 +3,24 @@ use Test::More;
 use Mojo::UserAgent;
 use Data::Dumper;
 use Mojo::JSON;
+use AppConfig;
+
+# grab the inforamtion from the configuration file
+my $config = AppConfig->new();
+$config->define('server=s');
+$config->define('port=s');
+$config->define('screenshot=s');
+$config->define('annotationpath=s');
+$config->file('/opt/config.txt');
+my $server = $config->get('server');
+my $port = ':' . $config->get('port');
+my $fileToUpload = $config->get('screenshot');
 
 #my $t = Test::Mojo->new('AnnoTree');
 my $uaValid = Mojo::UserAgent->new; # use to make the JSON POST requests
 my $json = Mojo::JSON->new; # use to help turn the response JSON into a Perl hash
 my $tx; # this shuld be the Mojo::Transaction element return from the UA transaction
 my $jsonBody; # this should be the body of the returned message if JSON
-my $server = 'http://localhost';
-my $port = ':3000';
 
 ######### START VALID USER SIGNUP/LOGIN TEST #########
 # this test creates a new valid user
@@ -86,10 +96,12 @@ ok($validForestID == $jsonBody->{forest_id},        $testname . "Response JSON f
 ok($validTreeName eq $jsonBody->{name},             $testname . "Response JSON name matches");
 ok($validTreeDesc eq $jsonBody->{description},      $testname . "Response JSON description matches");
 ok('img/logo.png' eq $jsonBody->{logo},             $testname . "Response JSON logo matches");
+ok(exists $jsonBody->{token},                       $testname . "Response JSON token exists");
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
 my $validTreeID = $jsonBody->{id};
 my $validTreeCreated = $jsonBody->{created_at};
 my $validTreeLogo = $jsonBody->{logo};
+my $validTreeToken = $jsonBody->{token};
 ######### END VALID TREE CREATION TEST #########
 
 ######### START VALID BRANCH CREATION TEST #########
@@ -141,7 +153,6 @@ my $validLeafCreated = $jsonBody->{created_at};
 # this test creates a new leaf
 $testname = 'Valid annotation creation: ';
 my $annoCreationURL = $server . $port . '/' . $validLeafID . '/annotation';
-my $fileToUpload = 'Screenshot_2013-05-22-23-11-37.png';
 $tx = $uaValid->post($annoCreationURL => form => {uploadedFile => {file => $fileToUpload, 'Content-Type' => 'image/png'}});
 $jsonBody = $json->decode($tx->res->body);
 
@@ -152,6 +163,11 @@ ok('image/png' eq $jsonBody->{mime_type},       $testname . "Response JSON mime_
 ok(exists $jsonBody->{path},                    $testname . "Response JSON name matches");
 ok(exists $jsonBody->{filename},                $testname . "Response JSON description matches");
 ok(exists $jsonBody->{created_at},              $testname . 'Response JSON created_at exists');
+my $validAnnoID = $jsonBody->{id};
+my $validAnnoMime = $jsonBody->{mime_type};
+my $validAnnoPath = $jsonBody->{path};
+my $validAnnoFilename = $jsonBody->{filename};
+my $validAnnoCreated = $jsonBody->{created_at};
 ######### END VALID ANNOTATION CREATION TEST #########
 =begin additional
 $tx = $uaValid->post($branchCreationURL => json => {
@@ -179,21 +195,54 @@ $testname = 'Valid tree retrieval: ';
 my $treeGetURL = $server . $port . '/tree/' . $validTreeID;
 $tx = $uaValid->get($treeGetURL);
 $jsonBody = $json->decode($tx->res->body);
-print Dumper($jsonBody);
+my $testBranch;
+foreach my $branch (@{$jsonBody->{branches}}) {
+    next unless $branch->{id} == $validBranchID;
+    $testBranch = $branch;
+}
+my $testLeaf;
+foreach my $leaf (@{$testBranch->{leaves}}) {
+    next unless $leaf->{id} == $validLeafID;
+    $testLeaf = $leaf;
+}
+my $testAnno;
+foreach my $anno (@{$testLeaf->{annotations}}) {
+    next unless $anno->{id} = $validAnnoID;
+    $testAnno = $anno;
+}
 
-ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
-ok($validTreeID == $jsonBody->{id},                 $testname . 'Response JSON tree ID matches');
-ok($validForestID == $jsonBody->{forest_id},        $testname . "Response JSON forest_id matches");
-ok($validTreeName eq $jsonBody->{name},             $testname . "Response JSON name matches");
-ok($validTreeDesc eq $jsonBody->{description},      $testname . "Response JSON description matches");
-ok($validTreeLogo eq $jsonBody->{logo},             $testname . "Response JSON logo matches");
-ok(exists $jsonBody->{branches},                    $testname . 'Response JSON branches exists');
-
+ok(200 == $tx->res->code,                               $testname . 'Response Code is 200');
+ok($validTreeID == $jsonBody->{id},                     $testname . 'Response JSON tree ID matches');
+ok($validForestID == $jsonBody->{forest_id},            $testname . "Response JSON forest_id matches");
+ok($validTreeName eq $jsonBody->{name},                 $testname . "Response JSON name matches");
+ok($validTreeDesc eq $jsonBody->{description},          $testname . "Response JSON description matches");
+ok($validTreeLogo eq $jsonBody->{logo},                 $testname . "Response JSON logo matches");
+ok($validTreeToken eq $jsonBody->{token},                 $testname . "Response JSON token matches");
+ok(exists $jsonBody->{branches},                        $testname . 'Response JSON branches exists');
+ok($validBranchID == $testBranch->{id},                 $testname . 'Response JSON branch id matches');
+ok($validTreeID == $testBranch->{tree_id},              $testname . 'Response JSON tree id matches');
+ok($validBranchName == $testBranch->{name},             $testname . 'Response JSON branch name matches');
+ok($validBranchDesc == $testBranch->{description},      $testname . 'Response JSON branch description matches');
+ok($validBranchCreated == $testBranch->{created_at},    $testname . 'Response JSON branch created at matches');
+ok(exists $testBranch->{leaves},                        $testname . 'Response JSON branch leaves exists');
+ok($validLeafID == $testLeaf->{id},                     $testname . 'Response JSON leaf id matches');
+ok($validLeafName == $testLeaf->{name},                 $testname . 'Response JSON leaf name matches');
+ok($validLeafDesc == $testLeaf->{description},          $testname . 'Response JSON leaf description matches');
+ok($validLeafCreated == $testLeaf->{created_at},        $testname . 'Response JSON leaf created matches');
+ok($validUserID == $testLeaf->{owner_user_id},          $testname . 'Response JSON leaf owner_user_id matches');
+ok($validBranchID == $testLeaf->{branch_id},            $testname . 'Response JSON leaf branch_id matches');
+ok(exists $testLeaf->{annotations},                     $testname . 'Response JSON leaf annotations exists');
+ok($validAnnoID == $testAnno->{id},                     $testname . 'Response JSON annotation id matches');
+ok($validAnnoMime == $testAnno->{mime_type},            $testname . 'Response JSON annotation mime_type matches');
+ok($validAnnoPath == $testAnno->{path},                 $testname . 'Response JSON annotation path matches');
+ok($validAnnoFilename == $testAnno->{filename},         $testname . 'Response JSON annotation filename matches');
+ok($validAnnoCreated == $testAnno->{created_at},        $testname . 'Response JSON annotation created_at matches');
+ok($validLeafID == $testAnno->{leaf_id},                $testname . 'Response JSON annotation leaf_id matches');
 ######### END VALID TREE RETRIEVAL TEST #########
 
 ######### START INVALID TREE RETRIEVAL TEST #########
 # this test attempts to retrieve a tree that does not exist
-my $testname = 'Invalid tree retrieval: ';
+$testname = 'Invalid tree retrieval: ';
 my $invalidTreeGetURL = $server . $port . '/tree/0';
 $tx = $uaValid->get($invalidTreeGetURL);
 $jsonBody = $json->decode($tx->res->body);
@@ -205,8 +254,8 @@ ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error tex
 
 ######### START EXISTING TREE NO PERMISSIONS RETRIEVAL TEST #########
 # this test attempts to retrieve a tree that exists but the user does not have access to
-my $testname = 'Existing tree no permissions retrieval: ';
-my $invalidTreeGetURL = $server . $port . '/tree/1';
+$testname = 'Existing tree no permissions retrieval: ';
+$invalidTreeGetURL = $server . $port . '/tree/1';
 $tx = $uaValid->get($invalidTreeGetURL);
 $jsonBody = $json->decode($tx->res->body);
 
@@ -216,8 +265,8 @@ ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error tex
 ######### END EXISTING TREE NO PERMISSIONS RETRIEVAL TEST #########
 
 ######### START UNAUTHENTICATED USER TREE RETRIEVAL TEST #########
-# this test attempts to create a forest with an unauthenticated user
-my $testname = 'Unauthenticated user tree retrieval: ';
+# this test attempts to retrieve a tree's info with an unauthenticated user
+$testname = 'Unauthenticated user tree retrieval: ';
 my $uaUnauth = Mojo::UserAgent->new;
 $tx = $uaUnauth->get($treeGetURL);
 $jsonBody = $json->decode($tx->res->body);

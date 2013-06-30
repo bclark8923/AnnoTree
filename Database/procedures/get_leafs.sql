@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 -- get_leafs
--- Note: Returns a list of forest associated with a user's id
+-- Note: Returns a list of leaves
 -- --------------------------------------------------------------------------------
 use annotree;
 drop  procedure IF EXISTS `get_leafs`;

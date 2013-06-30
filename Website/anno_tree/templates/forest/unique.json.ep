@@ -1,6 +1,0 @@
-{
-    "id": "<%== $forest->{'id'} %>",
-    "name": "<%== $forest->{'name'} %>",
-    "description": "<%== $forest->{'description'} %>"
-    
-}

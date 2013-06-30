@@ -3,14 +3,24 @@ use Test::More;
 use Mojo::UserAgent;
 use Data::Dumper;
 use Mojo::JSON;
+use AppConfig;
+
+# grab the inforamtion from the configuration file
+my $config = AppConfig->new();
+$config->define('server=s');
+$config->define('port=s');
+$config->define('screenshot=s');
+$config->define('annotationpath=s');
+$config->file('/opt/config.txt');
+my $server = $config->get('server');
+my $port = ':' . $config->get('port');
+my $fileToUpload = $config->get('screenshot');
 
 #my $t = Test::Mojo->new('AnnoTree');
 my $uaValid = Mojo::UserAgent->new; # use to make the JSON POST requests
 my $json = Mojo::JSON->new; # use to help turn the response JSON into a Perl hash
 my $tx; # this shuld be the Mojo::Transaction element return from the UA transaction
 my $jsonBody; # this should be the body of the returned message if JSON
-my $server = 'http://localhost';
-my $port = ':3000';
 my $forestURL = $server . $port . '/forest';
 
 ######### START VALID USER SIGNUP/LOGIN TEST #########
@@ -84,10 +94,12 @@ ok(exists $jsonBody->{id},                          $testname . 'Response JSON I
 ok($validForestID == $jsonBody->{forest_id},        $testname . "Response JSON forest_id matches");
 ok($validTreeName eq $jsonBody->{name},             $testname . "Response JSON name matches");
 ok($validTreeDesc eq $jsonBody->{description},      $testname . "Response JSON description matches");
+ok(exists $jsonBody->{token},                       $testname . "Response JSON token exists");
 ok('img/logo.png' eq $jsonBody->{logo},             $testname . "Response JSON logo matches");
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
 my $validTreeID = $jsonBody->{id};
 my $validTreeCreated = $jsonBody->{created_at};
+my $validTreeToken = $jsonBody->{token};
 ######### END VALID TREE CREATION TEST #########
 
 ######### START VALID FOREST RETRIEVAL TEST #########
@@ -102,7 +114,7 @@ foreach my $forest (@{$jsonBody->{forests}}) {
     next unless $forest->{id} = $validForestID;
     $testForest = $forest;
 }
-
+print Dumper($testForest);
 ok($validForestID == $testForest->{id},                             $testname . 'Response JSON forest ID matches');
 ok($validForestName eq $testForest->{name},                         $testname . "Response JSON forest name matches");
 ok($validForestDesc eq $testForest->{description},                  $testname . "Response JSON forest description matches");
@@ -111,6 +123,7 @@ ok($validTreeID == $testForest->{trees}->[0]->{id},                 $testname . 
 ok($validTreeCreated eq $testForest->{trees}->[0]->{created_at},    $testname . 'Response JSON tree created_at matches');
 ok($validTreeDesc eq $testForest->{trees}->[0]->{description},      $testname . 'Response JSON tree description matches');
 ok($validTreeName eq $testForest->{trees}->[0]->{name},             $testname . 'Response JSON tree name matches');
+ok($validTreeToken eq $testForest->{trees}->[0]->{token},           $testname . "Response JSON token matches");
 ok('img/logo.png' eq $testForest->{trees}->[0]->{logo},             $testname . 'Response JSON tree logo matches');
 ok($validForestID eq $testForest->{trees}->[0]->{forest_id},        $testname . 'Response JSON tree forest_id matches');
 ######### END VALID FOREST RETRIEVAL TEST #########

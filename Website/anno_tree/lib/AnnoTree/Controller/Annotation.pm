@@ -3,21 +3,27 @@ package AnnoTree::Controller::Annotation;
 use Mojo::Base 'Mojolicious::Controller';
 use Mojo::Asset::File;
 use AnnoTree::Model::Annotation;
+use AppConfig;
 
-my $mattPath = '/home/matt/reserve/AnnoTree/';
-my $awsPath = '/opt/www/';
-my $path = $mattPath . 'Website/anno_tree/public/annotation_files/';
-my $url = 'http://23.21.235.254:3000/annotation_files/';
+# grab the inforamtion from the configuration file
+my $config = AppConfig->new();
+$config->define('server=s');
+$config->define('port=s');
+$config->define('screenshot=s');
+$config->define('annotationpath=s');
+$config->file('/opt/config.txt');
+my $server = $config->get('server');
+my $port = ':' . $config->get('port');
+my $path = $config->get('annotationpath');
+my $url = $server . $port . '/annotation_files/';
 
 # creates a new annotation
 sub create {
     my $self = shift;
     
-    $self->debug($self->dumper($self->req));
     my $params = {};
     my $upload = $self->req->upload('uploadedFile');
     $self->render(json => {error => '0', txt => 'You must include a file'}, status => 406) and return unless defined $upload;
-    $self->debug($self->dumper($upload->headers->content_type));
     $params->{leafid} = $self->param('leafid');
     my $fsName = $params->{leafid} . '_' . $upload->{filename};
     $params->{filename} = $upload->{filename};

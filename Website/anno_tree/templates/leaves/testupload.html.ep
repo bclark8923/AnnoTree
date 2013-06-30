@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Test Uploading iOS Annotation</title></head>
+    <body>
+        %= form_for "/ios/$leafid/annotation" => (enctype => 'multipart/form-data') => (method => 'POST')=> begin
+        Token<br/>
+        %= text_field 'token'
+        <br/>File<br/>
+        %= file_field 'uploadedFile'
+        <br/>
+        %= submit_button 'Upload'
+    % end
+    </body>
+</html>

@@ -12,9 +12,9 @@ CREATE Procedure `get_trees_by_user_by_forest`(
   in f INT
   )
 BEGIN
-select 'id', 'name', 'forest_id', 'description', 'created_at', 'logo' 
+select 'id', 'name', 'forest_id', 'description', 'created_at', 'token', 'logo' 
 union
-select tree.id, tree.name, tree.forest_id, tree.description, tree.created_at, tree.logo 
+select tree.id, tree.name, tree.forest_id, tree.description, tree.created_at, tree.token, tree.logo 
 from tree 
     join user_tree ut on
         ut.tree_id = tree.id and

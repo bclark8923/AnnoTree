@@ -4,9 +4,12 @@ use Mojo::Base -strict;
 use AnnoTree::Model::MySQL;
 use Scalar::Util qw(looks_like_number);
 use Data::Dumper;
+use Digest::SHA qw(sha256_hex);
 
 sub create {
     my ($class, $params) = @_;
+
+   
     
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call create_tree(:userid, :forestid, :name, :desc, :logo)",
@@ -37,10 +40,21 @@ sub create {
         $json->{$cols->[$i]} = $treeInfo->[$i];
     }
     
+    my $token = sha256_hex($treeInfo->[0]);
+    my $tokenResult = AnnoTree::Model::MySQL->db->execute(
+        "call add_tree_token(:token, :treeid)",
+        {
+            token   => $token,
+            treeid  => $treeInfo->[0]
+        }
+    );
+    $json->{token} = $token;
+    print $token . "\n"; 
+    
     return $json;
 }
 
-sub branchLeafInfo {
+sub treeInfo {
     my ($class, $params) = @_;
     
     my $json = {};
@@ -107,7 +121,7 @@ sub branchLeafInfo {
             unless (looks_like_number($annoCols->[0])) {
                 my $annoIndex = 0;
                 while (my $anno = $annoResult->fetch) {
-                    for (my $i = 0; $i < @{$leafCols}; $i++) {
+                    for (my $i = 0; $i < @{$annoCols}; $i++) {
                         $json->{branches}->[$branchIndex]->{leaves}->[$leafIndex]->{annotations}->[$annoIndex]->{$annoCols->[$i]} = $anno->[$i]; 
                     }
                     $annoIndex++;

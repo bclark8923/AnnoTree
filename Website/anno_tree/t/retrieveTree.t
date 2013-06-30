@@ -136,6 +136,23 @@ ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON c
 my $validLeafID = $jsonBody->{id};
 my $validLeafCreated = $jsonBody->{created_at};
 ######### END VALID LEAF CREATION TEST #########
+
+########## START VALID ANNOTATION CREATION TEST #########
+# this test creates a new leaf
+$testname = 'Valid annotation creation: ';
+my $annoCreationURL = $server . $port . '/' . $validLeafID . '/annotation';
+my $fileToUpload = 'Screenshot_2013-05-22-23-11-37.png';
+$tx = $uaValid->post($annoCreationURL => form => {uploadedFile => {file => $fileToUpload, 'Content-Type' => 'image/png'}});
+$jsonBody = $json->decode($tx->res->body);
+
+ok(200 == $tx->res->code,                       $testname . 'Response Code is 200');
+ok(exists $jsonBody->{id},                      $testname . 'Response JSON ID exists');
+ok($validLeafID == $jsonBody->{leaf_id},        $testname . "Response JSON leaf_id matches");
+ok('image/png' eq $jsonBody->{mime_type},       $testname . "Response JSON mime_type matches");
+ok(exists $jsonBody->{path},                    $testname . "Response JSON name matches");
+ok(exists $jsonBody->{filename},                $testname . "Response JSON description matches");
+ok(exists $jsonBody->{created_at},              $testname . 'Response JSON created_at exists');
+######### END VALID ANNOTATION CREATION TEST #########
 =begin additional
 $tx = $uaValid->post($branchCreationURL => json => {
     name            => $validBranchName,
@@ -152,6 +169,8 @@ $uaValid->post($leafNew => json => {
     name            => $validLeafName,
     description     => $validLeafDesc
 });
+
+$uaValid->post($annoCreationURL => form => {uploadedFile => {file => $fileToUpload, 'Content-Type' => 'image/png'}});
 =end additional
 =cut
 ######### START VALID TREE RETRIEVAL TEST #########
@@ -160,7 +179,7 @@ $testname = 'Valid tree retrieval: ';
 my $treeGetURL = $server . $port . '/tree/' . $validTreeID;
 $tx = $uaValid->get($treeGetURL);
 $jsonBody = $json->decode($tx->res->body);
-#print Dumper($jsonBody);
+print Dumper($jsonBody);
 
 ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
 ok($validTreeID == $jsonBody->{id},                 $testname . 'Response JSON tree ID matches');

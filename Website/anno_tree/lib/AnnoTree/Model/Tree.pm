@@ -96,6 +96,24 @@ sub branchLeafInfo {
             for (my $i = 0; $i < @{$leafCols}; $i++) {
                 $json->{branches}->[$branchIndex]->{leaves}->[$leafIndex]->{$leafCols->[$i]} = $leaf->[$i]; 
             }
+            $json->{branches}->[$branchIndex]->{leaves}->[$leafIndex]->{annotations} = [];
+            my $annoResult = AnnoTree::Model::MySQL->db->execute(
+                'call get_annotation(:leafid)',
+                {
+                    leafid => $leaf->[0]
+                }
+            );
+            my $annoCols = $annoResult->fetch;
+            unless (looks_like_number($annoCols->[0])) {
+                my $annoIndex = 0;
+                while (my $anno = $annoResult->fetch) {
+                    for (my $i = 0; $i < @{$leafCols}; $i++) {
+                        $json->{branches}->[$branchIndex]->{leaves}->[$leafIndex]->{annotations}->[$annoIndex]->{$annoCols->[$i]} = $anno->[$i]; 
+                    }
+                    $annoIndex++;
+                }
+            }
+
             $leafIndex++;
         }
         $branchIndex++;

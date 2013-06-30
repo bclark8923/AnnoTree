@@ -4,39 +4,45 @@
 
 	app.controller(
 		"forest.TreeController",
-		function( $scope, $cookies, $rootScope, $location, $timeout, $route, requestContext, forestService, _ ) {
+		function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, forestService, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
 
 
 			// I apply the remote data to the local view model.
-			function loadLeafs( leaves ) {
+			function loadLeaves( leaves ) {
 
+				for (var i = 0; i < leaves.length; i++) {
+					leaves[i].annotation = leaves[i].annotations[0].path;
+				}
                	$scope.leaves = leaves;
 			}
 
 
 			// I load the "remote" data from the server.
-			function loadRemoteData() {
+			function loadTreeData() {
 
 				$scope.isLoading = true;
 
-				var promise = forestService.getTree(500,500);
+				var promise = forestService.getTree($routeParams.treeID);
 
 				promise.then(
 					function( response ) {
 
 						$scope.isLoading = false;
 
-						loadTrees( response.data.branches[0].leaves );
+						$scope.branchID = response.data.branches[0].id;
+				        $scope.treeInfo = response.data;
+						
+						loadLeaves( response.data.branches[0].leaves );
 
  						$timeout(function() { window.Gumby.init() }, 0);
 
 					},
 					function( response ) {
 
-						var fakeStuff = {
+						/*var fakeStuff = {
 				          logo: 'img/logo.png',
 				          id: '2',
 				          branches: [
@@ -73,10 +79,11 @@
 				        };
 
 				        $scope.treeInfo = fakeStuff;
+				        $scope.branchID = fakeStuff.branches[0].id;
 
 				        loadLeafs(fakeStuff.branches[0].leaves);
 
-				        return;
+				        return;*/
 
 						var errorData = "Our Create Tree Service is currently down, please try again later.";
 						var errorNumber = parseInt(response.data.error);
@@ -123,82 +130,81 @@
 
 			}
 
-			$scope.annotationImage = {};
-			$scope.$watch('annotationImage', function(){
-			    //this seems to be a fake array, because for (i in files) will traverse on the "length" attribute as well,
-			    //and it doesn't have a forEach method
-			    // scope.files = document.getElementById('fileToUpload').files
-			    //...so we need to copy the files to a new array
+			function newAnnotation(leafID) {
 			    $scope.files = []
-			    var annotim = document.getElementById('annotationImage');
-			    var files = annotim.files
-			    console.log('files:', files)
+			    var annotationImageElement = document.getElementById('annotationImage');
+			    var files = annotationImageElement.files
+			    //console.log('files:', files)
 			    for (var i = 0; i < files.length; i++) {
 			        $scope.files.push(files[i])
 			    }
-			    //$scope.progressVisible = false
-			})
 
-			$scope.newLeafTest = function() {
-			    $scope.files = []
-			    var annotim = document.getElementById('annotationImage');
-			    var files = annotim.files
-			    console.log('files:', files)
-			    for (var i = 0; i < files.length; i++) {
-			        $scope.files.push(files[i])
-			    }
 				var fd = new FormData()
 		        for (var i in $scope.files) {
 		            fd.append("uploadedFile", $scope.files[i]);
 		        }
 		        var xhr = new XMLHttpRequest();
-		        //xhr.upload.addEventListener("progress", uploadProgress, false)
-		        //xhr.addEventListener("load", uploadComplete, false)
-		        //xhr.addEventListener("error", uploadFailed, false)
-		        //xhr.addEventListener("abort", uploadCanceled, false)
-		        //return;
-		        xhr.open("POST", "http://23.21.235.254:3000/3/annotation");
-		        //$scope.progressVisible = true
-		        xhr.send(fd);
 
-				//alert($scope.annotationImage);
-			}
+		        //xhr.upload.addEventListener("progress", uploadProgress, false)
+		        xhr.addEventListener("load", uploadComplete, false)
+		        xhr.addEventListener("error", uploadFailed, false)
+		        xhr.addEventListener("abort", uploadCanceled, false)
+		        forestService.createAnnotation(leafID, fd, xhr);
+		    }
+
+		    function uploadComplete(evt) {
+		        /* This event is raised when the server send back a response */
+		        //alert(evt.target.responseText);
+				addLeaf( $scope.newLeafData );
+		    }
+
+		    function uploadFailed(evt) {
+		        /* This event is raised when the server send back a response */
+		        alert(evt.target.responseText);
+		    }
+
+		    function uploadCanceled(evt) {
+		        /* This event is raised when the server send back a response */
+		        alert(evt.target.responseText);
+		    }
 
 			$scope.newLeaf = function() {
 
 				var leafName = $scope.leafName;
-				var leafAnnotation = $scope.leafAnnotation;
-				var formValid = $scope.createTreeForm.$valid;
-				var branchID = $scope.leaves[0].branch_id;
+				var leafDescription = "NULL";
+			    var annotationImageElement = document.getElementById('annotationImage');
+				var formValid = $scope.createLeafForm.$valid;
+				var branchID = $scope.branchID;
 
 				//validate form
-				if(!formValid) {
-					$scope.invalidAddTree = true;
-					if(!treeName) {
-						$("#invalidAddTree").html("Please fill out a tree name.");
-					}
-					else if(!treeDescription) {
-						$("#invalidAddTree").html("Please fill out a tree description.");
+				if(!formValid || annotationImageElement.files.length == 0) {
+					$scope.invalidAddLeaf = true;
+					if(!leafName) {
+						$("#invalidAddLeaf").html("Please fill out a leaf name.");
+					} else if (annotationImageElement.files.length == 0) {
+						$("#invalidAddLeaf").html("Please add an image.");
 					} else {
 						//shouldn't happen
-						$("#invalidAddTree").html("Please enter valid information.");
+						$("#invalidAddLeaf").html("Please enter valid information.");
 					}
 				} else {
 					//return;
-					var promise = forestService.createTree(forestID, treeName, treeDescription);
+					var promise = forestService.createLeaf(branchID, leafName, leafDescription);
 
 					promise.then(
 						function( response ) {
 
 							$scope.isLoading = false;
 
-							addTree( response.data );
+							$scope.newLeafData = response.data;
+
+							newAnnotation(response.data.id);
  				
  							$timeout(function() { Gumby.initialize('switches') }, 0);
 
 						},
 						function( response ) {
-							var errorData = "Our Create Tree Service is currently down, please try again later.";
+							var errorData = "Our Create Leaf Service is currently down, please try again later.";
 							var errorNumber = parseInt(response.data.error);
 							if(response.data.status == 406) {
 								switch(errorNumber)
@@ -289,7 +295,7 @@
 			$scope.setWindowTitle( "AnnoTree" );
 
 			// Load the "remote" data.
-			$scope.$evalAsync(loadRemoteData());
+			$scope.$evalAsync(loadTreeData());
 
 			Gumby.init();
 

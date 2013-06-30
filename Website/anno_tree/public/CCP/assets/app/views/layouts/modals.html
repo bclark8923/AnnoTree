@@ -9,7 +9,7 @@
       <div class="row" style="padding-bottom:30px;padding-top:30px;">
         <div class="ten columns centered center-text">
           <ul>
-            <li class="danger alert" id="validateError" ng-show="invalidAddForest"></li>
+            <li class="danger alert" id="invalidAddForest" ng-show="invalidAddForest"></li>
             <li class="field" style="text-align:center;"><input id="forestName" class="text input" type="text" placeholder="Forest" style="max-width:380px;" ng-model="forestName" required></li>
             <li class="field" style="text-align:center;"><input id="forestDescription" class="email input" type="text" placeholder="Forest Description" style="max-width:380px;" ng-model="forestDescription" required></li>
           </ul>
@@ -39,7 +39,7 @@
       <div class="row" style="padding-bottom:30px;padding-top:30px;">
         <div class="ten columns centered center-text">
           <ul>
-            <li class="danger alert" id="validateError" ng-show="invalidAddTree"></li>
+            <li class="danger alert" id="invalidAddTree" ng-show="invalidAddTree"></li>
             <li class="field" style="text-align:center;"><input id="treeName" class="text input" type="text" placeholder="Tree" style="max-width:380px;" ng-model="treeName" required></li>
             <li class="field" style="text-align:center;"><input id="treeDescription" class="email input" type="text" placeholder="Tree Description" style="max-width:380px;" ng-model="treeDescription" required></li>
           </ul>
@@ -73,32 +73,31 @@
 
 <!-- New Leaf Modal -->
 <div class="modal" id="newLeafModal" ng-controller="forest.TreeController">
-  <div class="content">
-    <a class="close switch" gumby-trigger="|#newLeafModal"><i class="icon-cancel"></i></a>
-    <div class="row">
-      <div class="ten columns centered center-text">
-        <h2>Add Leaf</h2>
-        <form name="createLeafForm" ng-submit="newLeafTest()" style="margin: 0;">
-          <div class="row" style="padding-bottom:30px;padding-top:30px;">
-            <div class="ten columns centered center-text">
-              <ul>
-                <li class="danger alert" id="validateError" ng-show="invalidAddTree"></li>
-                <li class="field" style="text-align:center;"><input name="annotationImage" id="annotationImage" class="text file" type="file" placeholder="Annotation" style="max-width:380px;" ng-model="annotationImage" required></li>
-              </ul>
-            </div>
-          </div>
-          <div class="row authenticateFooter">
-            <div style="text-align: center; padding-top:15px;">
-              <div>
-                <button type="submit" class="medium oval btn success"><a ng-click="newLeafTest()">Add Tree</a></button>
-              </div>
-            </div>
-          </div>
-        </form>
-
-        <p class="btn primary medium"><a href="#" class="switch active" gumby-trigger="|#newLeafModal">Close Modal</a></p>
-      </div>
+  <div class="content" style="padding: 0;">
+    <div class="row authenticateHeader" style="padding:0;">
+      <a id="newLeafClose" class="close switch" gumby-trigger=" | #newLeafModal, .newLeafLinkClass " style="float:right;color:#444">
+        <i class="icon-remove-circle"></i>
+      </a>
+      <h3 style="padding-top:20px;">Create New Leaf</h3>
     </div>
+    <form name="createLeafForm" ng-submit="newLeaf()" style="margin: 0;">
+      <div class="row" style="padding-bottom:30px;padding-top:30px;">
+        <div class="ten columns centered center-text">
+          <ul>
+            <li class="danger alert" id="invalidAddLeaf" ng-show="invalidAddLeaf"></li>
+            <li class="field" style="text-align:center;"><input id="leafName" class="text input" type="text" placeholder="Leaf" style="max-width:380px;" ng-model="leafName" required></li>
+            <li class="field" style="text-align:center;"><input id="annotationImage" class="text file" type="file" placeholder="Annotation" style="max-width:380px;" ng-model="annotationImage"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row authenticateFooter">
+        <div style="text-align: center; padding-top:15px;">
+          <div>
+            <button type="submit" class="medium oval btn success"><a ng-click="newLeaf()">Add Leaf</a></button>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
 

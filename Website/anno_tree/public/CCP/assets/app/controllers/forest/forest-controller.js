@@ -22,7 +22,7 @@
 
 
 			// I load the "remote" data from the server.
-			function loadRemoteData() {
+			function loadForestData() {
 
 				$scope.isLoading = true;
 
@@ -298,7 +298,7 @@
 			$scope.setWindowTitle( "AnnoTree" );
 
 			// Load the "remote" data.
-			$scope.$evalAsync(loadRemoteData());
+			$scope.$evalAsync(loadForestData());
 
 			Gumby.init();
 

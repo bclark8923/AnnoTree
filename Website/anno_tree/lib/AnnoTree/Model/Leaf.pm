@@ -77,4 +77,48 @@ sub leafInfo {
     return $json;
 }
 
+sub iosUpload {
+    my ($class, $params) = @_;
+    
+    my $json = {};
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call create_leaf_on_tree(:token, :leafname)",
+        {
+            token       => $params->{token},
+            leafname    => 'iOS Screenshot'
+        }
+    ); 
+    
+    my $cols = $result->fetch;
+    if (looks_like_number($cols->[0])) {
+        my $error = $cols->[0];
+        if ($error == 1) {
+            return {error => $error, txt => 'Tree does not exist'};
+        } elsif ($error == 2) {
+            return {error => $error, txt => 'No branches exist'};
+        }
+    }
+    my $leafInfo = $result->fetch;
+    my $leafid = $leafInfo->[0];
+    my $fsName = $leafid . '_' . $params->{filename};
+    my $annoResult = AnnoTree::Model::MySQL->db->execute(
+        "call create_annotation(:mime, :path, :filename, :leafid)",
+        {
+            mime        => $params->{mime},
+            path        => $params->{path} . $fsName,
+            filename    => $params->{filename},
+            leafid      => $leafid
+        }
+    );
+
+    if (looks_like_number($cols->[0])) { 
+        my $error = $cols->[0];
+        if ($error == 1) {
+            return {error => '3', txt => 'Can\'t create a annotation on a leaf that does not exist'};
+        }
+    }
+    
+    return {fsName => $fsName};
+}
+
 return 1;

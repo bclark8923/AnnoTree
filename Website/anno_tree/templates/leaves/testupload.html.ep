@@ -6,7 +6,7 @@
         Token<br/>
         %= text_field 'token'
         <br/>File<br/>
-        %= file_field 'uploadedFile'
+        %= file_field 'annotation'
         <br/>
         %= submit_button 'Upload'
     % end

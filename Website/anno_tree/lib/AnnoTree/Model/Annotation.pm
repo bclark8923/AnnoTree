@@ -14,7 +14,7 @@ sub create {
             mime        => $params->{mime},
             path        => $params->{path},
             filename    => $params->{filename},
-            leafid      => $params->{leafid},
+            leafid      => $params->{leafid}
         }
     );
 

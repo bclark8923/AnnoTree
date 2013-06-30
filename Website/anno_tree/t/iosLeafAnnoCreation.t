@@ -14,12 +14,15 @@ $config->define('annotationpath=s');
 $config->file('/opt/config.txt');
 my $server = $config->get('server');
 my $port = ':' . $config->get('port');
+my $fileToUpload = $config->get('screenshot');
 
 #my $t = Test::Mojo->new('AnnoTree');
-my $uaValid = Mojo::UserAgent->new; # use to make the JSON POST requests
+my $uaValid = Mojo::UserAgent->new; # use to make the authenticated user requests
+my $uaIOS = Mojo::UserAgent->new; # use to make the iOS requests
 my $json = Mojo::JSON->new; # use to help turn the response JSON into a Perl hash
 my $tx; # this shuld be the Mojo::Transaction element return from the UA transaction
 my $jsonBody; # this should be the body of the returned message if JSON
+my $iosCreationURL = $server . $port . '/ios/leaf';
 
 ######### START VALID USER SIGNUP/LOGIN TEST #########
 # this test creates a new valid user
@@ -97,6 +100,7 @@ ok(exists $jsonBody->{token},                       $testname . "Response JSON t
 ok('img/logo.png' eq $jsonBody->{logo},             $testname . "Response JSON logo matches");
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
 my $validTreeID = $jsonBody->{id};
+my $validTreeToken = $jsonBody->{token};
 ######### END VALID TREE CREATION TEST #########
 
 ######### START VALID BRANCH CREATION TEST #########
@@ -119,60 +123,58 @@ ok($validBranchDesc eq $jsonBody->{description},    $testname . "Response JSON d
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
 ######### END VALID BRANCH CREATION TEST #########
 
-######### START INVALID BRANCH NAME CREATION TEST #########
-# this test attempts to create a branch without including one alphanumeric character
-$testname = 'Invalid branch name creation: ';
-$tx = $uaValid->post($branchCreationURL => json => {
-    name            => '',
-    description     => $validBranchDesc
-});
-$jsonBody = $json->decode($tx->res->body);
-ok(406 == $tx->res->code,                   $testname . 'Response Code is 406');
-ok(4 == $jsonBody->{error},                 $testname . "Response JSON error is 4");
-ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
-######### START INVALID BRANCH NAME CREATION TEST #########
-
-######### START MISSING REQUEST JSON VALUES TEST #########
-# this test attempts to create a branch without including all the JSON request name/value pairs
-$testname = 'Missing request parameters for branch creation: ';
-$tx = $uaValid->post($branchCreationURL => json => {
-    name            => $validBranchName
-});
-$jsonBody = $json->decode($tx->res->body);
-ok(406 == $tx->res->code,                   $testname . 'Response Code is 406');
-ok(0 == $jsonBody->{error},                 $testname . "Response JSON error is 0");
-ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
-######### END MISSING REQUEST JSON VALUES TEST #########
-
-######### START MISSING TREE BRANCH CREATION TEST #########
-# this test attempts to create a branch on a tree that does not exist
-$testname = 'Missing tree branch creation: ';
-my $missingTreeID = 0;
-my $branchInvalidURL = $server . $port . '/' . $missingTreeID . '/branch';
-$tx = $uaValid->post($branchInvalidURL => json => {
-    name            => $validBranchName,
-    description     => $validBranchDesc
-});
+########## START VALID IOS LEAF CREATION TEST #########
+# this test creates a new leaf and a new annotation from an iOS request
+$testname = 'Valid iOS leaf creation: ';
+$tx = $uaIOS->post($iosCreationURL => form => {annotation => {file => $fileToUpload, 'Content-Type' => 'image/png'}, token => $validTreeToken});
 $jsonBody = $json->decode($tx->res->body);
 
-ok(406 == $tx->res->code,                   $testname . 'Response Code is 406');
-ok(2 == $jsonBody->{error},                 $testname . "Response JSON error is 2");
-ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
-######### END MISSING TREE BRANCH CREATION TEST #########
+ok(200 == $tx->res->code,                       $testname . 'Response Code is 200');
+ok(exists $jsonBody->{result},                  $testname . 'Response JSON result exists');
+######### END VALID IOS LEAF CREATION TEST #########
 
-######### START UNAUTHENTICATED USER BRANCH CREATION TEST #########
-# this test attempts to create a branch with an unauthenticated user
-$testname = 'Unauthenticated user branch creation: ';
-my $uaUnauth = Mojo::UserAgent->new;
-$tx = $uaUnauth->post($branchCreationURL => json => {
-    name            => $validBranchName,
-    description     => $validBranchDesc
-});
+########## START MISSING REQUEST TOKEN IOS LEAF CREATION TEST #########
+# this test attempts to create an iOS leaf with missing request parameters
+$testname = 'Missing request token iOS leaf creation: ';
+$tx = $uaIOS->post($iosCreationURL => form => {annotation => {file => $fileToUpload, 'Content-Type' => 'image/png'}});
 $jsonBody = $json->decode($tx->res->body);
 
-ok(401 == $tx->res->code,                   $testname . 'Response Code is 401');
-ok(0 == $jsonBody->{error},                 $testname . "Response JSON error result is 0");
-ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
-######### END UNAUTHENTICATED USER BRANCH CREATION TEST #########
+ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
+ok(0 == $jsonBody->{error},             $testname . "Response JSON error result is 0");
+ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
+########## END MISSING REQUEST TOKEN IOS LEAF CREATION TEST #########
+
+######### START MISSING REQUEST ANNOTATION IOS LEAF CREATION TEST #########
+# this test attempts to create an iOS leaf with missing request parameters
+$testname = 'Missing request annotation iOS leaf creation: ';
+$tx = $uaIOS->post($iosCreationURL => form => {token => $validTreeToken});
+$jsonBody = $json->decode($tx->res->body);
+
+ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
+ok(0 == $jsonBody->{error},             $testname . "Response JSON error result is 0");
+ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
+########## END MISSING REQUEST ANNOTATION IOS LEAF CREATION TEST #########
+
+########## START ILL FORMED TOKEN IOS LEAF CREATION TEST #########
+# this test attempts to create an iOS leaf with an ill formed token
+$testname = 'Ill formed token iOS leaf creation: ';
+$tx = $uaIOS->post($iosCreationURL => form => {annotation => {file => $fileToUpload, 'Content-Type' => 'image/png'}, token => substr($validTreeToken, 0, 63)});
+$jsonBody = $json->decode($tx->res->body);
+
+ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
+ok(0 == $jsonBody->{error},             $testname . "Response JSON error result is 0");
+ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
+########## END ILL FORMED TOKEN IOS LEAF CREATION TEST #########
+
+########## START BAD PARAMETER NAME IOS LEAF CREATION TEST #########
+# this test attempts to create an iOS leaf with a bad parameter name
+$testname = 'Bad parameter name iOS leaf creation: ';
+$tx = $uaIOS->post($iosCreationURL => form => {annotations => {file => $fileToUpload, 'Content-Type' => 'image/png'}, token => $validTreeToken});
+$jsonBody = $json->decode($tx->res->body);
+
+ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
+ok(0 == $jsonBody->{error},             $testname . "Response JSON error result is 0");
+ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
+########## END BAD PARAMETER NAME IOS LEAF CREATION TEST #########
 
 done_testing();

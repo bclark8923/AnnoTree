@@ -298,7 +298,7 @@
 			$scope.setWindowTitle( "AnnoTree" );
 
 			// Load the "remote" data.
-			loadForestData();
+			$scope.$evalAsync(loadForestData());
 
 			Gumby.init();
 

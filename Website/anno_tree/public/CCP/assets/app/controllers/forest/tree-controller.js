@@ -14,7 +14,11 @@
 			function loadLeaves( leaves ) {
 
 				for (var i = 0; i < leaves.length; i++) {
-					leaves[i].annotation = leaves[i].annotations[0].path;
+					if(leaves[i].annotations.length > 0) {
+						leaves[i].annotation = leaves[i].annotations[0].path;
+					} else {
+						leaves[i].annotation = "img/tree01.png";
+					}
 				}
                	$scope.leaves = leaves;
 			}
@@ -41,49 +45,6 @@
 
 					},
 					function( response ) {
-
-						/*var fakeStuff = {
-				          logo: 'img/logo.png',
-				          id: '2',
-				          branches: [
-				                        {
-				                          id: '2',
-				                          description: 'This is a branch created by the automated Mojolicious test suite',
-				                          name: 'Test Suite Branch',
-				                          tree_id: '2',
-				                          created_at: '2013-06-28 20:55:58',
-				                          leaves: [
-				                                      {
-				                                      	id: '1',
-				                                        owner: '3',
-				                                        created_at: '2013-06-28 20:55:58',
-				                                        description: 'This is a leaf created by the automated Mojolicious test suite',
-				                                        name: 'Test Suite Leaf',
-				                                        annotation: 'img/leaf01small.png'
-				                                      },
-				                                      {
-				                                      	id: '2',
-				                                        owner: '3',
-				                                        created_at: '2013-06-28 20:55:58',
-				                                        description: 'This is a leaf created by the automated Mojolicious test suite',
-				                                        name: 'Test Suite Leaf 2',
-				                                        annotation: 'img/leaf02small.png'
-				                                      }
-				                                    ]
-				                        }
-				                      ],
-				          name: 'Test Suite Tree',
-				          description: 'This is a tree created by the automated Mojolicious test suite',
-				          forest_id: '6',
-				          created_at: '2013-06-28 20:55:58'
-				        };
-
-				        $scope.treeInfo = fakeStuff;
-				        $scope.branchID = fakeStuff.branches[0].id;
-
-				        loadLeafs(fakeStuff.branches[0].leaves);
-
-				        return;*/
 
 						var errorData = "Our Create Tree Service is currently down, please try again later.";
 						var errorNumber = parseInt(response.data.error);
@@ -124,8 +85,6 @@
 
 				$scope.invalidAddTree = false;
 
-				$location.path("/app");
-
 				$route.reload();
 
 			}
@@ -161,11 +120,13 @@
 		    function uploadFailed(evt) {
 		        /* This event is raised when the server send back a response */
 		        alert(evt.target.responseText);
+		        //delete new leaf
 		    }
 
 		    function uploadCanceled(evt) {
 		        /* This event is raised when the server send back a response */
 		        alert(evt.target.responseText);
+		        //delete new leaf
 		    }
 
 			$scope.newLeaf = function() {
@@ -260,7 +221,7 @@
 			$scope.isLoading = true;
 
 			// I hold the categories to render.
-            $scope.forests = [];
+            $scope.leaves = [];
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();
@@ -295,7 +256,7 @@
 			$scope.setWindowTitle( "AnnoTree" );
 
 			// Load the "remote" data.
-			$scope.$evalAsync(loadTreeData());
+			loadTreeData();
 
 			Gumby.init();
 

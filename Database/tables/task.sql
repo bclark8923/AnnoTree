@@ -13,14 +13,16 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`task` (
   `description` VARCHAR(1024) NULL ,
   `status` INT NULL ,
   `leaf_id` INT NULL ,
-  `tree_id` INT,
+  `tree_id` INT NOT NULL,
   `assigned_to` INT NULL,
   `due_date` TIMESTAMP null,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `created_by` INT NOT NULL,
   PRIMARY KEY (`id`) ,
   INDEX `fk_task_1` (`leaf_id` ASC),
   INDEX `fk_task_2` (`assigned_to` ASC),
-  INDEX `fk_task_3` (`tree_id` ASC), 
+  INDEX `fk_task_3` (`tree_id` ASC),
+  INDEX `fk_task_4` (`created_by` ASC), 
   CONSTRAINT `fk_task_1`
     FOREIGN KEY (`leaf_id` )
     REFERENCES `annotree`.`leaf` (`id`)
@@ -32,8 +34,13 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`task` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_task_3`
-    Foreign key ('tree_id')
+    Foreign key (`tree_id`)
     references `annotree`.`tree` (`id`)
+    on delete no action
+    on update no action,
+  CONSTRAINT `fk_task_4`
+    foreign key (`created_by`)
+    references `annotree`.`user` (`id`)
     on delete no action
     on update no action
 )

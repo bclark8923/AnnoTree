@@ -28,7 +28,7 @@ my $forestURL = $server . $port . '/forest';
 my $testname = 'Valid user signup: ';
 my $validUserEmail = 'mojotest@user.com';
 my $validUserPass = 'tester1';
-$tx = $uaValid->post('http://localhost:3000/user/signup' => json => {
+$tx = $uaValid->post($server . $port . '/user/signup' => json => {
     signUpName      => 'test suite user',
     signUpEmail     => $validUserEmail,
     signUpPassword  => $validUserPass
@@ -38,7 +38,7 @@ $jsonBody = $json->decode($tx->res->body);
 # if the user already exists then log them in
 if ($tx->res->code == 406 && $jsonBody->{error} == 2) {
     $testname = 'Valid user login: ';
-    $tx = $uaValid->post('http://localhost:3000/user/login' => json => {
+    $tx = $uaValid->post($server . $port . '/user/login' => json => {
         loginEmail     => $validUserEmail,
         loginPassword  => $validUserPass
     });
@@ -114,7 +114,7 @@ foreach my $forest (@{$jsonBody->{forests}}) {
     next unless $forest->{id} = $validForestID;
     $testForest = $forest;
 }
-print Dumper($testForest);
+
 ok($validForestID == $testForest->{id},                             $testname . 'Response JSON forest ID matches');
 ok($validForestName eq $testForest->{name},                         $testname . "Response JSON forest name matches");
 ok($validForestDesc eq $testForest->{description},                  $testname . "Response JSON forest description matches");

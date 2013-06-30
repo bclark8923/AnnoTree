@@ -172,7 +172,7 @@ ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error tex
 # this test attempts to create a leaf on a branch that does not exist
 $testname = 'Missing branch leaf creation: ';
 my $missingBranchID = 0;
-my $leafInvalidURL = 'http://localhost:3000/' . $missingBranchID . '/leaf';
+my $leafInvalidURL = $server . $port . '/' . $missingBranchID . '/leaf';
 $tx = $uaValid->post($leafInvalidURL => json => {
     name            => $validLeafName,
     description     => $validLeafDesc

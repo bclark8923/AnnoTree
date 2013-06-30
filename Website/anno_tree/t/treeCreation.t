@@ -87,7 +87,7 @@ $tx = $uaValid->post($treeCreationURL => json => {
     description     => $validTreeDesc
 });
 $jsonBody = $json->decode($tx->res->body);
-print Dumper($jsonBody);
+
 ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
 ok(exists $jsonBody->{id},                          $testname . 'Response JSON ID exists');
 ok($validForestID == $jsonBody->{forest_id},        $testname . "Response JSON forest_id matches");

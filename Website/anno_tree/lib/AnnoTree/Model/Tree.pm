@@ -49,7 +49,6 @@ sub create {
         }
     );
     $json->{token} = $token;
-    print $token . "\n"; 
     
     return $json;
 }

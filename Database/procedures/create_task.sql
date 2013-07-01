@@ -1,6 +1,8 @@
 -- --------------------------------------------------------------------------------
 -- create_task
--- returns ??
+-- returns 1 if tree does not exist or user does not have permissions to that tree
+-- returns 2 if task status is invalid
+-- returns newly created task info if all goes well
 -- --------------------------------------------------------------------------------
 use annotree;
 drop  procedure IF EXISTS `create_task`;

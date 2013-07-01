@@ -11,7 +11,7 @@
     <div class="responsiveShowTC" style="text-align:center;width:100%">
         {{leafName}}
     </div>
-    <div id="newElementHolder"  class="switch" gumby-trigger="#newLeafModal">
+    <div id="newElementHolder"  class="switch" gumby-trigger="#newAnnotationModal">
         <div id="newElementButton" class=" medium success btn">
             <div style="width:100%;height:100%;">
                 <button>
@@ -25,6 +25,6 @@
     </div>
   </div>
   <div id="treeElements">
-	<div id="singleLeafHolder">
+	<div id="singleLeafHolder" post-render>
 	  <img class="singleLeafImage" ng-src="{{leafImage}}" gumby-retina />
 	</div>

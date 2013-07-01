@@ -9,7 +9,6 @@ DROP TABLE IF EXISTS `annotree`.`task` ;
 
 CREATE  TABLE IF NOT EXISTS `annotree`.`task` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(45) NULL ,
   `description` VARCHAR(1024) NULL ,
   `status` INT NULL ,
   `leaf_id` INT NULL ,
@@ -41,6 +40,11 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`task` (
   CONSTRAINT `fk_task_4`
     foreign key (`created_by`)
     references `annotree`.`user` (`id`)
+    on delete no action
+    on update no action,
+  CONSTRAINT `fk_task_5`
+    foreign key (`status`)
+    references `annotree`.`task_statuses` (`id`)
     on delete no action
     on update no action
 )

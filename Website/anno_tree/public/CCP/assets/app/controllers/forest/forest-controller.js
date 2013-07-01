@@ -122,6 +122,21 @@
 						function( response ) {
 
 							$scope.isLoading = false;
+					
+							var branchName = "Loose Leaves";
+							var branchDescription = "A collection of loose leaves sent to this tree.";
+							var promise = forestService.createBranch(response.data.id, branchName, branchDescription);
+
+							promise.then(
+								function(response) {
+									//worked
+									var data = response.data;
+								},
+								function(response) {
+									//failed
+									var data = response.data;
+								}
+							);
 
 							addTree( response.data );
  				

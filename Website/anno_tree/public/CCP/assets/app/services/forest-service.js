@@ -25,6 +25,10 @@
 				return $http.post(apiRoot.getRoot() + '/' + forestID + '/tree', {name: treeName, description: treeDescription});
 			}
 
+			function createBranch(treeID, branchName, branchDescription) {
+				return $http.post(apiRoot.getRoot() + '/' + treeID + '/branch', {name: branchName, description: branchDescription});
+			}
+
 			function getLeaf(leafID) {
 				return $http.get(apiRoot.getRoot() + '/leaf/' + leafID);
 			}
@@ -49,6 +53,7 @@
 				createForest: createForest,
 				getTree: getTree,
 				createTree: createTree,
+				createBranch: createBranch,
 				getLeaf: getLeaf,
 				createLeaf: createLeaf,
 				createAnnotation: createAnnotation

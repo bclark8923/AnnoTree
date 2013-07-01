@@ -266,27 +266,27 @@
     [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
     
     // post body
-    //NSMutableData *body = [NSMutableData data];
+    NSMutableData *body = [NSMutableData data];
     
     // add params (all params are strings)
-    /*for (NSString *param in _params) {
-        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", param] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"%@\r\n", [_params objectForKey:param]] dataUsingEncoding:NSUTF8StringEncoding]];
-    }*/
+    //for (NSString *param in _params) {
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", @"token"] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"%@\r\n", @"d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"] dataUsingEncoding:NSUTF8StringEncoding]];
+    //}
     
     // add image data
     
     UIImage *image = [self screenshot];
     UIGraphicsEndImageContext();
     
-    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    //UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 
-    /*
+    
     NSData * imageData = UIImagePNGRepresentation(image);
     //[data writeToFile:@"foo.png" atomically:YES];
     
-    NSString* FileParamConstant = @"screenshot";
+    NSString* FileParamConstant = @"annotation";
     //NSData *imageData = UIImageJPEGRepresentation(imageToPost, 1.0);
     if (imageData) {
         [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
@@ -306,7 +306,7 @@
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     
     // set URL
-    NSURL *requestURL = [NSURL URLWithString:@"http://ec2-23-21-25-49.compute-1.amazonaws.com:3000/0/0/0/0/annotation"];
+    NSURL *requestURL = [NSURL URLWithString:@"http://23.21.235.254:3000/ios/leaf"];
     [request setURL:requestURL];
     
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -318,7 +318,7 @@
         //mutableData = [[NSMutableData alloc] init];
     }
     
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;*/
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {

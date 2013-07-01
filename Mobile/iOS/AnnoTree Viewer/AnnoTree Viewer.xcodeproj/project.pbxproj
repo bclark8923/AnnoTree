@@ -28,16 +28,6 @@
 		D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C688171B413400BA9B2F /* Default-Portrait@2x~ipad.png */; };
 		D3180C27176184B300A6B8E0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C26176184B300A6B8E0 /* CoreFoundation.framework */; };
 		D3180C2D176184B300A6B8E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3180C2B176184B300A6B8E0 /* InfoPlist.strings */; };
-		D3180C321761852100A6B8E0 /* SelectIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85691755D2B1005D5E12 /* SelectIconToolbarSelected.png */; };
-		D3180C331761852100A6B8E0 /* ShareIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E856A1755D2B1005D5E12 /* ShareIconToolbarSelected.png */; };
-		D3180C341761852100A6B8E0 /* TextIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E856B1755D2B1005D5E12 /* TextIconToolbarSelected.png */; };
-		D3180C351761852100A6B8E0 /* PencilIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85671755D28A005D5E12 /* PencilIconToolbarSelected.png */; };
-		D3180C361761852100A6B8E0 /* PencilIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E856F1755D2CA005D5E12 /* PencilIconToolbar.png */; };
-		D3180C371761852100A6B8E0 /* RecordIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85701755D2CA005D5E12 /* RecordIconToolbar.png */; };
-		D3180C381761852100A6B8E0 /* SelectIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85711755D2CA005D5E12 /* SelectIconToolbar.png */; };
-		D3180C391761852100A6B8E0 /* ShareIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85721755D2CA005D5E12 /* ShareIconToolbar.png */; };
-		D3180C3A1761852100A6B8E0 /* TextIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85731755D2CA005D5E12 /* TextIconToolbar.png */; };
-		D3180C3B1761852100A6B8E0 /* AnnoTreeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85791755D2DF005D5E12 /* AnnoTreeLogo.png */; };
 		D3180C4A1761969900A6B8E0 /* AnnotationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3180C481761969800A6B8E0 /* AnnotationViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3180C4B1761969900A6B8E0 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* AnnotationViewController.m */; };
 		D3180C4C1761969900A6B8E0 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* AnnotationViewController.m */; };
@@ -45,22 +35,6 @@
 		D3180C4E1761969900A6B8E0 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* AnnotationViewController.m */; };
 		D3180C5B1764FF5A00A6B8E0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C5A1764FF5A00A6B8E0 /* OpenGLES.framework */; };
 		D3180C5C1765009C00A6B8E0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C5A1764FF5A00A6B8E0 /* OpenGLES.framework */; };
-		D31E85681755D28A005D5E12 /* PencilIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85671755D28A005D5E12 /* PencilIconToolbarSelected.png */; };
-		D31E856C1755D2B1005D5E12 /* SelectIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85691755D2B1005D5E12 /* SelectIconToolbarSelected.png */; };
-		D31E856D1755D2B1005D5E12 /* ShareIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E856A1755D2B1005D5E12 /* ShareIconToolbarSelected.png */; };
-		D31E856E1755D2B1005D5E12 /* TextIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E856B1755D2B1005D5E12 /* TextIconToolbarSelected.png */; };
-		D31E85741755D2CA005D5E12 /* PencilIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E856F1755D2CA005D5E12 /* PencilIconToolbar.png */; };
-		D31E85751755D2CA005D5E12 /* RecordIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85701755D2CA005D5E12 /* RecordIconToolbar.png */; };
-		D31E85761755D2CA005D5E12 /* SelectIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85711755D2CA005D5E12 /* SelectIconToolbar.png */; };
-		D31E85771755D2CA005D5E12 /* ShareIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85721755D2CA005D5E12 /* ShareIconToolbar.png */; };
-		D31E85781755D2CA005D5E12 /* TextIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85731755D2CA005D5E12 /* TextIconToolbar.png */; };
-		D31E857A1755D2DF005D5E12 /* AnnoTreeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85791755D2DF005D5E12 /* AnnoTreeLogo.png */; };
-		D31E85811755D2F9005D5E12 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E857B1755D2F8005D5E12 /* Icon-72.png */; };
-		D31E85821755D2F9005D5E12 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E857C1755D2F8005D5E12 /* Icon-Small-50.png */; };
-		D31E85831755D2F9005D5E12 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E857D1755D2F8005D5E12 /* Icon-Small.png */; };
-		D31E85841755D2F9005D5E12 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E857E1755D2F8005D5E12 /* Icon-Small@2x.png */; };
-		D31E85851755D2F9005D5E12 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E857F1755D2F8005D5E12 /* Icon.png */; };
-		D31E85861755D2F9005D5E12 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D31E85801755D2F9005D5E12 /* Icon@2x.png */; };
 		D321648C172C18B500573823 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A817000FC300954DDF /* Foundation.framework */; };
 		D3216493172C18B500573823 /* AnnoTreeLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = D3216492172C18B500573823 /* AnnoTreeLibrary.m */; };
 		D321649A172C18B600573823 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1CD17000FC400954DDF /* SenTestingKit.framework */; };
@@ -96,11 +70,6 @@
 		D3AAA1DB17000FC400954DDF /* AnnoTree_ViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AAA1DA17000FC400954DDF /* AnnoTree_ViewerTests.m */; };
 		D3AAA1F0170018EE00954DDF /* AnnoTree.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AAA1EE170018EE00954DDF /* AnnoTree.m */; };
 		D3AAA1F617002C4400954DDF /* AnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AAA1F517002C4400954DDF /* AnnotationView.m */; };
-		D3BBA9EC175B87D80056761B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BBA9E7175B87D80056761B /* Default-568h@2x.png */; };
-		D3BBA9ED175B87D80056761B /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BBA9E8175B87D80056761B /* Default-Landscape.png */; };
-		D3BBA9EE175B87D80056761B /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BBA9E9175B87D80056761B /* Default-Portrait.png */; };
-		D3BBA9EF175B87D80056761B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BBA9EA175B87D80056761B /* Default.png */; };
-		D3BBA9F0175B87D80056761B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3BBA9EB175B87D80056761B /* Default@2x.png */; };
 		D3D53FF3171A194600552253 /* ToolbarBg.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D53FF2171A194500552253 /* ToolbarBg.m */; };
 /* End PBXBuildFile section */
 
@@ -176,22 +145,6 @@
 		D3180C481761969800A6B8E0 /* AnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewController.h; sourceTree = "<group>"; };
 		D3180C491761969800A6B8E0 /* AnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewController.m; sourceTree = "<group>"; };
 		D3180C5A1764FF5A00A6B8E0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		D31E85671755D28A005D5E12 /* PencilIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PencilIconToolbarSelected.png; path = "../../Silith.io/AnnoTree Graphics/Resources/PencilIconToolbarSelected.png"; sourceTree = "<group>"; };
-		D31E85691755D2B1005D5E12 /* SelectIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SelectIconToolbarSelected.png; path = "../../Silith.io/AnnoTree Graphics/Resources/SelectIconToolbarSelected.png"; sourceTree = "<group>"; };
-		D31E856A1755D2B1005D5E12 /* ShareIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShareIconToolbarSelected.png; path = "../../Silith.io/AnnoTree Graphics/Resources/ShareIconToolbarSelected.png"; sourceTree = "<group>"; };
-		D31E856B1755D2B1005D5E12 /* TextIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextIconToolbarSelected.png; path = "../../Silith.io/AnnoTree Graphics/Resources/TextIconToolbarSelected.png"; sourceTree = "<group>"; };
-		D31E856F1755D2CA005D5E12 /* PencilIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PencilIconToolbar.png; path = "../../Silith.io/AnnoTree Graphics/Resources/PencilIconToolbar.png"; sourceTree = "<group>"; };
-		D31E85701755D2CA005D5E12 /* RecordIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RecordIconToolbar.png; path = "../../Silith.io/AnnoTree Graphics/Resources/RecordIconToolbar.png"; sourceTree = "<group>"; };
-		D31E85711755D2CA005D5E12 /* SelectIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SelectIconToolbar.png; path = "../../Silith.io/AnnoTree Graphics/Resources/SelectIconToolbar.png"; sourceTree = "<group>"; };
-		D31E85721755D2CA005D5E12 /* ShareIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShareIconToolbar.png; path = "../../Silith.io/AnnoTree Graphics/Resources/ShareIconToolbar.png"; sourceTree = "<group>"; };
-		D31E85731755D2CA005D5E12 /* TextIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextIconToolbar.png; path = "../../Silith.io/AnnoTree Graphics/Resources/TextIconToolbar.png"; sourceTree = "<group>"; };
-		D31E85791755D2DF005D5E12 /* AnnoTreeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AnnoTreeLogo.png; path = "../../Silith.io/AnnoTree Graphics/Resources/AnnoTreeLogo.png"; sourceTree = "<group>"; };
-		D31E857B1755D2F8005D5E12 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../../Silith.io/AnnoTree Graphics/iTunesArtwork/Icon-72.png"; sourceTree = "<group>"; };
-		D31E857C1755D2F8005D5E12 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "../../Silith.io/AnnoTree Graphics/iTunesArtwork/Icon-Small-50.png"; sourceTree = "<group>"; };
-		D31E857D1755D2F8005D5E12 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "../../Silith.io/AnnoTree Graphics/iTunesArtwork/Icon-Small.png"; sourceTree = "<group>"; };
-		D31E857E1755D2F8005D5E12 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "../../Silith.io/AnnoTree Graphics/iTunesArtwork/Icon-Small@2x.png"; sourceTree = "<group>"; };
-		D31E857F1755D2F8005D5E12 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = "../../Silith.io/AnnoTree Graphics/iTunesArtwork/Icon.png"; sourceTree = "<group>"; };
-		D31E85801755D2F9005D5E12 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../../Silith.io/AnnoTree Graphics/iTunesArtwork/Icon@2x.png"; sourceTree = "<group>"; };
 		D321648B172C18B500573823 /* libAnnoTree.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAnnoTree.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D321648F172C18B500573823 /* AnnoTreeLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnnoTreeLibrary-Prefix.pch"; sourceTree = "<group>"; };
 		D3216490172C18B500573823 /* AnnoTreeLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnoTreeLibrary.h; sourceTree = "<group>"; };
@@ -203,6 +156,26 @@
 		D32164A7172C18B600573823 /* AnnoTreeLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnoTreeLibraryTests.m; sourceTree = "<group>"; };
 		D36291011730465C00F08E8A /* UIWindowAnnoTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWindowAnnoTree.h; sourceTree = "<group>"; };
 		D36291021730465C00F08E8A /* UIWindowAnnoTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWindowAnnoTree.m; sourceTree = "<group>"; };
+		D3A7658417810A000046C8D5 /* PencilIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PencilIconToolbarSelected.png; path = AnnoTreeResources/PencilIconToolbarSelected.png; sourceTree = SOURCE_ROOT; };
+		D3A7658517810A000046C8D5 /* SelectIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SelectIconToolbarSelected.png; path = AnnoTreeResources/SelectIconToolbarSelected.png; sourceTree = SOURCE_ROOT; };
+		D3A7658617810A000046C8D5 /* ShareIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShareIconToolbarSelected.png; path = AnnoTreeResources/ShareIconToolbarSelected.png; sourceTree = SOURCE_ROOT; };
+		D3A7658717810A000046C8D5 /* TextIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TextIconToolbarSelected.png; path = AnnoTreeResources/TextIconToolbarSelected.png; sourceTree = SOURCE_ROOT; };
+		D3A7658817810A110046C8D5 /* PencilIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PencilIconToolbar.png; path = AnnoTreeResources/PencilIconToolbar.png; sourceTree = SOURCE_ROOT; };
+		D3A7658917810A110046C8D5 /* RecordIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RecordIconToolbar.png; path = AnnoTreeResources/RecordIconToolbar.png; sourceTree = SOURCE_ROOT; };
+		D3A7658A17810A110046C8D5 /* SelectIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SelectIconToolbar.png; path = AnnoTreeResources/SelectIconToolbar.png; sourceTree = SOURCE_ROOT; };
+		D3A7658B17810A110046C8D5 /* ShareIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShareIconToolbar.png; path = AnnoTreeResources/ShareIconToolbar.png; sourceTree = SOURCE_ROOT; };
+		D3A7658C17810A1F0046C8D5 /* AnnoTreeLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AnnoTreeLogo.png; path = AnnoTreeResources/AnnoTreeLogo.png; sourceTree = SOURCE_ROOT; };
+		D3A7658D17810B440046C8D5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "AnnoTreeResources/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
+		D3A7658E17810B440046C8D5 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape.png"; path = "AnnoTreeResources/Default-Landscape.png"; sourceTree = SOURCE_ROOT; };
+		D3A7658F17810B440046C8D5 /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait.png"; path = "AnnoTreeResources/Default-Portrait.png"; sourceTree = SOURCE_ROOT; };
+		D3A7659017810B440046C8D5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = AnnoTreeResources/Default.png; sourceTree = SOURCE_ROOT; };
+		D3A7659117810B440046C8D5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "AnnoTreeResources/Default@2x.png"; sourceTree = SOURCE_ROOT; };
+		D3A7659217810C6A0046C8D5 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "AnnoTreeResources/Icon-72.png"; sourceTree = SOURCE_ROOT; };
+		D3A7659317810C6A0046C8D5 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50.png"; path = "AnnoTreeResources/Icon-Small-50.png"; sourceTree = SOURCE_ROOT; };
+		D3A7659417810C6A0046C8D5 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "AnnoTreeResources/Icon-Small.png"; sourceTree = SOURCE_ROOT; };
+		D3A7659517810C6A0046C8D5 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "AnnoTreeResources/Icon-Small@2x.png"; sourceTree = SOURCE_ROOT; };
+		D3A7659617810C6A0046C8D5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = AnnoTreeResources/Icon.png; sourceTree = SOURCE_ROOT; };
+		D3A7659717810C6A0046C8D5 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "AnnoTreeResources/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 		D3AAA1A317000FC300954DDF /* AnnoTree Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnnoTree Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AAA1A617000FC300954DDF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D3AAA1A817000FC300954DDF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -227,11 +200,6 @@
 		D3AAA1EE170018EE00954DDF /* AnnoTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnoTree.m; sourceTree = "<group>"; };
 		D3AAA1F417002C4400954DDF /* AnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationView.h; sourceTree = "<group>"; };
 		D3AAA1F517002C4400954DDF /* AnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationView.m; sourceTree = "<group>"; };
-		D3BBA9E7175B87D80056761B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../Silith.io/AnnoTree Graphics/iTunesArtwork/Default-568h@2x.png"; sourceTree = "<group>"; };
-		D3BBA9E8175B87D80056761B /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape.png"; path = "../../Silith.io/AnnoTree Graphics/iTunesArtwork/Default-Landscape.png"; sourceTree = "<group>"; };
-		D3BBA9E9175B87D80056761B /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait.png"; path = "../../Silith.io/AnnoTree Graphics/iTunesArtwork/Default-Portrait.png"; sourceTree = "<group>"; };
-		D3BBA9EA175B87D80056761B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = "../../Silith.io/AnnoTree Graphics/iTunesArtwork/Default.png"; sourceTree = "<group>"; };
-		D3BBA9EB175B87D80056761B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../Silith.io/AnnoTree Graphics/iTunesArtwork/Default@2x.png"; sourceTree = "<group>"; };
 		D3D53FF1171A194500552253 /* ToolbarBg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarBg.h; sourceTree = "<group>"; };
 		D3D53FF2171A194500552253 /* ToolbarBg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarBg.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -292,6 +260,7 @@
 		D314C662171B282900BA9B2F /* ToolBarIcons */ = {
 			isa = PBXGroup;
 			children = (
+				D3A7658C17810A1F0046C8D5 /* AnnoTreeLogo.png */,
 				D314C664171B283700BA9B2F /* Selected */,
 				D314C663171B283100BA9B2F /* Default */,
 			);
@@ -301,11 +270,10 @@
 		D314C663171B283100BA9B2F /* Default */ = {
 			isa = PBXGroup;
 			children = (
-				D31E856F1755D2CA005D5E12 /* PencilIconToolbar.png */,
-				D31E85701755D2CA005D5E12 /* RecordIconToolbar.png */,
-				D31E85711755D2CA005D5E12 /* SelectIconToolbar.png */,
-				D31E85721755D2CA005D5E12 /* ShareIconToolbar.png */,
-				D31E85731755D2CA005D5E12 /* TextIconToolbar.png */,
+				D3A7658817810A110046C8D5 /* PencilIconToolbar.png */,
+				D3A7658917810A110046C8D5 /* RecordIconToolbar.png */,
+				D3A7658A17810A110046C8D5 /* SelectIconToolbar.png */,
+				D3A7658B17810A110046C8D5 /* ShareIconToolbar.png */,
 			);
 			name = Default;
 			sourceTree = "<group>";
@@ -313,10 +281,10 @@
 		D314C664171B283700BA9B2F /* Selected */ = {
 			isa = PBXGroup;
 			children = (
-				D31E85691755D2B1005D5E12 /* SelectIconToolbarSelected.png */,
-				D31E856A1755D2B1005D5E12 /* ShareIconToolbarSelected.png */,
-				D31E856B1755D2B1005D5E12 /* TextIconToolbarSelected.png */,
-				D31E85671755D28A005D5E12 /* PencilIconToolbarSelected.png */,
+				D3A7658417810A000046C8D5 /* PencilIconToolbarSelected.png */,
+				D3A7658517810A000046C8D5 /* SelectIconToolbarSelected.png */,
+				D3A7658617810A000046C8D5 /* ShareIconToolbarSelected.png */,
+				D3A7658717810A000046C8D5 /* TextIconToolbarSelected.png */,
 			);
 			name = Selected;
 			sourceTree = "<group>";
@@ -353,12 +321,12 @@
 		D314C66F171B3D7C00BA9B2F /* Icon */ = {
 			isa = PBXGroup;
 			children = (
-				D31E857B1755D2F8005D5E12 /* Icon-72.png */,
-				D31E857C1755D2F8005D5E12 /* Icon-Small-50.png */,
-				D31E857D1755D2F8005D5E12 /* Icon-Small.png */,
-				D31E857E1755D2F8005D5E12 /* Icon-Small@2x.png */,
-				D31E857F1755D2F8005D5E12 /* Icon.png */,
-				D31E85801755D2F9005D5E12 /* Icon@2x.png */,
+				D3A7659217810C6A0046C8D5 /* Icon-72.png */,
+				D3A7659317810C6A0046C8D5 /* Icon-Small-50.png */,
+				D3A7659417810C6A0046C8D5 /* Icon-Small.png */,
+				D3A7659517810C6A0046C8D5 /* Icon-Small@2x.png */,
+				D3A7659617810C6A0046C8D5 /* Icon.png */,
+				D3A7659717810C6A0046C8D5 /* Icon@2x.png */,
 			);
 			name = Icon;
 			sourceTree = "<group>";
@@ -474,11 +442,11 @@
 		D3AAA1AD17000FC300954DDF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D3BBA9E7175B87D80056761B /* Default-568h@2x.png */,
-				D3BBA9E8175B87D80056761B /* Default-Landscape.png */,
-				D3BBA9E9175B87D80056761B /* Default-Portrait.png */,
-				D3BBA9EA175B87D80056761B /* Default.png */,
-				D3BBA9EB175B87D80056761B /* Default@2x.png */,
+				D3A7658D17810B440046C8D5 /* Default-568h@2x.png */,
+				D3A7658E17810B440046C8D5 /* Default-Landscape.png */,
+				D3A7658F17810B440046C8D5 /* Default-Portrait.png */,
+				D3A7659017810B440046C8D5 /* Default.png */,
+				D3A7659117810B440046C8D5 /* Default@2x.png */,
 				D3AAA1AE17000FC300954DDF /* AnnoTree Viewer-Info.plist */,
 				D3AAA1AF17000FC300954DDF /* InfoPlist.strings */,
 				D3AAA1B217000FC300954DDF /* main.m */,
@@ -515,7 +483,6 @@
 				D3D53FF1171A194500552253 /* ToolbarBg.h */,
 				D3D53FF2171A194500552253 /* ToolbarBg.m */,
 				D314C662171B282900BA9B2F /* ToolBarIcons */,
-				D31E85791755D2DF005D5E12 /* AnnoTreeLogo.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -681,16 +648,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3180C321761852100A6B8E0 /* SelectIconToolbarSelected.png in Resources */,
-				D3180C331761852100A6B8E0 /* ShareIconToolbarSelected.png in Resources */,
-				D3180C341761852100A6B8E0 /* TextIconToolbarSelected.png in Resources */,
-				D3180C351761852100A6B8E0 /* PencilIconToolbarSelected.png in Resources */,
-				D3180C361761852100A6B8E0 /* PencilIconToolbar.png in Resources */,
-				D3180C371761852100A6B8E0 /* RecordIconToolbar.png in Resources */,
-				D3180C381761852100A6B8E0 /* SelectIconToolbar.png in Resources */,
-				D3180C391761852100A6B8E0 /* ShareIconToolbar.png in Resources */,
-				D3180C3A1761852100A6B8E0 /* TextIconToolbar.png in Resources */,
-				D3180C3B1761852100A6B8E0 /* AnnoTreeLogo.png in Resources */,
 				D3180C2D176184B300A6B8E0 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -712,27 +669,6 @@
 				D3AAA1C317000FC300954DDF /* MainStoryboard_iPad.storyboard in Resources */,
 				D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */,
 				D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */,
-				D31E85681755D28A005D5E12 /* PencilIconToolbarSelected.png in Resources */,
-				D31E856C1755D2B1005D5E12 /* SelectIconToolbarSelected.png in Resources */,
-				D31E856D1755D2B1005D5E12 /* ShareIconToolbarSelected.png in Resources */,
-				D31E856E1755D2B1005D5E12 /* TextIconToolbarSelected.png in Resources */,
-				D31E85741755D2CA005D5E12 /* PencilIconToolbar.png in Resources */,
-				D31E85751755D2CA005D5E12 /* RecordIconToolbar.png in Resources */,
-				D31E85761755D2CA005D5E12 /* SelectIconToolbar.png in Resources */,
-				D31E85771755D2CA005D5E12 /* ShareIconToolbar.png in Resources */,
-				D31E85781755D2CA005D5E12 /* TextIconToolbar.png in Resources */,
-				D31E857A1755D2DF005D5E12 /* AnnoTreeLogo.png in Resources */,
-				D31E85811755D2F9005D5E12 /* Icon-72.png in Resources */,
-				D31E85821755D2F9005D5E12 /* Icon-Small-50.png in Resources */,
-				D31E85831755D2F9005D5E12 /* Icon-Small.png in Resources */,
-				D31E85841755D2F9005D5E12 /* Icon-Small@2x.png in Resources */,
-				D31E85851755D2F9005D5E12 /* Icon.png in Resources */,
-				D31E85861755D2F9005D5E12 /* Icon@2x.png in Resources */,
-				D3BBA9EC175B87D80056761B /* Default-568h@2x.png in Resources */,
-				D3BBA9ED175B87D80056761B /* Default-Landscape.png in Resources */,
-				D3BBA9EE175B87D80056761B /* Default-Portrait.png in Resources */,
-				D3BBA9EF175B87D80056761B /* Default.png in Resources */,
-				D3BBA9F0175B87D80056761B /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

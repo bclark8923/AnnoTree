@@ -92,6 +92,7 @@ sub usage {
 sub pull {
     say OUTPUT 'Preparing to pull code from the remote git repo ' . $repo . ' and branch ' . $branch if $verbose;
     if ($server eq 'http://23.21.235.254') {
+        say OUTPUT 'Fixing permissions' if $verbose;
         my @text = `sudo chown -R matt:dev $root/*`;
         if ($verbose) {
             foreach my $line (@text) {
@@ -104,6 +105,7 @@ sub pull {
                 print OUTPUT $line;
             }
         }
+        say OUTPUT 'Stashing any changes to local files' if $verbose;
         @text = `git stash`;
         if ($verbose) {
             foreach my $line (@text) {
@@ -120,29 +122,47 @@ sub pull {
     say OUTPUT 'Done pulling code from the remote git repo' if $verbose;
 }
 
-# (re)starts the hypnotoad or morbo server
-sub restart {
-    say OUTPUT 'Preparing to restart server' if $verbose;
+sub checkServerRunning {
     my @netstat = `sudo netstat -tupln`;
-    my $port = (defined $environment && $environment eq 'prod' ? '8080' : '3000');
-    my $serverRunning = 0;
     foreach my $line (@netstat) {
         next unless $line =~ m/(:8080).+(\/anno_tree)/ || $line =~ m/(:3000).+(\/perl)/;
         my ($process) = $line =~ m/(\d+)\/[perl|anno_tree]/;
-        say OUTPUT 'Server process is: ' . $process if $verbose;
-        `sudo kill $process`;
-        $serverRunning = 1;
+        say OUTPUT 'Server running with process ID: ' . $process if $verbose;
+        return $process;
     }
-    say OUTPUT 'No server was found running' if $verbose && !$serverRunning;
-    my $serverCmd = (defined $environment && $environment eq 'prod' ? 'hypnotoad' : 'morbo');
-    `nohup $serverCmd $mojoScript > $serverCmd.out 2>&1 &`;
+    return '';
+}
+
+# (re)starts the hypnotoad or morbo server
+sub restart {
+    say OUTPUT 'Preparing to restart server' if $verbose;
+    my $servPort = $port;
+    if (defined $environment && $environment eq 'prod') {
+        $servPort = '8080';
+    } elsif (defined $environment && $environment eq 'dev') {
+        $servPort = '3000';
+    }
+    my $process = checkServerRunning();
+    say OUTPUT 'Server process was found running - being killed now' if $verbose && $process;
+    `sudo kill $process` if $process;
+    say OUTPUT 'No server process was found running' if $verbose && !$process;
+    do {
+        my $serverCmd = (defined $environment && $environment eq 'prod' ? 'hypnotoad' : 'morbo');
+        `nohup $serverCmd $mojoScript > $serverCmd.out 2>&1 &`;
+        sleep 3;
+    } while (!checkServerRunning());
     say OUTPUT 'Server restarted' if $verbose;
 }
 
 sub rebuild {
     say OUTPUT 'Preparing to rebuild DB' if $verbose;
     chdir "$root/Database/";
-    $log ? `./install.py >> $root/$log` : `./install.py`;
+    my @text = `./install.py`;
+    if ($verbose) {
+        foreach my $line (@text) {
+            print OUTPUT $line;
+        }
+    }
 }
 
 sub test {
@@ -156,5 +176,3 @@ sub flush {
     restart();
     test();
 }
-
-

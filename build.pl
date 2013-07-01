@@ -14,7 +14,6 @@ $config->define('screenshot=s');
 $config->define('annotationpath=s');
 $config->define('devRoot=s');
 $config->file('/opt/config.txt');
-
 my $port = $config->get('port');
 my $server = $config->get('server');
 my $root = $config->get('devRoot');
@@ -45,7 +44,7 @@ usage() and exit 0 unless ($action);
 
 $log ? open(OUTPUT, '>', "$root/$log") : open(OUTPUT, '>&', \*STDOUT);
 my $mojoScript = $root . '/Website/anno_tree/script/anno_tree';
-say OUTPUT 'Path to GIT repository root is: ' . $root if $verbose;
+say OUTPUT 'Path to GIT repository root is: ' . $root if ($verbose && ($action eq 'pull' || $action eq 'flush'));
 
 if ($action eq 'pull') {
     usage() and exit 0 unless $repo;
@@ -122,6 +121,7 @@ sub pull {
     say OUTPUT 'Done pulling code from the remote git repo' if $verbose;
 }
 
+# returns the process ID of the web server if it is running
 sub checkServerRunning {
     my @netstat = `sudo netstat -tupln`;
     foreach my $line (@netstat) {
@@ -154,6 +154,7 @@ sub restart {
     say OUTPUT 'Server restarted' if $verbose;
 }
 
+# builds the DB from scratch
 sub rebuild {
     say OUTPUT 'Preparing to rebuild DB' if $verbose;
     chdir "$root/Database/";
@@ -165,11 +166,13 @@ sub rebuild {
     }
 }
 
+# runs the mojolicious tests
 sub test {
     say OUTPUT 'Preparing to start web services\' tests' if $verbose;
     $log ? `$mojoScript test -v >> $root/$log 2>&1` : `$mojoScript test -v 1>&2`;
 }
 
+# rebuilds the entire web environment
 sub flush {
     pull();
     rebuild();

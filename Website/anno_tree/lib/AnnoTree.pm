@@ -86,6 +86,10 @@ sub startup {
     $authr->post('/user/logout')                            ->to('controller-auth#logoutUser');
     $authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser'); # not working
 
+    # ===== TASKS =====
+    $authr->post('/tasks')                                  ->to('controller-task#create');
+    $authr->get('/:treeid/tasks' => [treeid => qr/\d+/])    ->to('controller-task#treeTaskInfo');
+    
     # ===== FORESTS =====
     $authr->post('/forest') ->to('controller-forest#create');
     $authr->get('/forest')  ->to('controller-forest#forestInfo');

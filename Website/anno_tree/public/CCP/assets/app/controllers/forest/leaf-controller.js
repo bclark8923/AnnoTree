@@ -17,6 +17,7 @@
 					leafImage = leaf.annotations[0].path
 				}
                	$scope.leafImage = leafImage;
+               	$scope.leafName = leaf.name;
 			}
 
 
@@ -90,6 +91,7 @@
 
 			// I hold the categories to render.
 			$scope.leafImage = "";
+			$scope.leafName = "";
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

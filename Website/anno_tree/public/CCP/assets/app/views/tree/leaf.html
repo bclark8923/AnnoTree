@@ -1,15 +1,15 @@
-<div id="treeContainer">
+<div id="treeContainer" ng-controller="forest.LeafController">
   <div id="treeHeader" class="valign">
     <div id="crumbHolder">
       <span class="responsiveHide">
-        <a href="#/app">Home</a> > <a href="#/app/{{treeInfo.id}}">{{treeInfo.name}}</a> > Leaf Name
+        <a href="#/app">Home</a> > <a href="#/app/{{treeInfo.id}}">{{treeInfo.name}}</a> > {{leafName}}
       </span>
       <span class="responsiveShow">
-        <a ng-href="#/app"><i class="icon-arrow-left" style="color:#444;font-size:16pt"></i></a>
+        <a ng-href="#/app/{{treeInfo.id}}"><i class="icon-arrow-left" style="color:#444;font-size:16pt"></i></a>
       </span>
     </div>
     <div class="responsiveShowTC" style="text-align:center;width:100%">
-        Leaf Name
+        {{leafName}}
     </div>
     <div id="newElementHolder"  class="switch" gumby-trigger="#newLeafModal">
         <div id="newElementButton" class="pretty medium success btn">
@@ -25,6 +25,6 @@
     </div>
   </div>
   <div id="treeElements">
-	<div id="singleLeafHolder" ng-controller="forest.LeafController">
+	<div id="singleLeafHolder">
 	  <img class="singleLeafImage" ng-src="{{leafImage}}" gumby-retina />
 	</div>

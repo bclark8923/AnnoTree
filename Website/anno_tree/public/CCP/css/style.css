@@ -362,6 +362,10 @@ a:hover{
   background-color: #f7f8f5; /*white;*/
 }
 
+div.treeSubview[ng-switch] {
+  width:75%;float:left;
+}
+
 #treeContainer {
   height: 100%;
   width: 100%;
@@ -699,6 +703,10 @@ taskListHeadLink {
   
   .pretty .success.btn {
       box-shadow: 0 0 5px #222;
+  }
+
+  div.treeSubview[ng-switch] {
+    width:100%;
   }
   
   #treeContainer {

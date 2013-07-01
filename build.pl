@@ -4,11 +4,20 @@ package Build;
 
 use Getopt::Long;
 use Modern::Perl '2013';
+use AppConfig;
 
-# root path to the location of the GIT repo
-my $root = '';
-my $awsdevRoot = '/opt/www';
-my $mattRoot = '/home/matt/reserve/AnnoTree';
+# grab the inforamtion from the configuration file
+my $config = AppConfig->new();
+$config->define('server=s');
+$config->define('port=s');
+$config->define('screenshot=s');
+$config->define('annotationpath=s');
+$config->define('devRoot=s');
+$config->file('/opt/config.txt');
+
+my $port = $config->get('port');
+my $server = $config->get('server');
+my $root = $config->get('devRoot');
 
 # set and verify all the passed in arguments and initialize the program
 my $verbose;
@@ -22,7 +31,6 @@ my $branch;
 
 GetOptions(
     'verbose'           => \$verbose,
-    'server|s=s'        => \$server,
     'action|a=s'        => \$action,
     'environment|e=s'   => \$environment,
     'log|l=s'           => \$log,
@@ -67,8 +75,6 @@ if ($action eq 'pull') {
 sub usage {
     say "Usage: build.pl [options]";
     say "---REQUIRED---";
-    say "\t-s, --server (awsdev, matt)";
-    say "\t\tserver that the script is running on";
     say "\t-a, --action (pull, restart, rebuild, flush)";
     say "\t\tpull: grabs the latest information from the git repo (-r is required for this)";
     say "\t\trestart: (re)starts the development server";
@@ -93,12 +99,15 @@ sub usage {
 # grabs the lastest code from the specified branch (master if branch is not given)
 sub pull {
     say OUTPUT 'Preparing to pull code from the remote git repo ' . $repo . ' and branch ' . $branch if $verbose;
-    if ($server eq 'awsdev') {
+    if ($server eq 'http://23.21.235.254') {
         `sudo chown -R matt:dev $root/*`;
         `sudo chown -R matt:dev $root/.git`;
         `git stash`;
     }
-    `git pull $repo $branch`;
+    open(GIT, '<', `git pull $repo $branch |`);
+    while (my $line = <GIT>) {
+        print $line;
+    }
 }
 
 # (re)starts the hypnotoad or morbo server

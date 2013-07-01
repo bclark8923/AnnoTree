@@ -92,14 +92,32 @@ sub usage {
 sub pull {
     say OUTPUT 'Preparing to pull code from the remote git repo ' . $repo . ' and branch ' . $branch if $verbose;
     if ($server eq 'http://23.21.235.254') {
-        `sudo chown -R matt:dev $root/*`;
-        `sudo chown -R matt:dev $root/.git`;
-        `git stash`;
+        my @text = `sudo chown -R matt:dev $root/*`;
+        if ($verbose) {
+            foreach my $line (@text) {
+                print OUTPUT $line;
+            }
+        }
+        @text = `sudo chown -R matt:dev $root/.git`;
+        if ($verbose) {
+            foreach my $line (@text) {
+                print OUTPUT $line;
+            }
+        }
+        @text = `git stash`;
+        if ($verbose) {
+            foreach my $line (@text) {
+                print OUTPUT $line;
+            }
+        }
     }
     my @gitText = `git pull $repo $branch`;
-    foreach my $line (@gitText) {
-        print $line;
+    if ($verbose) {
+        foreach my $line (@gitText) {
+            print OUTPUT $line;
+        }
     }
+    say OUTPUT 'Done pulling code from the remote git repo' if $verbose;
 }
 
 # (re)starts the hypnotoad or morbo server

@@ -43,6 +43,14 @@
 		        return;
 			}
 
+			function getTasks(treeID) {
+				return $http.get(apiRoot.getRoot() + '/' + treeID + '/tasks');
+			}
+
+			function createTask(treeID, taskDescription) {
+				return $http.post(apiRoot.getRoot() + '/tasks', {treeid: treeID, description: taskDescription, status: 1});
+			}
+
 			// ---------------------------------------------- //
 			// ---------------------------------------------- //
 
@@ -56,7 +64,9 @@
 				createBranch: createBranch,
 				getLeaf: getLeaf,
 				createLeaf: createLeaf,
-				createAnnotation: createAnnotation
+				createAnnotation: createAnnotation,
+				getTasks: getTasks,
+				createTask: createTask
 			});
 
 

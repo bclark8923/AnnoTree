@@ -36,18 +36,21 @@
                 </a>
                 <div class="drawer taskList active myTaskOpen" id="myTaskTasks">
                   <ul>
-                    <!-- <li ng-repeat="task in tasks" data-ng-show="task.status == 0">
-                      <input type="checkbox">
+                    <li ng-repeat="task in tasks" data-ng-show="task.status == 1">
+                      <input type="checkbox" ng-click="toggleCheck(task)">
                       <span>{{task.description}}</span>
-                    </li> -->
+                    </li>
                   </ul>
                   <ul>
                       <li>
+                        <form name="addTaskForm" ng-submit="addTask()" style="margin: 0;">
                           <div style="padding-left:5px;">
-                              <span><a class="linkColor" href ><i class="icon-ne icon-plus-sign"></i></a></span>
-                              <span><input type="text" class="addTodo"></span>
-                              
+                              <span><a class="linkColor" ng-click="addTask()" ><i class="icon-ne icon-plus-sign"></i></a></span>
+                              <span>
+                                  <input type="text" class="addTodo" ng-model="newTask">
+                              </span>
                           </div>
+                        </form>
                       </li>
                   </ul>
                 </div>
@@ -59,9 +62,9 @@
                 </a>
                 <div class="drawer taskList completedTaskOpen" id="completedTaskTasks">
                   <ul>
-                    <li ng-repeat="task in tasks" data-ng-show="task.open == false">
-                      <input type="checkbox">
-                      <span>Build Annotree iOS library</span>
+                    <li ng-repeat="task in tasks" data-ng-show="task.status == 2">
+                      <input type="checkbox" checked ng-click="toggleCheck(task)">
+                      <span>{{task.description}}</span>
                     </li>
                   </ul>
                 </div>
@@ -83,7 +86,7 @@
           </div>
       </div>
       <div id="actionContent">
-          <div id="tasks">
+          <div id="tasks" ng-controller="forest.TaskController">
               <div id="myTasks" class="taskGrouping">
                   <a href="#" class="toggle taskToggle active" gumby-trigger=".myTaskOpen">
                       <p class="taskGroupingHeader">Open Tasks</p>

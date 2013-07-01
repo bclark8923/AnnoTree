@@ -21,7 +21,6 @@ my $root = $config->get('devRoot');
 
 # set and verify all the passed in arguments and initialize the program
 my $verbose;
-my $server;
 my $action;
 my $environment;
 my $repo;
@@ -40,17 +39,10 @@ GetOptions(
 ) or die("Error in the supplied arguments. Please see build.pl -h for more information.\n");
 
 usage() and exit 0 if $help;
-usage() and exit 0 unless ($server && $action);
+usage() and exit 0 unless ($action);
 
 ($branch = 'master') unless defined $branch;
 
-if ($server eq 'awsdev') {
-    $root = $awsdevRoot;
-} elsif ($server eq 'matt') {
-    $root = $mattRoot;
-} else {
-    usage() and exit 0;
-}
 $log ? open(OUTPUT, '>', "$root/$log") : open(OUTPUT, '>&', \*STDOUT);
 my $mojoScript = $root . '/Website/anno_tree/script/anno_tree';
 say OUTPUT 'Path to GIT repository root is: ' . $root if $verbose;
@@ -104,8 +96,8 @@ sub pull {
         `sudo chown -R matt:dev $root/.git`;
         `git stash`;
     }
-    open(GIT, '<', `git pull $repo $branch |`);
-    while (my $line = <GIT>) {
+    my @gitText = `git pull $repo $branch`;
+    foreach my $line (@gitText) {
         print $line;
     }
 }

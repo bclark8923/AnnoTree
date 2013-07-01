@@ -10,6 +10,7 @@ $config->define('server=s');
 $config->define('port=s');
 $config->define('screenshot=s');
 $config->define('annotationpath=s');
+$config->define('devRoot=s');
 $config->file('/opt/config.txt');
 my $server = $config->get('server');
 my $port = ':' . $config->get('port');

@@ -25,8 +25,8 @@
 				return $http.post(apiRoot.getRoot() + '/' + forestID + '/tree', {name: treeName, description: treeDescription});
 			}
 
-			function getLeaf(forestID, treeID, leafID) {
-				return $http.get(apiRoot.getRoot() + '/' + forestID + '/' + treeID + '/' + leafID);
+			function getLeaf(leafID) {
+				return $http.get(apiRoot.getRoot() + '/leaf/' + leafID);
 			}
 
 			function createLeaf(branchID, leafName, leafDescription) {

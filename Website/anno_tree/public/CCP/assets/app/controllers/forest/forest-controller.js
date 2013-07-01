@@ -49,6 +49,7 @@
 									break;
 								default:
 									//go to Fail Page
+									$location.path("/forestFire");
 							}
 						} else if(response.data.status == 204) {
 							switch(errorNumber)
@@ -58,9 +59,11 @@
 									break;
 								default:
 									//go to Fail Page
+									$location.path("/forestFire");
 							}
 						} else {
 							//go to Fail Page
+							$location.path("/forestFire");
 						}
 					}
 				);
@@ -154,9 +157,11 @@
 										break;
 									default:
 										//go to Fail Page
+										$location.path("/forestFire");
 								}
 							} else {
 								//go to Fail Page
+								$location.path("/forestFire");
 							}
 							$("#invalidAddTree").html(errorData);
 
@@ -228,9 +233,11 @@
 										break;
 									default:
 										//go to Fail Page
+										$location.path("/forestFire");	
 								}
 							} else {
 								//go to Fail Page
+								$location.path("/forestFire");
 							}
 							$("#invalidAddForest").html(errorData);
 
@@ -257,6 +264,7 @@
 
 			// I hold the categories to render.
             $scope.forests = [];
+            $scope.branchID = -1;
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

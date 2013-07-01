@@ -55,13 +55,19 @@ AnnoTree.config(
 			.when(
 				"/app/:treeID",
 				{
-					action: "standard.tree"
+					action: "standard.tree.leaves"
 				}
       )
       .when(
           "/app/:treeID/:leafID",
           {
-              action: "standard.leaf"
+              action: "standard.tree.leaf"
+          }
+      )
+      .when(
+          "/forestFire",
+          {
+              action: "forestFire"
           }
       )
 			.otherwise(

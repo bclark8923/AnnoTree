@@ -81,11 +81,15 @@
 
 				$scope.leaves.push(newLeaf);
 
-				$("#newTreeClose").click();
+				$("#newLeafClose").click();
 
-				$scope.invalidAddTree = false;
+				$scope.invalidAddLeaf = false;
 
 				$route.reload();
+
+				if(!$scope.$$phase) {
+					$scope.$apply();
+				}
 
 			}
 
@@ -113,7 +117,10 @@
 
 		    function uploadComplete(evt) {
 		        /* This event is raised when the server send back a response */
-		        //alert(evt.target.responseText);
+		        //alert(evt.target.responseText);	
+		        var annotationObject = jQuery.parseJSON( evt.target.responseText );
+		        $scope.newLeafData.annotations.push(annotationObject);
+		        $scope.newLeafData.annotation = annotationObject.path;
 				addLeaf( $scope.newLeafData );
 		    }
 
@@ -158,6 +165,7 @@
 							$scope.isLoading = false;
 
 							$scope.newLeafData = response.data;
+							$scope.newLeafData.annotations = [];
 
 							newAnnotation(response.data.id);
  				
@@ -184,6 +192,7 @@
 										break;
 									default:
 										//go to Fail Page
+										$location.path("/forestFire");
 								}
 							} else if(response.data.status == 403) {
 								switch(errorNumber)
@@ -193,9 +202,11 @@
 										break;
 									default:
 										//go to Fail Page
+										$location.path("/forestFire");
 								}
 							} else {
 								//go to Fail Page
+								$location.path("/forestFire");
 							}
 							$("#invalidAddTree").html(errorData);
 
@@ -211,7 +222,7 @@
 
 
 			// Get the render context local to this controller (and relevant params).
-			var renderContext = requestContext.getRenderContext( "standard.forest" );
+			var renderContext = requestContext.getRenderContext( "standard.tree" );
 
 			
 			// --- Define Scope Variables. ---------------------- //

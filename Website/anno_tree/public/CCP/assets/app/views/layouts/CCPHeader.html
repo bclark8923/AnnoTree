@@ -24,10 +24,10 @@
 
         <!-- App -->
         <div id="wrapper" class="switch" gumby-trigger="|.userSettings">
-            <div class="navbar pretty" id="nav1">
+            <div class="navbar" id="nav1">
                 <div>
                     <h1 class="logo">
-                        <a href="http://ccp.annotree.com" class="logoLink"><img id="annoTreeLogo" src="img/AnnoTreeLogoInset.png" gumby-retina /></a>
+                        <a href="http://ccp.annotree.com" class="logoLink"><img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina /></a>
                     </h1>
                     <div class="userLinkDiv">
                         <a href class="userLink toggle responsiveHide" gumby-trigger=".userSettings">
@@ -47,6 +47,7 @@
             <div ng-switch="subview" class="l-body">
                 <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/index.html' "></div>
                 <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/index.html' "></div>
+                <div ng-switch-when="forestFire" ng-include=" 'assets/app/views/layouts/404.html' "></div>
             </div>
         
         </div>

@@ -88,9 +88,9 @@
 
 				$scope.invalidAddTree = false;
 
-				$location.path("/app");
+				//$location.path("/app");
 
-				$route.reload();
+				//$route.reload();
 
 
 			}
@@ -126,19 +126,22 @@
 							var branchName = "Loose Leaves";
 							var branchDescription = "A collection of loose leaves sent to this tree.";
 							var promise = forestService.createBranch(response.data.id, branchName, branchDescription);
+							$scope.newTreeData = response.data;
 
 							promise.then(
 								function(response) {
 									//worked
 									var data = response.data;
+
+									addTree( $scope.newTreeData );
 								},
 								function(response) {
 									//failed
 									var data = response.data;
+
+									//delete tree
 								}
 							);
-
-							addTree( response.data );
  				
  							$timeout(function() { Gumby.initialize('switches') }, 0);
 
@@ -163,6 +166,7 @@
 										break;
 									default:
 										//go to Fail Page
+										$location.path("/forestFire");
 								}
 							} else if(response.data.status == 403) {
 								switch(errorNumber)
@@ -195,9 +199,9 @@
 				$("#newForestClose").click();
 				$scope.invalidAddForest = false;
 
-				$location.path("/app");
+				//$location.path("/app");
 
-				$route.reload();
+				//$route.reload();
 
 			}
 
@@ -250,7 +254,7 @@
 										//go to Fail Page
 										$location.path("/forestFire");	
 								}
-							} else {
+							} else if(response.data.status != 401 && errorNumber != 0) {
 								//go to Fail Page
 								$location.path("/forestFire");
 							}
@@ -329,4 +333,3 @@
 	);
 
  })( angular, AnnoTree );
-/**/

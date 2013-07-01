@@ -36,7 +36,6 @@
 
 						$scope.isLoading = false;
 
-						$scope.branchID = response.data.branches[0].id;
 				        $scope.treeInfo = response.data;
 						
 						loadLeaves( response.data.branches[0].leaves );
@@ -56,6 +55,7 @@
 									break;
 								default:
 									//go to Fail Page
+									$location.path("/forestFire");
 							}
 						} else if(response.data.status == 204) {
 							switch(errorNumber)
@@ -65,9 +65,11 @@
 									break;
 								default:
 									//go to Fail Page
+									$location.path("/forestFire");
 							}
-						} else {
+						} else if(response.data.status != 401 && errorNumber != 0) {
 							//go to Fail Page
+							$location.path("/forestFire");
 						}
 					}
 				);
@@ -85,11 +87,11 @@
 
 				$scope.invalidAddLeaf = false;
 
-				$route.reload();
+				/*$route.reload();
 
 				if(!$scope.$$phase) {
 					$scope.$apply();
-				}
+				}*/
 
 			}
 
@@ -142,7 +144,7 @@
 				var leafDescription = "NULL";
 			    var annotationImageElement = document.getElementById('annotationImage');
 				var formValid = $scope.createLeafForm.$valid;
-				var branchID = $scope.branchID;
+				var branchID = $scope.treeInfo.branches[0].id;
 
 				//validate form
 				if(!formValid || annotationImageElement.files.length == 0) {
@@ -204,7 +206,7 @@
 										//go to Fail Page
 										$location.path("/forestFire");
 								}
-							} else {
+							} else if(response.data.status != 401 && errorNumber != 0) {
 								//go to Fail Page
 								$location.path("/forestFire");
 							}
@@ -267,7 +269,7 @@
 			$scope.setWindowTitle( "AnnoTree" );
 
 			// Load the "remote" data.
-			loadTreeData();
+			$scope.$evalAsync(loadTreeData());
 
 			Gumby.init();
 
@@ -275,15 +277,3 @@
 	);
 
  })( angular, AnnoTree );
- 
- AnnoTree.filter('treeRowFilter', function() {
-    return function(arrayLength) {
-        arrayLength = Math.ceil(arrayLength);
-        var arr = new Array(arrayLength), i = 0;
-        for (; i < arrayLength; i++) {
-            arr[i] = i;
-        }
-        return arr;
-    };
-});
-/**/

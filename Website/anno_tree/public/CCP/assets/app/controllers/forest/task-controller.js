@@ -3,7 +3,7 @@
 	"use strict";
 
 	app.controller(
-		"forest.LeafController",
+		"forest.TaskController",
 		function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, forestService, _ ) {
 
 
@@ -11,29 +11,24 @@
 
 
 			// I apply the remote data to the local view model.
-			function loadLeaf( leaf ) {
-				var leafImage = "img/leaf01.png";
-				if(leaf.annotations.length > 0) {
-					leafImage = leaf.annotations[0].path
-				}
-               	$scope.leafImage = leafImage;
-               	$scope.leafName = leaf.name;
-			}
-
 
 			// I load the "remote" data from the server.
-			function loadLeafData() {
+			function loadTasksData() {
 
+				return;
 				$scope.isLoading = true;
 
-				var promise = forestService.getLeaf($routeParams.leafID);
+				var promise = forestService.getTasks($routeParams.treeID);
 
 				promise.then(
 					function( response ) {
 
 						$scope.isLoading = false;
+
+						$scope.branchID = response.data.branches[0].id;
+				        $scope.treeInfo = response.data;
 						
-						loadLeaf( response.data );
+						loadLeaves( response.data.branches[0].leaves );
 
  						$timeout(function() { window.Gumby.init() }, 0);
 
@@ -70,12 +65,6 @@
 				);
 
 			}
-
-
-			// --- Define Scope Methods. ------------------------ //
-
-			
-
 			// ...
 
 
@@ -83,7 +72,7 @@
 
 
 			// Get the render context local to this controller (and relevant params).
-			var renderContext = requestContext.getRenderContext( "standard.tree.leaf" );
+			var renderContext = requestContext.getRenderContext( "standard.tree" );
 
 			
 			// --- Define Scope Variables. ---------------------- //
@@ -93,8 +82,7 @@
 			$scope.isLoading = true;
 
 			// I hold the categories to render.
-			$scope.leafImage = "";
-			$scope.leafName = "";
+            $scope.tasks = [];
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();
@@ -129,7 +117,7 @@
 			$scope.setWindowTitle( "AnnoTree" );
 
 			// Load the "remote" data.
-			loadLeafData();
+			$scope.$evalAsync(loadTasksData());
 
 			Gumby.init();
 

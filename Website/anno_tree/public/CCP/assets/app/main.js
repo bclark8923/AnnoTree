@@ -1,4 +1,3 @@
-
 // Create an application module for our demo.
 var AnnoTree = angular.module( "AnnoTree", ['ngCookies'] );
 
@@ -67,7 +66,7 @@ AnnoTree.config(
       .when(
           "/forestFire",
           {
-              action: "forestFire"
+              action: "standard.forestFire"
           }
       )
 			.otherwise(
@@ -108,21 +107,16 @@ var interceptor = function( $q, $location ) {
     // convert the returned data using values passed to $http.get()'s config param
     var resolve = function( value ) {
     	if(value.redirect) {
-			$location.path("/authenticate/login");
-			return;
+			  $location.path("/authenticate/login");
+		    return;
     	}
-      //console.log( "rejected because: ", value );
-      //convertList( value.data, value.config.cls, value.config.initFn );
     };
  
     var reject = function( reason ) {
-    	if(reason.status == 401) {
-    		if(reason.data.error == 0) {
-    			$location.path("/authenticate/login");
-    			return;
-    		}
+    	if(reason.status == 401 && reason.data.error == 0) {
+  			$location.path("/authenticate/login");
+  			return;
     	}
-      	//console.log( "rejected because: ", reason );
     };
  
     // attach our actions
@@ -143,10 +137,3 @@ AnnoTree.filter('threeColumnFilter', function() {
         return arr;
     };
 });
-/*
-angular.module('MyApp', [])
-  .config(['$httpProvider', function($httpProvider) {
-    $httpProvider.defaults.timeout = 5000;
-}]);
-*/
-

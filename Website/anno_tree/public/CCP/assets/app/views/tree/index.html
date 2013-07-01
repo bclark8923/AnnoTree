@@ -27,7 +27,7 @@
             -->
           </div>
           <div id="actionContent">
-            <div id="tasks">
+            <div id="tasks" ng-controller="forest.TaskController">
               <div id="myTasks" class="taskGrouping">
                 <a href class="toggle taskToggle active" gumby-trigger=".myTaskOpen">
                   <p class="taskGroupingHeader">Open Tasks</p>
@@ -35,7 +35,7 @@
                 </a>
                 <div class="drawer taskList active myTaskOpen" id="myTaskTasks">
                   <ul>
-                    <!-- <li ng-repeat="task in tasks" data-ng-show="task.open == true">
+                    <!-- <li ng-repeat="task in tasks" data-ng-show="task.status == 0">
                       <input type="checkbox">
                       <span>{{task.description}}</span>
                     </li> -->

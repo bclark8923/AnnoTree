@@ -23,7 +23,7 @@ sub create {
 
     my $json = {};
     my $cols = $result->fetch;
-    print Dumper($cols);
+
     if (looks_like_number($cols->[0])) { 
         my $error = $cols->[0];
         if ($error == 1) {
@@ -41,7 +41,36 @@ sub create {
 }
 
 sub treeTaskInfo {
+    my ($class, $params) = @_;
 
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call get_tasks_by_tree(:userid, :treeid)",
+        {
+            treeid  => $params->{treeid},
+            userid  => $params->{userid}
+        }
+    );
+
+    my $json = {};
+    my $cols = $result->fetch;
+    print Dumper($cols);
+
+    if (looks_like_number($cols->[0])) { 
+        my $error = $cols->[0];
+        if ($error == 1) {
+            return {error => $error, txt => 'Tree does not exist or user does not have access to that tree'};
+        }
+    }
+    my $taskIndex = 0;
+    $json->{tasks} = [];
+    while (my $task = $result->fetch) {
+        for (my $i = 0; $i < @{$cols}; $i++) {
+            $json->{tasks}->[$taskIndex]->{$cols->[$i]} = $task->[$i] || '';
+        }
+        $taskIndex++;
+    }
+    
+    return $json;
 }
 
 return 1;

@@ -7,7 +7,7 @@ sub create {
     my $self = shift;
     
     my $jsonReq = $self->req->json;
-    $self->debug($self->dumper($jsonReq));
+
     $self->render(json => {error => '0', txt => 'Missing required JSON name/value pairs in request or they have no value'}, status => 406) and return unless ($jsonReq->{'description'} && $jsonReq->{'status'} && $jsonReq->{'treeid'});
     $self->render(json => {error => '3', txt => 'Task description must contain at least one alphanumeric character'}, status => 406) and return unless ($jsonReq->{'description'} =~ m/[A-Za-z0-9]/);
 
@@ -19,7 +19,7 @@ sub create {
     $params->{treeid} = $jsonReq->{'treeid'};
     $params->{assignedTo} = $jsonReq->{'assignedTo'} || undef;
     $params->{dueDate} = $jsonReq->{'dueDate'} || undef;
-    #$self->debug($self->dumper($params));
+
     my $json = AnnoTree::Model::Task->create($params);
     my $status = 200;
     if (exists $json->{error}) {
@@ -29,7 +29,17 @@ sub create {
 }
 
 sub treeTaskInfo {
+    my $self = shift;
 
+    my $params = {};
+    $params->{userid} = $self->current_user->{userid};
+    $params->{treeid} = $self->param('treeid');
+    my $json = AnnoTree::Model::Task->treeTaskInfo($params);
+    my $status = 200;
+    if (exists $json->{error}) {
+       $status = 406;
+    }
+    $self->render(json => $json, status => $status); 
 }
 
 return 1;

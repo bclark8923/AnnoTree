@@ -1,60 +1,14 @@
 
 
-<div ng-switch="subview">
+<div ng-switch="subview" ng-controller="forest.TreeController">
   <div id="scaffold">
 
       <div id="mainContent" style="margin:0;border:0;">
-        <div id="treeContainer" ng-controller="forest.TreeController">
-          <div id="treeHeader" class="valign">
-            <div id="crumbHolder">
-              <span class="responsiveHide">
-                <a href="#/app">Home</a> > {{treeInfo.name}}
-              </span>
-              <span class="responsiveShow">
-                <a ng-href="#/app"><i class="icon-arrow-left" style="color:#444;font-size:16pt"></i></a>
-              </span>
-            </div>
-            <div class="responsiveShowTC" style="text-align:center;width:100%">
-                {{treeInfo.name}}
-            </div>
-            <div id="newElementHolder"  class="switch" gumby-trigger="#newLeafModal">
-                <div id="newElementButton" class="pretty medium success btn">
-                    <div style="width:100%;height:100%;">
-                        <button>
-                            <a href="" id="newElementLink" class="switch" gumby-trigger="#newLeafModal">
-                                <i class="icon-ne icon-plus-sign" style="margin-right:0px;"></i>
-                                <span class="responsiveHide" style="margin-left:5px;"> New Leaf</span>
-                            </a>
-                        </button>
-                    </div>
-                </div>
-            </div>
-          </div>
-          <div id="treeElements">
-            <div class="twelve colgrid treeBG">
-                <div class="row" ng-repeat="leafRow in (leaves.length/3 | threeColumnFilter)" post-render> 
-                    <div class="four columns" ng-repeat="leaf in leaves.slice(3*$index, 3*$index + 3)"> 
-                        <div class="cardHolder">
-                            <div class="card">
-                                <div class="cardTitleBar valign"><div>{{leaf.name}}</div></div>
-                                <a href="#/app/{{treeInfo.id}}/{{leaf.id}}">
-                                    <div class="leaf valign">
-                                        <div>
-                                            <img class="leafImage" ng-src="{{leaf.annotation}}" gumby-retina />
-                                        </div>
-                                    </div>
-                                </a>
-                                <div class="treeModify">
-                                    <a href class="switch" gumby-trigger="#modifyLeafModal"><i class="icon-cog"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    
-                    </div>
-                </div>
-            </div> <!-- end sixteen -->
-          </div> <!-- end trees -->
-        </div>
+        
+              <div ng-switch="subview" class="l-body" style="width:75%;float:left;">
+                <div ng-switch-when="leaves" ng-include=" 'assets/app/views/tree/leaves.html' "></div>
+                <div ng-switch-when="leaf" ng-include=" 'assets/app/views/tree/leaf.html' "></div>
+              </div>
         <div id="options" >
           <div id="actionHeader" class="valign">
             <div class="taskHeader">

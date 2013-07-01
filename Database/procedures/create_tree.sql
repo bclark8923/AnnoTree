@@ -22,8 +22,8 @@ IF (select id from user where id = u) THEN
     IF (select id from forest where id = f) THEN
         IF (select id from user_forest where user_id = u and forest_id = f) THEN
             insert into `annotree`.`tree` 
-              (forest_id, name, description, logo)
-              values (f, n, d, l);
+              (forest_id, name, description, logo, owner_id)
+              values (f, n, d, l, u);
             set @id = LAST_INSERT_ID();
             insert into `annotree`.`user_tree`
               (user_id, tree_id)

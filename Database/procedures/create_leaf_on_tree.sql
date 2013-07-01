@@ -14,13 +14,14 @@ CREATE Procedure `create_leaf_on_tree` (
 )
 BEGIN
 DECLARE treeid INT;
+DECLARE treeowner INT;
 DECLARE branchid INT;
-select id into treeid from tree where token = t;
+select id, owner_id into treeid, treeowner from tree where token = t;
 IF (treeid) THEN
     select id into branchid from branch where tree_id = treeid;
     IF (branchid) THEN
-        insert into `annotree`.`leaf` (name, branch_id)
-        values (n, branchid);
+        insert into `annotree`.`leaf` (name, branch_id, owner_user_id)
+        values (n, branchid, treeowner);
         set @id = LAST_INSERT_ID();
         select 'id', 'name', 'description', 'owner_user_id', 'branch_id', 'created_at'
         union 

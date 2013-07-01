@@ -8,7 +8,6 @@ DELIMITER $$
 
 
 CREATE Procedure `create_task`(
-  in n VARCHAR(45),
   in d VARCHAR(1024),
   in status INT,
   in `leaf_id` INT,
@@ -20,9 +19,9 @@ BEGIN
 IF (select id from user where id = created_by) THEN
     IF (select id from tree where id = tree_id) THEN
         insert into `annotree`.`task` 
-          (name, description, status, leaf_id, tree_id, assigned_to, due_date, created_by)
+          (description, status, leaf_id, tree_id, assigned_to, due_date, created_by)
           values 
-          (n, d, status, leaf_id, tree_id, assigned_to, due_date, created_by);
+          (d, status, leaf_id, tree_id, assigned_to, due_date, created_by);
         set @id = LAST_INSERT_ID();
         select 'id', 'name', 'description', 'status', 'leaf_id', 'tree_id', 'assigned_to', 'due_date', 'created_at', 'created_by'
         union 

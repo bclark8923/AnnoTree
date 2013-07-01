@@ -1,0 +1,72 @@
+<!-- New Forest Modal -->
+<div class="modal" id="newForestModal" ng-controller="forest.ForestController">
+  <div class="content" style="padding: 0;min-height:0;">
+    <div class="row authenticateHeader" style="padding:0;">
+      <a id="newForestClose" class="close switch" gumby-trigger="|#newForestModal" style="float:right;color:#444"><i class="icon-remove-circle"></i></a>
+      <h3 style="padding-top:20px;">Create New Forest</h3>
+    </div>
+    <form name="createForestForm" ng-submit="newForest()" style="margin: 0;">
+      <div class="row" style="padding-bottom:30px;padding-top:30px;">
+        <div class="ten columns centered center-text">
+          <ul>
+            <li class="danger alert" id="invalidAddForest" ng-show="invalidAddForest"></li>
+            <li class="field" style="text-align:center;"><input id="forestName" class="text input" type="text" placeholder="Forest" style="max-width:380px;" ng-model="forestName" required></li>
+            <li class="field" style="text-align:center;"><input id="forestDescription" class="email input" type="text" placeholder="Forest Description" style="max-width:380px;" ng-model="forestDescription" required></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row authenticateFooter">
+        <div style="text-align: center; padding-top:15px;">
+          <div>
+            <button type="submit" class="medium oval btn success"><a ng-click="newForest()">Add Forest</a></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- New Tree Modal -->
+<div class="modal" id="newTreeModal" ng-controller="forest.ForestController">
+  <div class="content" style="padding: 0;min-height:0;">
+    <div class="row authenticateHeader" style="padding:0;">
+      <a id="newTreeClose" class="close switch" gumby-trigger=" | #newTreeModal, .newTreeLinkClass " style="float:right;color:#444">
+        <i class="icon-remove-circle"></i>
+      </a>
+      <h3 style="padding-top:20px;">Create New Tree</h3>
+    </div>
+    <form name="createTreeForm" ng-submit="newTree()" style="margin: 0;">
+      <div class="row" style="padding-bottom:30px;padding-top:30px;">
+        <div class="ten columns centered center-text">
+          <ul>
+            <li class="danger alert" id="invalidAddTree" ng-show="invalidAddTree"></li>
+            <li class="field" style="text-align:center;"><input id="treeName" class="text input" type="text" placeholder="Tree" style="max-width:380px;" ng-model="treeName" required></li>
+            <li class="field" style="text-align:center;"><input id="treeDescription" class="email input" type="text" placeholder="Tree Description" style="max-width:380px;" ng-model="treeDescription" required></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row authenticateFooter">
+        <div style="text-align: center; padding-top:15px;">
+          <div>
+            <button type="submit" class="medium oval btn success"><a ng-click="newTree()">Add Tree</a></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modify Tree Modal -->
+<div class="modal" id="modifyTreeModal" ng-controller="forest.ForestController">
+    <div class="content">
+        <a class="close switch" gumby-trigger="|#modifyTreeModal"><i class="icon-cancel"></i></a>
+        <div class="row">
+            <div class="ten columns centered center-text">
+                <h2>Modify Tree</h2>
+                <p>Gumby modals are easy to make using Toggles &amp; Switches. The <span class="label default">.modal</span> class already has the required styles which you can open and close using Toggles &amp; Switches.</p>
+                
+                <p class="btn primary medium"><a href="#" class="switch active" gumby-trigger="|#modifyTreeModal">Close Modal</a></p>
+            </div>
+        </div>
+    </div>
+</div>

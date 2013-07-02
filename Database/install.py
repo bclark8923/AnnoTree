@@ -1,7 +1,13 @@
 #!/usr/bin/python
 
 from os import system
-DEBUG = True
+from sys import argv
+
+DEBUG = False
+if len(argv) > 1:
+    if argv[1] == "DEBUG": DEBUG = True
+
+
 
 config = open("config/install.config").read(-1)
 components = open("config/components.config").read(-1)
@@ -18,12 +24,12 @@ for line in config.split("\n"):
     if key == "password": password = value
 
 
-system('echo "Creating Database" | cowsay')
+if DEBUG: system('echo "Creating Database" | cowsay')
 line = components.split("\n")[0]
 command = "mysql -u " + username + " --password=" + password + " < " + line
 system(command)
 
-system('echo "Creating Database Tables" | cowsay')
+if DEBUG: system('echo "Creating Database Tables" | cowsay')
 for line in components.split("\n")[1:]:
   if len(line) < 1 or line[0] == "#":
     continue

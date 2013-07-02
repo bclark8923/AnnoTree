@@ -14,8 +14,7 @@ CREATE Procedure `delete_task`(
 BEGIN
 IF (select id from user_tree where user_tree.user_id = user_id) THEN
         delete from task where task.id = id;
-        set @id = LAST_INSERT_ID();
-        if @id = 1 then
+        if row_count() = 1 then
           select '0';
         ELSE 
           select '2';

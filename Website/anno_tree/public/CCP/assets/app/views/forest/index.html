@@ -27,8 +27,8 @@
                 <div ng-repeat="forest in forests" post-render>
                     <div class="twelve colgrid">
                         <div class="forestHeader"> 
-                            <span style="background-color:#f7f8f5;padding: 4px 10px;border-radius: 5px;">{{forest.name}}</span>
                             <hr class="forestHR"/>
+                            <span class="forestName">{{forest.name}}</span>
                         </div>
                         <div class="row" ng-repeat="treeRow in (forest.trees.length/3 | threeColumnFilter)"> 
                             

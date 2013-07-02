@@ -15,7 +15,7 @@ BEGIN
 IF (select id from user where id = user) then
   SET FOREIGN_KEY_CHECKS=0;
   -- TODO: leafs
-  delete f, uf, t, ut, b, ub, l, ul a 
+  delete f, uf, t, ut, b, ub, l, ul, a 
           from forest as f 
            left join user_forest as uf on
               uf.forest_id = f.id

@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
 -- update_leaf
--- Note: You need to salt the password in perl.
+-- yeah buddy
 -- --------------------------------------------------------------------------------
 use annotree;
 drop procedure if exists `update_leaf`;
@@ -16,8 +16,12 @@ CREATE procedure `update_leaf` (
 BEGIN
 update `annotree`.`leaf` as leaf set
   leaf.name = name , leaf.description = description, leaf.owner_user_id = owner_user_id, leaf.branch_id = branch_id
-  where leaf.id = id; 
+  where leaf.id = id;
+if row_count() > 0 then 
 select 'id', 'name', 'description', 'owner_user_id', 'branch_id', 'created_at'
 union
 select * from leaf where leaf.id = id;
+else
+select '1';
+end if;
 END

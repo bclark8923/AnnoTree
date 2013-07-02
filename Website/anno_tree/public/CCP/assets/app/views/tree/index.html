@@ -37,7 +37,7 @@
                 <div class="drawer taskList active myTaskOpen" id="myTaskTasks">
                   <ul>
                     <li ng-repeat="task in tasks" data-ng-show="task.status == 1">
-                      <input type="checkbox" ng-click="toggleCheck(task)">
+                      <input type="checkbox" ng-click="toggleCheck(task)" ng-checked="task.status==2">
                       <span>{{task.description}}</span>
                     </li>
                   </ul>
@@ -63,7 +63,7 @@
                 <div class="drawer taskList completedTaskOpen" id="completedTaskTasks">
                   <ul>
                     <li ng-repeat="task in tasks" data-ng-show="task.status == 2">
-                      <input type="checkbox" checked ng-click="toggleCheck(task)">
+                      <input type="checkbox" ng-checked="task.status==2" ng-click="toggleCheck(task)">
                       <span>{{task.description}}</span>
                     </li>
                   </ul>

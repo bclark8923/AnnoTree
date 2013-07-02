@@ -16,7 +16,7 @@
 					$scope.tasks[taskIndex].status = 2;
 					//send update to Service
 				} else {
-					$scope.tasks[taskIndex].status = 2;
+					$scope.tasks[taskIndex].status = 1;
 					//send update to Service
 				}
 		    };

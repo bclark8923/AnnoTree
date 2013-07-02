@@ -1,25 +1,32 @@
 -- --------------------------------------------------------------------------------
 -- update_tree
--- Note: You need to salt the password in perl.
+-- YEAH BUDDY
 -- --------------------------------------------------------------------------------
-use annotree;
 drop procedure if exists `update_tree`;
-DELIMITER $$ 
+DELIMITER $$
 
-CREATE procedure `update_tree` (
-  `id` INT,
+CREATE procedure `update_tree`(
+  in `id` INT,
   `name` VARCHAR(45),
   `forest_id` INT,
   `description` VARCHAR(1024),
-  `logo` VARCHAR(1024)
-)
+  `logo` VARCHAR(1024),
+  `token` VARCHAR(64),
+  `owner_id` INT
+  )
 BEGIN
-update `annotree`.`tree` as tree set
-  tree.name = name , tree.forest_id = forest_id, tree.description = description, tree.logo = logo
-  where tree.id = id;
-if (select ROW_COUNT() > 0) then 
-select 'id', 'name', 'forest_id', 'description', 'logo', 'created_at'
+update tree as t set
+  t.name = name, 
+  t.description = description,
+  t.logo = logo,
+  t.token = token,
+  t.owner_id = owner_id
+where t.id = id;
+if ROW_COUNT() > 0 then 
+select 'id', 'name', 'forest_id', 'description', 'logo', 'token', 'owner_id', 'created_date'
 union
 select * from tree where tree.id = id;
-END IF;
+else
+select '1'; 
+end if;
 END

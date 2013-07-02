@@ -14,6 +14,8 @@ CREATE Procedure `add_user_to_tree`(
 BEGIN
 START TRANSACTION;
 insert into user_tree (user_id, tree_id) values (user_id, tree_id);
+insert into user_forest(user_id, forest_id) 
+  select user_id, tree.forest_id from tree where tree.id = tree_id;
 insert into user_branch(user_id, branch_id) 
   select user_id, branch.id from branch where branch.tree_id = tree_id;
 insert into user_leaf(user_id, leaf_id)

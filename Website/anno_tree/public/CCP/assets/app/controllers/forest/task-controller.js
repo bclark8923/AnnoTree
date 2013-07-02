@@ -14,6 +14,7 @@
 				var taskIndex = $scope.tasks.indexOf(task);
 				if($scope.tasks[taskIndex].status == 1) {
 					$scope.tasks[taskIndex].status = 2;
+					$scope.tasks[taskIndex].checked = NO;
 					//send update to Service
 				} else {
 					$scope.tasks[taskIndex].status = 1;
@@ -32,7 +33,12 @@
 					return;
 				}
 
-				var promise = forestService.createTask($routeParams.treeID, $scope.newTask);
+				var promise;
+				if($routeParams.leafID) {
+					promise = forestService.createTaskLeaf($routeParams.treeID, $routeParams.leafID, $scope.newTask);
+				} else {
+					promise = forestService.createTask($routeParams.treeID, $scope.newTask);
+				}
 
 				promise.then(
 					function( response ) {

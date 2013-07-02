@@ -37,8 +37,14 @@
                 <div class="drawer taskList active myTaskOpen" id="myTaskTasks">
                   <ul>
                     <li ng-repeat="task in tasks" data-ng-show="task.status == 1">
-                      <input type="checkbox" ng-click="toggleCheck(task)" ng-checked="task.status==2">
-                      <span>{{task.description}}</span>
+                      <div>
+                        <input type="checkbox" ng-click="toggleCheck(task)" ng-checked="task.status==2">
+                        <span>{{task.description}}</span>
+                        <span class="success label" ng-show="task.leaf_id" style="margin-left:5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">LeafName</span>
+                      </div>
+                      <!--<div style="height:15px;" ng-show="task.leaf_id">
+                        <div class="success label" style="position:relative;left:20px;top:-5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">LeafName</div>
+                      </div>-->
                     </li>
                   </ul>
                   <ul>
@@ -63,8 +69,13 @@
                 <div class="drawer taskList completedTaskOpen" id="completedTaskTasks">
                   <ul>
                     <li ng-repeat="task in tasks" data-ng-show="task.status == 2">
-                      <input type="checkbox" ng-checked="task.status==2" ng-click="toggleCheck(task)">
-                      <span>{{task.description}}</span>
+                      <div>
+                        <input type="checkbox" ng-click="toggleCheck(task)" ng-checked="task.status==2">
+                        <span>{{task.description}}</span>
+                      </div>
+                      <div style="height:15px;" ng-show="task.leaf_id">
+                        <div class="success label" style="position:relative;left:20px;top:-5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">LeafName</div>
+                      </div>
                     </li>
                   </ul>
                 </div>

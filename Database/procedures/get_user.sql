@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------
--- login_user
--- Note: You need to salt the password in perl.
+-- get_user
+-- returns the information for an individual user
 -- --------------------------------------------------------------------------------
 use annotree;
 drop procedure IF EXISTS `get_user`;

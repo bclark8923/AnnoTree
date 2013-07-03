@@ -72,8 +72,26 @@ sub forestInfo {
         while (my $tree = $treeResult->fetch) {
             for (my $i = 0; $i < @{$treeCols}; $i++) {
                 $json->{forests}->[$forestCount]->{trees}->[$treeCount]->{$treeCols->[$i]} = $tree->[$i];
-                
             }
+
+            my $userResult = AnnoTree::Model::MySQL->db->execute(
+                'call get_users_by_tree(:userid, :treeid)',
+                {
+                    userid      => $userid,
+                    treeid    => $tree->[0]
+                }
+            );
+
+            $json->{forests}->[$forestCount]->{trees}->[$treeCount]->{users} = [];
+            my $userCols = $userResult->fetch;
+            my $userCount = 0;
+            while (my $user = $userResult->fetch) {
+                for (my $i = 0; $i < @{$userCols}; $i++) {
+                    $json->{forests}->[$forestCount]->{trees}->[$treeCount]->{users}->[$userCount]->{$userCols->[$i]} = $user->[$i];
+                }
+                $userCount++;
+            }
+
             $treeCount++;
         }
         $forestCount++;

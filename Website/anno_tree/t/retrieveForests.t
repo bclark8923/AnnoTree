@@ -115,7 +115,7 @@ foreach my $forest (@{$jsonBody->{forests}}) {
     next unless $forest->{id} = $validForestID;
     $testForest = $forest;
 }
-
+print Dumper($jsonBody);
 ok($validForestID == $testForest->{id},                             $testname . 'Response JSON forest ID matches');
 ok($validForestName eq $testForest->{name},                         $testname . "Response JSON forest name matches");
 ok($validForestDesc eq $testForest->{description},                  $testname . "Response JSON forest description matches");

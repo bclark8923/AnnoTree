@@ -50,4 +50,24 @@ sub treeInfo {
     $self->render(json => $json, status => $status); 
 }
 
+sub addUserToTree {
+    my $self = shift;
+    
+    my $jsonReq = $self->req->json;
+    $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{userToAdd}); 
+
+    my $params = {};
+    $params->{treeid} = $self->param('treeid');
+    $params->{requestingUser} = $self->current_user->{userid};
+    $params->{userToAdd} = $jsonReq->{userToAdd};
+    my $json = AnnoTree::Model::Tree->addUserToTree($params);
+    
+    my $status = 204;
+    if (exists $json->{error}) {
+       $status = 406;
+    }
+    
+    $self->render(json => $json, status => $status);
+}
+
 return 1;

@@ -200,4 +200,30 @@ sub treeInfo {
     return $json;
 }
 
+sub addUserToTree {
+    my ($class, $params) = @_;
+    
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call add_user_to_tree(:treeid, :userToAdd, :requestingUser)",
+        {
+            userToAdd       => $params->{userToAdd},
+            treeid          => $params->{treeid},
+            requestingUser  => $params->{requestingUser}
+        }
+    ); 
+    my $json = {};
+    my $num = $result->fetch->[0];
+    print 'num is: ' . $num . "\n";
+    if ($num == 0) {
+        $json = {result => $num, txt => 'User added successfully'};
+    } elsif ($num == 1) {
+        $json = {error => $num, txt => 'Tree does not exist or user does not have access to that tree'};
+    } elsif ($num == 2) {
+        $json = {error => $num, txt => 'User you tried to add does not exist'};
+    }
+ 
+    
+    return $json;
+}
+
 return 1;

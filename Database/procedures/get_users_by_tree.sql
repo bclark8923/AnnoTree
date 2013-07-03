@@ -13,9 +13,9 @@ CREATE procedure `get_users_by_tree`(
 )
 BEGIN
 IF (select id from user_tree where user_id = userid and tree_id = treeid) THEN
-    select 'first_name', 'last_name', 'email', 'status'
+    select 'id', 'first_name', 'last_name', 'email', 'status'
     union
-    select u.first_name, u.last_name, u.email, u.status
+    select u.id, u.first_name, u.last_name, u.email, u.status
     from user u, user_tree ut 
     where ut.user_id = u.id 
     and ut.tree_id = treeid;

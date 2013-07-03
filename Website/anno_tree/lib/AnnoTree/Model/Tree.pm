@@ -65,17 +65,35 @@ sub treeInfo {
         }
     ); 
     my $cols = $result->fetch;
-     if (looks_like_number($cols->[0])) {
+    if (looks_like_number($cols->[0])) {
         my $error = $cols->[0];
         if ($error == 1) {
             return {error => $error, txt => 'Tree does not exist or user does not have access to that tree'};
         } 
-     }
+    }
     my $treeInfo = $result->fetch;
     for (my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $treeInfo->[$i];
     }
     
+    $json->{users} = [];
+    my $userResult = AnnoTree::Model::MySQL->db->execute(
+        'call get_users_by_tree(:userid, :treeid)',
+        {
+            userid      => $params->{userid},
+            treeid      => $params->{treeid}
+        }
+    );
+
+    my $userCols = $userResult->fetch;
+    my $userCount = 0;
+    while (my $user = $userResult->fetch) {
+        for (my $i = 0; $i < @{$userCols}; $i++) {
+            $json->{users}->[$userCount]->{$userCols->[$i]} = $user->[$i];
+        }
+        $userCount++;
+    }
+
     $json->{branches} = [];
     my $branchResult = AnnoTree::Model::MySQL->db->execute(
         "call get_branches(:userid, :treeid)",

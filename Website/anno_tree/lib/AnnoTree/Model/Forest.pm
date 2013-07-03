@@ -78,7 +78,7 @@ sub forestInfo {
                 'call get_users_by_tree(:userid, :treeid)',
                 {
                     userid      => $userid,
-                    treeid    => $tree->[0]
+                    treeid      => $tree->[0]
                 }
             );
 

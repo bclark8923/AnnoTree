@@ -211,7 +211,7 @@ foreach my $anno (@{$testLeaf->{annotations}}) {
     next unless $anno->{id} = $validAnnoID;
     $testAnno = $anno;
 }
-
+print Dumper($jsonBody);
 ok(200 == $tx->res->code,                               $testname . 'Response Code is 200');
 ok($validTreeID == $jsonBody->{id},                     $testname . 'Response JSON tree ID matches');
 ok($validForestID == $jsonBody->{forest_id},            $testname . "Response JSON forest_id matches");

@@ -53,7 +53,6 @@ sub treeTaskInfo {
 
     my $json = {};
     my $cols = $result->fetch;
-    print Dumper($cols);
 
     if (looks_like_number($cols->[0])) { 
         my $error = $cols->[0];
@@ -68,6 +67,44 @@ sub treeTaskInfo {
             $json->{tasks}->[$taskIndex]->{$cols->[$i]} = $task->[$i] || '';
         }
         $taskIndex++;
+    }
+    
+    return $json;
+}
+
+sub updateTask {
+    my ($class, $params) = @_;
+
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call update_task(:taskid, :desc, :status, :leafid, :assignedTo, :dueDate, :requestingUser)",
+        {
+            taskid          => $params->{taskid},
+            desc            => $params->{desc},
+            status          => $params->{status},
+            leafid          => $params->{leafid},
+            assignedTo      => $params->{assignedTo},
+            dueDate         => $params->{dueDate},
+            requestingUser  => $params->{requestingUser}
+        }
+    );
+
+    my $json = {};
+    my $num = $result->fetch->[0];
+    #print Dumper($cols);
+    if ($num == 0) {
+        $json = {result => $num, txt => 'Task updated successfully'};
+    } elsif ($num == 1) {
+        $json = {result => $num, txt => 'Nothing was changed'};
+    } elsif ($num == 2) {
+        $json = {error => $num, txt => 'Task does not exist'};
+    } elsif ($num == 3) {
+        $json = {error => $num, txt => 'Requesting user does not exist or does not have access to the tree'};
+    } elsif ($num == 4) {
+        $json = {error => $num, txt => 'Task status does not exist'};
+    } elsif ($num == 5) {
+        $json = {error => $num, txt => 'The person you tried to assign the task to does not exist or does not have access to that tree'};
+    } elsif ($num == 6) {
+        $json = {error => $num, txt => 'Leaf does not exist'};
     }
     
     return $json;

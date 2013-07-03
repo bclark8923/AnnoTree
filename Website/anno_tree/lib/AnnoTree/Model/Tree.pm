@@ -213,7 +213,6 @@ sub addUserToTree {
     ); 
     my $json = {};
     my $num = $result->fetch->[0];
-    print 'num is: ' . $num . "\n";
     if ($num == 0) {
         $json = {result => $num, txt => 'User added successfully'};
     } elsif ($num == 1) {

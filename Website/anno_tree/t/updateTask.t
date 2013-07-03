@@ -168,145 +168,175 @@ ok(exists $jsonBody->{assigned_to},                 $testname . "Response JSON a
 ok(exists $jsonBody->{due_date},                    $testname . 'Response JSON due_date exists');
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
 ok($validUserID == $jsonBody->{created_by},         $testname . 'Response JSON created_by matches');
+my $validTaskID = $jsonBody->{id};
 ######### END MINIMUM VALID TASK CREATION TEST #########
 
-######### START FULL VALID TASK CREATION TEST #########
-# this test creates a new task with all JSON name/value pairs
-$testname = 'Valid full task creation: ';
-my $validDueDate = '2013-07-04 16:00:00';
-$tx = $uaValid->post($taskCreationURL => json => {
-    treeid          => $validTreeID,
+######### START VALID TASK UPDATE TEST #########
+# this test updates an existing task
+$testname = 'Valid task update: ';
+my $validTaskUpdateURL = $server . $port . '/tasks/' . $validTaskID;
+my $validDueDate = '2013-04-16 14:22';
+$tx = $uaValid->put($validTaskUpdateURL => json => {
     description     => $validTaskDesc,
     status          => $validTaskStatus,
-    assignedTo      => $validUserID,
-    dueDate         => $validDueDate,
-    leafid          => $validLeafID
+    leafid          => $validLeafID,
+    assignedTo      => '',
+    dueDate         => $validDueDate
 });
 $jsonBody = $json->decode($tx->res->body);
 
-ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
-ok(exists $jsonBody->{id},                          $testname . 'Response JSON ID exists');
-ok($validTaskDesc eq $jsonBody->{description},      $testname . "Response JSON description matches");
-ok($validTaskStatus eq $jsonBody->{status},         $testname . "Response JSON status matches");
-ok($validLeafID == $jsonBody->{leaf_id},            $testname . "Response JSON leaf_id matches");
-ok($validTreeID == $jsonBody->{tree_id},            $testname . "Response JSON tree_id matches");
-ok($validUserID == $jsonBody->{assigned_to},        $testname . "Response JSON assigned_to mataches");
-ok($validDueDate eq $jsonBody->{due_date},          $testname . 'Response JSON due_date mataches');
-ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
-ok($validUserID == $jsonBody->{created_by},         $testname . 'Response JSON created_by matches');
-######### END FULL VALID TASK CREATION TEST #########
+ok(204 == $tx->res->code,               $testname . 'Response Code is 204');
+######### END VALID TASK UPDATE TEST #########
 
-######### START INVALID DATE FORMAT TASK CREATION TEST #########
-# this test creates a new task with all JSON name/value pairs
-$testname = 'Invalid date format task creation: ';
-$tx = $uaValid->post($taskCreationURL => json => {
-    treeid          => $validTreeID,
+######### START VALID TASK UPDATE DUPLICATE TEST #########
+# this test updates an existing task
+$testname = 'Valid task update (duplicate): ';
+$tx = $uaValid->put($validTaskUpdateURL => json => {
     description     => $validTaskDesc,
     status          => $validTaskStatus,
-    dueDate         => 'asdfasfd',
+    leafid          => $validLeafID,
+    assignedTo      => '',
+    dueDate         => $validDueDate
 });
 $jsonBody = $json->decode($tx->res->body);
 
-ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
-ok(exists $jsonBody->{id},                          $testname . 'Response JSON ID exists');
-ok($validTaskDesc eq $jsonBody->{description},      $testname . "Response JSON description matches");
-ok($validTaskStatus eq $jsonBody->{status},         $testname . "Response JSON status matches");
-ok(exists $jsonBody->{leaf_id},                     $testname . "Response JSON leaf_id exists");
-ok($validTreeID == $jsonBody->{tree_id},            $testname . "Response JSON tree_id matches");
-ok(exists $jsonBody->{assigned_to},                 $testname . "Response JSON assigned_to");
-ok('0000-00-00 00:00:00' eq $jsonBody->{due_date},  $testname . 'Response JSON due_date matches');
-ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
-ok($validUserID == $jsonBody->{created_by},         $testname . 'Response JSON created_by matches');
-######### END INVALID DATE FORMAT TASK CREATION TEST #########
+ok(204 == $tx->res->code,               $testname . 'Response Code is 204');
+######### END VALID TASK UPDATE DUPLICATE TEST #########
 
-########## START MISSING REQUIRED TASK JSON VALUES CREATION TEST #########
-# this test attempts to create a task with missing request name/value pairs
-$testname = 'Missing required task parameters creation: ';
-$tx = $uaValid->post($taskCreationURL => json => {
-    treeid          => $validTreeID,
-    status          => $validTaskStatus
+######### START VALID TASK REQUIRED UPDATE TEST #########
+# this test updates an existing task
+$testname = 'Valid task required update: ';
+$tx = $uaValid->put($validTaskUpdateURL => json => {
+    description     => $validTaskDesc,
+    status          => $validTaskStatus,
+    leafid          => '',
+    assignedTo      => '',
+    dueDate         => ''
+});
+$jsonBody = $json->decode($tx->res->body);
+
+ok(204 == $tx->res->code,               $testname . 'Response Code is 204');
+######### END VALID TASK REQUIRED UPDATE TEST #########
+
+######### START MISSING PARAMETERS TASK UPDATE TEST #########
+# this test updates an existing task
+$testname = 'Missing parameters task update: ';
+$tx = $uaValid->put($validTaskUpdateURL => json => {
+    description     => $validTaskDesc,
+    status          => $validTaskStatus,
+    leafid          => '',
+    assignedTo      => '',
 });
 $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
 ok(0 == $jsonBody->{error},             $testname . "Response JSON error result is 0");
 ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
-########## END MISSING REQUIRED TASK JSON VALUES CREATION TEST #########
+######### END MISSING PARAMETERS TASK UPDATE TEST #########
 
-########## START EMPTY REQUIRED TASK JSON VALUES CREATION TEST #########
-# this test attempts to create a task with missing request name/value pairs
-$testname = 'Required parameters are empty task creation: ';
-$tx = $uaValid->post($taskCreationURL => json => {
-    treeid          => $validTreeID,
-    status          => '',
-    description     => $validTaskDesc
-});
-$jsonBody = $json->decode($tx->res->body);
-
-ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
-ok(0 == $jsonBody->{error},             $testname . "Response JSON error result is 0");
-ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
-########## END EMPTY REQUIRED TASK JSON VALUES CREATION TEST #########
-
-########## START INVALID DESCRIPTION TASK JSON VALUES CREATION TEST #########
-# this test attempts to create an iOS leaf with missing request parameters
-$testname = 'Invalid description task creation: ';
-$tx = $uaValid->post($taskCreationURL => json => {
-    treeid          => $validTreeID,
-    status          => $validTaskStatus,
-    description     => ';'
-});
-$jsonBody = $json->decode($tx->res->body);
-
-ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
-ok(3 == $jsonBody->{error},             $testname . "Response JSON error result is 3");
-ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
-########## END INVALID DESCRIPTION TASK JSON VALUES CREATION TEST #########
-
-######### START INVALID TREE TASK CREATION TEST #########
-# this test attempts to create a task on a tree the user does not have permission to
-$testname = 'Invalid tree task creation: ';
-$tx = $uaValid->post($taskCreationURL => json => {
-    treeid          => '1',
-    description     => $validTaskDesc,
-    status          => $validTaskStatus
+######### START INVALID DESCRIPTION TASK UPDATE TEST #########
+# this test updates an existing task
+$testname = 'Invalid task description update: ';
+$tx = $uaValid->put($validTaskUpdateURL => json => {
+    description     => ';',
+    status          =>$validTaskStatus,
+    leafid          => '',
+    assignedTo      => '',
+    dueDate         => ''
 });
 $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
 ok(1 == $jsonBody->{error},             $testname . "Response JSON error result is 1");
 ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
-######### END INVALID TREE VALID TASK CREATION TEST #########
+######### END INVALID DESCRIPTION TASK UPDATE TEST #########
 
-######### START INVALID STATUS TASK CREATION TEST #########
-# this test attempts to create a task with a non-existing status
-$testname = 'Invalid status task creation: ';
-$tx = $uaValid->post($taskCreationURL => json => {
-    treeid          => $validTreeID,
+######### START INVALID STATUS TASK UPDATE TEST #########
+# this test updates an existing task
+$testname = 'Invalid task status update: ';
+$tx = $uaValid->put($validTaskUpdateURL => json => {
     description     => $validTaskDesc,
-    status          => '200'
+    status          => '200',
+    leafid          => '',
+    assignedTo      => '',
+    dueDate         => ''
+});
+$jsonBody = $json->decode($tx->res->body);
+
+ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
+ok(4 == $jsonBody->{error},             $testname . "Response JSON error result is 4");
+ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
+######### END INVALID STATUS TASK UPDATE TEST #########
+
+######### START INVALID TASK UPDATE TEST #########
+# this test attempts to update task that does not exist
+$testname = 'Invalid task update: ';
+my $invalidTaskUpdateURL = $server . $port . '/tasks/0';
+$tx = $uaValid->put($invalidTaskUpdateURL => json => {
+    description     => $validTaskDesc,
+    status          => $validTaskStatus,
+    leafid          => $validLeafID,
+    assignedTo      => '',
+    dueDate         => ''
 });
 $jsonBody = $json->decode($tx->res->body);
 
 ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
 ok(2 == $jsonBody->{error},             $testname . "Response JSON error result is 2");
 ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
-######### END INVALID STATUS VALID TASK CREATION TEST #########
+######### END INVALID TASK UPDATE TEST #########
 
-######### START UNAUTHENTICATED USER TASK CREATION TEST #########
-# this test attempts to create a task with an unauthenticated user
-$testname = 'Unauthenticated user task creation: ';
+######### START INVALID ASSIGNED TASK UPDATE TEST #########
+# this test attempts to update task assignment to a status that does not exist
+$testname = 'Invalid task creation: ';
+$tx = $uaValid->put($validTaskUpdateURL => json => {
+    description     => $validTaskDesc,
+    status          => $validTaskStatus,
+    leafid          => $validLeafID,
+    assignedTo      => '20',
+    dueDate         => ''
+});
+$jsonBody = $json->decode($tx->res->body);
+
+ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
+ok(5 == $jsonBody->{error},             $testname . "Response JSON error result is 5");
+ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
+######### END INVALID ASSIGNED TASK UPDATE TEST #########
+
+######### START INVALID LEAF TASK UPDATE TEST #########
+# this test attempts to update task assignment to a leaf that does not exist
+$testname = 'Invalid leaf task update: ';
+$tx = $uaValid->put($validTaskUpdateURL => json => {
+    description     => $validTaskDesc,
+    status          => $validTaskStatus,
+    leafid          => '100',
+    assignedTo      => '',
+    dueDate         => ''
+});
+$jsonBody = $json->decode($tx->res->body);
+
+ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
+ok(6 == $jsonBody->{error},             $testname . "Response JSON error result is 6");
+ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
+######### END INVALID LEAF TASK UPDATE TEST #########
+
+######### START UNAUTHENTICATED USER TASK UPDATE TEST #########
+# this test attempts to update a task with an unauthenticated user
+$testname = 'Unauthenticated user task update: ';
 my $uaUnauth = Mojo::UserAgent->new;
 $tx = $uaUnauth->post($taskCreationURL => json => {
     treeid          => $validTreeID,
     description     => $validTaskDesc,
-    status          => $validTaskStatus
+    status          => $validTaskStatus,
+    assignedTo      => '',
+    dueDate         => ''
+
 });
 $jsonBody = $json->decode($tx->res->body);
 
 ok(401 == $tx->res->code,                   $testname . 'Response Code is 401');
 ok(0 == $jsonBody->{error},                 $testname . "Response JSON error result is 0");
 ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
-######### END UNAUTHENTICATED USER TASK CREATION TEST #########
+######### END UNAUTHENTICATED USER TASK UPDATE TEST #########
 
 done_testing();

@@ -89,6 +89,7 @@ sub startup {
     # ===== TASKS =====
     $authr->post('/tasks')                                  ->to('controller-task#create');
     $authr->get('/:treeid/tasks' => [treeid => qr/\d+/])    ->to('controller-task#treeTaskInfo');
+    $authr->put('/tasks/:taskid' => [taskid => qr/\d+/])    ->to('controller-task#updateTask');
     
     # ===== FORESTS =====
     $authr->post('/forest') ->to('controller-forest#create');

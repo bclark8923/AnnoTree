@@ -68,7 +68,7 @@
 								switch(errorNumber)
 								{
 									case 0:
-										errorData = "No Access.";
+										errorData = "Please fill out all of the fields.";
 										break;
 									case 1:
 										errorData = "This email does not exist in our system.";
@@ -76,6 +76,7 @@
 									default:
 										//stuff
 										// go to fail page
+										$location.path("/forestFire");
 								}
 							} else if (response.data.status == 401) {
 								switch(errorNumber)
@@ -86,9 +87,11 @@
 									default:
 										//stuff
 										// go to fail page
+										$location.path("/forestFire");
 								}
 							} else {
 								//go to fail page
+								$location.path("/forestFire");
 							}
 							$("#validateError").html(errorData);
 

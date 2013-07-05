@@ -38,13 +38,15 @@
 
 				        $scope.treeInfo = response.data;
 						
-						loadLeaves( response.data.branches[0].leaves );
+						if(response.data.branches.length == 0) {
+							$location.path("/forestFire");
+						} else {
+							loadLeaves( response.data.branches[0].leaves );
 
- 						$timeout(function() { window.Gumby.init() }, 0);
-
+	 						$timeout(function() { window.Gumby.init() }, 0);	
+						}
 					},
 					function( response ) {
-
 						var errorData = "Our Create Tree Service is currently down, please try again later.";
 						var errorNumber = parseInt(response.data.error);
 						if(response.data.status == 406) {
@@ -52,16 +54,6 @@
 							{
 								case 1:
 									errorData = "This user does not exist in our system. Please contact Us.";
-									break;
-								default:
-									//go to Fail Page
-									$location.path("/forestFire");
-							}
-						} else if(response.data.status == 204) {
-							switch(errorNumber)
-							{
-								case 2:
-									errorData = "This user currently has no forests."; // load a sample page maybe?
 									break;
 								default:
 									//go to Fail Page
@@ -130,12 +122,14 @@
 		        /* This event is raised when the server send back a response */
 		        alert(evt.target.responseText);
 		        //delete new leaf
+				$location.path("/forestFire");
 		    }
 
 		    function uploadCanceled(evt) {
 		        /* This event is raised when the server send back a response */
 		        alert(evt.target.responseText);
 		        //delete new leaf
+				$location.path("/forestFire");
 		    }
 
 			$scope.newLeaf = function() {
@@ -187,20 +181,10 @@
 										errorData = "This user does not exist in our system. Please contact Us.";
 										break;
 									case 2:
-										errorData = "The forest you attempted to add to no longer exists.";
+										errorData = "The branch you attempted to add to no longer exists.";
 										break;
 									case 4:
-										errorData = "Please enter a valid forest name.";
-										break;
-									default:
-										//go to Fail Page
-										$location.path("/forestFire");
-								}
-							} else if(response.data.status == 403) {
-								switch(errorNumber)
-								{
-									case 3:
-										errorData = "You currently don't have permission to create a tree in this forest.";
+										errorData = "Please enter a valid leaf name.";
 										break;
 									default:
 										//go to Fail Page

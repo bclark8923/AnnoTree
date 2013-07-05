@@ -183,6 +183,7 @@ a:hover{
     margin-left: 10px;
     margin-top: 5px;
     height: 23px;
+    color: #444;
 }
 
 .userLinkDiv {
@@ -244,6 +245,10 @@ a:hover{
     width: 100%;
     background: url('../img/forestBGDark.png');
   background-size: cover;
+}
+
+.l-loading {
+  background: url('../img/forestBGDark.png');
 }
 
 #scaffold {
@@ -517,8 +522,8 @@ div.treeSubview[ng-switch] {
 
 #actionHeader {
 	height: 40px;
- 	border-bottom: 1px solid #444;
-  background: #222;
+ 	/*border-bottom: 1px solid #444;
+  background: #222;*/
   /*background-image: linear-gradient(#ffffff, #f7f7f7);
   background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7);
   -webkit-border-radius: 5px 5px 0px 0px;

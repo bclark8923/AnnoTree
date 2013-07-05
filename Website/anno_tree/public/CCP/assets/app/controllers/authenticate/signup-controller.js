@@ -93,9 +93,11 @@
 									default:
 										//pre-defined
 										//go to Fail Page
+										$location.path("/forestFire");
 								}
 							} else {
 								//go to Fail Page
+								$location.path("/forestFire");
 							}
 							$("#validateError").html(errorData);
 

@@ -52,23 +52,22 @@
 					},
 					function( response ) {
 
-						var errorData = "Our Create Tree Service is currently down, please try again later.";
+						var errorData = "Our Create Task Service is currently down, please try again later.";
 						var errorNumber = parseInt(response.data.error);
 						if(response.data.status == 406) {
 							switch(errorNumber)
 							{
-								case 1:
-									errorData = "This user does not exist in our system. Please contact Us.";
+								case 0:
+									errorData = "Please add a name to the task";
 									break;
-								default:
-									//go to Fail Page
-									$location.path("/forestFire");
-							}
-						} else if(response.data.status == 204) {
-							switch(errorNumber)
-							{
+								case 1:
+									errorData = "The tree you are trying to add a task to no longer exists";
+									break;
 								case 2:
-									errorData = "This user currently has no forests."; // load a sample page maybe?
+									errorData = "The status you tried to apply does not exist";
+									break;
+								case 3:
+									errorData = "Please enter valid characters (alphanumeric) only";
 									break;
 								default:
 									//go to Fail Page
@@ -78,6 +77,8 @@
 							//go to Fail Page
 							$location.path("/forestFire");
 						}
+
+						$location.path("/forestFire");
 					}
 				);
 
@@ -96,12 +97,6 @@
 						$scope.isLoading = false;
 
 						$scope.tasks = response.data.tasks;
-						/*$scope.branchID = response.data.branches[0].id;
-				        $scope.treeInfo = response.data;
-						
-						loadLeaves( response.data.branches[0].leaves );*/
-
- 						//$timeout(function() { window.Gumby.init() }, 0);
 
 					},
 					function( response ) {
@@ -118,20 +113,11 @@
 									//go to Fail Page
 									$location.path("/forestFire");
 							}
-						} else if(response.data.status == 204) {
-							switch(errorNumber)
-							{
-								case 2:
-									errorData = "This user currently has no forests."; // load a sample page maybe?
-									break;
-								default:
-									//go to Fail Page
-									$location.path("/forestFire");
-							}
 						} else if(response.data.status != 401 && errorNumber != 0) {
 							//go to Fail Page
 							$location.path("/forestFire");
 						}
+						$location.path("/forestFire");
 					}
 				);
 

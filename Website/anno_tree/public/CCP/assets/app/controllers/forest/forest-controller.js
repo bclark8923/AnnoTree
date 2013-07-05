@@ -30,12 +30,17 @@
 
 				promise.then(
 					function( response ) {
+						if(response.data.status == 204 && response.data.error == 2) {
+							$scope.noForests = "Please add your first forest.";
+						} else {
 
+							loadTrees( response.data.forests );
+
+	 					}
+						
 						$scope.isLoading = false;
-
-						loadTrees( response.data.forests );
-
- 						$timeout(function() { window.Gumby.init() }, 0);
+	 					
+	 					$timeout(function() { window.Gumby.init() }, 0);
 
 					},
 					function( response ) {
@@ -51,17 +56,7 @@
 									//go to Fail Page
 									$location.path("/forestFire");
 							}
-						} else if(response.data.status == 204) {
-							switch(errorNumber)
-							{
-								case 2:
-									errorData = "This user currently has no forests."; // load a sample page maybe?
-									break;
-								default:
-									//go to Fail Page
-									$location.path("/forestFire");
-							}
-						} else {
+						} else if(response.data.status != 401 && errorNumber != 0)  {
 							//go to Fail Page
 							$location.path("/forestFire");
 						}
@@ -85,13 +80,6 @@
 				}
 
 				$("#newTreeClose").click();
-
-				$scope.invalidAddTree = false;
-
-				//$location.path("/app");
-
-				//$route.reload();
-
 
 			}
 
@@ -120,8 +108,6 @@
 
 					promise.then(
 						function( response ) {
-
-							$scope.isLoading = false;
 					
 							var branchName = "Loose Leaves";
 							var branchDescription = "A collection of loose leaves sent to this tree.";
@@ -131,15 +117,44 @@
 							promise.then(
 								function(response) {
 									//worked
-									var data = response.data;
+
+									$scope.isLoading = false;
+									$scope.invalidAddTree = false;
 
 									addTree( $scope.newTreeData );
 								},
 								function(response) {
-									//failed
-									var data = response.data;
-
 									//delete tree
+									$scope.invalidAddTree = true;
+									var errorData = "Our Create Branch Service is currently down, please try again later.";
+									var errorNumber = parseInt(response.data.error);
+									if(response.data.status == 406) {
+										switch(errorNumber)
+										{
+											case 0:
+												errorData = "Please fill out all of the fields";
+												break;
+											case 1:
+												errorData = "This user does not exist in our system. Please contact Us.";
+												break;
+											case 2:
+												errorData = "The tree you attempted to add to no longer exists.";
+												break;
+											case 4:
+												errorData = "Please enter a valid branch name.";
+												break;
+											default:
+												//go to Fail Page
+												$location.path("/forestFire");
+										}
+									} else if(response.data.status != 401 && errorNumber != 0) {
+										//go to Fail Page
+										$location.path("/forestFire");
+									}
+									
+									//if this breaks at all we have a problem on our end
+									$location.path("/forestFire");
+
 								}
 							);
  				
@@ -147,6 +162,7 @@
 
 						},
 						function( response ) {
+							$scope.invalidAddTree = true;
 							var errorData = "Our Create Tree Service is currently down, please try again later.";
 							var errorNumber = parseInt(response.data.error);
 							if(response.data.status == 406) {
@@ -178,7 +194,7 @@
 										//go to Fail Page
 										$location.path("/forestFire");
 								}
-							} else {
+							} else if(response.data.status != 401 && errorNumber != 0) {
 								//go to Fail Page
 								$location.path("/forestFire");
 							}
@@ -194,14 +210,7 @@
 				newForest.trees = [];
 				newForest.trees.push($scope.newTreeHolder);
 				$scope.forests.push(newForest);
-
-				//$scope.$apply();
 				$("#newForestClose").click();
-				$scope.invalidAddForest = false;
-
-				//$location.path("/app");
-
-				//$route.reload();
 
 			}
 
@@ -229,13 +238,16 @@
 						function( response ) {
 
 							$scope.isLoading = false;
+							$scope.invalidAddForest = false;
+							$scope.noForests = "";
 
 							addForest( response.data );
- 				
+ 							$scope.forests[0].name = "fuck";
  							$timeout(function() { Gumby.initialize('switches') }, 0);
 
 						},
 						function( response ) {
+							$scope.invalidAddForest = true;
 							var errorData = "Our Create Forest Service is currently down, please try again later.";
 							var errorNumber = parseInt(response.data.error);
 							if(response.data.status == 406) {
@@ -284,6 +296,7 @@
 			// I hold the categories to render.
             $scope.forests = [];
             $scope.branchID = -1;
+            $scope.noForests = "";
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

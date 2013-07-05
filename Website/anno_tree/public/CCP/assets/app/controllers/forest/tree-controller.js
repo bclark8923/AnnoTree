@@ -97,6 +97,7 @@
 				$("#leafName").val('');
 				$("#annotationImage").val('');
 				$scope.invalidAddLeaf = false; 
+				$("#loadingScreen").hide();
 			}
 
 			function newAnnotation(leafID) {

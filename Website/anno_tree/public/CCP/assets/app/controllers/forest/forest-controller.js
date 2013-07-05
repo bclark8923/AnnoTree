@@ -95,6 +95,7 @@
 				$("#treeDescription").val('');
 				$scope.invalidAddTree = false; 
 				$rootScope.curForestAdd = -1;
+				$("#loadingScreen").hide();
 			}
 
 			$scope.newTree = function() {
@@ -243,6 +244,7 @@
 				$("#invalidAddForest").html('');
 				$("#forestName").val('');
 				$scope.invalidAddForest = false; 
+				$("#loadingScreen").hide();
 			}
 
 			$scope.newForest = function() {

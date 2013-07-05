@@ -95,6 +95,8 @@ AnnoTree.directive('postRender', function($timeout) {
       $timeout( 
         function() {
           window.Gumby.init() 
+
+          $("#loadingScreen").hide();
         }, 0
       );
     }
@@ -131,8 +133,8 @@ var interceptor = function( $q, $location ) {
  
     // attach our actions
     promise.then( resolve, reject );
-
-    $("#loadingScreen").hide();
+    
+    //$("#loadingScreen").hide();
  
     // return the original promise
     return promise;

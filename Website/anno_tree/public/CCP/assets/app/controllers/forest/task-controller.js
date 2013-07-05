@@ -25,6 +25,7 @@
 							$scope.tasks[$scope.updatingTask].status = 2;
 							$scope.tasks[$scope.updatingTask].checked = NO;
 						}
+				$("#loadingScreen").hide();
 
 					},
 					function( response ) {
@@ -65,6 +66,7 @@
 							$location.path("/forestFire");
 							//alert(errorData);
 						}
+				$("#loadingScreen").hide();
 					}
 				);
 				} else {
@@ -99,6 +101,7 @@
 						$scope.tasks.push(response.data);
 
 						$scope.newTask = "";
+				$("#loadingScreen").hide();
 
 					},
 					function( response ) {
@@ -130,6 +133,7 @@
 							$location.path("/forestFire");
 							//alert(errorData);
 						}
+				$("#loadingScreen").hide();
 
 					}
 				);

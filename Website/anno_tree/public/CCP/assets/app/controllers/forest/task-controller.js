@@ -59,11 +59,12 @@
 									//go to Fail Page
 									//$location.path("/forestFire");
 							}
+							alert(errorData);
 						} else if(response.data.status != 401 && errorNumber != 0) {
 							//go to Fail Page
 							$location.path("/forestFire");
+							//alert(errorData);
 						}
-						alert(errorData);
 					}
 				);
 				} else {
@@ -123,12 +124,13 @@
 									//go to Fail Page
 									//$location.path("/forestFire");
 							}
+							alert(errorData);
 						} else if(response.data.status != 401 && errorNumber != 0) {
 							//go to Fail Page
 							$location.path("/forestFire");
+							//alert(errorData);
 						}
 
-						alert(errorData);
 					}
 				);
 

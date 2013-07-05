@@ -17,7 +17,7 @@
 					forests[i].trees.push($scope.newTreeHolder);
 				}
 
-               	$scope.forests = forests;
+               	$rootScope.forests = forests;
 			}
 
 
@@ -70,22 +70,22 @@
 
 			function addTree(newTree) {
 
-				for(var i = 0; i < $scope.forests.length; i++) { 
-					if($scope.forests[i].id == newTree.forest_id) {
-						$scope.forests[i].trees.pop();
-						$scope.forests[i].trees.push(newTree);
-						$scope.forests[i].trees.push($scope.newTreeHolder);
+				for(var i = 0; i < $rootScope.forests.length; i++) { 
+					if($rootScope.forests[i].id == newTree.forest_id) {
+						$rootScope.forests[i].trees.pop();
+						$rootScope.forests[i].trees.push(newTree);
+						$rootScope.forests[i].trees.push($scope.newTreeHolder);
 						break;
 					}
 				}
 
-				$("#newTreeClose").click();
+				$scope.closeNewTreeModal();
 
 			}
 
 			$scope.openNewTreeModal = function (forest) {
 				$("#newTreeModal").addClass('active');
-				$scope.curForestAdd = forest.id;
+				$rootScope.curForestAdd = forest.id;
 			}
 
 			$scope.closeNewTreeModal = function () {
@@ -94,7 +94,7 @@
 				$("#treeName").val('');
 				$("#treeDescription").val('');
 				$scope.invalidAddTree = false; 
-				$scope.curForestAdd = -1;
+				$rootScope.curForestAdd = -1;
 			}
 
 			$scope.newTree = function() {
@@ -102,7 +102,7 @@
 				var treeName = $scope.treeName;
 				var treeDescription = $scope.treeDescription;
 				var formValid = $scope.createTreeForm.$valid;
-				var forestID = $scope.curForestAdd;
+				var forestID = $rootScope.curForestAdd;
 				if(forestID == -1) {
 					formValid = false;
 				}
@@ -229,8 +229,8 @@
 
 				newForest.trees = [];
 				newForest.trees.push($scope.newTreeHolder);
-				$scope.forests.push(newForest);
-				$("#newForestClose").click();
+				$rootScope.forests.push(newForest);
+				$scope.closeNewForestModal();
 
 			}
 
@@ -273,7 +273,7 @@
 							$scope.noForests = "";
 
 							addForest( response.data );
- 							$scope.forests[0].name = "fuck";
+ 							//$scope.forests[0].name = "fuck";
  							$timeout(function() { Gumby.initialize('switches') }, 0);
 
 						},
@@ -325,7 +325,7 @@
 			$scope.isLoading = true;
 
 			// I hold the categories to render.
-            $scope.forests = [];
+            $rootScope.forests = [];
             $scope.branchID = -1;
             $scope.curForestAdd = -1;
             $scope.noForests = "";

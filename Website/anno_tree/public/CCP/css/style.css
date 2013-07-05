@@ -245,7 +245,7 @@ a:hover{
 #wrapper {
     height: 100%;
     width: 100%;
-    background: transparent;/* url('../img/forestBGDark.png');*/
+  background: url('../img/forestBGDark.png');
   -webkit-background-size: cover; /*for webKit*/
   -moz-background-size: cover; /*Mozilla*/
   -o-background-size: cover; /*opera*/

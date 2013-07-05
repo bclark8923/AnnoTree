@@ -103,6 +103,35 @@ AnnoTree.directive('postRender', function($timeout) {
   }
 });
 
+AnnoTree.directive('renderPane', function($timeout) {
+  return  { 
+    link: function(scope, elm, attrs) { 
+      $timeout( 
+        function() {
+          var width = 80;
+          settingsPane = new SlidingPane({
+            id: 'mobileOptions',
+            targetId: 'wrapper',
+            side: 'right',
+            width: 240,
+            duration: 0.75,
+            timingFunction: 'ease',
+            shadowStyle: '0px 0px 0px #000'
+          });
+
+          $("#paneToggle").click(function() {
+            settingsPane.open()
+          });
+
+          $("#wrapper").click(function() {
+            settingsPane.close()
+          });
+        }, 0
+      );
+    }
+  }
+});
+
 var preInterceptor = function( $q, $location ) {
   return function( promise ) {
 
@@ -150,4 +179,8 @@ AnnoTree.filter('threeColumnFilter', function() {
         }
         return arr;
     };
+});
+
+$(document).ready(function() {
+  
 });

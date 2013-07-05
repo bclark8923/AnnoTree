@@ -20,7 +20,7 @@
 						leaves[i].annotation = "img/tree01.png";
 					}
 				}
-               	$scope.leaves = leaves;
+               	$rootScope.leaves = leaves;
 			}
 
 
@@ -73,7 +73,7 @@
 
 			function addLeaf(newLeaf) {
 
-				$scope.leaves.push(newLeaf);
+				$rootScope.leaves.push(newLeaf);
 
 				$("#newLeafClose").click();
 
@@ -231,7 +231,7 @@
 			$scope.isLoading = true;
 
 			// I hold the categories to render.
-            $scope.leaves = [];
+            $rootScope.leaves = [];
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

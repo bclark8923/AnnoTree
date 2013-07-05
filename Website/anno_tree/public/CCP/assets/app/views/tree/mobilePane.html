@@ -1,34 +1,16 @@
 
-
-<div ng-switch="subview" ng-controller="forest.TreeController">
-  <div ng-include=" 'assets/app/views/tree/tree-modals.html' "></div>
-  <div id="scaffold">
-
-      <div id="mainContent" style="margin:0;border:0;">
-        
-              <div ng-switch="subview" class="l-body treeSubview">
-                <div ng-switch-when="leaves" ng-include=" 'assets/app/views/tree/leaves.html' "></div>
-                <div ng-switch-when="leaf" ng-include=" 'assets/app/views/tree/leaf.html' "></div>
-              </div>
-        <div id="options" >
-          <div id="actionHeader" class="valign">
-            <div class="taskHeader">
+<div ng-switch="subview">
+      <div style="position:absolute; right:20px; top: 5px; z-index:0;">
+          <a href="#" class="userLink toggle responsiveShow" gumby-trigger=".userSettings"><img id="userIcon" src="img/user.png" gumby-retina /></a>
+          <span class="logoutArrow userSettings"></span>
+      </div>
+      <div id="actionHeader" class="valign">
+          <div class="taskHeader">
               <p class="taskListHeadText">Task List</p>
-            </div>
-            <!--
-            <span class="actionBarButton">
-              <i class="icon-fa icon-tasks"></i>
-            </span>
-            <span class="actionBarButton">
-              <i class="icon-fa icon-comments-alt"></i>
-            </span>
-            <span class="actionBarButton">
-              <i class="icon-fa icon-leaf"></i>
-            </span>
-            -->
           </div>
-          <div id="actionContent">
-            <div id="tasks" ng-controller="forest.TaskController">
+      </div>
+      <div id="actionContent">
+          <div id="tasks" ng-controller="forest.TaskController">
               <div id="myTasks" class="taskGrouping">
                 <a href class="toggle taskToggle active" gumby-trigger=".myTaskOpen">
                   <p class="taskGroupingHeader">Open Tasks</p>
@@ -81,9 +63,5 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
       </div>
-    </div>
-  </div>
 </div>

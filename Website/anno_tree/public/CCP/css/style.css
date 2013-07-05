@@ -516,11 +516,11 @@ div.treeSubview[ng-switch] {
 }
 
 #mobileOptions {
-    background-color: white;/*#444444;*/
+    background-color: #222;
     width: 100%;
     float: right;
     height: 100%;
-    border: 1px solid #bbb;
+    border: 1px solid #222;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;

@@ -120,7 +120,7 @@ AnnoTree.directive('renderPane', function($timeout) {
           });
 
           $("#paneToggle").click(function() {
-            settingsPane.open()
+            settingsPane.toggle()
           });
 
           $("#wrapper").click(function() {

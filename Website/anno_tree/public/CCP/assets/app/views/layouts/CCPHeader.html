@@ -32,7 +32,7 @@
                         <a href class="userLink toggle responsiveHide" gumby-trigger=".userSettings">
                             <img id="userIcon" ng-src="{{user.avatar}}" gumby-retina />
                         </a>
-                        <span class="logoutArrow userSettings"></span>
+                        <span class="logoutArrow userSettings responsiveHide"></span>
                         <div class="responsiveShow" style="width: 40px;
                             height: 40px;
                             margin-top: 5px;">
@@ -53,7 +53,10 @@
 
         <!-- slide over page for mobile options -->
         <div id="mobileOptions" render-pane>
-            junk
+            <div ng-switch="subview" class="l-body">
+                <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/mobilePane.html' "></div>
+                <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/mobilePane.html' "></div>
+            </div>
         </div>
         
     

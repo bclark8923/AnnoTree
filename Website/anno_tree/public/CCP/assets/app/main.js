@@ -101,6 +101,16 @@ AnnoTree.directive('postRender', function($timeout) {
   }
 });
 
+var preInterceptor = function( $q, $location ) {
+  return function( promise ) {
+
+    $("#loadingScreen").show();
+ 
+    // return the original promise
+    return promise;
+  }
+};
+
 var interceptor = function( $q, $location ) {
   return function( promise ) {
  
@@ -121,6 +131,8 @@ var interceptor = function( $q, $location ) {
  
     // attach our actions
     promise.then( resolve, reject );
+
+    $("#loadingScreen").hide();
  
     // return the original promise
     return promise;

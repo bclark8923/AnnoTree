@@ -22,19 +22,28 @@
 	</head>
 	<body>
 
+		<div id="loadingScreen" class="valign" style="text-align:center;position:absolute;height:100%;width:100%;background:rgba(0,0,0,0.5);z-index:99999;">
+			<div>
+			<div>
+				<div id="loadingSpinner" class="valign" style="margin:0 auto;width:150px;height:150px;background-color:#f7f8f5;border-radius:5px;">
+						<img src="img/AnnoTreeLoading.png" style="width:170px;margin-top:30px;"/>
+				</div>
+				</div>
+			</div>
+		</div>
 		<div ng-switch="subview">
 			<!--
 				This subview will show while the AngularJS app is loading since it's visible right in 
 				the page. Once the app kicks in, however, the calculated subview will determine the
 				appropriate layout to render.
 			-->
-			<div ng-switch-when="loading" class="l-loading" style="opacity:0.5;">
+			<!--<div ng-switch-when="loading" class="l-loading" style="opacity:0.5;">
 				
 				<div style="text-align:center;">
 	    			<img src="img/AnnoTreeLoading.png" style="width:200px;margin-top: 200px;"/>
 				</div>	
 
-			</div>
+			</div>-->
 
 			<!-- Core layouts. -->
 			<div ng-switch-when="authenticate" ng-include=" 'assets/app/views/layouts/Authenticate.html' "></div>

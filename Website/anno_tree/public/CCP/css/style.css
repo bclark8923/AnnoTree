@@ -7,7 +7,7 @@ html, body {
 body {
   font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
   /*background: url('../img/gray-fabric-pattern-light.jpg') no-repeat center center fixed;*/
-  background-color: #f4f4f4;/*#fafafa;*/
+  background-color: black;/*#fafafa;*/
   -webkit-background-size: cover; /*for webKit*/
   -moz-background-size: cover; /*Mozilla*/
   -o-background-size: cover; /*opera*/
@@ -15,6 +15,7 @@ body {
   height: 100%;
   width: 100%;
   color: white;
+  background: url('../img/forestBGDark.png');
 }
 
 div[ng-switch], div[ng-switch-when], div[ng-controller] {
@@ -244,12 +245,19 @@ a:hover{
 #wrapper {
     height: 100%;
     width: 100%;
-    background: url('../img/forestBGDark.png');
-  background-size: cover;
+    background: transparent;/* url('../img/forestBGDark.png');*/
+  -webkit-background-size: cover; /*for webKit*/
+  -moz-background-size: cover; /*Mozilla*/
+  -o-background-size: cover; /*opera*/
+  background-size: cover; /*generic*/
 }
 
 .l-loading {
   background: url('../img/forestBGDark.png');
+  -webkit-background-size: cover; /*for webKit*/
+  -moz-background-size: cover; /*Mozilla*/
+  -o-background-size: cover; /*opera*/
+  background-size: cover; /*generic*/
 }
 
 #scaffold {

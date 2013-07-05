@@ -55,6 +55,15 @@
 				return $http.post(apiRoot.getRoot() + '/tasks', {treeid: treeID, description: taskDescription, status: 1, leafid: leafID});
 			}
 
+			function updateTask(taskID, leafID, taskDescription, statusID, assignedTo, dueDate) {
+				return $http.put(apiRoot.getRoot() + '/task/' + taskID, {description: taskDescription, 
+																		 status: statusID, 
+																		 leafid: leafID,
+																		 assignedTo: assignedTo,
+																		 dueDate: dueDate
+																		});
+			}
+
 			// ---------------------------------------------- //
 			// ---------------------------------------------- //
 
@@ -71,7 +80,8 @@
 				createAnnotation: createAnnotation,
 				getTasks: getTasks,
 				createTask: createTask,
-				createTaskLeaf: createTaskLeaf
+				createTaskLeaf: createTaskLeaf,
+				updateTask: updateTask
 			});
 
 

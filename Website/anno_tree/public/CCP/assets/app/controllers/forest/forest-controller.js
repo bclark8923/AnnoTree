@@ -162,7 +162,7 @@
 												break;
 											default:
 												//go to Fail Page
-												$location.path("/forestFire");
+												//$location.path("/forestFire");
 										}
 									} else if(response.data.status != 401 && errorNumber != 0) {
 										//go to Fail Page
@@ -170,7 +170,8 @@
 									}
 									
 									//if this breaks at all we have a problem on our end
-									$location.path("/forestFire");
+									//$location.path("/forestFire");
+									alert(errorData);
 
 								}
 							);
@@ -199,7 +200,7 @@
 										break;
 									default:
 										//go to Fail Page
-										$location.path("/forestFire");
+										//$location.path("/forestFire");
 								}
 							} else if(response.data.status == 403) {
 								switch(errorNumber)
@@ -292,7 +293,7 @@
 										break;
 									default:
 										//go to Fail Page
-										$location.path("/forestFire");	
+										//$location.path("/forestFire");	
 								}
 							} else if(response.data.status != 401 && errorNumber != 0) {
 								//go to Fail Page

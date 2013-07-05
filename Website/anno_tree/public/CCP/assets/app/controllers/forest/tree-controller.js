@@ -200,11 +200,12 @@
 										break;
 									default:
 										//go to Fail Page
-										$location.path("/forestFire");
+										//$location.path("/forestFire");
 								}
 							} else if(response.data.status != 401 && errorNumber != 0) {
 								//go to Fail Page
-								$location.path("/forestFire");
+								//$location.path("/forestFire");
+								alert(errorData);
 							}
 							$("#invalidAddTree").html(errorData);
 

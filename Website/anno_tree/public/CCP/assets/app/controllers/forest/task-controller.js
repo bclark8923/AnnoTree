@@ -11,13 +11,63 @@
 
 
 			$scope.toggleCheck = function (task) {
-				var taskIndex = $scope.tasks.indexOf(task);
-				if($scope.tasks[taskIndex].status == 1) {
-					$scope.tasks[taskIndex].status = 2;
-					$scope.tasks[taskIndex].checked = NO;
+				var task = $scope.tasks[$scope.tasks.indexOf(task)];
+				if(task.status == 1) {
 					//send update to Service
+					$scope.updatingTask = $scope.tasks.indexOf(task);
+					var promise = forestService.updateTask(task.id, task.leaf_id, task.description, 2, "", "");
+					promise.then(
+					function( response ) {
+
+						if($scope.updatingTask == -1) {
+							$location.path("/forestFire");
+						} else {
+							$scope.tasks[$scope.updatingTask].status = 2;
+							$scope.tasks[$scope.updatingTask].checked = NO;
+						}
+
+					},
+					function( response ) {
+
+						var errorData = "Our Update Task Service is currently down, please try again later.";
+						var errorNumber = parseInt(response.data.error);
+						if(response.data.status == 406) {
+							switch(errorNumber)
+							{
+								case 0:
+									errorData = "Please add a name to the task";
+									break;
+								case 1:
+									errorData = "Please have at least one alphanumeric character";
+									break;
+								case 2:
+									errorData = "The task you tried to update no longer exists";
+									break;
+								case 3:
+									errorData = "You don't have access to modify this tree";
+									break;
+								case 4:
+									errorData = "Invalid task status";
+									break;
+								case 5:
+									errorData = "You assigned this to a person that does not exist";
+									break;
+								case 6:
+									errorData = "The leaf you tried to assign to no longer exists";
+									break;
+								default:
+									//go to Fail Page
+									//$location.path("/forestFire");
+							}
+						} else if(response.data.status != 401 && errorNumber != 0) {
+							//go to Fail Page
+							$location.path("/forestFire");
+						}
+						alert(errorData);
+					}
+				);
 				} else {
-					$scope.tasks[taskIndex].status = 1;
+					task.status = 1;
 					//send update to Service
 				}
 		    };
@@ -71,14 +121,14 @@
 									break;
 								default:
 									//go to Fail Page
-									$location.path("/forestFire");
+									//$location.path("/forestFire");
 							}
 						} else if(response.data.status != 401 && errorNumber != 0) {
 							//go to Fail Page
 							$location.path("/forestFire");
 						}
 
-						$location.path("/forestFire");
+						alert(errorData);
 					}
 				);
 
@@ -101,7 +151,7 @@
 					},
 					function( response ) {
 
-						var errorData = "Our Create Tree Service is currently down, please try again later.";
+						var errorData = "Our Load Task Service is currently down, please try again later.";
 						var errorNumber = parseInt(response.data.error);
 						if(response.data.status == 406) {
 							switch(errorNumber)
@@ -141,6 +191,7 @@
 			// I hold the categories to render.
             //$scope.tasks = [{id: "1", description: "Make sign up fields vertically aligned", status: "0"}, {id: "2", description: "Make the sign up button larger", status: "0"}, {id: "3", description: "Change sign up button to darker green", status: "1"}];
             $scope.tasks = [];
+            $scope.updatingTask = -1;
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

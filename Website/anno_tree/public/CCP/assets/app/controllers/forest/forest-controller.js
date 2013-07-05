@@ -239,13 +239,12 @@
 				$("#newForestModal").removeClass('active');
 				$("#invalidAddForest").html('');
 				$("#forestName").val('');
-				$("#forestDescription").val('');
 				$scope.invalidAddForest = false; 
 			}
 
 			$scope.newForest = function() {
 				var forestName = $scope.forestName;
-				var forestDescription = $scope.forestDescription;
+				var forestDescription = "NULL";
 				var formValid = $scope.createForestForm.$valid;
 
 				//validate form

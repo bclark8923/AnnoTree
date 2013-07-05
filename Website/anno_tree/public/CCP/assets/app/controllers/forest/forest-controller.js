@@ -214,6 +214,18 @@
 
 			}
 
+			$scope.openNewForestModal = function () {
+				$("#newForestModal").addClass('active');
+			}
+
+			$scope.closeNewForestModal = function () {
+				$("#invalidAddForest").html('');
+				$("#forestName").val('');
+				$("#forestDescription").val('');
+				$scope.invalidAddForest = false; 
+				$("#newForestModal").removeClass('active');
+			}
+
 			$scope.newForest = function() {
 				var forestName = $scope.forestName;
 				var forestDescription = $scope.forestDescription;

@@ -63,6 +63,8 @@
 			// Set the window title.
 			$scope.setWindowTitle( "AnnoTree" );
 
+			$("#loadingScreen").hide();
+
 		}
 	);
 

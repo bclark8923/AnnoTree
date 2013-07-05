@@ -1,6 +1,6 @@
 
 
-        <div ng-include=" 'assets/app/views/layouts/forest-modals.html' "></div>
+        <div ng-include=" 'assets/app/views/forest/forest-modals.html' "></div>
 <div ng-switch="subview">
     
     <div id="mainContent" ng-controller="forest.ForestController">
@@ -42,7 +42,7 @@
                                     <div ng-switch-when="-1">
                                         <div class="cardHolder">
                                             <div class="card switch active" style="opacity:0.6;">
-                                                <a id="newTreeLink-{{forest.id}}" href class="switch newTreeLinkClass" gumby-trigger="#newTreeModal, #newTreeLink-{{forest.id}}">
+                                                <a id="newTreeLink-{{forest.id}}" href class="switch newTreeLinkClass" ng-click="openNewTreeModal(forest)">
                                                     <div class="cardTitleBar valign"><div>{{tree.name}}</div></div>
                                                     <div class="treeLogoContainer">
                                                         <div style="margin-top:50px;color:#444;font-size:130pt;font-weight:800;">

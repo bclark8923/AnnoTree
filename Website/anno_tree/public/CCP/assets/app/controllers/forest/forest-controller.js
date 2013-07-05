@@ -83,12 +83,29 @@
 
 			}
 
+			$scope.openNewTreeModal = function (forest) {
+				$("#newTreeModal").addClass('active');
+				$scope.curForestAdd = forest.id;
+			}
+
+			$scope.closeNewTreeModal = function () {
+				$("#newTreeModal").removeClass('active');
+				$("#invalidAddTree").html('');
+				$("#treeName").val('');
+				$("#treeDescription").val('');
+				$scope.invalidAddTree = false; 
+				$scope.curForestAdd = -1;
+			}
+
 			$scope.newTree = function() {
 
 				var treeName = $scope.treeName;
 				var treeDescription = $scope.treeDescription;
 				var formValid = $scope.createTreeForm.$valid;
-				var forestID = $(".newTreeLinkClass.active").attr('id').split("-")[1];
+				var forestID = $scope.curForestAdd;
+				if(forestID == -1) {
+					formValid = false;
+				}
 
 				//validate form
 				if(!formValid) {
@@ -219,11 +236,11 @@
 			}
 
 			$scope.closeNewForestModal = function () {
+				$("#newForestModal").removeClass('active');
 				$("#invalidAddForest").html('');
 				$("#forestName").val('');
 				$("#forestDescription").val('');
 				$scope.invalidAddForest = false; 
-				$("#newForestModal").removeClass('active');
 			}
 
 			$scope.newForest = function() {
@@ -308,6 +325,7 @@
 			// I hold the categories to render.
             $scope.forests = [];
             $scope.branchID = -1;
+            $scope.curForestAdd = -1;
             $scope.noForests = "";
 
 			// The subview indicates which view is going to be rendered on the page.

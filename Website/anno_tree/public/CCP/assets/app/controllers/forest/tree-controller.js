@@ -87,6 +87,18 @@
 
 			}
 
+			$scope.openNewLeafModal = function () {
+				$("#newLeafModal").addClass('active');
+			}
+
+			$scope.closeNewLeafModal = function () {
+				$("#newLeafModal").removeClass('active');
+				$("#invalidAddLeaf").html('');
+				$("#leafName").val('');
+				$("#annotationImage").val('');
+				$scope.invalidAddLeaf = false; 
+			}
+
 			function newAnnotation(leafID) {
 			    $scope.files = []
 			    var annotationImageElement = document.getElementById('annotationImage');

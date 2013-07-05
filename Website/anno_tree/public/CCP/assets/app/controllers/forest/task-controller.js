@@ -11,19 +11,19 @@
 
 
 			$scope.toggleCheck = function (task) {
-				var task = $scope.tasks[$scope.tasks.indexOf(task)];
+				var task = $rootScope.tasks[$rootScope.tasks.indexOf(task)];
 				if(task.status == 1) {
 					//send update to Service
-					$scope.updatingTask = $scope.tasks.indexOf(task);
+					$rootScope.updatingTask = $rootScope.tasks.indexOf(task);
 					var promise = forestService.updateTask(task.id, task.leaf_id, task.description, 2, "", "");
 					promise.then(
 					function( response ) {
 
-						if($scope.updatingTask == -1) {
+						if($rootScope.updatingTask == -1) {
 							$location.path("/forestFire");
 						} else {
-							$scope.tasks[$scope.updatingTask].status = 2;
-							$scope.tasks[$scope.updatingTask].checked = NO;
+							$rootScope.tasks[$rootScope.updatingTask].status = 2;
+							$rootScope.tasks[$rootScope.updatingTask].checked = NO;
 						}
 				$("#loadingScreen").hide();
 
@@ -96,12 +96,12 @@
 				promise.then(
 					function( response ) {
 
-						$scope.isLoading = false;
+						$rootScope.isLoading = false;
 
-						$scope.tasks.push(response.data);
+						$rootScope.tasks.push(response.data);
 
 						$scope.newTask = "";
-				$("#loadingScreen").hide();
+						$("#loadingScreen").hide();
 
 					},
 					function( response ) {
@@ -152,7 +152,7 @@
 
 						$scope.isLoading = false;
 
-						$scope.tasks = response.data.tasks;
+						$rootScope.tasks = response.data.tasks;
 
 					},
 					function( response ) {
@@ -196,8 +196,8 @@
 
 			// I hold the categories to render.
             //$scope.tasks = [{id: "1", description: "Make sign up fields vertically aligned", status: "0"}, {id: "2", description: "Make the sign up button larger", status: "0"}, {id: "3", description: "Change sign up button to darker green", status: "1"}];
-            $scope.tasks = [];
-            $scope.updatingTask = -1;
+            $rootScope.tasks = [];
+            $rootScope.updatingTask = -1;
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

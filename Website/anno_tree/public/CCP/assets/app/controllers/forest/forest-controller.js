@@ -30,7 +30,7 @@
 
 				promise.then(
 					function( response ) {
-						if(response.data.status == 204 && response.data.error == 2) {
+						if(response.status == 204) {
 							$scope.noForests = "Please add your first forest.";
 						} else {
 
@@ -40,7 +40,7 @@
 						
 						$scope.isLoading = false;
 	 					
-	 					$timeout(function() { window.Gumby.init() }, 0);
+	 					$timeout(function() { window.Gumby.init(); $("#loadingScreen").hide(); }, 0);
 
 					},
 					function( response ) {
@@ -273,6 +273,7 @@
 							$scope.isLoading = false;
 							$scope.invalidAddForest = false;
 							$scope.noForests = "";
+							$("#noForestsDiv").hide();
 
 							addForest( response.data );
  							//$scope.forests[0].name = "fuck";

@@ -24,9 +24,9 @@
             </div>
             
             <div id="treesContainer">
-                <div ng-show="noForests != ''" class="valign" style="text-align:center;height:100%;">
+                <div id="noForestsDiv" ng-show="noForests != ''" class="valign" style="text-align:center;height:100%;">
                     <div>
-                        <span style="font-size:30pt;">{{noForests}}</span>
+                        <span style="font-size:30pt;" ng-mode="noForests">{{noForests}}</span>
                     </div>
                 </div>
                 <div ng-repeat="forest in forests" post-render>

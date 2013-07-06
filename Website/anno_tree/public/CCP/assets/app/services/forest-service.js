@@ -68,7 +68,7 @@
 
 			function updateTask(taskID, leafID, taskDescription, statusID, assignedTo, dueDate) {
 				$("#loadingScreen").show();
-				return $http.put(apiRoot.getRoot() + '/task/' + taskID, {description: taskDescription, 
+				return $http.put(apiRoot.getRoot() + '/tasks/' + taskID, {description: taskDescription, 
 																		 status: statusID, 
 																		 leafid: leafID,
 																		 assignedTo: assignedTo,

@@ -25,7 +25,7 @@
 							$rootScope.tasks[$rootScope.updatingTask].status = 2;
 							$rootScope.tasks[$rootScope.updatingTask].checked = NO;
 						}
-				$("#loadingScreen").hide();
+						$("#loadingScreen").hide();
 
 					},
 					function( response ) {
@@ -63,10 +63,10 @@
 							alert(errorData);
 						} else if(response.data.status != 401 && errorNumber != 0) {
 							//go to Fail Page
-							$location.path("/forestFire");
+							//$location.path("/forestFire");
 							//alert(errorData);
 						}
-				$("#loadingScreen").hide();
+						$("#loadingScreen").hide();
 					}
 				);
 				} else {

@@ -13,9 +13,9 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`branch_link` (
   `destination_branch_id` INT NULL ,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) ,
-  INDEX `fk_branchLink_1` (`source_branch_id` ASC) ,
+  INDEX `fk_branch_link_1` (`source_branch_id` ASC) ,
   INDEX `fk_branch_link_2` (`destination_branch_id` ASC) ,
-  CONSTRAINT `fk_branchLink_1`
+  CONSTRAINT `fk_branch_link_1`
     FOREIGN KEY (`source_branch_id` )
     REFERENCES `annotree`.`branch` (`id` )
     ON DELETE NO ACTION

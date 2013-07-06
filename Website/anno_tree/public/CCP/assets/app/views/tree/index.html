@@ -28,59 +28,8 @@
             -->
           </div>
           <div id="actionContent">
-            <div id="tasks" ng-controller="forest.TaskController">
-              <div id="myTasks" class="taskGrouping">
-                <a href class="toggle taskToggle active" gumby-trigger=".myTaskOpen">
-                  <p class="taskGroupingHeader">Open Tasks</p>
-                  <p class="taskGroupingIcon"><i id="myTaskIcon" class="icon-chevron-sign-down myTaskOpen active"></i></p>
-                </a>
-                <div class="drawer taskList active myTaskOpen" id="myTaskTasks">
-                  <ul>
-                    <li ng-repeat="task in tasks" data-ng-show="task.status == 1">
-                      <div>
-                        <input type="checkbox" ng-click="toggleCheck(task)" ng-checked="task.status==2">
-                        <span>{{task.description}}</span>
-                        <span class="success label" ng-show="task.leaf_id" style="margin-left:5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">LeafName</span>
-                      </div>
-                      <!--<div style="height:15px;" ng-show="task.leaf_id">
-                        <div class="success label" style="position:relative;left:20px;top:-5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">LeafName</div>
-                      </div>-->
-                    </li>
-                  </ul>
-                  <ul>
-                      <li>
-                        <form name="addTaskForm" ng-submit="addTask()" style="margin: 0;">
-                          <div style="padding-left:5px;">
-                              <span><a class="linkColor" ng-click="addTask()" ><i class="icon-ne icon-plus-sign"></i></a></span>
-                              <span>
-                                  <input type="text" class="addTodo" ng-model="newTask">
-                              </span>
-                          </div>
-                        </form>
-                      </li>
-                  </ul>
-                </div>
-              </div>
-              <div id="completedTasks" class="taskGrouping">
-                <a href class="toggle taskToggle" gumby-trigger=".completedTaskOpen">
-                  <p class="taskGroupingHeader">Completed Tasks</p>
-                  <p class="taskGroupingIcon"><i class="icon-chevron-sign-down completedTaskOpen"></i></p>
-                </a>
-                <div class="drawer taskList completedTaskOpen" id="completedTaskTasks">
-                  <ul>
-                    <li ng-repeat="task in tasks" data-ng-show="task.status == 2">
-                      <div>
-                        <input type="checkbox" ng-click="toggleCheck(task)" ng-checked="task.status==2">
-                        <span>{{task.description}}</span>
-                      </div>
-                      <div style="height:15px;" ng-show="task.leaf_id">
-                        <div class="success label" style="position:relative;left:20px;top:-5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">LeafName</div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <div ng-include=" 'assets/app/views/tree/tasks.html' "></div>
+            
           </div>
         </div>
       </div>

@@ -272,7 +272,7 @@
     //for (NSString *param in _params) {
         [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", @"token"] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"%@\r\n", @"d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"%@\r\n", activeTree] dataUsingEncoding:NSUTF8StringEncoding]];
     //}
     
     // add image data
@@ -414,8 +414,9 @@
 {
     supportedOrientation = orientation;
     
+    activeTree = tree;
     
-    NSLog(@"Loaded AnnoTree with tree %@", tree);
+    NSLog(@"Loaded AnnoTree with key %@", tree);
 }
 
 /* Function to show AnnoTree window and place toolbar at correct location */

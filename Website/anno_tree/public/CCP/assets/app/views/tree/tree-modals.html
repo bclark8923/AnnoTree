@@ -31,16 +31,8 @@
 
 
 <!-- Modify Tree Modal -->
-<div class="modal" id="modifyTreeModal" ng-controller="forest.TreeController">
-    <div class="content">
-        <a class="close switch" gumby-trigger="|#modifyTreeModal"><i class="icon-cancel"></i></a>
-        <div class="row">
-            <div class="ten columns centered center-text">
-                <h2>Modify Tree</h2>
-                <p>Gumby modals are easy to make using Toggles &amp; Switches. The <span class="label default">.modal</span> class already has the required styles which you can open and close using Toggles &amp; Switches.</p>
-                
-                <p class="btn primary medium"><a href="#" class="switch active" gumby-trigger="|#modifyTreeModal">Close Modal</a></p>
-            </div>
-        </div>
-    </div>
+<div class="modal" id="modifyTreeModal" ng-controller="forest.TreeController" ng-model="modifyTree">
+  <div class="content" style="padding: 0;min-height:0;top: 10%;max-height: 100%;">
+    <div ng-include=" 'assets/app/views/tree/modifyTree-modals.html' "></div>
+  </div>
 </div>

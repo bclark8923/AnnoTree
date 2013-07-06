@@ -75,6 +75,40 @@
 				}
 		    };
 
+		    $scope.showTaskOpen = function(task) {
+				if($routeParams.leafID) {
+					
+					if(task.status == 1 && $routeParams.leafID == task.leaf_id) {
+						return true;
+					} else {
+						return false;
+					}
+				} else {
+					if(task.status == 1) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+		    }
+
+		    $scope.showTaskClosed = function(task) {
+				if($routeParams.leafID) {
+					
+					if(task.status == 2 && $routeParams.leafID == task.leaf_id) {
+						return true;
+					} else {
+						return false;
+					}
+				} else {
+					if(task.status == 2) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+		    }
+
 			// I apply the remote data to the local view model.
 			$scope.addTask = function() {
 

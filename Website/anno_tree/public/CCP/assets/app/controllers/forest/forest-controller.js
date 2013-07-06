@@ -83,6 +83,20 @@
 
 			}
 
+			$scope.openModifyTreeModal = function (tree) {
+				$("#modifyTreeModal").addClass('active');
+				$rootScope.modifyTree = tree;
+			}
+
+			$scope.closeModifyTreeModal = function () {
+				$("#modifyTreeModal").removeClass('active');
+				$("#invalidModifyTree").html('');
+				$rootScope.modifyTree = null;
+				$scope.invalidModifyTree = false; 
+				$("#loadingScreen").hide();
+			}
+			
+
 			$scope.openNewTreeModal = function (forest) {
 				$("#newTreeModal").addClass('active');
 				$rootScope.curForestAdd = forest.id;

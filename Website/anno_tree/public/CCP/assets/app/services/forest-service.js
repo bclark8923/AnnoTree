@@ -57,7 +57,7 @@
 			}
 
 			function createTask(treeID, taskDescription) {
-				$("#loadingScreen").show();
+				//$("#loadingScreen").show();
 				return $http.post(apiRoot.getRoot() + '/tasks', {treeid: treeID, description: taskDescription, status: 1});
 			}
 

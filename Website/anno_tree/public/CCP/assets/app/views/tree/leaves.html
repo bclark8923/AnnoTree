@@ -3,13 +3,13 @@
           <div id="treeHeader" class="valign">
             <div id="crumbHolder">
               <span class="responsiveHide">
-                <a href="#/app">Home</a> > {{treeInfo.name}}
+                <a href="#/app">Home</a> > <span  ng-click="openModifyTreeModal()">{{treeInfo.name}}</span>
               </span>
               <span class="responsiveShow">
                 <a ng-href="#/app"><i class="icon-arrow-left" style="color:#444;font-size:16pt"></i></a>
               </span>
             </div>
-            <div class="responsiveShowTC" style="text-align:center;width:100%">
+            <div class="responsiveShowTC" style="text-align:center;width:100%" ng-click="openModifyTreeModal()">
                 {{treeInfo.name}}
             </div>
             <div id="newElementHolder"  class="switch" ng-click="openNewLeafModal()">

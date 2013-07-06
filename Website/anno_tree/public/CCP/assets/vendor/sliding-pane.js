@@ -33,6 +33,7 @@ var SlidingPane = function (config) {
     var $ = function (selector) { return document.querySelector(selector); },
     parentElement = null,
     transitionStyle = '',
+    transitionStyleFast = '',
     boxShadowStyle = '',
     dimensionStyle = '',
     wrapperOrigPos = 0,
@@ -73,9 +74,18 @@ var SlidingPane = function (config) {
         me.isOpen = true;
         return me;
     };
-    this.close = function () {
+    this.close = function (time) {
         var me = this,
         s = boxShadowStyle + ';' + transitionStyle + ';' + dimensionStyle,
+        t = me.getTranslate(me.side, 0);
+        //hiddenPaneWrapper.setAttribute('style', 'right: 0; width: ' + document.body.clientWidth - me.width);
+        visiblePaneWrapper.setAttribute('style', s + '-webkit-transform: ' + t + '; -moz-transform: ' + t + '; -o-transform: ' + t + '; transform: ' + t + ';');
+        me.isOpen = false;
+        return me;
+    };
+    this.closeFast = function (time) {
+        var me = this,
+        s = boxShadowStyle + ';' + transitionStyleFast + ';' + dimensionStyle,
         t = me.getTranslate(me.side, 0);
         //hiddenPaneWrapper.setAttribute('style', 'right: 0; width: ' + document.body.clientWidth - me.width);
         visiblePaneWrapper.setAttribute('style', s + '-webkit-transform: ' + t + '; -moz-transform: ' + t + '; -o-transform: ' + t + '; transform: ' + t + ';');
@@ -112,6 +122,7 @@ var SlidingPane = function (config) {
         
         /* Set styles */
         boxShadowStyle = 'box-shadow: ' + me.shadowStyle;
+        transitionStyleFast = 'transition: transform ' + '0' + 's ' + me.timingFunction + '; -moz-transition: -moz-transform ' + '0' + 's ' + me.timingFunction + '; -webkit-transition: -webkit-transform ' + '0' + 's ' + me.timingFunction + '; -o-transition: -o-transform ' + '0' + 's ' + me.timingFunction;
         transitionStyle = 'transition: transform ' + me.duration.toString() + 's ' + me.timingFunction + '; -moz-transition: -moz-transform ' + me.duration.toString() + 's ' + me.timingFunction + '; -webkit-transition: -webkit-transform ' + me.duration.toString() + 's ' + me.timingFunction + '; -o-transition: -o-transform ' + me.duration.toString() + 's ' + me.timingFunction;
         //dimensionStyle = 'width: ' + me.targetElement.getBoundingClientRect().width + 'px; height: ' + me.targetElement.getBoundingClientRect().height + 'px;';
         dimensionStyle = 'width: 100%; height:100%; ';// + me.targetElement.getBoundingClientRect().width + 'px; height: ' + me.targetElement.getBoundingClientRect().height + 'px;';

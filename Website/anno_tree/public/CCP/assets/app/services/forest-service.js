@@ -52,7 +52,7 @@
 			}
 
 			function getTasks(treeID) {
-				$("#loadingScreen").show();
+				//$("#loadingScreen").show();
 				return $http.get(apiRoot.getRoot() + '/' + treeID + '/tasks');
 			}
 
@@ -62,12 +62,12 @@
 			}
 
 			function createTaskLeaf(treeID, leafID, taskDescription) {
-				$("#loadingScreen").show();
+				//$("#loadingScreen").show();
 				return $http.post(apiRoot.getRoot() + '/tasks', {treeid: treeID, description: taskDescription, status: 1, leafid: leafID});
 			}
 
 			function updateTask(taskID, leafID, taskDescription, statusID, assignedTo, dueDate) {
-				$("#loadingScreen").show();
+				//$("#loadingScreen").show();
 				return $http.put(apiRoot.getRoot() + '/tasks/' + taskID, {description: taskDescription, 
 																		 status: statusID, 
 																		 leafid: leafID,

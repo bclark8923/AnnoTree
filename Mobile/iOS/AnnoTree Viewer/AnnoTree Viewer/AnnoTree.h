@@ -34,6 +34,7 @@
 @property int textViewHeightHold;
 @property int keyboardHeight;
 @property GLuint colorRenderbuffer;
+@property UIAlertView *leafUploading;
 
 
 /* Temp */

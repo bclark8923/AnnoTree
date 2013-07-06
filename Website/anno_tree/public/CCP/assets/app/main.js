@@ -114,7 +114,7 @@ AnnoTree.directive('renderPane', function($timeout) {
             targetId: 'wrapper',
             side: 'right',
             width: 240,
-            duration: 0.75,
+            duration: 0.5,
             timingFunction: 'ease',
             shadowStyle: '0px 0px 0px #000'
           });
@@ -182,5 +182,10 @@ AnnoTree.filter('threeColumnFilter', function() {
 });
 
 $(document).ready(function() {
-  
+  $(window).resize(function() {
+    if(window.innerWidth > 767 && settingsPane.isOpen) {
+      //$("#wrapper").click(0);
+      settingsPane.closeFast();
+    }
+  });
 });

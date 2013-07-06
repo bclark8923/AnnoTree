@@ -44,6 +44,7 @@
 @synthesize textViewHeightHold;
 @synthesize keyboardHeight;
 @synthesize colorRenderbuffer;
+@synthesize leafUploading;
 
 /* Temp */
 @synthesize addTextGesture;
@@ -202,6 +203,13 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
         
+        leafUploading = [[UIAlertView alloc] initWithTitle:@"Uploading"
+                                                                message:@""
+                                                               delegate:self
+                                                      cancelButtonTitle: nil //NSLocalizedString(@"Cancel",nil)
+                                                      otherButtonTitles: nil
+                                      ];
+        
         NSLog(@"Initialized AnnoTree");
     }
     return self;
@@ -248,9 +256,55 @@
 }
 
 -(IBAction)openShare:(UIButton*)button {
+    
+    UIAlertView *leafNameAlert = [[UIAlertView alloc] initWithTitle:@"Leaf Name"
+                                                        message:@""
+                                                        delegate:self
+                                                        cancelButtonTitle:NSLocalizedString(@"Cancel",nil)
+                                                        otherButtonTitles:NSLocalizedString(@"Send",nil), nil
+                                  ];
+    
+    
+    leafNameAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
+
+    [[leafNameAlert textFieldAtIndex:0] sendActionsForControlEvents:UIControlEventAllEvents];
+    [leafNameAlert show];
+}
+
+- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
+{
+    NSString *inputText = [[alertView textFieldAtIndex:0] text];
+    NSString *leafNameTrimmed = [inputText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if( [leafNameTrimmed length] >= 1 )
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    //if (buttonIndex != NULL)
+    NSLog(@"%i",buttonIndex);
+    if(buttonIndex == 1) {
+        UITextField *leafName = [alertView textFieldAtIndex:0];
+        //NSLog(@"%@", leafName.text);
+        NSString *leafNameTrimmed = [leafName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if([leafNameTrimmed length] >= 1) {
+            [self sendLeaf:leafNameTrimmed];
+        } else {
+            return;
+        }
+    }
+}
+
+-(void)sendLeaf:(NSString*)leafName {
     /*[UIView animateWithDuration:0.25 animations:^{
         shareView.view.center = CGPointMake(shareView.view.frame.size.width/2, shareView.view.frame.size.height/2);
     }];*/
+    
     
     // create request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -270,9 +324,13 @@
     
     // add params (all params are strings)
     //for (NSString *param in _params) {
-        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", @"token"] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"%@\r\n", activeTree] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"%@\r\n", activeTree] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", @"leafName"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"%@\r\n", leafName] dataUsingEncoding:NSUTF8StringEncoding]];
     //}
     
     // add image data
@@ -319,16 +377,38 @@
     }
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    [leafUploading show];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     // Fail..
     NSLog(@"error");
+    [leafUploading dismissWithClickedButtonIndex:0 animated:YES];
+    UIAlertView *leafNameError = [[UIAlertView alloc] initWithTitle:@"Leaf Failed To Upload"
+                                                            message:@""
+                                                           delegate:self
+                                                  cancelButtonTitle:NSLocalizedString(@"Ok",nil)
+                                                  otherButtonTitles: nil
+                                  ];
+    
+        
+    [leafNameError show];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // Request performed.
     NSLog(@"success");
+    [leafUploading dismissWithClickedButtonIndex:0 animated:YES];
+    UIAlertView *leafNameSuccess = [[UIAlertView alloc] initWithTitle:@"Leaf Uploaded"
+                                                            message:@""
+                                                           delegate:self
+                                                  cancelButtonTitle:NSLocalizedString(@"Ok",nil)
+                                                  otherButtonTitles: nil
+                                  ];
+    
+    
+    [leafNameSuccess show];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response

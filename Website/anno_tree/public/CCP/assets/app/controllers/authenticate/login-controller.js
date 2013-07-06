@@ -64,7 +64,7 @@
 							$scope.invalidLogin = true;
 							var errorData = "Our Login Service is currently down, please try again later.";
 							var errorNumber = parseInt(response.data.error);
-							if(response.data.status == 406) {
+							if(response.status == 406) {
 								switch(errorNumber)
 								{
 									case 0:
@@ -78,10 +78,10 @@
 										// go to fail page
 										$location.path("/forestFire");
 								}
-							} else if (response.data.status == 401) {
+							} else if (response.status == 401) {
 								switch(errorNumber)
 								{
-									case 0:
+									case 1:
 										errorData = "Invalid Email/Password information.";
 										break;
 									default:

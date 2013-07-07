@@ -13,8 +13,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "414"
          endingLineNumber = "414"
-         landmarkName = "@implementation AnnoTree"
-         landmarkType = "3">
+         landmarkName = "-connection:didFailWithError:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -130,8 +130,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "463"
          endingLineNumber = "463"
-         landmarkName = "@implementation AnnoTree"
-         landmarkType = "3">
+         landmarkName = "-setSelectedButton:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -182,7 +182,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "454"
          endingLineNumber = "454"
-         landmarkName = "-enableDisableText:"
+         landmarkName = "-connection:didReceiveData:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -195,7 +195,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "429"
          endingLineNumber = "429"
-         landmarkName = "-connection:didReceiveData:"
+         landmarkName = "-connectionDidFinishLoading:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -221,7 +221,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "308"
          endingLineNumber = "308"
-         landmarkName = "-sendLeaf:"
+         landmarkName = "-alertView:clickedButtonAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -234,7 +234,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "290"
          endingLineNumber = "290"
-         landmarkName = "-alertView:clickedButtonAtIndex:"
+         landmarkName = "-alertViewShouldEnableFirstOtherButton:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -273,7 +273,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "313"
          endingLineNumber = "313"
-         landmarkName = "-sendLeaf:"
+         landmarkName = "-alertView:clickedButtonAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -286,7 +286,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "315"
          endingLineNumber = "315"
-         landmarkName = "-sendLeaf:"
+         landmarkName = "-alertView:didDismissWithButtonIndex:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -299,8 +299,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "291"
          endingLineNumber = "291"
-         landmarkName = "-alertView:clickedButtonAtIndex:"
-         landmarkType = "5">
+         landmarkName = "@implementation AnnoTree"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"

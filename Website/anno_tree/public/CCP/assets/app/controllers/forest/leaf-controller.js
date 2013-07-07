@@ -9,6 +9,15 @@
 
 			// --- Define Controller Methods. ------------------- //
 
+			$scope.openViewLeafModal = function (tree) {
+				$("#viewLeafModal").addClass('active');
+				$rootScope.modifyTree = tree;
+			}
+
+			$scope.closeViewLeafModal = function () {
+				$("#viewLeafModal").removeClass('active');
+			}
+
 
 			// I apply the remote data to the local view model.
 			function loadLeaf( leaf ) {

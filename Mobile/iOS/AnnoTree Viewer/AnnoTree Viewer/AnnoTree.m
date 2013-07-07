@@ -273,15 +273,19 @@
 
 - (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
 {
-    NSString *inputText = [[alertView textFieldAtIndex:0] text];
-    NSString *leafNameTrimmed = [inputText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if( [leafNameTrimmed length] >= 1 )
-    {
+    if( alertView.alertViewStyle == UIAlertViewStylePlainTextInput) {
+        NSString *inputText = [[alertView textFieldAtIndex:0] text];
+        NSString *leafNameTrimmed = [inputText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if( [leafNameTrimmed length] >= 1 )
+        {
+            return YES;
+        }
+        else
+        {
+            return NO;
+        }
+    } else {
         return YES;
-    }
-    else
-    {
-        return NO;
     }
 }
 
@@ -293,7 +297,27 @@
         //NSLog(@"%@", leafName.text);
         NSString *leafNameTrimmed = [leafName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         if([leafNameTrimmed length] >= 1) {
-            [leafName resignFirstResponder];
+            [self.view endEditing:YES];
+        } else {
+            UIAlertView *leafNameError = [[UIAlertView alloc] initWithTitle:@"Error: Please input a name"
+                                                                    message:@""
+                                                                   delegate:self
+                                                          cancelButtonTitle:NSLocalizedString(@"Ok",nil)
+                                                          otherButtonTitles: nil
+                                          ];
+            
+            
+            [leafNameError show];
+        }
+    }
+}
+
+- (void)alertView:(UIAlertView*)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if(buttonIndex == 1) {
+        UITextField *leafName = [alertView textFieldAtIndex:0];
+        //NSLog(@"%@", leafName.text);
+        NSString *leafNameTrimmed = [leafName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if([leafNameTrimmed length] >= 1) {
             [self sendLeaf:leafNameTrimmed];
         } else {
             return;

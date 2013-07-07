@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846010.900666"
+            timestampString = "394919258.062748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "494"
-            endingLineNumber = "494"
+            startingLineNumber = "518"
+            endingLineNumber = "518"
             landmarkName = "-loadAnnoTree:withTree:"
             landmarkType = "5">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846010.900666"
+            timestampString = "394919258.062748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "544"
-            endingLineNumber = "544"
+            startingLineNumber = "568"
+            endingLineNumber = "568"
             landmarkName = "-toolbarWasDragged:withEvent:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,13 +202,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846010.900666"
+            timestampString = "394919258.062748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "430"
-            endingLineNumber = "430"
-            landmarkName = "@implementation AnnoTree"
-            landmarkType = "3">
+            startingLineNumber = "454"
+            endingLineNumber = "454"
+            landmarkName = "-connection:didReceiveData:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -218,13 +218,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846010.900666"
+            timestampString = "394919258.062748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "535"
-            endingLineNumber = "535"
-            landmarkName = "@implementation AnnoTree"
-            landmarkType = "3">
+            startingLineNumber = "559"
+            endingLineNumber = "559"
+            landmarkName = "-adjustFrames:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846010.900666"
+            timestampString = "394919258.062748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "510"
-            endingLineNumber = "510"
+            startingLineNumber = "534"
+            endingLineNumber = "534"
             landmarkName = "-openCloseAnnoTree:"
             landmarkType = "5">
          </BreakpointContent>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846010.900666"
+            timestampString = "394919258.062748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "366"
-            endingLineNumber = "366"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
             landmarkName = "-sendLeaf:"
             landmarkType = "5">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846010.900666"
+            timestampString = "394919258.062748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "348"
-            endingLineNumber = "348"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
             landmarkName = "-sendLeaf:"
             landmarkType = "5">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846010.900666"
+            timestampString = "394919258.062748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "356"
-            endingLineNumber = "356"
+            startingLineNumber = "380"
+            endingLineNumber = "380"
             landmarkName = "-sendLeaf:"
             landmarkType = "5">
          </BreakpointContent>
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846010.900666"
+            timestampString = "394919258.062748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
             landmarkName = "-sendLeaf:"
             landmarkType = "5">
          </BreakpointContent>
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846010.900666"
+            timestampString = "394919258.062748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
+            startingLineNumber = "395"
+            endingLineNumber = "395"
             landmarkName = "-sendLeaf:"
             landmarkType = "5">
          </BreakpointContent>
@@ -346,27 +346,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846010.900666"
+            timestampString = "394919258.062748"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "397"
+            endingLineNumber = "397"
+            landmarkName = "-sendLeaf:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AnnoTree Viewer/AnnoTree.m"
+            timestampString = "394919258.062748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "373"
             endingLineNumber = "373"
-            landmarkName = "-sendLeaf:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846010.900666"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
             landmarkName = "-sendLeaf:"
             landmarkType = "5">
          </BreakpointContent>
@@ -500,11 +500,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846010.900666"
+            timestampString = "394919012.548724"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -516,11 +516,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846010.900666"
+            timestampString = "394919012.548724"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "-alertViewShouldEnableFirstOtherButton:"
             landmarkType = "5">
          </BreakpointContent>
@@ -532,57 +532,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846000.132407"
+            timestampString = "394919005.417662"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
-            landmarkName = "-alertViewShouldEnableFirstOtherButton:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AnnoTree alertViewShouldEnableFirstOtherButton:]"
-                  moduleName = "AnnoTree Viewer"
-                  urlString = "file://localhost/Users/Brian/Documents/AnnoTree/Mobile/iOS/AnnoTree%20Viewer/AnnoTree%20Viewer/AnnoTree.m"
-                  timestampString = "394846135.059756"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "284"
-                  endingLineNumber = "284"
-                  offsetFromSymbolStart = "312">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AnnoTree alertViewShouldEnableFirstOtherButton:]"
-                  moduleName = "AnnoTree Viewer"
-                  urlString = "file://localhost/Users/Brian/Documents/AnnoTree/Mobile/iOS/AnnoTree%20Viewer/AnnoTree%20Viewer/AnnoTree.m"
-                  timestampString = "394846135.060213"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "284"
-                  endingLineNumber = "284"
-                  offsetFromSymbolStart = "350">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846000.912321"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
             landmarkName = "-alertViewShouldEnableFirstOtherButton:"
             landmarkType = "5">
          </BreakpointContent>
@@ -594,11 +548,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394846001.458933"
+            timestampString = "394919218.3094"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
             landmarkName = "-alertViewShouldEnableFirstOtherButton:"
             landmarkType = "5">
          </BreakpointContent>

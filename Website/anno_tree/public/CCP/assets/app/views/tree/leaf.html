@@ -1,15 +1,17 @@
 <div id="treeContainer" ng-controller="forest.LeafController">
+  <div ng-include=" 'assets/app/views/tree/leaf-modals.html' "></div>
   <div id="treeHeader" class="valign">
     <div id="crumbHolder">
       <span class="responsiveHide">
-        <a href="#/app">Home</a> > <a href="#/app/{{treeInfo.id}}">{{treeInfo.name}}</a> > {{leafName}}
+        <a ng-href="#/app/{{treeInfo.id}}"><i class="icon-circle-arrow-left" style="color:#84db69;font-size:16pt;margin-right:15px;"></i></a>
+        {{leafName}} <a href ng-click="openModifyLeafModal()"><i class="icon-cog" style="color:white;"></i></a>
       </span>
       <span class="responsiveShow">
-        <a ng-href="#/app/{{treeInfo.id}}"><i class="icon-arrow-left" style="color:#444;font-size:16pt"></i></a>
+        <a ng-href="#/app/{{treeInfo.id}}" style="margin-left:15px;"><i class="icon-circle-arrow-left" style="color:#84db69;font-size:16pt"></i></a>
       </span>
     </div>
-    <div class="responsiveShowTC" style="text-align:center;width:100%">
-        {{leafName}}
+    <div class="responsiveShowTC" style="text-align:center;width:100%" ng-click="openModifyLeafModal()">
+        <a style="color:white;" href ng-click="openModifyLeafModal()">{{leafName}}  <i class="icon-cog" style="color:white;"></i></a>
     </div>
     <div id="newElementHolder"  class="switch" gumby-trigger="#newAnnotationModal">
        <!-- <div id="newElementButton" class=" medium success btn">
@@ -26,5 +28,7 @@
   </div>
   <div id="treeElements">
 	<div id="singleLeafHolder" post-render>
-	  <img class="singleLeafImage" ng-src="{{leafImage}}" gumby-retina />
+    <a href>
+  	  <img class="singleLeafImage" ng-src="{{leafImage}}" ng-click="openViewLeafModal()" gumby-retina />
+    </a>
 	</div post-render>

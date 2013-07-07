@@ -24,9 +24,7 @@ update task as t set
   t.due_date = due_date  
 where t.id = id;
 if ROW_COUNT() > 0 then 
-select 'id', 'description', 'status', 'leaf_id', 'tree_id', 'assigned_to', 'due_date', 'created_at', 'created_by' 
-union
-select * from task where task.id = id;
+select '0';
 else
 select '1'; 
 end if;

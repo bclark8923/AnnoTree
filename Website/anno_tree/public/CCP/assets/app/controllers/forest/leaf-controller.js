@@ -44,7 +44,7 @@
 						
 						loadLeaf( response.data );
 
- 						$timeout(function() { window.Gumby.init() }, 0);
+ 						$timeout(function() { window.Gumby.init(); $("#loadingScreen").hide(); }, 0);
 
 					},
 					function( response ) {

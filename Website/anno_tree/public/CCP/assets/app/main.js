@@ -184,7 +184,6 @@ AnnoTree.filter('threeColumnFilter', function() {
 $(document).ready(function() {
   $(window).resize(function() {
     if(window.innerWidth > 767 && settingsPane.isOpen) {
-      //$("#wrapper").click(0);
       settingsPane.closeFast();
     }
   });

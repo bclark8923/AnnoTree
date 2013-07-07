@@ -51,6 +51,12 @@ AnnoTree.config(
 					action: "standard.forest"
 				}
 			)
+      .when(
+        "/docs",
+        {
+          action: "standard.docs.home"
+        }
+      )
 			.when(
 				"/app/:treeID",
 				{

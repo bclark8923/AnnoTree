@@ -20,20 +20,30 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+    // [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
+    self.view.backgroundColor = [UIColor blackColor];
+
     
     self.viewWeb.delegate = self;
     self.viewWeb.scalesPageToFit = YES;
-    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.viewWeb.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.viewWeb.contentMode = UIViewContentModeRedraw;
 
     [[self.viewWeb scrollView] setBounces: NO];
     
-    NSURL* url = [NSURL URLWithString:@"http://annotree.com/appLoginScreen.html"];
+    NSURL* url = [NSURL URLWithString:@"http://23.21.235.254:3000/CCP/index.htm"];
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     [self.viewWeb loadRequest:request];
 }
+/*
+- (void)willRotateToInterfaceOrientation: (UIInterfaceOrientation)toInterfaceOrientation duration: (NSTimeInterval)duration {
     
+    CGRect webViewFrame = self.viewWeb.frame;
+    int width = webViewFrame.size.width;
+    webViewFrame.size.width = webViewFrame.size.height;
+    webViewFrame.size.height = width;
+    self.viewWeb.frame = webViewFrame;
+}
+*/
 - (BOOL)shouldAutorotate
 {
     return YES;

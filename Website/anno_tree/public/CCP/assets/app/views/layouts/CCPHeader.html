@@ -24,10 +24,18 @@
         <!-- App -->
         <div id="wrapper" class="switch" gumby-trigger="|.userSettings">
             <div class="navbar pretty" id="nav1">
+                <ul style="float:left;margin-left:10px;height:40px;">
+                    <li style="height:40px;width:60px;"><a style="height:40px;line-height:38px;" href="#/app"><i class="icon-globe"></i> <span class="responsiveHideNav">Home</span></a></li>
+                    <li style="height:40px;width:60px;"><a style="height:40px;line-height:38px;" href="#/docs"><i class="icon-folder-open"></i> <span class="responsiveHideNav">Docs</span></a></li>
+                </ul>
+                <div style="position: absolute; left: 50%;">
+                    <div style="position: relative; left: -50%;"> 
+                        <h1 class="logo">
+                            <img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina />
+                        </h1>
+                    </div>
+                </div>
                 <div>
-                    <h1 class="logo">
-                        <a href="#/app" class="logoLink"><img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina /></a>
-                    </h1>
                     <div class="userLinkDiv">
                         <a href class="userLink toggle responsiveHide" gumby-trigger=".userSettings">
                             <img id="userIcon" ng-src="{{user.avatar}}" gumby-retina />
@@ -46,6 +54,9 @@
             <div ng-switch="subview" class="l-body">
                 <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/index.html' "></div>
                 <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/index.html' "></div>
+
+                <div ng-switch-when="docs" ng-include=" 'assets/app/views/docs/index.html' "></div>
+
                 <div ng-switch-when="forestFire" ng-include=" 'assets/app/views/layouts/404.html' "></div>
             </div>
         
@@ -55,6 +66,7 @@
         <div id="mobileOptions" render-pane>
             <div ng-switch="subview" class="l-body">
                 <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/mobilePane.html' "></div>
+                <div ng-switch-when="docs" ng-include=" 'assets/app/views/forest/mobilePane.html' "></div>
                 <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/mobilePane.html' "></div>
             </div>
         </div>

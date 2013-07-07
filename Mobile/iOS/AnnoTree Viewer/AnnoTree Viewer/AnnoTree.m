@@ -293,6 +293,7 @@
         //NSLog(@"%@", leafName.text);
         NSString *leafNameTrimmed = [leafName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         if([leafNameTrimmed length] >= 1) {
+            [leafName resignFirstResponder];
             [self sendLeaf:leafNameTrimmed];
         } else {
             return;

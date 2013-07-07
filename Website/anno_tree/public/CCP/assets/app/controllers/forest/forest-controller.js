@@ -31,7 +31,8 @@
 				promise.then(
 					function( response ) {
 						if(response.status == 204) {
-							$scope.noForests = "Please add your first forest.";
+							$scope.noForests = "Looks like you don't have a forest yet."
+							$scope.noForestsNL = "Click New Forest in the top right to get started!";
 						} else {
 
 							loadTrees( response.data.forests );
@@ -95,7 +96,7 @@
 				$scope.invalidModifyTree = false; 
 				$("#loadingScreen").hide();
 			}
-			
+
 
 			$scope.openNewTreeModal = function (forest) {
 				$("#newTreeModal").addClass('active');

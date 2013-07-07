@@ -35,6 +35,10 @@ a {
   background: transparent;
 }
 
+.modal {
+  color: #444;
+}
+
 a:hover{
   color: #84db69;
 }
@@ -83,11 +87,10 @@ a:hover{
 
 .navbar .logo {
   height: 38px;
-  line-height: 24px;
+  line-height: 16px;
   float:left;
   width:100%;
   text-align:center;
-  margin-top:3px;
 }
 
 .navbar ul li > a {
@@ -301,11 +304,11 @@ a:hover{
   width: 90%;
   margin-left: 5%;
   margin-bottom: -1px;
-  border: 1px solid rgba(34,34,34,0.7); /*rgba(240,240,240,0.7);*/
+  border: 1px solid rgba(17, 97, 29, 0.7); /*rgba(240,240,240,0.7);*/
 }
 
 .forestName {
-  background-color: rgba(34,34,34,0.7); /*rgba(240,240,240,0.7);*/
+  background-color: rgba(17, 97, 29, 0.7); /*rgba(240,240,240,0.7);*/
   padding: 4px 10px;
   border-radius: 0px 0px 5px 5px;
   width: 90%;
@@ -747,6 +750,23 @@ taskListHeadLink {
 }
 
 @media only screen and (max-width: 767px) {
+  
+  .navbar ul {
+    overflow: visible;
+    top: 0px;
+  }
+
+  .navbar ul li {
+    display: table-cell;
+  }
+
+  .navbar .logo {
+    margin-top: 3px;
+  }
+
+  .responsiveHideNav {
+    display: none;
+  }
   
   .userLinkDiv {
       right:16px;

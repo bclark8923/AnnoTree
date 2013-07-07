@@ -294,7 +294,7 @@ a:hover{
 }
 
 .forestHeader {
-  /*text-align: center;*/
+  text-align: center;
   margin-top: 10px;
   color: #444;
   font-size: 10pt;
@@ -304,15 +304,14 @@ a:hover{
   width: 90%;
   margin-left: 5%;
   margin-bottom: -1px;
-  border: 1px solid rgba(17, 97, 29, 0.7); /*rgba(240,240,240,0.7);*/
+  border: 1px solid rgba(34, 34, 34, 0.7); /*rgba(240,240,240,0.7);*/
 }
 
 .forestName {
-  background-color: rgba(17, 97, 29, 0.7); /*rgba(240,240,240,0.7);*/
+  background-color: rgba(34, 34, 34, 0.7); /*rgba(240,240,240,0.7);*/
   padding: 4px 10px;
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 5px;
   width: 90%;
-  margin-left: 5%;
   color: white;
 }
 

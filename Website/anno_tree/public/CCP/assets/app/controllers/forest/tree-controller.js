@@ -21,6 +21,11 @@
 					}
 				}
                	$rootScope.leaves = leaves;
+
+               	if(leaves.length == 0) {
+               		$scope.noLeaves	= "Click the cog in the top left to get your API key to tie into your mobile app!";
+					$scope.noLeavesNL = "Or click \"New Leaf\" in the top right to add a leaf now.";
+               	}
 			}
 
 
@@ -189,6 +194,11 @@
 							$scope.newLeafData = response.data;
 							$scope.newLeafData.annotations = [];
 
+							$scope.noLeaves = "";
+							$scope.noLeavesNL = "";
+							$("#noLeavesDiv").hide();
+							$("#treeElementsDiv").show();
+
 							newAnnotation(response.data.id);
  				
  							$timeout(function() { Gumby.initialize('switches') }, 0);
@@ -228,6 +238,50 @@
 				}
 			}
 
+			$scope.addUser = function(tree) {
+				var promise = forestService.addUser(tree.treeID, $scope.addUserID);
+
+					promise.then(
+						function( response ) {
+
+							alert('woo');
+
+						},
+						function( response ) {
+							alert('broked');
+							return;
+							var errorData = "Our Create Leaf Service is currently down, please try again later.";
+							var errorNumber = parseInt(response.data.error);
+							if(response.data.status == 406) {
+								switch(errorNumber)
+								{
+									case 0:
+										errorData = "Please fill out all of the fields";
+										break;
+									case 1:
+										errorData = "This user does not exist in our system. Please contact Us.";
+										break;
+									case 2:
+										errorData = "The branch you attempted to add to no longer exists.";
+										break;
+									case 4:
+										errorData = "Please enter a valid leaf name.";
+										break;
+									default:
+										//go to Fail Page
+										//$location.path("/forestFire");
+								}
+							} else if(response.data.status != 401 && errorNumber != 0) {
+								//go to Fail Page
+								//$location.path("/forestFire");
+								alert(errorData);
+							}
+							alert(errorData);
+
+						}
+					);
+			}
+
 			// ...
 
 
@@ -246,6 +300,8 @@
 
 			// I hold the categories to render.
             $rootScope.leaves = [];
+            $scope.noLeaves = "";
+			$scope.noLeavesNL = "";
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

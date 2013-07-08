@@ -76,6 +76,11 @@
 																		});
 			}
 
+			function addUser(treeID, userID) {
+				//$("#loadingScreen").show();
+				return $http.put(apiRoot.getRoot() + '/tree/' + treeID + "/user", {userToAdd: userID});
+			}
+
 			// ---------------------------------------------- //
 			// ---------------------------------------------- //
 
@@ -93,7 +98,8 @@
 				getTasks: getTasks,
 				createTask: createTask,
 				createTaskLeaf: createTaskLeaf,
-				updateTask: updateTask
+				updateTask: updateTask,
+				addUser: addUser
 			});
 
 

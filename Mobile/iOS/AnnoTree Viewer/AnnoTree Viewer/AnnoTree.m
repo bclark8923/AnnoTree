@@ -361,20 +361,27 @@
     // add image data
     
     UIImage *image = [self screenshot];
+    UIImage *finalImage;
+    UIInterfaceOrientation curOrient = shareView.interfaceOrientation;
+    if(UIInterfaceOrientationIsLandscape(curOrient)) {
+        finalImage = [UIImage imageWithCGImage:[image CGImage] scale:1.0 orientation:UIImageOrientationLeft];
+    } else {
+        finalImage = image;
+    }
     UIGraphicsEndImageContext();
-    
+        
     //UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 
     
-    NSData * imageData = UIImagePNGRepresentation(image);
+    NSData * imageData = UIImageJPEGRepresentation(finalImage, 1.0);
     //[data writeToFile:@"foo.png" atomically:YES];
     
     NSString* FileParamConstant = @"annotation";
     //NSData *imageData = UIImageJPEGRepresentation(imageToPost, 1.0);
     if (imageData) {
         [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"screenshot.png\"\r\n", FileParamConstant] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[@"Content-Type: image/png\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"screenshot.jpg\"\r\n", FileParamConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:imageData];
         [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
     }

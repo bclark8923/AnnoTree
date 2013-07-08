@@ -12,7 +12,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[AnnoTree sharedInstance] loadAnnoTree:UIInterfaceOrientationMaskAll withTree:@"8527a891e224136950ff32ca212b45bc93f69fbb801c3b1ebedac52775f99e61"];
+    [[AnnoTree sharedInstance] loadAnnoTree:UIInterfaceOrientationMaskAll withTree:@"6f4b6612125fb3a0daecd2799dfd6c9c299424fd920f9b308110a2c1fbd8f443"];
     //[self.window addGestureRecognizer:[[AnnoTree sharedInstance] getOpen]];
     //[[[UIApplication sharedApplication] keyWindow] addSubview:[[AnnoTree sharedInstance] getAnnoTreeLauncher]];
     //[[AnnoTree sharedInstance] initializeTree];

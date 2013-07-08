@@ -27,28 +27,33 @@
             </div>
           </div>
           <div id="treeElements" post-render>
+                <div id="noLeavesDiv" ng-show="noLeaves != ''" class="valign" style="text-align:center;height:100%;">
+                    <div>
+                        <span style="font-size:20pt;" ng-mode="noForests">{{noLeaves}}<br/><br/>{{noLeavesNL}}</span>
+                    </div>
+                </div>
 
-<div class="twelve colgrid treeBG" ng-controller="forest.TreeController">
-    <div class="row" ng-repeat="leafRow in (leaves.length/3 | threeColumnFilter)" post-render> 
-        <div class="four columns" ng-repeat="leaf in leaves.slice(3*$index, 3*$index + 3)"> 
-            <div class="cardHolder">
-                <div class="card">
-                    <div class="cardTitleBar valign"><div>{{leaf.name}}</div></div>
-                    <a href="#/app/{{treeInfo.id}}/{{leaf.id}}">
-                        <div class="leaf valign">
-                            <div>
-                                <img class="leafImage" ng-src="{{leaf.annotation}}" gumby-retina />
+                <div id="treeElementsDiv" class="twelve colgrid treeBG" ng-controller="forest.TreeController" ng-show="noLeaves == ''">
+                    <div class="row" ng-repeat="leafRow in (leaves.length/3 | threeColumnFilter)" post-render> 
+                        <div class="four columns" ng-repeat="leaf in leaves.slice(3*$index, 3*$index + 3)"> 
+                            <div class="cardHolder">
+                                <div class="card">
+                                    <div class="cardTitleBar valign"><div>{{leaf.name}}</div></div>
+                                    <a href="#/app/{{treeInfo.id}}/{{leaf.id}}">
+                                        <div class="leaf valign">
+                                            <div>
+                                                <img class="leafImage" ng-src="{{leaf.annotation}}" gumby-retina />
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <!--<div class="treeModify">
+                                        <a href class="switch" gumby-trigger="#modifyLeafModal"><i class="icon-cog"></i></a>
+                                    </div>-->
+                                </div>
                             </div>
                         </div>
-                    </a>
-                    <!--<div class="treeModify">
-                        <a href class="switch" gumby-trigger="#modifyLeafModal"><i class="icon-cog"></i></a>
-                    </div>-->
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
           </div> <!-- end trees -->

@@ -32,7 +32,7 @@
 					function( response ) {
 						if(response.status == 204) {
 							$scope.noForests = "Looks like you don't have a forest yet."
-							$scope.noForestsNL = "Click New Forest in the top right to get started!";
+							$scope.noForestsNL = "Click \"New Forest\" in the top right to get started!";
 						} else {
 
 							loadTrees( response.data.forests );

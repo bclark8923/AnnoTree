@@ -12,18 +12,21 @@
 
 			$scope.toggleCheck = function (task) {
 				var task = $rootScope.tasks[$rootScope.tasks.indexOf(task)];
+				$rootScope.newStatus = 1;
 				if(task.status == 1) {
-					//send update to Service
-					$rootScope.updatingTask = $rootScope.tasks.indexOf(task);
-					var promise = forestService.updateTask(task.id, task.leaf_id, task.description, 2, "", "");
-					promise.then(
+					$rootScope.newStatus = 2;
+				} 
+				//send update to Service
+				$rootScope.updatingTask = $rootScope.tasks.indexOf(task);
+				var promise = forestService.updateTask(task.id, task.leaf_id, task.description, $rootScope.newStatus, "", "");
+				promise.then(
 					function( response ) {
 
 						if($rootScope.updatingTask == -1) {
 							$location.path("/forestFire");
 						} else {
-							$rootScope.tasks[$rootScope.updatingTask].status = 2;
-							$rootScope.tasks[$rootScope.updatingTask].checked = NO;
+							$rootScope.tasks[$rootScope.updatingTask].status = $rootScope.newStatus;
+							$rootScope.tasks[$rootScope.updatingTask].checked = false;
 						}
 						$("#loadingScreen").hide();
 
@@ -69,10 +72,6 @@
 						$("#loadingScreen").hide();
 					}
 				);
-				} else {
-					task.status = 1;
-					//send update to Service
-				}
 		    };
 
 		    $scope.showTaskOpen = function(task) {
@@ -232,6 +231,7 @@
             //$scope.tasks = [{id: "1", description: "Make sign up fields vertically aligned", status: "0"}, {id: "2", description: "Make the sign up button larger", status: "0"}, {id: "3", description: "Change sign up button to darker green", status: "1"}];
             $rootScope.tasks = [];
             $rootScope.updatingTask = -1;
+			$rootScope.newStatus = -1;
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

@@ -7,7 +7,7 @@ html, body {
 body {
   font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
   /*background: url('../img/gray-fabric-pattern-light.jpg') no-repeat center center fixed;*/
-  background-color: #f4f4f4;/*#fafafa;*/
+  background-color: black;/*#fafafa;*/
   -webkit-background-size: cover; /*for webKit*/
   -moz-background-size: cover; /*Mozilla*/
   -o-background-size: cover; /*opera*/
@@ -15,6 +15,7 @@ body {
   height: 100%;
   width: 100%;
   color: white;
+  background: url('../img/forestBGDark.png');
 }
 
 div[ng-switch], div[ng-switch-when], div[ng-controller] {
@@ -32,6 +33,10 @@ a {
 
 .authenticateModal {
   background: transparent;
+}
+
+.modal {
+  color: #444;
 }
 
 a:hover{
@@ -82,11 +87,10 @@ a:hover{
 
 .navbar .logo {
   height: 38px;
-  line-height: 24px;
+  line-height: 16px;
   float:left;
   width:100%;
   text-align:center;
-  margin-top:3px;
 }
 
 .navbar ul li > a {
@@ -144,6 +148,7 @@ a:hover{
 #userIcon {
   border: 2px solid; 
   height:30px;
+  width:30px;
   margin-top:3px;
 }
 
@@ -183,6 +188,7 @@ a:hover{
     margin-left: 10px;
     margin-top: 5px;
     height: 23px;
+    color: #444;
 }
 
 .userLinkDiv {
@@ -242,8 +248,19 @@ a:hover{
 #wrapper {
     height: 100%;
     width: 100%;
-    background: url('../img/forestBGDark.png');
-  background-size: cover;
+  background: url('../img/forestBGDark.png');
+  -webkit-background-size: cover; /*for webKit*/
+  -moz-background-size: cover; /*Mozilla*/
+  -o-background-size: cover; /*opera*/
+  background-size: cover; /*generic*/
+}
+
+.l-loading {
+  background: url('../img/forestBGDark.png');
+  -webkit-background-size: cover; /*for webKit*/
+  -moz-background-size: cover; /*Mozilla*/
+  -o-background-size: cover; /*opera*/
+  background-size: cover; /*generic*/
 }
 
 #scaffold {
@@ -277,7 +294,7 @@ a:hover{
 }
 
 .forestHeader {
-  /*text-align: center;*/
+  text-align: center;
   margin-top: 10px;
   color: #444;
   font-size: 10pt;
@@ -287,15 +304,14 @@ a:hover{
   width: 90%;
   margin-left: 5%;
   margin-bottom: -1px;
-  border: 1px solid rgba(34,34,34,0.7); /*rgba(240,240,240,0.7);*/
+  border: 1px solid rgba(34, 34, 34, 0.7); /*rgba(240,240,240,0.7);*/
 }
 
 .forestName {
-  background-color: rgba(34,34,34,0.7); /*rgba(240,240,240,0.7);*/
+  background-color: rgba(34, 34, 34, 0.7); /*rgba(240,240,240,0.7);*/
   padding: 4px 10px;
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 5px;
   width: 90%;
-  margin-left: 5%;
   color: white;
 }
 
@@ -378,6 +394,7 @@ a:hover{
   max-height: 150px;
   max-width: 155px;
   border: 3px solid #ddd;
+  clip:rect(0px,0px,100px,0px);
 }
 
 #forestContainer {
@@ -466,8 +483,8 @@ div.treeSubview[ng-switch] {
   height: 100%;
   width: 100%;
   overflow: auto;
-  border-top: 50px solid transparent;
-  margin-top: -50px;
+  border-top: 40px solid transparent;
+  margin-top: -40px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -502,11 +519,11 @@ div.treeSubview[ng-switch] {
 }
 
 #mobileOptions {
-    background-color: white;/*#444444;*/
+    background-color: #222;
     width: 100%;
     float: right;
     height: 100%;
-    border: 1px solid #bbb;
+    border: 1px solid #222;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -517,8 +534,8 @@ div.treeSubview[ng-switch] {
 
 #actionHeader {
 	height: 40px;
- 	border-bottom: 1px solid #444;
-  background: #222;
+ 	/*border-bottom: 1px solid #444;
+  background: #222;*/
   /*background-image: linear-gradient(#ffffff, #f7f7f7);
   background-image: -webkit-linear-gradient(top, #ffffff, #f7f7f7);
   -webkit-border-radius: 5px 5px 0px 0px;
@@ -613,6 +630,9 @@ i.icon-leaf:before {
 
 .addTodo {
   width: 80%;
+  height: 30px;
+font-size: 10pt;
+margin-bottom: 10px;
 }
 
 .linkColor {
@@ -731,6 +751,23 @@ taskListHeadLink {
 
 @media only screen and (max-width: 767px) {
   
+  .navbar ul {
+    overflow: visible;
+    top: 0px;
+  }
+
+  .navbar ul li {
+    display: table-cell;
+  }
+
+  .navbar .logo {
+    margin-top: 3px;
+  }
+
+  .responsiveHideNav {
+    display: none;
+  }
+  
   .userLinkDiv {
       right:16px;
   }
@@ -831,3 +868,44 @@ taskListHeadLink {
         font-size:8pt;
     }
 }
+
+
+
+
+
+
+
+.regular-checkbox {
+  display: none;
+}
+
+.regular-checkbox + label {
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+  padding: 9px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
+
+.regular-checkbox + label:active, .regular-checkbox:checked + label:active {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.regular-checkbox:checked + label {
+  background-color: #e9ecee;
+  border: 1px solid #adb8c0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+  color: #99a1a7;
+}
+
+.regular-checkbox:checked + label:after {
+  content: '\2714';
+  font-size: 14px;
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  color: #99a1a7;
+}
+

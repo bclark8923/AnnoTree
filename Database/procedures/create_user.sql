@@ -15,7 +15,7 @@ CREATE procedure `create_user`(
   lang VARCHAR(3),
   time_zone VARCHAR(15),
   profile_image_path VARCHAR(45),
-  status INTEGER
+  status Tinyint
 )
 BEGIN
 If (select id from user where email = user.email) then

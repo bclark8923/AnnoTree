@@ -64,11 +64,11 @@
 							$scope.invalidLogin = true;
 							var errorData = "Our Login Service is currently down, please try again later.";
 							var errorNumber = parseInt(response.data.error);
-							if(response.data.status == 406) {
+							if(response.status == 406) {
 								switch(errorNumber)
 								{
 									case 0:
-										errorData = "No Access.";
+										errorData = "Please fill out all of the fields.";
 										break;
 									case 1:
 										errorData = "This email does not exist in our system.";
@@ -76,19 +76,22 @@
 									default:
 										//stuff
 										// go to fail page
+										$location.path("/forestFire");
 								}
-							} else if (response.data.status == 401) {
+							} else if (response.status == 401) {
 								switch(errorNumber)
 								{
-									case 0:
+									case 1:
 										errorData = "Invalid Email/Password information.";
 										break;
 									default:
 										//stuff
 										// go to fail page
+										$location.path("/forestFire");
 								}
 							} else {
 								//go to fail page
+								$location.path("/forestFire");
 							}
 							$("#validateError").html(errorData);
 

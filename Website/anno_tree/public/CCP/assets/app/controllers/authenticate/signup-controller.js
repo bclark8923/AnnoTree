@@ -69,7 +69,7 @@
 							$scope.invalidSignUp = true;
 							var errorData = "Our Sign Up Service is currently down, please try again later.";
 							var errorNumber = parseInt(response.data.error);
-							if(response.data.status == 406) {
+							if(response.status == 406) {
 								switch(errorNumber)
 								{
 									case 0:
@@ -93,9 +93,11 @@
 									default:
 										//pre-defined
 										//go to Fail Page
+										$location.path("/forestFire");
 								}
 							} else {
 								//go to Fail Page
+								$location.path("/forestFire");
 							}
 							$("#validateError").html(errorData);
 

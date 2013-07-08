@@ -20,7 +20,7 @@
 						leaves[i].annotation = "img/tree01.png";
 					}
 				}
-               	$scope.leaves = leaves;
+               	$rootScope.leaves = leaves;
 			}
 
 
@@ -38,13 +38,15 @@
 
 				        $scope.treeInfo = response.data;
 						
-						loadLeaves( response.data.branches[0].leaves );
+						if(response.data.branches.length == 0) {
+							$location.path("/forestFire");
+						} else {
+							loadLeaves( response.data.branches[0].leaves );
 
- 						$timeout(function() { window.Gumby.init() }, 0);
-
+	 						$timeout(function() { window.Gumby.init(); $("#loadingScreen").hide();}, 0);	
+						}
 					},
 					function( response ) {
-
 						var errorData = "Our Create Tree Service is currently down, please try again later.";
 						var errorNumber = parseInt(response.data.error);
 						if(response.data.status == 406) {
@@ -52,16 +54,6 @@
 							{
 								case 1:
 									errorData = "This user does not exist in our system. Please contact Us.";
-									break;
-								default:
-									//go to Fail Page
-									$location.path("/forestFire");
-							}
-						} else if(response.data.status == 204) {
-							switch(errorNumber)
-							{
-								case 2:
-									errorData = "This user currently has no forests."; // load a sample page maybe?
 									break;
 								default:
 									//go to Fail Page
@@ -81,7 +73,7 @@
 
 			function addLeaf(newLeaf) {
 
-				$scope.leaves.push(newLeaf);
+				$rootScope.leaves.push(newLeaf);
 
 				$("#newLeafClose").click();
 
@@ -93,6 +85,32 @@
 					$scope.$apply();
 				}*/
 
+			}
+
+			$scope.openModifyTreeModal = function () {
+				$("#modifyTreeModal").addClass('active');
+				$rootScope.modifyTree = $scope.treeInfo;
+			}
+
+			$scope.closeModifyTreeModal = function () {
+				$("#modifyTreeModal").removeClass('active');
+				$("#invalidModifyTree").html('');
+				$scope.invalidModifyTree = false; 
+				$("#loadingScreen").hide();
+			}
+			
+
+			$scope.openNewLeafModal = function () {
+				$("#newLeafModal").addClass('active');
+			}
+
+			$scope.closeNewLeafModal = function () {
+				$("#newLeafModal").removeClass('active');
+				$("#invalidAddLeaf").html('');
+				$("#leafName").val('');
+				$("#annotationImage").val('');
+				$scope.invalidAddLeaf = false; 
+				$("#loadingScreen").hide();
 			}
 
 			function newAnnotation(leafID) {
@@ -130,12 +148,14 @@
 		        /* This event is raised when the server send back a response */
 		        alert(evt.target.responseText);
 		        //delete new leaf
+				$location.path("/forestFire");
 		    }
 
 		    function uploadCanceled(evt) {
 		        /* This event is raised when the server send back a response */
 		        alert(evt.target.responseText);
 		        //delete new leaf
+				$location.path("/forestFire");
 		    }
 
 			$scope.newLeaf = function() {
@@ -187,28 +207,19 @@
 										errorData = "This user does not exist in our system. Please contact Us.";
 										break;
 									case 2:
-										errorData = "The forest you attempted to add to no longer exists.";
+										errorData = "The branch you attempted to add to no longer exists.";
 										break;
 									case 4:
-										errorData = "Please enter a valid forest name.";
+										errorData = "Please enter a valid leaf name.";
 										break;
 									default:
 										//go to Fail Page
-										$location.path("/forestFire");
-								}
-							} else if(response.data.status == 403) {
-								switch(errorNumber)
-								{
-									case 3:
-										errorData = "You currently don't have permission to create a tree in this forest.";
-										break;
-									default:
-										//go to Fail Page
-										$location.path("/forestFire");
+										//$location.path("/forestFire");
 								}
 							} else if(response.data.status != 401 && errorNumber != 0) {
 								//go to Fail Page
-								$location.path("/forestFire");
+								//$location.path("/forestFire");
+								alert(errorData);
 							}
 							$("#invalidAddTree").html(errorData);
 
@@ -234,7 +245,7 @@
 			$scope.isLoading = true;
 
 			// I hold the categories to render.
-            $scope.leaves = [];
+            $rootScope.leaves = [];
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

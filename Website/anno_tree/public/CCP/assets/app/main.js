@@ -51,6 +51,12 @@ AnnoTree.config(
 					action: "standard.forest"
 				}
 			)
+      .when(
+        "/docs",
+        {
+          action: "standard.docs.home"
+        }
+      )
 			.when(
 				"/app/:treeID",
 				{
@@ -95,11 +101,52 @@ AnnoTree.directive('postRender', function($timeout) {
       $timeout( 
         function() {
           window.Gumby.init() 
+
+          $("#loadingScreen").hide();
         }, 0
       );
     }
   }
 });
+
+AnnoTree.directive('renderPane', function($timeout) {
+  return  { 
+    link: function(scope, elm, attrs) { 
+      $timeout( 
+        function() {
+          var width = 80;
+          settingsPane = new SlidingPane({
+            id: 'mobileOptions',
+            targetId: 'wrapper',
+            side: 'right',
+            width: 240,
+            duration: 0.5,
+            timingFunction: 'ease',
+            shadowStyle: '0px 0px 0px #000'
+          });
+
+          $("#paneToggle").click(function() {
+            settingsPane.toggle()
+          });
+
+          $("#wrapper").click(function() {
+            settingsPane.close()
+          });
+        }, 0
+      );
+    }
+  }
+});
+
+var preInterceptor = function( $q, $location ) {
+  return function( promise ) {
+
+    $("#loadingScreen").show();
+ 
+    // return the original promise
+    return promise;
+  }
+};
 
 var interceptor = function( $q, $location ) {
   return function( promise ) {
@@ -121,6 +168,8 @@ var interceptor = function( $q, $location ) {
  
     // attach our actions
     promise.then( resolve, reject );
+    
+    //$("#loadingScreen").hide();
  
     // return the original promise
     return promise;
@@ -136,4 +185,12 @@ AnnoTree.filter('threeColumnFilter', function() {
         }
         return arr;
     };
+});
+
+$(document).ready(function() {
+  $(window).resize(function() {
+    if(window.innerWidth > 767 && settingsPane.isOpen) {
+      settingsPane.closeFast();
+    }
+  });
 });

@@ -17,7 +17,7 @@
 					forests[i].trees.push($scope.newTreeHolder);
 				}
 
-               	$scope.forests = forests;
+               	$rootScope.forests = forests;
 			}
 
 
@@ -30,12 +30,18 @@
 
 				promise.then(
 					function( response ) {
+						if(response.status == 204) {
+							$scope.noForests = "Looks like you don't have a forest yet."
+							$scope.noForestsNL = "Click New Forest in the top right to get started!";
+						} else {
 
+							loadTrees( response.data.forests );
+
+	 					}
+						
 						$scope.isLoading = false;
-
-						loadTrees( response.data.forests );
-
- 						$timeout(function() { window.Gumby.init() }, 0);
+	 					
+	 					$timeout(function() { window.Gumby.init(); $("#loadingScreen").hide(); }, 0);
 
 					},
 					function( response ) {
@@ -51,17 +57,7 @@
 									//go to Fail Page
 									$location.path("/forestFire");
 							}
-						} else if(response.data.status == 204) {
-							switch(errorNumber)
-							{
-								case 2:
-									errorData = "This user currently has no forests."; // load a sample page maybe?
-									break;
-								default:
-									//go to Fail Page
-									$location.path("/forestFire");
-							}
-						} else {
+						} else if(response.data.status != 401 && errorNumber != 0)  {
 							//go to Fail Page
 							$location.path("/forestFire");
 						}
@@ -75,24 +71,46 @@
 
 			function addTree(newTree) {
 
-				for(var i = 0; i < $scope.forests.length; i++) { 
-					if($scope.forests[i].id == newTree.forest_id) {
-						$scope.forests[i].trees.pop();
-						$scope.forests[i].trees.push(newTree);
-						$scope.forests[i].trees.push($scope.newTreeHolder);
+				for(var i = 0; i < $rootScope.forests.length; i++) { 
+					if($rootScope.forests[i].id == newTree.forest_id) {
+						$rootScope.forests[i].trees.pop();
+						$rootScope.forests[i].trees.push(newTree);
+						$rootScope.forests[i].trees.push($scope.newTreeHolder);
 						break;
 					}
 				}
 
-				$("#newTreeClose").click();
+				$scope.closeNewTreeModal();
 
-				$scope.invalidAddTree = false;
+			}
 
-				//$location.path("/app");
+			$scope.openModifyTreeModal = function (tree) {
+				$("#modifyTreeModal").addClass('active');
+				$rootScope.modifyTree = tree;
+			}
 
-				//$route.reload();
+			$scope.closeModifyTreeModal = function () {
+				$("#modifyTreeModal").removeClass('active');
+				$("#invalidModifyTree").html('');
+				$rootScope.modifyTree = null;
+				$scope.invalidModifyTree = false; 
+				$("#loadingScreen").hide();
+			}
 
 
+			$scope.openNewTreeModal = function (forest) {
+				$("#newTreeModal").addClass('active');
+				$rootScope.curForestAdd = forest.id;
+			}
+
+			$scope.closeNewTreeModal = function () {
+				$("#newTreeModal").removeClass('active');
+				$("#invalidAddTree").html('');
+				$("#treeName").val('');
+				$("#treeDescription").val('');
+				$scope.invalidAddTree = false; 
+				$rootScope.curForestAdd = -1;
+				$("#loadingScreen").hide();
 			}
 
 			$scope.newTree = function() {
@@ -100,7 +118,10 @@
 				var treeName = $scope.treeName;
 				var treeDescription = $scope.treeDescription;
 				var formValid = $scope.createTreeForm.$valid;
-				var forestID = $(".newTreeLinkClass.active").attr('id').split("-")[1];
+				var forestID = $rootScope.curForestAdd;
+				if(forestID == -1) {
+					formValid = false;
+				}
 
 				//validate form
 				if(!formValid) {
@@ -120,8 +141,6 @@
 
 					promise.then(
 						function( response ) {
-
-							$scope.isLoading = false;
 					
 							var branchName = "Loose Leaves";
 							var branchDescription = "A collection of loose leaves sent to this tree.";
@@ -131,15 +150,47 @@
 							promise.then(
 								function(response) {
 									//worked
-									var data = response.data;
+
+									$scope.isLoading = false;
+									$scope.invalidAddTree = false;
 
 									addTree( $scope.newTreeData );
 								},
 								function(response) {
-									//failed
-									var data = response.data;
-
 									//delete tree
+									$scope.invalidAddTree = true;
+									var errorData = "Our Create Branch Service is currently down, please try again later.";
+									var errorNumber = parseInt(response.data.error);
+									if(response.data.status == 406) {
+										switch(errorNumber)
+										{
+											case 0:
+												errorData = "Please fill out all of the fields";
+												break;
+											case 1:
+												errorData = "This user does not exist in our system. Please contact Us.";
+												break;
+											case 2:
+												errorData = "The tree you attempted to add to no longer exists.";
+												break;
+											case 4:
+												errorData = "Please enter a valid branch name.";
+												break;
+											default:
+												//go to Fail Page
+												//$location.path("/forestFire");
+										}
+										alert(errorData);
+									} else if(response.data.status != 401 && errorNumber != 0) {
+										//go to Fail Page
+										$location.path("/forestFire");
+									}
+									$("#invalidAddTree").html(errorData);
+									
+									//if this breaks at all we have a problem on our end
+									//$location.path("/forestFire");
+									//alert(errorData);
+
 								}
 							);
  				
@@ -147,6 +198,7 @@
 
 						},
 						function( response ) {
+							$scope.invalidAddTree = true;
 							var errorData = "Our Create Tree Service is currently down, please try again later.";
 							var errorNumber = parseInt(response.data.error);
 							if(response.data.status == 406) {
@@ -166,7 +218,7 @@
 										break;
 									default:
 										//go to Fail Page
-										$location.path("/forestFire");
+										//$location.path("/forestFire");
 								}
 							} else if(response.data.status == 403) {
 								switch(errorNumber)
@@ -178,7 +230,7 @@
 										//go to Fail Page
 										$location.path("/forestFire");
 								}
-							} else {
+							} else if(response.data.status != 401 && errorNumber != 0) {
 								//go to Fail Page
 								$location.path("/forestFire");
 							}
@@ -193,21 +245,26 @@
 
 				newForest.trees = [];
 				newForest.trees.push($scope.newTreeHolder);
-				$scope.forests.push(newForest);
+				$rootScope.forests.push(newForest);
+				$scope.closeNewForestModal();
 
-				//$scope.$apply();
-				$("#newForestClose").click();
-				$scope.invalidAddForest = false;
+			}
 
-				//$location.path("/app");
+			$scope.openNewForestModal = function () {
+				$("#newForestModal").addClass('active');
+			}
 
-				//$route.reload();
-
+			$scope.closeNewForestModal = function () {
+				$("#newForestModal").removeClass('active');
+				$("#invalidAddForest").html('');
+				$("#forestName").val('');
+				$scope.invalidAddForest = false; 
+				$("#loadingScreen").hide();
 			}
 
 			$scope.newForest = function() {
 				var forestName = $scope.forestName;
-				var forestDescription = $scope.forestDescription;
+				var forestDescription = "NULL";
 				var formValid = $scope.createForestForm.$valid;
 
 				//validate form
@@ -229,13 +286,17 @@
 						function( response ) {
 
 							$scope.isLoading = false;
+							$scope.invalidAddForest = false;
+							$scope.noForests = "";
+							$("#noForestsDiv").hide();
 
 							addForest( response.data );
- 				
+ 							//$scope.forests[0].name = "fuck";
  							$timeout(function() { Gumby.initialize('switches') }, 0);
 
 						},
 						function( response ) {
+							$scope.invalidAddForest = true;
 							var errorData = "Our Create Forest Service is currently down, please try again later.";
 							var errorNumber = parseInt(response.data.error);
 							if(response.data.status == 406) {
@@ -252,7 +313,7 @@
 										break;
 									default:
 										//go to Fail Page
-										$location.path("/forestFire");	
+										//$location.path("/forestFire");	
 								}
 							} else if(response.data.status != 401 && errorNumber != 0) {
 								//go to Fail Page
@@ -282,8 +343,10 @@
 			$scope.isLoading = true;
 
 			// I hold the categories to render.
-            $scope.forests = [];
+            $rootScope.forests = [];
             $scope.branchID = -1;
+            $scope.curForestAdd = -1;
+            $scope.noForests = "";
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

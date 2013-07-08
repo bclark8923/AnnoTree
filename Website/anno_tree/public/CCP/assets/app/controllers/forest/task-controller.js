@@ -11,16 +11,103 @@
 
 
 			$scope.toggleCheck = function (task) {
-				var taskIndex = $scope.tasks.indexOf(task);
-				if($scope.tasks[taskIndex].status == 1) {
-					$scope.tasks[taskIndex].status = 2;
-					$scope.tasks[taskIndex].checked = NO;
+				var task = $rootScope.tasks[$rootScope.tasks.indexOf(task)];
+				if(task.status == 1) {
 					//send update to Service
+					$rootScope.updatingTask = $rootScope.tasks.indexOf(task);
+					var promise = forestService.updateTask(task.id, task.leaf_id, task.description, 2, "", "");
+					promise.then(
+					function( response ) {
+
+						if($rootScope.updatingTask == -1) {
+							$location.path("/forestFire");
+						} else {
+							$rootScope.tasks[$rootScope.updatingTask].status = 2;
+							$rootScope.tasks[$rootScope.updatingTask].checked = NO;
+						}
+						$("#loadingScreen").hide();
+
+					},
+					function( response ) {
+
+						var errorData = "Our Update Task Service is currently down, please try again later.";
+						var errorNumber = parseInt(response.data.error);
+						if(response.data.status == 406) {
+							switch(errorNumber)
+							{
+								case 0:
+									errorData = "Please add a name to the task";
+									break;
+								case 1:
+									errorData = "Please have at least one alphanumeric character";
+									break;
+								case 2:
+									errorData = "The task you tried to update no longer exists";
+									break;
+								case 3:
+									errorData = "You don't have access to modify this tree";
+									break;
+								case 4:
+									errorData = "Invalid task status";
+									break;
+								case 5:
+									errorData = "You assigned this to a person that does not exist";
+									break;
+								case 6:
+									errorData = "The leaf you tried to assign to no longer exists";
+									break;
+								default:
+									//go to Fail Page
+									//$location.path("/forestFire");
+							}
+							alert(errorData);
+						} else if(response.data.status != 401 && errorNumber != 0) {
+							//go to Fail Page
+							//$location.path("/forestFire");
+							//alert(errorData);
+						}
+						$("#loadingScreen").hide();
+					}
+				);
 				} else {
-					$scope.tasks[taskIndex].status = 1;
+					task.status = 1;
 					//send update to Service
 				}
 		    };
+
+		    $scope.showTaskOpen = function(task) {
+				if($routeParams.leafID) {
+					
+					if(task.status == 1 && $routeParams.leafID == task.leaf_id) {
+						return true;
+					} else {
+						return false;
+					}
+				} else {
+					if(task.status == 1) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+		    }
+
+		    $scope.showTaskClosed = function(task) {
+				if($routeParams.leafID) {
+					
+					if(task.status == 2 && $routeParams.leafID == task.leaf_id) {
+						return true;
+					} else {
+						return false;
+					}
+				} else {
+					if(task.status == 2) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+		    }
 
 			// I apply the remote data to the local view model.
 			$scope.addTask = function() {
@@ -43,41 +130,45 @@
 				promise.then(
 					function( response ) {
 
-						$scope.isLoading = false;
+						$rootScope.isLoading = false;
 
-						$scope.tasks.push(response.data);
+						$rootScope.tasks.push(response.data);
 
 						$scope.newTask = "";
+						$("#loadingScreen").hide();
 
 					},
 					function( response ) {
 
-						var errorData = "Our Create Tree Service is currently down, please try again later.";
+						var errorData = "Our Create Task Service is currently down, please try again later.";
 						var errorNumber = parseInt(response.data.error);
 						if(response.data.status == 406) {
 							switch(errorNumber)
 							{
+								case 0:
+									errorData = "Please add a name to the task";
+									break;
 								case 1:
-									errorData = "This user does not exist in our system. Please contact Us.";
+									errorData = "The tree you are trying to add a task to no longer exists";
 									break;
-								default:
-									//go to Fail Page
-									$location.path("/forestFire");
-							}
-						} else if(response.data.status == 204) {
-							switch(errorNumber)
-							{
 								case 2:
-									errorData = "This user currently has no forests."; // load a sample page maybe?
+									errorData = "The status you tried to apply does not exist";
+									break;
+								case 3:
+									errorData = "Please enter valid characters (alphanumeric) only";
 									break;
 								default:
 									//go to Fail Page
-									$location.path("/forestFire");
+									//$location.path("/forestFire");
 							}
+							alert(errorData);
 						} else if(response.data.status != 401 && errorNumber != 0) {
 							//go to Fail Page
 							$location.path("/forestFire");
+							//alert(errorData);
 						}
+				$("#loadingScreen").hide();
+
 					}
 				);
 
@@ -95,18 +186,12 @@
 
 						$scope.isLoading = false;
 
-						$scope.tasks = response.data.tasks;
-						/*$scope.branchID = response.data.branches[0].id;
-				        $scope.treeInfo = response.data;
-						
-						loadLeaves( response.data.branches[0].leaves );*/
-
- 						//$timeout(function() { window.Gumby.init() }, 0);
+						$rootScope.tasks = response.data.tasks;
 
 					},
 					function( response ) {
 
-						var errorData = "Our Create Tree Service is currently down, please try again later.";
+						var errorData = "Our Load Task Service is currently down, please try again later.";
 						var errorNumber = parseInt(response.data.error);
 						if(response.data.status == 406) {
 							switch(errorNumber)
@@ -118,20 +203,11 @@
 									//go to Fail Page
 									$location.path("/forestFire");
 							}
-						} else if(response.data.status == 204) {
-							switch(errorNumber)
-							{
-								case 2:
-									errorData = "This user currently has no forests."; // load a sample page maybe?
-									break;
-								default:
-									//go to Fail Page
-									$location.path("/forestFire");
-							}
 						} else if(response.data.status != 401 && errorNumber != 0) {
 							//go to Fail Page
 							$location.path("/forestFire");
 						}
+						$location.path("/forestFire");
 					}
 				);
 
@@ -154,7 +230,8 @@
 
 			// I hold the categories to render.
             //$scope.tasks = [{id: "1", description: "Make sign up fields vertically aligned", status: "0"}, {id: "2", description: "Make the sign up button larger", status: "0"}, {id: "3", description: "Change sign up button to darker green", status: "1"}];
-            $scope.tasks = [];
+            $rootScope.tasks = [];
+            $rootScope.updatingTask = -1;
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

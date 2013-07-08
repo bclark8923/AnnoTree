@@ -9,6 +9,15 @@
 
 			// --- Define Controller Methods. ------------------- //
 
+			$scope.openViewLeafModal = function (tree) {
+				$("#viewLeafModal").addClass('active');
+				$rootScope.modifyTree = tree;
+			}
+
+			$scope.closeViewLeafModal = function () {
+				$("#viewLeafModal").removeClass('active');
+			}
+
 
 			// I apply the remote data to the local view model.
 			function loadLeaf( leaf ) {
@@ -35,7 +44,7 @@
 						
 						loadLeaf( response.data );
 
- 						$timeout(function() { window.Gumby.init() }, 0);
+ 						$timeout(function() { window.Gumby.init(); $("#loadingScreen").hide(); }, 0);
 
 					},
 					function( response ) {

@@ -13,7 +13,7 @@
 			// I apply the remote data to the local view model.
 			function completeSignup ( response ) {
 				//set session information
-				localStorageService.add('username', response.data.first_name + ' ' + response.data.last_name);
+				localStorageService.add('username', response.data.first_name + ' ' + response.data.last_name + ' ' + response.data.id);
 				localStorageService.add('useravatar', response.data.profile_image_path);
 
 				//redirect to app

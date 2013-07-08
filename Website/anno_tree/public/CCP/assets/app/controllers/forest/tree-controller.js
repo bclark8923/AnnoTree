@@ -239,7 +239,7 @@
 			}
 
 			$scope.addUser = function(tree) {
-				var promise = forestService.addUser(tree.id, $scope.addUserID);
+				var promise = forestService.addUser(tree.id, $rootScope.modifyTree.addUserID);
 
 					promise.then(
 						function( response ) {

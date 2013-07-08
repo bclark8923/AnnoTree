@@ -20,10 +20,6 @@ IF (select id from user where id = owner_user_id) THEN
           (name, description, owner_user_id, branch_id)
           values (n, d, owner_user_id, b_id);
         set @id = LAST_INSERT_ID();
-        insert into `annotree`.`user_leaf`
-          (user_id, leaf_id)
-        values
-          (owner_user_id, @id);
         -- TODO improve this
         select 'id', 'name', 'description', 'owner_user_id', 'branch_id', 'created_at'
         union 

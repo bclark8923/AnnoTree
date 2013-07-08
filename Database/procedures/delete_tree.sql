@@ -15,18 +15,14 @@ BEGIN
 IF (select id from user where id = user) then
   SET FOREIGN_KEY_CHECKS=0;
   -- TODO: leafs
-  delete t, ut, b, ub, l, ul, a from
+  delete t, ut, b, l, a from
           tree as t
            left join user_tree as ut on
               ut.tree_id = t.id
            left join branch as b on
               b.tree_id = t.id
-           left join user_branch as ub on
-              ub.branch_id = b.id
            left join leaf as l on
               l.branch_id = b.id
-           left join user_leaf as ul on
-              l.id = ul.leaf_id
            left join annotation as a on
               a.leaf_id = l.id            
       where

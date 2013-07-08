@@ -15,15 +15,12 @@ CREATE Procedure `delete_leaf`(
 BEGIN
 IF (select id from user where id = user) then
 SET FOREIGN_KEY_CHECKS=0;
-delete l, ul, a  
+delete l, a  
         from leaf as l 
-        inner join user_leaf as ul on
-            ul.leaf_id = l.id
         inner join annotation as a on
             l.id = a.leaf_id
     where
-        l.id = leaf_id and
-        ul.user_id = user;
+        l.id = leaf_id;
 if row_count() > 0 then select '0';
 else select '1';
 end if;

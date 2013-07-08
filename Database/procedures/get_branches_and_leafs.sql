@@ -18,16 +18,5 @@ from branch as b
 join leaf l on
 b.tree_id = tree
 and l.branch_id = b.id;
-/*
-old code - the joins do not work correctly
-    join user_branch ub on
-        ub.branch_id = b.id and
-        user = ub.user_id and
-        b.tree_id = tree
-    join leaf as l on
-        l.branch_id = b.id
-    join user_leaf as ul on
-        ul.user_id = user;
-*/
 END $$ 
 DELIMITER ; $$

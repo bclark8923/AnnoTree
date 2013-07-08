@@ -20,14 +20,6 @@ IF (select id from user_tree where tree_id = treeid and user_id = requestingUser
         insert into user_tree (user_id, tree_id) values (userToAdd, treeid);
         insert into user_forest(user_id, forest_id) 
           select userToAdd, tree.forest_id from tree where tree.id = treeid;
-        insert into user_branch(user_id, branch_id) 
-          select userToAdd, branch.id from branch where branch.tree_id = treeid;
-        insert into user_leaf(user_id, leaf_id)
-          select userToAdd, leaf.id from leaf 
-            inner join branch as b
-              on b.tree_id = treeid and
-              leaf.branch_id = b.id
-            where leaf.branch_id = b.id;
         Commit;
         select '0';
     ELSE

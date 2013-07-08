@@ -23,7 +23,6 @@ IF (treeid) THEN
         insert into `annotree`.`leaf` (name, branch_id, owner_user_id)
         values (n, branchid, treeowner);
         set @id = LAST_INSERT_ID();
-        insert into `annotree`.`user_leaf` (user_id, leaf_id) values (treeowner, @id);
         select 'id', 'name', 'description', 'owner_user_id', 'branch_id', 'created_at'
         union 
         select id, name, description, owner_user_id, branch_id, created_at 

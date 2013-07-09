@@ -159,7 +159,7 @@ ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text ex
 ######### END MISSING PARAMETERS TREE UPDATE TEST #########
 
 ######### START INVALID NAME TREE UPDATE TEST #########
-# this test attempts to update a tree with missing JSON name/value pairs
+# this test attempts to update a tree with an invalid name
 $testname = 'Invalid name tree update: ';
 $tx = $uaValid->put($validTreeUpdateURL => json => {
     description     => $validTreeDesc,

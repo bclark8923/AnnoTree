@@ -9,20 +9,20 @@ DELIMITER $$
 
 CREATE Procedure `get_leaf`(
   in u INT,
-  in leaf_id INT
+  in leafid INT
   )
 BEGIN
-IF (select ut.user_id from user_tree as ut
-        inner join branch as b on
-            b.tree_id = ut.id
-        inner join leaf as l on
-            l.branch_id = b.id 
-        where ut.user_id = u and leaf_id = l.id) THEN
+IF (select ut.id from user_tree as ut, branch b, leaf l
+        where ut.user_id = u 
+        and leafid = l.id
+        and b.id = l.branch_id
+        and b.tree_id = ut.tree_id) 
+        THEN
     select 'id', 'name', 'description', 'owner_user_id', 'branch_id', 'created_at' 
     union
     select l.id, l.name, l.description, l.owner_user_id, l.branch_id, l.created_at 
     from leaf as l
-    where l.id = leaf_id;
+    where l.id = leafid;
 ELSE
     select '1';
 END IF;

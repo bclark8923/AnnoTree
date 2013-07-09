@@ -18,7 +18,7 @@ CREATE procedure `update_leaf` (
 )
 BEGIN
 declare treeid int;
-select t.id into treeid from user_tree ut, tree t, branch b, leaf l where b.id = l.branch_id and b.tree_id = t.id and t.id = ut.tree_id and ut.user_id = req_user;
+select t.id into treeid from user_tree ut, tree t, branch b, leaf l where l.id = leafid and b.id = l.branch_id and b.tree_id = t.id and t.id = ut.tree_id and ut.user_id = req_user;
 IF (select id from leaf where id = leafid) THEN
     IF (treeid) THEN
         IF (select id from branch b where b.id = branchid and b.tree_id = treeid) THEN

@@ -631,8 +631,16 @@ i.icon-leaf:before {
 .addTodo {
   width: 80%;
   height: 30px;
-font-size: 10pt;
-margin-bottom: 10px;
+  font-size: 10pt;
+  margin-bottom: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed #bbb;
+  color: white;
+}
+
+.addTodo:focus {
+  outline:none;
 }
 
 .linkColor {

@@ -108,6 +108,20 @@
 				}
 		    }
 
+		    $scope.showAddTask = function() {
+		    	$('.newTaskButton').hide();
+		    	$(".addTaskButton").show();
+		    	$(".doneTaskButton").show();
+		    	$(".addTask").show();
+		    }
+
+		    $scope.doneAddTask = function() {
+		    	$('.newTaskButton').show();
+		    	$(".addTaskButton").hide();
+		    	$(".doneTaskButton").hide();
+		    	$(".addTask").hide();
+		    }
+
 			// I apply the remote data to the local view model.
 			$scope.addTask = function() {
 

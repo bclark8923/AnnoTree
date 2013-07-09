@@ -12,11 +12,11 @@ CREATE Procedure `get_leaf`(
   in leafid INT
   )
 BEGIN
-IF (select ut.id from user_tree as ut, branch b, leaf l
+IF (select ut.id from user_tree as ut 
+    left join branch b on b.tree_id = ut.tree_id
+    left join leaf l on b.id = l.branch_id
         where ut.user_id = u 
-        and leafid = l.id
-        and b.id = l.branch_id
-        and b.tree_id = ut.tree_id) 
+        and leafid = l.id) 
         THEN
     select 'id', 'name', 'description', 'owner_user_id', 'branch_id', 'created_at' 
     union

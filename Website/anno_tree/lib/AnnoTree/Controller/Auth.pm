@@ -21,7 +21,7 @@ sub signup {
     } else {
         $jsonReq->{signUpName} =~ s/^\s*(.*?)\s*$//;
         $params->{lastName} = $1;
-        $params->{firstName} = undef;
+        $params->{firstName} = '';
     }
     $params->{'email'} = $jsonReq->{'signUpEmail'};
     $params->{'password'} = $jsonReq->{'signUpPassword'};

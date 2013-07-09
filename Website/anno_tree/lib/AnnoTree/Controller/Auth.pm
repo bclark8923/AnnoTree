@@ -16,7 +16,13 @@ sub signup {
     $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{signUpName} && exists $jsonReq->{signUpEmail} && exists $jsonReq->{signUpPassword});
 
     my $params = {};
-    ($params->{'firstName'}, $params->{'lastName'}) = $jsonReq->{'signUpName'} =~ m/(.+)\s+(\S+)\Z/;
+    if ($jsonReq->{signUpName} =~ m/.*\s+\S+\Z/) {
+        ($params->{'firstName'}, $params->{'lastName'}) = $jsonReq->{'signUpName'} =~ m/(.*)\s+(\S+)\Z/;
+    } else {
+        $jsonReq->{signUpName} =~ s/^\s*(.*?)\s*$//;
+        $params->{lastName} = $1;
+        $params->{firstName} = undef;
+    }
     $params->{'email'} = $jsonReq->{'signUpEmail'};
     $params->{'password'} = $jsonReq->{'signUpPassword'};
     

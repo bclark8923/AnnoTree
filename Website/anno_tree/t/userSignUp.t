@@ -50,6 +50,31 @@ ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JS
 ok($validUserEmail eq $jsonBody->{email},               $testname . "Response JSON email is $validUserEmail");
 ######### END VALID USER TEST #########
 
+######### START VALID USER ONE NAME TEST #########
+# this test creates a new valid user
+my $testname = 'Valid user signup with one name: ';
+my $validUserEmail = 'mojotest' . int(rand(1000000)) . '@user.com';
+my $validUserPass = 'tester1';
+my $uaValidUser = Mojo::UserAgent->new;
+$tx = $uaValidUser->post($signupURL => json => {
+    signUpName      => 'user',
+    signUpEmail     => $validUserEmail,
+    signUpPassword  => $validUserPass
+});
+$jsonBody = $json->decode($tx->res->body);
+print Dumper($jsonBody);
+ok(200 == $tx->res->code,                               $testname . 'Response Code is 200');
+ok(exists $jsonBody->{id},                              $testname . 'Response JSON ID exists');
+ok(exists $jsonBody->{first_name},                      $testname . "Response JSON first name is 'test script'");
+ok('user' eq $jsonBody->{last_name},                    $testname . "Response JSON last name is 'user'");
+ok(exists $jsonBody->{created_at},                      $testname . 'Response JSON created date exists');
+ok('ENG' eq $jsonBody->{lang},                          $testname . "Response JSON language is ENG");
+ok(3 == $jsonBody->{status},                            $testname . 'Response JSON status is 3');
+ok('EST' eq $jsonBody->{time_zone},                     $testname . "Response JSON time zone is EST");
+ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
+ok($validUserEmail eq $jsonBody->{email},               $testname . "Response JSON email is $validUserEmail");
+######### END VALID USER ONE NAME TEST #########
+
 ######### START MISSING REQUEST JSON VALUES TEST #########
 # this test attempts to create a user with missing JSON values in the request
 my $testname = 'Missing request parameters user signup: ';

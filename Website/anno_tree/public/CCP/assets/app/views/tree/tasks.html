@@ -18,17 +18,24 @@
                         <div class="success label" style="position:relative;left:20px;top:-5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">LeafName</div>
                       </div>-->
                     </li>
+                    <li class="addTask" style="display:none;">
+                      <form name="addTaskForm" ng-submit="addTask()" style="margin: 0;">
+                        <div >
+                          <input type="checkbox" ng-click="toggleCheck(task)" ng-checked="task.status==2" class="regluar-checkbox">
+                          <span id="addTask" style="">
+                              <input type="text" class="addTodo" ng-model="newTask">
+                          </span>
+                        </div>
+                      </form>
+                    </li>
                   </ul>
                   <ul>
                       <li>
-                        <form name="addTaskForm" ng-submit="addTask()" style="margin: 0;">
-                          <div style="padding-left:5px;">
-                              <span>
-                                  <input type="text" class="addTodo" ng-model="newTask">
-                              </span>
-                              <div class="btn success"><a class="linkColor" ng-click="addTask()" ><i class="icon-ne icon-plus-sign"></i> Add Task</a></div>
-                          </div>
-                        </form>
+                        <div style="padding-left:5px;">
+                          <div class="btn success newTaskButton"><a class="linkColor" ng-click="showAddTask()" ><i class="icon-ne icon-plus-sign"></i> New Task</a></div>
+                          <div style="display:none;" class="btn success addTaskButton"><a class="linkColor" ng-click="addTask()" ><i class="icon-ne icon-plus-sign"></i> Add </a></div>
+                          <div style="display:none; margin-left:10px;" class="btn danger doneTaskButton"><a class="linkColor" ng-click="doneAddTask()" > Done </a></div>
+                        </div>
                       </li>
                   </ul>
                 </div>
@@ -42,15 +49,10 @@
                   <ul>
                     <li ng-repeat="task in tasks" data-ng-show="showTaskClosed(task)">
                       <div>
-                        <div class="squaredFour">
-                          <input type="checkbox" ng-click="toggleCheck(task)" ng-checked="task.status==2">
-                          <label for="squaredFour"></label>
-                        </div>
+                        <input type="checkbox" ng-click="toggleCheck(task)" ng-checked="task.status==2" class="regluar-checkbox">
                         <span>{{task.description}}</span>
-                      </div>
-                      <div style="height:15px;" ng-show="task.leaf_id">
                         <a ng-href="#/app/{{task.tree_id}}/{{task.leaf_id}}">
-                          <div class="success label" style="position:relative;left:20px;top:-5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">LeafName</div>
+                          <span class="success label" ng-show="task.leaf_id" style="margin-left:5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">LeafName</span>
                         </a>
                       </div>
                     </li>

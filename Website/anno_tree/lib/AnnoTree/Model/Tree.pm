@@ -9,8 +9,6 @@ use Digest::SHA qw(sha256_hex);
 sub create {
     my ($class, $params) = @_;
 
-   
-    
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call create_tree(:userid, :forestid, :name, :desc, :logo)",
         {
@@ -197,6 +195,35 @@ sub treeInfo {
     }
 =end oldcode
 =cut
+    return $json;
+}
+
+sub update {
+    my ($class, $params) = @_;
+
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call update_tree(:treeid, :name, :desc, :reqUser)",
+        {
+            treeid          => $params->{treeid},
+            name            => $params->{name},
+            desc            => $params->{desc},
+            reqUser         => $params->{reqUser}
+        }
+    );
+
+    my $json = {};
+    my $num = $result->fetch->[0];
+    #print Dumper($cols);
+    if ($num == 0) {
+        $json = {result => $num, txt => 'Task updated successfully'};
+    } elsif ($num == 1) {
+        $json = {result => $num, txt => 'Nothing was changed'};
+    } elsif ($num == 2) {
+        $json = {error => $num, txt => 'Task does not exist'};
+    } elsif ($num == 3) {
+        $json = {error => $num, txt => 'Requesting user does not exist or does not have access to the tree'};
+    }
+
     return $json;
 }
 

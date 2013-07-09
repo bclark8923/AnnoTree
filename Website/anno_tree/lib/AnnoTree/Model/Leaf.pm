@@ -77,6 +77,37 @@ sub leafInfo {
     return $json;
 }
 
+sub update {
+    my ($class, $params) = @_;
+
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call update_leaf(:leafid, :name, :desc, :reqUser, :branchid)",
+        {
+            leafid          => $params->{leafid},
+            name            => $params->{name},
+            desc            => $params->{desc},
+            reqUser         => $params->{reqUser},
+            branchid        => $params->{branchid}
+        }
+    );
+
+    my $json = {};
+    my $num = $result->fetch->[0];
+    if ($num == 0) {
+        $json = {result => $num, txt => 'Task updated successfully'};
+    } elsif ($num == 1) {
+        $json = {result => $num, txt => 'Nothing was changed'};
+    } elsif ($num == 2) {
+        $json = {error => $num, txt => 'Leaf does not exist'};
+    } elsif ($num == 3) {
+        $json = {error => $num, txt => 'Requesting user does not exist or does not have access to the tree'};
+    } elsif ($num == 4) {
+        $json = {error => $num, txt => 'Branch does not exist or is not within the same tree as the leaf you are trying to update'};
+    }
+
+    return $json;
+}
+
 sub iosUpload {
     my ($class, $params) = @_;
     

@@ -64,7 +64,6 @@ sub updateTask {
        $status = 406;
     }
     $self->render(json => $json, status => $status);
-
 }
 
 return 1;

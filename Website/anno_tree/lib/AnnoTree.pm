@@ -98,6 +98,7 @@ sub startup {
     # ===== TREES =====
     $authr->post('/:forestid/tree' => [forestid => qr/\d+/])    ->to('controller-tree#create');
     $authr->get('/tree/:treeid' => [treeid => qr/\d+/])         ->to('controller-tree#treeInfo');
+    $authr->put('/tree/:treeid' => [treeid => qr/\d+/])         ->to('controller-tree#update');
     $authr->put('/tree/:treeid/user' => [treeid => qr/\d+/])    ->to('controller-tree#addUserToTree');
  
     # ===== BRANCHES =====
@@ -106,6 +107,7 @@ sub startup {
     # ===== LEAVES =====
     $authr->post('/:branchid/leaf' => [branchid => qr/\d+/])    ->to('controller-leaf#create');
     $authr->get('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#leafInfo');
+    $authr->put('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#update');
     $r->post('/ios/leaf' => [leafid => qr/\d+/]) ->to('controller-leaf#iosUpload');
     $r->get('/ios/leaf' => [leafid => qr/\d+/]) ->to('controller-leaf#iosTestUpload');
 

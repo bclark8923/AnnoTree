@@ -42,6 +42,29 @@ sub create {
     $self->render(json => $json, status => $status); 
 }
 
+sub update {
+    my $self = shift;
+
+    my $jsonReq = $self->req->json;
+    $self->debug($self->dumper($jsonReq));
+    $self->render(json => {error => '0', txt => 'Missing required JSON name/value pairs in request or they have no value'}, status => 406) and return unless ($jsonReq->{'description'} && $jsonReq->{'name'} && exists $jsonReq->{'branchid'});
+    $self->render(json => {error => '5', txt => 'Leaf name must contain at least one alphanumeric character'}, status => 406) and return unless ($jsonReq->{'name'} =~ m/[A-Za-z0-9]/);
+
+    my $params = {};
+    $params->{leafid} = $self->param('leafid');
+    $params->{desc} = $jsonReq->{description};
+    $params->{name} = $jsonReq->{name};
+    $params->{reqUser} = $self->current_user->{userid};
+    $params->{branchid} = $jsonReq->{branchid};
+    $self->debug($self->dumper($params));
+    my $json = AnnoTree::Model::Leaf->update($params);
+    my $status = 204;
+    if (exists $json->{error}) {
+       $status = 406;
+    }
+    $self->render(json => $json, status => $status);
+}
+
 sub leafInfo {
     my $self = shift;
 

@@ -8,13 +8,12 @@ DELIMITER $$
 
 
 CREATE Procedure `delete_forest`(
-  in user INT,
-  in forest_id INT
+  in req_user INT,
+  in forestid INT
   )
 BEGIN
-IF (select id from user where id = user) then
+IF (select id from user_forest where user_id = req_user and forest_id = forestid) then
   SET FOREIGN_KEY_CHECKS=0;
-  -- TODO: leafs
   delete f, uf, t, ut, b, l, a 
           from forest as f 
            left join user_forest as uf on
@@ -30,14 +29,12 @@ IF (select id from user where id = user) then
            left join annotation as a on
               a.leaf_id = l.id            
       where
-          f.id = forest_id and
-          uf.user_id = user;
+          f.id = forestid and
+          uf.user_id = req_user;
   SET FOREIGN_KEY_CHECKS=1;
-  -- this does not work if there are not entries in every table!
-  --  if row_count() > 0 then select '0';
-  --  else select '1';
-  -- end if;
 select '0';
+ELSE
+    select '1';
 END IF;
 END $$
 delimiter ; $$

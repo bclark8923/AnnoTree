@@ -94,6 +94,7 @@ sub startup {
     # ===== FORESTS =====
     $authr->post('/forest') ->to('controller-forest#create');
     $authr->get('/forest')  ->to('controller-forest#forestInfo');
+    $authr->put('/forest/:forestid' => [forestid => qr/\d+/])  ->to('controller-forest#update');
 
     # ===== TREES =====
     $authr->post('/:forestid/tree' => [forestid => qr/\d+/])    ->to('controller-tree#create');
@@ -108,6 +109,7 @@ sub startup {
     $authr->post('/:branchid/leaf' => [branchid => qr/\d+/])    ->to('controller-leaf#create');
     $authr->get('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#leafInfo');
     $authr->put('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#update');
+    $authr->delete('/leaf/:leafid' => [leafid => qr/\d+/])      ->to('controller-leaf#deleteLeaf');
     $r->post('/ios/leaf' => [leafid => qr/\d+/]) ->to('controller-leaf#iosUpload');
     $r->get('/ios/leaf' => [leafid => qr/\d+/]) ->to('controller-leaf#iosTestUpload');
 

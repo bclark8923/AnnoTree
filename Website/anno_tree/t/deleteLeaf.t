@@ -18,12 +18,11 @@ my $port = ':' . $config->get('port');
 my $fileToUpload = $config->get('screenshot');
 
 #my $t = Test::Mojo->new('AnnoTree');
-my $uaValid = Mojo::UserAgent->new; # use to make the authenticated user requests
-my $uaIOS = Mojo::UserAgent->new; # use to make the iOS requests
+my $uaValid = Mojo::UserAgent->new; # use to make the JSON POST requests
 my $json = Mojo::JSON->new; # use to help turn the response JSON into a Perl hash
 my $tx; # this shuld be the Mojo::Transaction element return from the UA transaction
 my $jsonBody; # this should be the body of the returned message if JSON
-my $iosCreationURL = $server . $port . '/ios/leaf';
+
 
 ######### START VALID USER SIGNUP/LOGIN TEST #########
 # this test creates a new valid user
@@ -57,6 +56,7 @@ ok(3 == $jsonBody->{status},                            $testname . 'Response JS
 ok('EST' eq $jsonBody->{time_zone},                     $testname . "Response JSON time zone is EST");
 ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
 ok($validUserEmail eq $jsonBody->{email},               $testname . "Response JSON email is '" . $validUserEmail . "'");
+my $validUserID = $jsonBody->{id};
 ######### END VALID USER SIGNUP/LOGIN TEST #########
 
 ######### START VALID FOREST CREATION TEST #########
@@ -101,7 +101,6 @@ ok(exists $jsonBody->{token},                       $testname . "Response JSON t
 ok('img/logo.png' eq $jsonBody->{logo},             $testname . "Response JSON logo matches");
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
 my $validTreeID = $jsonBody->{id};
-my $validTreeToken = $jsonBody->{token};
 ######### END VALID TREE CREATION TEST #########
 
 ######### START VALID BRANCH CREATION TEST #########
@@ -122,60 +121,80 @@ ok($validTreeID == $jsonBody->{tree_id},            $testname . "Response JSON t
 ok($validBranchName eq $jsonBody->{name},           $testname . "Response JSON name matches");
 ok($validBranchDesc eq $jsonBody->{description},    $testname . "Response JSON description matches");
 ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
+my $validBranchID = $jsonBody->{id};
 ######### END VALID BRANCH CREATION TEST #########
 
-########## START VALID IOS LEAF CREATION TEST #########
-# this test creates a new leaf and a new annotation from an iOS request
-$testname = 'Valid iOS leaf creation: ';
-$tx = $uaIOS->post($iosCreationURL => form => {annotation => {file => $fileToUpload, 'Content-Type' => 'image/png'}, token => $validTreeToken, leafName => 'Test iOS Leaf Creation'});
+######### START VALID LEAF CREATION TEST #########
+# this test creates a new leaf
+$testname = 'Valid leaf creation: ';
+my $leafCreationURL = $server . $port . '/' . $validBranchID . '/leaf';
+my $validLeafName = 'Test Suite Leaf';
+my $validLeafDesc = 'This is a leaf created by the automated Mojolicious test suite';
+$tx = $uaValid->post($leafCreationURL => json => {
+    name            => $validLeafName,
+    description     => $validLeafDesc
+});
+$jsonBody = $json->decode($tx->res->body);
+
+ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
+ok(exists $jsonBody->{id},                          $testname . 'Response JSON ID exists');
+ok($validUserID == $jsonBody->{owner_user_id},      $testname . "Response JSON owner_user_id matches");
+ok($validBranchID == $jsonBody->{branch_id},        $testname . "Response JSON branch_id matches");
+ok($validLeafName eq $jsonBody->{name},             $testname . "Response JSON name matches");
+ok($validLeafDesc eq $jsonBody->{description},      $testname . "Response JSON description matches");
+ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
+my $singleLeafID = $jsonBody->{id};
+######### END VALID LEAF CREATION TEST #########
+
+######## START VALID LEAF CREATION TEST #########
+# this test creates a new leaf
+$testname = 'Valid leaf creation (for annotations): ';
+$tx = $uaValid->post($leafCreationURL => json => {
+    name            => $validLeafName,
+    description     => $validLeafDesc
+});
+$jsonBody = $json->decode($tx->res->body);
+
+ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
+ok(exists $jsonBody->{id},                          $testname . 'Response JSON ID exists');
+ok($validUserID == $jsonBody->{owner_user_id},      $testname . "Response JSON owner_user_id matches");
+ok($validBranchID == $jsonBody->{branch_id},        $testname . "Response JSON branch_id matches");
+ok($validLeafName eq $jsonBody->{name},             $testname . "Response JSON name matches");
+ok($validLeafDesc eq $jsonBody->{description},      $testname . "Response JSON description matches");
+ok(exists $jsonBody->{created_at},                  $testname . 'Response JSON created_at exists');
+my $annoLeafID = $jsonBody->{id};
+######### END VALID LEAF CREATION TEST #########
+
+########## START VALID ANNOTATION CREATION TEST #########
+# this test creates a new annotation
+$testname = 'Valid annotation creation: ';
+my $annoCreationURL = $server . $port . '/' . $annoLeafID . '/annotation';
+$tx = $uaValid->post($annoCreationURL => form => {uploadedFile => {file => $fileToUpload, 'Content-Type' => 'image/png'}});
 $jsonBody = $json->decode($tx->res->body);
 
 ok(200 == $tx->res->code,                       $testname . 'Response Code is 200');
-ok(exists $jsonBody->{result},                  $testname . 'Response JSON result exists');
-######### END VALID IOS LEAF CREATION TEST #########
+ok(exists $jsonBody->{id},                      $testname . 'Response JSON ID exists');
+ok($annoLeafID == $jsonBody->{leaf_id},        $testname . "Response JSON leaf_id matches");
+ok('image/png' eq $jsonBody->{mime_type},       $testname . "Response JSON mime_type matches");
+ok(exists $jsonBody->{path},                    $testname . "Response JSON name matches");
+ok(exists $jsonBody->{filename},                $testname . "Response JSON description matches");
+ok(exists $jsonBody->{created_at},              $testname . 'Response JSON created_at exists');
+######### END VALID ANNOTATION CREATION TEST #########
 
-########## START MISSING REQUEST TOKEN IOS LEAF CREATION TEST #########
-# this test attempts to create an iOS leaf with missing request parameters
-$testname = 'Missing request token iOS leaf creation: ';
-$tx = $uaIOS->post($iosCreationURL => form => {annotation => {file => $fileToUpload, 'Content-Type' => 'image/png'}});
-$jsonBody = $json->decode($tx->res->body);
+######### START VALID LEAF DELETE TEST #########
+# this test deletes an existing leaf
+$testname = 'Valid leaf delete: ';
+$tx = $uaValid->delete($server . $port . '/leaf/' . $singleLeafID);
 
-ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
-ok(0 == $jsonBody->{error},             $testname . "Response JSON error result is 0");
-ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
-########## END MISSING REQUEST TOKEN IOS LEAF CREATION TEST #########
+ok(204 == $tx->res->code,               $testname . 'Response Code is 204');
+######### END VALID LEAF DELETE TEST #########
 
-######### START MISSING REQUEST ANNOTATION IOS LEAF CREATION TEST #########
-# this test attempts to create an iOS leaf with missing request parameters
-$testname = 'Missing request annotation iOS leaf creation: ';
-$tx = $uaIOS->post($iosCreationURL => form => {token => $validTreeToken});
-$jsonBody = $json->decode($tx->res->body);
+######### START VALID LEAF WITH ANNOTATIONS DELETE TEST #########
+# this test deletes an existing leaf
+$testname = 'Valid leaf delete: ';
+$tx = $uaValid->delete($server . $port . '/leaf/' . $annoLeafID);
 
-ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
-ok(0 == $jsonBody->{error},             $testname . "Response JSON error result is 0");
-ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
-########## END MISSING REQUEST ANNOTATION IOS LEAF CREATION TEST #########
-
-########## START ILL FORMED TOKEN IOS LEAF CREATION TEST #########
-# this test attempts to create an iOS leaf with an ill formed token
-$testname = 'Ill formed token iOS leaf creation: ';
-$tx = $uaIOS->post($iosCreationURL => form => {annotation => {file => $fileToUpload, 'Content-Type' => 'image/png'}, token => substr($validTreeToken, 0, 63)});
-$jsonBody = $json->decode($tx->res->body);
-
-ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
-ok(0 == $jsonBody->{error},             $testname . "Response JSON error result is 0");
-ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
-########## END ILL FORMED TOKEN IOS LEAF CREATION TEST #########
-
-########## START BAD PARAMETER NAME IOS LEAF CREATION TEST #########
-# this test attempts to create an iOS leaf with a bad parameter name
-$testname = 'Bad parameter name iOS leaf creation: ';
-$tx = $uaIOS->post($iosCreationURL => form => {annotations => {file => $fileToUpload, 'Content-Type' => 'image/png'}, token => $validTreeToken});
-$jsonBody = $json->decode($tx->res->body);
-
-ok(406 == $tx->res->code,               $testname . 'Response Code is 406');
-ok(0 == $jsonBody->{error},             $testname . "Response JSON error result is 0");
-ok(exists $jsonBody->{txt},             $testname . 'Response JSON error text exists');
-########## END BAD PARAMETER NAME IOS LEAF CREATION TEST #########
+ok(204 == $tx->res->code,               $testname . 'Response Code is 204');
+######### END VALID LEAF WITH ANNOTATIONS DELETE TEST #########
 
 done_testing();

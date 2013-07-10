@@ -90,8 +90,9 @@ sub iosUpload {
     #$self->debug($self->dumper($self->req));
     my $params = {};
     $params->{token} = $self->param('token');
+    $params->{leafName} = $self->param('leafName');
     my $upload = $self->req->upload('annotation');
-    $self->render(json => {error => '0', txt => 'Missing form request parameters or they are ill formed'}, status => 406) and return unless ($params->{token} =~ m/[a-f0-9]{64}/ && defined $upload && exists $upload->{filename} && $upload->{filename} ne '');
+    $self->render(json => {error => '0', txt => 'Missing form request parameters or they are ill formed'}, status => 406) and return unless ($params->{token} =~ m/[a-f0-9]{64}/ && defined $upload && exists $upload->{filename} && $upload->{filename} ne '' && $self->param('leafName') =~ m/[a-zA-Z0-9]/);
     #$self->debug($self->dumper($upload));
     #$self->debug("token: $params->{token} \n filename: $upload->{filename} \n content-type: " . $upload->headers->content_type . "\n");
     $params->{filename} = $upload->{filename};
@@ -117,6 +118,24 @@ sub iosTestUpload {
     my $self = shift;
 
     $self->render(template => 'leaves/testupload');
+}
+
+sub deleteLeaf {
+    my $self = shift;
+    
+    my $params = {};
+    $params->{reqUser} = $self->current_user->{userid};
+    $params->{leafid} = $self->param('leafid');
+    my $json = AnnoTree::Model::Leaf->deleteLeaf($params);
+
+    my $status = 204;
+    if (exists $json->{error}) {
+        $status = 406;
+    } else {
+        `rm $path/$json->{txt}`;
+    }
+
+    $self->render(json => $json, status => $status);
 }
 
 return 1;

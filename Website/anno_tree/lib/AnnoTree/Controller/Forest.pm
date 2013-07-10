@@ -50,4 +50,25 @@ sub forestInfo {
 
 }
 
+sub update {
+    my $self = shift;
+    my $jsonReq = $self->req->json;
+
+    $self->render(json => {error => '0', txt => 'Missing required JSON name/value pairs in request or they have no value'}, status => 406) and return unless ($jsonReq->{'description'} && $jsonReq->{name});
+    $self->render(json => {error => '1', txt => 'Forest name must contain at least one alphanumeric character'}, status => 406) and return unless ($jsonReq->{name} =~ m/[A-Za-z0-9]/);
+
+    my $params = {};
+    $params->{forestid} = $self->param('forestid');
+    $params->{desc} = $jsonReq->{'description'};
+    $params->{reqUser} = $self->current_user->{userid};
+    $params->{name} = $jsonReq->{name};
+    $self->debug($self->dumper($params));
+    my $json = AnnoTree::Model::Forest->update($params);
+    my $status = 204;
+    if (exists $json->{error}) {
+       $status = 406;
+    }
+    $self->render(json => $json, status => $status);
+}
+
 return 1;

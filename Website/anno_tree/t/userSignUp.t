@@ -62,7 +62,7 @@ $tx = $uaValidUser->post($signupURL => json => {
     signUpPassword  => $validUserPass
 });
 $jsonBody = $json->decode($tx->res->body);
-print Dumper($jsonBody);
+
 ok(200 == $tx->res->code,                               $testname . 'Response Code is 200');
 ok(exists $jsonBody->{id},                              $testname . 'Response JSON ID exists');
 ok(exists $jsonBody->{first_name},                      $testname . "Response JSON first name is 'test script'");

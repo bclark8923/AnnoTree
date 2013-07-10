@@ -147,7 +147,7 @@ my $validLeafID = $jsonBody->{id};
 ######### END VALID LEAF CREATION TEST #########
 
 ########## START VALID ANNOTATION CREATION TEST #########
-# this test creates a new leaf
+# this test creates a new annotation
 $testname = 'Valid annotation creation: ';
 my $annoCreationURL = $server . $port . '/' . $validLeafID . '/annotation';
 $tx = $uaValid->post($annoCreationURL => form => {uploadedFile => {file => $fileToUpload, 'Content-Type' => 'image/png'}});

@@ -102,4 +102,31 @@ sub forestInfo {
     return $json;
 }
 
+sub update {
+    my ($class, $params) = @_;
+
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call update_forest(:forestid, :name, :desc, :reqUser)",
+        {
+            forestid        => $params->{forestid},
+            name            => $params->{name},
+            desc            => $params->{desc},
+            reqUser         => $params->{reqUser}
+        }
+    );
+
+    my $json = {};
+    my $num = $result->fetch->[0];
+    #print Dumper($cols);
+    if ($num == 0) {
+        $json = {result => $num, txt => 'Forest updated successfully'};
+    } elsif ($num == 1) {
+        $json = {result => $num, txt => 'Nothing was changed'};
+    } elsif ($num == 2) {
+        $json = {error => $num, txt => 'Forest does not exist or user does not have permissions to that forest'};
+    }
+    
+    return $json; 
+}
+
 return 1;

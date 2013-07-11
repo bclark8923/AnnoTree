@@ -4,7 +4,7 @@
 
 	app.controller(
 		"forest.TreeController",
-		function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, forestService, localStorageService, _ ) {
+		function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, treeService, branchService, leafService, localStorageService, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
@@ -35,7 +35,7 @@
 
 				$scope.isLoading = true;
 
-				var promise = forestService.getTree($routeParams.treeID);
+				var promise = treeService.getTree($routeParams.treeID);
 
 				promise.then(
 					function( response ) {
@@ -137,7 +137,7 @@
 						$("#invalidModifyTree").html("Please enter valid information.");
 					}
 				} else {
-					var promise = forestService.updateTree(treeID, treeName, treeDescription);
+					var promise = treeService.updateTree(treeID, treeName, treeDescription);
 
 					promise.then(
 						function( response ) {
@@ -211,7 +211,7 @@
 		        xhr.addEventListener("load", uploadComplete, false)
 		        xhr.addEventListener("error", uploadFailed, false)
 		        xhr.addEventListener("abort", uploadCanceled, false)
-		        forestService.createAnnotation(leafID, fd, xhr);
+		        leafService.createAnnotation(leafID, fd, xhr);
 		    }
 
 		    function uploadComplete(evt) {
@@ -258,7 +258,7 @@
 					}
 				} else {
 					//return;
-					var promise = forestService.createLeaf(branchID, leafName, leafDescription);
+					var promise = leafService.createLeaf(branchID, leafName, leafDescription);
 
 					promise.then(
 						function( response ) {
@@ -313,7 +313,7 @@
 			}
 
 			$scope.addUser = function(tree) {
-				var promise = forestService.addUser(tree.id, $rootScope.modifyTree.addUserID);
+				var promise = treeService.addUser(tree.id, $rootScope.modifyTree.addUserID);
 
 					promise.then(
 						function( response ) {

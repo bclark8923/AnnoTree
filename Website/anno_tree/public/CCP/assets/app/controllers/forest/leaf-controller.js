@@ -4,7 +4,7 @@
 
 	app.controller(
 		"forest.LeafController",
-		function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, forestService, localStorageService, _ ) {
+		function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, leafService, localStorageService, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
@@ -25,8 +25,8 @@
 				if(leaf.annotations.length > 0) {
 					leafImage = leaf.annotations[0].path
 				}
-               	$scope.leafImage = leafImage;
-               	$scope.leafName = leaf.name;
+				leaf.image = leafImage;
+               	$scope.leaf = leaf;
                	localStorageService.add('activeLeaf', leaf.name);
 			}
 
@@ -36,7 +36,7 @@
 
 				$scope.isLoading = true;
 
-				var promise = forestService.getLeaf($routeParams.leafID);
+				var promise = leafService.getLeaf($routeParams.leafID);
 
 				promise.then(
 					function( response ) {
@@ -79,6 +79,87 @@
 					}
 				);
 
+			}
+
+			$scope.openModifyLeafModal = function () {
+				$("#modifyLeafModal").addClass('active');
+				$rootScope.modifyLeaf = $scope.leaf;
+				$rootScope.originalName = $scope.leaf.name;
+			}
+
+			$scope.cancelModifyLeafModal = function() {
+				$rootScope.modifyLeaf.name = $rootScope.originalName;
+				$scope.closeModifyLeafModal();	
+			}
+
+			$scope.closeModifyLeafModal = function () {
+				$("#modifyLeafModal").removeClass('active');
+				$("#invalidModifyLeaf").html('');
+				$rootScope.modifyLeaf = null;
+				$scope.invalidModifyLeaf = false; 
+				$("#loadingScreen").hide();
+			}
+
+			$scope.modifyLeafFn = function() {
+
+				var leafName = $rootScope.modifyLeaf.name;
+				var leafDescription = "NULL";
+				var formValid = $scope.modifyLeafForm.$valid;
+				var branchID = $rootScope.modifyLeaf.branch_id;
+				var leafID = $rootScope.modifyLeaf.id;
+
+				//validate form
+				if(!formValid) {
+					$scope.invalidModifyLeaf = true;
+					if(!leafName) {
+						$("#invalidModifyLeaf").html("Please fill out a leaf name.");
+					} else {
+						//shouldn't happen
+						$("#invalidModifyLeaf").html("Please enter valid information.");
+					}
+				} else {
+					//return;
+					var promise = leafService.updateLeaf(leafID, branchID, leafName, leafDescription);
+
+					promise.then(
+						function( response ) {
+
+							$scope.isLoading = false;
+							$scope.closeModifyLeafModal();
+
+						},
+						function( response ) {
+							var errorData = "Our Modify Leaf Service is currently down, please try again later.";
+							var errorNumber = parseInt(response.data.error);
+							if(response.data.status == 406) {
+								switch(errorNumber)
+								{
+									case 0:
+										errorData = "Please fill out all of the fields";
+										break;
+									case 1:
+										errorData = "This user does not exist in our system. Please contact Us.";
+										break;
+									case 2:
+										errorData = "The branch you attempted to add to no longer exists.";
+										break;
+									case 4:
+										errorData = "Please enter a valid leaf name.";
+										break;
+									default:
+										//go to Fail Page
+										//$location.path("/forestFire");
+								}
+							} else if(response.data.status != 401 && errorNumber != 0) {
+								//go to Fail Page
+								//$location.path("/forestFire");
+								alert(errorData);
+							}
+							$("#invalidModifyLeaf").html(errorData);
+
+						}
+					);
+				}
 			}
 
 

@@ -4,7 +4,7 @@
 
 	app.controller(
 		"forest.TaskController",
-		function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, forestService, localStorageService, _ ) {
+		function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, taskService, localStorageService, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
@@ -18,7 +18,7 @@
 				} 
 				//send update to Service
 				$rootScope.updatingTask = $rootScope.tasks.indexOf(task);
-				var promise = forestService.updateTask(task.id, task.leaf_id, task.description, $rootScope.newStatus, "", "");
+				var promise = taskService.updateTask(task.id, task.leaf_id, task.description, $rootScope.newStatus, "", "");
 				promise.then(
 					function( response ) {
 
@@ -136,9 +136,9 @@
 
 				var promise;
 				if($routeParams.leafID) {
-					promise = forestService.createTaskLeaf($routeParams.treeID, $routeParams.leafID, $scope.newTask);
+					promise = taskService.createTaskLeaf($routeParams.treeID, $routeParams.leafID, $scope.newTask);
 				} else {
-					promise = forestService.createTask($routeParams.treeID, $scope.newTask);
+					promise = taskService.createTask($routeParams.treeID, $scope.newTask);
 				}
 
 				promise.then(
@@ -197,7 +197,7 @@
 
 				$scope.isLoading = true;
 
-				var promise = forestService.getTasks($routeParams.treeID);
+				var promise = taskService.getTasks($routeParams.treeID);
 
 				promise.then(
 					function( response ) {

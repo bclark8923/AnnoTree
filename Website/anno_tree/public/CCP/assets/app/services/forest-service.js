@@ -19,81 +19,9 @@
 				$("#loadingScreen").show();
 				return $http.post(apiRoot.getRoot() + '/forest', {name: forestName, description: forestDescription});
 			}
-/*
-			function createForest(forestName, forestDescription) {
-				return $http.post(apiRoot.getRoot() + '/forest', {name: forestName, description: forestDescription});
-			}
-*/
-			function getTree(treeID) {
-				$("#loadingScreen").show();
-				return $http.get(apiRoot.getRoot() + '/tree/' + treeID);
-			}
 
-			function createTree(forestID, treeName, treeDescription) {
-				$("#loadingScreen").show();
-				return $http.post(apiRoot.getRoot() + '/' + forestID + '/tree', {name: treeName, description: treeDescription});
-			}
-
-			function updateTree(treeID, treeName, treeDescription) {
-				$("#loadingScreen").show();
-				return $http.put(apiRoot.getRoot() + '/tree/' + treeID, {name: treeName, description: treeDescription});
-			}
-
-			function createBranch(treeID, branchName, branchDescription) {
-				$("#loadingScreen").show();
-				return $http.post(apiRoot.getRoot() + '/' + treeID + '/branch', {name: branchName, description: branchDescription});
-			}
-
-			function getLeaf(leafID) {
-				$("#loadingScreen").show();
-				return $http.get(apiRoot.getRoot() + '/leaf/' + leafID);
-			}
-
-			function createLeaf(branchID, leafName, leafDescription) {
-				$("#loadingScreen").show();
-				return $http.post(apiRoot.getRoot() + '/' + branchID + '/leaf', {name: leafName, description: leafDescription});
-			}
-
-			function updateLeaf(leafID, branchID, leafName, leafDescription) {
-				$("#loadingScreen").show();
-				return $http.put(apiRoot.getRoot() + '/leaf/' + leafID, {name: leafName, description: leafDescription, branchid: branchID});
-			}
-
-			function createAnnotation(leafID, formData, xhr) {
-				$("#loadingScreen").show();
-		        xhr.open("POST", apiRoot.getRoot() + "/"+leafID+"/annotation");
-		        xhr.send(formData);
-		        return;
-			}
-
-			function getTasks(treeID) {
-				//$("#loadingScreen").show();
-				return $http.get(apiRoot.getRoot() + '/' + treeID + '/tasks');
-			}
-
-			function createTask(treeID, taskDescription) {
-				//$("#loadingScreen").show();
-				return $http.post(apiRoot.getRoot() + '/tasks', {treeid: treeID, description: taskDescription, status: 1});
-			}
-
-			function createTaskLeaf(treeID, leafID, taskDescription) {
-				//$("#loadingScreen").show();
-				return $http.post(apiRoot.getRoot() + '/tasks', {treeid: treeID, description: taskDescription, status: 1, leafid: leafID});
-			}
-
-			function updateTask(taskID, leafID, taskDescription, statusID, assignedTo, dueDate) {
-				//$("#loadingScreen").show();
-				return $http.put(apiRoot.getRoot() + '/tasks/' + taskID, {description: taskDescription, 
-																		 status: statusID, 
-																		 leafid: leafID,
-																		 assignedTo: assignedTo,
-																		 dueDate: dueDate
-																		});
-			}
-
-			function addUser(treeID, userID) {
-				//$("#loadingScreen").show();
-				return $http.put(apiRoot.getRoot() + '/tree/' + treeID + "/user", {userToAdd: userID});
+			function deleteForest(forestID) {
+				return $http.delete(apiRoot.getRoot() + '/forest/' + forestID);
 			}
 
 			// ---------------------------------------------- //
@@ -105,19 +33,7 @@
 				getForests: getForests,
 				updateForest: updateForest,
 				createForest: createForest,
-				getTree: getTree,
-				createTree: createTree,
-				updateTree: updateTree,
-				createBranch: createBranch,
-				getLeaf: getLeaf,
-				createLeaf: createLeaf,
-				updateLeaf: updateLeaf,
-				createAnnotation: createAnnotation,
-				getTasks: getTasks,
-				createTask: createTask,
-				createTaskLeaf: createTaskLeaf,
-				updateTask: updateTask,
-				addUser: addUser
+				deleteForest: deleteForest
 			});
 
 

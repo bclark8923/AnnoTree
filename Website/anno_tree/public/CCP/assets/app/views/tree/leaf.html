@@ -4,14 +4,14 @@
     <div id="crumbHolder">
       <span class="responsiveHide">
         <a ng-href="#/app/{{treeInfo.id}}"><i class="icon-circle-arrow-left" style="color:#84db69;font-size:16pt;margin-right:15px;"></i></a>
-        <a href ng-click="openModifyLeafModal()" style="color:white;">{{leafName}} <i class="icon-cog" style="color:white;"></i></a>
+        <a href ng-click="openModifyLeafModal()" style="color:white;">{{leaf.name}} <i class="icon-cog" style="color:white;"></i></a>
       </span>
       <span class="responsiveShow">
         <a ng-href="#/app/{{treeInfo.id}}" style="margin-left:15px;"><i class="icon-circle-arrow-left" style="color:#84db69;font-size:16pt"></i></a>
       </span>
     </div>
     <div class="responsiveShowTC" style="text-align:center;width:100%" ng-click="openModifyLeafModal()">
-        <a style="color:white;" href ng-click="openModifyLeafModal()">{{leafName}}  <i class="icon-cog" style="color:white;"></i></a>
+        <a style="color:white;" href ng-click="openModifyLeafModal()">{{leaf.name}}  <i class="icon-cog" style="color:white;"></i></a>
     </div>
     <div id="newElementHolder"  class="switch" gumby-trigger="#newAnnotationModal">
        <!-- <div id="newElementButton" class=" medium success btn">
@@ -29,6 +29,6 @@
   <div id="treeElements">
 	<div id="singleLeafHolder" class="" post-render>
     <div style="height:100%;">
-    	  <img class="singleLeafImage" ng-src="{{leafImage}}" ng-click="openViewLeafModal()" style="cursor:pointer" gumby-retina />
+    	  <img class="singleLeafImage" ng-src="{{leaf.image}}" ng-click="openViewLeafModal()" style="cursor:pointer" gumby-retina />
     </div>
 	</div post-render>

@@ -4,8 +4,8 @@
 
 	app.controller(
 		"forest.ForestController",
-		function( $scope, $cookies, $rootScope, $location, $timeout, $route, requestContext, forestService, _ ) {
-
+		function( $scope, $cookies, $rootScope, $location, $timeout, $route, requestContext, forestService, treeService, branchService, _ ) {
+ 
 
 			// --- Define Controller Methods. ------------------- //
 
@@ -123,14 +123,14 @@
 					}
 				} else {
 					//return;
-					var promise = forestService.createTree(forestID, treeName, treeDescription);
+					var promise = treeService.createTree(forestID, treeName, treeDescription);
 
 					promise.then(
 						function( response ) {
 					
 							var branchName = "Loose Leaves";
 							var branchDescription = "A collection of loose leaves sent to this tree.";
-							var promise = forestService.createBranch(response.data.id, branchName, branchDescription);
+							var promise = branchService.createBranch(response.data.id, branchName, branchDescription);
 							$scope.newTreeData = response.data;
 
 							promise.then(
@@ -346,7 +346,7 @@
 						$("#invalidAddForest").html("Please enter valid information.");
 					}
 				} else {
-					var promise = forestService.createForest(forestName, forestDescription);
+					var promise = treeService.createForest(forestName, forestDescription);
 
 					promise.then(
 						function( response ) {

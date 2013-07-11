@@ -36,7 +36,7 @@
                     <div class="twelve colgrid">
                         <div class="forestHeader"> 
                             <!-- <hr class="forestHR"/> -->
-                            <span class="forestName">{{forest.name}}</span>
+                            <span class="forestName" ng-click="openModifyForestModal(forest)">{{forest.name}} <i class="icon-cog" style="color:white;margin:0;margin-right:-5px;"></i></span>
                         </div>
                         <div class="row" ng-repeat="treeRow in (forest.trees.length/3 | threeColumnFilter)"> 
                             
@@ -48,7 +48,7 @@
                                                 <a id="newTreeLink-{{forest.id}}" href class="switch newTreeLinkClass" ng-click="openNewTreeModal(forest)">
                                                     <div class="cardTitleBar valign"><div>{{tree.name}}</div></div>
                                                     <div class="treeLogoContainer">
-                                                        <div style="margin-top:50px;color:#444;font-size:130pt;font-weight:800;">
+                                                        <div style="margin-top:50px;color:white;font-size:130pt;font-weight:800;">
                                                             +
                                                         </div>
                                                         <div style="margin-top:80px;font-weight:800;"class="cardLabel">{{tree.description}}</div>
@@ -80,9 +80,9 @@
                                                     </a>
                                                     <div class="cardLabel">{{tree.description}}</div>
                                                 </div>
-                                                <div class="treeModify">
+                                                <!-- <div class="treeModify">
                                                     <a href class="switch" ng-click="openModifyTreeModal(tree)"><i class="icon-cog"></i></a>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>

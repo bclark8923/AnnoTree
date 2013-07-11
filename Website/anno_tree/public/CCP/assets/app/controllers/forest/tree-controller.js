@@ -4,7 +4,7 @@
 
 	app.controller(
 		"forest.TreeController",
-		function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, forestService, _ ) {
+		function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, forestService, localStorageService, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
@@ -42,6 +42,7 @@
 						$scope.isLoading = false;
 
 				        $scope.treeInfo = response.data;
+				        localStorageService.add('curTree', response.data);
 						
 						if(response.data.branches.length == 0) {
 							$location.path("/forestFire");
@@ -92,18 +93,78 @@
 
 			}
 
-			$scope.openModifyTreeModal = function () {
+			$scope.openModifyTreeModal = function (tree) {
 				$("#modifyTreeModal").addClass('active');
-				$rootScope.modifyTree = $scope.treeInfo;
+				$scope.modifyTree = tree;
 			}
 
 			$scope.closeModifyTreeModal = function () {
 				$("#modifyTreeModal").removeClass('active');
 				$("#invalidModifyTree").html('');
+				$rootScope.modifyTree = null;
 				$scope.invalidModifyTree = false; 
 				$("#loadingScreen").hide();
 			}
 			
+			$scope.modifyTree = function(tree) {
+
+				var treeName = $rootScope.modifyTree.name;
+				var treeDescription = $rootScope.modifyTree.description;
+				var treeID = $rootScope.modifyTree.id;
+				var formValid = $rootScope.modifyTreeForm.$valid;
+
+				//validate form
+				if(!formValid) {
+					$scope.invalidAddTree = true;
+					if(!treeName) {
+						$("#invalidModifyTree").html("Please fill out a tree name.");
+					}
+					else if(!treeDescription) {
+						$("#invalidModifyTree").html("Please fill out a tree description.");
+					} else {
+						//shouldn't happen
+						$("#invalidModifyTree").html("Please enter valid information.");
+					}
+				} else {
+					var promise = forestService.updateTree(treeID, treeName, treeDescription);
+
+					promise.then(
+						function( response ) {
+							$scope.treeInfo.name = $rootScope.modifyTree.name;
+						},
+						function( response ) {
+							$scope.invalidModifyTree = true;
+							var errorData = "Our Create Tree Service is currently down, please try again later.";
+							var errorNumber = parseInt(response.data.error);
+							if(response.data.status == 406) {
+								switch(errorNumber)
+								{
+									case 0:
+										errorData = "Please fill out all of the fields";
+										break;
+									case 1:
+										errorData = "The name needs at least one alphanumeric character";
+										break;
+									case 2:
+										errorData = "The tree you attempted to modify to no longer exists.";
+										break;
+									case 3:
+										errorData = "You do not have permission to modify this tree.";
+										break;
+									default:
+										//go to Fail Page
+										//$location.path("/forestFire");
+								}
+							} else if(response.data.status != 401 && errorNumber != 0) {
+								//go to Fail Page
+								$location.path("/forestFire");
+							}
+							$("#invalidModifyTree").html(errorData);
+
+						}
+					);
+				}
+			}
 
 			$scope.openNewLeafModal = function () {
 				$("#newLeafModal").addClass('active');

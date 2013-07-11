@@ -71,3 +71,34 @@
     </form>
   </div>
 </div>
+
+
+<!-- Modify Users Modal -->
+<div class="modal" id="modifyUsersModal" ng-controller="forest.TreeController">
+  <div class="content" style="padding: 0;min-height:0;">
+    <div class="row authenticateHeader" style="padding:0;">
+      <a id="newLeafClose" class="close switch"  ng-click="closeModifyUsersModal()" style="float:right;color:#444">
+        <i class="icon-remove-circle"></i>
+      </a>
+      <h3 style="padding-top:20px;">Users</h3>
+    </div>
+    <form name="createLeafForm" ng-submit="newLeaf()" style="margin: 0;">
+      <div class="row" style="padding-bottom:30px;padding-top:30px;">
+        <div class="ten columns centered center-text">
+          <ul>
+            <li class="danger alert" id="invalidAddLeaf" ng-show="invalidAddLeaf"></li>
+            <li class="field" style="text-align:center;"><input id="leafName" class="text input" type="text" placeholder="Leaf" style="max-width:380px;" ng-model="leafName" required></li>
+            <li class="field" style="text-align:center;"><input id="annotationImage" class="text file" type="file" placeholder="Annotation" style="max-width:380px;" ng-model="annotationImage"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row authenticateFooter">
+        <div style="text-align: center; padding-top:15px;">
+          <div>
+            <button type="submit" class="medium oval btn success"><a ng-click="closeModifyUsersModal()">Done</a></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

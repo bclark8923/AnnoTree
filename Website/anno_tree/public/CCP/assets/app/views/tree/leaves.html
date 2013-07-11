@@ -17,9 +17,9 @@
                 <div id="newElementButton" class=" medium success btn">
                     <div style="width:100%;height:100%;">
                         <button>
-                            <a href="" id="newElementLink" class="switch" ng-click="openNewLeafModal()">
+                            <a href="" id="newElementLink" class="switch" ng-click="openModifyUsersModal()">
                                 <i class="icon-ne icon-plus-sign" style="margin-right:0px;"></i>
-                                <span class="responsiveHide" style="margin-left:5px;"> New Leaf</span>
+                                <span class="responsiveHide" style="margin-left:5px;">Users</span>
                             </a>
                         </button>
                     </div>
@@ -27,28 +27,49 @@
             </div>
           </div>
           <div id="treeElements" post-render>
-                <div id="noLeavesDiv" ng-show="noLeaves != ''" class="valign" style="text-align:center;height:100%;">
+               <!-- <div id="noLeavesDiv" ng-show="noLeaves != ''" class="valign" style="text-align:center;height:100%;">
                     <div>
                         <span style="font-size:20pt;" ng-mode="noForests">{{noLeaves}}<br/><br/>{{noLeavesNL}}</span>
                     </div>
-                </div>
+                </div>-->
 
                 <div id="treeElementsDiv" class="twelve colgrid treeBG" ng-controller="forest.TreeController" ng-show="noLeaves == ''">
                     <div class="row" ng-repeat="leafRow in (leaves.length/3 | threeColumnFilter)" post-render> 
                         <div class="four columns" ng-repeat="leaf in leaves.slice(3*$index, 3*$index + 3)"> 
-                            <div class="cardHolder">
-                                <div class="card">
-                                    <div class="cardTitleBar valign"><div>{{leaf.name}}</div></div>
-                                    <a href="#/app/{{treeInfo.id}}/{{leaf.id}}">
-                                        <div class="leaf valign">
-                                            <div>
-                                                <img class="leafImage" ng-src="{{leaf.annotation}}" gumby-retina />
-                                            </div>
+                            <div ng-switch="leaf.id">
+                                <div ng-switch-when="-1">
+                                    <div class="cardHolder">
+                                        <div class="card switch active" style="opacity:0.6;">
+                                            <a href class="switch newTreeLinkClass" ng-click="openNewLeafModal()">
+                                                <div class="cardTitleBar valign"><div>{{leaf.name}}</div></div>
+                                                <div class="treeLogoContainer">
+                                                    <div style="margin-top:50px;color:white;font-size:130pt;font-weight:800;">
+                                                        +
+                                                    </div>
+                                                    <div style="margin-top:80px;font-weight:800;"class="cardLabel">{{leaf.description}}</div>
+                                                </div>
+                                                <div class="treeModify">
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                    <!--<div class="treeModify">
-                                        <a href class="switch" gumby-trigger="#modifyLeafModal"><i class="icon-cog"></i></a>
-                                    </div>-->
+                                    </div>
+                                </div>
+                                <div ng-switch-default>
+                                    <div class="cardHolder">
+                                        <div class="card">
+                                            <div class="cardTitleBar valign"><div>{{leaf.name}}</div></div>
+                                            <a href="#/app/{{treeInfo.id}}/{{leaf.id}}">
+                                                <div class="leaf valign">
+                                                    <div>
+                                                        <img class="leafImage" ng-src="{{leaf.annotation}}" gumby-retina />
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <!--<div class="treeModify">
+                                                <a href class="switch" gumby-trigger="#modifyLeafModal"><i class="icon-cog"></i></a>
+                                            </div>-->
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

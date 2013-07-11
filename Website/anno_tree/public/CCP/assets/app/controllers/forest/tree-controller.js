@@ -21,11 +21,12 @@
 					}
 				}
                	$rootScope.leaves = leaves;
+				$rootScope.leaves.push($scope.newLeafHolder);
 
-               	if(leaves.length == 0) {
+               	/*if(leaves.length == 0) {
                		$scope.noLeaves	= "Click the cog in the top left to get your API key to tie into your mobile app!";
 					$scope.noLeavesNL = "Or click \"New Leaf\" in the top right to add a leaf now.";
-               	}
+               	}*/
 			}
 
 
@@ -79,7 +80,9 @@
 
 			function addLeaf(newLeaf) {
 
+				$rootScope.leaves.pop();
 				$rootScope.leaves.push(newLeaf);
+				$rootScope.leaves.push($scope.newLeafHolder);
 
 				$("#newLeafClose").click();
 
@@ -353,6 +356,21 @@
 					);
 			}
 
+			$scope.openModifyUsersModal = function () {
+				$("#modifyUsersModal").addClass('active');
+				/*$rootScope.modifyTree = tree;
+				$rootScope.originalName = tree.name;
+				$rootScope.originalDescription = tree.description;*/
+			}
+
+			$scope.closeModifyUsersModal = function () {
+				$("#modifyUsersModal").removeClass('active');
+				/*$("#invalidModifyUser").html('');
+				$rootScope.modifyTree = null;
+				$scope.invalidModifyTree = false; 
+				$("#loadingScreen").hide();*/
+			}
+
 			// ...
 
 
@@ -373,6 +391,12 @@
             $rootScope.leaves = [];
             $scope.noLeaves = "";
 			$scope.noLeavesNL = "";
+			$scope.newLeafHolder = { 
+								id: "-1",
+						   		name: "New Leaf",
+							   	description: "Click here to add a new leaf to this tree.",
+							   	logo: "img/tree01.png"
+							};
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

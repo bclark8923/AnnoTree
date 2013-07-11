@@ -11,7 +11,7 @@
                         <input type="checkbox" ng-click="toggleCheck(task)" ng-checked="task.status==2" class="regluar-checkbox">
                         <span>{{task.description}}</span>
                         <a ng-href="#/app/{{task.tree_id}}/{{task.leaf_id}}">
-                          <span class="success label" ng-show="task.leaf_id" style="margin-left:5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">LeafName</span>
+                          <span class="success label" ng-show="task.leaf_id" style="margin-left:5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">{{task.leaf_name}}</span>
                         </a>
                       </div>
                       <!--<div style="height:15px;" ng-show="task.leaf_id">
@@ -21,9 +21,14 @@
                     <li class="addTask" style="display:none;">
                       <form name="addTaskForm" ng-submit="addTask()" style="margin: 0;">
                         <div >
-                          <input type="checkbox" ng-click="toggleCheck(task)" ng-checked="task.status==2" class="regluar-checkbox">
-                          <span id="addTask" style="">
+                          
+                          <span class="addTask">
                               <input type="text" class="addTodo" ng-model="newTask">
+                              <div style="margin-left:15px;">
+                                <span class="success label taskLabel" ng-hide="leaf_name"  style="opacity:0.5;">Leaf</span>
+                                <span class="success label taskLabel" ng-show="leaf_name" style="">Leaf</span>
+                                <span class="primary label taskLabel" style="opacity:0.5;">User</span>
+                              </div>
                           </span>
                         </div>
                       </form>
@@ -34,7 +39,7 @@
                         <div style="padding-left:5px;">
                           <div class="btn success newTaskButton"><a class="linkColor" ng-click="showAddTask()" ><i class="icon-ne icon-plus-sign"></i> New Task</a></div>
                           <div style="display:none;" class="btn success addTaskButton"><a class="linkColor" ng-click="addTask()" ><i class="icon-ne icon-plus-sign"></i> Add </a></div>
-                          <div style="display:none; margin-left:10px;" class="btn danger doneTaskButton"><a class="linkColor" ng-click="doneAddTask()" > Done </a></div>
+                          <div style="display:none; margin-left:10px;" class="btn default doneTaskButton"><a class="linkColor" ng-click="doneAddTask()" > Done </a></div>
                         </div>
                       </li>
                   </ul>

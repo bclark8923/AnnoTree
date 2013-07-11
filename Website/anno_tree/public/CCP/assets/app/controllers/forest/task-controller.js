@@ -4,7 +4,7 @@
 
 	app.controller(
 		"forest.TaskController",
-		function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, forestService, _ ) {
+		function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, forestService, localStorageService, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
@@ -113,6 +113,7 @@
 		    	$(".addTaskButton").show();
 		    	$(".doneTaskButton").show();
 		    	$(".addTask").show();
+		    	$(".addTodo").focus();
 		    }
 
 		    $scope.doneAddTask = function() {
@@ -145,10 +146,14 @@
 
 						$rootScope.isLoading = false;
 
+						if($routeParams.leafID) {
+							response.data.leaf_name = localStorageService.get('activeLeaf');
+						} 
 						$rootScope.tasks.push(response.data);
 
 						$scope.newTask = "";
 						$("#loadingScreen").hide();
+		    			$(".addTodo").focus();
 
 					},
 					function( response ) {
@@ -180,7 +185,7 @@
 							$location.path("/forestFire");
 							//alert(errorData);
 						}
-				$("#loadingScreen").hide();
+						$("#loadingScreen").hide();
 
 					}
 				);
@@ -200,6 +205,10 @@
 						$scope.isLoading = false;
 
 						$rootScope.tasks = response.data.tasks;
+
+						if($routeParams.leafID) {
+							$rootScope.leaf_name = localStorageService.get('activeLeaf');
+						}
 
 					},
 					function( response ) {
@@ -246,6 +255,7 @@
             $rootScope.tasks = [];
             $rootScope.updatingTask = -1;
 			$rootScope.newStatus = -1;
+			$rootScope.leaf_name = "";
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();

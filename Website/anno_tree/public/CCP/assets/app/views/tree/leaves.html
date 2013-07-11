@@ -1,17 +1,17 @@
 
-<div id="treeContainer">
+<div id="treeContainer" ng-model="treeInfo">
           <div id="treeHeader" class="valign">
             <div id="crumbHolder">
               <span class="responsiveHide">
                 <a ng-href="#/app"><i class="icon-circle-arrow-left" style="color:#84db69;font-size:16pt;margin-right:15px;"></i></a>
-                {{treeInfo.name}} <a href ng-click="openModifyTreeModal()"><i class="icon-cog" style="color:white;"></i></a>
+                <a href ng-click="openModifyTreeModal(treeInfo)" style="color:white;">{{treeInfo.name}} <i class="icon-cog" style="color:white;"></i></a>
               </span>
               <span class="responsiveShow">
                 <a ng-href="#/app" style="margin-left:15px;"><i class="icon-circle-arrow-left" style="color:#84db69;font-size:16pt"></i></a>
               </span>
             </div>
             <div class="responsiveShowTC" style="text-align:center;width:100%" ng-click="openModifyTreeModal()">
-                <a style="color:white;" href ng-click="openModifyTreeModal()">{{treeInfo.name}}  <i class="icon-cog" style="color:white;"></i></a>
+                <a style="color:white;" href ng-click="openModifyTreeModal(treeInfo)">{{treeInfo.name}}  <i class="icon-cog" style="color:white;"></i></a>
             </div>
             <div id="newElementHolder"  class="switch" ng-click="openNewLeafModal()">
                 <div id="newElementButton" class=" medium success btn">

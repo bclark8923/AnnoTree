@@ -4,7 +4,7 @@
 
 	app.controller(
 		"forest.LeafController",
-		function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, forestService, _ ) {
+		function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, forestService, localStorageService, _ ) {
 
 
 			// --- Define Controller Methods. ------------------- //
@@ -27,6 +27,7 @@
 				}
                	$scope.leafImage = leafImage;
                	$scope.leafName = leaf.name;
+               	localStorageService.add('activeLeaf', leaf.name);
 			}
 
 

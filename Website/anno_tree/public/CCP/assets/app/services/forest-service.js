@@ -5,9 +5,14 @@
 	app.service("forestService",
 		function( $http, apiRoot ) {
 
-			function getTrees() {
+			function getForests() {
 				$("#loadingScreen").show();
 				return $http.get(apiRoot.getRoot() + '/forest');
+			}
+
+			function updateForest(forestID, forestName, forestDescription) {
+				$("#loadingScreen").show();
+				return $http.put(apiRoot.getRoot() + '/forest/' + forestID, {name: forestName, description: forestDescription});
 			}
 
 			function createForest(forestName, forestDescription) {
@@ -29,6 +34,11 @@
 				return $http.post(apiRoot.getRoot() + '/' + forestID + '/tree', {name: treeName, description: treeDescription});
 			}
 
+			function updateTree(treeID, treeName, treeDescription) {
+				$("#loadingScreen").show();
+				return $http.put(apiRoot.getRoot() + '/tree' + treeID, {name: treeName, description: treeDescription});
+			}
+
 			function createBranch(treeID, branchName, branchDescription) {
 				$("#loadingScreen").show();
 				return $http.post(apiRoot.getRoot() + '/' + treeID + '/branch', {name: branchName, description: branchDescription});
@@ -42,6 +52,11 @@
 			function createLeaf(branchID, leafName, leafDescription) {
 				$("#loadingScreen").show();
 				return $http.post(apiRoot.getRoot() + '/' + branchID + '/leaf', {name: leafName, description: leafDescription});
+			}
+
+			function updateLeaf(leafID, branchID, leafName, leafDescription) {
+				$("#loadingScreen").show();
+				return $http.put(apiRoot.getRoot() + '/leaf/' + leafID, {name: leafName, description: leafDescription, branchid: branchID});
 			}
 
 			function createAnnotation(leafID, formData, xhr) {
@@ -87,13 +102,16 @@
 
 			// Return the public API.
 			return({
-				getTrees: getTrees,
+				getForests: getForests,
+				updateForest: updateForest,
 				createForest: createForest,
 				getTree: getTree,
 				createTree: createTree,
+				updateTree: updateTree,
 				createBranch: createBranch,
 				getLeaf: getLeaf,
 				createLeaf: createLeaf,
+				updateLeaf: updateLeaf,
 				createAnnotation: createAnnotation,
 				getTasks: getTasks,
 				createTask: createTask,

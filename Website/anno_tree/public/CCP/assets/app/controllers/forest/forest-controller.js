@@ -26,7 +26,7 @@
 
 				$scope.isLoading = true;
 
-				var promise = forestService.getTrees();
+				var promise = forestService.getForests();
 
 				promise.then(
 					function( response ) {
@@ -83,20 +83,6 @@
 				$scope.closeNewTreeModal();
 
 			}
-
-			$scope.openModifyTreeModal = function (tree) {
-				$("#modifyTreeModal").addClass('active');
-				$rootScope.modifyTree = tree;
-			}
-
-			$scope.closeModifyTreeModal = function () {
-				$("#modifyTreeModal").removeClass('active');
-				$("#invalidModifyTree").html('');
-				$rootScope.modifyTree = null;
-				$scope.invalidModifyTree = false; 
-				$("#loadingScreen").hide();
-			}
-
 
 			$scope.openNewTreeModal = function (forest) {
 				$("#newTreeModal").addClass('active');
@@ -241,13 +227,84 @@
 				}
 			}
 
-			function addForest(newForest) {
 
-				newForest.trees = [];
-				newForest.trees.push($scope.newTreeHolder);
-				$rootScope.forests.push(newForest);
-				$scope.closeNewForestModal();
+			$scope.openModifyForestModal = function (forest) {
+				$("#modifyForestModal").addClass('active');
+				$rootScope.modifyForest = forest;
+				$rootScope.originalName = forest.name;
+			}
 
+			$scope.cancelModifyForestModal = function () {
+				$rootScope.modifyForest.name = $rootScope.originalName;
+				$scope.closeModifyForestModal();
+			}
+
+			$scope.closeModifyForestModal = function () {
+				$("#modifyForestModal").removeClass('active');
+				$("#invalidModifyForest").html('');
+				$rootScope.modifyForest = null;
+				$scope.invalidModifyForest = false; 
+				$("#loadingScreen").hide();
+			}
+
+			$scope.modifyForestFn = function() {
+				var forestID = $rootScope.modifyForest.id;
+				var forestName = $rootScope.modifyForest.name;
+				var forestDescription = "NULL";
+				var formValid = $scope.modifyForestForm.$valid;
+
+				//validate form
+				if(!formValid) {
+					$scope.invalidModifyForest = true;
+					if(!forestName) {
+						$("#invalidModifyForest").html("Please fill out a forest name.");
+					}
+					else if(!forestDescription) {
+						$("#invalidModifyForest").html("Please fill out a forest description.");
+					} else {
+						//shouldn't happen
+						$("#invalidModifyForest").html("Please enter valid information.");
+					}
+				} else {
+					var promise = forestService.updateForest(forestID, forestName, forestDescription);
+
+					promise.then(
+						function( response ) {
+
+							$scope.isLoading = false;
+							$scope.invalidModifyForest = false;
+							$scope.closeModifyForestModal();
+							
+						},
+						function( response ) {
+							$scope.invalidModifyForest = true;
+							var errorData = "Our Modify Forest Service is currently down, please try again later.";
+							var errorNumber = parseInt(response.data.error);
+							if(response.data.status == 406) {
+								switch(errorNumber)
+								{
+									case 0:
+										errorData = "Please fill out all of the fields";
+										break;
+									case 1:
+										errorData = "This user does not exist in our system. Please contact Us.";
+										break;
+									case 2:
+										errorData = "Please enter a valid forest name.";
+										break;
+									default:
+										//go to Fail Page
+										//$location.path("/forestFire");	
+								}
+							} else if(response.data.status != 401 && errorNumber != 0) {
+								//go to Fail Page
+								$location.path("/forestFire");
+							}
+							$("#invalidModifyForest").html(errorData);
+
+						}
+					);
+				}
 			}
 
 			$scope.openNewForestModal = function () {
@@ -260,6 +317,15 @@
 				$("#forestName").val('');
 				$scope.invalidAddForest = false; 
 				$("#loadingScreen").hide();
+			}
+
+			function addForest(newForest) {
+
+				newForest.trees = [];
+				newForest.trees.push($scope.newTreeHolder);
+				$rootScope.forests.push(newForest);
+				$scope.closeNewForestModal();
+
 			}
 
 			$scope.newForest = function() {

@@ -307,8 +307,11 @@
 				}
 			}
 
+			$scope.deleteCallback = function() {
+				$("#deleteCallbackModal").addClass('active');
+			}
+
 			$scope.deleteForest = function() {
-				//return;
 				var forestID = $rootScope.modifyForest.id;
 				var promise = forestService.deleteForest(forestID);
 
@@ -324,6 +327,7 @@
 							}
 						}
 						$scope.closeModifyForestModal();
+						$("#deleteCallbackModal").removeClass('active');
 
 					},
 					function( response ) {

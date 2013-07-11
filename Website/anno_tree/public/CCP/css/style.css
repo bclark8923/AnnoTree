@@ -43,6 +43,10 @@ a {
   color: #444;
 }
 
+#deleteCallbackModal {
+  
+}
+
 a:hover{
   color: #84db69;
 }

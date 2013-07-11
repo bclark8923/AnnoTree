@@ -53,6 +53,9 @@
 
 			};
 
+			$scope.hideDelete = function() {
+				$("#deleteCallbackModal").removeClass('active');
+			}
 
 			// --- Define Controller Variables. ----------------- //
 

@@ -179,6 +179,10 @@
 				}
 			}
 
+			$scope.deleteCallback = function() {
+				$("#deleteCallbackModal").addClass('active');
+			}
+
 			$scope.deleteTree = function() {
 				//return;
 				var treeID = $rootScope.modifyTree.id;

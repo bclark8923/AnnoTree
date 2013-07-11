@@ -64,12 +64,32 @@
         <div style="text-align: center; padding-top:15px;">
           <div>
             <button type="submit" class="medium oval btn success"><a ng-click="modifyTreeFn()">Update Tree</a></button>
-            <button type="submit" class="medium oval btn danger"><a ng-click="deleteTree()">Delete Tree</a></button>
+            <button type="submit" class="medium oval btn danger"><a ng-click="deleteCallback()">Delete Tree</a></button>
             <button type="submit" class="medium oval btn default cancelModal"><a ng-click="cancelModifyTreeModal()">Cancel</a></button>
           </div>
         </div>
       </div>
     </form>
+  </div>
+</div>
+
+<div class="modal" id="deleteCallbackModal" ng-controller="forest.TreeController">
+  <div class="content" style="padding: 0;min-height:0;">
+    <div class="row" style="padding-bottom:30px;padding-top:30px;">
+      <div class="ten columns centered center-text">
+        <ul>
+          <li class="field" style="text-align:center;">Are you sure you want to delete this?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row authenticateFooter">
+      <div style="text-align: center; padding-top:15px;">
+        <div>
+          <button type="submit" class="medium oval btn danger"><a ng-click="deleteTree()">Yes</a></button>
+          <button type="submit" class="medium oval btn default cancelModal" ng-controller="AppController"><a ng-click="hideDelete()">No</a></button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

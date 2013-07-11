@@ -2,6 +2,16 @@ package AnnoTree::Controller::Tree;
 
 use Mojo::Base 'Mojolicious::Controller';
 use AnnoTree::Model::Tree;
+use AppConfig;
+
+my $config = AppConfig->new();
+$config->define('server=s');
+$config->define('port=s');
+$config->define('screenshot=s');
+$config->define('annotationpath=s');
+$config->define('devRoot=s');
+$config->file('/opt/config.txt');
+my $path = $config->get('annotationpath');
 
 # creates a new tree
 sub create {
@@ -88,6 +98,28 @@ sub addUserToTree {
        $status = 406;
     }
     
+    $self->render(json => $json, status => $status);
+}
+
+sub deleteTree {
+    my $self = shift;
+
+    my $params = {};
+    $params->{reqUser} = $self->current_user->{userid};
+    $params->{treeid} = $self->param('treeid');
+    
+    my @annos = AnnoTree::Model::Tree->getTreeAnnotations($params);
+    my $json = AnnoTree::Model::Tree->deleteTree($params);
+    
+    my $status = 204;
+    if (exists $json->{error}) {
+        $status = 406;
+    } else {
+        foreach my $anno (@annos) {
+            `rm $path/$anno`;
+        }
+    }
+
     $self->render(json => $json, status => $status);
 }
 

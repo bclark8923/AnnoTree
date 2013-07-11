@@ -252,4 +252,48 @@ sub addUserToTree {
     return $json;
 }
 
+sub getTreeAnnotations {
+    my ($class, $params) = @_;
+
+    my $annoResult = AnnoTree::Model::MySQL->db->execute(
+        "call get_annotations_by_tree(:reqUser, :treeid)",
+        {
+            reqUser     => $params->{reqUser},
+            treeid      => $params->{treeid}
+        }
+    );
+    my $annoPath = '';
+    my @annos;
+    while (my $return = $annoResult->fetch) {
+        if (defined $return->[0]) {
+
+            ($annoPath) = $return->[0] =~ m/.*\/(.+)$/;
+            push(@annos, $annoPath) if $annoPath;
+        }
+    }
+    
+    return @annos;
+}
+
+sub deleteTree {
+    my ($class, $params) = @_;
+    
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call delete_tree(:reqUser, :treeid)",
+        {
+            treeid          => $params->{treeid},
+            reqUser         => $params->{reqUser}
+        }
+    );
+
+    my $json = {};
+    my $num = $result->fetch->[0];
+    if ($num == 0) {
+        $json = {result => $num, txt => 'Tree deleted successfully'};
+    } elsif ($num == 1) {
+        $json = {error => $num, txt => 'Tree does not exist or user does not have permissions to delete tree'};
+    }
+
+    return $json;
+}
 return 1;

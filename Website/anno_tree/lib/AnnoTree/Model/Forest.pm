@@ -9,7 +9,6 @@ use Data::Dumper;
 sub create {
     my ($class, $params) = @_;
     
-    #print Dumper($params);
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call create_forest(:userid, :name, :desc)",
         {
@@ -117,7 +116,7 @@ sub update {
 
     my $json = {};
     my $num = $result->fetch->[0];
-    #print Dumper($cols);
+    
     if ($num == 0) {
         $json = {result => $num, txt => 'Forest updated successfully'};
     } elsif ($num == 1) {
@@ -127,6 +126,51 @@ sub update {
     }
     
     return $json; 
+}
+
+sub getForestAnnotations {
+    my ($class, $params) = @_;
+
+    my $annoResult = AnnoTree::Model::MySQL->db->execute(
+        "call get_annotations_by_forest(:reqUser, :forestid)",
+        {
+            reqUser     => $params->{reqUser},
+            forestid    => $params->{forestid}
+        }
+    );
+    my $annoPath = '';
+    my @annos;
+    while (my $return = $annoResult->fetch) {
+        if (defined $return->[0]) {
+
+            ($annoPath) = $return->[0] =~ m/.*\/(.+)$/;
+            push(@annos, $annoPath) if $annoPath;
+        }
+    }
+    
+    return @annos;
+}
+
+sub deleteForest {
+    my ($class, $params) = @_;
+    
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call delete_forest(:reqUser, :forestid)",
+        {
+            forestid        => $params->{forestid},
+            reqUser         => $params->{reqUser}
+        }
+    );
+
+    my $json = {};
+    my $num = $result->fetch->[0];
+    if ($num == 0) {
+        $json = {result => $num, txt => 'Forest deleted successfully'};
+    } elsif ($num == 1) {
+        $json = {error => $num, txt => 'Forest does not exist or user does not have permissions to delete forest'};
+    }
+
+    return $json;
 }
 
 return 1;

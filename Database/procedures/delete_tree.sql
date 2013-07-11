@@ -8,13 +8,12 @@ DELIMITER $$
 
 
 CREATE Procedure `delete_tree`(
-  in user INT,
-  in tree_id INT
+  in req_user INT,
+  in treeid INT
   )
 BEGIN
-IF (select id from user where id = user) then
+IF (select id from user_tree where user_id = req_user and tree_id = treeid) then
   SET FOREIGN_KEY_CHECKS=0;
-  -- TODO: leafs
   delete t, ut, b, l, a from
           tree as t
            left join user_tree as ut on
@@ -26,14 +25,12 @@ IF (select id from user where id = user) then
            left join annotation as a on
               a.leaf_id = l.id            
       where
-          t.id = tree_id and
-          ut.user_id = user;
+          t.id = treeid and
+          ut.user_id = req_user;
   SET FOREIGN_KEY_CHECKS=1;
-  -- this does not work if there are not entries in every table!
-  --  if row_count() > 0 then select '0';
-  --  else select '1';
-  -- end if;
-select '0';
+    select '0';
+ELSE
+    select '1';
 END IF;
 END $$
 delimiter ; $$

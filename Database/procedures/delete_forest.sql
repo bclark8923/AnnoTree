@@ -1,6 +1,7 @@
 -- --------------------------------------------------------------------------------
 -- delete_forest
 -- returns 0 - success
+-- returns 1 - user does not have permissions to delete that forest or forest does not exist
 -- --------------------------------------------------------------------------------
 use annotree;
 drop  procedure IF EXISTS `delete_forest`;

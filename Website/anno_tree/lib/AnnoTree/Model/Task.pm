@@ -110,4 +110,28 @@ sub updateTask {
     return $json;
 }
 
+sub deleteTask {
+    my ($class, $params) = @_;
+    
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call delete_task(:taskid, :reqUser)",
+        {
+            taskid          => $params->{taskid},
+            reqUser         => $params->{reqUser}
+        }
+    );
+
+    my $json = {};
+    my $num = $result->fetch->[0];
+    if ($num == 0) {
+        $json = {result => $num, txt => 'Task deleted successfully'};
+    } elsif ($num == 1) {
+        $json = {error => $num, txt => 'Nothing was deleted'};
+    } elsif ($num == 2) {
+        $json = {error => $num, txt => 'Task does not exist or user does not have permissions to delete task'};
+    }
+
+    return $json;
+}
+
 return 1;

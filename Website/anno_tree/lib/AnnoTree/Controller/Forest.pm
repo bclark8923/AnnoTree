@@ -2,7 +2,16 @@ package AnnoTree::Controller::Forest;
 
 use Mojo::Base 'Mojolicious::Controller';
 use AnnoTree::Model::Forest;
-#use Scalar::Util qw(looks_like_number);
+use AppConfig;
+
+my $config = AppConfig->new();
+$config->define('server=s');
+$config->define('port=s');
+$config->define('screenshot=s');
+$config->define('annotationpath=s');
+$config->define('devRoot=s');
+$config->file('/opt/config.txt');
+my $path = $config->get('annotationpath');
 
 sub create {
     my $self = shift;
@@ -68,6 +77,28 @@ sub update {
     if (exists $json->{error}) {
        $status = 406;
     }
+    $self->render(json => $json, status => $status);
+}
+
+sub deleteForest {
+    my $self = shift;
+
+    my $params = {};
+    $params->{reqUser} = $self->current_user->{userid};
+    $params->{forestid} = $self->param('forestid');
+    
+    my @annos = AnnoTree::Model::Forest->getForestAnnotations($params);
+    my $json = AnnoTree::Model::Forest->deleteForest($params);
+    
+    my $status = 204;
+    if (exists $json->{error}) {
+        $status = 406;
+    } else {
+        foreach my $anno (@annos) {
+            `rm $path/$anno`;
+        }
+    }
+
     $self->render(json => $json, status => $status);
 }
 

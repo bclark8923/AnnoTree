@@ -158,11 +158,13 @@ sub restart {
 sub rebuild {
     say OUTPUT 'Preparing to rebuild DB' if $verbose;
     chdir "$root/Database/";
-    my @text = `./install.py`;
     if ($verbose) {
+        my @text = `./install.py DEBUG` if $verbose;
         foreach my $line (@text) {
             print OUTPUT $line;
         }
+    } else {
+        `./install.py`;
     }
 }
 

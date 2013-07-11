@@ -66,4 +66,21 @@ sub updateTask {
     $self->render(json => $json, status => $status);
 }
 
+sub deleteTask {
+    my $self = shift;
+
+    my $params = {};
+    $params->{reqUser} = $self->current_user->{userid};
+    $params->{taskid} = $self->param('taskid');
+    
+    my $json = AnnoTree::Model::Task->deleteTask($params);
+    
+    my $status = 204;
+    if (exists $json->{error}) {
+        $status = 406;
+    }
+
+    $self->render(json => $json, status => $status);
+}
+
 return 1;

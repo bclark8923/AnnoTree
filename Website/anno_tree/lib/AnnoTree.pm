@@ -81,25 +81,28 @@ sub startup {
     $authr->get('/testauth')    ->to('controller-static#testAuth');
 
     # ===== USERS =====
-    $r->post('/user/signup')                                ->to('controller-auth#signup'); # invites need to be added to existing forest, new users have sample forest, etc. created automatically
+    $r->post('/user/signup')                                ->to('controller-auth#signup');
     $r->post('/user/login')                                 ->to('controller-auth#login');
     $authr->post('/user/logout')                            ->to('controller-auth#logoutUser');
-    $authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser'); # not working
+    #$authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser');
 
     # ===== TASKS =====
     $authr->post('/tasks')                                  ->to('controller-task#create');
     $authr->get('/:treeid/tasks' => [treeid => qr/\d+/])    ->to('controller-task#treeTaskInfo');
     $authr->put('/tasks/:taskid' => [taskid => qr/\d+/])    ->to('controller-task#updateTask');
+    $authr->delete('/tasks/:taskid' => [taskid => qr/\d+/]) ->to('controller-task#deleteTask');
     
     # ===== FORESTS =====
-    $authr->post('/forest') ->to('controller-forest#create');
-    $authr->get('/forest')  ->to('controller-forest#forestInfo');
-    $authr->put('/forest/:forestid' => [forestid => qr/\d+/])  ->to('controller-forest#update');
+    $authr->post('/forest')                                         ->to('controller-forest#create');
+    $authr->get('/forest')                                          ->to('controller-forest#forestInfo');
+    $authr->put('/forest/:forestid' => [forestid => qr/\d+/])       ->to('controller-forest#update');
+    $authr->delete('/forest/:forestid' => [forestid => qr/\d+/])    ->to('controller-forest#deleteForest');
 
     # ===== TREES =====
     $authr->post('/:forestid/tree' => [forestid => qr/\d+/])    ->to('controller-tree#create');
     $authr->get('/tree/:treeid' => [treeid => qr/\d+/])         ->to('controller-tree#treeInfo');
     $authr->put('/tree/:treeid' => [treeid => qr/\d+/])         ->to('controller-tree#update');
+    $authr->delete('/tree/:treeid' => [treeid => qr/\d+/])      ->to('controller-tree#deleteTree');
     $authr->put('/tree/:treeid/user' => [treeid => qr/\d+/])    ->to('controller-tree#addUserToTree');
  
     # ===== BRANCHES =====
@@ -110,11 +113,11 @@ sub startup {
     $authr->get('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#leafInfo');
     $authr->put('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#update');
     $authr->delete('/leaf/:leafid' => [leafid => qr/\d+/])      ->to('controller-leaf#deleteLeaf');
-    $r->post('/ios/leaf' => [leafid => qr/\d+/]) ->to('controller-leaf#iosUpload');
-    $r->get('/ios/leaf' => [leafid => qr/\d+/]) ->to('controller-leaf#iosTestUpload');
+    $r->post('/ios/leaf' => [leafid => qr/\d+/])    ->to('controller-leaf#iosUpload');
+    $r->get('/ios/leaf' => [leafid => qr/\d+/])     ->to('controller-leaf#iosTestUpload');
 
     # ===== ANNOTATIONS =====
-    $authr->post('/:leafid/annotation' => [leafid => qr/\d+/])          ->to('controller-annotation#create');
+    $authr->post('/:leafid/annotation' => [leafid => qr/\d+/])->to('controller-annotation#create');
 
 }
 

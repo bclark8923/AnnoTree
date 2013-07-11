@@ -8,19 +8,19 @@ DELIMITER $$
 
 
 CREATE Procedure `delete_task`(
-  in id int,
-  in user_id int
+  in taskid int,
+  in req_user int
   )
 BEGIN
-IF (select id from user_tree where user_tree.user_id = user_id) THEN
-        delete from task where task.id = id;
+IF (select ut.id from user_tree ut, task t where ut.user_id = req_user and ut.tree_id = t.tree_id and t.id = taskid) THEN
+        delete from task where task.id = taskid;
         if row_count() = 1 then
           select '0';
         ELSE 
-          select '2';
+          select '1';
         END IF;
 ELSE
-    select '1';
+    select '2';
 END IF;
 END $$
 delimiter ; $$

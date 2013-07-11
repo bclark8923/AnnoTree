@@ -35,6 +35,10 @@ a {
   background: transparent;
 }
 
+.btn.default.cancelModal {
+  background-color: #ddd;
+}
+
 .modal {
   color: #444;
 }

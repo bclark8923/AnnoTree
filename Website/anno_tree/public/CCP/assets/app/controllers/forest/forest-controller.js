@@ -307,6 +307,58 @@
 				}
 			}
 
+			$scope.deleteForest = function() {
+				//return;
+				var forestID = $rootScope.modifyForest.id;
+				var promise = forestService.deleteForest(forestID);
+
+				promise.then(
+					function( response ) {
+
+						$scope.isLoading = false;
+
+						for(var i = 0; i < $rootScope.forests.length; i++) { 
+							if($rootScope.forests[i].id == $rootScope.modifyForest.id) {
+								$rootScope.forests.splice(i,1);
+								break;
+							}
+						}
+						$scope.closeModifyForestModal();
+
+					},
+					function( response ) {
+						var errorData = "Our Modify Leaf Service is currently down, please try again later.";
+						var errorNumber = parseInt(response.data.error);
+						if(response.data.status == 406) {
+							switch(errorNumber)
+							{
+								case 0:
+									errorData = "Please fill out all of the fields";
+									break;
+								case 1:
+									errorData = "This user does not exist in our system. Please contact Us.";
+									break;
+								case 2:
+									errorData = "The branch you attempted to add to no longer exists.";
+									break;
+								case 4:
+									errorData = "Please enter a valid leaf name.";
+									break;
+								default:
+									//go to Fail Page
+									//$location.path("/forestFire");
+							}
+						} else if(response.data.status != 401 && errorNumber != 0) {
+							//go to Fail Page
+							//$location.path("/forestFire");
+							alert(errorData);
+						}
+						$("#invalidModifyLeaf").html(errorData);
+
+					}
+				);
+			}
+
 			$scope.openNewForestModal = function () {
 				$("#newForestModal").addClass('active');
 			}
@@ -346,7 +398,7 @@
 						$("#invalidAddForest").html("Please enter valid information.");
 					}
 				} else {
-					var promise = treeService.createForest(forestName, forestDescription);
+					var promise = forestService.createForest(forestName, forestDescription);
 
 					promise.then(
 						function( response ) {

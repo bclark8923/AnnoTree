@@ -361,52 +361,99 @@
 				}
 			}
 
-			$scope.addUser = function(tree) {
-				var promise = treeService.addUser(tree.id, $rootScope.modifyTree.addUserID);
+			$scope.addUser = function() {
+				var promise = treeService.addUser($scope.treeInfo.id, $scope.addUserID);
 
-					promise.then(
-						function( response ) {
+				promise.then(
+					function( response ) {
 
-							alert('woo');
+						alert('woo');
 
-						},
-						function( response ) {
-							alert('broked');
-							return;
-							var errorData = "Our Create Leaf Service is currently down, please try again later.";
-							var errorNumber = parseInt(response.data.error);
-							if(response.data.status == 406) {
-								switch(errorNumber)
-								{
-									case 0:
-										errorData = "Please fill out all of the fields";
-										break;
-									case 1:
-										errorData = "This user does not exist in our system. Please contact Us.";
-										break;
-									case 2:
-										errorData = "The branch you attempted to add to no longer exists.";
-										break;
-									case 4:
-										errorData = "Please enter a valid leaf name.";
-										break;
-									default:
-										//go to Fail Page
-										//$location.path("/forestFire");
-								}
-							} else if(response.data.status != 401 && errorNumber != 0) {
-								//go to Fail Page
-								//$location.path("/forestFire");
-								alert(errorData);
+					},
+					function( response ) {
+						alert('broked');
+						return;
+						var errorData = "Our Create Leaf Service is currently down, please try again later.";
+						var errorNumber = parseInt(response.data.error);
+						if(response.data.status == 406) {
+							switch(errorNumber)
+							{
+								case 0:
+									errorData = "Please fill out all of the fields";
+									break;
+								case 1:
+									errorData = "This user does not exist in our system. Please contact Us.";
+									break;
+								case 2:
+									errorData = "The branch you attempted to add to no longer exists.";
+									break;
+								case 4:
+									errorData = "Please enter a valid leaf name.";
+									break;
+								default:
+									//go to Fail Page
+									//$location.path("/forestFire");
 							}
+						} else if(response.data.status != 401 && errorNumber != 0) {
+							//go to Fail Page
+							//$location.path("/forestFire");
 							alert(errorData);
-
 						}
-					);
+						alert(errorData);
+
+					}
+				);
 			}
 
 			$scope.openModifyUsersModal = function () {
-				$("#modifyUsersModal").addClass('active');
+				var promise = treeService.getKnownPeople();
+				promise.then(
+					function( response ) {
+
+						$("#modifyUsersModal").addClass('active');
+
+						var users = [];
+						for(var i = 0; i < response.data.users.length; i++) {
+							user.push(response.data.users[i].first_name + ' ' + response.data.users[i].last_name + ' ' + response.data.users[i].email);
+						}
+						$( "#userList" ).autocomplete({
+					      source: users
+					    });
+
+					},
+					function( response ) {
+						alert('Our add users service is currently down. Please try again later.');
+						return;
+						var errorData = "Our Create Leaf Service is currently down, please try again later.";
+						var errorNumber = parseInt(response.data.error);
+						if(response.data.status == 406) {
+							switch(errorNumber)
+							{
+								case 0:
+									errorData = "Please fill out all of the fields";
+									break;
+								case 1:
+									errorData = "This user does not exist in our system. Please contact Us.";
+									break;
+								case 2:
+									errorData = "The branch you attempted to add to no longer exists.";
+									break;
+								case 4:
+									errorData = "Please enter a valid leaf name.";
+									break;
+								default:
+									//go to Fail Page
+									//$location.path("/forestFire");
+							}
+						} else if(response.data.status != 401 && errorNumber != 0) {
+							//go to Fail Page
+							//$location.path("/forestFire");
+							alert(errorData);
+						}
+						alert(errorData);
+
+					}
+				);
 				/*$rootScope.modifyTree = tree;
 				$rootScope.originalName = tree.name;
 				$rootScope.originalDescription = tree.description;*/

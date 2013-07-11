@@ -31,21 +31,21 @@
 
 
 <!-- Modify Tree Modal -->
-<div class="modal" id="modifyTreeModal" ng-controller="forest.TreeController" ng-model="treeInfo">
+<div class="modal" id="modifyTreeModal" ng-controller="forest.TreeController" ng-model="modifyTree">
   <div class="content" style="padding: 0;min-height:0;top: 10%;max-height: 100%;">
     <div class="row authenticateHeader" style="padding:0;">
       <a id="newTreeClose" class="close switch" ng-click="closeModifyTreeModal()" style="float:right;color:#444">
         <i class="icon-remove-circle"></i>
       </a>
-      <h3 style="padding-top:20px;">Modify Tree</h3>
+      <h3 style="padding-top:20px;">Update Tree</h3>
     </div>
-    <form name="updateTreeForm" ng-submit="modifyTreeFn(modifyTree)" style="margin: 0;">
+    <form name="modifyTreeForm" ng-submit="modifyTreeFn()" style="margin: 0;">
       <div class="row" style="padding-bottom:30px;padding-top:30px;">
         <div class="ten columns centered center-text">
           <ul>
             <li class="danger alert" id="invalidModifyTree" ng-show="invalidModifyTree"></li>
-            <li class="field" style="text-align:center;"><input id="treeName" class="text input" type="text" placeholder="Tree" style="max-width:380px;" ng-model="treeInfo.name" required></li>
-            <li class="field" style="text-align:center;"><input id="treeDescription" class="email input" type="text" placeholder="Tree Description" style="max-width:380px;" ng-model="treeInfo.description" required></li>
+            <li class="field" style="text-align:center;"><input id="treeName" class="text input" type="text" placeholder="Tree" style="max-width:380px;" ng-model="modifyTree.name" required></li>
+            <li class="field" style="text-align:center;"><input id="treeDescription" class="email input" type="text" placeholder="Tree Description" style="max-width:380px;" ng-model="modifyTree.description" required></li>
             <li class="field" style="text-align:center;color:#444;font-size:9pt;word-wrap:break-word">
               API Key: <br/>
               {{modifyTree.token}}<br/>
@@ -53,10 +53,10 @@
             <li class="field" style="text-align:center;font-size:12pt;">
               For API integration instructions <a href style="color:rgb(30, 139, 34)">Click Here</a>
             </li>
-            <li class="field" style="text-align:center;font-size:12pt;">
-              <input id="addUser" class="input" type="text" placeholder="User ID" style="max-width:380px;" ng-model="treeInfo.addUserID" required>
+            <!--<li class="field" style="text-align:center;font-size:12pt;">
+              <input id="addUser" class="input" type="text" placeholder="User ID" style="max-width:380px;" ng-model="modifyTree.addUserID">
               <span class="btn success" ng-click="addUser()">Add User</span>
-            </li>
+            </li>-->
           </ul>
         </div>
       </div>
@@ -64,7 +64,7 @@
         <div style="text-align: center; padding-top:15px;">
           <div>
             <button type="submit" class="medium oval btn success"><a ng-click="modifyTreeFn()">Update Tree</a></button>
-            <button type="submit" class="medium oval btn danger"><a ng-click="closeModifyTreeModal()">Cancel</a></button>
+            <button type="submit" class="medium oval btn danger"><a ng-click="cancelModifyTreeModal()">Cancel</a></button>
           </div>
         </div>
       </div>

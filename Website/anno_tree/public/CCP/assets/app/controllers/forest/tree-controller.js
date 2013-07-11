@@ -95,7 +95,15 @@
 
 			$scope.openModifyTreeModal = function (tree) {
 				$("#modifyTreeModal").addClass('active');
-				$scope.modifyTree = tree;
+				$rootScope.modifyTree = tree;
+				$rootScope.originalName = tree.name;
+				$rootScope.originalDescription = tree.description;
+			}
+
+			$scope.cancelModifyTreeModal = function() {
+				$rootScope.modifyTree.name = $rootScope.originalName;
+				$rootScope.modifyTree.description = $rootScope.originalDescription;
+				$scope.closeModifyTreeModal();	
 			}
 
 			$scope.closeModifyTreeModal = function () {
@@ -106,16 +114,16 @@
 				$("#loadingScreen").hide();
 			}
 			
-			$scope.modifyTree = function(tree) {
+			$scope.modifyTreeFn = function() {
 
 				var treeName = $rootScope.modifyTree.name;
 				var treeDescription = $rootScope.modifyTree.description;
 				var treeID = $rootScope.modifyTree.id;
-				var formValid = $rootScope.modifyTreeForm.$valid;
+				var formValid = $scope.modifyTreeForm.$valid;
 
 				//validate form
 				if(!formValid) {
-					$scope.invalidAddTree = true;
+					$scope.invalidModifyTree = true;
 					if(!treeName) {
 						$("#invalidModifyTree").html("Please fill out a tree name.");
 					}
@@ -130,7 +138,9 @@
 
 					promise.then(
 						function( response ) {
-							$scope.treeInfo.name = $rootScope.modifyTree.name;
+							$scope.isLoading = false;
+							$scope.invalidModifyTree = false;
+							$scope.closeModifyTreeModal();
 						},
 						function( response ) {
 							$scope.invalidModifyTree = true;

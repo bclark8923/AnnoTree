@@ -251,7 +251,7 @@
 				var forestID = $rootScope.modifyForest.id;
 				var forestName = $rootScope.modifyForest.name;
 				var forestDescription = "NULL";
-				var formValid = $scope.modifyForestForm.$valid;
+				var formValid = $scope.modifyTreeForm.$valid;
 
 				//validate form
 				if(!formValid) {

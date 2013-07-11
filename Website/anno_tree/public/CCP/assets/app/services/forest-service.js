@@ -36,7 +36,7 @@
 
 			function updateTree(treeID, treeName, treeDescription) {
 				$("#loadingScreen").show();
-				return $http.put(apiRoot.getRoot() + '/tree' + treeID, {name: treeName, description: treeDescription});
+				return $http.put(apiRoot.getRoot() + '/tree/' + treeID, {name: treeName, description: treeDescription});
 			}
 
 			function createBranch(treeID, branchName, branchDescription) {

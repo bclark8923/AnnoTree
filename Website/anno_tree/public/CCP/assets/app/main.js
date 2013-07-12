@@ -95,9 +95,12 @@ AnnoTree.config(
 
 AnnoTree.factory('apiRoot', function() {
 	return {
-		getRoot: function() {
+		getDevRoot: function() {
 			return "http://23.21.235.254:3000";
-		}
+		},
+    getRoot: function() {
+      return "http://166.78.123.104:3000";
+    }
 	}
 });
 

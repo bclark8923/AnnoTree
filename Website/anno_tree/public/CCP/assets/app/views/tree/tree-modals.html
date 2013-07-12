@@ -103,7 +103,7 @@
       </a>
       <h3 style="padding-top:20px;">Users</h3>
     </div>
-    <form name="createLeafForm" ng-submit="newLeaf()" style="margin: 0;">
+    <form name="createLeafForm" ng-submit="addUser()" style="margin: 0;">
       <div class="row" style="padding-bottom:30px;padding-top:30px;">
         <div class="ten columns centered center-text">
           <div style="max-height:60px;overflow-y:auto;margin-bottom:30px;">
@@ -129,6 +129,9 @@
             <li class="append field" style="text-align:center;">
               <input id="userList" class="text input" type="text" placeholder="User" style="max-width:320px;" ng-model="addUserID" required> 
               <span class="adjoined"><a ng-click="addUser()">Add</a></span>
+            </li>
+            <li style="font-size:8pt;line-height:5px;">
+              Tip: Search for a user or input an email to invite a new user to this tree.
             </li>
           </ul>
         </div>

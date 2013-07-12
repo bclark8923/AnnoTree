@@ -367,12 +367,15 @@
 				promise.then(
 					function( response ) {
 
-						alert('woo');
+						//if existing, push
+						$scope.treeInfo.users.push($scope.addedUser);
+
+						//else alert user was invited
 
 					},
 					function( response ) {
-						alert('broked');
-						return;
+						//alert('broked');
+						//return;
 						var errorData = "Our Create Leaf Service is currently down, please try again later.";
 						var errorNumber = parseInt(response.data.error);
 						if(response.data.status == 406) {
@@ -423,14 +426,14 @@
 								}
 							}
 							if(skip){ continue; }
-							users.push({label:response.data.users[i].first_name + ' ' + response.data.users[i].last_name + ' ' + response.data.users[i].email, value: response.data.users[i].email} );
+							users.push({user: response.data.users[i], label:response.data.users[i].first_name + ' ' + response.data.users[i].last_name + ' ' + response.data.users[i].email, value: response.data.users[i].email} );
 						}
 						$( "#userList" ).autocomplete({
 					      minLength: 1,
 					      source: users,
 					      select: function( event, ui ) {
 					        $( "#userList" ).val( ui.item.value );
-					 
+					 		$scope.addedUser = ui.item.user;
 					        return false;
 					      }
 					    })

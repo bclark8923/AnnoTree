@@ -361,6 +361,54 @@
 				}
 			}
 
+			$scope.removeFromTree = function(user) {
+				var promise = treeService.removeUser($scope.treeInfo.id, user.id);
+				$scope.removeUser = user;
+
+				promise.then(
+					function( response ) {
+
+						//if existing, push
+						var index = $scope.treeInfo.users.indexOf($scope.removeUser);
+						$scope.treeInfo.users.splice(index, 1);
+						//else alert user was invited
+
+					},
+					function( response ) {
+						//alert('broked');
+						//return;
+						var errorData = "Our Create Leaf Service is currently down, please try again later.";
+						var errorNumber = parseInt(response.data.error);
+						if(response.data.status == 406) {
+							switch(errorNumber)
+							{
+								case 0:
+									errorData = "Please fill out all of the fields";
+									break;
+								case 1:
+									errorData = "This user does not exist in our system. Please contact Us.";
+									break;
+								case 2:
+									errorData = "The branch you attempted to add to no longer exists.";
+									break;
+								case 4:
+									errorData = "Please enter a valid leaf name.";
+									break;
+								default:
+									//go to Fail Page
+									//$location.path("/forestFire");
+							}
+						} else if(response.data.status != 401 && errorNumber != 0) {
+							//go to Fail Page
+							//$location.path("/forestFire");
+							alert(errorData);
+						}
+						alert(errorData);
+
+					}
+				);
+			}
+
 			$scope.addUser = function() {
 				var promise = treeService.addUser($scope.treeInfo.id, $scope.addUserID);
 

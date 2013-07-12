@@ -34,6 +34,11 @@
 				return $http.put(apiRoot.getRoot() + '/tree/' + treeID + "/user", {userToAdd: userID});
 			}
 
+			function removeUser(treeID, userID) {
+				//$("#loadingScreen").show();
+				return $http.delete(apiRoot.getRoot() + '/tree/' + treeID + "/user/" + userID);
+			}
+
 			// ---------------------------------------------- //
 			// ---------------------------------------------- //
 
@@ -45,7 +50,8 @@
 				updateTree: updateTree,
 				deleteTree: deleteTree,
 				getKnownPeople: getKnownPeople,
-				addUser: addUser
+				addUser: addUser,
+				removeUser: removeUser
 			});
 
 

@@ -12,12 +12,24 @@
             
             <div style="height:100%;width:100%;">
                 <div class="row" style="height:100%;padding:10px 0px;">
-                    <div class="centered ten columns" style="background: rgba(200,200,200,0.3);overflow:auto;height:90%;padding:10px;color:white;border-radius:5px;">
-                        <div ng-switch="subview" class="l-body" post-render style="">
-                            <h3 style="color:white;text-align:center;">AnnoTree 0.1 Documentation</h3>
+                    <div class="centered ten columns" style="background: white;color:#222;overflow:auto;height:90%;padding:10px;border-radius:5px;">
+                        <div class="responsiveShow" ng-switch="subview" class="l-body" post-render>
                             <div ng-switch-when="home" ng-include=" 'assets/app/views/docs/home.html' "></div>
 
                             <div ng-switch-when="API" ng-include=" 'assets/app/views/docs/api.html' "></div>
+                        </div>
+
+                        <div class="responsiveHide" ng-switch="subview" class="l-body" post-render style="width:80%;float:left;">
+                            <div ng-switch-when="home" ng-include=" 'assets/app/views/docs/home.html' "></div>
+
+                            <div ng-switch-when="API" ng-include=" 'assets/app/views/docs/api.html' "></div>
+                        </div>
+                        <div class="responsiveHide" style="width:19%;float:left;padding:10px;">
+                            <h6><a style="font-weight:bold;color:#84db69;" ng-href="#/docs">Home</a></h6>
+                            <h6>Get Started</h6>
+                            <ul>
+                                <li><a style="font-weight:bold;font-size:10pt;" ng-href="#/docs/api">API Documentation</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

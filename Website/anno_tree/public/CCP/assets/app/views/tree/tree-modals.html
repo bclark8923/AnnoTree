@@ -51,7 +51,7 @@
               {{modifyTree.token}}<br/>
             </li>
             <li class="field" style="text-align:center;font-size:12pt;">
-              For API integration instructions <a href style="color:rgb(30, 139, 34)">Click Here</a>
+              For API integration instructions <a ng-href="#/docs/api" style="color:rgb(30, 139, 34)">Click Here</a>
             </li>
             <!--<li class="field" style="text-align:center;font-size:12pt;">
               <input id="addUser" class="input" type="text" placeholder="User ID" style="max-width:380px;" ng-model="modifyTree.addUserID">
@@ -127,7 +127,7 @@
           <ul>
             <li class="danger alert" id="invalidAddUser" ng-show="invalidAddUser"></li>
             <li class="append field" style="text-align:center;">
-              <input id="userList" class="text input" type="text" placeholder="User" style="max-width:320px;" ng-model="addUserID" required> 
+              <input id="userList" class="text input" type="email" placeholder="Email" style="max-width:320px;" ng-model="addUserID" required> 
               <span class="adjoined"><a ng-click="addUser()">Add</a></span>
             </li>
             <li style="font-size:8pt;line-height:5px;">

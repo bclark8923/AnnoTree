@@ -146,9 +146,12 @@ sub restart {
     say OUTPUT 'Server process was found running - being killed now' if $verbose && $process;
     `sudo kill $process` if $process;
     say OUTPUT 'No server process was found running' if $verbose && !$process;
+    # delete log files from previous running instance of server
+    `rm $root/*.out`;
+    `rm $root/Website/anno_tree/log/development.log`; # note that production.log is not deleted
     do {
         my $serverCmd = (defined $environment && $environment eq 'prod' ? 'hypnotoad' : 'morbo');
-        `nohup $serverCmd $mojoScript > $serverCmd.out 2>&1 &`;
+        `nohup $serverCmd $mojoScript > $root/$serverCmd.out 2>&1 &`;
         sleep 3;
     } while (!checkServerRunning());
     say OUTPUT 'Server restarted' if $verbose;

@@ -10,20 +10,24 @@ DELIMITER $$
 
 CREATE Procedure `add_user_to_tree`(
     in treeid int,
-    in user_to_add int,
+    in email varchar(255),
     in requesting_user INT
 )
 BEGIN
 IF (select id from user_tree where tree_id = treeid and user_id = requesting_user) THEN
-    IF (select id from user where id = user_to_add) THEN
+  set @user_to_add = (select id from user where user.email = email);  
+  If @user_to_add THEN
         START TRANSACTION;
-        insert into user_tree (user_id, tree_id) values (user_to_add, treeid);
+        insert into user_tree (user_id, tree_id) values (@user_to_add, treeid);
         insert into user_forest(user_id, forest_id) 
-          select user_to_add, tree.forest_id from tree where tree.id = treeid;
+          select @user_to_add, tree.forest_id from tree where tree.id = treeid;
         Commit;
-        select '0';
+        select 'status' union
+        select '3';
     ELSE
+        select 'status' union
         select '2';
+        insert into user(email, status) values (email, 2);
     END IF;
 ELSE
     select '1';

@@ -114,8 +114,8 @@
         UIButton *pencilIconToolbarButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [pencilIconToolbarButton setFrame:CGRectMake(0,space, sizeIcon, sizeIcon)];
         pencilIconToolbarButton.userInteractionEnabled = YES;
-        UIImage *pencilIconImage = [UIImage imageNamed:@"PencilIconToolbar.png"];
-        UIImage *pencilIconImageSelected = [UIImage imageNamed:@"PencilIconToolbarSelected.png"];
+        UIImage *pencilIconImage = [UIImage imageNamed:@"AnnoTree.bundle/PencilIconToolbar.png"];
+        UIImage *pencilIconImageSelected = [UIImage imageNamed:@"AnnoTree.bundle/PencilIconToolbarSelected.png"];
         [pencilIconToolbarButton setBackgroundImage:pencilIconImage forState:UIControlStateNormal];
         [pencilIconToolbarButton setBackgroundImage:pencilIconImageSelected forState:UIControlStateHighlighted];
         [pencilIconToolbarButton setBackgroundImage:pencilIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
@@ -131,8 +131,8 @@
         UIButton *textIconToolbarButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [textIconToolbarButton setFrame:CGRectMake(0,space*2, sizeIcon, sizeIcon)];
         textIconToolbarButton.userInteractionEnabled = YES;
-        UIImage *textIconImage = [UIImage imageNamed:@"TextIconToolbar.png"];
-        UIImage *textIconImageSelected = [UIImage imageNamed:@"TextIconToolbarSelected.png"];
+        UIImage *textIconImage = [UIImage imageNamed:@"AnnoTree.bundle/TextIconToolbar.png"];
+        UIImage *textIconImageSelected = [UIImage imageNamed:@"AnnoTree.bundle/TextIconToolbarSelected.png"];
         [textIconToolbarButton setBackgroundImage:textIconImage forState:UIControlStateNormal];
         [textIconToolbarButton setBackgroundImage:textIconImageSelected forState:UIControlStateHighlighted];
         [textIconToolbarButton setBackgroundImage:textIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
@@ -161,8 +161,8 @@
         UIButton *shareIconToolbarButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [shareIconToolbarButton setFrame:CGRectMake(0,space*3, sizeIcon, sizeIcon)];
         shareIconToolbarButton.userInteractionEnabled = YES;
-        UIImage *shareIconImage = [UIImage imageNamed:@"ShareIconToolbar.png"];
-        UIImage *shareIconImageSelected = [UIImage imageNamed:@"ShareIconToolbarSelected.png"];
+        UIImage *shareIconImage = [UIImage imageNamed:@"AnnoTree.bundle/ShareIconToolbar.png"];
+        UIImage *shareIconImageSelected = [UIImage imageNamed:@"AnnoTree.bundle/ShareIconToolbarSelected.png"];
         [shareIconToolbarButton setBackgroundImage:shareIconImage forState:UIControlStateNormal];
         [shareIconToolbarButton setBackgroundImage:shareIconImageSelected forState:UIControlStateHighlighted];
         [shareIconToolbarButton addTarget:self action:@selector(openShare:) forControlEvents:UIControlEventTouchUpInside];
@@ -174,7 +174,7 @@
         annoTreeImageOpenView = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, sizeIcon, sizeIcon)];
         annoTreeImageOpenView.alpha = 0.7;
         annoTreeImageOpenView.userInteractionEnabled = YES;
-        UIImage *annoTreeImage = [UIImage imageNamed:@"AnnoTreeLogo.png"];
+        UIImage *annoTreeImage = [UIImage imageNamed:@"AnnoTree.bundle/AnnoTreeLogo.png"];
         [annoTreeImageOpenView setBackgroundImage:annoTreeImage forState:UIControlStateNormal];
         [annoTreeImageOpenView addGestureRecognizer:startStopAnnotationGesture];
         [annoTreeImageOpenView addTarget:self action:@selector(toolbarWasDragged:withEvent:)
@@ -318,6 +318,7 @@
         //NSLog(@"%@", leafName.text);
         NSString *leafNameTrimmed = [leafName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         if([leafNameTrimmed length] >= 1) {
+            [leafUploading show];
             [self sendLeaf:leafNameTrimmed];
         } else {
             return;
@@ -409,8 +410,6 @@
     }
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
-    [leafUploading show];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {

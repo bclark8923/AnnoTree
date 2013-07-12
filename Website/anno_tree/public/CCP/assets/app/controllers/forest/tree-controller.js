@@ -414,7 +414,7 @@
 
 						var users = [];
 						for(var i = 0; i < response.data.users.length; i++) {
-							user.push(response.data.users[i].first_name + ' ' + response.data.users[i].last_name + ' ' + response.data.users[i].email);
+							users.push(response.data.users[i].first_name + ' ' + response.data.users[i].last_name + ' ' + response.data.users[i].email);
 						}
 						$( "#userList" ).autocomplete({
 					      source: users

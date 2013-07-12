@@ -10,10 +10,10 @@
                 </div>
             </div>
             
-            <div style="height:100%;width:100%;overflow:scroll;">
+            <div style="height:100%;width:100%;">
                 <div class="row" style="height:100%;padding:10px 0px;">
-                    <div class="centered ten columns" style="border-radius:5px;padding:10px;height:100%;background: rgba(200,200,200,0.8);color:#222;">
-                        <div ng-switch="subview" class="l-body" post-render>
+                    <div class="centered ten columns" style="background: rgba(200,200,200,0.8);overflow:auto;height:90%;padding:10px;color:#222;border-radius:5px;">
+                        <div ng-switch="subview" class="l-body" post-render style="">
                             <div ng-switch-when="home" ng-include=" 'assets/app/views/docs/home.html' "></div>
 
                             <div ng-switch-when="API" ng-include=" 'assets/app/views/docs/api.html' "></div>

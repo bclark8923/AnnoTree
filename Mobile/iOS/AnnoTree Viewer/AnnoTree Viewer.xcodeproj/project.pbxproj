@@ -27,7 +27,6 @@
 		D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */; };
 		D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C688171B413400BA9B2F /* Default-Portrait@2x~ipad.png */; };
 		D3180C27176184B300A6B8E0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C26176184B300A6B8E0 /* CoreFoundation.framework */; };
-		D3180C2D176184B300A6B8E0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3180C2B176184B300A6B8E0 /* InfoPlist.strings */; };
 		D3180C4A1761969900A6B8E0 /* AnnotationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3180C481761969800A6B8E0 /* AnnotationViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3180C4B1761969900A6B8E0 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* AnnotationViewController.m */; };
 		D3180C4C1761969900A6B8E0 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* AnnotationViewController.m */; };
@@ -64,16 +63,6 @@
 		D3A8B7841788A82F006BE5E2 /* SelectIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658A17810A110046C8D5 /* SelectIconToolbar.png */; };
 		D3A8B7851788A82F006BE5E2 /* ShareIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658B17810A110046C8D5 /* ShareIconToolbar.png */; };
 		D3A8B7871788A892006BE5E2 /* TextIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A8B7861788A892006BE5E2 /* TextIconToolbar.png */; };
-		D3A8B7881788A892006BE5E2 /* TextIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A8B7861788A892006BE5E2 /* TextIconToolbar.png */; };
-		D3A8B7891788A8F1006BE5E2 /* AnnoTreeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658C17810A1F0046C8D5 /* AnnoTreeLogo.png */; };
-		D3A8B78A1788A8F1006BE5E2 /* PencilIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658417810A000046C8D5 /* PencilIconToolbarSelected.png */; };
-		D3A8B78B1788A8F1006BE5E2 /* SelectIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658517810A000046C8D5 /* SelectIconToolbarSelected.png */; };
-		D3A8B78C1788A8F1006BE5E2 /* ShareIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658617810A000046C8D5 /* ShareIconToolbarSelected.png */; };
-		D3A8B78D1788A8F1006BE5E2 /* TextIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658717810A000046C8D5 /* TextIconToolbarSelected.png */; };
-		D3A8B78E1788A8F1006BE5E2 /* PencilIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658817810A110046C8D5 /* PencilIconToolbar.png */; };
-		D3A8B78F1788A8F1006BE5E2 /* RecordIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658917810A110046C8D5 /* RecordIconToolbar.png */; };
-		D3A8B7901788A8F1006BE5E2 /* SelectIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658A17810A110046C8D5 /* SelectIconToolbar.png */; };
-		D3A8B7911788A8F1006BE5E2 /* ShareIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658B17810A110046C8D5 /* ShareIconToolbar.png */; };
 		D3AAA1A717000FC300954DDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A617000FC300954DDF /* UIKit.framework */; };
 		D3AAA1A917000FC300954DDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A817000FC300954DDF /* Foundation.framework */; };
 		D3AAA1AB17000FC300954DDF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1AA17000FC300954DDF /* CoreGraphics.framework */; };
@@ -91,6 +80,15 @@
 		D3AAA1F0170018EE00954DDF /* AnnoTree.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AAA1EE170018EE00954DDF /* AnnoTree.m */; };
 		D3AAA1F617002C4400954DDF /* AnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3AAA1F517002C4400954DDF /* AnnotationView.m */; };
 		D3D53FF3171A194600552253 /* ToolbarBg.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D53FF2171A194500552253 /* ToolbarBg.m */; };
+		D3E0AF57178F9026009BEEDF /* PencilIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658417810A000046C8D5 /* PencilIconToolbarSelected.png */; };
+		D3E0AF58178F9026009BEEDF /* SelectIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658517810A000046C8D5 /* SelectIconToolbarSelected.png */; };
+		D3E0AF59178F9026009BEEDF /* ShareIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658617810A000046C8D5 /* ShareIconToolbarSelected.png */; };
+		D3E0AF5A178F9026009BEEDF /* TextIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658717810A000046C8D5 /* TextIconToolbarSelected.png */; };
+		D3E0AF5B178F9026009BEEDF /* TextIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A8B7861788A892006BE5E2 /* TextIconToolbar.png */; };
+		D3E0AF5C178F9026009BEEDF /* PencilIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658817810A110046C8D5 /* PencilIconToolbar.png */; };
+		D3E0AF5D178F9026009BEEDF /* SelectIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658A17810A110046C8D5 /* SelectIconToolbar.png */; };
+		D3E0AF5E178F9026009BEEDF /* ShareIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658B17810A110046C8D5 /* ShareIconToolbar.png */; };
+		D3E0AF64178F926E009BEEDF /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3180C25176184B300A6B8E0 /* AnnoTree.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -640,7 +638,7 @@
 		D3AAA19B17000FC300954DDF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = AnnoTree;
 			};
 			buildConfigurationList = D3AAA19E17000FC300954DDF /* Build configuration list for PBXProject "AnnoTree Viewer" */;
@@ -670,17 +668,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3A8B7891788A8F1006BE5E2 /* AnnoTreeLogo.png in Resources */,
-				D3A8B78A1788A8F1006BE5E2 /* PencilIconToolbarSelected.png in Resources */,
-				D3A8B78B1788A8F1006BE5E2 /* SelectIconToolbarSelected.png in Resources */,
-				D3A8B78C1788A8F1006BE5E2 /* ShareIconToolbarSelected.png in Resources */,
-				D3A8B78D1788A8F1006BE5E2 /* TextIconToolbarSelected.png in Resources */,
-				D3A8B78E1788A8F1006BE5E2 /* PencilIconToolbar.png in Resources */,
-				D3A8B78F1788A8F1006BE5E2 /* RecordIconToolbar.png in Resources */,
-				D3A8B7901788A8F1006BE5E2 /* SelectIconToolbar.png in Resources */,
-				D3A8B7911788A8F1006BE5E2 /* ShareIconToolbar.png in Resources */,
-				D3180C2D176184B300A6B8E0 /* InfoPlist.strings in Resources */,
-				D3A8B7881788A892006BE5E2 /* TextIconToolbar.png in Resources */,
+				D3E0AF57178F9026009BEEDF /* PencilIconToolbarSelected.png in Resources */,
+				D3E0AF58178F9026009BEEDF /* SelectIconToolbarSelected.png in Resources */,
+				D3E0AF59178F9026009BEEDF /* ShareIconToolbarSelected.png in Resources */,
+				D3E0AF5A178F9026009BEEDF /* TextIconToolbarSelected.png in Resources */,
+				D3E0AF5B178F9026009BEEDF /* TextIconToolbar.png in Resources */,
+				D3E0AF5C178F9026009BEEDF /* PencilIconToolbar.png in Resources */,
+				D3E0AF5D178F9026009BEEDF /* SelectIconToolbar.png in Resources */,
+				D3E0AF5E178F9026009BEEDF /* ShareIconToolbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,6 +691,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E0AF64178F926E009BEEDF /* AnnoTree.bundle in Resources */,
 				D3A8B77D1788A82F006BE5E2 /* AnnoTreeLogo.png in Resources */,
 				D3A8B77E1788A82F006BE5E2 /* PencilIconToolbarSelected.png in Resources */,
 				D3A8B77F1788A82F006BE5E2 /* SelectIconToolbarSelected.png in Resources */,
@@ -920,6 +916,8 @@
 		D3180C11176182E400A6B8E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -927,6 +925,7 @@
 		D3180C12176182E400A6B8E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -944,7 +943,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = AnnoTree;
-				SDKROOT = iphoneos6.1;
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -963,7 +962,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = AnnoTree;
-				SDKROOT = iphoneos6.1;
+				SDKROOT = iphoneos;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
@@ -1058,7 +1057,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

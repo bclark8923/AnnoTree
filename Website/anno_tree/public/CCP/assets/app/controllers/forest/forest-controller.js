@@ -307,7 +307,7 @@
 				}
 			}
 
-			$scope.deleteCallback = function() {
+			$scope.deleteForestCallback = function() {
 				$("#deleteCallbackModal").addClass('active');
 			}
 

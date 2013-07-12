@@ -44,7 +44,7 @@ a {
 }
 
 #deleteCallbackModal {
-  
+
 }
 
 a:hover{
@@ -664,12 +664,12 @@ i.icon-leaf:before {
   font-size: 10pt;
 }
 
-.linkColor {
-  color: white;
+.btn.default a.linkColor, .linkColor {
+  color: #444;
 }
 
-.linkColor:hover {
-  color: white;
+.btn.default a.linkColor:hover, .linkColor:hover {
+  color: #444;
 }
 
 .btn.taskSelectButtons {

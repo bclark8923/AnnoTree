@@ -19,13 +19,13 @@ IF (select id from user where id = owner_user_id) THEN
         insert into `annotree`.`leaf` 
           (name, description, owner_user_id, branch_id)
           values (n, d, owner_user_id, b_id);
-        set @id = LAST_INSERT_ID();
+        set @leaf_id = LAST_INSERT_ID();
         -- TODO improve this
         select 'id', 'name', 'description', 'owner_user_id', 'branch_id', 'created_at'
         union 
         select id, name, description, owner_user_id, branch_id, created_at 
         from leaf 
-        where id = @id;
+        where id = @leaf_id;
     ELSE 
         select '2';
     END IF;

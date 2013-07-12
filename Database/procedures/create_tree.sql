@@ -24,17 +24,17 @@ IF (select id from user where id = u) THEN
             insert into `annotree`.`tree` 
               (forest_id, name, description, logo, owner_id)
               values (f, n, d, l, u);
-            set @id = LAST_INSERT_ID();
+            set @tree_id = LAST_INSERT_ID();
             insert into `annotree`.`user_tree`
               (user_id, tree_id)
             values
-              (u, @id);
+              (u, @tree_id);
             select 'id', 'forest_id', 'name', 'description', 'created_at', 'logo' 
             union 
             select id, forest_id, name, description, created_at, logo
             from tree
             where
-            id = @id;
+            id = @tree_id;
         ELSE
             select '3';
         END IF;

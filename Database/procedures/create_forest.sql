@@ -27,6 +27,7 @@ union
 select id, name, description, created_at
 from forest
 where id = @id;
+set @forest_id = @id;
 ELSE
 SELECT '1';
 END IF;

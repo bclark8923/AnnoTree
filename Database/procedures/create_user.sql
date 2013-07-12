@@ -38,6 +38,9 @@ insert into `annotree`.`user`
 values 
   (password, first_name, last_name, email, lang, time_zone, profile_image_path, status);
 set @user_id = LAST_INSERT_ID();
+select 'id', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status' 
+union
+select id, first_name, last_name, email, created_at, lang, time_zone, profile_image_path, status from user where id = @user_id;
 if status = 3 then
   set @name = concat(first_name, ' ', last_name);
   call create_forest (@user_id, concat(@name, '\'s Forest'),  'This is a sample forest.');
@@ -46,9 +49,6 @@ if status = 3 then
   call create_leaf(concat(@name, '\'s Leaf'), 'This is a sample leaf.', @user_id, @branch_id);
 end if;
 
-select 'id', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status' 
-union
-select id, first_name, last_name, email, created_at, lang, time_zone, profile_image_path, status from user where id = @user_id;
 ELSE
 select '1';
 END IF;

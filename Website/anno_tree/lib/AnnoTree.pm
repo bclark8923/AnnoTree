@@ -84,6 +84,7 @@ sub startup {
     $r->post('/user/signup')                                ->to('controller-auth#signup');
     $r->post('/user/login')                                 ->to('controller-auth#login');
     $authr->post('/user/logout')                            ->to('controller-auth#logoutUser');
+    $authr->get('/user/knownpeople')                        ->to('controller-user#knownPeople');
     #$authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser');
 
     # ===== TASKS =====

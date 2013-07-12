@@ -7,6 +7,8 @@ CREATE Procedure `get_users_in_shared_trees`(
     in user_in int
 )
 BEGIN
+    select 'email', 'first_name', 'last_name'
+    union
     select distinct u.email, u.first_name, u.last_name from user_tree as ut 
                   inner join user_tree as ut2 
                       on ut.tree_id = ut2.tree_id

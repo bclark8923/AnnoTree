@@ -106,4 +106,28 @@ sub deleteUser {
     return $json;
 }
 
+sub knownPeople {
+    my ($class, $user) = @_;
+
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call get_users_in_shared_trees(:user)",
+        {
+            user => $user
+        }
+    );
+    
+    my $cols = $result->fetch;
+
+    my $json = {users => []};
+    my $userIndex = 0;
+    while (my $return = $result->fetch) {
+        for (my $i = 0; $i < @{$cols}; $i++) {
+            $json->{users}->[$userIndex]->{$cols->[$i]} = $return->[$i];
+        }
+        $userIndex++;
+    }
+
+    return $json;
+}
+
 return 1;

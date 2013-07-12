@@ -22,4 +22,14 @@ sub deleteUser {
     $self->render(json => $result, status => $status);
 }
 
+sub knownPeople {
+    my $self = shift;
+
+    my $user = $self->current_user->{userid};
+
+    my $json = AnnoTree::Model::User->knownPeople($user);
+
+    $self->render(json => $json, status => 200);
+}
+
 return 1;

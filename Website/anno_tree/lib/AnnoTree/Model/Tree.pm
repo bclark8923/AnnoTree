@@ -296,4 +296,31 @@ sub deleteTree {
 
     return $json;
 }
+
+sub removeUserFromTree {
+    my ($class, $params) = @_;
+    
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call delete_user_from_tree(:treeid, :rmUser, :reqUser)",
+        {
+            treeid          => $params->{treeid},
+            rmUser          => $params->{rmUser},
+            reqUser         => $params->{reqUser}
+        }
+    );
+
+    my $json = {};
+    my $num = $result->fetch->[0];
+    if ($num == 0) {
+        $json = {result => $num, txt => 'User was removed from tree successfully'};
+    } elsif ($num == 1) {
+        $json = {error => $num, txt => 'There was no user to remove'};
+    } elsif ($num == 2) {
+        $json = {error => $num, txt => 'Tree does not exist or user does not have permissions to remove that user from the tree'};
+    }
+ 
+
+    return $json;
+}
+
 return 1;

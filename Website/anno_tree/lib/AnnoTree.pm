@@ -105,6 +105,7 @@ sub startup {
     $authr->put('/tree/:treeid' => [treeid => qr/\d+/])         ->to('controller-tree#update');
     $authr->delete('/tree/:treeid' => [treeid => qr/\d+/])      ->to('controller-tree#deleteTree');
     $authr->put('/tree/:treeid/user' => [treeid => qr/\d+/])    ->to('controller-tree#addUserToTree');
+    $authr->delete('/tree/:treeid/user/:userid' => [treeid => qr/\d+/, userid => qr/\d+/])    ->to('controller-tree#removeUserFromTree');
  
     # ===== BRANCHES =====
     $authr->post('/:treeid/branch' => [treeid => qr/\d+/])->to('controller-branch#create');

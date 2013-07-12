@@ -92,7 +92,7 @@ sub iosUpload {
     $params->{token} = $self->param('token');
     $params->{leafName} = $self->param('leafName');
     my $upload = $self->req->upload('annotation');
-    $self->render(json => {error => '0', txt => 'Missing form request parameters or they are ill formed'}, status => 406) and return unless ($params->{token} =~ m/[a-f0-9]{64}/ && defined $upload && exists $upload->{filename} && $upload->{filename} ne '' && $self->param('leafName') =~ m/[a-zA-Z0-9]/);
+    $self->render(json => {error => '0', txt => 'Missing form request parameters or they are ill formed'}, status => 406) and return unless ($params->{token} && $params->{token} =~ m/[a-f0-9]{64}/ && defined $upload && exists $upload->{filename} && $upload->{filename} ne '' && $self->param('leafName') && $self->param('leafName') =~ m/[a-zA-Z0-9]/);
     #$self->debug($self->dumper($upload));
     #$self->debug("token: $params->{token} \n filename: $upload->{filename} \n content-type: " . $upload->headers->content_type . "\n");
     $params->{filename} = $upload->{filename};
@@ -132,7 +132,7 @@ sub deleteLeaf {
     if (exists $json->{error}) {
         $status = 406;
     } else {
-        `rm $path/$json->{txt}`;
+        `rm $path/$json->{txt}` if ($json->{txt});
     }
 
     $self->render(json => $json, status => $status);

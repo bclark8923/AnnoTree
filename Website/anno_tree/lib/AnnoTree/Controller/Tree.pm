@@ -123,4 +123,22 @@ sub deleteTree {
     $self->render(json => $json, status => $status);
 }
 
+sub removeUserFromTree {
+    my $self = shift;
+
+    my $params = {};
+    $params->{reqUser} = $self->current_user->{userid};
+    $params->{treeid} = $self->param('treeid');
+    $params->{rmUser} = $self->param('userid');
+    
+    my $json = AnnoTree::Model::Tree->removeUserFromTree($params);
+    
+    my $status = 204;
+    if (exists $json->{error}) {
+        $status = 406;
+    }
+
+    $self->render(json => $json, status => $status);
+}
+
 return 1;

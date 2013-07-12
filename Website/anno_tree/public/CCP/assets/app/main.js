@@ -102,7 +102,7 @@ AnnoTree.factory('apiRoot', function() {
       return "http://166.78.123.104:3000";
     },
     getRoot: function() {
-      return "/";
+      return window.location.protocol + "//" + window.location.host;
     }
 	}
 });

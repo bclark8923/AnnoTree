@@ -413,12 +413,32 @@
 						$("#modifyUsersModal").addClass('active');
 
 						var users = [];
+						var existingUsers = $scope.treeInfo.users;
 						for(var i = 0; i < response.data.users.length; i++) {
-							users.push(response.data.users[i].first_name + ' ' + response.data.users[i].last_name + ' ' + response.data.users[i].email);
+							//if not already on tree
+							var skip = false;
+							for(var j = 0; j < existingUsers.length; j++) {
+								if(existingUsers[j].email == response.data.users[i].email) {
+									skip = true;
+								}
+							}
+							if(skip){ continue; }
+							users.push({label:response.data.users[i].first_name + ' ' + response.data.users[i].last_name + ' ' + response.data.users[i].email, value: response.data.users[i].email} );
 						}
 						$( "#userList" ).autocomplete({
-					      source: users
-					    });
+					      minLength: 1,
+					      source: users,
+					      select: function( event, ui ) {
+					        $( "#userList" ).val( ui.item.value );
+					 
+					        return false;
+					      }
+					    })
+					    .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+					      return $( "<li>" )
+					        .append( "<a>" + item.label + "</a>" )
+					        .appendTo( ul );
+					    };
 
 					},
 					function( response ) {

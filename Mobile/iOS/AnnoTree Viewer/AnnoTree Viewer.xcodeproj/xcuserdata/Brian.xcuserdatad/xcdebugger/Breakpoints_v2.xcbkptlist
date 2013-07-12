@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394934183.807555"
+            timestampString = "395303751.489604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "525"
-            endingLineNumber = "525"
-            landmarkName = "-loadAnnoTree:withTree:"
+            startingLineNumber = "528"
+            endingLineNumber = "528"
+            landmarkName = "-scaleAndRotateImage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -154,13 +154,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394934183.807555"
+            timestampString = "395303751.489604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "575"
-            endingLineNumber = "575"
-            landmarkName = "-toolbarWasDragged:withEvent:"
-            landmarkType = "5">
+            startingLineNumber = "578"
+            endingLineNumber = "578"
+            landmarkName = "@implementation AnnoTree"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -202,13 +202,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394934183.807555"
+            timestampString = "395303751.489604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "461"
-            endingLineNumber = "461"
-            landmarkName = "@implementation AnnoTree"
-            landmarkType = "3">
+            startingLineNumber = "464"
+            endingLineNumber = "464"
+            landmarkName = "-scaleAndRotateImage:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -218,13 +218,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394934183.807555"
+            timestampString = "395303751.489604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "566"
-            endingLineNumber = "566"
-            landmarkName = "@implementation AnnoTree"
-            landmarkType = "3">
+            startingLineNumber = "569"
+            endingLineNumber = "569"
+            landmarkName = "-connectionDidFinishLoading:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,12 +234,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394934183.807555"
+            timestampString = "395303751.489604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "541"
-            endingLineNumber = "541"
-            landmarkName = "-openCloseAnnoTree:"
+            startingLineNumber = "544"
+            endingLineNumber = "544"
+            landmarkName = "-connection:didFailWithError:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394934183.807555"
+            timestampString = "395303751.489604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
             landmarkName = "-sendLeaf:"
             landmarkType = "5">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394934183.807555"
+            timestampString = "395303751.489604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "379"
-            endingLineNumber = "379"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
             landmarkName = "-sendLeaf:"
             landmarkType = "5">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394934183.807555"
+            timestampString = "395303751.489604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "387"
-            endingLineNumber = "387"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
             landmarkName = "-sendLeaf:"
             landmarkType = "5">
          </BreakpointContent>
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394934183.807555"
+            timestampString = "395303751.489604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "402"
-            endingLineNumber = "402"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
             landmarkName = "-sendLeaf:"
             landmarkType = "5">
          </BreakpointContent>
@@ -346,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394934183.807555"
+            timestampString = "395303751.489604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "404"
-            endingLineNumber = "404"
+            startingLineNumber = "407"
+            endingLineNumber = "407"
             landmarkName = "-sendLeaf:"
             landmarkType = "5">
          </BreakpointContent>
@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394934183.807555"
+            timestampString = "395303751.489604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "380"
-            endingLineNumber = "380"
+            startingLineNumber = "383"
+            endingLineNumber = "383"
             landmarkName = "-sendLeaf:"
             landmarkType = "5">
          </BreakpointContent>
@@ -580,11 +580,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AnnoTree Viewer/AnnoTree.m"
-            timestampString = "394934590.287812"
+            timestampString = "395303751.489604"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "376"
-            endingLineNumber = "376"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
             landmarkName = "-sendLeaf:"
             landmarkType = "5">
          </BreakpointContent>

@@ -291,7 +291,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     //if (buttonIndex != NULL)
-    NSLog(@"%i",buttonIndex);
+    //NSLog(@"%i",buttonIndex);
     if(buttonIndex == 1) {
         UITextField *leafName = [alertView textFieldAtIndex:0];
         //NSLog(@"%@", leafName.text);
@@ -361,28 +361,45 @@
     
     // add image data
     
+    [self.view endEditing:YES];
+    [shareView.view endEditing:YES];
+    //NSLog(@"PreScreenshot");
     UIImage *image = [self screenshot];
+    
+    //NSLog(@"PostScreenshot");
     UIImage *finalImage;
+    UIImage *rotateImage;
     UIInterfaceOrientation curOrient = shareView.interfaceOrientation;
-    if(UIInterfaceOrientationIsLandscape(curOrient)) {
+    if(curOrient == UIInterfaceOrientationLandscapeLeft) {
+        finalImage = [UIImage imageWithCGImage:[image CGImage] scale:1.0 orientation:UIImageOrientationRight];
+        //finalImage = [self rotate:image orientation:UIImageOrientationRight];
+    } else if(curOrient == UIInterfaceOrientationLandscapeRight) {
         finalImage = [UIImage imageWithCGImage:[image CGImage] scale:1.0 orientation:UIImageOrientationLeft];
+        //finalImage = [self rotate:image orientation:UIImageOrientationLeft];
+    } else if(curOrient == UIInterfaceOrientationPortraitUpsideDown) {
+        finalImage = [UIImage imageWithCGImage:[image CGImage] scale:1.0 orientation:UIImageOrientationDown];
+        //finalImage = [self rotate:image orientation:UIImageOrientationDown];
     } else {
-        finalImage = image;
+        finalImage = [UIImage imageWithCGImage:[image CGImage] scale:1.0 orientation:UIImageOrientationUp];
+        //finalImage = [self rotate:image orientation:UIImageOrientationUp];
     }
+    UIGraphicsEndImageContext();
+    rotateImage = [self scaleAndRotateImage:finalImage];
     UIGraphicsEndImageContext();
         
     //UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 
     
-    NSData * imageData = UIImageJPEGRepresentation(finalImage, 1.0);
+    //NSLog(@"ImageData");
+    NSData * imageData = UIImagePNGRepresentation(rotateImage);
     //[data writeToFile:@"foo.png" atomically:YES];
     
     NSString* FileParamConstant = @"annotation";
     //NSData *imageData = UIImageJPEGRepresentation(imageToPost, 1.0);
     if (imageData) {
         [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"screenshot.jpg\"\r\n", FileParamConstant] dataUsingEncoding:NSUTF8StringEncoding]];
-        [body appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"screenshot.png\"\r\n", FileParamConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[@"Content-Type: image/png\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
         [body appendData:imageData];
         [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
     }
@@ -400,6 +417,7 @@
     NSURL *requestURL = [NSURL URLWithString:@"http://annotree.com/ios/leaf"];
     [request setURL:requestURL];
     
+    //NSLog(@"Connection");
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     if( connection )
@@ -412,9 +430,117 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
+- (UIImage*)scaleAndRotateImage:(UIImage *)image
+{
+	int kMaxResolution = 320; // Or whatever
+	
+	CGImageRef imgRef = image.CGImage;
+	
+	CGFloat width = CGImageGetWidth(imgRef);
+	CGFloat height = CGImageGetHeight(imgRef);
+	
+	CGAffineTransform transform = CGAffineTransformIdentity;
+	CGRect bounds = CGRectMake(0, 0, width, height);
+	if (width > kMaxResolution || height > kMaxResolution) {
+		CGFloat ratio = width/height;
+		if (ratio > 1) {
+			bounds.size.width = kMaxResolution;
+			bounds.size.height = bounds.size.width / ratio;
+		}
+		else {
+			bounds.size.height = kMaxResolution;
+			bounds.size.width = bounds.size.height * ratio;
+		}
+	}
+	
+	CGFloat scaleRatio = bounds.size.width / width;
+	CGSize imageSize = CGSizeMake(CGImageGetWidth(imgRef), CGImageGetHeight(imgRef));
+	CGFloat boundHeight;
+	UIImageOrientation orient = image.imageOrientation;
+	switch(orient) {
+			
+		case UIImageOrientationUp: //EXIF = 1
+			transform = CGAffineTransformIdentity;
+			break;
+			
+		case UIImageOrientationUpMirrored: //EXIF = 2
+			transform = CGAffineTransformMakeTranslation(imageSize.width, 0.0);
+			transform = CGAffineTransformScale(transform, -1.0, 1.0);
+			break;
+			
+		case UIImageOrientationDown: //EXIF = 3
+			transform = CGAffineTransformMakeTranslation(imageSize.width, imageSize.height);
+			transform = CGAffineTransformRotate(transform, M_PI);
+			break;
+			
+		case UIImageOrientationDownMirrored: //EXIF = 4
+			transform = CGAffineTransformMakeTranslation(0.0, imageSize.height);
+			transform = CGAffineTransformScale(transform, 1.0, -1.0);
+			break;
+			
+		case UIImageOrientationLeftMirrored: //EXIF = 5
+			boundHeight = bounds.size.height;
+			bounds.size.height = bounds.size.width;
+			bounds.size.width = boundHeight;
+			transform = CGAffineTransformMakeTranslation(imageSize.height, imageSize.width);
+			transform = CGAffineTransformScale(transform, -1.0, 1.0);
+			transform = CGAffineTransformRotate(transform, 3.0 * M_PI / 2.0);
+			break;
+			
+		case UIImageOrientationLeft: //EXIF = 6
+			boundHeight = bounds.size.height;
+			bounds.size.height = bounds.size.width;
+			bounds.size.width = boundHeight;
+			transform = CGAffineTransformMakeTranslation(0.0, imageSize.width);
+			transform = CGAffineTransformRotate(transform, 3.0 * M_PI / 2.0);
+			break;
+			
+		case UIImageOrientationRightMirrored: //EXIF = 7
+			boundHeight = bounds.size.height;
+			bounds.size.height = bounds.size.width;
+			bounds.size.width = boundHeight;
+			transform = CGAffineTransformMakeScale(-1.0, 1.0);
+			transform = CGAffineTransformRotate(transform, M_PI / 2.0);
+			break;
+			
+		case UIImageOrientationRight: //EXIF = 8
+			boundHeight = bounds.size.height;
+			bounds.size.height = bounds.size.width;
+			bounds.size.width = boundHeight;
+			transform = CGAffineTransformMakeTranslation(imageSize.height, 0.0);
+			transform = CGAffineTransformRotate(transform, M_PI / 2.0);
+			break;
+			
+		default:
+            break;
+    }
+             
+    if (NULL != UIGraphicsBeginImageContextWithOptions)
+        UIGraphicsBeginImageContextWithOptions(bounds.size, NO, 0);
+    else
+        UIGraphicsBeginImageContext(bounds.size);
+     
+     CGContextRef context = UIGraphicsGetCurrentContext();
+     
+     if (orient == UIImageOrientationRight || orient == UIImageOrientationLeft) {
+         CGContextScaleCTM(context, -scaleRatio, scaleRatio);
+         CGContextTranslateCTM(context, -height, 0);
+     }
+     else {
+         CGContextScaleCTM(context, scaleRatio, -scaleRatio);
+         CGContextTranslateCTM(context, 0, -height);
+     }
+     
+     CGContextConcatCTM(context, transform);
+     
+     CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRectMake(0, 0, width, height), imgRef);
+     return UIGraphicsGetImageFromCurrentImageContext();
+     
+}
+
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     // Fail..
-    NSLog(@"error");
+    //NSLog(@"error");
     [leafUploading dismissWithClickedButtonIndex:0 animated:YES];
     UIAlertView *leafNameError = [[UIAlertView alloc] initWithTitle:@"Leaf Failed To Upload"
                                                             message:@""
@@ -429,7 +555,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // Request performed.
-    NSLog(@"success");
+    //NSLog(@"success");
     [leafUploading dismissWithClickedButtonIndex:0 animated:YES];
     UIAlertView *leafNameSuccess = [[UIAlertView alloc] initWithTitle:@"Leaf Uploaded"
                                                             message:@""
@@ -445,7 +571,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     // Request performed.
-    NSLog(@"response");
+    //NSLog(@"response");
     //NSLog([response textEncodingName]);
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
@@ -453,7 +579,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     // Request performed.
-    NSLog(@"data recieved");
+    //NSLog(@"data recieved");
     //NSLog(data);
     //NSString *responseBody = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     //NSLog(responseBody);
@@ -595,6 +721,8 @@
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
+    //CGContextRotateCTM (context, radians(-90));
+    
     // Iterate over every window from back to front
     for (UIWindow *window in [[UIApplication sharedApplication] windows])
     {
@@ -604,14 +732,14 @@
             // so we must first apply the layer's geometry to the graphics context
             CGContextSaveGState(context);
             // Center the context around the window's anchor point
-            CGContextTranslateCTM(context, [window center].x, [window center].y);
+            //CGContextTranslateCTM(context, [window center].x, [window center].y);
             // Apply the window's transform about the anchor point
-            CGContextConcatCTM(context, [window transform]);
+            //CGContextConcatCTM(context, [window transform]);
             // Offset by the portion of the bounds left of and above the anchor point
-            CGContextTranslateCTM(context,
+            /*CGContextTranslateCTM(context,
                                   -[window bounds].size.width * [[window layer] anchorPoint].x,
                                   -[window bounds].size.height * [[window layer] anchorPoint].y);
-            
+            */
             // Render the layer hierarchy to the current context
             /*for (EAGLView *glview in window)
             {
@@ -627,14 +755,14 @@
             {
                 CAEAGLLayer *eaglLayer = (CAEAGLLayer *) subview.layer;
                 if([eaglLayer respondsToSelector:@selector(drawableProperties)]) {
-                    NSLog(@"reponds");
+                    //NSLog(@"responds");
                     /*eaglLayer.drawableProperties = @{
                                                      kEAGLDrawablePropertyRetainedBacking: [NSNumber numberWithBool:YES],
                                                      kEAGLDrawablePropertyColorFormat: kEAGLColorFormatRGBA8
                                                      };*/
-                    UIImageView *glImageView = [[UIImageView alloc] initWithImage:[self snapshotx:subview]];
+                    /*UIImageView *glImageView = [[UIImageView alloc] initWithImage:[self snapshotx:subview]];
                     glImageView.transform = CGAffineTransformMakeScale(1, -1);
-                    [glImageView.layer renderInContext:context];
+                    [glImageView.layer renderInContext:context];*/
                     
                     //CGImageRef iref = [self snapshot:subview withContext:context];
                     //CGContextDrawImage(context, CGRectMake(0.0, 0.0, 640, 960), iref);
@@ -678,7 +806,7 @@
     // Get the size of the backing CAEAGLLayer
     glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
     glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_HEIGHT_OES, &backingHeight);
-    NSLog(@"%i %i", backingWidth, backingHeight);
+    //NSLog(@"%i %i", backingWidth, backingHeight);
     
     NSInteger x = 0, y = 0, width = backingWidth, height = backingHeight;
     NSInteger dataLength = width * height * 4;
@@ -833,7 +961,7 @@
 
 -(void)didRotateInterfaceOrientation
 {
-    NSLog(@"rotated");
+    //NSLog(@"rotated");
 }
 
 -(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {

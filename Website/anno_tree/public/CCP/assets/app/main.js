@@ -98,8 +98,11 @@ AnnoTree.factory('apiRoot', function() {
 		getDevRoot: function() {
 			return "http://23.21.235.254:3000";
 		},
-    getRoot: function() {
+    getStageRoot: function() {
       return "http://166.78.123.104:3000";
+    },
+    getRoot: function() {
+      return "/";
     }
 	}
 });

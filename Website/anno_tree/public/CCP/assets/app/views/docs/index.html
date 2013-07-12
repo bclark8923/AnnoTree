@@ -12,8 +12,9 @@
             
             <div style="height:100%;width:100%;">
                 <div class="row" style="height:100%;padding:10px 0px;">
-                    <div class="centered ten columns" style="background: rgba(200,200,200,0.8);overflow:auto;height:90%;padding:10px;color:#222;border-radius:5px;">
+                    <div class="centered ten columns" style="background: rgba(200,200,200,0.3);overflow:auto;height:90%;padding:10px;color:white;border-radius:5px;">
                         <div ng-switch="subview" class="l-body" post-render style="">
+                            <h3 style="color:white;text-align:center;">AnnoTree 0.1 Documentation</h3>
                             <div ng-switch-when="home" ng-include=" 'assets/app/views/docs/home.html' "></div>
 
                             <div ng-switch-when="API" ng-include=" 'assets/app/views/docs/api.html' "></div>

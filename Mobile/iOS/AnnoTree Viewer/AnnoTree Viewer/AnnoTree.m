@@ -397,7 +397,7 @@
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     
     // set URL
-    NSURL *requestURL = [NSURL URLWithString:@"http://23.21.235.254:3000/ios/leaf"];
+    NSURL *requestURL = [NSURL URLWithString:@"http://annotree.com/ios/leaf"];
     [request setURL:requestURL];
     
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];

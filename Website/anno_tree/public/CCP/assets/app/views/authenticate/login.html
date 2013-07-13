@@ -3,9 +3,10 @@
   <form name="loginForm" ng-submit="validateLogin()" style="padding-top: 30px; margin: 0;">
     <div class="row" style="min-height:120px;">
       <div class="ten columns centered center-text">
+          <p style="padding-top: 10px;padding-bottom: 10px; text-align: center; font-size:14pt">Sign In</p>
         <ul>
           <li class="danger alert" id="validateError" ng-show="invalidLogin"></li>
-            <p style="padding-top: 10px;padding-bottom: 10px; text-align: center; font-size:14pt">Sign In</p>
+
           <li class="field" style="text-align:center;"><input id="loginEmail" class="email input" type="email" placeholder="Email" style="max-width:380px;" ng-model="loginEmail" required></li>
           <li class="field" style="text-align:center;"><input id="loginPassword" class="password input" type="password" placeholder="Password" style="max-width:380px;" ng-model="loginPassword" required></li>
         </ul>

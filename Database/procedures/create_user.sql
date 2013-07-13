@@ -47,6 +47,7 @@ if status = 3 then
   call create_tree(@user_id, @forest_id, concat(@name,  '\'s Tree'), 'This is a sample tree.','img/logo.png');
   call create_branch(@user_id, @tree_id, concat(@name, '\'s Branch'), 'This is a sample branch.');
   call create_leaf(concat(@name, '\'s Leaf'), 'This is a sample leaf.', @user_id, @branch_id);
+  call create_annotation('image/png', 'http://23.21.235.254:3000/annotation_files/default.png', 'default.png', @leaf_id);
 end if;
 
 ELSE

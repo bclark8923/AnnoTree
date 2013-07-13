@@ -104,44 +104,58 @@ my $validTreeID = $jsonBody->{id};
 ######### START VALID USER TEST #########
 # this test creates a new valid user
 $testname = 'Valid user signup: ';
-$validUserEmail = 'mojotest' . int(rand(1000000)) . '@user.com';
-$validUserPass = 'tester1';
+$uaAddEmail = 'mojotest' . int(rand(1000000)) . '@user.com';
+$uaAddPass = 'tester1';
 my $uaNoForests = Mojo::UserAgent->new;
 $tx = $uaNoForests->post($server . $port . '/user/signup' => json => {
-    signUpName      => 'test script user',
-    signUpEmail     => $validUserEmail,
-    signUpPassword  => $validUserPass
+    signUpName      => 'add user',
+    signUpEmail     => $uaAddEmail,
+    signUpPassword  => $uaAddPass
 });
 $jsonBody = $json->decode($tx->res->body);
 
 ok(200 == $tx->res->code,                               $testname . 'Response Code is 200');
 ok(exists $jsonBody->{id},                              $testname . 'Response JSON ID exists');
-ok('test script' eq $jsonBody->{first_name},            $testname . "Response JSON first name is 'test script'");
+ok('add' eq $jsonBody->{first_name},                    $testname . "Response JSON first name is 'test script'");
 ok('user' eq $jsonBody->{last_name},                    $testname . "Response JSON last name is 'user'");
 ok(exists $jsonBody->{created_at},                      $testname . 'Response JSON created date exists');
 ok('ENG' eq $jsonBody->{lang},                          $testname . "Response JSON language is ENG");
 ok(3 == $jsonBody->{status},                            $testname . 'Response JSON status is 3');
 ok('EST' eq $jsonBody->{time_zone},                     $testname . "Response JSON time zone is EST");
 ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
-ok($validUserEmail eq $jsonBody->{email},               $testname . "Response JSON email is $validUserEmail");
-my $uaNoForestsID = $jsonBody->{id};
+ok($uaAddEmail eq $jsonBody->{email},                   $testname . "Response JSON email is $validUserEmail");
+my $uaAddID = $jsonBody->{id};
 ######### END VALID USER TEST #########
 
-######### START VALID TREE USER ADD TEST #########
+######### START VALID TREE EXISTING USER ADD TEST #########
 # this test adds an user to tree
-$testname = 'Valid user addition to tree: ';
+$testname = 'Existing user addition to tree: ';
 $tx = $uaValid->put($server . $port . '/tree/' . $validTreeID . '/user/' => json => {
-    userToAdd       => $uaNoForestsID
+    userToAdd       => $uaAddEmail
 });
+$jsonBody = $json->decode($tx->res->body);
 
-ok(204 == $tx->res->code,                               $testname . 'Response Code is 204');
-######### END VALID TREE USER ADD TEST #########
+ok(200 == $tx->res->code,                               $testname . 'Response Code is 200');
+ok(3 == $jsonBody->{status},                            $testname . 'Response JSON status is 3');
+######### END VALID TREE EXISTING USER ADD TEST #########
+
+######### START VALID TREE NEW USER ADD TEST #########
+# this test adds a new user to tree
+$testname = 'New user addition to tree: ';
+$tx = $uaValid->put($server . $port . '/tree/' . $validTreeID . '/user/' => json => {
+    userToAdd       => 'mattprice11@gmail.com' #'useradd' . int(rand(1000000)) . '@user.com'
+});
+$jsonBody = $json->decode($tx->res->body);
+
+ok(200 == $tx->res->code,                               $testname . 'Response Code is 200');
+ok(2 == $jsonBody->{status},                            $testname . 'Response JSON status is 2');
+######### END VALID TREE NEW USER ADD TEST #########
 
 ######### START MISSING TREE PERMISSIONS USER ADD TEST #########
 # this test attempts to add an user to a tree the requesting user does not have permissions to
 $testname = 'Missing tree permissions user addition to tree: ';
 $tx = $uaValid->put($server . $port . '/tree/1/user/' => json => {
-    userToAdd       => $uaNoForestsID
+    userToAdd       => $uaAddEmail
 });
 $jsonBody = $json->decode($tx->res->body);
 
@@ -154,7 +168,7 @@ ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error tex
 # this test attempts to add an user to a tree that does not exist
 $testname = 'Missing tree user addition to tree: ';
 $tx = $uaValid->put($server . $port . '/tree/0/user/' => json => {
-    userToAdd       => $uaNoForestsID
+    userToAdd       => $uaAddEmail
 });
 $jsonBody = $json->decode($tx->res->body);
 
@@ -163,25 +177,12 @@ ok(1 == $jsonBody->{error},                 $testname . "Response JSON error res
 ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
 ######### END MISSING TREE USER ADD TEST #########
 
-######### START MISSING TREE USER ADD TEST #########
-# this test attempts to add a non-existing user to a tree
-$testname = 'Non-existent user addition to tree: ';
-$tx = $uaValid->put($server . $port . '/tree/' . $validTreeID . '/user/' => json => {
-    userToAdd       => '0'
-});
-$jsonBody = $json->decode($tx->res->body);
-
-ok(406 == $tx->res->code,                   $testname . 'Response Code is 406');
-ok(2 == $jsonBody->{error},                 $testname . "Response JSON error result is 2");
-ok(exists $jsonBody->{txt},                 $testname . 'Response JSON error text exists');
-######### END MISSING TREE USER ADD TEST #########
-
 ######### START UNAUTHENTICATED USER ADD TEST #########
 # this test attempts to add an user to a tree with an unauthenticated user
 $testname = 'Unauthenticated user addition to tree: ';
 my $uaUnauth = Mojo::UserAgent->new;
 $tx = $uaUnauth->put($server . $port . '/tree/1/user/' => json => {
-    userToAdd       => $uaNoForestsID
+    userToAdd       => $uaAddEmail
 });
 $jsonBody = $json->decode($tx->res->body);
 

@@ -115,7 +115,7 @@ foreach my $forest (@{$jsonBody->{forests}}) {
     next unless $forest->{id} = $validForestID;
     $testForest = $forest;
 }
-print Dumper($jsonBody);
+#print Dumper($jsonBody);
 ok($validForestID == $testForest->{id},                             $testname . 'Response JSON forest ID matches');
 ok($validForestName eq $testForest->{name},                         $testname . "Response JSON forest name matches");
 ok($validForestDesc eq $testForest->{description},                  $testname . "Response JSON forest description matches");
@@ -129,6 +129,7 @@ ok('img/logo.png' eq $testForest->{trees}->[0]->{logo},             $testname . 
 ok($validForestID eq $testForest->{trees}->[0]->{forest_id},        $testname . 'Response JSON tree forest_id matches');
 ######### END VALID FOREST RETRIEVAL TEST #########
 
+=begin notneeded
 ######### START VALID USER TEST #########
 # this test creates a new valid user
 $testname = 'Valid user signup: ';
@@ -166,7 +167,8 @@ ok(204 == $tx->res->code,                       $testname . 'Response Code is 20
 #ok(2 == $jsonBody->{error},                     $testname . 'Response JSON error is 2');
 #ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END FOREST RETRIEVAL TEST WITH NO FORESTS #########
-
+=end notneeded
+=cut
 ######### START UNAUTHENTICATED USER FOREST RETRIEVAL TEST #########
 # this test attempts to retrieve forests with an unauthenticated user
 my $testname = 'Unauthenticated user forest retrieval: ';

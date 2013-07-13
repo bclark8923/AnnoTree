@@ -255,10 +255,9 @@ sub addUserToTree {
         }
     } else {
         my $status = $result->fetch->[0];
+        my $body = 'USERNAME has invited you to TREE NAME' . "\n\n";
         $json->{$cols->[0]} = $status;
-        $json->{firstName} = '';
-        $json->{lastName} = '';
-       
+               
         my $addedUser = AnnoTree::Model::MySQL->db->execute(
             "call get_user(:email)",
             {
@@ -272,8 +271,14 @@ sub addUserToTree {
         if ($status == 3) {
             $json->{firstName} = $userInfo->[1];
             $json->{lastName} = $userInfo->[2];
+            $body .= 'Go to http://annotree.com/signup to get started' . "\n";
+        } else {
+            $json->{firstName} = '';
+            $json->{lastName} = '';
+            $body .= 'Go to http://annotree.com/login to view this tree' . "\n";
         }
-        my $body = "USERNAME has invited you to TREE NAME\nGo to URL and sign up with this email to get started!\n";
+        $body .= "\n" . '-AnnoTree' . "\n";
+
         my $smtpserver = 'smtp.mailgun.org';
         my $smtpport = 587;
         my $smtpuser   = 'postmaster@annotree.com';

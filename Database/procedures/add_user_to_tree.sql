@@ -25,9 +25,14 @@ IF (select id from user_tree where tree_id = treeid and user_id = requesting_use
         select 'status' union
         select '3';
     ELSE
+        insert into user(email, status) values (email, 2);
+        set @new_user_id = LAST_INSERT_ID();
+        insert into user_tree (user_id, tree_id) values (@new_user_id, treeid);
+         insert into user_forest(user_id, forest_id) 
+          select @new_user_id, tree.forest_id from tree where tree.id = treeid;
+        commit;
         select 'status' union
         select '2';
-        insert into user(email, status) values (email, 2);
     END IF;
 ELSE
     select '1';

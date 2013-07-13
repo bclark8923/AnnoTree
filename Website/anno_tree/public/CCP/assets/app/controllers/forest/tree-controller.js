@@ -377,7 +377,7 @@
 					function( response ) {
 						//alert('broked');
 						//return;
-						var errorData = "Our Create Leaf Service is currently down, please try again later.";
+						var errorData = "Our Remove User From Tree Service is currently down, please try again later.";
 						var errorNumber = parseInt(response.data.error);
 						if(response.data.status == 406) {
 							switch(errorNumber)

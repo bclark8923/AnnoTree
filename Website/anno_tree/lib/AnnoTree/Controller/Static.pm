@@ -13,6 +13,11 @@ sub login {
     
     $self->redirect_to('/CCP/index.htm');
 }
+sub signup {
+    my $self = shift;
+
+    $self->redirect_to('/CCP/index.htm#/authenticate/signUp');
+}
 
 sub testAuth {
     my $self = shift;

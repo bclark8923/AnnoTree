@@ -256,6 +256,23 @@ sub addUserToTree {
     } else {
         my $status = $result->fetch->[0];
         $json->{$cols->[0]} = $status;
+        $json->{firstName} = '';
+        $json->{lastName} = '';
+       
+        my $addedUser = AnnoTree::Model::MySQL->db->execute(
+            "call get_user(:email)",
+            {
+                email => $params->{userToAdd}
+            }
+        );
+
+        my $cols = $addedUser->fetch; # get the columns (keys for json)
+        my $userInfo = $addedUser->fetch;
+        $json->{id} = $userInfo->[0];
+        if ($status == 3) {
+            $json->{firstName} = $userInfo->[1];
+            $json->{lastName} = $userInfo->[2];
+        }
         my $body = "USERNAME has invited you to TREE NAME\nGo to URL and sign up with this email to get started!\n";
         my $smtpserver = 'smtp.mailgun.org';
         my $smtpport = 587;

@@ -134,7 +134,7 @@ $tx = $uaValid->put($server . $port . '/tree/' . $validTreeID . '/user/' => json
     userToAdd       => $uaAddEmail
 });
 $jsonBody = $json->decode($tx->res->body);
-
+print Dumper($jsonBody);
 ok(200 == $tx->res->code,                               $testname . 'Response Code is 200');
 ok(3 == $jsonBody->{status},                            $testname . 'Response JSON status is 3');
 ######### END VALID TREE EXISTING USER ADD TEST #########
@@ -146,7 +146,7 @@ $tx = $uaValid->put($server . $port . '/tree/' . $validTreeID . '/user/' => json
     userToAdd       => 'useradd' . int(rand(1000000)) . '@user.com'
 });
 $jsonBody = $json->decode($tx->res->body);
-
+print Dumper($jsonBody);
 ok(200 == $tx->res->code,                               $testname . 'Response Code is 200');
 ok(2 == $jsonBody->{status},                            $testname . 'Response JSON status is 2');
 ######### END VALID TREE NEW USER ADD TEST #########

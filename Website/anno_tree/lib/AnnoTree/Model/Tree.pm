@@ -5,6 +5,10 @@ use AnnoTree::Model::MySQL;
 use Scalar::Util qw(looks_like_number);
 use Data::Dumper;
 use Digest::SHA qw(sha256_hex);
+use Email::Sender::Simple qw(sendmail);
+use Email::Sender::Transport::SMTP ();
+use Email::Simple ();
+use Email::Simple::Creator ();
 
 sub create {
     my ($class, $params) = @_;
@@ -239,13 +243,42 @@ sub addUserToTree {
         }
     ); 
     my $json = {};
-    my $num = $result->fetch->[0];
-    if ($num == 0) {
-        $json = {result => $num, txt => 'User added successfully'};
-    } elsif ($num == 1) {
-        $json = {error => $num, txt => 'Tree does not exist or user does not have access to that tree'};
-    } elsif ($num == 2) {
-        $json = {error => $num, txt => 'User you tried to add does not exist'};
+    my $cols = $result->fetch;
+    if (looks_like_number($cols->[0])) {
+        my $num = $cols->[0];
+        if ($num == 0) {
+            $json = {result => $num, txt => 'User added successfully'};
+        } elsif ($num == 1) {
+            $json = {error => $num, txt => 'Tree does not exist or user does not have access to that tree'};
+        } elsif ($num == 2) {
+            $json = {error => $num, txt => 'User you tried to add does not exist'};
+        }
+    } else {
+        my $status = $result->fetch->[0];
+        $json->{$cols->[0]} = $status;
+        my $body = "USERNAME has invited you to TREE NAME\nGo to URL and sign up with this email to get started!\n";
+        my $smtpserver = 'smtp.mailgun.org';
+        my $smtpport = 587;
+        my $smtpuser   = 'postmaster@annotree.com';
+        my $smtppassword = '8-7sigqno8u7';
+
+        my $transport = Email::Sender::Transport::SMTP->new({
+          host => $smtpserver,
+          port => $smtpport,
+          sasl_username => $smtpuser,
+          sasl_password => $smtppassword,
+        });
+
+        my $email = Email::Simple->create(
+          header => [
+            To      => 'mattprice11@gmail.com',
+            From    => 'invite@annotree.com',
+            Subject => 'Welcome to AnnoTree',
+          ],
+          body => $body
+        );
+
+        sendmail($email, { transport => $transport });
     }
  
     

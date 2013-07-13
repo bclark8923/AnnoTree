@@ -19,10 +19,4 @@ sub signup {
     $self->redirect_to('/CCP/index.htm#/authenticate/signUp');
 }
 
-sub testAuth {
-    my $self = shift;
-    
-    $self->render(txt => 'You are authenticated');
-}
-
 return 1;

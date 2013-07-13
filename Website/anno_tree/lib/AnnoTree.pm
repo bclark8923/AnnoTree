@@ -79,7 +79,6 @@ sub startup {
     $r->get('/')                ->to('controller-static#splash');
     $r->get('/login')           ->to('controller-static#login');
     $r->get('/signup')          ->to('controller-static#signup');
-    $authr->get('/testauth')    ->to('controller-static#testAuth');
 
     # ===== USERS =====
     $r->post('/user/signup')                                ->to('controller-auth#signup');

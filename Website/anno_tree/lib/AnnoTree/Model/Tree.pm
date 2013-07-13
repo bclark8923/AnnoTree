@@ -255,9 +255,16 @@ sub addUserToTree {
         }
     } else {
         my $status = $result->fetch->[0];
-        my $body = 'USERNAME has invited you to TREE NAME' . "\n\n";
         $json->{$cols->[0]} = $status;
-               
+        my $body = ''; 
+        my $curUser = AnnoTree::Model::MySQL->db->execute(
+            "call get_user_name_tree_name(:userid, :treeid)",
+            {
+                userid      => $params->{requestingUser},
+                treeid      => $params->{treeid}
+            }
+        );
+        my $curUserInfo = $curUser->fetch;
         my $addedUser = AnnoTree::Model::MySQL->db->execute(
             "call get_user(:email)",
             {
@@ -268,14 +275,29 @@ sub addUserToTree {
         my $cols = $addedUser->fetch; # get the columns (keys for json)
         my $userInfo = $addedUser->fetch;
         $json->{id} = $userInfo->[0];
+        my $subject = '';
         if ($status == 3) {
+            $subject = 'You\'ve Been Invited To Another Tree';
             $json->{firstName} = $userInfo->[1];
             $json->{lastName} = $userInfo->[2];
-            $body .= 'Go to http://annotree.com/login to view this tree' . "\n";
+            $body = 'Hi ';
+            $body .= $json->{firstName} || $json->{lastName};
+            $body .= ",\n\n";
+            $body .= $curUserInfo->[0] || '';
+            $body .= ' ' if $curUserInfo->[0];
+            $body .= $curUserInfo->[1];
+            $body = ' has invited you to the ' . $curUserInfo->[2] . " tree.\n\n";
+            $body .= 'Go to http://annotree.com/login to view this tree.' . "\n";
         } else {
+            $subject = 'You\'ve Been Invited To Join AnnoTree';
             $json->{firstName} = '';
             $json->{lastName} = '';
-            $body .= 'Go to http://annotree.com/signup to get started' . "\n";
+            $body = 'Hi,';
+            $body .= $curUserInfo->[0] || '';
+            $body .= ' ' if $curUserInfo->[0];
+            $body .= $curUserInfo->[1];
+            $body = ' has invited you to the ' . $curUserInfo->[2] . " tree.\n\n";
+            $body .= 'Go to http://annotree.com/signup to get started.' . "\n";
         }
         $body .= "\n" . '-AnnoTree' . "\n";
 
@@ -295,7 +317,7 @@ sub addUserToTree {
           header => [
             To      => $params->{userToAdd},
             From    => 'invite@annotree.com',
-            Subject => 'Welcome to AnnoTree',
+            Subject => $subject,
           ],
           body => $body
         );

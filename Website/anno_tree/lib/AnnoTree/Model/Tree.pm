@@ -271,11 +271,11 @@ sub addUserToTree {
         if ($status == 3) {
             $json->{firstName} = $userInfo->[1];
             $json->{lastName} = $userInfo->[2];
-            $body .= 'Go to http://annotree.com/signup to get started' . "\n";
+            $body .= 'Go to http://annotree.com/login to view this tree' . "\n";
         } else {
             $json->{firstName} = '';
             $json->{lastName} = '';
-            $body .= 'Go to http://annotree.com/login to view this tree' . "\n";
+            $body .= 'Go to http://annotree.com/signup to get started' . "\n";
         }
         $body .= "\n" . '-AnnoTree' . "\n";
 

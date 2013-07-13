@@ -286,17 +286,17 @@ sub addUserToTree {
             $body .= $curUserInfo->[0] || '';
             $body .= ' ' if $curUserInfo->[0];
             $body .= $curUserInfo->[1];
-            $body = ' has invited you to the ' . $curUserInfo->[2] . " tree.\n\n";
+            $body .= ' has invited you to the ' . $curUserInfo->[2] . " tree.\n\n";
             $body .= 'Go to http://annotree.com/login to view this tree.' . "\n";
         } else {
             $subject = 'You\'ve Been Invited To Join AnnoTree';
             $json->{firstName} = '';
             $json->{lastName} = '';
-            $body = 'Hi,';
+            $body = 'Hi,' . "\n\n";
             $body .= $curUserInfo->[0] || '';
             $body .= ' ' if $curUserInfo->[0];
             $body .= $curUserInfo->[1];
-            $body = ' has invited you to the ' . $curUserInfo->[2] . " tree.\n\n";
+            $body .= ' has invited you to the ' . $curUserInfo->[2] . " tree.\n\n";
             $body .= 'Go to http://annotree.com/signup to get started.' . "\n";
         }
         $body .= "\n" . '-AnnoTree' . "\n";

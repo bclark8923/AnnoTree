@@ -104,13 +104,13 @@ my $validTreeID = $jsonBody->{id};
 ######### START VALID USER TEST #########
 # this test creates a new valid user
 $testname = 'Valid user signup: ';
-$validUserEmail = 'mojotest' . int(rand(1000000)) . '@user.com';
-$validUserPass = 'tester1';
+$uaAddEmail = 'mojotest' . int(rand(1000000)) . '@user.com';
+$uaAddPass = 'tester1';
 my $uaNoForests = Mojo::UserAgent->new;
 $tx = $uaNoForests->post($server . $port . '/user/signup' => json => {
     signUpName      => 'test script user',
-    signUpEmail     => $validUserEmail,
-    signUpPassword  => $validUserPass
+    signUpEmail     => $uaAddEmail,
+    signUpPassword  => $uaAddPass
 });
 $jsonBody = $json->decode($tx->res->body);
 
@@ -123,18 +123,19 @@ ok('ENG' eq $jsonBody->{lang},                          $testname . "Response JS
 ok(3 == $jsonBody->{status},                            $testname . 'Response JSON status is 3');
 ok('EST' eq $jsonBody->{time_zone},                     $testname . "Response JSON time zone is EST");
 ok('img/user.png' eq $jsonBody->{profile_image_path},   $testname . "Response JSON profile image path is img/user.png");
-ok($validUserEmail eq $jsonBody->{email},               $testname . "Response JSON email is $validUserEmail");
+ok($uaAddEmail eq $jsonBody->{email},                   $testname . "Response JSON email is $validUserEmail");
 my $uaAddID = $jsonBody->{id};
 ######### END VALID USER TEST #########
 
 ######### START VALID TREE USER ADD TEST #########
 # this test adds an user to tree
-$testname = 'Valid user addition to tree: ';
+$testname = 'Existing user addition to tree: ';
 $tx = $uaValid->put($server . $port . '/tree/' . $validTreeID . '/user/' => json => {
-    userToAdd       => $uaAddID
+    userToAdd       => $uaAddEmail
 });
 
-ok(204 == $tx->res->code,                               $testname . 'Response Code is 204');
+ok(200 == $tx->res->code,                               $testname . 'Response Code is 200');
+ok(3 == $jsonBody->{status},                            $testname . 'Response JSON status is 3');
 ######### END VALID TREE USER ADD TEST #########
 
 $tx = $uaValid->delete($server . $port . '/tree/' . $validTreeID . '/user/' . $uaAddID);

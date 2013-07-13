@@ -271,7 +271,7 @@ sub addUserToTree {
 
         my $email = Email::Simple->create(
           header => [
-            To      => 'mattprice11@gmail.com',
+            To      => $params->{userToAdd},
             From    => 'invite@annotree.com',
             Subject => 'Welcome to AnnoTree',
           ],

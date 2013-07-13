@@ -143,7 +143,7 @@ ok(3 == $jsonBody->{status},                            $testname . 'Response JS
 # this test adds a new user to tree
 $testname = 'New user addition to tree: ';
 $tx = $uaValid->put($server . $port . '/tree/' . $validTreeID . '/user/' => json => {
-    userToAdd       => 'mattprice11@gmail.com' #'useradd' . int(rand(1000000)) . '@user.com'
+    userToAdd       => 'useradd' . int(rand(1000000)) . '@user.com'
 });
 $jsonBody = $json->decode($tx->res->body);
 

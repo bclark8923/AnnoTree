@@ -25,9 +25,9 @@ CREATE procedure `create_user`(
 BEGIN
 set @status = (select user.status from user where email = user.email);
 If (@status) then
-  if(select @status = 3) then select '2'; 
-  ELSEIF (select @status = 2) then
-    update user set status = 3 where user.email = email;
+  if (@status = 3) then select '2'; 
+  ELSEIF (@status = 2) then
+    update user set user.status = 3, user.password = password, user.first_name = first_name, user.last_name = last_name, user.lang = lang, user.time_zone = time_zone, user.profile_image_path = profile_image_path where user.email = email;
     select 'id', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status' 
     union
      select id, first_name, last_name, email, created_at, lang, time_zone, profile_image_path, status from user where email = user.email;  

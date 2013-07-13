@@ -398,26 +398,30 @@
 									//go to Fail Page
 									//$location.path("/forestFire");
 							}
+							alert(errorData);
 						} else if(response.data.status != 401 && errorNumber != 0) {
 							//go to Fail Page
 							//$location.path("/forestFire");
 							alert(errorData);
 						}
-						alert(errorData);
 
 					}
 				);
 			}
 
 			$scope.addUser = function() {
+				$scope.addedUser.email = $scope.addUserID;
 				var promise = treeService.addUser($scope.treeInfo.id, $scope.addUserID);
 
 				promise.then(
 					function( response ) {
 
 						//if existing, push
+						$scope.addedUser.first_name = response.data.first_name;
+						$scope.addedUser.last_name = response.data.last_name;
+						$scope.addedUser.id = response.data.id;
 						$scope.treeInfo.users.push($scope.addedUser);
-
+						$scope.addUserID = "";
 						//else alert user was invited
 
 					},
@@ -445,12 +449,12 @@
 									//go to Fail Page
 									//$location.path("/forestFire");
 							}
+							alert(errorData);
 						} else if(response.data.status != 401 && errorNumber != 0) {
 							//go to Fail Page
 							//$location.path("/forestFire");
 							alert(errorData);
 						}
-						alert(errorData);
 
 					}
 				);
@@ -482,6 +486,7 @@
 					      select: function( event, ui ) {
 					        $( "#userList" ).val( ui.item.value );
 					 		$scope.addedUser = ui.item.user;
+					 		$scope.addUserID = ui.item.user.email;
 					        return false;
 					      }
 					    })
@@ -493,7 +498,7 @@
 
 					},
 					function( response ) {
-						alert('Our add users service is currently down. Please try again later.');
+						alert('Our add and remove users service is currently down. Please try again later.');
 						return;
 						var errorData = "Our Create Leaf Service is currently down, please try again later.";
 						var errorNumber = parseInt(response.data.error);
@@ -516,12 +521,12 @@
 									//go to Fail Page
 									//$location.path("/forestFire");
 							}
+							alert(errorData);
 						} else if(response.data.status != 401 && errorNumber != 0) {
 							//go to Fail Page
 							//$location.path("/forestFire");
 							alert(errorData);
 						}
-						alert(errorData);
 
 					}
 				);
@@ -556,6 +561,7 @@
 
 			// I hold the categories to render.
             $rootScope.leaves = [];
+            $scope.addedUser = {};
             $scope.noLeaves = "";
 			$scope.noLeavesNL = "";
 			$scope.newLeafHolder = { 

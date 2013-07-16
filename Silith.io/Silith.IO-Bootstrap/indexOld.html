@@ -19,7 +19,7 @@
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
-    <body>
+    <body style="background: url('img/descripBG.png') no-repeat center top;background-size:cover;background-attachment: fixed;">
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -28,16 +28,23 @@
         <!-- <div style="float:left;width:100%;text-align:center">
             <img src="img/SilithIOLogoImageTrim.png" style="height:40px;"/>
         </div> -->
-        <div class="container" style="height:50px;margin-bottom:40px;background-color: transparent;padding-top:20px;">
-            <img src="img/SilithIOLogoTrimNoLine.png" style="height:30px;padding:10px 0px;float:left;"/>
-            <div class="navCustom">
-                <span class="active"><a href="#">Home</a></span>
-                <span><a href="#about">About</a></span>
-                <span><a href="#products">Products</a></span>
-                <span><a href="#contact">Contact</a></span>
+        <div class="navbar navbar-fixed-top">
+            <div id="nav" class="navbar-inner">
+                <img id="logo" src="img/SilithIOLogoTrimNoLine.png"/>
+                <div class="navCustom responsiveHide">
+                    <span class="active"><a href>Home</a></span>
+                    <span><a href="about.html">About</a></span>
+                    <span><a href="products.html">Products</a></span>
+                    <span><a href="blog.html">Blog</a></span>
+                    <span><a href="contact.html">Contact</a></span>
+                </div>
+                <div class="navCustom responsiveShow">
+                    <span class="btn btn-inverse"><i class="icon icon-list icon-white"></i></span>
+                </div>
             </div>
         </div>
 
+        
         <div class="container mainContainer">
             <div class="descriptionDiv">
                 <span class="descriptionSpan">BEAUTIFUL</span>
@@ -46,7 +53,7 @@
                 <span class="descriptionSpan">PLATFORMS</span>
             </div>
         </div>
-
+        
         <div style="text-align:center;">
            
         </div>

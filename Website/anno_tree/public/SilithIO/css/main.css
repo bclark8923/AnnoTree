@@ -1,0 +1,79 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background-color: #222;
+	/*background: url('../img/bg.png');
+	background-size: cover;*/
+}
+
+.navbar, .navbar-inner, .navbar-inverse .navbar-inner {
+	background:transparent;
+	background-image: none;
+	border: none;
+	box-shadow: none;
+}
+
+.navCustom {
+	float:right;
+	margin-top:20px;
+
+}
+
+.navCustom > span {
+	padding: 0 10px;
+}
+
+.navCustom > span > a {
+	color: #ddd;
+	text-decoration: none;
+	font-family: Lato;
+}
+
+.navCustom > span > a:hover {
+	color: white;
+	text-decoration: none;
+}
+
+.navCustom > span.active > a {
+	color: #f1e854;
+}
+
+.mainContainer {
+	background: url('../img/descripBG.png');
+	background-size: cover;
+}
+
+.descriptionDiv {
+	color:white;
+	width:330px;
+	margin: 0 auto;
+	font-family:Lato;
+	font-size:40pt;
+	line-height:55pt;
+	padding-top:75px;
+	padding-bottom: 75px;
+}
+
+.descriptionSpan {
+	background-color:#f1e854;
+	color:black;
+	padding: 0 10px;
+}
+
+
+
+
+
+
+
+
+
+

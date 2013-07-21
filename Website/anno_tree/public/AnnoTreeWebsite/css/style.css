@@ -17,7 +17,7 @@ p {
   background: white;
   color: #888;
   margin-bottom: 0px;
-  box-shadow: 0px 2px 7px #ddd;
+  border-bottom: 1px solid #bbb;
 }
 
 .navbar > .row {
@@ -111,8 +111,8 @@ p {
 #product {
   padding-top: 100px;
   min-height: 750px;
-  background-color: #58c026;
   font-size: 15pt;
+  background-color: #58c026;
   color: white;
 }
 
@@ -144,10 +144,50 @@ p {
   padding-top: 80px;
 }
 
+#pricing {
+  padding-top: 100px;
+  height: 700px;
+  background-color: white;
+}
+
+.pricingColumn {
+  border:1px solid #bbb;
+  height: 250px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #7A7A7A;
+}
+
+.featureList {
+  margin-top: 10px;
+}
+
+.featureList > li {
+  font-size: 13pt;
+}
+
+.pricing {
+  margin-top:30px;
+}
+
+.pricingColumn > h2 {
+  color: #58c026;
+}
+
+.price {
+  font-size: 35pt;
+}
+
+.perMonth {
+  font-weight: bold;
+  font-size: 10pt;
+}
+
 #contact {
   padding-top: 250px;
   height: 700px;
   background-color: white;
+  background-color: #58c026;
+  color: white;
 }
 
 .contactInfo {

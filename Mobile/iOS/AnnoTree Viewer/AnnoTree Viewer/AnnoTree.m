@@ -121,7 +121,7 @@
         [pencilIconToolbarButton setBackgroundImage:pencilIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
         [pencilIconToolbarButton setSelected:YES];
         [pencilIconToolbarButton setEnabled:NO];
-        [pencilIconToolbarButton addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
+        /*[pencilIconToolbarButton addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];*/
         [pencilIconToolbarButton addTarget:self action:@selector(enableDisableDrawing:) forControlEvents:UIControlEventTouchUpInside];
         pencilIconToolbarButton.hidden = YES;
         [annoTreeToolbar addSubview:pencilIconToolbarButton];

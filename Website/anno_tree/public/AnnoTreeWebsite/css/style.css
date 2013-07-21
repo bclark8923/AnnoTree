@@ -152,22 +152,22 @@ p {
 
 .pricingColumn {
   border:1px solid #bbb;
-  height: 250px;
+  height: 300px;
   border-radius: 5px;
   box-shadow: 0 0 5px #7A7A7A;
   padding: 10px;
 }
 
 .featureList {
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
 .featureList > li {
-  font-size: 13pt;
+  font-size: 15pt;
 }
 
 .pricing {
-  margin-top:30px;
+  margin-top:50px;
 }
 
 .pricingColumn > h2 {
@@ -176,7 +176,7 @@ p {
 }
 
 .price {
-  font-size: 35pt;
+  font-size: 40pt;
 }
 
 .perMonth {

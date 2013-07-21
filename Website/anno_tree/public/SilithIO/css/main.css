@@ -447,6 +447,18 @@ body {
 
 @media only screen and (max-width: 767px) {
 
+	.contactHead {
+		font-size: 25pt;
+	}
+
+	.mobilePad {
+		padding: 0 20px;
+	}
+
+	.companyDescrip {
+		padding-top: 50px;
+	}
+
 	#carouselLinks {
 		display: none;
 	}
@@ -506,9 +518,27 @@ body {
 	.responsiveHide {
 		display: none;
 	}
+
+	.contactDescrip {
+		padding-top: 150px;
+	}
+
+	.aboutTitle {
+		font-size: 22pt;
+		line-height: 25pt;
+	}
+
+	.teamDiv {
+		padding: 0;
+	}
 }
 
 @media only screen and (max-width: 320px) {
+
+	.contactHead {
+		font-size: 15pt;
+	}
+
 
 	.navCustom > span#openMore {
 		margin-right:10px;

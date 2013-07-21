@@ -24,7 +24,9 @@ $( document ).ready(function() {
 
 	$(".carouselLink").click(function() {
 		$(".carouselLink").removeClass('active');
-		$(this).addClass('active');
+		//get selector
+		//alert($(this).attr('data-update'));
+		$('.' + $(this).attr('data-update')).addClass('active');
 	})
 
 	$(window).resize(function() {

@@ -38,28 +38,30 @@
             <div id="myCarousel" class="carousel carouselFull slide" data-interval="false">
                 <div id="carouselLinks" style="position: absolute; width: 100%;z-index:9999;top:550px;">
                     <div style="position: relative; text-align: center;">
-                        <span data-target="#myCarousel" id="homeCtrl" class="topLink carouselLink active" data-slide-to="0">HOME</span>
-                        <span data-target="#myCarousel" id="aboutCtrl" class="topLink carouselLink" data-slide-to="1">ABOUT</span>
-                        <span data-target="#myCarousel" id="productsCtrl" class="topLink carouselLink" data-slide-to="2">PRODUCTS</span>
-                        <span data-target="#myCarousel" id="teamCtrl" class="topLink carouselLink" data-slide-to="3">TEAM</span>
-                        <span data-target="#myCarousel" id="contactCtrl" class="topLink carouselLink" data-slide-to="4">CONTACT</span>
-                        <span id="blogCtrl" class="topLink "><a href="/blog" class="carouselLink">BLOG</a></span>
+                        <span data-target="#myCarousel" data-update="homeLink" id="homeCtrl" class="topLink carouselLink homeLink active" data-slide-to="0">HOME</span>
+                        <span data-target="#myCarousel" data-update="aboutLink" id="aboutCtrl" class="topLink carouselLink aboutLink" data-slide-to="1">ABOUT</span>
+                        <span data-target="#myCarousel" data-update="productsLink" id="productsCtrl" class="topLink carouselLink productsLink" data-slide-to="2">PRODUCTS</span>
+                        <span data-target="#myCarousel" data-update="teamLink" id="teamCtrl" class="topLink carouselLink teamLink" data-slide-to="3">TEAM</span>
+                        <span data-target="#myCarousel" data-update="contactLink" id="contactCtrl" class="topLink carouselLink contactLink" data-slide-to="4">CONTACT</span>
+                        <span id="blogCtrl" data-update="blogLink" class="topLink "><a href="/blog" class="carouselLink blogLink">BLOG</a></span>
                     </div>
                 </div>
                 <div class="carousel-inner carouselFull">
                     <div class="active item">
                         <div id="wrapper" class="carouselBG1">
                             <div class="fadeCover">
-                                <div class="container mainContainer">
-                                    <div class="definition">
-                                        <span>
-                                            <span class="aboutSpan aboutTitle">Silith.IO <span style="font-weight:400">(s&#301;l-&#301;th d&#335;t I O)</span></span><br/><br/><br/>
-                                            <span class="aboutSpan" style="font-size:15pt;line-height:15pt;">n.</span><br/><br/>
-                                            <div class="aboutSpan" style="margin-left:30px;font-size:15pt;line-height:15pt;">
-                                                <span style="font-family:Times;font-weight:800;margin-right:3px;">1. </span>
-                                                <span style="font-family: 'Cutive Mono', serif;"><i>A Mobile First company creating beautiful, intuitive platforms for application and business development.</i></span>
-                                            </div>
-                                        </span>
+                                <div class="mobilePad">
+                                    <div class="container mainContainer">
+                                        <div class="definition">
+                                            <span>
+                                                <span class="aboutSpan aboutTitle">Silith.IO <span style="font-weight:400">(s&#301;l-&#301;th d&#335;t I O)</span></span><br/><br/><br/>
+                                                <span class="aboutSpan" style="font-size:15pt;line-height:15pt;">n.</span><br/><br/>
+                                                <div class="aboutSpan" style="margin-left:30px;font-size:15pt;line-height:15pt;">
+                                                    <span style="font-family:Times;font-weight:800;margin-right:3px;">1. </span>
+                                                    <span style="font-family: 'Cutive Mono', serif;"><i>A Mobile First company creating beautiful, intuitive platforms for application and business development.</i></span>
+                                                </div>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -68,36 +70,38 @@
                     <div class="item">
                         <div id="wrapper" class="carouselBG2">
                             <div class="fadeCover">
-                                <div class="container">
-                                    <div class="companyDescrip">
-                                        <div class="row">
-                                            <div class="span12" style="text-align:center;margin-bottom:30px;">
-                                                <h1>
-                                                    <span class="lines lineHide">
-                                                        <hr class="lineShow"/>
-                                                            Beautiful, Intuitive, Platforms
-                                                        <hr class="lineShow"/>
-                                                    </span>
-                                                </h1>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="span6">
-                                                <div style="padding:20px;">
-                                                    Silith.IO aims to organize, simplify, and improve the entire application creation experience with beatuiful, intuitive platforms. We are creating solutions to execute on this from any device while bringing impeccable design to every platform.
+                                <div class="mobilePad">
+                                    <div class="container">
+                                        <div class="companyDescrip">
+                                            <div class="row">
+                                                <div class="span12" style="text-align:center;margin-bottom:30px;">
+                                                    <h1>
+                                                        <span class="lines lineHide">
+                                                            <hr class="lineShow"/>
+                                                                Beautiful, Intuitive, Platforms
+                                                            <hr class="lineShow"/>
+                                                        </span>
+                                                    </h1>
                                                 </div>
                                             </div>
 
-                                            <div class="span6">
-                                                <div style="padding:20px;">
-                                                    Our Team comes from over 30 combined years of programming experience across various industries. We created this company to make an impact, and the best way we know how to do this is to take our expertise, dreams, and ambitions. And go.
+                                            <div class="row">
+
+                                                <div class="span6">
+                                                    <div style="padding:20px;">
+                                                        Silith.IO aims to organize, simplify, and improve the entire application creation experience with beatuiful, intuitive platforms. We are creating solutions to execute on this from any device while bringing impeccable design to every platform.
+                                                    </div>
                                                 </div>
+
+                                                <div class="span6">
+                                                    <div style="padding:20px;">
+                                                        Our Team comes from over 30 combined years of programming experience across various industries. We created this company to make an impact, and the best way we know how to do this is to take our expertise, dreams, and ambitions. And go.
+                                                    </div>
+                                                </div>
+                                                
                                             </div>
                                             
                                         </div>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -106,24 +110,26 @@
                     <div class="item">
                         <div id="wrapper" class="carouselBG3">
                             <div class="fadeCover">
-                                <div class="container">
-                                    <div class="companyDescrip">
-                                        <div class="row">
-                                            <div class="span12" style="text-align:center;margin-bottom:30px;">
-                                                
-                                                    <h1>
-                                                        <span class="lines lineHide">
-                                                            <hr class="lineShow"/>
-                                                                PRODUCTS
-                                                            <hr class="lineShow"/>
-                                                        </span>
-                                                    </h1>
+                                <div class="mobilePad">
+                                    <div class="container">
+                                        <div class="companyDescrip">
+                                            <div class="row">
+                                                <div class="span12" style="text-align:center;margin-bottom:30px;">
+                                                    
+                                                        <h1>
+                                                            <span class="lines lineHide">
+                                                                <hr class="lineShow"/>
+                                                                    PRODUCTS
+                                                                <hr class="lineShow"/>
+                                                            </span>
+                                                        </h1>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div class="span12" style="text-align:center;margin-bottom:30px;">
-                                                <a href="http://annotree.com"><img src="img/AnnoTree.png"/></a>
+                                            <div class="row">
+                                                <div class="span12" style="text-align:center;margin-bottom:30px;">
+                                                    <a href="http://annotree.com"><img src="img/AnnoTree.png"/></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -134,89 +140,91 @@
                     <div class="item">
                         <div id="wrapper" class="carouselBG4">
                             <div class="fadeCover">
-                                <div class="container">
-                                    <div class="teamDiv">
-                                        <div class="row">
-                                            <div class="span12" style="text-align:center;margin-bottom:20px;">
+                                <div class="mobilePad">
+                                    <div class="container">
+                                        <div class="teamDiv">
+                                            <div class="row">
+                                                <div class="span12" style="text-align:center;margin-bottom:20px;">
+                                                    
+                                                        <h1>
+                                                            <span class="lines lineHide">
+                                                                <hr class="lineShow"/>
+                                                                    TEAM
+                                                                <hr class="lineShow"/>
+                                                            </span>
+                                                        </h1>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="margin-bottom:20px;">
+
+                                                <div class="span3 offset1">
+                                                    <div class="teamIMG">
+                                                        <img src='img/brianBW.png'/>
+                                                        <div class="nameHolder">
+                                                            <span class="teamNameSpan personName">Brian Clark&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://twitter.com/blaurenceclark" target="_blank"><i class="icon icon-twitter"></i></a></span>
+                                                            <!-- <br/><br/>
+                                                            <span class="teamNameSpan personTitle">Chief Executive Officer</span><br/>
+                                                            <span class="teamNameSpan"><a href="http://twitter.com/blaurenceclark">@blaurenceclark</a></span><br/><br/> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="span3">
+                                                    <div class="teamIMG">
+                                                        <img src='img/mattBW.png'/>
+                                                        <div class="nameHolder">
+                                                            <span class="teamNameSpan personName">Matt Price&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://twitter.com/suicidejack11" target="_blank"><i class="icon icon-twitter"></i></a></span>
+                                                            <!--<br/><br/>
+                                                            <span class="teamNameSpan personTitle">Lord of the Servers</span><br/>
+                                                            <span class="teamNameSpan"><a href="http://twitter.com/suicidejack11">@suicidejack11</a></span><br/><br/>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="span3">
+                                                    <div class="teamIMG">
+                                                        <img src='img/shaunBW.png'/>
+                                                        <div class="nameHolder">
+                                                            <span class="teamNameSpan personName">Shaun Nikore&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://twitter.com/sknikore" target="_blank"><i class="icon icon-twitter"></i></a></span>
+                                                            <!--<br/><br/>
+                                                            <span class="teamNameSpan personTitle">Chief Operating Officer</span><br/>
+                                                            <span class="teamNameSpan"><a href="http://twitter.com/sknikore">@sknikore</a></span><br/><br/>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 
-                                                    <h1>
-                                                        <span class="lines lineHide">
-                                                            <hr class="lineShow"/>
-                                                                TEAM
-                                                            <hr class="lineShow"/>
-                                                        </span>
-                                                    </h1>
-                                            </div>
-                                        </div>
-
-                                        <div class="row" style="margin-bottom:20px;">
-
-                                            <div class="span3 offset1">
-                                                <div class="teamIMG">
-                                                    <img src='img/brianBW.png'/>
-                                                    <div class="nameHolder">
-                                                        <span class="teamNameSpan personName">Brian Clark&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://twitter.com/blaurenceclark" target="_blank"><i class="icon icon-twitter"></i></a></span>
-                                                        <!-- <br/><br/>
-                                                        <span class="teamNameSpan personTitle">Chief Executive Officer</span><br/>
-                                                        <span class="teamNameSpan"><a href="http://twitter.com/blaurenceclark">@blaurenceclark</a></span><br/><br/> -->
-                                                    </div>
-                                                </div>
                                             </div>
 
-                                            <div class="span3">
-                                                <div class="teamIMG">
-                                                    <img src='img/mattBW.png'/>
-                                                    <div class="nameHolder">
-                                                        <span class="teamNameSpan personName">Matt Price&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://twitter.com/suicidejack11" target="_blank"><i class="icon icon-twitter"></i></a></span>
-                                                        <!--<br/><br/>
-                                                        <span class="teamNameSpan personTitle">Lord of the Servers</span><br/>
-                                                        <span class="teamNameSpan"><a href="http://twitter.com/suicidejack11">@suicidejack11</a></span><br/><br/>-->
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <div class="row">
 
-                                            <div class="span3">
-                                                <div class="teamIMG">
-                                                    <img src='img/shaunBW.png'/>
-                                                    <div class="nameHolder">
-                                                        <span class="teamNameSpan personName">Shaun Nikore&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://twitter.com/sknikore" target="_blank"><i class="icon icon-twitter"></i></a></span>
-                                                        <!--<br/><br/>
-                                                        <span class="teamNameSpan personTitle">Chief Operating Officer</span><br/>
-                                                        <span class="teamNameSpan"><a href="http://twitter.com/sknikore">@sknikore</a></span><br/><br/>-->
+                                                <div class="span3 offset3">
+                                                    <div class="teamIMG">
+                                                        <img src='img/bradBW.png' />
+                                                        <div class="nameHolder">
+                                                            <span class="teamNameSpan personName">Brad Clark&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://twitter.com/bradbradallen" target="_blank"><i class="icon icon-twitter"></i></a></span>
+                                                            <!--<br/><br/>
+                                                            <span class="teamNameSpan personTitle">Chief Marketing Officer</span><br/>
+                                                            <span class="teamNameSpan"><a href="http://twitter.com/bradbradallen">@bradbradallen</a></span><br/><br/>-->
+                                                        </div>
                                                     </div>
                                                 </div>
+
+                                                <div class="span3">
+                                                    <div class="teamIMG">
+                                                        <img src='img/mikeBW.png'/>
+                                                        <div class="nameHolder">
+                                                            <span class="teamNameSpan personName">Mike Max&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://twitter.com/MikeToDaMax" target="_blank"><i class="icon icon-twitter"></i></a></span>
+                                                            <!--<br/><br/>
+                                                            <span class="teamNameSpan personTitle">Chief Data Officer</span><br/>
+                                                            <span class="teamNameSpan"><a href="http://twitter.com/MikeToDaMax">@MikeToDaMax</a></span><br/><br/>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
                                             </div>
                                             
                                         </div>
-
-                                        <div class="row">
-
-                                            <div class="span3 offset3">
-                                                <div class="teamIMG">
-                                                    <img src='img/bradBW.png' />
-                                                    <div class="nameHolder">
-                                                        <span class="teamNameSpan personName">Brad Clark&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://twitter.com/bradbradallen" target="_blank"><i class="icon icon-twitter"></i></a></span>
-                                                        <!--<br/><br/>
-                                                        <span class="teamNameSpan personTitle">Chief Marketing Officer</span><br/>
-                                                        <span class="teamNameSpan"><a href="http://twitter.com/bradbradallen">@bradbradallen</a></span><br/><br/>-->
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="span3">
-                                                <div class="teamIMG">
-                                                    <img src='img/mikeBW.png'/>
-                                                    <div class="nameHolder">
-                                                        <span class="teamNameSpan personName">Mike Max&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://twitter.com/MikeToDaMax" target="_blank"><i class="icon icon-twitter"></i></a></span>
-                                                        <!--<br/><br/>
-                                                        <span class="teamNameSpan personTitle">Chief Data Officer</span><br/>
-                                                        <span class="teamNameSpan"><a href="http://twitter.com/MikeToDaMax">@MikeToDaMax</a></span><br/><br/>-->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -225,13 +233,15 @@
                     <div class="item">
                         <div id="wrapper" class="carouselBG5">
                             <div class="fadeCover">
-                                <div class="container">
-                                    <div class="contactDescrip">
-                                        <div class="row">
-                                            <div class="span12" style="text-align:center;margin-bottom:30px;">
-                                                <h1>
-                                                    Contact@Silith.IO | <a style="text-decoration:none;color:#f1e854;" href="http://twitter.com/SilithIO">@SilithIO</a>
-                                                </h1>
+                                <div class="mobilePad">
+                                    <div class="container">
+                                        <div class="contactDescrip">
+                                            <div class="row">
+                                                <div class="span12" style="text-align:center;margin-bottom:30px;">
+                                                    <h1 class="contactHead">
+                                                        Contact@Silith.IO | <a style="text-decoration:none;color:#f1e854;" href="http://twitter.com/SilithIO">@SilithIO</a>
+                                                    </h1>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -245,12 +255,12 @@
         <div id="pane">
             <div id="paneContainer">
                 <div id="carouselLinksPane">
-                        <p data-target="#myCarousel" id="homeCtrl" class="topLink carouselLink paneLink active" data-slide-to="0">HOME</p>
-                        <p data-target="#myCarousel" id="homeCtrl" class="topLink carouselLink paneLink" data-slide-to="1">ABOUT</p>
-                        <p data-target="#myCarousel" id="homeCtrl" class="topLink carouselLink paneLink" data-slide-to="2">PRODUCTS</p>
-                        <p data-target="#myCarousel" id="homeCtrl" class="topLink carouselLink paneLink" data-slide-to="3">TEAM</p>
-                        <p data-target="#myCarousel" id="homeCtrl" class="topLink carouselLink paneLink" data-slide-to="4">CONTACT</p>
-                        <p id="blogPane" class="topLink carouselLink paneLink">BLOG</p>
+                        <p data-target="#myCarousel" data-update="homeLink" id="homeCtrl" class="topLink carouselLink paneLink homeLink active" data-slide-to="0">HOME</p>
+                        <p data-target="#myCarousel" data-update="aboutLink" id="aboutCtrl" class="topLink carouselLink paneLink aboutLink" data-slide-to="1">ABOUT</p>
+                        <p data-target="#myCarousel" data-update="productsLink" id="productsCtrl" class="topLink carouselLink paneLink productsLink" data-slide-to="2">PRODUCTS</p>
+                        <p data-target="#myCarousel" data-update="teamLink" id="teamCtrl" class="topLink carouselLink paneLink teamLink" data-slide-to="3">TEAM</p>
+                        <p data-target="#myCarousel" data-update="contactLink" id="contactCtrl" class="topLink carouselLink paneLink contactLink" data-slide-to="4">CONTACT</p>
+                        <p id="blogCtrl" data-update="blogLink" class="topLink carouselLink paneLink"><a href="/blog" class="carouselLink blogLink">BLOG</a></p>
                 </div>
                 <!--<p><a class="topLink active" href="index.html">HOME</a></p>
                 <p><a class="topLink" href="/blog">BLOG</a></p>-->

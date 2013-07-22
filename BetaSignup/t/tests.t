@@ -8,7 +8,7 @@ my $conf = Config::General->new('/opt/config.txt');
 my %config = $conf->getall;
 
 my $server = $config{server}->{base_url};
-my $port = ':' . $config{server}->{'port'};
+my $port = ':3000';
 
 my $ua= Mojo::UserAgent->new;
 my $tx; # this shuld be the Mojo::Transaction element return from the UA transaction

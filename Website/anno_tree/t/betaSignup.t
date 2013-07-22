@@ -20,7 +20,7 @@ my $ua = Mojo::UserAgent->new;
 ######### START VALID BETA USER TEST #########
 # this test creates a new valid beta user
 my $testname = 'Valid beta user signup: ';
-my $validBetaEmail = 'mojotest' . int(rand(1000000)) . '@beta.com';
+my $validBetaEmail = 'mojotest' . int(rand(1000000)) . '@annotree.com';
 $tx = $ua->post($signupURL => json => {
     email => $validBetaEmail
 });

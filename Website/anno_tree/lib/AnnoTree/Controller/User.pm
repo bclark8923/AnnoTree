@@ -49,4 +49,19 @@ sub beta {
     $self->render(json => $json, status => $status);
 }
 
+sub feedback {
+    my $self = shift;
+
+    my $jsonReq = $self->req->json;
+
+    my $params = {};
+    $params->{userid} = $self->current_user->{userid};
+    $params->{feedback} = $jsonReq->{feedback};
+    $self->debug($self->dumper($params));
+
+    AnnoTree::Model::User->feedback($params);
+
+    $self->render(status => 204, text => "Success");
+}
+
 return 1;

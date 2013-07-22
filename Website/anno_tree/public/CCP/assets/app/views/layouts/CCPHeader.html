@@ -18,7 +18,11 @@
                 <p style="margin-top:10px;border:1px solid #bbb;" class="btn success small logoutButton"><a href="" ng-click="logout()">Logout</a></p>
             </div>
         </div>
-
+        <button class="small success btn" style="position:fixed;bottom:0;left:50px;z-index:10000;border:2px solid #84db69;border-top-left-radius:4px;border-top-right-radius:4px;border-top-left-radius:4px;">
+            <a style="font-weight:bold" ng-click="openFeedback()" class="switch active">
+                Feedback
+            </a>
+        </button>
         <!-- App -->
         <div id="wrapper" class="switch" gumby-trigger="|.userSettings">
             <div class="navbar pretty" id="nav1">
@@ -69,5 +73,39 @@
             </div>
         </div>
         
+<!-- Feedback Modal -->
+<div class="modal" id="feedbackModal" ng-controller="layouts.StandardController">
+  <div class="content" style="padding: 0;min-height:0;">
+    <div class="row authenticateHeader" style="padding:0;">
+      <a id="feedbackClose" class="close switch" ng-click="closeFeedbackModal()" style="float:right;color:#444"><i class="icon-remove-circle"></i></a>
+      <h3 style="padding-top:20px;">Submit Feedback</h3>
+    </div>
+    <form name="feedbackForm" ng-submit="submitFeedback()" style="margin: 0;">
+      <div class="row" style="padding-bottom:30px;padding-top:30px;">
+        <div class="ten columns centered center-text">
+          <ul>
+            <li class="field" style="text-align:center" ng-show="feedbackAbout">Let us know what features you want to see next, any problems you have while using AnnoTree, or anything else you feel that we should be aware of.</li>
+            <li class="danger alert" id="invalidSubmitFeedback" ng-show="invalidSubmitFeedback"></li>
+            <li class="field" style="text-align:center;">
+            <textarea id="feedback" class="textarea input" type="text" placeholder="Feedback" style="max-width:380px;" ng-model="feedback" required ng-show="feedbackArea"></textarea></li>
+            <li class="field" style="text-align:center" ng-show="feedbackThanks">
+                <p>Thanks for submitting your feedback! We appreciate you taking the time to make AnnoTree better.</p>
+                <div>
+                    <button class="medium oval btn success"><a ng-click="closeFeedbackModal()">Close</a></button>
+                 </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row authenticateFooter" ng-show="feedbackSubmitButton">
+        <div style="text-align: center; padding-top:15px;">
+          <div>
+            <button type="submit" class="medium oval btn success"><a ng-click="submitFeedback()">Submit Feedback</a></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
     
 </div>

@@ -93,6 +93,7 @@ sub startup {
     $r->post('/user/beta')                                  ->to('controller-user#beta');
     $authr->post('/user/logout')                            ->to('controller-auth#logoutUser');
     $authr->get('/user/knownpeople')                        ->to('controller-user#knownPeople');
+    $authr->post('/user/feedback')                          ->to('controller-user#feedback');
     #$authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser');
 
     # ===== TASKS =====

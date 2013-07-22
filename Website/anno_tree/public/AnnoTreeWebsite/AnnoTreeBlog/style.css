@@ -36,6 +36,14 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, a:hover 
   color: #58c026;
 }
 
+ol {
+  list-style: none;
+}
+
+.form-allowed-tags {
+  display: none;
+}
+
 .navbar {
   background: white;
   color: #888;

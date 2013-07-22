@@ -40,7 +40,7 @@
        However, there is a blank style.css in the css directory should you prefer -->
   <link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
 
-  <link rel="stylesheet" href="/blog/wp-content/themes/AnnoTreeBlog/css/gumby.css">
+  <link rel="stylesheet" href="/wp-content/themes/AnnoTreeBlog/css/gumby.css">
   <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
 
   <script src="js/libs/modernizr-2.6.2.min.js"></script>
@@ -50,22 +50,22 @@
   <div class="navbar fixed responsiveHide" gumby-fixed="top" id="annoTreeNavbar">
 		<div class="row">
 			<div class="three columns valign">
-        <div class="navLinks"><a href="/"><img src="/blog/wp-content/themes/AnnoTreeBlog/img/LogoNameWeb.png"/></a></div>
+        <div class="navLinks"><a href="http://annotree.com"><img src="/wp-content/themes/AnnoTreeBlog/img/LogoNameWeb.png"/></a></div>
       </div>
       <div class="one columns push_four valign">
-        <div class="navLinks"><a href="/" class="skip" gumby-goto="top">Home</a></div>
+        <div class="navLinks"><a href="http://annotree.com" class="skip" gumby-goto="top">Home</a></div>
       </div>
       <div class="one columns valign">
-        <div class="navLinks"><a href="/#product" class="skip" gumby-goto="#product">Product</a></div>
+        <div class="navLinks"><a href="http://annotree.com/#product" class="skip" gumby-goto="#product">Product</a></div>
       </div>
       <div class="one columns valign">
-        <div class="navLinks"><a href="/#pricing" class="skip" gumby-goto="#pricing">Contact</a></div>
+        <div class="navLinks"><a href="http://annotree.com/#pricing" class="skip" gumby-goto="#pricing">Pricing</a></div>
       </div>
       <div class="one columns valign">
-        <div class="navLinks"><a href="/#contact" class="skip" gumby-goto="#contact">Contact</a></div>
+        <div class="navLinks"><a href="http://annotree.com/#contact" class="skip" gumby-goto="#contact">Contact</a></div>
       </div>
       <div class="one columns valign">
-        <div class="navLinks"><a style="color:#58c026;">Blog</a></div>
+        <div class="navLinks"><a href="http://blog.annotree.com" style="color:#58c026;">Blog</a></div>
       </div>
       <div class="one columns valign">
         <div>
@@ -77,7 +77,7 @@
   <div class="navbar fixed responsiveShow" gumby-fixed="top">
 		<div style="width: 130px; float:left;" class="navLinks">
       <div style="padding:5px; padding-top: 10px;">
-        <a href="/"><img src="/blog/wp-content/themes/AnnoTreeBlog/img/LogoNameWeb.png"/></a>
+        <a href="http://annotree.com"><img src="/wp-content/themes/AnnoTreeBlog/img/LogoNameWeb.png"/></a>
       </div>
     </div>
     <div style="width: 80px; float:right; padding-top:5px;" class="navLinks">
@@ -87,7 +87,7 @@
     </div>
     <div style="width: 80px; float:right; padding-top:5px;" class="navLinks">
       <div style="padding:5px;">
-        <a style="color:#444;" href="/blog" style="color:#58c026;">Blog</a>
+        <a href="http://blog.annotree.com" style="color:#58c026;">Blog</a>
       </div>
     </div>
 	</div>

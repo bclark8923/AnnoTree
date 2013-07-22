@@ -8,6 +8,7 @@ use Config::General;
 
 # grab the information from the configuration file
 my $conf = Config::General->new('/opt/config.txt');
+my %config = $conf->getall;
 my $port = $config{server}->{'port'};
 my $server = $config{server}->{'base_url'};
 my $root = $config{server}->{'dev_root'};

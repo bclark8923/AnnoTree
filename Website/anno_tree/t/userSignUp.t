@@ -1,5 +1,4 @@
 use Test::More;
-#use Test::Mojo;
 use Mojo::UserAgent;
 use Data::Dumper;
 use Mojo::JSON;
@@ -11,7 +10,6 @@ my %config = $conf->getall;
 
 my $server = $config{server}->{base_url};
 my $port = ':' . $config{server}->{'port'};
-my $fileToUpload = $config{server}->{'screenshot'};
 
 #my $t = Test::Mojo->new('AnnoTree');
 my $uaInvalidUser = Mojo::UserAgent->new;

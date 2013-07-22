@@ -32,4 +32,21 @@ sub knownPeople {
     $self->render(json => $json, status => 200);
 }
 
+# beta signup service
+sub beta {
+    my $self = shift;
+    
+    my $jsonReq = $self->req->json;
+    my $email = $jsonReq->{email};
+
+    my $json = AnnoTree::Model::User->beta($email);
+
+    my $status = 204;
+    if (exists $json->{error}) {
+        $status = 406;
+    }
+
+    $self->render(json => $json, status => $status);
+}
+
 return 1;

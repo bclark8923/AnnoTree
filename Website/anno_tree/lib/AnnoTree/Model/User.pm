@@ -130,4 +130,34 @@ sub knownPeople {
     return $json;
 }
 
+# beta signup service
+sub beta {
+    my ($class, $email) = @_;
+
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call create_beta_user(:email)",
+        {
+            email => $email
+        }
+    );
+
+    my $json = {};
+    my $num = $result->fetch->[0];
+    if ($num == 0) {
+        $json = {result => $num, txt => 'User added as inactive beta user'};
+    } elsif ($num == 1) {
+        $json = {error => $num, txt => 'User can sign up'};
+    } elsif ($num == 2) {
+        $json = {error => $num, txt => 'User has already been invited'};
+    } elsif ($num == 3) {
+        $json = {error => $num, txt => 'User is already active'};
+    } elsif ($num == 4) {
+        $json = {error => $num, txt => 'User is already signed up for beta'};
+    } elsif ($num == 5) {
+        $json = {error => $num, txt => 'Invalid email submitted'};
+    } 
+
+    return $json;
+}
+
 return 1;

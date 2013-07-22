@@ -4,19 +4,13 @@ package Build;
 
 use Getopt::Long;
 use Modern::Perl '2013';
-use AppConfig;
+use Config::General;
 
-# grab the inforamtion from the configuration file
-my $config = AppConfig->new();
-$config->define('server=s');
-$config->define('port=s');
-$config->define('screenshot=s');
-$config->define('annotationpath=s');
-$config->define('devRoot=s');
-$config->file('/opt/config.txt');
-my $port = $config->get('port');
-my $server = $config->get('server');
-my $root = $config->get('devRoot');
+# grab the information from the configuration file
+my $conf = Config::General->new('/opt/config.txt');
+my $port = $config{server}->{'port'};
+my $server = $config{server}->{'base_url'};
+my $root = $config{server}->{'dev_root'};
 
 # set and verify all the passed in arguments and initialize the program
 my $verbose;

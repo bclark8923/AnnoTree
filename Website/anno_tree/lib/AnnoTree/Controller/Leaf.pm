@@ -2,19 +2,14 @@ package AnnoTree::Controller::Leaf;
 
 use Mojo::Base 'Mojolicious::Controller';
 use AnnoTree::Model::Leaf;
-use AppConfig;
+use Config::General;
 
-# grab the inforamtion from the configuration file
-my $config = AppConfig->new();
-$config->define('server=s');
-$config->define('port=s');
-$config->define('screenshot=s');
-$config->define('annotationpath=s');
-$config->define('devRoot=s');
-$config->file('/opt/config.txt');
-my $server = $config->get('server');
-my $port = ':' . $config->get('port');
-my $path = $config->get('annotationpath');
+# Get the configuration settings
+my $conf = Config::General->new('/opt/config.txt');
+my %config = $conf->getall;
+my $server = $config{server}->{'base_url'};
+my $port = ':' . $config{server}->{'port'};
+my $path = $config{server}->{'annotationpath'};
 my $url = $server . $port . '/annotation_files/';
 
 # creates a new leaf

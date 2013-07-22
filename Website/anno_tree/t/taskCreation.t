@@ -3,19 +3,15 @@ use Test::More;
 use Mojo::UserAgent;
 use Data::Dumper;
 use Mojo::JSON;
-use AppConfig;
+use Config::General;
 
-# grab the inforamtion from the configuration file
-my $config = AppConfig->new();
-$config->define('server=s');
-$config->define('port=s');
-$config->define('screenshot=s');
-$config->define('annotationpath=s');
-$config->define('devRoot=s');
-$config->file('/opt/config.txt');
-my $server = $config->get('server');
-my $port = ':' . $config->get('port');
-my $fileToUpload = $config->get('screenshot');
+# Get the configuration settings
+my $conf = Config::General->new('/opt/config.txt');
+my %config = $conf->getall;
+
+my $server = $config{server}->{base_url};
+my $port = ':' . $config{server}->{'port'};
+my $fileToUpload = $config{server}->{'screenshot'};
 
 #my $t = Test::Mojo->new('AnnoTree');
 my $uaValid = Mojo::UserAgent->new; # use to make the authenticated user requests
@@ -157,7 +153,7 @@ $tx = $uaValid->post($taskCreationURL => json => {
     status          => $validTaskStatus
 });
 $jsonBody = $json->decode($tx->res->body);
-
+print Dumper($jsonBody);
 ok(200 == $tx->res->code,                           $testname . 'Response Code is 200');
 ok(exists $jsonBody->{id},                          $testname . 'Response JSON ID exists');
 ok($validTaskDesc eq $jsonBody->{description},      $testname . "Response JSON description matches");

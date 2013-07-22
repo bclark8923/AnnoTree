@@ -59,6 +59,7 @@ sub updateTask {
     $params->{dueDate} = $jsonReq->{'dueDate'} || undef;
 
     my $json = AnnoTree::Model::Task->updateTask($params);
+    
     my $status = 204;
     if (exists $json->{error}) {
        $status = 406;

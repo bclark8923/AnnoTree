@@ -90,7 +90,7 @@ sub updateTask {
 
     my $json = {};
     my $num = $result->fetch->[0];
-    #print Dumper($cols);
+    #$print Dumper($num);
     if ($num == 0) {
         $json = {result => $num, txt => 'Task updated successfully'};
     } elsif ($num == 1) {

@@ -4,15 +4,19 @@ use Mojo::Base 'Mojolicious';
 use AnnoTree::Model::MySQL;
 use Crypt::SaltedHash;
 use Data::Dumper;
+use Config::General;
 
 # file upload size limit - 5MB
 $ENV{MOJO_MAX_MESSAGE_SIZE} = 5242880;
-
 
 # This method will run once at server start
 sub startup {
     my $self = shift;
     
+    # Get the configuration settings
+    my $conf = Config::General->new('/opt/config.txt');
+    my %config = $conf->getall;
+ 
     # secret passphrase for sessions
     $self->secret('protect the ANN0T33$ before THEY g3t T@k3n');
     
@@ -33,10 +37,13 @@ sub startup {
     });
 =end oldmysqlcon
 =cut
+    # print Dumper(\%config);
+    # print $config{database}->{server} . "\n";
+    # print $config{database}->{port} . "\n";
     AnnoTree::Model::MySQL->init({
         database    => 'annotree',
-        host        => 'localhost',
-        port        => '3306',
+        host        => $config{database}->{server},
+        port        => $config{database}->{port},
         username    => 'annotree',
         password    => 'ann0tr33s',
     });

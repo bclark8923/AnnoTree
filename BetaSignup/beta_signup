@@ -1,0 +1,18 @@
+#!/usr/bin/env perl
+
+use Mojolicious::Lite;
+
+post '/betasignup' => sub {
+    my $self = shift;
+    
+    my $jsonReq = $self->req->json;
+    my $email = $jsonReq->{email};
+
+    open(EMAILS, '>>', 'emails.txt');
+    print EMAILS $email . "\n";
+    close EMAILS;
+
+    $self->render(status => 204, text => 'Success');
+};
+
+app->start;

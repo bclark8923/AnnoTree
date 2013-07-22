@@ -1,6 +1,12 @@
 #!/usr/bin/env perl
 
 use Mojolicious::Lite;
+use Email::MIME;
+use IO::All;
+use Email::Sender::Simple qw(sendmail);
+use Email::Sender::Transport::SMTP ();
+#use Email::Simple ();
+#use Email::Simple::Creator ();
 
 post '/betasignup' => sub {
     my $self = shift;
@@ -11,7 +17,55 @@ post '/betasignup' => sub {
     open(EMAILS, '>>', 'emails.txt');
     print EMAILS $email . "\n";
     close EMAILS;
+    
+    my $base64Img = "";
 
+    my @parts = (
+        Email::MIME->create(
+            header => [
+                'Content-ID' => '<header>'
+            ],
+            attributes => {
+                filename        => "Header.png",
+                content_type    => "image/png",
+                encoding        => "base64",
+                name            => "Header.png",
+                disposition     => "inline",
+            },
+            body => io('Header.png')
+        ),
+        Email::MIME->create(
+            attributes => {
+                content_type => "text/html"
+            },
+            body => "<img src=\"cid:header\" border=\"0\" alt=\"AnnoTree\" /><br/>Hi,<br/><br/>Thanks for signing up to use the AnnoTree beta. We will let you know when you can join the AnnoTree beta and get started.<br/><br/>Sincerely,<br/>The AnnoTree Team"
+        )
+    );
+
+    my $smtpserver = 'smtp.mailgun.org';
+    my $smtpport = 587;
+    my $smtpuser   = 'postmaster@annotree.com';
+    my $smtppassword = '8-7sigqno8u7';
+
+    my $transport = Email::Sender::Transport::SMTP->new({
+      host          => $smtpserver,
+      port          => $smtpport,
+      sasl_username => $smtpuser,
+      sasl_password => $smtppassword
+    });
+
+    my $emailObj = Email::MIME->create(
+      header => [
+        To              => $email,
+        From            => '"AnnoTree" <invite@annotree.com>',
+        Subject         => 'Thanks for Signing Up for AnnoTree',
+        content_type    => 'multipart/mixed'
+      ],
+      parts => [@parts]
+    );
+
+    sendmail($emailObj, { transport => $transport }); 
+    
     $self->render(status => 204, text => 'Success');
 };
 

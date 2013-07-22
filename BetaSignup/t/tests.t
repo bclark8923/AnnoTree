@@ -23,7 +23,7 @@ $tx = $ua->post($signupURL => json => {
 ok(204 == $tx->res->code, $testname . 'Response Code is 204');
 
 $tx = $ua->post($signupURL => json => {
-    email     => 'someone@gmail.com'
+    email     => 'bclark8923@gmail.com'
 });
 
 ok(204 == $tx->res->code, $testname . 'Response Code is 204');

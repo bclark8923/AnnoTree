@@ -146,7 +146,7 @@ p {
 
 #pricing {
   padding-top: 100px;
-  height: 700px;
+  min-height: 700px;
   background-color: white;
 }
 
@@ -284,6 +284,18 @@ img.grayScale {
   
   #contact {
     padding-top: 200px;
+  }
+
+  .pricingColumn {
+    margin-top: 30px;
+  }
+
+  #tryFree {
+    padding-bottom: 40px;
+  }
+
+  .featureList, .pricing {
+    text-align: center;
   }
 }
 

@@ -1,110 +1,101 @@
 (function( ng, app ){
 
-	"use strict";
+    "use strict";
 
-	app.controller(
-		"authenticate.RequestpasswordController",
-		function( $scope, requestContext, categoryService, _ ) {
+    app.controller(
+        "authenticate.RequestpasswordController",
+        function( $scope, requestContext, authenticateService, _ ) {
 
+            // --- Define Controller Methods. ------------------- //
+            $scope.resetPassword = function() {
+                var email = $scope.email;
+                if (email) { // email is valid
+                    alert('email: ' + email);
+                    var promise = authenticateService.resetPassword(email);
+                    
+                    promise.then(
+                        function(response) {
+                            //worked
+                            $("#textMsg").html('Please check ' + email + ' to reset your password.');
+                            $scope.resetEmailSent = true;
+                            $scope.returnToLogin = true;
+                            $scope.invalidEmail = false;
+                            $scope.emailInput = false;
+                            $scope.resetButtons = false;
+                        },
+                        function(response) {
+                            //didn't work
+                            var errorData = "Our password reset service is currently down, please try again later.";
+                            var errorNumber = parseInt(response.data.error);
+                            if (response.status == 406 && errorNumber == 1) {
+                                errorData = 'That email address does not exist in our system.';
+                            } else if (response.status != 401 && errorNumber != 0) {
+                                //go to Fail Page
+                                $location.path("/forestFire");
+                            }
+                            $("#invalidEmail").html(errorData);
+                            $scope.invalidEmail = true;
+                        }
+                    );
+                } else { // email is not valid
+                    $scope.invalidEmail = true;
+                }
+            }
 
-			// --- Define Controller Methods. ------------------- //
-
-
-			// I apply the remote data to the local view model.
-			function applyRemoteData( userTrees ) {
-
-				//$scope.categories = _.sortOnProperty( categories, "name", "asc" );
-                   
-                   $scope.userTrees = _.sortOnProperty( userTrees.data, "name", "asc");
-
-			}
-
-
-			// I load the "remote" data from the server.
-			function loadRemoteData() {
-
-				$scope.isLoading = true;
-
-				var promise = categoryService.getTrees();
-
-				promise.then(
-					function( response ) {
-
-						$scope.isLoading = false;
-
-						applyRemoteData( response );
-
-					},
-					function( response ) {
-
-						$scope.openModalWindow( "error", "For some reason we couldn't load the categories. Try refreshing your browser." );
-
-					}
-				);
-
-			}
-
-
-			// --- Define Scope Methods. ------------------------ //
+            // --- Define Scope Methods. ------------------------ //
 
 
-			// ...
+            // ...
 
 
-			// --- Define Controller Variables. ----------------- //
+            // --- Define Controller Variables. ----------------- //
 
 
-			// Get the render context local to this controller (and relevant params).
-			var renderContext = requestContext.getRenderContext( "authenticate.requestPassword" );
+            // Get the render context local to this controller (and relevant params).
+            var renderContext = requestContext.getRenderContext( "authenticate.requestPassword" );
 
-			
-			// --- Define Scope Variables. ---------------------- //
-
-
-			// I flag that data is being loaded.
-			$scope.isLoading = true;
-
-			// I hold the categories to render.
-			$scope.categories = [];
-            $scope.userTrees = [];
-
-			// The subview indicates which view is going to be rendered on the page.
-			$scope.subview = renderContext.getNextSection();
-			
-
-			// --- Bind To Scope Events. ------------------------ //
+            
+            // --- Define Scope Variables. ---------------------- //
+            
+            // The subview indicates which view is going to be rendered on the page.
+            $scope.subview = renderContext.getNextSection();
+            
+            $scope.invalidEmail = false;
+            $scope.resetEmailSent = false;
+            $scope.emailInput = true;
+            $scope.resetButtons = true;
+            $scope.returnToLogin = false;
+            // --- Bind To Scope Events. ------------------------ //
 
 
-			// I handle changes to the request context.
-			$scope.$on(
-				"requestContextChanged",
-				function() {
+            // I handle changes to the request context.
+            $scope.$on(
+                "requestContextChanged",
+                function() {
 
-					// Make sure this change is relevant to this controller.
-					if ( ! renderContext.isChangeRelevant() ) {
+                    // Make sure this change is relevant to this controller.
+                    if ( ! renderContext.isChangeRelevant() ) {
 
-						return;
+                        return;
 
-					}
+                    }
 
-					// Update the view that is being rendered.
-					$scope.subview = renderContext.getNextSection();
+                    // Update the view that is being rendered.
+                    $scope.subview = renderContext.getNextSection();
 
-				}
-			);
+                }
+            );
 
+            // --- Initialize. ---------------------------------- //
 
-			// --- Initialize. ---------------------------------- //
+            // Set the window title.
+            $scope.setWindowTitle( "AnnoTree" );
 
-
-			// Set the window title.
-			$scope.setWindowTitle( "AnnoTree" );
-
-			// Load the "remote" data.
-			//loadRemoteData();
+            // Load the "remote" data.
+            //loadRemoteData();
 
 
-		}
-	);
+        }
+    );
 
  })( angular, AnnoTree );

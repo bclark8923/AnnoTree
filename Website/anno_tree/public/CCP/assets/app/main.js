@@ -10,23 +10,23 @@ AnnoTree.run(function($rootScope, $templateCache) {
 // Configure the routing. The $routeProvider will be automatically injected into 
 // the configurator.
 AnnoTree.config(
-	function( $routeProvider, $locationProvider, $httpProvider ){
+    function( $routeProvider, $locationProvider, $httpProvider ){
 
-		// Typically, when defining routes, you will map the route to a Template to be 
-		// rendered; however, this only makes sense for simple web sites. When you are 
-		// building more complex applications, with nested navigation, you probably need 
-		// something more complex. In this case, we are mapping routes to render "Actions" 
-		// rather than a template.
+        // Typically, when defining routes, you will map the route to a Template to be 
+        // rendered; however, this only makes sense for simple web sites. When you are 
+        // building more complex applications, with nested navigation, you probably need 
+        // something more complex. In this case, we are mapping routes to render "Actions" 
+        // rather than a template.
 
-		//$locationProvider.html5Mode(true);
+        //$locationProvider.html5Mode(true);
 
-		$routeProvider
-			.when(
-				"/authenticate/login",
-				{
-					action: "authenticate.login"
-				}
-			)
+        $routeProvider
+            .when(
+                "/authenticate/login",
+                {
+                    action: "authenticate.login"
+                }
+            )
       .when(
           "/authenticate/signUp",
           {
@@ -45,12 +45,12 @@ AnnoTree.config(
               action: "authenticate.resetPassword"
           }
       )
-			.when(
-				"/app",
-				{
-					action: "standard.forest"
-				}
-			)
+            .when(
+                "/app",
+                {
+                    action: "standard.forest"
+                }
+            )
       .when(
         "/docs",
         {
@@ -63,11 +63,11 @@ AnnoTree.config(
           action: "standard.docs.API"
         }
       )
-			.when(
-				"/app/:treeID",
-				{
-					action: "standard.tree.leaves"
-				}
+            .when(
+                "/app/:treeID",
+                {
+                    action: "standard.tree.leaves"
+                }
       )
       .when(
           "/app/:treeID/:leafID",
@@ -81,30 +81,30 @@ AnnoTree.config(
               action: "standard.forestFire"
           }
       )
-			.otherwise(
-				{
-					redirectTo: "/authenticate/login"
-				}
-			)
-		;
-  	
-  		$httpProvider.responseInterceptors.push( interceptor );
+            .otherwise(
+                {
+                    redirectTo: "/authenticate/login"
+                }
+            )
+        ;
+    
+        $httpProvider.responseInterceptors.push( interceptor );
 
-	}
+    }
 );
 
 AnnoTree.factory('apiRoot', function() {
-	return {
-		getDevRoot: function() {
-			return "http://23.21.235.254:3000";
-		},
+    return {
+        getDevRoot: function() {
+            return "http://23.21.235.254:3000";
+        },
     getStageRoot: function() {
       return "http://166.78.123.104:3000";
     },
     getRoot: function() {
       return window.location.protocol + "//" + window.location.host;
     }
-	}
+    }
 });
 
 AnnoTree.directive('postRender', function($timeout) {
@@ -165,17 +165,17 @@ var interceptor = function( $q, $location ) {
  
     // convert the returned data using values passed to $http.get()'s config param
     var resolve = function( value ) {
-    	if(value.redirect) {
-			  $location.path("/authenticate/login");
-		    return;
-    	}
+        if(value.redirect) {
+              $location.path("/authenticate/login");
+            return;
+        }
     };
  
     var reject = function( reason ) {
-    	if(reason.status == 401 && reason.data.error == 0) {
-  			$location.path("/authenticate/login");
-  			return;
-    	}
+        if(reason.status == 401 && reason.data.error == 0) {
+            $location.path("/authenticate/login");
+            return;
+        }
     };
  
     // attach our actions

@@ -64,4 +64,28 @@ sub feedback {
     $self->render(status => 204, text => "Success");
 }
 
+# let's an user apply to reset their password
+sub setReset {
+    my $self = shift;
+
+    my $jsonReq = $self->req->json;
+    my $email = $jsonReq->{email};
+    
+    my $json = AnnoTree::Model::User->setReset($email);
+    
+    my $status = 204;
+    $status = 406 if (exists $json->{error});
+
+    $self->render(status => $status, json => $json)
+}
+
+# resets an user's password and authenticates them
+sub reset {
+    my $self = shift;
+
+    my $jsonReq = $self->req->json;
+    my $email = $jsonReq->{email};
+
+}
+
 return 1;

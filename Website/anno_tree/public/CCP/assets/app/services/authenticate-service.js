@@ -21,8 +21,8 @@
                 return $http.get(apiRoot.getRoot() + '/2/tree');
             }
 
-            function resetPassword() {
-                return $http.get(apiRoot.getRoot() + '/2/tree');
+            function resetPassword(email) {
+                return $http.post(apiRoot.getRoot() + '/user/reset', {email: email});
             }
             // ---------------------------------------------- //
             // ---------------------------------------------- //

@@ -10,6 +10,9 @@ use Email::Sender::Transport::SMTP ();
 use Email::Simple ();
 use Email::Simple::Creator ();
 use Config::General;
+use Email::MIME;
+use IO::All;
+use Digest::SHA qw(sha256_hex);
 
 # Get the configuration settings
 my $conf = Config::General->new('/opt/config.txt');
@@ -192,6 +195,7 @@ sub beta {
     return $json;
 }
 
+# emails feedback results
 sub feedback {
     my ($class, $params) = @_;
     
@@ -235,6 +239,86 @@ sub feedback {
     );
 
     sendmail($email, {transport => $transport}); 
+}
+
+# let's an user apply to reset their password
+sub setReset {
+    my ($class, $email) = @_;
+    
+
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call reset_password(:email)",
+        {
+            email => $email
+        }
+    );
+
+    my $json = {};
+    my $cols = $result->fetch;
+    return {error => $cols->[0], txt => 'Email does not exist or user is not active'} if (looks_like_number($cols->[0]));
+    my $userInfo = $result->fetch;
+    my $name = $userInfo->[1] || $userInfo->[2];
+
+    my $token = sha256_hex($email, $userInfo->[0]);
+    
+    AnnoTree::Model::MySQL->db->execute(
+        "call create_reset_token(:email, :token)",
+        {
+            email   => $email,
+            token   => $token
+        }
+    );
+ 
+    my $link = 'http://annotree.com/user/reset?token=' . $token;
+    my @parts = (
+        Email::MIME->create(
+            header => [
+                'Content-ID' => '<header>'
+            ],
+            attributes => {
+                filename        => "Header.png",
+                content_type    => "image/png",
+                encoding        => "base64",
+                name            => "Header.png",
+                disposition     => "inline",
+            },
+            body => io($config{email}->{header})
+        ),
+        Email::MIME->create(
+            attributes => {
+                content_type => "text/html"
+            },
+            body => "<img src=\"cid:header\" border=\"0\" alt=\"AnnoTree\" /><br/>Hi $name,<br/><br/>You have requested to reset your password. You can reset your password by clicking <a href=\"$link\">$link</a>. This link will only be valid for 1 hour.<br/><br/>If you did not request to reset your password you can ignore this message.<br/><br/>Sincerely,<br/>The AnnoTree Team"
+        )
+    );
+
+    my $smtpserver = 'smtp.mailgun.org';
+    my $smtpport = 587;
+    my $smtpuser   = 'postmaster@annotree.com';
+    my $smtppassword = '8-7sigqno8u7';
+
+    my $transport = Email::Sender::Transport::SMTP->new({
+      host          => $smtpserver,
+      port          => $smtpport,
+      sasl_username => $smtpuser,
+      sasl_password => $smtppassword
+    });
+
+    my $emailObj = Email::MIME->create(
+      header => [
+        To              => $email,
+        From            => '"AnnoTree Support" <support@annotree.com>',
+        Subject         => 'AnnoTree Password Reset',
+        content_type    => 'multipart/mixed'
+      ],
+      parts => [@parts]
+    );
+
+    sendmail($emailObj, { transport => $transport }); 
+}
+
+# resets the user's password
+sub reset {
 }
 
 return 1;

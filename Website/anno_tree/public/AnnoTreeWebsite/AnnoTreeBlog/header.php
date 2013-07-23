@@ -52,8 +52,11 @@
 			<div class="three columns valign">
         <div class="navLinks"><a href="http://annotree.com"><img src="/wp-content/themes/AnnoTreeBlog/img/LogoNameWeb.png"/></a></div>
       </div>
-      <div class="one columns push_three valign">
+      <div class="one columns push_two valign">
         <div class="navLinks"><a href="http://annotree.com" class="skip" gumby-goto="top">Home</a></div>
+      </div>
+      <div class="one columns valign">
+        <div class="navLinks"><a href="http://annotree.com/#about" class="skip" gumby-goto="#about">About</a></div>
       </div>
       <div class="one columns valign">
         <div class="navLinks"><a href="http://annotree.com/#product" class="skip" gumby-goto="#product">Product</a></div>

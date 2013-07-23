@@ -99,7 +99,7 @@ p {
   font-size:40pt;
 }
 
-#why {
+#about {
   padding-top: 200px;
   min-height: 800px;
 }
@@ -255,7 +255,7 @@ img.grayScale {
     height: 80px;
   }
   
-  #why {
+  #about {
     padding-top: 50px;
     min-height: 850px;
   }

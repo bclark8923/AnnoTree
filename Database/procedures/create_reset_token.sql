@@ -12,5 +12,6 @@ CREATE PROCEDURE `create_reset_token` (
 )
 BEGIN
     UPDATE reset_password SET hash = token WHERE email = email_in;
+    COMMIT;
 END $$
 DELIMITER ; $$

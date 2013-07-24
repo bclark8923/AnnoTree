@@ -244,10 +244,9 @@ sub feedback {
 # let's an user apply to reset their password
 sub setReset {
     my ($class, $email) = @_;
-    
 
     my $result = AnnoTree::Model::MySQL->db->execute(
-        "call reset_password(:email)",
+        "call request_password(:email)",
         {
             email => $email
         }
@@ -269,26 +268,13 @@ sub setReset {
         }
     );
  
-    my $link = 'http://annotree.com/user/reset?token=' . $token;
+    my $link = $config{server}->{base_url} . '/#/authenticate/resetPassword?token=' . $token;
     my @parts = (
-        Email::MIME->create(
-            header => [
-                'Content-ID' => '<header>'
-            ],
-            attributes => {
-                filename        => "Header.png",
-                content_type    => "image/png",
-                encoding        => "base64",
-                name            => "Header.png",
-                disposition     => "inline",
-            },
-            body => io($config{email}->{header})
-        ),
         Email::MIME->create(
             attributes => {
                 content_type => "text/html"
             },
-            body => "<img src=\"cid:header\" border=\"0\" alt=\"AnnoTree\" /><br/>Hi $name,<br/><br/>You have requested to reset your password. You can reset your password by clicking <a href=\"$link\">$link</a>. This link will only be valid for 1 hour.<br/><br/>If you did not request to reset your password you can ignore this message.<br/><br/>Sincerely,<br/>The AnnoTree Team"
+            body => "<table><tr><td><img src=\"http://annotree.com/Email/HeaderLeft.png\" border=\"0\" alt=\"\" /><img style=\"float:right\" src=\"http://annotree.com/Email/HeaderRight.png\" border=\"0\" alt=\"AnnoTree\" /></td></tr><tr><td style=\"color:#000000\">Hi $name,<br/><br/>You have requested to reset your password. You can reset your password by clicking <a href=\"$link\">$link</a>. This link will only be valid for 1 hour.<br/><br/>If you did not request to reset your password you can ignore this message.<br/><br/>Sincerely,<br/>The AnnoTree Team</td></tr></table>"
         )
     );
 
@@ -319,6 +305,35 @@ sub setReset {
 
 # resets the user's password
 sub reset {
+    my ($class, $params) = @_;
+
+    print Dumper($params);
+    my $pass = $params->{password};
+    return {error => '3', txt => 'Password must be at least six characters'} if (length($pass) < 6); # password must be at least 6 characters
+    return {error => '4', txt => 'Password must contain at least one number'} if ($pass !~ m/\d/);
+    return {error => '5', txt => 'Valid password characters are alphanumeric or !@#$%^&*()'} if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
+    $pass = createSaltedHash($pass);
+    
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call reset_password(:email, :pass, :token)",
+        {
+            email   => $params->{email},
+            token   => $params->{token},
+            pass    => $pass
+        }
+    );
+
+    my $json = {};
+    my $num = $result->fetch->[0];
+    if ($num == 0) {
+        $json = {result => $num, txt => 'User password successfully reset'};
+    } elsif ($num == 1) {
+        $json = {error => $num, txt => 'We have no records of you wishing to reset your password.'};
+    } elsif ($num == 2) {
+        $json = {error => $num, txt => 'Time has expired to reset your password.'};
+    }
+    
+    return $json;
 }
 
 return 1;

@@ -1,26 +1,26 @@
 (function( ng, app ) {
-	
-	"use strict";
+    
+    "use strict";
 
-	app.service("branchService",
-		function( $http, apiRoot ) {
+    app.service("branchService",
+        function( $http, apiRoot ) {
 
-			function createBranch(treeID, branchName, branchDescription) {
-				$("#loadingScreen").show();
-				return $http.post(apiRoot.getRoot() + '/' + treeID + '/branch', {name: branchName, description: branchDescription});
-			}
+            function createBranch(treeID, branchName, branchDescription) {
+                $("#loadingScreen").show();
+                return $http.post(apiRoot.getRoot() + '/' + treeID + '/services/branch', {name: branchName, description: branchDescription});
+            }
 
-			// ---------------------------------------------- //
-			// ---------------------------------------------- //
-
-
-			// Return the public API.
-			return({
-				createBranch: createBranch
-			});
+            // ---------------------------------------------- //
+            // ---------------------------------------------- //
 
 
-		}
-	);
+            // Return the public API.
+            return({
+                createBranch: createBranch
+            });
+
+
+        }
+    );
 
 })( angular, AnnoTree );

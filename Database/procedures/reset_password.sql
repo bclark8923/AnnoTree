@@ -1,28 +1,32 @@
 -- --------------------------------------------------------------------------------
 -- reset_password
 -- on success returns timestamp
--- on error returns 1 if email is not valid or user is not active
+-- on error returns 1 if no entry exists in reset_password table
+--          returns 2 if time has expired to reset the password
 -- --------------------------------------------------------------------------------
 USE annotree;
 DROP PROCEDURE IF EXISTS `reset_password`;
 DELIMITER $$
 
 CREATE PROCEDURE `reset_password` (
-  IN email_in VARCHAR(255)
+    IN email_in VARCHAR(255),
+    IN pass_in VARCHAR(128),
+    IN token_in VARCHAR(64)
 )
 BEGIN
-IF (SELECT id FROM user WHERE email = email_in AND status = 3) THEN
-    SET @result = (SELECT email FROM reset_password WHERE email = email_in);
-    IF (@result IS NOT NULL) THEN
+SET @email = (SELECT email FROM reset_password WHERE email = email_in AND hash = token_in);
+IF (@email IS NOT NULL) THEN
+    SET @hour = (SELECT HOUR(TIMEDIFF(NOW(), created_at)) FROM reset_password WHERE email = email_in);
+    IF (@hour = 0) THEN
         DELETE FROM reset_password WHERE email = email_in;
+        UPDATE user SET password = pass_in WHERE email = email_in;
+        COMMIT;
+        SELECT '0';
+    ELSE
+        SELECT '2';
     END IF;
-    INSERT INTO reset_password (email) VALUES (email_in);
-    SELECT 'created_at', 'first_name', 'last_name'
-    UNION
-    SELECT r.created_at, u.first_name, u.last_name FROM reset_password AS r LEFT OUTER JOIN user AS u ON r.email = u.email WHERE r.email = email_in;
-    COMMIT;
 ELSE
-    select '1';
+    SELECT '1';
 END IF;
 END $$
 DELIMITER ; $$

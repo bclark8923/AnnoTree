@@ -1,85 +1,85 @@
 (function( ng, app, _ ) {
-	
-	"use strict";
+    
+    "use strict";
 
-	// I provide an augmented lodash library.
-	app.factory(
-		"_",
-		function() {
-
-
-			// I filter the collection down to items with the given property value.
-			_.filterWithProperty = function( collection, name, value ) {
-
-				var result = _.filter(
-					collection,
-					function( item ) {
-
-						return( item[ name ] === value );
-
-					}
-				);
-
-				return( result );
-
-			};
+    // I provide an augmented lodash library.
+    app.factory(
+        "_",
+        function() {
 
 
-			// I find the first collection item with the given property value.
-			_.findWithProperty = function( collection, name, value ) {
+            // I filter the collection down to items with the given property value.
+            _.filterWithProperty = function( collection, name, value ) {
 
-				var result = _.find(
-					collection,
-					function( item ) {
+                var result = _.filter(
+                    collection,
+                    function( item ) {
 
-						return( item[ name ] === value );
+                        return( item[ name ] === value );
 
-					}
-				);
+                    }
+                );
 
-				return( result );
+                return( result );
 
-			};
-
-
-			// I sort the collection on the given property.
-			_.sortOnProperty = function( collection, name, direction ) {
-
-				var indicator = ( ( direction.toLowerCase() === "asc" ) ? -1 : 1 );
-
-				collection.sort(
-					function( a, b ) {
-
-						if ( a[ name ] < b[ name ] ) {
-
-							return( indicator );
-
-						} else if ( a[ name ] > b[ name ] ) {
-
-							return( - indicator );
-
-						}
-
-						return( 0 );
-
-					}
-				);
-
-				return( collection );
-
-			};
+            };
 
 
-			// ---------------------------------------------- //
-			// ---------------------------------------------- //
+            // I find the first collection item with the given property value.
+            _.findWithProperty = function( collection, name, value ) {
+
+                var result = _.find(
+                    collection,
+                    function( item ) {
+
+                        return( item[ name ] === value );
+
+                    }
+                );
+
+                return( result );
+
+            };
 
 
-			// Return the public API.
-			return( _ );
+            // I sort the collection on the given property.
+            _.sortOnProperty = function( collection, name, direction ) {
+
+                var indicator = ( ( direction.toLowerCase() === "asc" ) ? -1 : 1 );
+
+                collection.sort(
+                    function( a, b ) {
+
+                        if ( a[ name ] < b[ name ] ) {
+
+                            return( indicator );
+
+                        } else if ( a[ name ] > b[ name ] ) {
+
+                            return( - indicator );
+
+                        }
+
+                        return( 0 );
+
+                    }
+                );
+
+                return( collection );
+
+            };
 
 
-		}
-	);
+            // ---------------------------------------------- //
+            // ---------------------------------------------- //
+
+
+            // Return the public API.
+            return( _ );
+
+
+        }
+    );
 
 })( angular, AnnoTree, _.noConflict() );
 // Release the global reference to the lodash library. This way, we make sure that everyone goes

@@ -6,23 +6,23 @@
         function( $http, $location, $cookies, apiRoot ) {
 
             function signup(name, email, password) {
-                return $http.post(apiRoot.getRoot() + '/user/signup', {signUpName: name, signUpEmail: email, signUpPassword: password});
+                return $http.post(apiRoot.getRoot() + '/services/user/signup', {signUpName: name, signUpEmail: email, signUpPassword: password});
             }
 
             function login(email, password) {
-                return $http.post(apiRoot.getRoot() + '/user/login', {loginEmail: email, loginPassword: password});
+                return $http.post(apiRoot.getRoot() + '/services/user/login', {loginEmail: email, loginPassword: password});
             }
 
             function logout() {
-                return $http.post(apiRoot.getRoot() + '/user/logout');
+                return $http.post(apiRoot.getRoot() + '/services/user/logout');
             }
 
-            function requestPassword() {
-                return $http.get(apiRoot.getRoot() + '/2/tree');
+            function resetPassword(email, password, token) {
+                return $http.put(apiRoot.getRoot() + '/services/user/reset/' + token, {email: email, password: password});
             }
 
-            function resetPassword(email) {
-                return $http.post(apiRoot.getRoot() + '/user/reset', {email: email});
+            function requestPassword(email) {
+                return $http.post(apiRoot.getRoot() + '/services/user/reset', {email: email});
             }
             // ---------------------------------------------- //
             // ---------------------------------------------- //

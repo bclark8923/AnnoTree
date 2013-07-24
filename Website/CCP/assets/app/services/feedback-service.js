@@ -6,7 +6,7 @@
         function( $http, $location, $cookies, apiRoot ) {
 
             function submitFeedback(feedback) {
-                return $http.post(apiRoot.getRoot() + '/user/feedback', {feedback: feedback});
+                return $http.post(apiRoot.getRoot() + '/services/user/feedback', {feedback: feedback});
             }
 
             // Return the public API.

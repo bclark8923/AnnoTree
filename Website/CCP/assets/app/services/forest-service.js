@@ -1,43 +1,43 @@
 (function( ng, app ) {
-	
-	"use strict";
+    
+    "use strict";
 
-	app.service("forestService",
-		function( $http, apiRoot ) {
+    app.service("forestService",
+        function( $http, apiRoot ) {
 
-			function getForests() {
-				$("#loadingScreen").show();
-				return $http.get(apiRoot.getRoot() + '/forest');
-			}
+            function getForests() {
+                $("#loadingScreen").show();
+                return $http.get(apiRoot.getRoot() + '/services/forest');
+            }
 
-			function updateForest(forestID, forestName, forestDescription) {
-				$("#loadingScreen").show();
-				return $http.put(apiRoot.getRoot() + '/forest/' + forestID, {name: forestName, description: forestDescription});
-			}
+            function updateForest(forestID, forestName, forestDescription) {
+                $("#loadingScreen").show();
+                return $http.put(apiRoot.getRoot() + '/services/forest/' + forestID, {name: forestName, description: forestDescription});
+            }
 
-			function createForest(forestName, forestDescription) {
-				$("#loadingScreen").show();
-				return $http.post(apiRoot.getRoot() + '/forest', {name: forestName, description: forestDescription});
-			}
+            function createForest(forestName, forestDescription) {
+                $("#loadingScreen").show();
+                return $http.post(apiRoot.getRoot() + '/services/forest', {name: forestName, description: forestDescription});
+            }
 
-			function deleteForest(forestID) {
-				return $http.delete(apiRoot.getRoot() + '/forest/' + forestID);
-			}
+            function deleteForest(forestID) {
+                return $http.delete(apiRoot.getRoot() + '/services/forest/' + forestID);
+            }
 
-			// ---------------------------------------------- //
-			// ---------------------------------------------- //
-
-
-			// Return the public API.
-			return({
-				getForests: getForests,
-				updateForest: updateForest,
-				createForest: createForest,
-				deleteForest: deleteForest
-			});
+            // ---------------------------------------------- //
+            // ---------------------------------------------- //
 
 
-		}
-	);
+            // Return the public API.
+            return({
+                getForests: getForests,
+                updateForest: updateForest,
+                createForest: createForest,
+                deleteForest: deleteForest
+            });
+
+
+        }
+    );
 
 })( angular, AnnoTree );

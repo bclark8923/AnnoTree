@@ -1,29 +1,29 @@
 (function( ng, app ) {
-	
-	"use strict";
+    
+    "use strict";
 
-	app.service("deleteService",
-		function( $http, apiRoot ) {
+    app.service("deleteService",
+        function( $http, apiRoot ) {
 
-			function setFn(fn) {
-				$scope.fn = fn;
-			}
+            function setFn(fn) {
+                $scope.fn = fn;
+            }
 
-			function deleteFn() {
-				$scope.fn();
-			}
-			// ---------------------------------------------- //
-			// ---------------------------------------------- //
-
-
-			// Return the public API.
-			return({
-				setFn: setFn,
-				deleteFn: deleteFn
-			});
+            function deleteFn() {
+                $scope.fn();
+            }
+            // ---------------------------------------------- //
+            // ---------------------------------------------- //
 
 
-		}
-	);
+            // Return the public API.
+            return({
+                setFn: setFn,
+                deleteFn: deleteFn
+            });
+
+
+        }
+    );
 
 })( angular, AnnoTree );

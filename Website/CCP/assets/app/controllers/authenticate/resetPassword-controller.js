@@ -1,110 +1,89 @@
 (function( ng, app ){
 
-	"use strict";
+    "use strict";
 
-	app.controller(
-		"authenticate.ResetpasswordController",
-		function( $scope, requestContext, categoryService, _ ) {
+    app.controller(
+        "authenticate.ResetpasswordController",
+        function( $scope, $location, requestContext, authenticateService, _ ) {
 
+            // --- Define Controller Methods. ------------------- //
+            $scope.resetPassword = function() {
+                var token = ($location.search()).token;
+                //alert('token: ' + token);
+                var email = $scope.email;
+                var password = $scope.password;
 
-			// --- Define Controller Methods. ------------------- //
+                if (email) { // email is valid
+                    var promise = authenticateService.resetPassword(email, password, token);
+                    
+                    promise.then(
+                        function(response) { // success
+                            $scope.successMsg = true;
+                            $scope.returnToLogin = true;
+                            $scope.passwordInput = false;
+                            $scope.emailInput = false;
+                            $scope.errorMsg = false;
+                            $scope.resetPasswordButton = false;
+                            $scope.requestPassword = false;
+                        },
+                        function(response) { // not successful
+                            var errorData = "Our password reset service is currently down, please try again later.";
+                            var errorNumber = parseInt(response.data.error);
+                            if (response.status == 406) {
+                                errorData = response.data.txt;
+                            } else if (response.status != 401 && errorNumber != 0) {
+                                //go to Fail Page
+                                $location.path("/forestFire");
+                            }
+                            $("#errorMsg").html(errorData);
+                            $scope.errorMsg = true;
+                            if (errorNumber == 1 || errorNumber == 2) {
+                                $scope.requestPassword = true;
+                            }
+                        }
+                    ); 
+                }
+            }
 
-
-			// I apply the remote data to the local view model.
-			function applyRemoteData( userTrees ) {
-
-				//$scope.categories = _.sortOnProperty( categories, "name", "asc" );
-                   
-                   $scope.userTrees = _.sortOnProperty( userTrees.data, "name", "asc");
-
-			}
-
-
-			// I load the "remote" data from the server.
-			function loadRemoteData() {
-
-				$scope.isLoading = true;
-
-				var promise = categoryService.getTrees();
-
-				promise.then(
-					function( response ) {
-
-						$scope.isLoading = false;
-
-						applyRemoteData( response );
-
-					},
-					function( response ) {
-
-						$scope.openModalWindow( "error", "For some reason we couldn't load the categories. Try refreshing your browser." );
-
-					}
-				);
-
-			}
-
-
-			// --- Define Scope Methods. ------------------------ //
-
-
-			// ...
+            // --- Define Scope Methods. ------------------------ //
 
 
-			// --- Define Controller Variables. ----------------- //
+            // --- Define Controller Variables. ----------------- //
 
+            // Get the render context local to this controller (and relevant params).
+            var renderContext = requestContext.getRenderContext( "authenticate.resetPassword" );
+            
+            // --- Define Scope Variables. ---------------------- //
 
-			// Get the render context local to this controller (and relevant params).
-			var renderContext = requestContext.getRenderContext( "authenticate.resetPassword" );
+            // The subview indicates which view is going to be rendered on the page.
+            $scope.subview = renderContext.getNextSection();
+            // --- Bind To Scope Events. ------------------------ //
 
-			
-			// --- Define Scope Variables. ---------------------- //
+            // I handle changes to the request context.
+            $scope.$on(
+                "requestContextChanged",
+                function() {
+                    // Make sure this change is relevant to this controller.
+                    if ( ! renderContext.isChangeRelevant() ) {
+                        return;
+                    }
 
+                    // Update the view that is being rendered.
+                    $scope.subview = renderContext.getNextSection();
+                }
+            );
 
-			// I flag that data is being loaded.
-			$scope.isLoading = true;
+            // --- Initialize. ---------------------------------- //
+            $scope.successMsg = false;
+            $scope.errorMsg = false;
+            $scope.emailInput = true;
+            $scope.passwordInput = true;
+            $scope.resetPasswordButton = true;
+            $scope.returnToLogin = false;
+            $scope.requestPassword = false;
 
-			// I hold the categories to render.
-			$scope.categories = [];
-            $scope.userTrees = [];
-
-			// The subview indicates which view is going to be rendered on the page.
-			$scope.subview = renderContext.getNextSection();
-			
-
-			// --- Bind To Scope Events. ------------------------ //
-
-
-			// I handle changes to the request context.
-			$scope.$on(
-				"requestContextChanged",
-				function() {
-
-					// Make sure this change is relevant to this controller.
-					if ( ! renderContext.isChangeRelevant() ) {
-
-						return;
-
-					}
-
-					// Update the view that is being rendered.
-					$scope.subview = renderContext.getNextSection();
-
-				}
-			);
-
-
-			// --- Initialize. ---------------------------------- //
-
-
-			// Set the window title.
-			$scope.setWindowTitle( "AnnoTree" );
-
-			// Load the "remote" data.
-			//loadRemoteData();
-
-
-		}
-	);
-
- })( angular, AnnoTree );
+            // Set the window title.
+            $scope.setWindowTitle( "AnnoTree" );
+        }
+    );
+})( angular, AnnoTree );

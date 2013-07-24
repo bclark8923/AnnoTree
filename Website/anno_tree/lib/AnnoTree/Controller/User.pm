@@ -84,8 +84,17 @@ sub reset {
     my $self = shift;
 
     my $jsonReq = $self->req->json;
-    my $email = $jsonReq->{email};
-
+    my $params = {};
+    $params->{email} = $jsonReq->{email};
+    $params->{password} = $jsonReq->{password};
+    $params->{token} = $self->param('token');
+    
+    my $json = AnnoTree::Model::User->reset($params);
+    $self->debug($self->dumper($json));
+    my $status = 204;
+    $status = 406 if (exists $json->{error});
+    
+    $self->render(status => $status, json => $json);
 }
 
 return 1;

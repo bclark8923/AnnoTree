@@ -78,21 +78,16 @@ sub startup {
     #$self->plugin('PODRenderer');
     
     # Routes
-    my $r = $self->routes;
+    my $r = $self->routes->bridge('/services');
     # Bridge for services that required an authenticated user
     my $authr = $r->bridge->to('controller-auth#check');
     
-    # ===== STATIC FILES =====
-    $r->get('/')                ->to('controller-static#splash');
-    $r->get('/login')           ->to('controller-static#login');
-    $r->get('/signup')          ->to('controller-static#signup');
-
     # ===== USERS =====
     $r->post('/user/signup')                                ->to('controller-auth#signup');
     $r->post('/user/login')                                 ->to('controller-auth#login');
     $r->post('/user/beta')                                  ->to('controller-user#beta');
     $r->post('/user/reset')                                 ->to('controller-user#setReset');
-    $r->put('/user/reset/:hash')                            ->to('controller-user#reset');
+    $r->put('/user/reset/:token')                           ->to('controller-user#reset');
     $authr->post('/user/logout')                            ->to('controller-auth#logoutUser');
     $authr->get('/user/knownpeople')                        ->to('controller-user#knownPeople');
     $authr->post('/user/feedback')                          ->to('controller-user#feedback');

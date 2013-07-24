@@ -7,11 +7,10 @@
         function( $scope, requestContext, authenticateService, _ ) {
 
             // --- Define Controller Methods. ------------------- //
-            $scope.resetPassword = function() {
+            $scope.requestPassword = function() {
                 var email = $scope.email;
                 if (email) { // email is valid
-                    alert('email: ' + email);
-                    var promise = authenticateService.resetPassword(email);
+                    var promise = authenticateService.requestPassword(email);
                     
                     promise.then(
                         function(response) {
@@ -44,10 +43,6 @@
 
             // --- Define Scope Methods. ------------------------ //
 
-
-            // ...
-
-
             // --- Define Controller Variables. ----------------- //
 
 
@@ -59,7 +54,6 @@
             
             // The subview indicates which view is going to be rendered on the page.
             $scope.subview = renderContext.getNextSection();
-            
             $scope.invalidEmail = false;
             $scope.resetEmailSent = false;
             $scope.emailInput = true;
@@ -67,22 +61,17 @@
             $scope.returnToLogin = false;
             // --- Bind To Scope Events. ------------------------ //
 
-
             // I handle changes to the request context.
             $scope.$on(
                 "requestContextChanged",
                 function() {
-
                     // Make sure this change is relevant to this controller.
                     if ( ! renderContext.isChangeRelevant() ) {
-
                         return;
-
                     }
 
                     // Update the view that is being rendered.
                     $scope.subview = renderContext.getNextSection();
-
                 }
             );
 
@@ -90,12 +79,6 @@
 
             // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
-
-            // Load the "remote" data.
-            //loadRemoteData();
-
-
         }
     );
-
- })( angular, AnnoTree );
+})( angular, AnnoTree );

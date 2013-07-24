@@ -307,7 +307,6 @@ sub setReset {
 sub reset {
     my ($class, $params) = @_;
 
-    print Dumper($params);
     my $pass = $params->{password};
     return {error => '3', txt => 'Password must be at least six characters'} if (length($pass) < 6); # password must be at least 6 characters
     return {error => '4', txt => 'Password must contain at least one number'} if ($pass !~ m/\d/);

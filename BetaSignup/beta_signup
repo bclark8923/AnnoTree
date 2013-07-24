@@ -23,23 +23,10 @@ post '/betasignup' => sub {
 
     my @parts = (
         Email::MIME->create(
-            header => [
-                'Content-ID' => '<header>'
-            ],
-            attributes => {
-                filename        => "Header.png",
-                content_type    => "image/png",
-                encoding        => "base64",
-                name            => "Header.png",
-                disposition     => "inline",
-            },
-            body => io('Header.png')
-        ),
-        Email::MIME->create(
             attributes => {
                 content_type => "text/html"
             },
-            body => "<img src=\"cid:header\" border=\"0\" alt=\"AnnoTree\" /><br/>Hi,<br/><br/>Thanks for signing up to use the AnnoTree beta. We will let you know when you can join the AnnoTree beta and get started.<br/><br/>Sincerely,<br/>The AnnoTree Team"
+            body => "<table><tr><td><img src=\"http://annotree.com/Email/HeaderLeft.png\" border=\"0\" alt=\"\" /><img style=\"float:right\" src=\"http://annotree.com/Email/HeaderRight.png\" border=\"0\" alt=\"AnnoTree\" /></td></tr><tr><td style=\"color:#000000\">Thanks for signing up to use the AnnoTree beta. We will let you know when you can join the AnnoTree beta and get started.<br/><br/>Sincerely,<br/>The AnnoTree Team</td></tr></table>"
         )
     );
 

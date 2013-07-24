@@ -18,7 +18,7 @@
             }
 
             function resetPassword(email, password, token) {
-                return $http.put(apiRoot.getRoot() + '/services/user/reset/' + token, {email: email, password: password});
+                return $http.post(apiRoot.getRoot() + '/services/user/reset/' + token, {email: email, password: password});
             }
 
             function requestPassword(email) {

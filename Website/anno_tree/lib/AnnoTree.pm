@@ -87,7 +87,7 @@ sub startup {
     $r->post('/user/login')                                 ->to('controller-auth#login');
     $r->post('/user/beta')                                  ->to('controller-user#beta');
     $r->post('/user/reset')                                 ->to('controller-user#setReset');
-    $r->put('/user/reset/:token')                           ->to('controller-user#reset');
+    $r->post('/user/reset/:token')                          ->to('controller-user#reset');
     $authr->post('/user/logout')                            ->to('controller-auth#logoutUser');
     $authr->get('/user/knownpeople')                        ->to('controller-user#knownPeople');
     $authr->post('/user/feedback')                          ->to('controller-user#feedback');

@@ -57,7 +57,7 @@ sub feedback {
     my $params = {};
     $params->{userid} = $self->current_user->{userid};
     $params->{feedback} = $jsonReq->{feedback};
-    $self->debug($self->dumper($params));
+    #$self->debug($self->dumper($params));
 
     AnnoTree::Model::User->feedback($params);
 
@@ -90,7 +90,7 @@ sub reset {
     $params->{token} = $self->param('token');
     
     my $json = AnnoTree::Model::User->reset($params);
-    $self->debug($self->dumper($json));
+    
     my $status = 204;
     $status = 406 if (exists $json->{error});
     

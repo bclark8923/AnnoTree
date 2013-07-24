@@ -5,11 +5,11 @@
    ========================================================================== */
 
 html, body {
-	height: 100%;
-	font-family: Lato;
-	font-weight: 300;
-	background: transparent;
-	overflow: auto;
+    height: 100%;
+    font-family: Lato;
+    font-weight: 300;
+    background: transparent;
+    overflow: auto;
 }
 
 :focus {
@@ -18,105 +18,105 @@ html, body {
 }
 
 body {
-	background-color: transparent;
-	background-size: cover;
-	-webkit-transition: background 0.5s linear;
-	-moz-transition: background 0.5s linear;
-	-o-transition: background 0.5s linear;
-	transition: background 0.5s linear;
-	/*background: url('../img/bg.png');
-	background-size: cover;*/
+    background-color: transparent;
+    background-size: cover;
+    -webkit-transition: background 0.5s linear;
+    -moz-transition: background 0.5s linear;
+    -o-transition: background 0.5s linear;
+    transition: background 0.5s linear;
+    /*background: url('../img/bg.png');
+    background-size: cover;*/
 }
 
 #wrapper {
-	height:100%;
-	width:100%;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size:cover;
-	background-attachment: fixed;
-	background-color: #222;
+    height:100%;
+    width:100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size:cover;
+    background-attachment: fixed;
+    background-color: #222;
 }
 
 .carouselBG1 {
-	background: url('../img/bg9.jpg') no-repeat center top;
+    background: url('../img/bg9.jpg') no-repeat center top;
 }
 
 .carouselBG2 {
-	background: url('../img/bg2.jpg') no-repeat center top;
+    background: url('../img/bg10.png') no-repeat center top;
 }
 
 .carouselBG3 {
-	background: url('../img/bg6.jpg') no-repeat center top;
+    background: url('../img/bg2.jpg') no-repeat center top;
 }
 
 .carouselBG4 {
-	background: url('../img/bg4.jpg') no-repeat center top;
+    background: url('../img/bg4.jpg') no-repeat center top;
 }
 
 .carouselBG5 {
-	background: url('../img/bg5.jpg') no-repeat center top;
+    background: url('../img/bg5.jpg') no-repeat center top;
 }
 
 .indexBackground {
-	background: url('../img/bg3BW.jpg') no-repeat center top;
+    background: url('../img/bg3BW.jpg') no-repeat center top;
 }
 
 .productBackground {
-	background: url('../img/descripBG2.png') no-repeat center top;
+    background: url('../img/descripBG2.png') no-repeat center top;
 }
 
 .blogBackground {
-	background: url('../img/descripBG.png') no-repeat center top;
+    background: url('../img/descripBG.png') no-repeat center top;
 }
 
 .contactBackground {
-	background: url('../img/descripBG5.png') no-repeat center top;
+    background: url('../img/descripBG5.png') no-repeat center top;
 }
 
 .fadeCover {
-	 background-color:rgba(30,30,30,0.2);
-	 height:100%;
-	 width:100%;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size:cover;
-	background-attachment: fixed;
-	overflow: auto;
+     background-color:rgba(30,30,30,0.2);
+     height:100%;
+     width:100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size:cover;
+    background-attachment: fixed;
+    overflow: auto;
 }
 
 .topLink {
-	cursor:pointer;
-	font-size:15pt;
-	font-weight:300;
-	margin-right:20px;
+    cursor:pointer;
+    font-size:15pt;
+    font-weight:300;
+    margin-right:20px;
 }
 
 .ovalButton {
-	margin-top:50px;
-	background-color:white;
-	color:#444;
-	padding:15px;
-	font-size:11pt;
-	border-radius:30px;
+    margin-top:50px;
+    background-color:white;
+    color:#444;
+    padding:15px;
+    font-size:11pt;
+    border-radius:30px;
 }
 
 .navbar, .navbar-inner, .navbar-inverse .navbar-inner {
-	background:transparent;
-	background-image: none;
-	border: none;
-	box-shadow: none;
+    background:transparent;
+    background-image: none;
+    border: none;
+    box-shadow: none;
 }
 
 .navbar {
-	/*border-bottom:1px solid #bbb;*/
+    /*border-bottom:1px solid #bbb;*/
 }
 
 .navCustom {
-	margin-top:30px;
-	margin-right:0px;
+    margin-top:30px;
+    margin-right:0px;
 
 }
 
@@ -124,443 +124,443 @@ body {
 }
 
 .navCustom > span {
-	margin-right:30px;
+    margin-right:30px;
 }
 
 .navCustom > span > a {
-	color: #ddd;
-	text-decoration: none;
-	font-family: Lato;
-	text-shadow: #000 0 1px 2px;
+    color: #ddd;
+    text-decoration: none;
+    font-family: Lato;
+    text-shadow: #000 0 1px 2px;
 }
 
 .navCustom > span > a:hover {
-	color: white;
-	text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
 .navCustom > span.active > a {
-	color: white;
+    color: white;
 }
 
 #moreAll, #blog {
-	position: absolute;
-	right: 20px;
-	top: 20px;
-	z-index:9999;
-	color: white;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index:9999;
+    color: white;
 }
 
 .carouselLink {
-	color:white;
-	font-size:12pt;
-	font-weight: 300;
-	text-decoration: none;
+    color:white;
+    font-size:12pt;
+    font-weight: 300;
+    text-decoration: none;
 }
 
 .carouselLink:hover {
-	color: #f1e854;
-	text-decoration: none;
+    color: #f1e854;
+    text-decoration: none;
 }
 
 .carouselLink.active {
-	color: #f1e854;
-	text-decoration: none;
+    color: #f1e854;
+    text-decoration: none;
 }
 
 .input-append input.signupEmail:focus {
-	outline: none;
+    outline: none;
 }
 
 .input-append input.signupEmail {
-	height: 20px;
-	width: 300px;
-	font-size: 15pt;
-	padding: 10px;
+    height: 20px;
+    width: 300px;
+    font-size: 15pt;
+    padding: 10px;
 }
 
 .carouselFull {
-	width:100%;
-	min-height:100%;
-	height:100%;
-	margin-bottom:0;
+    width:100%;
+    min-height:100%;
+    height:100%;
+    margin-bottom:0;
 }
 
 .carouselFull>.item {
-	width:100%;
-	height:100%;
+    width:100%;
+    height:100%;
 }
 
 .simple {
-	background:none;
-	border:none;
-	text-shadow: #000 0 1px 2px;
-	font-weight:500;
-	opacity:1;
-	font-size:70pt;
+    background:none;
+    border:none;
+    text-shadow: #000 0 1px 2px;
+    font-weight:500;
+    opacity:1;
+    font-size:70pt;
 }
 
 .bottomCenter {
-	bottom: 70px;
-	right:47.3%;
-	top:auto;
+    bottom: 70px;
+    right:47.3%;
+    top:auto;
 }
 
 .mainContainer {
-	padding-top: 100px;
+    padding-top: 100px;
 }
 
 .descriptionDiv {
-	color:white;
-	width:330px;
-	margin: 0 auto;
-	font-family:Lato;
-	font-size:40pt;
-	line-height:55pt;
-	padding-top:75px;
-	padding-bottom: 75px;
+    color:white;
+    width:330px;
+    margin: 0 auto;
+    font-family:Lato;
+    font-size:40pt;
+    line-height:55pt;
+    padding-top:75px;
+    padding-bottom: 75px;
 }
 
 .descriptionSpan {
-	background-color:#f1e854;
-	color:black;
-	padding: 0 10px;
+    background-color:#f1e854;
+    color:black;
+    padding: 0 10px;
 }
 
 .aboutSpan {
-	font-family:Helvetica;
-	font-weight:800;
-	background-color:#f1e854;
-	color:black;
-	padding: 10px 10px;
-	margin: 10px 0;
-	/*text-shadow: #000 0 1px 2px;*/
+    font-family:Helvetica;
+    font-weight:800;
+    background-color:#f1e854;
+    color:black;
+    padding: 10px 10px;
+    margin: 10px 0;
+    /*text-shadow: #000 0 1px 2px;*/
 }
 
 .aboutTitle {
-	font-size:25pt;
-	line-height:25pt;
+    font-size:25pt;
+    line-height:25pt;
 }
 
 .productDescrip {
-	/*background:rgba(230,230,230,0.8);*/
-	color:white;
-	text-shadow: #000 1px 1px 2px;
-	font-family:Lato;
-	font-size:35pt;
-	font-weight:100;
-	line-height:1.625em;
-	padding: 40px 0;
-	margin-top:150px;
+    /*background:rgba(230,230,230,0.8);*/
+    color:white;
+    text-shadow: #000 1px 1px 2px;
+    font-family:Lato;
+    font-size:35pt;
+    font-weight:100;
+    line-height:1.625em;
+    padding: 40px 0;
+    margin-top:150px;
 }
 
 .companyDescrip {
-	/*background:rgba(230,230,230,0.8);*/
-	color:white;
-	text-shadow: #000 0 1px 2px;
-	font-family:Lato;
-	font-size:15pt;
-	font-weight:300;
-	line-height:1.625em;
-	padding: 40px 0;
-	padding-top:150px;
+    /*background:rgba(230,230,230,0.8);*/
+    color:white;
+    text-shadow: #000 0 1px 2px;
+    font-family:Lato;
+    font-size:15pt;
+    font-weight:300;
+    line-height:1.625em;
+    padding: 40px 0;
+    padding-top:150px;
 }
 
 .teamDiv {
-	/*background:rgba(230,230,230,0.7);*/
-	color:white;
-	text-shadow: #000 1px 1px 2px;
-	font-family:Lato;
-	font-size:35pt;
-	font-weight:100;
-	line-height:1.625em;
-	padding: 40px 0;
+    /*background:rgba(230,230,230,0.7);*/
+    color:white;
+    text-shadow: #000 1px 1px 2px;
+    font-family:Lato;
+    font-size:35pt;
+    font-weight:100;
+    line-height:1.625em;
+    padding: 40px 0;
 }
 
 .icon-twitter, .twitterLink > a {
-	color: #444;
+    color: #444;
    -webkit-transition: color 0.25s;
 }
 
 .icon-twitter:hover, .twitterLink > a:hover {
-	color:#9ae4e8;
-	cursor: pointer;
+    color:#9ae4e8;
+    cursor: pointer;
    -webkit-transition: color 0.25s;
 }
 
 #nav {
-	height:30px;
-	margin-bottom:40px;
-	background-color: transparent;/*rgba(30,30,30,0.7);*/
-	text-align:right;
-	box-shadow: none;
-	-webkit-box-shadow:none;
+    height:30px;
+    margin-bottom:40px;
+    background-color: transparent;/*rgba(30,30,30,0.7);*/
+    text-align:right;
+    box-shadow: none;
+    -webkit-box-shadow:none;
 }
 
 #logo {
-	padding-left:0px;
-	height:25px;
+    padding-left:0px;
+    height:25px;
 
 }
 
 .responsiveShow {
-	display: none;
+    display: none;
 }
 
 .responsiveHide {
-	display: block;
+    display: block;
 }
 
 .definition {
-	color:white;
-	margin:0 auto;
-	width:70%;
-	font-family:Lato; 
-	margin-top:120px;
+    color:white;
+    margin:0 auto;
+    width:70%;
+    font-family:Lato; 
+    margin-top:120px;
 }
 
 .lines {
-	border-top: 2px solid rgba(30,30,30,0.4);
-	border-bottom: 2px solid rgba(30,30,30,0.4);
-	padding: 5px;
+    border-top: 2px solid rgba(30,30,30,0.4);
+    border-bottom: 2px solid rgba(30,30,30,0.4);
+    padding: 5px;
 }
 
 .teamIMG {
-	text-align: center;
-	font-size: 11pt;
-	line-height: 13pt;
+    text-align: center;
+    font-size: 11pt;
+    line-height: 13pt;
 }
 
 .teamIMG > img {
-	width:70%;
-	max-width:150px;
-	border: 8px solid rgba(230,230,230,1);
-	border-bottom: 25px solid rgba(230,230,230,1);
+    width:70%;
+    max-width:150px;
+    border: 8px solid rgba(230,230,230,1);
+    border-bottom: 25px solid rgba(230,230,230,1);
 }
 
 .teamNameSpan {
-	/*background-color: #f1e854;*/
-	/*padding:2px 5px;*/
-	line-height:11pt;
-	font-weight: 900;
-	color:#444;
-	text-shadow:none;
+    /*background-color: #f1e854;*/
+    /*padding:2px 5px;*/
+    line-height:11pt;
+    font-weight: 900;
+    color:#444;
+    text-shadow:none;
 }
 
 .teamNameSpan > a {
-	/*color: white;*/
-	font-weight:300;
-	text-decoration: none;
+    /*color: white;*/
+    font-weight:300;
+    text-decoration: none;
 }
 
 .nameHolder {
-	font-size;10pt;
-	margin-top:-21px;
+    font-size;10pt;
+    margin-top:-21px;
 }
 
 .personName {
-	font-family: 'Lato', serif;
-	font-weight: 300;
+    font-family: 'Lato', serif;
+    font-weight: 300;
 }
 
 .personTitle {
-	font-family: 'Lato', serif;
+    font-family: 'Lato', serif;
 }
 
 .footerDiv {
-	text-align:center;color:black;margin-bottom:30px
+    text-align:center;color:black;margin-bottom:30px
 }
 
 .footerSpan {
-	padding:4px 10px;background-color:#f1e854;
+    padding:4px 10px;background-color:#f1e854;
 }
 
 .lineShow {
-	display: none;
+    display: none;
 }
 
 #pane {
-	background-color:#222;
-	height: 100%;
-	width:100%;
-	text-align:left;
+    background-color:#222;
+    height: 100%;
+    width:100%;
+    text-align:left;
 }
 /*
 .paneLink, .paneLink:hover {
-	color:#999;
-	font-family: Lato;
-	font-weight: 300;
-	font-size:13pt;
-	text-decoration: none;
+    color:#999;
+    font-family: Lato;
+    font-weight: 300;
+    font-size:13pt;
+    text-decoration: none;
 }
 
 .paneLink.active, .paneLink:hover {
-	color:white;
+    color:white;
 }*/
 
 #paneContainer {
-	padding-left: 40px;
-	padding-top: 30px;
+    padding-left: 40px;
+    padding-top: 30px;
 }
 
 .contactDescrip {
-	color:white;
-	text-shadow: #000 0 1px 2px;
-	font-family:Lato;
-	font-size:15pt;
-	font-weight:100;
-	line-height:1.625em;
-	padding: 40px 0;
-	padding-top: 250px;
+    color:white;
+    text-shadow: #000 0 1px 2px;
+    font-family:Lato;
+    font-size:15pt;
+    font-weight:100;
+    line-height:1.625em;
+    padding: 40px 0;
+    padding-top: 250px;
 
 }
 
 #carouselLinksPane {
-	display: none;
+    display: none;
 }
 
 @media (min-width: 1200px) {
-	.offset1 {
-		margin-left: 180px;
-	}
+    .offset1 {
+        margin-left: 180px;
+    }
 }
 
 @media (max-width: 1199px) and (min-width: 980px) {
-	.offset1 {
-		margin-left: 140px;
-	}
+    .offset1 {
+        margin-left: 140px;
+    }
 }
 
 @media (max-width: 979px) and (min-width: 768px) {
-	.span2 {
-		min-width: 150px;
-	}
+    .span2 {
+        min-width: 150px;
+    }
 
-	.offset3 {
-		margin-left: 146px;
-	}
+    .offset3 {
+        margin-left: 146px;
+    }
 
-	.offset4 {
-		margin-left: 228px;
-	}
+    .offset4 {
+        margin-left: 228px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
 
-	.contactHead {
-		font-size: 25pt;
-	}
+    .contactHead {
+        font-size: 25pt;
+    }
 
-	.mobilePad {
-		padding: 0 20px;
-	}
+    .mobilePad {
+        padding: 0 20px;
+    }
 
-	.companyDescrip {
-		padding-top: 50px;
-	}
+    .companyDescrip {
+        padding-top: 50px;
+    }
 
-	#carouselLinks {
-		display: none;
-	}
+    #carouselLinks {
+        display: none;
+    }
 
-	#carouselLinksPane {
-		display: block;
-	}
+    #carouselLinksPane {
+        display: block;
+    }
 
-	.teamIMG {
-		margin-bottom: 20px;
-	}
+    .teamIMG {
+        margin-bottom: 20px;
+    }
 
-	#wrapper {
-		padding: 0;
-		width: auto;
-	}
+    #wrapper {
+        padding: 0;
+        width: auto;
+    }
 
-	.lineShow {
-		display: block;
-		border: 1px solid rgba(30,30,30,0.4);
-		width:90%;
-		margin-left:5%;
-	}
+    .lineShow {
+        display: block;
+        border: 1px solid rgba(30,30,30,0.4);
+        width:90%;
+        margin-left:5%;
+    }
 
-	.lineHide {
-		border: none;
-	}
+    .lineHide {
+        border: none;
+    }
 
-	.definition {
-		width:100%;
-		margin-top:0px;
-	}
+    .definition {
+        width:100%;
+        margin-top:0px;
+    }
 
-	#nav {
-		margin: 0;
-	}
+    #nav {
+        margin: 0;
+    }
 
-	.mainContainer {
-		margin-top:0;
-	}
+    .mainContainer {
+        margin-top:0;
+    }
 
-	.navCustom {
-		margin-right: 35px;
-		margin-top: 0;
-	}
+    .navCustom {
+        margin-right: 35px;
+        margin-top: 0;
+    }
 
-	.descriptionDiv {
-		font-size: 35pt;
-		line-height: 50pt;
-		width: 280px;
-	}
+    .descriptionDiv {
+        font-size: 35pt;
+        line-height: 50pt;
+        width: 280px;
+    }
 
-	.responsiveShow {
-		display: block;
-	}
+    .responsiveShow {
+        display: block;
+    }
 
-	.responsiveHide {
-		display: none;
-	}
+    .responsiveHide {
+        display: none;
+    }
 
-	.contactDescrip {
-		padding-top: 150px;
-	}
+    .contactDescrip {
+        padding-top: 150px;
+    }
 
-	.aboutTitle {
-		font-size: 22pt;
-		line-height: 25pt;
-	}
+    .aboutTitle {
+        font-size: 22pt;
+        line-height: 25pt;
+    }
 
-	.teamDiv {
-		padding: 0;
-	}
+    .teamDiv {
+        padding: 0;
+    }
 }
 
 @media only screen and (max-width: 320px) {
 
-	.contactHead {
-		font-size: 15pt;
-	}
+    .contactHead {
+        font-size: 15pt;
+    }
 
 
-	.navCustom > span#openMore {
-		margin-right:10px;
-	}
+    .navCustom > span#openMore {
+        margin-right:10px;
+    }
 
-	.aboutTitle {
-		font-size:20pt;
-		line-height:20pt;
-	}
+    .aboutTitle {
+        font-size:20pt;
+        line-height:20pt;
+    }
 
-	.descriptionDiv {
-		font-size: 25pt;
-		line-height: 40pt;
-	}
+    .descriptionDiv {
+        font-size: 25pt;
+        line-height: 40pt;
+    }
 
-	.responsiveShow {
-		display: block;
-	}
+    .responsiveShow {
+        display: block;
+    }
 
-	.responsiveHide {
-		display: none;
-	}
+    .responsiveHide {
+        display: none;
+    }
 }
 
 

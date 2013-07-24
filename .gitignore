@@ -1,2 +1,8 @@
-
+# MAC OS file
 .DS_Store
+
+# log files
+*.log
+
+# VIM files
+*.swp

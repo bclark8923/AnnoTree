@@ -26,9 +26,11 @@ $(function() {
 	  return false;
 	});
 
+	var buttonEnabled = true;
 	$("#submitEmail").click(function () {
 		var emailVar = $.trim($("#emailInput").val());
-		if(emailVar.length > 0 && isEmail(emailVar)) {
+		if(emailVar.length > 0 && isEmail(emailVar) && buttonEnabled) {
+			buttonEnabled = false;
 			var serializedData = {email: emailVar}
 			// fire off the request to /form.php
 		    var request = $.ajax({
@@ -44,10 +46,12 @@ $(function() {
 				$("#singupAppends").hide();
 				$("#signupInfo").hide();
 				$("#signupThanks").show();
+				buttonEnabled = true;
 		    });
 
 		    // callback handler that will be called on failure
 		    request.fail(function (jqXHR, textStatus, errorThrown){
+				buttonEnabled = true;
 		        // log the error to the console
 		        console.error(
 		            "The following error occured: "+

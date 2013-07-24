@@ -31,6 +31,11 @@ $(function() {
 		var emailVar = $.trim($("#emailInput").val());
 		if(emailVar.length > 0 && isEmail(emailVar) && buttonEnabled) {
 			buttonEnabled = false;
+
+			$("#emailInput").addClass('disabled');
+			$("#submitEmail").addClass('disabled');
+			$("emailInput").prop('disabled', true);
+
 			var serializedData = {email: emailVar}
 			// fire off the request to /form.php
 		    var request = $.ajax({
@@ -47,16 +52,19 @@ $(function() {
 				$("#signupInfo").hide();
 				$("#signupThanks").show();
 				buttonEnabled = true;
+				$("#emailInput").removeClass('disabled');
+				$("#submitEmail").removeClass('disabled');
+				$("emailInput").prop('disabled', false);
 		    });
 
 		    // callback handler that will be called on failure
 		    request.fail(function (jqXHR, textStatus, errorThrown){
 				buttonEnabled = true;
+				$("#emailInput").removeClass('disabled');
+				$("#submitEmail").removeClass('disabled');
+				$("emailInput").prop('disabled', false);
 		        // log the error to the console
-		        console.error(
-		            "The following error occured: "+
-		            textStatus, errorThrown
-		        );
+		        alert('Sorry, our beta sign up is currently down. Please try again later.')
 		    });
 		} else {
 			$("#validateError").show();

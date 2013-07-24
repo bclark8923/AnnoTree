@@ -231,6 +231,15 @@ img.grayScale {
     float:right;
 }
 
+.btn.disabled {
+  border: 1px solid gray;
+  background-color:gray;
+}
+
+.input.disabled {
+  color: gray;
+}
+
 @media only screen and (max-width: 767px) {
   .responsiveShow {
     display: block;

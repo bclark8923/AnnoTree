@@ -9,6 +9,7 @@
         <h5><?php the_time('F jS, Y') ?></h5>
         <h5><?php the_author_link(); ?></h5>
         <hr>
+        <?php comments_template( '', true ); ?>
         <?php endwhile; else: ?>
         <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
         <?php endif; ?> 

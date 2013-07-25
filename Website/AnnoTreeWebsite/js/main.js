@@ -29,10 +29,8 @@ $(function() {
     var buttonEnabled = true;
     $("#submitEmail").click(function () {
         var emailVar = $.trim($("#emailInput").val());
-        alert('test:' + isEmail(emailVar));
         if(emailVar.length > 0 && isEmail(emailVar) && buttonEnabled) {
             buttonEnabled = false;
-        alert('test2');
 
             $("#emailInput").addClass('disabled');
             $("#submitEmail").addClass('disabled');

@@ -52,7 +52,7 @@
 			<div class="three columns valign">
         <div class="navLinks"><a href="http://annotree.com"><img src="/wp-content/themes/AnnoTreeBlog/img/LogoNameWeb.png"/></a></div>
       </div>
-      <div class="one columns push_two valign">
+      <div class="one columns push_three valign">
         <div class="navLinks"><a href="http://annotree.com" class="skip" gumby-goto="top">Home</a></div>
       </div>
       <div class="one columns valign">
@@ -62,7 +62,7 @@
         <div class="navLinks"><a href="http://annotree.com/#product" class="skip" gumby-goto="#product">Product</a></div>
       </div>
       <div class="one columns valign">
-        <div class="navLinks"><a href="http://annotree.com/#pricing" class="skip" gumby-goto="#pricing">Pricing</a></div>
+        <div class="navLinks"><a href="#" class="skip" gumby-goto="#why">Why</a></div>
       </div>
       <div class="one columns valign">
         <div class="navLinks"><a href="http://annotree.com/#contact" class="skip" gumby-goto="#contact">Contact</a></div>
@@ -70,11 +70,13 @@
       <div class="one columns valign">
         <div class="navLinks"><a href="http://blog.annotree.com" style="color:#58c026;">Blog</a></div>
       </div>
+      <!--
       <div class="one columns valign">
         <div>
           <div class="small oval btn success"><a href="http://ccp.annotree.com">Login</a></div>
         </div>
       </div>
+    -->
 		</div>
 	</div>
   <div class="navbar fixed responsiveShow" gumby-fixed="top">

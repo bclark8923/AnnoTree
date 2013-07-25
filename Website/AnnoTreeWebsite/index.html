@@ -52,7 +52,7 @@
             <div class="three columns valign">
         <div class="navLinks"><a href="#"><img src="img/LogoNameWeb.png"/></a></div>
       </div>
-      <div class="one columns push_two valign">
+      <div class="one columns push_three valign">
         <div class="navLinks"><a href="#" class="skip" gumby-goto="top">Home</a></div>
       </div>
       <div class="one columns valign">
@@ -62,7 +62,7 @@
         <div class="navLinks"><a href="#" class="skip" gumby-goto="#product">Product</a></div>
       </div>
       <div class="one columns valign">
-        <div class="navLinks"><a href="#" class="skip" gumby-goto="#pricing">Pricing</a></div>
+        <div class="navLinks"><a href="#" class="skip" gumby-goto="#why">Why</a></div>
       </div>
       <div class="one columns valign">
         <div class="navLinks"><a href="#" class="skip" gumby-goto="#contact">Contact</a></div>
@@ -118,7 +118,7 @@
         </form> -->
               <ul>
                   <li class="valign" id="validateError" style="display:none;margin-bottom:20px;"><div class="row"><div id="errorText" class="centered three columns danger alert">Please Enter a Valid Email</div></div></li>
-                  <li id="signupThanks" style="display:none"><div class="row"><div class="centered four columns">Thanks for signing up for the beta! We will be reaching out to you soon.</div></div></li>
+                  <li id="signupThanks" style="display:none;"><div class="row"><div class="centered ten columns">Thanks for signing up for the beta! We will be reaching out to you soon.</div></div></li>
                 <li class="append field" id="singupAppends">
                   <input id="emailInput" class="email input" style="max-width:300px;" type="email" placeholder="Email" />
                   <div id="submitEmail" class="medium success btn"><a href="#">Sign Up for the Beta</a></div>
@@ -129,52 +129,95 @@
       </div>
     </div>
     <div id="about">
+      <!--
       <div class="row">
         <div class="twelve columns">
-          <p class="sectionHeaderText">Collaboration Anywhere</p>
+          <p class="sectionHeaderText">What is AnnoTree?</p>
         </div>
       </div>
+    -->
+      <div class="row" style="padding-top:50px;">
+        <div class="six columns" style='padding-top:40px;'>
+          <p class="whyParagraphs">
+            <span style="font-size:17pt;font-weight:bold;">AnnoTree is a new collaboration tool for helping businesses build better mobile applications.</span>
+            <br/>
+            <span style="font-size:13pt;line-height:9pt;">We live in a mobile world where developers and testers often work across the globe rather than down the hall and saw the need for a streamlined solution that brings together developers, designers, testers, and owners on the same platform.</span>
+          </p>
+        </div>
+        <div class="six columns">
+          <p class="whyParagraphs" style="text-align:center;">
+            <img class="aboutScreenShot" src="img/iPhoneScreenshotLarge.png"/>
+          </p>
+        </div>
+      </div>
+      <!--
       <div class="row">
         <div class="six columns">
-          <p class="whyParagraphs">AnnoTree is a new collaboration tool for helping businesses build better mobile applications. We live in a mobile world where developers and testers often work across the globe rather than down the hall and saw the need for a streamlined solution that brings together developers, designers, testers, and owners on the same platform.</p>
+          <p class="whyParagraphs">
+            <img class="productScreenShot" src="img/devicesScreenshot.png"/>
+          </p>
         </div>
         <div class="six columns">
-          <p class="whyParagraphs">Therefore we created AnnoTree, a platform giving everyone involved in the application creation process the ability to collaborate on design, functionality, bugs, and more, directly from their mobile application, on any mobile device.</p>
+          <p class="whyParagraphs">Therefore we created AnnoTree, a platform giving everyone involved in the process of application development the ability to collaborate on design, functionality, bugs, and more, <strong>directly from their mobile application, on any mobile device.</strong></p>
         </div>
       </div>
+    -->
     </div>
     <div id="product">
       <div class="row">
         <div class="twelve columns">
-          <p class="sectionHeaderText">The Product</p>
+          <p class="sectionHeaderText">How It Works</p>
         </div>
       </div>
+
       <div class="row" style="margin-top: 50px; text-align:center;">
         <div class="four columns productColumn">
           <ul class="one_up tiles" style="text-align:center;">
             <li style="width:100%;">
               <div>
-                <img  class="productScreenShot" style="margin-top:50px;" src="img/iPhoneScreenshot.png"/>
+                <img class="productScreenShot" style="margin-top:50px;" src="img/iPhoneScreenshot.png">
               </div>
             </li>
-            <li>The AnnoTree Widget allows anyone to create annotations by drawing or writing directly onto a mobile application indicating a bug or design change.</li>
+            <li>The AnnoTree Widget allows anyone to collaborate by drawing or writing directly on the application.</li>
           </ul>
         </div>
         <div class="four columns productColumn">
           <ul class="one_up tiles" style="text-align:center;">
-            <li style="width:100%;"><img class="productScreenShot" src="img/Cloud.png"/></li>
+            <li style="width:100%;"><img class="productScreenShot" src="img/Cloud.png"></li>
             <li>Once satisfied, the user can send these annotations (i.e. "Leaf"s) off to our Central Collaboration Platform.</li>
           </ul>
         </div>
         <div class="four columns productColumn">
           <ul class="one_up tiles" style="text-align:center;">
-            <li style="width:100%;"><img class="productScreenShot" src="img/devicesScreenshot.png"/></li>
+            <li style="width:100%;"><img class="productScreenShot" src="img/devicesScreenshot.png"></li>
             <li>Here, team members can organize, view, and collaborate on these Leaves across multiple devices.</li>
           </ul>
         </div>
       </div>
     </div>
-
+    <div id="why">
+      <div class="row">
+        <div class="twelve columns">
+          <p class="sectionHeaderText">Why AnnoTree</p>
+          <div class="row" style="margin-top: 50px; text-align:center;">
+            <div class="six columns centered" style="font-size:40pt;">
+              <i class="icon-clock"></i> <i class="icon-cc-nc"></i> <i class="icon-chat"></i> 
+            </div>
+          </div>
+          <div class="row" style="margin-top: 50px; text-align:center;">
+            <div class="eight columns centered" style="font-size:14pt;">
+              We've built applications just like you.  We've felt the pain, time loss, money loss, and collaboration issues around working across many devices, many timezones and many customers.
+            </div>
+          </div>
+          <div class="row" style="margin-top: 50px; text-align:center;" id="tryFree">
+            <div class="twelve columns" style="font-size:15pt;font-weight:bold;">
+              <a style="color:#58c026" href="#" class="skip" gumby-goto="top">Sign Up for the Beta Now and Improve Your Process</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
     <div id="pricing">
       <div class="row">
         <div class="twelve columns">
@@ -221,7 +264,7 @@
         </div>
       </div>
     </div>
-
+    -->
     <div id="contact">
       <div class="row">
         <div class="twelve columns">

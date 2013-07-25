@@ -78,6 +78,17 @@ p {
   font-weight: bold;*/
 }
 
+#signupThanks div .columns {
+    background-color: #444;
+    opacity: 0.8;
+    color: #fff;
+    border: 3px solid #111;
+    padding: 10px;
+    font-size: 15pt;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
 #titleContentLine {
   background-color: #444;
   opacity: 0.8;

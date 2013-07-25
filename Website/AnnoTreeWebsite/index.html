@@ -48,8 +48,8 @@
 
 <body>
   <div class="navbar fixed responsiveHide" gumby-fixed="top" id="annoTreeNavbar">
-		<div class="row">
-			<div class="three columns valign">
+        <div class="row">
+            <div class="three columns valign">
         <div class="navLinks"><a href="#"><img src="img/LogoNameWeb.png"/></a></div>
       </div>
       <div class="one columns push_two valign">
@@ -69,16 +69,18 @@
       </div>
       <div class="one columns valign">
         <div class="navLinks"><a href="http://blog.annotree.com">Blog</a></div>
-      </div>
+    </div>
+    <!--
       <div class="one columns valign">
         <div>
           <div class="small oval btn success"><a href="http://annotree.com/signupbeta.html">Login</a></div>
         </div>
-      </div>
-		</div>
-	</div>
+    </div>
+    -->
+        </div>
+    </div>
   <div class="navbar fixed responsiveShow" gumby-fixed="top">
-		<div style="width: 130px; float:left;" class="navLinks">
+        <div style="width: 130px; float:left;" class="navLinks">
       <div style="padding:5px; padding-top: 10px;">
         <a href="#"><img src="img/LogoNameWeb.png"/></a>
       </div>
@@ -93,7 +95,7 @@
         <a style="color:#444;" href="http://blog.annotree.com">Blog</a>
       </div>
     </div>
-	</div>
+    </div>
   <div id="content">
     <div id="mainTitle" class="valign">
       <div id="titleContent">
@@ -113,8 +115,16 @@
               <input id="emailInput" class="email input" style="max-width:300px;" type="email" placeholder="Email" />
               <div id="submitEmail" class="medium success btn"><a href="#">Sign Up Free</a></div>
             </div>
-          </form> -->
-          <div class="medium oval btn success icon-right entypo icon-right-circled"><a href="http://annotree.com/signupbeta.html">Sign Up Free</a></div>
+        </form> -->
+              <ul>
+                  <li class="valign" id="validateError" style="display:none;margin-bottom:20px;"><div class="row"><div id="errorText" class="centered three columns danger alert">Please Enter a Valid Email</div></div></li>
+                  <li id="signupThanks" style="display:none"><div class="row"><div class="centered four columns">Thanks for signing up for the beta! We will be reaching out to you soon.</div></div></li>
+                <li class="append field" id="singupAppends">
+                  <input id="emailInput" class="email input" style="max-width:300px;" type="email" placeholder="Email" />
+                  <div id="submitEmail" class="medium success btn"><a href="#">Sign Up for the Beta</a></div>
+                </li>
+              </ul>
+              <!--<div class="medium oval btn success icon-right entypo icon-right-circled"><a href="http://annotree.com/signupbeta.html">Sign Up Free</a></div>-->
         </div>
       </div>
     </div>
@@ -217,7 +227,7 @@
         <div class="twelve columns">
           <p class="sectionHeaderText">Contact</p>
           
-          <p class="contactInfo">Contact@AnnoTree.com  |  <a style="color:#58c026;"href="http://twitter.com/annotree">@AnnoTree</a></p>
+          <p class="contactInfo">Contact@AnnoTree.com  |  <a style="color:#58c026;" href="http://twitter.com/annotree">@AnnoTree</a></p>
         </div>
       </div>
     </div>
@@ -226,7 +236,7 @@
         <div class="valign" style="height:100%;">
           <div>
             <a href="http://Silith.IO"><img class="grayScale" src="img/SilithIOLogoOnly.png" style="height:20px;"/></a>
-            <p class="footerText">&copy; Copyright 2013 Silith.IO</p>
+            <p class="footerText">&copy; Copyright 2013 <a style="color:#58c026;" href="http://silith.io">Silith.IO</a></p>
           </div>
         </div>
       </div>

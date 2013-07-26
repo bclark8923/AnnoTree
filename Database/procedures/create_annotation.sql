@@ -8,15 +8,21 @@ DELIMITER $$
 
 
 CREATE Procedure `create_annotation`(
-  in mime_type VARCHAR(128),
-  in path_in VARCHAR(1024),
-  in filename VARCHAR(128),
-  in leaf_id_in INT
+    IN mime_type VARCHAR(128),
+    IN path_in VARCHAR(1024),
+    IN filename VARCHAR(128),
+    IN leaf_id_in INT,
+    IN meta_sys_in VARCHAR(128),
+    IN meta_ver_in VARCHAR(128),
+    IN meta_model_in VARCHAR(128),
+    IN meta_vendor_in VARCHAR(128),
+    IN meta_or_in VARCHAR(128)
 )
 BEGIN
 DECLARE dir VARCHAR(16);
 IF (select id from leaf where id = leaf_id_in) THEN
-    insert into annotation(mime_type, filename, leaf_id) values (mime_type, filename, leaf_id_in);
+    INSERT INTO annotation (mime_type, filename, leaf_id, meta_system, meta_version, meta_model, meta_vendor, meta_orientation) 
+        VALUES (mime_type, filename, leaf_id_in, meta_sys_in, meta_ver_in, meta_model_in, meta_vendor_in, meta_or_in);
     SET @id = LAST_INSERT_ID();
     IF (filename = 'anno_default.png') THEN
         UPDATE annotation SET path = concat(path_in, @id),
@@ -31,9 +37,9 @@ IF (select id from leaf where id = leaf_id_in) THEN
             filename_disk = concat(dir, @id, '_', filename)
             WHERE id = @id;
     END IF;
-    select 'id', 'mime_type', 'path', 'filename', 'leaf_id', 'created_at', 'filename_disk'
+    select 'id', 'mime_type', 'path', 'filename', 'leaf_id', 'created_at', 'filename_disk', 'meta_system', 'meta_version', 'meta_model', 'meta_vendor', 'meta_orientation'
     union
-    select id, mime_type, path, filename, leaf_id, created_at, filename_disk
+    select id, mime_type, path, filename, leaf_id, created_at, filename_disk, meta_system, meta_version, meta_model, meta_vendor, meta_orientation
     from annotation
     where id = @id;
 ELSE

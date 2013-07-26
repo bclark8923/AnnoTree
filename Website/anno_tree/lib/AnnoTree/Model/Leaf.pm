@@ -133,12 +133,18 @@ sub iosUpload {
     my $leafid = $leafInfo->[0];
     my $fsName = $leafid . '_' . $params->{filename};
     my $annoResult = AnnoTree::Model::MySQL->db->execute(
-        "call create_annotation(:mime, :path, :filename, :leafid)",
+        "call create_annotation(:mime, :path, :filename, :leafid, :metaSystem, :metaVersion, :metaModel, :metaVendor, :metaOrientation)",
         {
-            mime        => $params->{mime},
-            path        => $params->{path},
-            filename    => $params->{filename},
-            leafid      => $leafid
+            mime            => $params->{mime},
+            path            => $params->{path},
+            filename        => $params->{filename},
+            leafid          => $leafid,
+            metaSystem      => $params->{metaSystem},
+            metaVersion     => $params->{metaVersion},
+            metaModel       => $params->{metaModel},
+            metaVendor      => $params->{metaVendor},
+            metaOrientation => $params->{metaOrientation},
+
         }
     );
 

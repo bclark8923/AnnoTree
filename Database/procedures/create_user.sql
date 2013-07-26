@@ -55,7 +55,7 @@ select id, first_name, last_name, email, created_at, lang, time_zone, profile_im
   call create_tree(@user_id, @forest_id, concat(@name,  '\'s Tree'), 'This is a sample tree.','img/logo.png', token_in, created_in);
   call create_branch(@user_id, @tree_id, concat(@name, '\'s Branch'), 'This is a sample branch.');
   call create_leaf(concat(@name, '\'s Leaf'), 'This is a sample leaf.', @user_id, @branch_id);
-  call create_annotation('image/png', services, 'anno_default.png', @leaf_id);
+  call create_annotation('image/png', services, 'anno_default.png', @leaf_id, 'iOS', '6', 'Phone', 'Apple', 'Portrait');
 set @anno_id = LAST_INSERT_ID();
 update annotation set path = concat(services, @anno_id) where id = @anno_id;
 commit;

@@ -25,7 +25,15 @@ sub create {
     $params->{filename} = $upload->{filename};
     $params->{path} = $server . '/services/annotation/';
     $params->{mime} = $upload->headers->content_type;
+    
+    # limit annotations to only images
+    $self->render(json => {error => '0', txt => 'You can only upload images'}, status => 415) and return unless $params->{mime} =~ m/image/;
 
+    $params->{metaSystem} = $self->param('metaSystem') || undef;
+    $params->{metaVersion} = $self->param('metaVersion') || undef;
+    $params->{metaModel} = $self->param('metaModel') || undef;
+    $params->{metaVendor} = $self->param('metaVendor') || undef;
+    $params->{metaOrientation} = $self->param('metaOrientation') || undef;
     
     my $json = AnnoTree::Model::Annotation->create($params);
     my $status = 200;

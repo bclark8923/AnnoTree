@@ -92,11 +92,17 @@ sub iosUpload {
     #$self->debug("token: $params->{token} \n filename: $upload->{filename} \n content-type: " . $upload->headers->content_type . "\n");
     $params->{filename} = $upload->{filename};
     $params->{mime} = $upload->headers->content_type;
+
+    # limit annotations to only images
+    $self->render(json => {error => '0', txt => 'You can only upload images'}, status => 415) and return unless $params->{mime} =~ m/image/;
+
     $params->{path} = $server . '/services/annotation/';
-    #$params->{fileLoc} = $path;
-    # get branch id (based on tree token)
-    # create new leaf on branch (get leafid)
-    # add annotation to leaf
+    $params->{metaSystem} = $self->param('metaSystem') || undef;
+    $params->{metaVersion} = $self->param('metaVersion') || undef;
+    $params->{metaModel} = $self->param('metaModel') || undef;
+    $params->{metaVendor} = $self->param('metaVendor') || undef;
+    $params->{metaOrientation} = $self->param('metaOrientation') || undef;
+    
     my $json = AnnoTree::Model::Leaf->iosUpload($params, $path);
     my $status = 200;
     if (exists $json->{error}) {
@@ -104,7 +110,6 @@ sub iosUpload {
     } else {
         $upload->move_to($path . $json->{filename_disk});
         delete $json->{filename_disk};
-        #$json = {result => 'Leaf and annotation successfully created'};
     }
 
     $self->render(json => $json, status => $status);

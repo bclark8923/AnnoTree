@@ -9,12 +9,17 @@ sub create {
     my ($class, $params) = @_;
     
     my $result = AnnoTree::Model::MySQL->db->execute(
-        "call create_annotation(:mime, :path, :filename, :leafid)",
+        "call create_annotation(:mime, :path, :filename, :leafid, :metaSystem, :metaVersion, :metaModel, :metaVendor, :metaOrientation)",
         {
-            mime        => $params->{mime},
-            path        => $params->{path},
-            filename    => $params->{filename},
-            leafid      => $params->{leafid}
+            mime            => $params->{mime},
+            path            => $params->{path},
+            filename        => $params->{filename},
+            leafid          => $params->{leafid},
+            metaSystem      => $params->{metaSystem},
+            metaVersion     => $params->{metaVersion},
+            metaModel       => $params->{metaModel},
+            metaVendor      => $params->{metaVendor},
+            metaOrientation => $params->{metaOrientation},
         }
     );
 
@@ -37,7 +42,7 @@ sub create {
 
 sub getImage {
     my ($class, $params) = @_;
-    print Dumper($params);
+    
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call access_annotation(:user, :annoid)",
         {

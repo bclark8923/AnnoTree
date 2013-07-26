@@ -40,6 +40,7 @@
 
   <link rel="stylesheet" href="css/gumby.css">
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://plus.google.com/112538136799180523043" rel="publisher" />
 
   <script src="js/libs/modernizr-2.6.2.min.js"></script>
 </head>
@@ -95,23 +96,29 @@
           Design and Testing
         </div>
         <div>
+          <form id="submitSignUp">
               <ul>
-                  <li class="valign" id="validateError" style="display:none;margin-bottom:20px;"><div class="row"><div id="errorText" class="centered three columns danger alert">Please Enter a Valid Email</div></div></li>
+                  <li class="valign" id="validateError" style="display:none;margin-bottom:20px;"><div class="row"><div id="errorText" class="centered five columns danger alert" style="text-align:center;">Please Enter a Valid Email</div></div></li>
                   <li id="signupThanks" style="display:none;"><div class="row"><div class="centered ten columns">Thanks for signing up for the beta! We will be reaching out to you soon.</div></div></li>
-                  <li id="singupAppends">
-                    <div class="row">
+                  <li class="append field" id="singupAppends">
+                    <input id="emailInput" class="email input" style="max-width:300px;" type="email" placeholder="Email">
+                    <div id="submitEmailMain" class="submitEmail medium success btn responsiveHide"><a href="#">Sign Up for the Beta</a></div>
+                  </li>
+                  <li id="singupAppends" class="responsiveShow">
+                    <!--<div class="row">
                         <div class="field centered four columns">
                             <input id="emailInput" class="email input" style="margin-bottom:10px;max-width:350px;" type="email" placeholder="Email" />
                         </div>
-                    </div>
-                        <div class="row">
-                            <div id="submitEmail" style="text-align:center" class="medium success btn centered four columns">
+                    </div>-->
+                        <div class="row" style="text-align:center;">
+                            <div id="submitEmailResponsive" style="text-align:center" class="submitEmail medium oval success btn">
                                 <a href="#">Sign Up for the Beta</a>
                             </div>
                         </div>
                     </div>
                 </li>
               </ul>
+            </form>
         </div>
       </div>
     </div>
@@ -194,7 +201,7 @@
           <p class="contactInfo" style="font-size:20pt;">
             <a style="color:#444;" href="http://twitter.com/annotree"><i class="icon-twitter-circled"></i></a>
             <a style="color:#444;" href="https://www.facebook.com/annotreeapp"><i class="icon-facebook-circled"></i></a>
-            <a style="color:#444;" href="https://plus.google.com/u/0/112538136799180523043/about?cfem=1"><i class="icon-gplus-circled"></i></a>
+            <a style="color:#444;" href="https://plus.google.com/112538136799180523043" rel="publisher"><i class="icon-gplus-circled"></i></a>
           </p>
         </div>
       </div>
@@ -203,12 +210,16 @@
       <div class="row" style="height:100%;">
         <div class="valign" style="height:100%;">
           <div>
-            <a href="http://Silith.IO"><img class="grayScale" src="img/SilithIOLogoOnly.png" style="height:20px;"/></a>
+            <!-- <a href="http://Silith.IO"><img class="grayScale" src="img/SilithIOLogoOnly.png" style="height:20px;"/></a> -->
             <p class="footerText">&copy; Copyright 2013 <a style="color:#58c026;" href="http://silith.io">Silith.IO</a></p>
           </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <div style="display:none;">
+    <a href="https://plus.google.com/112538136799180523043" rel="publisher">Google+</a>
   </div>
   
   <!-- Grab Google CDN's jQuery, fall back to local if offline -->

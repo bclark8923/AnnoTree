@@ -22,18 +22,18 @@ Gumby.touch(function() {
 $(function() {
 
     $('#submitSignUp').submit(function() {
-      $("#submitEmail").click();
+      $(".submitEmail").click();
       return false;
     });
 
     var buttonEnabled = true;
-    $("#submitEmail").click(function () {
+    $(".submitEmail").click(function () {
         var emailVar = $.trim($("#emailInput").val());
         if(emailVar.length > 0 && isEmail(emailVar) && buttonEnabled) {
             buttonEnabled = false;
 
             $("#emailInput").addClass('disabled');
-            $("#submitEmail").addClass('disabled');
+            $(".submitEmail").addClass('disabled');
             $("emailInput").prop('disabled', true);
 
             var serializedData = {email: emailVar}
@@ -53,7 +53,7 @@ $(function() {
                 $("#signupThanks").show();
                 buttonEnabled = true;
                 $("#emailInput").removeClass('disabled');
-                $("#submitEmail").removeClass('disabled');
+                $(".submitEmail").removeClass('disabled');
                 $("emailInput").prop('disabled', false);
             });
 
@@ -61,7 +61,7 @@ $(function() {
             request.fail(function (jqXHR, textStatus, errorThrown){
                 buttonEnabled = true;
                 $("#emailInput").removeClass('disabled');
-                $("#submitEmail").removeClass('disabled');
+                $(".submitEmail").removeClass('disabled');
                 $("emailInput").prop('disabled', false);
                 $("#errorText").html('Sorry, our beta sign up is currently down. Please try again in a few minutes or email us at contact@annotree.com.');
                 $("#validateError").show();

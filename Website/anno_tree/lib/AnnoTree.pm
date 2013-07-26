@@ -126,6 +126,7 @@ sub startup {
 
     # ===== ANNOTATIONS =====
     $authr->post('/:leafid/annotation' => [leafid => qr/\d+/])->to('controller-annotation#create');
+    $authr->get('/annotation/:annoid' => [annoid => qr/\d+/])->to('controller-annotation#getImage'); 
 
 }
 

@@ -9,18 +9,24 @@ use Email::Sender::Simple qw(sendmail);
 use Email::Sender::Transport::SMTP ();
 use Email::Simple ();
 use Email::Simple::Creator ();
+use Time::Piece ();
 
 sub create {
     my ($class, $params) = @_;
 
+    my $created = Time::Piece::localtime->strftime('%F %T');  
+    print $created . "\n";
+    my $token = sha256_hex($params->{forestid}, $params->{userid}, $created);
     my $result = AnnoTree::Model::MySQL->db->execute(
-        "call create_tree(:userid, :forestid, :name, :desc, :logo)",
+        "call create_tree(:userid, :forestid, :name, :desc, :logo, :token, :created)",
         {
             userid      => $params->{userid},
             forestid    => $params->{forestid},
             name        => $params->{name},
             desc        => $params->{desc},
-            logo        => $params->{logo}
+            logo        => $params->{logo},
+            token       => $token,
+            created     => $created
         }
     );
 
@@ -41,7 +47,7 @@ sub create {
     for (my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $treeInfo->[$i];
     }
-    
+=begin oldcode
     my $token = sha256_hex($treeInfo->[0]);
     my $tokenResult = AnnoTree::Model::MySQL->db->execute(
         "call add_tree_token(:token, :treeid)",
@@ -51,7 +57,8 @@ sub create {
         }
     );
     $json->{token} = $token;
-    
+=end oldcode
+=cut
     return $json;
 }
 
@@ -250,8 +257,6 @@ sub addUserToTree {
             $json = {result => $num, txt => 'User added successfully'};
         } elsif ($num == 1) {
             $json = {error => $num, txt => 'Tree does not exist or user does not have access to that tree'};
-        } elsif ($num == 2) {
-            $json = {error => $num, txt => 'User you tried to add does not exist'};
         }
     } else {
         my $status = $result->fetch->[0];

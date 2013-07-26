@@ -21,11 +21,11 @@ sub create {
     my $upload = $self->req->upload('uploadedFile');
     $self->render(json => {error => '0', txt => 'You must include a file'}, status => 406) and return unless (defined $upload && exists $upload->{filename} && $upload->{filename} ne '');
     $params->{leafid} = $self->param('leafid');
-    my $fsName = $params->{leafid} . '_' . $upload->{filename};
+    #my $fsName = $params->{leafid} . '_' . $upload->{filename};
     $params->{filename} = $upload->{filename};
-    $params->{path} = $url . $fsName;
+    $params->{path} = $server . '/services/annotation/';
     $params->{mime} = $upload->headers->content_type;
-    $upload->move_to($path . $fsName);
+    #$upload->move_to($path . $fsName);
     
     my $json = AnnoTree::Model::Annotation->create($params);
     my $status = 200;
@@ -34,16 +34,25 @@ sub create {
         if ($error == 1) { # leaf does not exist
            $status = 406;
         }
-        `rm $path/$fsName`;
+        #`rm $path/$fsName`;
+    } else {
+        $upload->move_to($path . $json->{id} . '_' . $upload->{filename});
     }
-
     $self->render(status => $status, json => $json);
 }
 
-sub testFileUpload {
+sub getImage {
     my $self = shift;
     
-    $self->render(template => 'leaves/annotation/testupload');
+    # check that the user has access to that annotation
+    my $params = {};
+    $params->{userid} = $self->current_user->{userid};
+    $params->{annoid} = $self->param('annoid');
+    my $result = AnnoTree::Model::Annotation->getImage($params);
+    $self->debug('RESULT: ' . $result->[0] . "\n");
+    $result->[0] ? 
+        $self->render_static('annotation_files/' . $result->[1]) :
+        $self->render(status => '403', text => "You are not authorized to view this annotation.");
 }
 
 return 1;

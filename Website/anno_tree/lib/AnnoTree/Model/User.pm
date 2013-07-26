@@ -13,6 +13,7 @@ use Config::General;
 use Email::MIME;
 use IO::All;
 use Digest::SHA qw(sha256_hex);
+use Time::Piece ();
 
 # Get the configuration settings
 my $conf = Config::General->new('/opt/config.txt');
@@ -64,8 +65,10 @@ sub signup {
     return {error => '4', txt => 'Password must contain at least one number'} if ($pass !~ m/\d/);
     return {error => '5', txt => 'Valid password characters are alphanumeric or !@#$%^&*()'} if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
     $pass = createSaltedHash($pass);
+    my $created = Time::Piece::localtime->strftime('%F %T');  
+    my $token = sha256_hex($params->{email}, $created);
     
-    my $result = AnnoTree::Model::MySQL->db->execute("call create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage, :status)", 
+    my $result = AnnoTree::Model::MySQL->db->execute("call create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage, :token, :created, :services)", 
         {
             email           => $params->{'email'}, 
             password        => '' . $pass,
@@ -74,7 +77,9 @@ sub signup {
             lang            => 'ENG',
             timezone        => 'EST',
             profileImage    => 'img/user.png',
-            status          => '3'
+            token           => $token,
+            created         => $created,
+            services        => $config{server}->{base_url} . '/services/annotation/'
         }
     );
 
@@ -85,7 +90,7 @@ sub signup {
         if ($error == 1) {
             return {error => $error, txt => 'Invalid email submitted'};
         } elsif ($error == 2) {
-            return {error => $error, txt => 'Email already exists'};
+            return {error => $error, txt => 'You are already an active user. Please log in to continue.'};
         } 
     }
     my $userInfo = $result->fetch; # get the newly created user's info

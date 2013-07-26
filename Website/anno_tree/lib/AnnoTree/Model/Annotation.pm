@@ -29,10 +29,24 @@ sub create {
     }
     my $annoInfo = $result->fetch;
     for (my $i = 0; $i < @{$cols}; $i++) {
-        $json->{$cols->[$i]} = $annoInfo->[$i];
+        $json->{$cols->[$i]} = $annoInfo->[$i] if $cols->[$i] ne 'filename_disk';
     }
     
     return $json;
+}
+
+sub getImage {
+    my ($class, $params) = @_;
+    print Dumper($params);
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call access_annotation(:user, :annoid)",
+        {
+            user    => $params->{userid},
+            annoid  => $params->{annoid}
+        }
+    ); 
+
+    return $result->fetch;
 }
 
 return 1;

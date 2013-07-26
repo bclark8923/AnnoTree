@@ -79,7 +79,7 @@ sub setReset {
     $self->render(status => $status, json => $json)
 }
 
-# resets an user's password and authenticates them
+# resets an user's password
 sub reset {
     my $self = shift;
 

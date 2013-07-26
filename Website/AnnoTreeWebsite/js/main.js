@@ -39,7 +39,7 @@ $(function() {
             var serializedData = {email: emailVar}
             // fire off the request to /form.php
             var request = $.ajax({
-                url: "http://annotree.com/betasignup", //"http://localhost:3000/betasignup", 
+                url: "http://localhost:3000/betasignup", //"http://annotree.com/betasignup", 
                 type: "post",
                 data: JSON.stringify(serializedData)
             });
@@ -59,6 +59,15 @@ $(function() {
 
             // callback handler that will be called on failure
             request.fail(function (jqXHR, textStatus, errorThrown){
+                $("#validateError").hide();
+                $("#singupAppends").hide();
+                $("#signupInfo").hide();
+                $("#signupThanks").show();
+                buttonEnabled = true;
+                $("#emailInput").removeClass('disabled');
+                $("#submitEmail").removeClass('disabled');
+                $("emailInput").prop('disabled', false); 
+                /*
                 buttonEnabled = true;
                 $("#emailInput").removeClass('disabled');
                 $("#submitEmail").removeClass('disabled');
@@ -67,6 +76,7 @@ $(function() {
                 //alert('Sorry, our beta sign up is currently down. Please try again later.')
                 $("#errorText").html('Sorry, our beta sign up is currently down. Please try again in a few minutes or email us at contact@annotree.com.');
                 $("#validateError").show();
+                */
                 /*                
                 $("#validateError").hide();
                 $("#singupAppends").hide();

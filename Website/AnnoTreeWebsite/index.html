@@ -95,23 +95,29 @@
           Design and Testing
         </div>
         <div>
+          <form id="submitSignUp">
               <ul>
-                  <li class="valign" id="validateError" style="display:none;margin-bottom:20px;"><div class="row"><div id="errorText" class="centered three columns danger alert">Please Enter a Valid Email</div></div></li>
+                  <li class="valign" id="validateError" style="display:none;margin-bottom:20px;"><div class="row"><div id="errorText" class="centered five columns danger alert" style="text-align:center;">Please Enter a Valid Email</div></div></li>
                   <li id="signupThanks" style="display:none;"><div class="row"><div class="centered ten columns">Thanks for signing up for the beta! We will be reaching out to you soon.</div></div></li>
-                  <li id="singupAppends">
-                    <div class="row">
+                  <li class="append field" id="singupAppends">
+                    <input id="emailInput" class="email input" style="max-width:300px;" type="email" placeholder="Email">
+                    <div id="submitEmailMain" class="submitEmail medium success btn responsiveHide"><a href="#">Sign Up for the Beta</a></div>
+                  </li>
+                  <li id="singupAppends" class="responsiveShow">
+                    <!--<div class="row">
                         <div class="field centered four columns">
                             <input id="emailInput" class="email input" style="margin-bottom:10px;max-width:350px;" type="email" placeholder="Email" />
                         </div>
-                    </div>
-                        <div class="row">
-                            <div id="submitEmail" style="text-align:center" class="medium success btn centered four columns">
+                    </div>-->
+                        <div class="row" style="text-align:center;">
+                            <div id="submitEmailResponsive" style="text-align:center" class="submitEmail medium oval success btn">
                                 <a href="#">Sign Up for the Beta</a>
                             </div>
                         </div>
                     </div>
                 </li>
               </ul>
+            </form>
         </div>
       </div>
     </div>

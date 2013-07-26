@@ -45,8 +45,8 @@ p {
 }
 
 .responsiveShow {
-    display: none;
-  }
+  display: none;
+}
 
 #content {
   margin-top: 0px;
@@ -268,6 +268,20 @@ img.grayScale {
   .responsiveHide {
     display: none;
   }
+
+  .field.append .btn.responsiveHide {
+    display: none;
+  }
+
+  .field.append input:first-child {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+  .field.append {
+    text-align: center;
+  }
+
   
   #mainTitle {
     height: 300px;

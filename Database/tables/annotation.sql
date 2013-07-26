@@ -12,6 +12,7 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`annotation` (
   `mime_type` VARCHAR(128) NULL ,
   `path` VARCHAR(1024) NULL ,
   `filename` VARCHAR(128) NULL ,
+  `filename_disk` VARCHAR(128) NULL ,
   `leaf_id` INT,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),

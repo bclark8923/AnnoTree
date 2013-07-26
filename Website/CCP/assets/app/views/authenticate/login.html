@@ -3,7 +3,6 @@
   <form name="loginForm" ng-submit="validateLogin()" style="padding-top: 30px; margin: 0;">
     <div class="row" style="min-height:120px;">
       <div class="ten columns centered center-text">
-          <p style="padding-top: 10px;padding-bottom: 10px; text-align: center; font-size:14pt">Sign In</p>
         <ul>
           <li class="danger alert" id="validateError" ng-show="invalidLogin"></li>
 
@@ -17,8 +16,8 @@
         <div>
           <button type="submit" class="medium btn success"><a ng-click="validateLogin()">Login</a></button>
           <div>
-            <p class="forgotPassword"><a href="#/authenticate/requestPassword" style="color:#444;text-decoration:underline;">Forgot Password?</a></p>
-            <p class="signUpHere">New here? <a href="#/authenticate/signUp" style="color:#444;text-decoration:underline;">Come Sign Up!</a></p>
+            <p style="text-align:center;width:100%" class="forgotPassword"><a href="#/authenticate/requestPassword" style="color:#444;text-decoration:underline;">Forgot Password?</a></p>
+            <!--<p class="signUpHere">New here? <a href="#/authenticate/signUp" style="color:#444;text-decoration:underline;">Come Sign Up!</a></p> -->
           </div>
         </div>
       </div>

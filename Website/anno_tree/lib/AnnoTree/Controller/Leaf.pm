@@ -92,18 +92,19 @@ sub iosUpload {
     #$self->debug("token: $params->{token} \n filename: $upload->{filename} \n content-type: " . $upload->headers->content_type . "\n");
     $params->{filename} = $upload->{filename};
     $params->{mime} = $upload->headers->content_type;
-    $params->{path} = $url;
+    $params->{path} = $server . '/services/annotation/';
     #$params->{fileLoc} = $path;
     # get branch id (based on tree token)
     # create new leaf on branch (get leafid)
     # add annotation to leaf
-    my $json = AnnoTree::Model::Leaf->iosUpload($params);
+    my $json = AnnoTree::Model::Leaf->iosUpload($params, $path);
     my $status = 200;
     if (exists $json->{error}) {
         $status = 406;
     } else {
-        $upload->move_to($path . $json->{fsName});
-        $json = {result => 'Leaf and annotation successfully created'};
+        $upload->move_to($path . $json->{filename_disk});
+        delete $json->{filename_disk};
+        #$json = {result => 'Leaf and annotation successfully created'};
     }
 
     $self->render(json => $json, status => $status);

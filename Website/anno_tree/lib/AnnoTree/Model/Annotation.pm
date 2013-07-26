@@ -29,7 +29,7 @@ sub create {
     }
     my $annoInfo = $result->fetch;
     for (my $i = 0; $i < @{$cols}; $i++) {
-        $json->{$cols->[$i]} = $annoInfo->[$i] if $cols->[$i] ne 'filename_disk';
+        $json->{$cols->[$i]} = $annoInfo->[$i] if $cols->[$i];
     }
     
     return $json;

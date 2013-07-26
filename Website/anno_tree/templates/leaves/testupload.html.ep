@@ -2,9 +2,11 @@
 <html>
     <head><title>Test Uploading iOS Annotation</title></head>
     <body>
-        %= form_for "/ios/leaf" => (enctype => 'multipart/form-data') => (method => 'POST')=> begin
+        %= form_for "/services/ios/leaf" => (enctype => 'multipart/form-data') => (method => 'POST')=> begin
         Token<br/>
         %= text_field 'token'
+        <br/>Leaf Name<br/>
+        %= text_field 'leafName'
         <br/>File<br/>
         %= file_field 'annotation'
         <br/>

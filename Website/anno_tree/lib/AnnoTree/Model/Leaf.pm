@@ -78,7 +78,7 @@ sub leafInfo {
 }
 
 sub update {
-    my ($class, $params) = @_;
+    my ($class, $params, $path) = @_;
 
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call update_leaf(:leafid, :name, :desc, :reqUser, :branchid)",
@@ -109,7 +109,7 @@ sub update {
 }
 
 sub iosUpload {
-    my ($class, $params) = @_;
+    my ($class, $params, $path) = @_;
     
     my $json = {};
     my $result = AnnoTree::Model::MySQL->db->execute(
@@ -136,20 +136,31 @@ sub iosUpload {
         "call create_annotation(:mime, :path, :filename, :leafid)",
         {
             mime        => $params->{mime},
-            path        => $params->{path} . $fsName,
+            path        => $params->{path},
             filename    => $params->{filename},
             leafid      => $leafid
         }
     );
 
+    $cols = $annoResult->fetch;
     if (looks_like_number($cols->[0])) { 
         my $error = $cols->[0];
         if ($error == 1) {
             return {error => '3', txt => 'Can\'t create a annotation on a leaf that does not exist'};
         }
     }
+    my $annoInfo = $annoResult->fetch;
     
-    return {fsName => $fsName};
+    for (my $i = 0; $i < @{$cols}; $i++) {
+        $json->{$cols->[$i]} = $annoInfo->[$i] if $cols->[$i];
+    }
+    my ($diskDir) = $json->{filename_disk} =~ m{(.*)/};
+    my @dir = split(/\//, $diskDir);
+    `mkdir $path/$dir[0]` unless (-d "$path/$dir[0]");
+    `mkdir $path/$dir[0]/$dir[1]` unless (-d "$path/$dir[0]/$dir[1]");
+    `mkdir $path/$dir[0]/$dir[1]/$dir[2]` unless (-d "$path/$dir[0]/$dir[1]/$dir[2]");
+    
+    return $json;
 }
 
 sub deleteLeaf {

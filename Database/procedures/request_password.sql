@@ -19,7 +19,10 @@ IF (SELECT id FROM user WHERE email = email_in AND status = 3) THEN
     INSERT INTO reset_password (email) VALUES (email_in);
     SELECT 'created_at', 'first_name', 'last_name'
     UNION
-    SELECT r.created_at, u.first_name, u.last_name FROM reset_password AS r LEFT OUTER JOIN user AS u ON r.email = u.email WHERE r.email = email_in;
+    SELECT r.created_at, u.first_name, u.last_name 
+      FROM reset_password AS r INNER JOIN user AS u 
+      ON r.email = u.email 
+      WHERE r.email = email_in;
     COMMIT;
 ELSE
     select '1';

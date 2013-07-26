@@ -15,23 +15,25 @@ CREATE Procedure `create_tree`(
   in f INT,
   in n varchar(45),
   in d varchar(1024),
-  in l varchar(1024)
+  in l varchar(1024),
+    IN token_in varchar(64),
+    IN created_in TIMESTAMP
   )
 BEGIN
 IF (select id from user where id = u) THEN
     IF (select id from forest where id = f) THEN
         IF (select id from user_forest where user_id = u and forest_id = f) THEN
             insert into `annotree`.`tree` 
-              (forest_id, name, description, logo, owner_id)
-              values (f, n, d, l, u);
+              (forest_id, name, description, logo, owner_id, token, created_at)
+              values (f, n, d, l, u, token_in, created_in);
             set @tree_id = LAST_INSERT_ID();
             insert into `annotree`.`user_tree`
               (user_id, tree_id)
             values
               (u, @tree_id);
-            select 'id', 'forest_id', 'name', 'description', 'created_at', 'logo' 
+            select 'id', 'forest_id', 'name', 'description', 'created_at', 'logo', 'token' 
             union 
-            select id, forest_id, name, description, created_at, logo
+            select id, forest_id, name, description, created_at, logo, token
             from tree
             where
             id = @tree_id;

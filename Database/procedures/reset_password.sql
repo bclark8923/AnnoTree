@@ -16,7 +16,8 @@ CREATE PROCEDURE `reset_password` (
 BEGIN
 SET @email = (SELECT email FROM reset_password WHERE email = email_in AND hash = token_in);
 IF (@email IS NOT NULL) THEN
-    SET @hour = (SELECT HOUR(TIMEDIFF(NOW(), created_at)) FROM reset_password WHERE email = email_in);
+    SET @hour = (SELECT HOUR(TIMEDIFF(NOW(), created_at)) 
+      FROM reset_password WHERE email = email_in);
     IF (@hour = 0) THEN
         DELETE FROM reset_password WHERE email = email_in;
         UPDATE user SET password = pass_in WHERE email = email_in;

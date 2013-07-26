@@ -7,7 +7,7 @@
 
             function createBranch(treeID, branchName, branchDescription) {
                 $("#loadingScreen").show();
-                return $http.post(apiRoot.getRoot() + '/' + treeID + '/services/branch', {name: branchName, description: branchDescription});
+                return $http.post(apiRoot.getRoot() + '/services/' + treeID + '/branch', {name: branchName, description: branchDescription});
             }
 
             // ---------------------------------------------- //

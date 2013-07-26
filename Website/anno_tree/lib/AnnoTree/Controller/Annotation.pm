@@ -21,11 +21,11 @@ sub create {
     my $upload = $self->req->upload('uploadedFile');
     $self->render(json => {error => '0', txt => 'You must include a file'}, status => 406) and return unless (defined $upload && exists $upload->{filename} && $upload->{filename} ne '');
     $params->{leafid} = $self->param('leafid');
-    #my $fsName = $params->{leafid} . '_' . $upload->{filename};
+
     $params->{filename} = $upload->{filename};
     $params->{path} = $server . '/services/annotation/';
     $params->{mime} = $upload->headers->content_type;
-    #$upload->move_to($path . $fsName);
+
     
     my $json = AnnoTree::Model::Annotation->create($params);
     my $status = 200;
@@ -34,9 +34,15 @@ sub create {
         if ($error == 1) { # leaf does not exist
            $status = 406;
         }
-        #`rm $path/$fsName`;
+
     } else {
-        $upload->move_to($path . $json->{id} . '_' . $upload->{filename});
+        my ($diskDir) = $json->{filename_disk} =~ m{(.*)/};
+        my @dir = split(/\//, $diskDir);
+        `mkdir $path/$dir[0]` unless (-d "$path/$dir[0]");
+        `mkdir $path/$dir[0]/$dir[1]` unless (-d "$path/$dir[0]/$dir[1]");
+        `mkdir $path/$dir[0]/$dir[1]/$dir[2]` unless (-d "$path/$dir[0]/$dir[1]/$dir[2]");
+        $upload->move_to($path . $json->{filename_disk});
+        delete $json->{filename_disk};
     }
     $self->render(status => $status, json => $json);
 }
@@ -49,10 +55,10 @@ sub getImage {
     $params->{userid} = $self->current_user->{userid};
     $params->{annoid} = $self->param('annoid');
     my $result = AnnoTree::Model::Annotation->getImage($params);
-    $self->debug('RESULT: ' . $result->[0] . "\n");
+    
     $result->[0] ? 
         $self->render_static('annotation_files/' . $result->[1]) :
-        $self->render(status => '403', text => "You are not authorized to view this annotation.");
+        $self->render(status => '403', json => {txt => 'You are not authorized to view this annotation.', error => '0');
 }
 
 return 1;

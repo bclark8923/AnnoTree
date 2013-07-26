@@ -58,7 +58,7 @@ sub getImage {
     
     $result->[0] ? 
         $self->render_static('annotation_files/' . $result->[1]) :
-        $self->render(status => '403', json => {txt => 'You are not authorized to view this annotation.', error => '0');
+        $self->render(status => '403', json => {txt => 'You are not authorized to view this annotation.', error => '0'});
 }
 
 return 1;

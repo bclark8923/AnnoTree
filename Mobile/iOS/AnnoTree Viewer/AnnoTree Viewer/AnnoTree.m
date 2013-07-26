@@ -414,7 +414,7 @@
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     
     // set URL
-    NSURL *requestURL = [NSURL URLWithString:@"http://annotree.com/ios/leaf"];
+    NSURL *requestURL = [NSURL URLWithString:@"https://dev.annotree.com/services/ios/leaf"];
     [request setURL:requestURL];
     
     //NSLog(@"Connection");
@@ -428,6 +428,24 @@
     }
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+}
+
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace
+{
+	return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+	if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
+	{
+		if ([challenge.protectionSpace.host isEqualToString:@"dev.annotree.com"])
+		{
+			[challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+		}
+	}
+    
+	[challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
 }
 
 - (UIImage*)scaleAndRotateImage:(UIImage *)image

@@ -39,7 +39,7 @@ $(function() {
             var serializedData = {email: emailVar}
             // fire off the request to /form.php
             var request = $.ajax({
-                url: "http://localhost:3000/betasignup", //"http://annotree.com/betasignup", 
+                url: "/betasignup",
                 type: "post",
                 data: JSON.stringify(serializedData)
             });
@@ -59,34 +59,12 @@ $(function() {
 
             // callback handler that will be called on failure
             request.fail(function (jqXHR, textStatus, errorThrown){
-                $("#validateError").hide();
-                $("#singupAppends").hide();
-                $("#signupInfo").hide();
-                $("#signupThanks").show();
-                buttonEnabled = true;
-                $("#emailInput").removeClass('disabled');
-                $("#submitEmail").removeClass('disabled');
-                $("emailInput").prop('disabled', false); 
-                /*
                 buttonEnabled = true;
                 $("#emailInput").removeClass('disabled');
                 $("#submitEmail").removeClass('disabled');
                 $("emailInput").prop('disabled', false);
-                // log the error to the console
-                //alert('Sorry, our beta sign up is currently down. Please try again later.')
                 $("#errorText").html('Sorry, our beta sign up is currently down. Please try again in a few minutes or email us at contact@annotree.com.');
                 $("#validateError").show();
-                */
-                /*                
-                $("#validateError").hide();
-                $("#singupAppends").hide();
-                $("#signupInfo").hide();
-                $("#signupThanks").show();
-                buttonEnabled = true;
-                $("#emailInput").removeClass('disabled');
-                $("#submitEmail").removeClass('disabled');
-                $("emailInput").prop('disabled', false);
-                */
             });
         } else {
             $("#errorText").html('Please Enter a Valid Email');;
@@ -96,7 +74,6 @@ $(function() {
 
     function isEmail(email){
         return /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/.test(email);
-            // /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/.test(email);    
     }
 });
 

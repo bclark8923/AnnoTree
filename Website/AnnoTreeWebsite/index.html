@@ -36,8 +36,6 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  <!-- We highly recommend you use SASS and write your custom styles in sass/_custom.scss.
-       However, there is a blank style.css in the css directory should you prefer -->
   <link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
 
   <link rel="stylesheet" href="css/gumby.css">
@@ -70,13 +68,6 @@
       <div class="one columns valign">
         <div class="navLinks"><a href="http://blog.annotree.com">Blog</a></div>
     </div>
-    <!--
-      <div class="one columns valign">
-        <div>
-          <div class="small oval btn success"><a href="http://annotree.com/signupbeta.html">Login</a></div>
-        </div>
-    </div>
-    -->
         </div>
     </div>
   <div class="navbar fixed responsiveShow" gumby-fixed="top">
@@ -87,7 +78,7 @@
     </div>
     <!-- <div style="width: 80px; float:right; padding-top:5px;" class="navLinks">
       <div style="padding:5px;">
-        <div class="small oval btn success"><a href="http://annotree.com/CCP/index.htm#/authenticate/login">Login</a></div>
+        <div class="small oval btn success"><a href="">Login</a></div>
       </div>
     </div> -->
     <div style="width: 80px; float:right; padding-top:5px;" class="navLinks">
@@ -99,43 +90,27 @@
   <div id="content">
     <div id="mainTitle" class="valign">
       <div id="titleContent">
-        <!-- <div>
-          <span>A New Way to Organize and Collaborate on</span>
-        </div>
-        <div>
-          <span>Mobile Design and Testing</span>
-        </div>-->
         <div id="titleContentLine">
           A New Collaboration Platform for Mobile<br/>
           Design and Testing
         </div>
         <div>
-          <!-- <form id="submitSignUp">
-            <div class="append field">
-              <input id="emailInput" class="email input" style="max-width:300px;" type="email" placeholder="Email" />
-              <div id="submitEmail" class="medium success btn"><a href="#">Sign Up Free</a></div>
-            </div>
-        </form> -->
               <ul>
                   <li class="valign" id="validateError" style="display:none;margin-bottom:20px;"><div class="row"><div id="errorText" class="centered three columns danger alert">Please Enter a Valid Email</div></div></li>
                   <li id="signupThanks" style="display:none;"><div class="row"><div class="centered ten columns">Thanks for signing up for the beta! We will be reaching out to you soon.</div></div></li>
                   <li class="append field" id="singupAppends">
-                    <input id="emailInput" class="email input" style="max-width:300px;" type="email" placeholder="Email" />
-                    <div id="submitEmail" class="medium success btn"><a href="#">Sign Up for the Beta Today</a></div>
-                  </li>
+                  <!--<div class="row centered">
+                      <div class="two columns">-->
+                          <input id="emailInput" class="email input" style="max-width:300px;" type="email" placeholder="Enter your email to register for the Beta" />
+                          <!--</div>-->
+                    <div id="submitEmail" class="medium success btn"><a href="#">Submit</a></div>
+                    <!--</div>-->
+                </li>
               </ul>
-              <!--<div class="medium oval btn success icon-right entypo icon-right-circled"><a href="http://annotree.com/signupbeta.html">Sign Up Free</a></div>-->
         </div>
       </div>
     </div>
     <div id="about">
-      <!--
-      <div class="row">
-        <div class="twelve columns">
-          <p class="sectionHeaderText">What is AnnoTree?</p>
-        </div>
-      </div>
-    -->
       <div class="row" style="padding-top:50px;">
         <div class="six columns" style='padding-top:40px;'>
           <p class="whyParagraphs">
@@ -150,18 +125,6 @@
           </p>
         </div>
       </div>
-      <!--
-      <div class="row">
-        <div class="six columns">
-          <p class="whyParagraphs">
-            <img class="productScreenShot" src="img/devicesScreenshot.png"/>
-          </p>
-        </div>
-        <div class="six columns">
-          <p class="whyParagraphs">Therefore we created AnnoTree, a platform giving everyone involved in the process of application development the ability to collaborate on design, functionality, bugs, and more, <strong>directly from their mobile application, on any mobile device.</strong></p>
-        </div>
-      </div>
-    -->
     </div>
     <div id="product">
       <div class="row">
@@ -217,54 +180,6 @@
         </div>
       </div>
     </div>
-    <!--
-    <div id="pricing">
-      <div class="row">
-        <div class="twelve columns">
-          <p class="sectionHeaderText">Pricing</p>
-          <div class="row" style="margin-top: 50px; text-align:center;">
-            <div class="three columns pricingColumn">
-              <h3>Basic</h3>
-              <ul class="featureList">
-                <li>0-3 Users</li>
-                <li>1 Tree</li>
-              </ul>
-              <p class="pricing"><span class="price">Free</span></p>
-            </div>
-            <div class="three columns pricingColumn">
-              <h3>Standard</h3>
-              <ul class="featureList">
-                <li>4-10 Users</li>
-                <li>Up to 5 Trees</li>
-              </ul>
-              <p class="pricing"><span class="price">$25</span><span class="perMonth"> per Mo.</span></p>
-            </div>
-            <div class="three columns pricingColumn">
-              <h3>Premium</h3>
-              <ul class="featureList">
-                <li>11-30 Users</li>
-                <li>Up to 20 Trees</li>
-              </ul>
-              <p class="pricing"><span class="price">$75</span><span class="perMonth"> per Mo.</span></p>
-            </div>
-            <div class="three columns pricingColumn">
-              <h3>Enterprise</h3>
-              <ul class="featureList">
-                <li>Looking for a</li>
-                <li>custom solution?</li>
-              </ul>
-              <p class="pricing"><span class="price">Email Us</span></p>
-            </div>
-          </div>
-          <div class="row" style="margin-top: 50px; text-align:center;" id="tryFree">
-            <div class="twelve columns" style="font-size:15pt;font-weight:bold;">
-              <a style="color:#58c026" href="http://annotree.com/signupbeta.html">Try AnnoTree Premium Free for 30 days</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    -->
     <div id="contact">
       <div class="row">
         <div class="twelve columns">
@@ -295,21 +210,6 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.9.1.min.js"><\/script>')</script>
 
-  <!--
-  Include gumby.js followed by UI modules.
-  Or concatenate and minify into a single file
-  <script src="js/libs/gumby.js"></script>
-  <script src="js/libs/ui/gumby.retina.js"></script>
-  <script src="js/libs/ui/gumby.fixed.js"></script>
-  <script src="js/libs/ui/gumby.skiplink.js"></script>
-  <script src="js/libs/ui/gumby.toggleswitch.js"></script>
-  <script src="js/libs/ui/gumby.checkbox.js"></script>
-  <script src="js/libs/ui/gumby.radiobtn.js"></script>
-  <script src="js/libs/ui/gumby.tabs.js"></script>
-  <script src="js/libs/ui/gumby.navbar.js"></script>
-  <script src="js/libs/ui/gumby.fittext.js"></script>
-  <script src="js/libs/ui/jquery.validation.js"></script>
-  <script src="js/libs/gumby.init.js"></script>-->
   
   <script src="js/libs/gumby.min.js"></script>
   <script src="js/plugins.js"></script>

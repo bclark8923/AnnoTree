@@ -7,11 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import <AnnoTree/AnnoTree.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[AnnoTree sharedInstance] loadAnnoTree:UIInterfaceOrientationMaskAll withTree:@"a43ee85366161f644f1428574f190b6c919ba390d502458f8f4dc29e9b956501"];
     // Override point for customization after application launch.
     return YES;
 }

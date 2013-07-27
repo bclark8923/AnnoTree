@@ -41,7 +41,7 @@
                         
                         $scope.isLoading = false;
                         
-                        $timeout(function() { window.Gumby.init(); $("#loadingScreen").hide(); }, 0);
+                        $timeout(function() {$("#loadingScreen").hide(); }, 0);
 
                     },
                     function( response ) {
@@ -180,7 +180,7 @@
                                 }
                             );
                 
-                            $timeout(function() { Gumby.initialize('switches') }, 0);
+                            //$timeout(function() { Gumby.initialize('switches') }, 0);
 
                         },
                         function( response ) {
@@ -414,7 +414,7 @@
 
                             addForest( response.data );
                             //$scope.forests[0].name = "fuck";
-                            $timeout(function() { Gumby.initialize('switches') }, 0);
+                            //$timeout(function() { Gumby.initialize('switches') }, 0);
 
                         },
                         function( response ) {
@@ -512,9 +512,6 @@
             // Load the "remote" data.
             $scope.$evalAsync(loadForestData());
 
-            Gumby.init();
-
         }
     );
-
  })( angular, AnnoTree );

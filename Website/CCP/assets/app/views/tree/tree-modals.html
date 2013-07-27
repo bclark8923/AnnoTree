@@ -1,32 +1,91 @@
 
 <!-- New Leaf Modal -->
 <div class="modal" id="newLeafModal" ng-controller="forest.TreeController">
-  <div class="content" style="padding: 0;min-height:0;">
-    <div class="row authenticateHeader" style="padding:0;">
-      <a id="newLeafClose" class="close switch"  ng-click="closeNewLeafModal()" style="float:right;color:#444">
-        <i class="icon-remove-circle"></i>
-      </a>
-      <h3 style="padding-top:20px;">Create New Leaf</h3>
-    </div>
-    <form name="createLeafForm" ng-submit="newLeaf()" style="margin: 0;">
-      <div class="row" style="padding-bottom:30px;padding-top:30px;">
-        <div class="ten columns centered center-text">
-          <ul>
-            <li class="danger alert" id="invalidAddLeaf" ng-show="invalidAddLeaf"></li>
-            <li class="field" style="text-align:center;"><input id="leafName" class="text input" type="text" placeholder="Leaf" style="max-width:380px;" ng-model="leafName" required></li>
+    <div class="content" style="padding: 0;min-height:0;">
+        <div class="row authenticateHeader" style="padding:0;">
+            <a id="newLeafClose" class="close switch"  ng-click="closeNewLeafModal()" style="float:right;color:#444">
+                <i class="icon-remove-circle"></i>
+            </a>
+            <h3 style="padding-top:20px;">Create New Leaf</h3>
+        </div>
+        <div ng-show="leafCreate">
+            <form name="createLeafForm" ng-submit="newLeaf()" style="margin: 0;">
+                <div class="row" style="padding-bottom:30px;padding-top:30px;">
+                    <div class="ten columns centered center-text">
+                        <ul>
+                            <li class="danger alert" id="invalidAddLeaf" ng-show="invalidAddLeaf"></li>
+                            <li class="field" style="text-align:center;">
+                                <input id="leafName" class="text input" type="text" placeholder="Leaf" style="max-width:380px;" ng-model="leafName" required>   
+                            </li>
+            <!--
             <li class="field" style="text-align:center;"><input id="annotationImage" class="text file" type="file" placeholder="Annotation" style="max-width:380px;" ng-model="annotationImage"></li>
-          </ul>
+            -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="row authenticateFooter">
+                    <div style="text-align: center; padding-top:15px;">
+                        <div>
+                            <button type="submit" class="medium oval btn success">
+                                <a ng-click="newLeaf()">Create Leaf</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-      </div>
-      <div class="row authenticateFooter">
-        <div style="text-align: center; padding-top:15px;">
-          <div>
-            <button type="submit" class="medium oval btn success"><a ng-click="newLeaf()">Add Leaf</a></button>
-          </div>
+        <div ng-show="annoCreate">
+            <form name="createAnnotation" id="createAnnotation" action="" method="POST" enctype="multipart/form-data" data-file-upload="options" data-ng-controller="forest.TreeController" data-ng-class="{'fileupload-processing' : processing() || loadingFiles}" style="margin: 0;">
+                <div class="row fileupload-buttonbar">
+                   <div class="centered ten columns">
+                        <!-- The fileinput-button span is used to style the file input field as button -->
+                        <span class="medium btn primary fileinput-button" ng-class="{disabled: disabled}">
+                            <i class="icon-plus"></i>
+                            <span>Add files...</span>
+                            <input type="file" name="files[]" ng-disabled="disabled" class=" text file">
+                        </span>
+                        <button type="button" class="btn success medium" data-ng-click="submit()">
+                            <i class="icon-upload"></i>
+                            <span>Start upload</span>
+                        </button>
+                        <button type="button" class="btn warning medium" data-ng-click="cancel()">
+                            <i class="icon-ban-circle"></i>
+                            <span>Cancel upload</span>
+                        </button>
+                        <!-- The loading indicator is shown during file processing -->
+                        <div class="fileupload-loading"></div>
+                    </div>
+                </div>
+            </form>
         </div>
-      </div>
-    </form>
-  </div>
+        <div style="text-align: center; padding-top:15px;" class="row authenticateFooter">
+            <div>
+                <button type="submit" class="medium oval btn success">
+                    <a ng-click="noAnnotation()">I'm Done</a>
+                </button>
+            </div>
+        </div>
+                <!--
+                <div class="row" style="padding-bottom:30px;padding-top:30px;">
+                    <div class="ten columns centered center-text">
+                        <ul>
+                            <li class="danger alert" id="invalidAddLeaf" ng-show="invalidAddLeaf"></li>
+                            <li class="field" style="text-align:center;">
+                                <input id="annotationImage" class="text file" type="file" placeholder="Annotation" style="max-width:380px;" ng-model="annotationImage">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row authenticateFooter">
+                <div style="text-align: center; padding-top:15px;">
+                    <div>
+                        <button type="submit" class="medium oval btn success">
+                            <a ng-click="noAnnotation()">I'm Done</a>
+                        </button>
+                    </div>
+                </div>
+                -->
+    </div>
 </div>
 
 

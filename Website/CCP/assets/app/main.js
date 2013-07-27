@@ -95,30 +95,22 @@ AnnoTree.config(
 
 AnnoTree.factory('apiRoot', function() {
     return {
-        getDevRoot: function() {
-            return "http://23.21.235.254:3000";
-        },
-    getStageRoot: function() {
-      return "http://166.78.123.104:3000";
-    },
-    getRoot: function() {
-      return window.location.protocol + "//" + window.location.host;
-    }
+        getRoot: function() {
+            return window.location.protocol + "//" + window.location.host;
+        }
     }
 });
 
 AnnoTree.directive('postRender', function($timeout) {
-  return  { 
-    link: function(scope, elm, attrs) { 
-      $timeout( 
-        function() {
-          window.Gumby.init() 
-
-          $("#loadingScreen").hide();
-        }, 0
-      );
+    return  { 
+        link: function(scope, elm, attrs) { 
+            $timeout( 
+                function() {
+                    $("#loadingScreen").hide();
+                }, 0
+            );
+        }
     }
-  }
 });
 
 AnnoTree.directive('renderPane', function($timeout) {

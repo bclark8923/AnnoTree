@@ -1,33 +1,26 @@
-
-
-  <div style="background: url('img/forestBGDark.png') no-repeat center center; background-size:cover;height:100%;width:100%;">
+<div>
     <div ng-controller="authenticate.AuthenticateController">
-    <!--
-      This subview will show while the AngularJS app is loading since it's visible right in 
-      the page. Once the app kicks in, however, the calculated subview will determine the
-      appropriate layout to render.
-    -->
-    <div class="modal active authenticateModal" id="signUpModal">
-      <div class="content" style="max-width: 500px; max-height: 435px; max-height: 100%; min-height: 0%;padding: 0; top:10%;">
-        <div class="row authenticateHeader">
-          <a href="http://annotree.com"><img src="img/AnnoTreeLogoName.png" style="height: 60px;margin-top:10px;"/></a>
-        </div>
-        
-        <div ng-switch="subview">
-          <div ng-switch-when="loading" class="l-loading">
-            
-            <p>
-              Loading Application
-            </p>  
+        <div class="modal" id="signUpModal" data-backdrop="false" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                        <div class="modal-header authenticateHeader">
+                            <a href="http://annotree.com">
+                                <img src="img/AnnoTreeLogoName.png" style="height:60px"/>
+                            </a>
+                        </div>
+                    
+                        <div ng-switch="subview">
+                            <div ng-switch-when="loading" class="l-loading">
+                            <p>Loading Application</p>  
+                        </div>
 
-          </div>
-
-          <!-- Core layouts. -->
-          <div ng-switch-when="signup" ng-include=" 'assets/app/views/authenticate/signup.html' "></div>
-          <div ng-switch-when="login" ng-include=" 'assets/app/views/authenticate/login.html' "></div>
-          <div ng-switch-when="requestPassword" ng-include=" 'assets/app/views/authenticate/requestPassword.html' "></div>
-          <div ng-switch-when="resetPassword" ng-include=" 'assets/app/views/authenticate/resetPassword.html' "></div>
+                        <!-- Core layouts. -->
+                        <div ng-switch-when="signup" ng-include=" 'assets/app/views/authenticate/signup.html' "></div>
+                        <div ng-switch-when="login" ng-include=" 'assets/app/views/authenticate/login.html' "></div>
+                        <div ng-switch-when="requestPassword" ng-include=" 'assets/app/views/authenticate/requestPassword.html' "></div>
+                        <div ng-switch-when="resetPassword" ng-include=" 'assets/app/views/authenticate/resetPassword.html' "></div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>

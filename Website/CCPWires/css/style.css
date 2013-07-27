@@ -87,3 +87,38 @@ a:hover {
 	color: #444;
 	text-decoration: underline;
 }
+
+#dashboard {
+	height: 100%;
+	width: 20%;
+	float: left;
+	background-color: white;
+}
+
+#leafs {
+	height: 100%;
+	width: 75%;
+	float: left;
+	margin-left: 20px;
+}
+
+.card {
+	height: 175px;
+	width: 250px;
+	margin-bottom: 30px;
+	box-shadow: 0px 0px 10px #bbb;
+	border-radius: 5px 5px 0 0;
+}
+
+.cardName {
+	text-align: center;
+	background-color: white;
+	border-radius: 5px 5px 0 0;
+	padding: 3px;
+}
+
+.cardImg {
+	height: 75%;
+	width: 100%;
+	background-size: cover;
+}

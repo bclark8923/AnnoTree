@@ -3,6 +3,10 @@ body {
 	font-family: Lato;
 }
 
+a:hover {
+	color: #92DF74;
+}
+
 .btn-annotree {
 	color: white;
 	font-weight: bold;
@@ -47,9 +51,13 @@ body {
 	font-size: 12pt;
 }
 
+.labelCenter {
+	text-align: center;
+}
+
 #authenticateScreen {
 	max-width: 400px;
-	min-height: 300px;
+	min-height: 200px;
 	margin: 0 auto;
 	box-shadow: 0px 0px 10px #bbb;
 	margin-top: 10%;

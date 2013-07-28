@@ -85,12 +85,12 @@
             }
 
             $scope.openNewTreeModal = function (forest) {
-                $("#newTreeModal").addClass('active');
+                $("#newTreeModal").modal('show');
                 $rootScope.curForestAdd = forest.id;
             }
 
             $scope.closeNewTreeModal = function () {
-                $("#newTreeModal").removeClass('active');
+                $("#newTreeModal").modal('hide');
                 $("#invalidAddTree").html('');
                 $("#treeName").val('');
                 $("#treeDescription").val('');
@@ -229,7 +229,7 @@
 
 
             $scope.openModifyForestModal = function (forest) {
-                $("#modifyForestModal").addClass('active');
+                $("#modifyForestModal").modal('show');
                 $rootScope.modifyForest = forest;
                 $rootScope.originalName = forest.name;
             }
@@ -240,7 +240,7 @@
             }
 
             $scope.closeModifyForestModal = function () {
-                $("#modifyForestModal").removeClass('active');
+                $("#modifyForestModal").modal('hide');
                 $("#invalidModifyForest").html('');
                 $rootScope.modifyForest = null;
                 $scope.invalidModifyForest = false; 
@@ -308,7 +308,7 @@
             }
 
             $scope.deleteForestCallback = function() {
-                $("#deleteCallbackModal").addClass('active');
+                $("#deleteCallbackModal").modal('show');
             }
 
             $scope.deleteForest = function() {
@@ -327,7 +327,7 @@
                             }
                         }
                         $scope.closeModifyForestModal();
-                        $("#deleteCallbackModal").removeClass('active');
+                        $("#deleteCallbackModal").modal('hide');
 
                     },
                     function( response ) {
@@ -364,11 +364,11 @@
             }
 
             $scope.openNewForestModal = function () {
-                $("#newForestModal").addClass('active');
+                $("#newForestModal").modal('show');
             }
 
             $scope.closeNewForestModal = function () {
-                $("#newForestModal").removeClass('active');
+                $("#newForestModal").modal('hide');
                 $("#invalidAddForest").html('');
                 $("#forestName").val('');
                 $scope.invalidAddForest = false; 
@@ -376,12 +376,10 @@
             }
 
             function addForest(newForest) {
-
                 newForest.trees = [];
                 newForest.trees.push($scope.newTreeHolder);
                 $rootScope.forests.push(newForest);
                 $scope.closeNewForestModal();
-
             }
 
             $scope.newForest = function() {

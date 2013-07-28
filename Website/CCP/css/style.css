@@ -17,7 +17,7 @@ body {
     height: 100%;
     width: 100%;
     color: #fff;
-    background: url('../img/forestBGDark.png');
+    background: url('../img/forestBG2.png');
 }
 a {    
     color: #444;
@@ -67,18 +67,21 @@ textarea {
 }
 
 .btn-annotree {
-    color: #444;
+    color: #fff;
     font-weight: bold;
     background-color: #92DF74;
     border-color: #92DF74;
 }
-
+.btn-annotree:hover {
+    background-color: #83C968;
+}
+/*
 .btn-annotree a {
-    color: #444;
+    color: #fff;
     font-weight: bold;
     text-decoration: none;
 }
-
+*/
 .btn-annotree > a:hover {
   color: #fff;
 }
@@ -115,6 +118,23 @@ textarea {
     margin-bottom: 5px;
     color: #b94a48;
 }
+
+/* -----------------------
+ * Modal Settings
+ * ----------------------- */
+.modal-content {
+    color: #444;
+    text-align: center;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+.tipText {
+    font-size: 9pt;
+}
+
 /* -----------------------
  * CCP Header Settings
  * ----------------------- */
@@ -166,7 +186,7 @@ textarea {
 
 .userSettingsBox {
     box-shadow: 1px 1px 10px #bbb;
-    background-color: white;
+    background-color: #fff;
     width: 250px;
     float: right;
     position: absolute;
@@ -216,7 +236,7 @@ textarea {
     right: 6px;
     border-style: dashed dashed solid;
     border-color: transparent;
-    border-bottom-color: white;
+    border-bottom-color: #fff;
     border-width: 0 10px 10px;
     cursor: default;
     display: -moz-inline-box;
@@ -245,18 +265,6 @@ textarea {
     left: -50%;
     height: 30px;
     margin-top: 4px;
-}
-
-#feedbackModal {
-    color: #444;
-}
-
-#feedbackModal .modal-content {
-    text-align: center;
-}
-
-#feedbackModal .modal-footer {
-    text-align: center;
 }
 
 /* -----------------------
@@ -290,7 +298,7 @@ textarea {
     margin: 0 auto;
     box-shadow: 0px 0px 10px #bbb;
     margin-top: 10%;
-    background-color: white;
+    background-color: #fff;
     position: relative;
     color: #444;
 }
@@ -327,6 +335,75 @@ textarea {
     text-decoration: underline;
 }
 
+/* -----------------------
+ * Forest Settings
+ * ----------------------- */
+.row.forest {
+    text-align: center;
+    height: 50px;
+}
+
+.forestName {
+    text-align: center;
+    color: #444;
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 0px 0px 10px #bbb;
+    border-radius: 5px;
+}
+
+.forestName:hover {
+    color: #92DF74;
+    cursor: pointer;
+}
+
+.card {
+    margin: 0 auto;
+    height: 175px;
+    width: 220px;
+    margin-bottom: 30px;
+    box-shadow: 0px 0px 10px #bbb;
+    border-radius: 5px 5px 0 0;
+}
+
+.cardName {
+    text-align: center;
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+    padding: 3px;
+    height: 25px;
+    color: #444;
+}
+
+.cardImg {
+    max-height: 150px;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+.cardImgNew {
+    text-align: center;
+    font-size: 90pt;
+    line-height: 90pt;
+    font-weight: bold;
+    color: #444;
+    background-color: #ccc;
+}
+
+.cardImgNew:hover {
+    cursor: pointer;
+    color: #92DF74;
+    background-color: #444;
+}
+#forestContainer {
+    height: 100%;
+    width: 100%;
+    padding-top: 40px;
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 /* NOT VERIFIED */
 /*
 .valign > article { 
@@ -644,7 +721,7 @@ a {
 
 /*
 .cardTitleBar {
-  background-color: transparent; /* #f7f8f5; */ /* #84db69; #aff19a; */
+  background-color: transparent; /* #f7f8f5; */ /* #84db69; #aff19a; */ /*
   color: white; /*#84db69;*/ /*
   height: 30px;
   font-size: 12pt;
@@ -694,7 +771,7 @@ a {
   /*-webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;*/ /*
-  background-color: #f7f8f5; /*white;*/
+  background-color: #f7f8f5; /*white;*/ /*
   background: transparent;/* url('../img/forestBGDark.png');*/ /*
   background-size: cover;
 }

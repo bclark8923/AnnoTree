@@ -1,111 +1,121 @@
 <!-- New Forest Modal -->
-<div class="modal" id="newForestModal" ng-controller="forest.ForestController">
-  <div class="content" style="padding: 0;min-height:0;">
-    <div class="row authenticateHeader" style="padding:0;">
-      <a id="newForestClose" class="close switch" ng-click="closeNewForestModal()" style="float:right;color:#444"><i class="icon-remove-circle"></i></a>
-      <h3 style="padding-top:20px;">Create New Forest</h3>
+<div class="modal" id="newForestModal" ng-controller="forest.ForestController" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" ng-click="closeNewForestModal()">
+                    <i class="icon-remove-circle"></i>
+                </button>
+                <h3 class="modal-title">Create New Forest</h3>
+            </div>
+            <form name="createForestForm" ng-submit="newForest()">
+                <div class="modal-body">
+                    <div class="error-text" id="invalidAddForest" ng-show="invalidAddForest"></div>
+                    <div class="form-group">
+                        <input id="forestName" class="form-control" type="text" placeholder="Forest" ng-model="forestName" required />
+                        <span class="tipText">Tip: A forest is a collection of Trees (Applications) such as a company, organization, or more</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-annotree">
+                        <strong>Add Forest</strong>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <form name="createForestForm" ng-submit="newForest()" style="margin: 0;">
-      <div class="row" style="padding-bottom:30px;padding-top:30px;">
-        <div class="ten columns centered center-text">
-          <ul>
-            <li class="danger alert" id="invalidAddForest" ng-show="invalidAddForest"></li>
-            <li class="field" style="text-align:center;"><input id="forestName" class="text input" type="text" placeholder="Forest" style="max-width:380px;" ng-model="forestName" required></li>
-            <li style="font-size:12pt;">Tip: A forest is a collection of Trees (Applications) such as a company, organization, or more.</li>
-            <!--<li class="field" style="text-align:center;"><input id="forestDescription" class="email input" type="text" placeholder="Forest Description" style="max-width:380px;" ng-model="forestDescription" required></li>-->
-          </ul>
-        </div>
-      </div>
-      <div class="row authenticateFooter">
-        <div style="text-align: center; padding-top:15px;">
-          <div>
-            <button type="submit" class="medium oval btn success"><a ng-click="newForest()">Add Forest</a></button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
 </div>
 
 <!-- Modify Forest Modal -->
-<div class="modal" id="modifyForestModal" ng-controller="forest.ForestController" ng-model="modifyForest">
-  <div class="content" style="padding: 0;min-height:0;">
-    <div class="row authenticateHeader" style="padding:0;">
-      <a id="newForestClose" class="close switch" ng-click="closeModifyForestModal()" style="float:right;color:#444"><i class="icon-remove-circle"></i></a>
-      <h3 style="padding-top:20px;">Update Forest</h3>
-    </div>
-    <form name="modifyForestForm" ng-submit="modifyForestFn()" style="margin: 0;">
-      <div class="row" style="padding-bottom:30px;padding-top:30px;">
-        <div class="ten columns centered center-text">
-          <ul>
-            <li class="danger alert" id="invalidModifyForest" ng-show="invalidModifyForest"></li>
-            <li class="field" style="text-align:center;"><input id="forestName" class="text input" type="text" placeholder="Forest" style="max-width:380px;" ng-model="modifyForest.name" required></li>
-            <!--<li class="field" style="text-align:center;"><input id="forestDescription" class="email input" type="text" placeholder="Forest Description" style="max-width:380px;" ng-model="forestDescription" required></li>-->
-          </ul>
+<div class="modal" id="modifyForestModal" ng-controller="forest.ForestController" ng-model="modifyForest" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="closeModifyForestModal()">
+                    <i class="icon-remove-circle"></i>
+                </button>
+                <h3 class="modal-title">Update Forest</h3>
+            </div>
+            <form name="modifyForestForm" ng-submit="modifyForestFn()">
+                <div class="modal-body">
+                    <div class="error-text" id="invalidModifyForest" ng-show="invalidModifyForest"></div>
+                    <div class="form-group">
+                        <input id="forestName" class="form-control" type="text" placeholder="Forest name" ng-model="modifyForest.name" required />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-annotree" ng-click="modifyForestFn()">
+                        <strong>Update Forest</strong>
+                    </button>
+                    <button type="button" class="btn btn-danger" ng-click="deleteForestCallback()">
+                        <strong>Delete Forest</strong>
+                    </button>
+                    <button type="button" class="btn btn-warning" ng-click="cancelModifyForestModal()">
+                        <strong>Cancel</strong>
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="row authenticateFooter">
-        <div style="text-align: center; padding-top:15px;">
-          <div>
-            <button type="submit" class="medium oval btn success"><a ng-click="modifyForestFn()">Update Forest</a></button>
-            <button type="submit" class="medium oval btn danger"><a ng-click="deleteForestCallback()">Delete Forest</a></button>
-            <button type="submit" class="medium oval btn default cancelModal"><a ng-click="cancelModifyForestModal()">Cancel</a></button>
-          </div>
-        </div>
-      </div>
     </form>
-  </div>
 </div>
 
-<div class="modal" id="deleteCallbackModal" ng-controller="forest.ForestController">
-  <div class="content" style="padding: 0;min-height:0;">
-    <div class="row" style="padding-bottom:30px;padding-top:30px;">
-      <div class="ten columns centered center-text">
-        <ul>
-          <li class="field" style="text-align:center;">Are you sure you want to delete this?</li>
-        </ul>
-      </div>
-    </div>
-    <div class="row authenticateFooter">
-      <div style="text-align: center; padding-top:15px;">
-        <div>
-          <button type="submit" class="medium oval btn danger"><a ng-click="deleteForest()">Yes</a></button>
-          <button type="submit" class="medium oval btn default cancelModal" ng-controller="AppController"><a ng-click="hideDelete()">No</a></button>
+<!-- Delete forests modal -->
+<div class="modal" id="deleteCallbackModal" ng-controller="forest.ForestController" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="icon-remove-circle"></i>
+                </button>
+                <h3 class="modal-title">Delete Forest</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" ng-click="deleteForest()">
+                    <strong>Yes</strong>
+                </button>
+                <button type="button" class="btn btn-annotree" data-dismiss="modal">
+                    <strong>No</strong>
+                </button>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
 <!-- New Tree Modal -->
-<div class="modal" id="newTreeModal" ng-controller="forest.ForestController">
-  <div class="content" style="padding: 0;min-height:0;">
-    <div class="row authenticateHeader" style="padding:0;">
-      <a id="newTreeClose" class="close switch" ng-click="closeNewTreeModal()" style="float:right;color:#444">
-        <i class="icon-remove-circle"></i>
-      </a>
-      <h3 style="padding-top:20px;">Create New Tree</h3>
+<div class="modal" id="newTreeModal" ng-controller="forest.ForestController" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="closeNewTreeModal()">
+                    <i class="icon-remove-circle"></i>
+                </button>
+                <h3 class="modal-title">Create New Tree</h3>
+            </div>
+            <form name="createTreeForm" ng-submit="newTree()">
+                <div class="modal-body">
+                    <p class="error-text" id="invalidAddTree" ng-show="invalidAddTree"></p>
+                    <div class="form-group">
+                        <input id="treeName" class="form-control" type="text" placeholder="Tree" ng-model="treeName" required />
+                    </div>
+                    <div class="form-group">
+                        <input id="treeDescription" class="form-control" type="text" placeholder="Tree description" ng-model="treeDescription" required />
+                        <span class="tipText">Tip: A Tree represents an application or project</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-annotree">
+                        <strong>Add Tree</strong>
+                    </button>
+                    <button type="button" class="btn btn-warning" ng-click="closeNewTreeModal()">
+                        <strong>Cancel</strong>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <form name="createTreeForm" ng-submit="newTree()" style="margin: 0;">
-      <div class="row" style="padding-bottom:30px;padding-top:30px;">
-        <div class="ten columns centered center-text">
-          <ul>
-            <li class="danger alert" id="invalidAddTree" ng-show="invalidAddTree"></li>
-            <li class="field" style="text-align:center;"><input id="treeName" class="text input" type="text" placeholder="Tree" style="max-width:380px;" ng-model="treeName" required></li>
-            <li class="field" style="text-align:center;"><input id="treeDescription" class="email input" type="text" placeholder="Tree Description" style="max-width:380px;" ng-model="treeDescription" required></li>
-            <li style="font-size:12pt;">Tip: A Tree represents an application or project.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="row authenticateFooter">
-        <div style="text-align: center; padding-top:15px;">
-          <div>
-            <button type="submit" class="medium oval btn success"><a ng-click="newTree()">Add Tree</a></button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
 </div>
 
 

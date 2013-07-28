@@ -88,23 +88,115 @@ a:hover {
 	text-decoration: underline;
 }
 
+.navbar {
+	background-color: #92DF74;
+	min-height: 40px;
+}
+
+.navbar-nav>li>a, .navbar-nav>.active>a {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: white;
+	background-color: transparent;
+}
+
+.navbar-nav>li>a:hover, .navbar-nav>.active>a:focus {
+	color: white;
+	background-color: #57AF35;
+}
+
+.userLinkDiv {
+	position: absolute;
+	right: 20px;
+	top: 2px;
+	width: 30px;
+}
+
+#userIcon {
+	border: 2px solid white;
+	height: 30px;
+	width: 30px;
+	margin-top: 3px;
+}
+
+.logoutArrow {
+	margin: 36px 0 0;
+	right: 6px;
+	border-style: dashed dashed solid;
+	border-color: transparent;
+	border-bottom-color: white;
+	border-width: 0 10px 10px;
+	cursor: default;
+	display: -moz-inline-box;
+	display: inline-block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	position: absolute;
+	top: 0;
+	width: 0;
+	z-index: 1000;
+	display: none;
+}
+
+.userSettingsBox {
+	box-shadow: 1px 1px 10px #bbb;
+	background-color: white;
+	width: 250px;
+	float: right;
+	position: absolute;
+	top: 43px;
+	right: 15px;
+	height: 120px;
+	z-index: 999;
+	border: 1px solid #bbb;
+	display: none;
+}
+
+.userSettings.active {
+	display: block;
+}
+
+.userSettingsName {
+	margin-left: 10px;
+	margin-top: 5px;
+	height: 23px;
+	color: #888;
+	font-size: 13pt;
+}
+
+.logoutButton {
+	float: right;
+	margin-right: 10px;
+	margin-top: 0px;
+}
+
+#wrapper {
+	margin-top: 40px;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
 #dashboard {
 	height: 100%;
-	width: 20%;
+	width: 23%;
 	float: left;
 	background-color: white;
+	position: fixed;
 }
 
 #leafs {
 	height: 100%;
 	width: 75%;
 	float: left;
-	margin-left: 20px;
+	margin-left: 25%;
+	padding-top: 20px;
 }
 
 .card {
+	margin: 0 auto;
 	height: 175px;
-	width: 250px;
+	width: 220px;
 	margin-bottom: 30px;
 	box-shadow: 0px 0px 10px #bbb;
 	border-radius: 5px 5px 0 0;
@@ -115,10 +207,33 @@ a:hover {
 	background-color: white;
 	border-radius: 5px 5px 0 0;
 	padding: 3px;
+	height: 25px;
 }
 
 .cardImg {
-	height: 75%;
+	max-height: 150px;
+	height: 100%;
 	width: 100%;
 	background-size: cover;
+}
+
+@media (max-width: 768px) {
+	#leafs {
+		margin-left: 0;
+		width: 100%;
+	}
+
+	#dashboard {
+		display: none;
+	}
+}
+
+
+
+@media (max-width: 480px) {
+	.card {
+		height: 100px;
+		width: 125px;
+		margin-bottom: 50px;
+	}
 }

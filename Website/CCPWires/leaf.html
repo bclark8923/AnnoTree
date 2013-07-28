@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="nav-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Documents</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="userLinkDiv">
+          <a href="" class="userLink toggle active">
+            <img id="userIcon" src="img/user.png">
+          </a>
+          <span class="logoutArrow userSettings"></span>
+        </div>
+          <div class="responsiveShow" style="width: 40px;height: 40px;margin-top: 5px;">
+            <a href="" id="paneToggle" style="padding:0;text-align:center;"><i class="icon-reorder responsiveShow" style="color:white;font-size:18pt;"></i></a>
+          </div>
+      </div>
+    </div>
+
+    <div id="userSettings" class="userSettingsBox userSettings">
+        <div>
+            <img style="float: left;height: 60px;margin-left: 10px;margin-top: 3px;" src="img/user.png">    
+            <p class="userSettingsName ng-binding" style="margin-left:80px;">Brian Clark</p>
+        </div>
+        <div style="position: absolute; bottom: 0; height: 40px; width: 248px; background-color: #eee;border-top:1px solid #bbb;">
+            <!-- Link to settings Modal - Modal To Be Implmented -->
+            <!-- <p class="btn success small settingsButton" style="margin-top:10px;border:1px solid #bbb;"><a class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p> -->
+            <p style="margin-top:5px;" class="btn btn-annotree logoutButton btn-small">Logout</p>
+        </div>
+    </div>
+
+    <div id="wrapper">
+      <div id="dashboard">
+        <div>
+          <img class="appLogo" src="img/logo.png"><span class="appName">AnnoTree CCP</span>
+        </div>
+        <div style="margin-top:10px;">
+          <p style='font-weight:bold'>API Key:</p>
+          <p>o3qpioq4ijpo4fqpiq4ipf3ip3qfoipq3490324foiq2foipq3f</p>
+        </div>
+        <hr/>
+        <div style="margin-top:20px;">
+          + <i class="icon-leaf"></i>
+          <i class="icon-group"></i><br/>
+        </div>
+      </div>
+
+      <div id="leafs">
+        <div class="container" style="height:100%;">
+            <div class="col-11" style="height:100%;">
+              <div class="cardLarge">
+                <div class="cardNameLarge">
+                  Test Name
+                </div>
+                <div class="leafHolder">
+                  <div class="cardImgLarge">
+                    <img class="leafImage" src="img/photo1.PNG">
+                  </div>
+                  <div class="leafComments">
+                    <div class="leafComment">
+                      <img class="userCommentImage" src="img/user.png"> <span class="userCommentName">Brian Clark</span> <span class="userComment">Comment 1 </span>
+                    </div>
+                    <div class="leafComment">
+                      <img class="userCommentImage" src="img/user.png"> <span class="userCommentName">Brian Clark</span> <span class="userComment">Comment 2 </span>
+                    </div>
+                  </div>
+                  <div class="addComment">
+                    <input type="text" placeholder="New Comment">
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Optionally enable responsive features in IE8 -->
+    <script src="js/respond.js"></script>
+  </body>
+</html>

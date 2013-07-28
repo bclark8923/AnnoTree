@@ -1,9 +1,8 @@
-
-
 <div ng-include=" 'assets/app/views/forest/forest-modals.html' "></div>
 <div ng-switch="subview">
-    
     <div id="mainContent" ng-controller="forest.ForestController">
+        
+<!--
         <div id="forestContainer">
             <div id="treeHeader" class="valign">
                 <div class="responsiveShowTC" style="text-align:center;width:100%">
@@ -33,14 +32,12 @@
                     </div>
                 </div>
                 <div ng-repeat="forest in forests" post-render>
-                    <div class="twelve colgrid">
                         <div class="forestHeader"> 
-                            <!-- <hr class="forestHR"/> -->
                             <span class="forestName" ng-click="openModifyForestModal(forest)">{{forest.name}} <i class="icon-cog" style="color:white;margin:0;margin-right:-5px;"></i></span>
                         </div>
                         <div class="row" ng-repeat="treeRow in (forest.trees.length/3 | threeColumnFilter)"> 
                             
-                            <div class="four columns" ng-repeat="tree in forest.trees.slice(3*$index, 3*$index + 3)"> 
+                            <div class="col-sm-4" ng-repeat="tree in forest.trees.slice(3*$index, 3*$index + 3)"> 
                                 <div ng-switch="tree.id">
                                     <div ng-switch-when="-1">
                                         <div class="cardHolder">
@@ -68,21 +65,18 @@
                                                         <div ng-switch="tree.logo" style="max-height:130px;padding-top:10px;">
                                                             <div ng-switch-when="NULL">
                                                                 <div class="logo">
-                                                                    <img class="treeLogo" src="img/tree01.png" gumby-retina />
+                                                                    <img class="treeLogo" src="img/tree01.png" />
                                                                 </div>
                                                             </div>
                                                             <div ng-switch-default> 
                                                                 <div class="logo">
-                                                                    <img class="treeLogo" ng-src="{{tree.logo}}" gumby-retina />
+                                                                    <img class="treeLogo" ng-src="{{tree.logo}}" />
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </a>
                                                     <div class="cardLabel">{{tree.description}}</div>
                                                 </div>
-                                                <!-- <div class="treeModify">
-                                                    <a href class="switch" ng-click="openModifyTreeModal(tree)"><i class="icon-cog"></i></a>
-                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -90,9 +84,9 @@
                             </div>
                             
                         </div>
-                    </div>
                 </div>
             </div>
+            -->
         </div>
     </div>
 

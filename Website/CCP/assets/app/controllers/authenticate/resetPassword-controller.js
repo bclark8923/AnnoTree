@@ -7,18 +7,24 @@
         function( $scope, $location, requestContext, authenticateService, _ ) {
 
             // --- Define Controller Methods. ------------------- //
+            
+            // --- Define Scope Methods. ------------------------ //
             $scope.resetPassword = function() {
                 var token = ($location.search()).token;
                 //alert('token: ' + token);
                 var email = $scope.email;
                 var password = $scope.password;
+                if (typeof password === 'undefined') {
+                    password = '';
+                }
 
-                if (email) { // email is valid
+                if (email && password.length >= 6) { // email  and password are valid
+                    $('#authenticateWorking').addClass('active');
                     var promise = authenticateService.resetPassword(email, password, token);
                     
                     promise.then(
                         function(response) { // success
-                            $scope.successMsg = true;
+                            $('#textMsg').html('Your password has been successfully reset. Please login to continue.');
                             $scope.returnToLogin = true;
                             $scope.passwordInput = false;
                             $scope.emailInput = false;
@@ -41,12 +47,16 @@
                                 $scope.requestPassword = true;
                             }
                         }
-                    ); 
+                    );
+                    $('#authenticateWorking').removeClass('active');
+                } else if (!email) {
+                    $("#errorMsg").html("Please enter a valid email");
+                    $scope.errorMsg = true;
+                } else if (!password.length < 6) {
+                    $("#errorMsg").html("Password should contain at least six characters and one number");
+                    $scope.errorMsg = true; 
                 }
             }
-
-            // --- Define Scope Methods. ------------------------ //
-
 
             // --- Define Controller Variables. ----------------- //
 
@@ -57,6 +67,7 @@
 
             // The subview indicates which view is going to be rendered on the page.
             $scope.subview = renderContext.getNextSection();
+
             // --- Bind To Scope Events. ------------------------ //
 
             // I handle changes to the request context.
@@ -74,7 +85,6 @@
             );
 
             // --- Initialize. ---------------------------------- //
-            $scope.successMsg = false;
             $scope.errorMsg = false;
             $scope.emailInput = true;
             $scope.passwordInput = true;

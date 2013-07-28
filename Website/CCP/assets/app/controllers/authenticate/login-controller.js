@@ -49,6 +49,7 @@
                 }
                 else {
                     //send API call
+                    $('#authenticateWorking').addClass('active');
                     var promise = authenticateService.login(email, password);
 
                     promise.then(
@@ -100,6 +101,7 @@
 
                         }
                     );
+                    $('#authenticateWorking').removeClass('active');
                 }
             }
 

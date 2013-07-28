@@ -1,5 +1,4 @@
 (function( ng, app ){
-
     "use strict";
 
     app.controller(
@@ -131,20 +130,12 @@
                 }
             );
 
-
             // --- Initialize. ---------------------------------- //
             $scope.setWindowTitle( "AnnoTree" );
 
-            if(!$scope.subview) {
-                window.Gumby.init();
-            }
-            // ...
-
-
         }
     );
-
-})( angular, AnnoTree );
+}) ( angular, AnnoTree );
 /*
 $(document).ready(function() {
       settingsPane = new SlidingPane({

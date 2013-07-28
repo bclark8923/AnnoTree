@@ -1,26 +1,22 @@
-<div ng-switch="subview" ng-controller="authenticate.LoginController">
-    <form name="loginForm" ng-submit="validateLogin()" style="padding-top: 30px; margin: 0;">
-        <div class="modal-body">
-            <div class="row" style="min-height:120px;">
-                <div class="ten columns centered center-text">
-                    <ul>
-                        <li class="danger alert" id="validateError" ng-show="invalidLogin"></li>
-
-                        <li class="field" style="text-align:center;"><input id="loginEmail" class="email input" type="email" placeholder="Email" style="max-width:380px;" ng-model="loginEmail" required></li>
-                        <li class="field" style="text-align:center;"><input id="loginPassword" class="password input" type="password" placeholder="Password" style="max-width:380px;" ng-model="loginPassword" required></li>
-                    </ul>
-                </div>
+<div ng-switch="subview" ng-controller="authenticate.LoginController" class="authenticateContent">
+    <p class="authenticateMessage">Login</p>
+    <form name="loginForm" ng-submit="validateLogin()">
+        <fieldset>
+            <div class="error-text" id="validateError" ng-show="invalidLogin"></div>
+            <div class="form-group">
+                <input id="loginEmail" class="form-control" type="email" placeholder="Email" ng-model="loginEmail" required>
             </div>
-        </div>
-        <div class="modal-footer authenticateFooter">
-            <div style="text-align: center;">
-                <div>
-                    <button type="submit" class="medium btn success"><a ng-click="validateLogin()">Login</a></button>
-                    <div>
-                        <p style="text-align:center;width:100%" class="forgotPassword"><a href="#/authenticate/requestPassword" style="color:#444;text-decoration:underline;">Forgot Password?</a></p>
-                    </div>
-                </div>
+            <div class="form-group">
+                <input id="loginPassword" class="form-control" type="password" placeholder="Password" ng-model="loginPassword" required>
             </div>
-        </div>
+            <div class="authenticateFooter">
+                <button type="submit" class="btn btn-annotree" ng-click="validateLogin()">
+                    <strong>Login</strong>
+                </button>
+                <p class="authenticateLinkParagraph">
+                    <a href="#/authenticate/requestPassword" class="authenticateLink">Forgot Password?</a>
+                </p>
+            </div>
+        </fieldset>
     </form>
 </div>

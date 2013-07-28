@@ -1,24 +1,27 @@
-<div ng-switch="subview" ng-controller="authenticate.SignupController">
-    <form name="signUpForm" ng-submit="validateSignUp()" style="margin: 0;">
-        <div class="modal-body" style="min-height:250px;">
-            <div class="ten columns centered center-text">
-                <p style="padding-top: 10px;padding-bottom: 10px; text-align: center; font-size:14pt">Sign up for our beta today!</p>
-                <ul>
-                    <li class="danger alert" id="validateError" ng-show="invalidSignUp"></li>
-                    <li class="field" style="text-align:center;"><input id="signUpName" class="text input" type="text" placeholder="Name" style="max-width:380px;" ng-model="signUpName" required></li>
-                    <li class="field" style="text-align:center;"><input id="signUpEmail" class="email input" type="email" placeholder="Email" style="max-width:380px;" ng-model="signUpEmail" required></li>
-                    <li class="field" style="text-align:center;"><input id="signUpPassword" class="password input" type="password" placeholder="Password" style="max-width:380px;" ng-model="signUpPassword" required></li>
-                    <li style="font-size:10pt">Tip: At least six characters and one number</li>
-                </ul>
+<div ng-switch="subview" ng-controller="authenticate.SignupController" class="authenticateContent">
+    <p class="authenticateMessage">Sign up for our beta today!</p>
+    <form name="signUpForm" ng-submit="validateSignUp()">
+        <fieldset>
+            <div class="error-text" id="validateError" ng-show="invalidSignUp"></div>
+            <div class="form-group">
+                <input id="signUpName" class="form-control" type="text" placeholder="Name" ng-model="signUpName" required />
             </div>
-        </div>
-        <div class="modal-footer authenticateFooter">
-            <div style="text-align: center;">
-                <div>
-                    <button type="submit" class="medium oval btn success"><a ng-click="validateSignUp()">Sign Up <i class="icon-circle-arrow-right"></i></a></button>
-                    <p style="padding-top: 5px; padding-bottom: 5px; text-align: center; font-size:10pt;">Already have an account? <a href="#authenticate/login" style="color:#444;text-decoration:underline;">Login Here</a></p>
-                </div>
+            <div class="form-group">
+                <input id="signUpEmail" class="form-control" type="email" placeholder="Email" ng-model="signUpEmail" required />
             </div>
-        </div>
+            <div class="form-group">
+                <input id="signUpPassword" class="form-control" type="password" placeholder="Password" ng-model="signUpPassword" required />
+                <span style="font-size:9pt">Tip: Password should contain at least six characters and one number</span>
+            </div>
+            <div class="authenticateFooter">
+                <button type="submit" class="btn btn-annotree" ng-click="validateSignUp()">
+                    <strong>Sign Up</strong>&nbsp;&nbsp;<i class="icon-circle-arrow-right"></i>
+                </button>
+                <p class="authenticateLinkParagraph">
+                    Already have an account?&nbsp;
+                    <a href="#authenticate/login">Login Here</a>
+                </p>
+            </div>
+        </fieldset>
     </form>
 </div>

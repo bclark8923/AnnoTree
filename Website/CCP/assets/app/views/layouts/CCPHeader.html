@@ -1,7 +1,6 @@
-<div ng-controller="layouts.StandardController" class="l-standard">
-
-
-        <!-- Static User Settigs Box -->
+<div ng-controller="layouts.StandardController">
+    
+        <!-- Static User Settigs Box 
         <div id="userSettings" class="userSettingsBox userSettings">
             <div>
                 <img ng-src="{{user.avatar}}" gumby-retina="" style="
@@ -13,18 +12,19 @@
                 <p class="userSettingsName" style="margin-left:80px;">{{user.name}}</p>
             </div>
             <div style="position: absolute; bottom: 0; height: 40px; width: 248px; background-color: #eee;border-top:1px solid #bbb;">
-                <!-- Link to settings Modal - Modal To Be Implmented -->
-                <!-- <p class="btn success small settingsButton" style="margin-top:10px;border:1px solid #bbb;"><a class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p> -->
+                 Link to settings Modal - Modal To Be Implmented
+                 <p class="btn success small settingsButton" style="margin-top:10px;border:1px solid #bbb;"><a class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p>
                 <p style="margin-top:10px;border:1px solid #bbb;" class="btn success small logoutButton"><a href="" ng-click="logout()">Logout</a></p>
             </div>
-        </div>
-        <button class="medium success btn" style="position:fixed;bottom:0;left:50px;z-index:10000;border:2px solid #84db69;border-top-left-radius:4px;border-top-right-radius:4px;border-top-left-radius:4px;">
-            <a style="font-weight:bold" ng-click="openFeedback()" class="switch active">
-                Feedback
-            </a>
-        </button>
-        <!-- App -->
-        <div id="wrapper" class="switch" gumby-trigger="|.userSettings">
+        </div> --> 
+
+    <button class="btn btn-annotree" style="position:fixed;bottom:0;left:50px;z-index:10000;border:2px solid #84db69;border-bottom-left-radius:0px;border-bottom-right-radius:0px;">
+        <a style="font-weight:bold" ng-click="openFeedback()" class="switch active">
+            Feedback
+        </a>
+    </button>
+
+        <!-- App 
             <div class="navbar pretty" id="nav1">
                 <ul style="float:left;margin-left:10px;height:40px;">
                     <li style="height:40px;width:40px;"><a style="height:40px;width:40px;line-height:38px;padding:0;" href="#/app"><i class="icon-globe"></i></a></li>
@@ -51,61 +51,85 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Include Body Content. -->
-            <div ng-switch="subview" class="l-body">
-                <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/index.html' "></div>
-                <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/index.html' "></div>
-
-                <div ng-switch-when="docs" ng-include=" 'assets/app/views/docs/index.html' "></div>
-
-                <div ng-switch-when="forestFire" ng-include=" 'assets/app/views/layouts/404.html' "></div>
-            </div>
-        
+            --> 
+    <!-- App -->
+    <!-- top navbar -->
+    <div class="navbar navbar-fixed-top">
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#/app"><i class="icon-home"></i>&nbsp;Home</a>
+                </li>
+                <li>
+                    <a href="#/docs"><i class="icon-folder-open"></i>&nbsp;Documents</a>
+                </li>
+            </ul>
         </div>
-
-        <!-- slide over page for mobile options -->
-        <div id="mobileOptions" render-pane>
-            <div ng-switch="subview" class="l-body">
-                <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/mobilePane.html' "></div>
-                <div ng-switch-when="docs" ng-include=" 'assets/app/views/forest/mobilePane.html' "></div>
-                <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/mobilePane.html' "></div>
-            </div>
+        <div id="userLinkDiv">
+            <a href="" class="userLink toggle active">
+                <img id="userIcon" src="img/user.png">
+            </a>
+            <span class="logoutArrow userSettings"></span>
         </div>
-        
-<!-- Feedback Modal -->
-<div class="modal" id="feedbackModal" ng-controller="layouts.StandardController">
-  <div class="content" style="padding: 0;min-height:0;">
-    <div class="row authenticateHeader" style="padding:0;">
-      <a id="feedbackClose" class="close switch" ng-click="closeFeedbackModal()" style="float:right;color:#444"><i class="icon-remove-circle"></i></a>
-      <h3 style="padding-top:20px;">Submit Feedback</h3>
+        <div class="responsiveShow" style="width: 40px;height: 40px;margin-top: 5px;">
+            <a href="" id="paneToggle" style="padding:0;text-align:center;">
+                <i class="icon-reorder" style="color:white;font-size:18pt;"></i>
+            </a>
+        </div>
     </div>
-    <form name="feedbackForm" ng-submit="submitFeedback()" style="margin: 0;">
-      <div class="row" style="padding-bottom:30px;padding-top:30px;">
-        <div class="ten columns centered center-text">
-          <ul>
-            <li class="field" style="text-align:center" ng-show="feedbackAbout">Let us know what features you want to see next, any problems you have while using AnnoTree, or anything else you feel that we should be aware of.</li>
-            <li class="danger alert" id="invalidSubmitFeedback" ng-show="invalidSubmitFeedback"></li>
-            <li class="field" style="text-align:center;">
-            <textarea id="feedback" class="textarea input" type="text" placeholder="Feedback" ng-model="feedback" required ng-show="feedbackArea"></textarea></li>
-            <li class="field" style="text-align:center" ng-show="feedbackThanks">
-                <p>Thanks for submitting your feedback! We appreciate you taking the time to make AnnoTree better.</p>
-                <div>
-                    <button class="medium oval btn success"><a ng-click="closeFeedbackModal()">Close</a></button>
-                 </div>
-            </li>
-          </ul>
+    <div id="wrapper" class="switch">
+        <!-- Include Body Content. -->
+        <div ng-switch="subview">
+            <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/index.html' "></div>
+            <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/index.html' "></div>
+            <div ng-switch-when="docs" ng-include=" 'assets/app/views/docs/index.html' "></div>
+            <div ng-switch-when="forestFire" ng-include=" 'assets/app/views/layouts/404.html' "></div>
         </div>
-      </div>
-      <div class="row authenticateFooter" ng-show="feedbackSubmitButton">
-        <div style="text-align: center; padding-top:15px;">
-          <div>
-            <button type="submit" class="medium oval btn success"><a ng-click="submitFeedback()">Submit Feedback</a></button>
-          </div>
+    </div>
+
+    <!-- slide over page for mobile options 
+    <div id="mobileOptions" render-pane>
+        <div ng-switch="subview" class="l-body">
+            <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/mobilePane.html' "></div>
+            <div ng-switch-when="docs" ng-include=" 'assets/app/views/forest/mobilePane.html' "></div>
+            <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/mobilePane.html' "></div>
         </div>
-      </div>
-    </form>
-  </div>
-</div>
+    </div>
+-->
+        
+    <!-- Feedback Modal -->
+    <div class="modal" id="feedbackModal" ng-controller="layouts.StandardController">
+        <div class="content" style="padding: 0;min-height:0;">
+            <div class="row authenticateHeader" style="padding:0;">
+                <a id="feedbackClose" class="close switch" ng-click="closeFeedbackModal()" style="float:right;color:#444"><i class="icon-remove-circle"></i></a>
+                <h3 style="padding-top:20px;">Submit Feedback</h3>
+            </div>
+            <form name="feedbackForm" ng-submit="submitFeedback()" style="margin: 0;">
+                <div class="row" style="padding-bottom:30px;padding-top:30px;">
+                    <div class="ten columns centered center-text">
+                        <ul>
+                            <li class="field" style="text-align:center" ng-show="feedbackAbout">Let us know what features you want to see next, any problems you have while using AnnoTree, or anything else you feel that we should be aware of.</li>
+                            <li class="danger alert" id="invalidSubmitFeedback" ng-show="invalidSubmitFeedback"></li>
+                            <li class="field" style="text-align:center;">
+                            <textarea id="feedback" class="textarea input" type="text" placeholder="Feedback" ng-model="feedback" required ng-show="feedbackArea"></textarea></li>
+                            <li class="field" style="text-align:center" ng-show="feedbackThanks">
+                                <p>Thanks for submitting your feedback! We appreciate you taking the time to make AnnoTree better.</p>
+                                <div>
+                                    <button class="medium oval btn success"><a ng-click="closeFeedbackModal()">Close</a></button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row authenticateFooter" ng-show="feedbackSubmitButton">
+                    <div style="text-align: center; padding-top:15px;">
+                        <div>
+                            <button type="submit" class="medium oval btn success"><a ng-click="submitFeedback()">Submit Feedback</a></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     
 </div>

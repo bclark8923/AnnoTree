@@ -51,9 +51,11 @@
                         //shouldn't happen
                         $("#validateError").html("Please enter valid information.");
                     }
-                }
-                else {
+                } else if (password.length < 6) {
+                    $("#errorMsg").html("Password should contain at least six characters and one number");
+                } else {
                     //Send signup api call
+                    $('#authenticateWorking').addClass('active');
                     var promise = authenticateService.signup(name, email, password);
 
                     promise.then(
@@ -88,7 +90,7 @@
                                         errorData = "Your password must contain at least one number.";
                                         break;
                                     case 5:
-                                        errorData = "a nonvalid character was used, valid characters are alphanumeric and !@#$%^&*()";
+                                        errorData = "A nonvalid character was used, valid characters are alphanumeric and !@#$%^&*()";
                                         break;
                                     default:
                                         //pre-defined
@@ -103,8 +105,8 @@
 
                         }
                     );
+                    $('#authenticateWorking').removeClass('active');
                 }
-
             }
 
 

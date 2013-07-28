@@ -1,20 +1,21 @@
 (function( ng, app ){
-
     "use strict";
 
     app.controller(
         "authenticate.RequestpasswordController",
-        function( $scope, requestContext, authenticateService, _ ) {
+        function( $scope, $location, requestContext, authenticateService, _ ) {
 
             // --- Define Controller Methods. ------------------- //
+            
+            // --- Define Scope Methods. ------------------------ //
             $scope.requestPassword = function() {
                 var email = $scope.email;
                 if (email) { // email is valid
+                    $('#authenticateWorking').addClass('active');
                     var promise = authenticateService.requestPassword(email);
                     
                     promise.then(
-                        function(response) {
-                            //worked
+                        function(response) { //worked
                             $("#textMsg").html('Please check ' + email + ' to reset your password.');
                             $scope.resetEmailSent = true;
                             $scope.returnToLogin = true;
@@ -22,8 +23,7 @@
                             $scope.emailInput = false;
                             $scope.resetButtons = false;
                         },
-                        function(response) {
-                            //didn't work
+                        function(response) { //didn't work
                             var errorData = "Our password reset service is currently down, please try again later.";
                             var errorNumber = parseInt(response.data.error);
                             if (response.status == 406 && errorNumber == 1) {
@@ -36,19 +36,16 @@
                             $scope.invalidEmail = true;
                         }
                     );
+                    $('#authenticateWorking').removeClass('active');
                 } else { // email is not valid
                     $scope.invalidEmail = true;
                 }
             }
 
-            // --- Define Scope Methods. ------------------------ //
-
             // --- Define Controller Variables. ----------------- //
-
 
             // Get the render context local to this controller (and relevant params).
             var renderContext = requestContext.getRenderContext( "authenticate.requestPassword" );
-
             
             // --- Define Scope Variables. ---------------------- //
             

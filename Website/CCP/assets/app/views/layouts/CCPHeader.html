@@ -1,51 +1,4 @@
 <div ng-controller="layouts.StandardController">
-    
-        <!-- Static User Settigs Box 
-        <div id="userSettings" class="userSettingsBox userSettings">
-            <div>
-                <img ng-src="{{user.avatar}}" gumby-retina="" style="
-                    float: left;
-                    height: 60px;
-                    margin-left: 10px;
-                    margin-top: 3px;
-                ">                
-                <p class="userSettingsName" style="margin-left:80px;"></p>
-            </div>
-            <div style="position: absolute; bottom: 0; height: 40px; width: 248px; background-color: #eee;border-top:1px solid #bbb;">
-                 Link to settings Modal - Modal To Be Implmented
-                 <p class="btn success small settingsButton" style="margin-top:10px;border:1px solid #bbb;"><a class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p>
-                <p style="margin-top:10px;border:1px solid #bbb;" class="btn success small logoutButton"><a href="" >Logout</a></p>
-            </div>
-        </div> --> 
-
-        <!-- App 
-            <div class="navbar pretty" id="nav1">
-                <ul style="float:left;margin-left:10px;height:40px;">
-                    <li style="height:40px;width:40px;"><a style="height:40px;width:40px;line-height:38px;padding:0;" href="#/app"><i class="icon-globe"></i></a></li>
-                    <li style="height:40px;width:40px;"><a style="height:40px;width:40px;line-height:38px;padding:0;" href="#/docs"><i class="icon-folder-open"></i></a></li>
-                </ul>
-                <div style="position: absolute; left: 50%;">
-                    <div style="position: relative; left: -50%;"> 
-                        <h1 class="logo">
-                            <img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" gumby-retina />
-                        </h1>
-                    </div>
-                </div>
-                <div>
-                    <div class="userLinkDiv">
-                        <a href class="userLink toggle responsiveHide" gumby-trigger=".userSettings">
-                            <img id="userIcon" ng-src="{{user.avatar}}" gumby-retina />
-                        </a>
-                        <span class="logoutArrow userSettings"></span>
-                        <div class="responsiveShow" style="width: 40px;
-                            height: 40px;
-                            margin-top: 5px;">
-                            <a href id="paneToggle" style="padding:0;text-align:center;"><i class="icon-reorder responsiveShow" style="color:white;font-size:18pt;"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            --> 
     <!-- App -->
     <!-- top navbar -->
     <div class="navbar navbar-fixed-top">
@@ -58,6 +11,9 @@
                     <a href="#/docs"><i class="icon-folder-open"></i>&nbsp;Documents</a>
                 </li>
             </ul>
+        </div>
+        <div class="logo">
+            <img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" />
         </div>
         <div id="userLinkDiv">
             <a href="" ng-click="openUserScreen()">

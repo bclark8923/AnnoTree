@@ -32,6 +32,33 @@ textarea {
     resize: vertical;
 }
 
+@media (max-width: 768px) {
+    .responsiveShow {
+        display: block;
+    }
+
+    .responsiveHide {
+        display: none;
+    }
+
+    #leafs {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #dashboard {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        height: 100px;
+        width: 125px;
+        margin-bottom: 50px;
+    }
+}
+
 .form-control:focus {
     border-color: rgba(146,223,116,0.8);
     outline: 0;
@@ -204,31 +231,20 @@ textarea {
     display: none;
 }
 
-@media (max-width: 768px) {
-    .responsiveShow {
-        display: block;
-    }
-
-    .responsiveHide {
-        display: none;
-    }
-
-    #leafs {
-        margin-left: 0;
-        width: 100%;
-    }
-
-    #dashboard {
-        display: none;
-    }
+.navbar .logo {
+    position: absolute; 
+    left: 50%;
+    height: 38px;
+    float: left;
+    width:100%;
+    text-align:center;
 }
 
-@media (max-width: 480px) {
-    .card {
-        height: 100px;
-        width: 125px;
-        margin-bottom: 50px;
-    }
+#annoTreeLogo {
+    position: relative;
+    left: -50%;
+    height: 30px;
+    margin-top: 4px;
 }
 
 #feedbackModal {

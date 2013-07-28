@@ -3,6 +3,7 @@ package AnnoTree::Model::User;
 use Mojo::Base -strict;
 use Crypt::SaltedHash;
 use AnnoTree::Model::MySQL;
+use AnnoTree::Model::Email;
 use Scalar::Util qw(looks_like_number);
 use Data::Dumper;
 use Email::Sender::Simple qw(sendmail);
@@ -11,7 +12,6 @@ use Email::Simple ();
 use Email::Simple::Creator ();
 use Config::General;
 use Email::MIME;
-use IO::All;
 use Digest::SHA qw(sha256_hex);
 use Time::Piece ();
 
@@ -162,29 +162,12 @@ sub beta {
     my $num = $result->fetch->[0];
     if ($num == 0) {
         $json = {result => $num, txt => 'User added as inactive beta user'};
-
-        my $smtpserver = 'smtp.mailgun.org';
-        my $smtpport = 587;
-        my $smtpuser   = 'postmaster@annotree.com';
-        my $smtppassword = '8-7sigqno8u7';
-
-        my $transport = Email::Sender::Transport::SMTP->new({
-          host => $smtpserver,
-          port => $smtpport,
-          sasl_username => $smtpuser,
-          sasl_password => $smtppassword,
-        });
-
-        my $email = Email::Simple->create(
-          header => [
-            To      => $email,
-            From    => 'invite@annotree.com',
-            Subject => 'Thanks for Signing Up for AnnoTree',
-          ],
-          body => "Hi,\n\nThanks for signing up to use the AnnoTree beta. We will let you know when you can join the AnnoTree beta and get started.\n\nSincerely,\nThe AnnoTree Team"
-        );
-
-        sendmail($email, { transport => $transport });
+        
+        my $from = '"AnnoTree" <invite@annotree.com>';
+        my $subject = "Thanks for Signing Up for AnnoTree";
+        my $message = "Thanks for signing up for the AnnoTree beta. We are currently rolling in users to test our platform and will reach out to you soon when we're ready to bring you on board.<br/><br/>In the meantime, we invite you to follow us on social media and at <a href=\"http://blog.annotree.com\">http://blog.annotree.com</a> to stay up-to-date on our product, our vision, and how AnnoTree will reshape the mobile development space.<br/><br/>If you have any questions, please feel free to reply to this email and we'll get back to you as soon as possible!";
+        
+        AnnoTree::Model::Email->mail($email, $from, $subject, $message);
     } elsif ($num == 1) {
         $json = {error => $num, txt => 'User can sign up'};
     } elsif ($num == 2) {
@@ -215,35 +198,17 @@ sub feedback {
     my $cols = $result->fetch;
     my $userInfo = $result->fetch;
     
-    my $body = 'The following user has provided feedback:' . "\n";
+    my $body = 'The following user has provided feedback:<br/>';
     for (my $i = 0; $i < @{$cols}; $i++) {
-        $body .= $cols->[$i] . ': ' . $userInfo->[$i] . "\n";
+        $body .= $cols->[$i] . ': ' . $userInfo->[$i] . "<br/>";
     }
-    $body .= "\nFeedback:\n" . $params->{feedback};
-    $body .= "\n\nSincerely,\nYour Local Feedback Bot";
+    $body .= "<br/>Feedback:<br/>" . $params->{feedback};
 
-    my $smtpserver = 'smtp.mailgun.org';
-    my $smtpport = 587;
-    my $smtpuser   = 'postmaster@annotree.com';
-    my $smtppassword = '8-7sigqno8u7';
-
-    my $transport = Email::Sender::Transport::SMTP->new({
-      host => $smtpserver,
-      port => $smtpport,
-      sasl_username => $smtpuser,
-      sasl_password => $smtppassword,
-    });
-
-    my $email = Email::Simple->create(
-      header => [
-        To      => $config{email}->{feedback},
-        From    => '"Feedback" <feedback@annotree.com>',
-        Subject => 'Feedback',
-      ],
-      body => $body
-    );
-
-    sendmail($email, {transport => $transport}); 
+    my $to = $config{email}->{feedback};
+    my $from = '"Feedback" <feedback@annotree.com>';
+    my $subject = 'Feedback';
+    
+    AnnoTree::Model::Email->mail($to, $from, $subject, $body);
 }
 
 # let's an user apply to reset their password
@@ -274,38 +239,11 @@ sub setReset {
     );
  
     my $link = $config{server}->{base_url} . '/#/authenticate/resetPassword?token=' . $token;
-    my @parts = (
-        Email::MIME->create(
-            attributes => {
-                content_type => "text/html"
-            },
-            body => "<table><tr><td><img src=\"http://annotree.com/Email/HeaderLeft.png\" border=\"0\" alt=\"\" /><img style=\"float:right\" src=\"http://annotree.com/Email/HeaderRight.png\" border=\"0\" alt=\"AnnoTree\" /></td></tr><tr><td style=\"color:#000000\">Hi $name,<br/><br/>You have requested to reset your password. You can reset your password by clicking <a href=\"$link\">$link</a>. This link will only be valid for 1 hour.<br/><br/>If you did not request to reset your password you can ignore this message.<br/><br/>Sincerely,<br/>The AnnoTree Team</td></tr></table>"
-        )
-    );
+    my $message = "Hi $name,<br/><br/>You have requested to reset your password. You can reset your password by clicking <a href=\"$link\">$link</a>. This link will only be valid for 1 hour.<br/><br/>If you did not request to reset your password you can ignore this message.";
+    my $from = '"AnnoTree Support" <support@annotree.com>';
+    my $subject = 'AnnoTree Password Reset';
 
-    my $smtpserver = 'smtp.mailgun.org';
-    my $smtpport = 587;
-    my $smtpuser   = 'postmaster@annotree.com';
-    my $smtppassword = '8-7sigqno8u7';
-
-    my $transport = Email::Sender::Transport::SMTP->new({
-      host          => $smtpserver,
-      port          => $smtpport,
-      sasl_username => $smtpuser,
-      sasl_password => $smtppassword
-    });
-
-    my $emailObj = Email::MIME->create(
-      header => [
-        To              => $email,
-        From            => '"AnnoTree Support" <support@annotree.com>',
-        Subject         => 'AnnoTree Password Reset',
-        content_type    => 'multipart/mixed'
-      ],
-      parts => [@parts]
-    );
-
-    sendmail($emailObj, { transport => $transport }); 
+    AnnoTree::Model::Email->mail($email, $from, $subject, $message);
 }
 
 # resets the user's password

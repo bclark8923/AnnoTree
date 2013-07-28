@@ -183,6 +183,7 @@ a:hover {
 	float: left;
 	background-color: white;
 	position: fixed;
+	word-wrap: break-word;
 }
 
 #leafs {

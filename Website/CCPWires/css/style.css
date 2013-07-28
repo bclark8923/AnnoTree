@@ -2,9 +2,11 @@ html, body {
 	height: 100%;
 }
 
-body {
+body, #containWrapper {
 	background-color: #f1f1f1;
 	font-family: Lato;
+	height: 100%;
+	width: 100%;
 	/*background-image: url('../img/Pepsized_Blur_71.jpg');
 	background-size: cover;
 	background-attachment: fixed;*/
@@ -180,10 +182,19 @@ a:hover {
 }
 
 #wrapper {
-	margin-top: 40px;
+	/*margin-top: 40px;*/
 	overflow-y: hidden;
 	overflow-x: hidden;
 	height: 100%;
+}
+
+#mobileDashboard {
+	height: 100%;
+	width: 240px;
+	background-color: rgba(250,250,250,1);
+	position: fixed;
+	word-wrap: break-word;
+	padding: 10px;
 }
 
 #dashboard {
@@ -197,19 +208,20 @@ a:hover {
 	margin: 10px;
 	border-radius: 5px;
 	box-shadow: 0px 0px 10px #bbb;
+	top: 50px;
 }
 
 .dashLinks {
 	background-color: #f1f1f1;
-	font-size: 20pt;
-	padding: 3px;
+	font-size: 18pt;
+	padding: 3px 10px;
 	color: #92DF74;
 	margin: 10px 0px;
 	cursor: pointer;
 }
 
 .dashLinks > span {
-	color: #444;
+	color: #888;
 }
 
 .appLogo {
@@ -247,8 +259,10 @@ a:hover {
 	width: 75%;
 	float: left;
 	margin-left: 25%;
-	padding-top: 10px;
+	padding-top: 60px;
 	position: absolute;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .card {
@@ -304,9 +318,10 @@ a:hover {
 
 .cardImgLarge {
 	height: 100%;
-	width: 50%;
+	width: 100%;
 	float: left;
 	background-size: cover;
+	text-align: center;
 }
 
 .leafImage {
@@ -314,10 +329,43 @@ a:hover {
 	padding: 20px;
 }
 
+.leafComments {
+	padding: 10px;
+}
+
+.leafComment {
+	margin: 5px 0;
+}
+
+.userCommentHolder {
+	margin-left: 30px;
+	padding-left: 5px;
+}
+
+.userCommentText {
+	background-color: #f1f1f1;
+	padding: 5px;
+}
+
+.userImageHolder {
+	float: left;
+}
+
 .userCommentImage {
 	width: 30px;
 	height: 30px;
 	border: 2px solid white;
+}
+
+.userCommentName {
+	font-size: 9pt;
+	color: #aaa;
+	margin-bottom: 0;
+}
+
+.smallHR {
+	margin-top: 5px;
+	margin-bottom: 10px;
 }
 
 .responsiveShow {

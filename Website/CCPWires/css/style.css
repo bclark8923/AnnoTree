@@ -296,6 +296,7 @@ a:hover {
 	float: left;
 	margin-left: 25%;
 	padding-top: 60px;
+	padding-left: 10px;
 	position: absolute;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -420,6 +421,17 @@ a:hover {
 
 	.responsiveHide {
 		display: none;
+	}
+
+	.navbar-nav>li>a, .navbar-nav>.active>a {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		color: white;
+		background-color: #92DF74;
+	}
+
+	.nav>li {
+		margin-bottom: 5px;
 	}
 
 	#leafs, #leaf {

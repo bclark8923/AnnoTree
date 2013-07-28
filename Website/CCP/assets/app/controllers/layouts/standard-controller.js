@@ -8,6 +8,15 @@
 
             // --- Define Controller Methods. ------------------- //
 
+            // --- Define Scope Methods. ------------------------ //
+            $scope.openUserScreen = function() {
+                if ($('#userSettings').hasClass('active')) {
+                    $('#userSettings').removeClass('active');
+                } else {
+                    $('#userSettings').addClass('active');
+                }
+            }
+
             $scope.logout = function() {
 
                 var promise = authenticateService.logout();
@@ -26,12 +35,14 @@
                 );
             }
             
+            /*
             $scope.openFeedback = function() {
                 $("#feedbackModal").addClass('active');
             };
+            */
 
             $scope.closeFeedbackModal = function() {
-                $("#feedbackModal").removeClass('active');
+                $("#feedbackModal").modal('hide');
                 $scope.feedback = "";
                 $scope.invalidFeedback = false;
                 $scope.feedbackSubmitButton = true;
@@ -74,24 +85,14 @@
                     );
                 }
             };
-            // ...
-
-
-            // --- Define Scope Methods. ------------------------ //
-
-
-            // ...
-
 
             // --- Define Controller Variables. ----------------- //
-
 
             // Get the render context local to this controller (and relevant params).
             var renderContext = requestContext.getRenderContext( "standard" );
 
             
             // --- Define Scope Variables. ---------------------- //
-
 
             // The subview indicates which view is going to be rendered on the page.
             $scope.subview = renderContext.getNextSection();
@@ -105,12 +106,9 @@
             $scope.feedbackArea = true;
             $scope.feedbackAbout = true;
 
-
             $scope.user = {name : localStorageService.get('username'), avatar : localStorageService.get('useravatar')};
 
-
             // --- Bind To Scope Events. ------------------------ //
-
 
             // I handle changes to the request context.
             $scope.$on(
@@ -126,7 +124,6 @@
 
                     // Update the view that is being rendered.
                     $scope.subview = renderContext.getNextSection();
-
                 }
             );
 

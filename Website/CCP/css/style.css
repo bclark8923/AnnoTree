@@ -28,6 +28,10 @@ a:hover{
   color: #92DF74;
 }
 
+textarea {
+    resize: vertical;
+}
+
 .form-control:focus {
     border-color: rgba(146,223,116,0.8);
     outline: 0;
@@ -78,6 +82,12 @@ a:hover{
     background: transparent;
 }
 
+.error-text {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    color: #b94a48;
+}
 /* -----------------------
  * CCP Header Settings
  * ----------------------- */
@@ -127,6 +137,53 @@ a:hover{
     display: block;
 }
 
+.userSettingsBox {
+    box-shadow: 1px 1px 10px #bbb;
+    background-color: white;
+    width: 250px;
+    float: right;
+    position: absolute;
+    top: 43px;
+    right: 15px;
+    height: 120px;
+    z-index: 999;
+    border: 1px solid #bbb;
+    display: none;
+}
+
+.userSettingsBox img {
+    float: left;height: 60px;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+.userSettingsBox #footer {
+    position: absolute; 
+    bottom: 0; 
+    height: 40px; 
+    width: 248px; 
+    background-color: #eee;
+    border-top: 1px solid #bbb;
+}
+
+.userSettings.active {
+    display: block;
+}
+
+.userSettingsName {
+    margin-left: 10px;
+    margin-top: 5px;
+    height: 23px;
+    color: #888;
+    font-size: 13pt;
+}
+
+.logoutButton {
+    float: right;
+    margin-right: 10px;
+    margin-top: 0px;
+}
+
 .logoutArrow {
     margin: 36px 0 0;
     right: 6px;
@@ -173,6 +230,19 @@ a:hover{
         margin-bottom: 50px;
     }
 }
+
+#feedbackModal {
+    color: #444;
+}
+
+#feedbackModal .modal-content {
+    text-align: center;
+}
+
+#feedbackModal .modal-footer {
+    text-align: center;
+}
+
 /* -----------------------
  * Authentication Settings
  * ----------------------- */
@@ -241,12 +311,6 @@ a:hover{
     text-decoration: underline;
 }
 
-.error-text {
-    text-align: center;
-    margin-top: 0px;
-    margin-bottom: 5px;
-    color: #b94a48;
-}
 /* NOT VERIFIED */
 /*
 .valign > article { 

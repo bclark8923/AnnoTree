@@ -1,5 +1,4 @@
 (function( ng, app ){
-
     "use strict";
 
     app.controller(
@@ -22,11 +21,6 @@
                 }
                 $rootScope.leaves = leaves;
                 $rootScope.leaves.push($scope.newLeafHolder);
-
-                /*if(leaves.length == 0) {
-                    $scope.noLeaves = "Click the cog in the top left to get your API key to tie into your mobile app!";
-                    $scope.noLeavesNL = "Or click \"New Leaf\" in the top right to add a leaf now.";
-                }*/
             }
 
 
@@ -137,6 +131,7 @@
                         $("#invalidModifyTree").html("Please enter valid information.");
                     }
                 } else {
+                    $('#modifyTreeModalWorking').addClass('active');
                     var promise = treeService.updateTree(treeID, treeName, treeDescription);
 
                     promise.then(
@@ -176,6 +171,7 @@
 
                         }
                     );
+                    $('#modifyTreeModalWorking').removeClass('active');
                 }
             }
 

@@ -1,5 +1,4 @@
 (function( ng, app ){
-
     "use strict";
 
     app.controller(
@@ -45,7 +44,7 @@
                         
                         loadLeaf( response.data );
 
-                        $timeout(function() { window.Gumby.init(); $("#loadingScreen").hide(); }, 0);
+                        $timeout(function() {$("#loadingScreen").hide(); }, 0);
 
                     },
                     function( response ) {
@@ -273,9 +272,6 @@
             // Load the "remote" data.
             loadLeafData();
 
-            Gumby.init();
-
         }
     );
-
- })( angular, AnnoTree );
+})( angular, AnnoTree );

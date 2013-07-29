@@ -122,7 +122,7 @@
                         $("#invalidAddTree").html("Please enter valid information.");
                     }
                 } else {
-                    //return;
+                    $('#newTreeModalWorking').addClass('active');
                     var promise = treeService.createTree(forestID, treeName, treeDescription);
 
                     promise.then(
@@ -224,6 +224,7 @@
 
                         }
                     );
+                    $('#newTreeModalWorking').removeClass('active');
                 }
             }
 
@@ -266,6 +267,7 @@
                         $("#invalidModifyForest").html("Please enter valid information.");
                     }
                 } else {
+                    $('#modifyForestModalWorking').addClass('active');
                     var promise = forestService.updateForest(forestID, forestName, forestDescription);
 
                     promise.then(
@@ -304,6 +306,7 @@
 
                         }
                     );
+                    $('#modifyForestModalWorking').removeClass('active');
                 }
             }
 
@@ -312,6 +315,7 @@
             }
 
             $scope.deleteForest = function() {
+                $('#deleteCallbackModalWorking').addClass('active');
                 var forestID = $rootScope.modifyForest.id;
                 var promise = forestService.deleteForest(forestID);
 
@@ -361,6 +365,7 @@
 
                     }
                 );
+                $('#deleteCallbackModalWorking').removeClass('active');
             }
 
             $scope.openNewForestModal = function () {
@@ -400,6 +405,7 @@
                         $("#invalidAddForest").html("Please enter valid information.");
                     }
                 } else {
+                    $('#newForestModalWorking').addClass('active');
                     var promise = forestService.createForest(forestName, forestDescription);
 
                     promise.then(
@@ -443,6 +449,7 @@
 
                         }
                     );
+                    $('#newForestModalWorking').removeClass('active');
                 }
             }
 

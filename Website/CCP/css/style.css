@@ -350,6 +350,10 @@ textarea {
     position: absolute;
     overflow-y: auto;
     overflow-x: hidden;
+    opacity: 1;
+    transition: opacity .25s linear;
+    -moz-transition: opacity .25s linear;
+    -webkit-transition: opacity .25s linear;
 }
 
 /* -----------------------
@@ -364,6 +368,10 @@ textarea {
     padding-top: 20px;
     padding-bottom: 20px;
     position: fixed;
+    opacity: 1;
+    transition: opacity .25s linear;
+    -moz-transition: opacity .25s linear;
+    -webkit-transition: opacity .25s linear;
 }
 
 #dashboard {
@@ -456,6 +464,10 @@ textarea {
     max-width: 220px;
     overflow: hidden;
     height: 150px;
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
 }
 
 .cardImgNew {
@@ -467,11 +479,50 @@ textarea {
     padding-top: 15px;
     color: #bbb;
 }
+.cardLarge {
+    margin: 0 auto;
+    min-height: 100%;
+    width: 100%;
+    box-shadow: 0px 0px 10px #bbb;
+    border-radius: 5px 5px 0 0;
+    background-color: #fff;
+    opacity: 1;
 
+    transition: opacity .25s linear;
+    -moz-transition: opacity .25s linear;
+    -webkit-transition: opacity .25s linear;
+}
+
+.cardNameLarge {
+    text-align: center;
+    background-color: #92DF74;
+    color: white;
+    border-radius: 5px 5px 0 0;
+    padding: 3px;
+    height: 25px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cardImgLarge {
+    height: 100%;
+    width: 100%;
+    float: left;
+    background-size: cover;
+    text-align: center;
+}
+.cardNameLarge i {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14pt;
+}
+
+.cardNameLarge i:hover {
+    color: #888;
+}
 /* -----------------------
  * Leaf Settings
  * ----------------------- */
-#leafs {
+#leaves {
     height: 100%;
     width: 75%;
     float: left;
@@ -481,6 +532,68 @@ textarea {
     position: absolute;
     overflow-y: auto;
     overflow-x: auto;
+    transition: opacity .25s linear;
+    -moz-transition: opacity .25s linear;
+    -webkit-transition: opacity .25s linear;
+}
+
+#leaf {
+    height: 100%;
+    width: 75%;
+    float: left;
+    margin-left: 25%;
+    border-top: 40px solid transparent;
+    padding:20px;
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.leafImage {
+    max-height: 95%;
+    padding: 20px;
+}
+
+.leafComments {
+    padding: 10px;
+}
+
+.leafComment {
+    margin: 5px 0;
+}
+
+.userCommentHolder {
+    margin-left: 30px;
+    padding-left: 5px;
+}
+
+.userCommentText {
+    background-color: #f1f1f1;
+    padding: 5px;
+}
+
+.userImageHolder {
+    float: left;
+}
+
+.userCommentImage {
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+}
+
+.userCommentName {
+    font-size: 9pt;
+    color: #aaa;
+    margin-bottom: 0;
+}
+
+.smallHR {
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 /* -----------------------

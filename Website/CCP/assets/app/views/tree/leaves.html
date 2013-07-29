@@ -1,4 +1,4 @@
-<div id="leafs">
+<div id="leaves">
     <div class="container">
         <div class="row" ng-repeat="leafRow in (leaves.length/3 | threeColumnFilter)" post-render> 
             <div class="col-6 col-lg-4" ng-repeat="leaf in leaves.slice(3*$index, 3*$index + 3)"> 
@@ -17,7 +17,7 @@
                     </div>
                     <div ng-switch-default>
                         <div class="card">
-                            <a ng-href="#/app/{{tree.id}}/{{leaf.id}}">
+                            <a ng-href="#/app/{{treeInfo.id}}/{{leaf.id}}">
                                     <div class="cardName">
                                         <strong>{{leaf.name}}</strong>
                                     </div>

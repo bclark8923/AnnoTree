@@ -1,7 +1,63 @@
 <div id="treeContainer" ng-controller="forest.LeafController">
-  <div ng-include=" 'assets/app/views/tree/leaf-modals.html' "></div>
+    <div ng-include=" 'assets/app/views/tree/leaf-modals.html' "></div>
+        <div id="leaf">
+            <div class="cardLarge">
+                <div class="cardNameLarge">
+                    <a ng-href="#/app/{{treeInfo.id}}">
+                        <i id="leafBack" class="icon-circle-arrow-left" style="margin-left:5px;float:left;"></i>
+                    </a>
+                    <strong>{{leaf.name}}</strong>
+                </div>
+                <div class="leafHolder">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="cardImgLarge">
+                                <img class="leafImage" ng-src="{{leaf.image}}">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="leafComments">
+                                <div class="leafComment">
+                                    <div class="userImageHolder">
+                                        <img class="userCommentImage" ng-src="{{user.avatar}}"> 
+                                    </div>
+                                    <div class="userCommentHolder"> 
+                                        <p class="userCommentName">{{user.name}}</p> 
+                                        <p class="userComment">We should probably center the updating, Matt?</p>
+                                    </div>
+                                </div>
+                                <hr class="smallHR"/>
+                                <div class="leafComment">
+                                    <div class="userImageHolder">
+                                        <img class="userCommentImage" ng-src="{{user.avatar}}"> 
+                                    </div>
+                                    <div class="userCommentHolder"> 
+                                        <p class="userCommentName">Matt Price</p> 
+                                        <p class="userComment">Maybe, Did some research and people liked it on the left</p>
+                                    </div>
+                                </div>
+                                <hr class="smallHR"/>
+                                <div class="leafComment">
+                                    <div class="userImageHolder">
+                                        <img class="userCommentImage" src="img/user.png"> 
+                                    </div>
+                                    <div class="userCommentHolder"> 
+                                        <form class="form-horizontal">
+                                            <input type="text" class="form-control" id="newComment" placeholder="New Comment">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div post-render>
+    <!--
   <div id="treeHeader" class="valign">
-    <div id="crumbHolder">
+      <div id="crumbHolder">
       <span class="responsiveHide">
         <a ng-href="#/app/{{treeInfo.id}}"><i class="icon-circle-arrow-left" style="color:#84db69;font-size:16pt;margin-right:15px;"></i></a>
         <a href ng-click="openModifyLeafModal()" style="color:white;">{{leaf.name}} <i class="icon-cog" style="color:white;"></i></a>
@@ -14,21 +70,10 @@
         <a style="color:white;" href ng-click="openModifyLeafModal()">{{leaf.name}}  <i class="icon-cog" style="color:white;"></i></a>
     </div>
     <div id="newElementHolder"  class="switch" gumby-trigger="#newAnnotationModal">
-       <!-- <div id="newElementButton" class=" medium success btn">
-            <div style="width:100%;height:100%;">
-                <button>
-                    <a href="" id="newElementLink" class="switch" gumby-trigger="#newAnnotationModal">
-                        <i class="icon-ne icon-plus-sign" style="margin-right:0px;"></i>
-                        <span class="responsiveHide" style="margin-left:5px;"> New Annotation</span>
-                    </a>
-                </button>
-            </div>
-        </div>-->
     </div>
   </div>
   <div id="treeElements">
-	<div id="singleLeafHolder" class="" post-render>
+    <div id="singleLeafHolder" class="" post-render>
     <div style="height:100%;">
-    	  <img class="singleLeafImage" ng-src="{{leaf.image}}" ng-click="openViewLeafModal()" style="cursor:pointer" gumby-retina />
-    </div>
-	</div post-render>
+        <img class="singleLeafImage" ng-src="{{leaf.image}}" ng-click="openViewLeafModal()" style="cursor:pointer" gumby-retina />-->
+

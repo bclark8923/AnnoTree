@@ -1,50 +1,52 @@
 <div ng-include=" 'assets/app/views/forest/forest-modals.html' "></div>
-<div ng-switch="subview" id="forestContainer" >
-    <div class="container" ng-controller="forest.ForestController">
-        <div ng-repeat="forest in forests" post-render>
-            <div class="row forest">
-                <div class="col-12">
-                    <span class="forestName" ng-click="openModifyForestModal(forest)">
-                        <strong>{{forest.name}}</strong>&nbsp;
-                        <i class="icon-cog"></i> 
-                    </span>
+<div ng-switch="subview" ng-controller="forest.ForestController">
+    <div id="forestContainer">
+        <div class="container" >
+            <div ng-repeat="forest in forests" post-render>
+                <div class="row forest">
+                    <div class="col-12">
+                        <span class="forestName" ng-click="openModifyForestModal(forest)">
+                            <strong>{{forest.name}}</strong>&nbsp;
+                            <i class="icon-cog"></i> 
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div class="row" ng-repeat="treeRow in (forest.trees.length/3 | threeColumnFilter)"> 
-                <div class="col-12 col-sm-4 col-lg-3" ng-repeat="tree in forest.trees.slice(4*$index, 4*$index + 4)"> 
-                    <div ng-switch="tree.id">
-                        <div ng-switch-when="-1">
-                            <div class="card new">
-                                <div class="cardName cardNameNew">
-                                    <strong>New Tree</strong><br />
-                                </div>
-                                <div class="cardImg cardImgNew" ng-click="openNewTreeModal(forest)">
-                                    +
-                                </div>
-                            </div> 
-                        </div>
-                        <div ng-switch-default>
-                            <div class="card">
-                                <a ng-href="#/app/{{tree.id}}">
-                                    <div class="cardName">
-                                        <strong>{{tree.name}}</strong><br />
+                <div class="row" ng-repeat="treeRow in (forest.trees.length/3 | threeColumnFilter)"> 
+                    <div class="col-12 col-sm-4 col-lg-3" ng-repeat="tree in forest.trees.slice(4*$index, 4*$index + 4)"> 
+                        <div ng-switch="tree.id">
+                            <div ng-switch-when="-1">
+                                <div class="card new">
+                                    <div class="cardName cardNameNew">
+                                        <strong>New Tree</strong><br />
                                     </div>
-                                    <div class="cardImg">
-                                        <img ng-src="{{tree.logo}}" />
+                                    <div class="cardImg cardImgNew" ng-click="openNewTreeModal(forest)">
+                                        +
                                     </div>
-                                </a>
+                                </div> 
+                            </div>
+                            <div ng-switch-default>
+                                <div class="card">
+                                    <a ng-href="#/app/{{tree.id}}">
+                                        <div class="cardName">
+                                            <strong>{{tree.name}}</strong><br />
+                                        </div>
+                                        <div class="cardImg">
+                                            <img ng-src="{{tree.logo}}" />
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row forest new" style="margin-bottom:30px">
-            <div class="col-12">
-                <span class="forestName new" ng-click="openNewForestModal()">
-                    <i class="icon-plus-sign"></i>&nbsp;
-                    <strong>New Forest</strong>
-              </span>
+            <div class="row forest new" style="margin-bottom:30px">
+                <div class="col-12">
+                    <span class="forestName new" ng-click="openNewForestModal()">
+                        <i class="icon-plus-sign"></i>&nbsp;
+                        <strong>New Forest</strong>
+                  </span>
+                </div>
             </div>
         </div>
     </div>

@@ -19,7 +19,7 @@
         
         <div id="fb-root"></div>
         <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-        <fb:like style="float:left;" href="<?php echo get_permalink(); ?>" show_faces="true" width="450"></fb:like><hr style="border-bottom:none; margin-top:60px;margin-bottom:60px;">
+        <fb:like style="float:left;" href="<?php echo get_permalink(); ?>" show_faces="false" width="450"></fb:like><hr style="border-bottom:none; margin-top:60px;margin-bottom:60px;">
         <br/>
         <?php endwhile; else: ?>
         <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>

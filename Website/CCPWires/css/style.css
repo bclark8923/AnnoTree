@@ -210,6 +210,14 @@ a:hover {
 	background-color: white;
 	position: fixed;
 	word-wrap: break-word;
+}
+
+.mobile-dash-wrap {
+	height: -webkit-calc(100% - 27px);
+	height: calc(100% - 27px);
+	height: -moz-calc(100% - 27px);
+	height: -o-calc(100% - 27px);
+	width: 100%;
 	padding: 10px;
 	overflow-y: auto;
 }
@@ -227,14 +235,40 @@ a:hover {
 
 .dashboard-inner {
 	padding: 10px;
-	overflow-y: auto;
+}
+
+.dash-inner-wrap {
+	position: relative;
+	height: 100%;
+}
+
+.dashboard-footer {
+	position: absolute;
+	bottom: 0px;
+	background-color: #888;
+	width: 100%;
+	margin-right: 20px;
+	border-radius: 0 0 5px 5px;
+	padding: 3px;
+}
+
+.dashboard-footer-mobile {
+	position: fixed;
+	bottom: 0px;
+	left: 0;
+	background-color: #888;
+	width: 100%;
+	padding: 3px;
 }
 
 #dashboard {
-	height: 100%;
+	height: -webkit-calc(100% - 27px);
+	height: calc(100% - 27px);
+	height: -moz-calc(100% - 27px);
+	height: -o-calc(100% - 27px);
 	word-wrap: break-word;
 	background-color: white;
-	overflow-x: hidden;
+	overflow-y: auto;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;

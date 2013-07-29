@@ -7,7 +7,7 @@ html, body {
     overflow: hidden;
 }
 
-body {
+body, #containWrapper {
     font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
     background-color: #f1f1f1;
     height: 100%;
@@ -323,53 +323,6 @@ textarea {
     cursor: pointer;
 }
 
-.card {
-    margin: 0 auto;
-    /*height: 175px;*/
-    width: 220px;
-    margin-bottom: 30px;
-    box-shadow: 0px 0px 10px #bbb;
-    border-radius: 5px 5px 0 0;
-    color: #444;
-    background-color: #fff;
-}
-
-.card a {
-    text-decoration: none;
-}
-
-.card a:hover {
-    color: #92DF74;
-}
-
-.cardName {
-    text-align: center;
-    border-radius: 5px 5px 0 0;
-    padding: 3px;
-    /*height: 25px;*/
-}
-
-.cardImg {
-    max-height: 150px;
-    height: 150px;
-    width: 100%;
-    background-size: cover;
-}
-
-.cardImgNew {
-    text-align: center;
-    font-size: 90pt;
-    line-height: 90pt;
-    font-weight: bold;
-    color: #444;
-    padding-top: 15px;
-    background-color: #ccc;
-}
-
-.cardImgNew:hover {
-    cursor: pointer;
-    color: #92DF74;
-}
 
 #forestContainer {
     height: 100%;
@@ -434,9 +387,60 @@ textarea {
 }
 
 /* -----------------------
+ * Card Settings
+ * ----------------------- */
+.card {
+    margin: 0 auto;
+    /*height: 175px;*/
+    width: 220px;
+    margin-bottom: 30px;
+    box-shadow: 0px 0px 10px #bbb;
+    border-radius: 5px 5px 0 0;
+    color: #444;
+    background-color: #fff;
+}
+
+.card a {
+    text-decoration: none;
+}
+
+.card a:hover {
+    color: #92DF74;
+}
+
+.cardName {
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    padding: 3px;
+    min-height: 25px;
+}
+
+.cardImg {
+    max-height: 150px;
+    height: 150px;
+    width: 100%;
+    background-size: cover;
+}
+
+.cardImgNew {
+    text-align: center;
+    font-size: 90pt;
+    line-height: 90pt;
+    font-weight: bold;
+    color: #444;
+    padding-top: 15px;
+    background-color: #ccc;
+}
+
+.cardImgNew:hover {
+    cursor: pointer;
+    color: #92DF74;
+}
+
+/* -----------------------
  * Responsive Media Settings
  * ----------------------- */
-.leafs {
+#leafs {
     height: 100%;
     width: 75%;
     float: left;
@@ -451,6 +455,15 @@ textarea {
 /* -----------------------
  * Responsive Media Settings
  * ----------------------- */
+#mobileDashboard {
+    height: 100%;
+    width: 240px;
+    background-color: white;
+    position: fixed;
+    word-wrap: break-word;
+    padding: 10px;
+}
+
 .responsiveShow {
     display: none;
 }
@@ -488,6 +501,10 @@ textarea {
     #dashboard {
         display: none;
     }
+
+    .cardDesc {
+        display: inline;
+    }
 }
 
 @media (max-width: 480px) {
@@ -495,6 +512,10 @@ textarea {
         height: 125px;
         width: 125px;
         margin-bottom: 50px;
+    }
+
+    .cardDesc {
+        display: none;
     }
 
     .cardImg {

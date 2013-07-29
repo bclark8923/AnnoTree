@@ -225,12 +225,15 @@ a:hover {
 	position: fixed;
 }
 
+.dashboard-inner {
+	padding: 10px;
+	overflow-y: auto;
+}
+
 #dashboard {
 	height: 100%;
-	padding: 10px;
 	word-wrap: break-word;
 	background-color: white;
-	overflow-y: auto;
 	overflow-x: hidden;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;

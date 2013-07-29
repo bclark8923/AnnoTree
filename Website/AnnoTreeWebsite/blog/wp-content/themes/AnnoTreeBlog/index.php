@@ -6,13 +6,14 @@
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         <h4 style="padding-bottom:0;font-weight:100;"><a href="<?php echo get_permalink($post->ID) ?>"><?php the_title(); ?></a></h4>
         <h6><?php the_time('F jS, Y') ?></h6>
-        <p><?php the_excerpt(__('(more...)')); ?></p>
+        <p><?php the_excerpt('Read More...'); ?></p>
         <p class="success badge">
           <?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?>
         </p>
         <br/>
+
         <div style="float:left;">
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="annotree">Tweet</a>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="AnnoTree" data-url="<?php echo get_permalink( $id ); ?>" data-text="<?php echo the_title( $id ); ?>">Tweet</a>
         </div>   
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         

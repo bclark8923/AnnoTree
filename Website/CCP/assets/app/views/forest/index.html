@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="row" ng-repeat="treeRow in (forest.trees.length/3 | threeColumnFilter)"> 
-                <div class="col-12 col-sm-6 col-lg-4" ng-repeat="tree in forest.trees.slice(3*$index, 3*$index + 3)"> 
+                <div class="col-12 col-sm-4 col-lg-3" ng-repeat="tree in forest.trees.slice(4*$index, 4*$index + 4)"> 
                     <div ng-switch="tree.id">
                         <div ng-switch-when="-1">
                             <div class="card">
@@ -25,10 +25,13 @@
                         </div>
                         <div ng-switch-default>
                             <div class="card">
-                                <div class="cardName">
-                                    {{tree.name}} 
-                                </div>
-                                <div class="cardImg" style="background-image:url('img/AnnoTreeLogoWebHolder.png');"></div>
+                                <a ng-href="#/app/{{tree.id}}">
+                                    <div class="cardName">
+                                        <strong>{{tree.name}}</strong><br />
+                                        {{tree.description}}
+                                    </div>
+                                    <div class="cardImg" style="background-image:url({{tree.logo}});"></div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -42,92 +45,6 @@
                     <i class="icon-plus-sign"></i> 
               </span>
             </div>
-        </div>
-<!--
-        <div id="forestContainer">
-            <div id="treeHeader" class="valign">
-                <div class="responsiveShowTC" style="text-align:center;width:100%">
-                    Welcome to AnnoTree!
-                </div>
-                <div id="newElementHolder"  class="switch active" ng-click="openNewForestModal()">
-                    <div id="newElementButton" class=" medium success btn">
-                        <div style="width:100%;height:100%;">
-                            <button>
-                                <a href id="newElementLink" class="switch active" ng-click="openNewForestModal()">
-                                    <i class="icon-ne icon-plus-sign" style="margin-right:0px;"></i>
-                                    <span class="responsiveHide" style="margin-left:5px;"> New Forest</span>
-                                </a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="treesContainer">
-                <div id="noForestsDiv" ng-show="noForests != ''" class="valign" style="text-align:center;height:100%;">
-                    <div>
-                        <span style="font-size:30pt;" ng-mode="noForests">{{noForests}}</span>
-                        <br/>
-                        <br/>
-                        <span style="font-size:20pt;" ng-mode="noForests">{{noForestsNL}}</span>
-                    </div>
-                </div>
-                <div ng-repeat="forest in forests" post-render>
-                        <div class="forestHeader"> 
-                            <span class="forestName" ng-click="openModifyForestModal(forest)">{{forest.name}} <i class="icon-cog" style="color:white;margin:0;margin-right:-5px;"></i></span>
-                        </div>
-                        <div class="row" ng-repeat="treeRow in (forest.trees.length/3 | threeColumnFilter)"> 
-                            
-                            <div class="col-sm-4" ng-repeat="tree in forest.trees.slice(3*$index, 3*$index + 3)"> 
-                                <div ng-switch="tree.id">
-                                    <div ng-switch-when="-1">
-                                        <div class="cardHolder">
-                                            <div class="card switch active" style="opacity:0.6;">
-                                                <a id="newTreeLink-{{forest.id}}" href class="switch newTreeLinkClass" ng-click="openNewTreeModal(forest)">
-                                                    <div class="cardTitleBar valign"><div>{{tree.name}}</div></div>
-                                                    <div class="treeLogoContainer">
-                                                        <div style="margin-top:50px;color:white;font-size:130pt;font-weight:800;">
-                                                            +
-                                                        </div>
-                                                        <div style="margin-top:80px;font-weight:800;"class="cardLabel">{{tree.description}}</div>
-                                                    </div>
-                                                    <div class="treeModify">
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div ng-switch-default> 
-                                        <div class="cardHolder">
-                                            <div class="card">
-                                                <div class="cardTitleBar valign"><div>{{tree.name}}</div></div>
-                                                <div class="treeLogoContainer">
-                                                    <a ng-href="#/app/{{tree.id}}">
-                                                        <div ng-switch="tree.logo" style="max-height:130px;padding-top:10px;">
-                                                            <div ng-switch-when="NULL">
-                                                                <div class="logo">
-                                                                    <img class="treeLogo" src="img/tree01.png" />
-                                                                </div>
-                                                            </div>
-                                                            <div ng-switch-default> 
-                                                                <div class="logo">
-                                                                    <img class="treeLogo" ng-src="{{tree.logo}}" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                    <div class="cardLabel">{{tree.description}}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                </div>
-            </div>
-            -->
         </div>
     </div>
 </div post-render>

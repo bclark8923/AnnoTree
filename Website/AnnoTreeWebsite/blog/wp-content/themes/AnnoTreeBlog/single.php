@@ -5,14 +5,24 @@
       <div class="nine columns">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         <h2 style="color:#bbb;font-weight:100;"><?php the_title(); ?></h2>
-        <p><?php the_content(); ?></p>
-        <h5><?php the_time('F jS, Y') ?></h5>
-        <h5><?php the_author_link(); ?></h5>
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="annotree">Tweet</a>
+        <div style="float:left;">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="annotree">Tweet</a>
+        </div>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         <div id="fb-root"></div>
         <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-        <fb:like href="<?php echo get_permalink(); ?>" show_faces="true" width="450"></fb:like>
+        <fb:like style="float:left;" href="<?php echo get_permalink(); ?>" show_faces="true" width="450"></fb:like>
+        <br/>
+        <p><?php the_content(); ?></p>
+        <h5><?php the_time('F jS, Y') ?></h5>
+        <h5><?php the_author_link(); ?></h5>
+        <div style="float:left;">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="annotree">Tweet</a>
+        </div>        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        <div id="fb-root"></div>
+        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+        <fb:like style="float:left;" href="<?php echo get_permalink(); ?>" show_faces="true" width="450"></fb:like>
+        <br/>
         <hr>
         <?php comments_template( '', true ); ?>
         <?php endwhile; else: ?>

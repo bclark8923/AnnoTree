@@ -11,12 +11,15 @@
           <?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?>
         </p>
         <br/>
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="annotree">Tweet</a>
+        <div style="float:left;">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="annotree">Tweet</a>
+        </div>   
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         
         <div id="fb-root"></div>
         <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-        <fb:like href="<?php echo get_permalink(); ?>" show_faces="true" width="450"></fb:like><hr style="border-bottom:none; margin-top:60px;margin-bottom:60px;">
+        <fb:like style="float:left;" href="<?php echo get_permalink(); ?>" show_faces="true" width="450"></fb:like><hr style="border-bottom:none; margin-top:60px;margin-bottom:60px;">
+        <br/>
         <?php endwhile; else: ?>
         <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
         <?php endif; ?> 

@@ -1,31 +1,34 @@
 <div ng-switch="subview" ng-controller="forest.TreeController">
-    <div class="wrapper">
-        <div id="dashboardWrap">
-            <div id="dashboard">
-                <div>
-                    <img class="appLogo" src="{{treeInfo.logo}}"><span class="appName">{{treeInfo.name}}</span>
+    <div ng-include=" 'assets/app/views/tree/tree-modals.html' "></div>
+    <div id="dashboardWrap">
+        <div id="dashboard">
+            <div class="appName">
+                {{treeInfo.name}}
+            </div> 
+            <div>
+                <img class="appLogo" ng-src="{{treeInfo.logo}}">
+            </div>
+            <div style="margin-top:20px">
+                <p><strong>API Key:</strong></p>
+                <p>{{treeInfo.token}}</p>
+            </div>
+            <div style="margin-top:20px">
+                <p><strong>Description:</strong></p>
+                <p>{{treeInfo.description}}</p>
+            </div>
+            <hr/>
+            <div style="margin-top:20px;">
+                <div class="dashLinks">
+                    <i class="icon-group"></i>&nbsp;Users
                 </div>
-                <div style="margin-top:20px">
-                    <p><strong>API Key:</strong></p>
-                    <p>{{treeInfo.token}}</p>
-                </div>
-                <hr/>
-                <div style="margin-top:20px;">
-                    <div class="dashLinks">
-                        <i class="icon-leaf"></i>&nbsp;New Leaf
-                    </div>
-                    <div class="dashLinks">
-                        <i class="icon-group"></i>&nbsp;Users
-                    </div>
-                    <div class="dashLinks">
-                        <i class="icon-cog"></i>&nbsp;Tree Settings
-                    </div>
+                <div class="dashLinks" ng-click="openModifyTreeModal(treeInfo)">
+                    <i class="icon-cog"></i>&nbsp;Tree Settings
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Left Side Content -->
+    <!-- Main Content -->
     <div ng-switch="subview">
         <div ng-switch-when="leaves" ng-include=" 'assets/app/views/tree/leaves.html' "></div>
         <div ng-switch-when="leaf" ng-include=" 'assets/app/views/tree/leaf.html' "></div>

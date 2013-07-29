@@ -291,10 +291,6 @@
 
             // Load the "remote" data.
             $scope.$evalAsync(loadTasksData());
-
-            Gumby.init();
-
         }
     );
-
- })( angular, AnnoTree );
+})( angular, AnnoTree );

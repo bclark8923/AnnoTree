@@ -97,7 +97,7 @@
             }
 
             $scope.openModifyTreeModal = function (tree) {
-                $("#modifyTreeModal").addClass('active');
+                $("#modifyTreeModal").modal('show');
                 $rootScope.modifyTree = tree;
                 $rootScope.originalName = tree.name;
                 $rootScope.originalDescription = tree.description;
@@ -110,7 +110,7 @@
             }
 
             $scope.closeModifyTreeModal = function () {
-                $("#modifyTreeModal").removeClass('active');
+                $("#modifyTreeModal").modal('hide');
                 $("#invalidModifyTree").html('');
                 $rootScope.modifyTree = null;
                 $scope.invalidModifyTree = false; 

@@ -1,7 +1,8 @@
-<div ng-controller="layouts.StandardController" >
+<div ng-controller="layouts.StandardController" id="app">
     <div id="containWrapper">
         <!-- top navbar -->
         <div class="navbar navbar-fixed-top">
+            <img src="img/LogoNameWeb.png" class="logoHeader"/>
             <div class="nav-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav">
                     <li>
@@ -11,9 +12,6 @@
                         <a href="#/docs"><i class="icon-folder-open"></i>&nbsp;Documents</a>
                     </li>
                 </ul>
-            </div>
-            <div class="logo">
-                <img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" />
             </div>
             <div id="userLinkDiv">
                 <a href="" class="userLink toggle active" ng-click="openUserScreen()">
@@ -60,6 +58,8 @@
             <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/mobilePane.html' "></div>
         </div>
     </div>
+
+ 
 
     <!-- Feedback Button -->
     <button class="btn btn-annotree" style="position:fixed;bottom:0;left:50px;z-index:10000;border:2px solid #84db69;border-bottom-left-radius:0px;border-bottom-right-radius:0px;" data-toggle="modal" data-target="#feedbackModal">

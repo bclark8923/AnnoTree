@@ -4,10 +4,19 @@
     <div class="row">
       <div class="nine columns">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <h2 style="padding-bottom:0;font-weight:100;"><a href="<?php echo get_permalink($post->ID) ?>"><?php the_title(); ?></a></h2>
-        <h5><?php the_time('F jS, Y') ?></h5>
+        <h4 style="padding-bottom:0;font-weight:100;"><a href="<?php echo get_permalink($post->ID) ?>"><?php the_title(); ?></a></h4>
+        <h6><?php the_time('F jS, Y') ?></h6>
         <p><?php the_excerpt(__('(more...)')); ?></p>
-        <hr style="border-bottom:none; margin-top:60px;margin-bottom:60px;">
+        <p class="success badge">
+          <?php comments_number( '0', '1', '%' ); ?>a
+        </p>
+        
+        <a href="https://twitter.com/share" class="twitter-share-button" data-via="annotree">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        
+        <div id="fb-root"></div>
+        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+        <fb:like href="<?php echo get_permalink(); ?>" show_faces="true" width="450"></fb:like><hr style="border-bottom:none; margin-top:60px;margin-bottom:60px;">
         <?php endwhile; else: ?>
         <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
         <?php endif; ?> 

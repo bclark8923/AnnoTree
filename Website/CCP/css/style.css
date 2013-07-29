@@ -387,13 +387,13 @@ textarea {
     line-height: 90pt;
     font-weight: bold;
     color: #444;
+    padding-top: 15px;
     background-color: #ccc;
 }
 
 .cardImgNew:hover {
     cursor: pointer;
     color: #92DF74;
-    background-color: #444;
 }
 
 #forestContainer {

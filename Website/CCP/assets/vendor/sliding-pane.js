@@ -132,7 +132,7 @@ var SlidingPane = function (config) {
         visiblePaneWrapper.setAttribute('style', boxShadowStyle + ';' + transitionStyle + ';' + dimensionStyle);
         /* Wrap hidden element to set absolute positioning and ensure the contents clips */
         var curWidth = me.width;
-        hiddenPaneWrapper.setAttribute('style', 'position: absolute; overflow: hidden; ' + dimensionStyle + (me.hiddenPaneElement.getAttribute('style') ? me.hiddenPaneElement.getAttribute('style') : '') + ' width: ' + curWidth + 'px; right: 0;');
+        hiddenPaneWrapper.setAttribute('style', 'position: absolute; overflow: hidden; ' + dimensionStyle + (me.hiddenPaneElement.getAttribute('style') ? me.hiddenPaneElement.getAttribute('style') : '') + ' width: ' + curWidth + 'px; left: 0;');
         hiddenPaneWrapper.appendChild(me.hiddenPaneElement);
         /* Wrap the whole thing up to set preserve-3d */
         componentWrapper.setAttribute('style', 'position: relative; overflow: hidden; -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d; -o-transform-style: preserve-3d; transform-style: preserve-3d; ' + dimensionStyle);

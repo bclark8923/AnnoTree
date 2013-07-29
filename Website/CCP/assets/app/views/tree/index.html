@@ -26,10 +26,8 @@
     </div>
 
     <!-- Left Side Content -->
-    <div id="mainContent">
-        <div ng-switch="subview" class="treeSubview">
-            <div ng-switch-when="leaves" ng-include=" 'assets/app/views/tree/leaves.html' "></div>
-            <div ng-switch-when="leaf" ng-include=" 'assets/app/views/tree/leaf.html' "></div>
-        </div>
+    <div ng-switch="subview">
+        <div ng-switch-when="leaves" ng-include=" 'assets/app/views/tree/leaves.html' "></div>
+        <div ng-switch-when="leaf" ng-include=" 'assets/app/views/tree/leaf.html' "></div>
     </div>
 </div>

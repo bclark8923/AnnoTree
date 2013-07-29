@@ -1,64 +1,66 @@
-<div ng-controller="layouts.StandardController">
-    <!-- top navbar -->
-    <div class="navbar navbar-fixed-top">
-        <div class="nav-collapse collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="#/app"><i class="icon-home"></i>&nbsp;Home</a>
-                </li>
-                <li>
-                    <a href="#/docs"><i class="icon-folder-open"></i>&nbsp;Documents</a>
-                </li>
-            </ul>
+<div ng-controller="layouts.StandardController" >
+    <div id="containWrapper">
+        <!-- top navbar -->
+        <div class="navbar navbar-fixed-top">
+            <div class="nav-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#/app"><i class="icon-home"></i>&nbsp;Home</a>
+                    </li>
+                    <li>
+                        <a href="#/docs"><i class="icon-folder-open"></i>&nbsp;Documents</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="logo">
+                <img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" />
+            </div>
+            <div id="userLinkDiv">
+                <a href="" class="userLink toggle active" ng-click="openUserScreen()">
+                    <img id="userIcon" src="img/user.png">
+                </a>
+                <span class="logoutArrow userSettings"></span>
+            </div>
+            <div class="responsiveShow" style="width: 40px;height: 40px;margin-top: 5px;">
+                <a id="paneToggle" style="padding:0;text-align:center;text-decoration:none">
+                    <i class="icon-reorder responsiveShow" style="color:white;font-size:18pt"></i>
+                </a>
+            </div>
         </div>
-        <div class="logo">
-            <img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" />
+
+        <!-- User Settings Display -->
+        <div id="userSettings" class="userSettingsBox userSettings">
+            <div>
+                <img ng-src="{{user.avatar}}">    
+                <p class="userSettingsName ng-binding" style="margin-left:80px;">{{user.name}}</p>
+            </div>
+            <div id="footer">
+                <p style="margin-top:5px;" class="btn btn-annotree logoutButton btn-small" ng-click="logout()">
+                    <strong>Logout</strong>
+                </p>
+            </div>
         </div>
-        <div id="userLinkDiv">
-            <a href="" class="userLink toggle active" ng-click="openUserScreen()">
-                <img id="userIcon" src="img/user.png">
-            </a>
-            <span class="logoutArrow userSettings"></span>
-        </div>
-        <div class="responsiveShow" style="width: 40px;height: 40px;margin-top: 5px;">
-            <a href="" id="paneToggle" style="padding:0;text-align:center;text-decoration:none">
-                <i class="icon-reorder responsiveShow" style="color:white;font-size:18pt"></i>
-            </a>
+
+        <!-- Include Body Content. -->
+        <div class="switch wrapper">
+            <div ng-switch="subview">
+                <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/index.html' "></div>
+                <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/index.html' "></div>
+                <div ng-switch-when="docs" ng-include=" 'assets/app/views/docs/index.html' "></div>
+                <div ng-switch-when="forestFire" ng-include=" 'assets/app/views/layouts/404.html' "></div>
+            </div>
         </div>
     </div>
 
-    <!-- User Settings Display -->
-    <div id="userSettings" class="userSettingsBox userSettings">
-        <div>
-            <img ng-src="{{user.avatar}}">    
-            <p class="userSettingsName ng-binding" style="margin-left:80px;">{{user.name}}</p>
-        </div>
-        <div id="footer">
-            <p style="margin-top:5px;" class="btn btn-annotree logoutButton btn-small" ng-click="logout()">
-                <strong>Logout</strong>
-            </p>
-        </div>
-    </div>
-
-    <!-- Include Body Content. -->
-    <div class="switch wrapper">
+    <!-- slide over page for mobile options -->
+    <div id="mobileDashboard" render-pane>
         <div ng-switch="subview">
-            <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/index.html' "></div>
-            <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/index.html' "></div>
-            <div ng-switch-when="docs" ng-include=" 'assets/app/views/docs/index.html' "></div>
-            <div ng-switch-when="forestFire" ng-include=" 'assets/app/views/layouts/404.html' "></div>
-        </div>
-    </div>
-
-    <!-- slide over page for mobile options 
-    <div id="mobileOptions" render-pane>
-        <div ng-switch="subview" class="l-body">
             <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/mobilePane.html' "></div>
             <div ng-switch-when="docs" ng-include=" 'assets/app/views/forest/mobilePane.html' "></div>
             <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/mobilePane.html' "></div>
         </div>
     </div>
-    -->
+
     <!-- Feedback Button -->
     <button class="btn btn-annotree" style="position:fixed;bottom:0;left:50px;z-index:10000;border:2px solid #84db69;border-bottom-left-radius:0px;border-bottom-right-radius:0px;" data-toggle="modal" data-target="#feedbackModal">
         <strong>Feedback</strong>

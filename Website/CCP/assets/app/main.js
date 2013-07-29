@@ -118,11 +118,10 @@ AnnoTree.directive('renderPane', function($timeout) {
     link: function(scope, elm, attrs) { 
       $timeout( 
         function() {
-          var width = 80;
           settingsPane = new SlidingPane({
-            id: 'mobileOptions',
-            targetId: 'wrapper',
-            side: 'right',
+            id: 'mobileDashboard',
+            targetId: 'containWrapper',
+            side: 'left',
             width: 240,
             duration: 0.5,
             timingFunction: 'ease',
@@ -133,7 +132,7 @@ AnnoTree.directive('renderPane', function($timeout) {
             settingsPane.toggle()
           });
 
-          $("#wrapper").click(function() {
+          $("#containWrapper").click(function() {
             settingsPane.close()
           });
         }, 0

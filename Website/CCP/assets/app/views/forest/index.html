@@ -17,7 +17,7 @@
                             <div class="card">
                                 <div class="cardName">
                                     <strong>New Tree</strong><br />
-                                    Create a new tree
+                                    <span class="cardDesc">Create a new tree</span>
                                 </div>
                                 <div class="cardImg cardImgNew" ng-click="openNewTreeModal(forest)">
                                     +
@@ -29,7 +29,7 @@
                                 <a ng-href="#/app/{{tree.id}}">
                                     <div class="cardName">
                                         <strong>{{tree.name}}</strong><br />
-                                        {{tree.description}}
+                                        <span class="cardDesc">{{tree.description}}<span>
                                     </div>
                                     <div class="cardImg" style="background-image:url({{tree.logo}});"></div>
                                 </a>

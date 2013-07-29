@@ -1,5 +1,63 @@
 <div id="leafs" ng-model="treeInfo">
-  <div ng-include=" 'assets/app/views/tree/tree-modals.html' "></div>
+    <div ng-include=" 'assets/app/views/tree/tree-modals.html' "></div>
+    <div class="container">
+        <div class="row" ng-repeat="leafRow in (leaves.length/3 | threeColumnFilter)" post-render> 
+            <div class="col-6 col-lg-4" ng-repeat="leaf in leaves.slice(3*$index, 3*$index + 3)"> 
+                <div ng-switch="leaf.id">
+                    <div ng-switch-when="-1">
+                        <div class="cardHolder">
+                            <div class="card">
+                                <div class="cardName">
+                                    <strong>New Leaf</strong>
+                                </div>
+                                <div class="cardImg cardImgNew" ng-click="openNewLeafModal()">
+                                    +
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-switch-default>
+                        <div class="card">
+                            <a ng-href="#/app/{{tree.id}}/{{leaf.id}}">
+                                    <div class="cardName">
+                                        <strong>{{leaf.name}}</strong>
+                                    </div>
+                                    <div class="cardImg" style="background-image:url({{leaf.annotation}});"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+
+
+                                <a href class="switch newTreeLinkClass" ng-click="openNewLeafModal()">
+                                    <div class="cardTitleBar valign"><div>{{leaf.name}}</div></div>
+                                                <div class="treeLogoContainer">
+                                                    <div style="margin-top:50px;color:white;font-size:130pt;font-weight:800;">
+                                                        +
+                                                    </div>
+
+<div ng-switch-default>
+                                    <div class="cardHolder">
+                                        <div class="card">
+                                            <div class="cardTitleBar valign"><div>{{leaf.name}}</div></div>
+                                            <a href="#/app/{{treeInfo.id}}/{{leaf.id}}">
+                                                <div class="leaf valign">
+                                                    <div>
+                                                        <img class="leafImage" ng-src="{{leaf.annotation}}" gumby-retina />
+                                                    </div>
+                                                </div>
+                                            </a>
+                                    </div>
+                                </div>
+                            </div>
+
+
           <div id="treeHeader" class="valign">
             <div id="crumbHolder">
               <span class="responsiveHide">
@@ -27,12 +85,6 @@
             </div>
           </div>
           <div id="treeElements" post-render>
-               <!-- <div id="noLeavesDiv" ng-show="noLeaves != ''" class="valign" style="text-align:center;height:100%;">
-                    <div>
-                        <span style="font-size:20pt;" ng-mode="noForests">{{noLeaves}}<br/><br/>{{noLeavesNL}}</span>
-                    </div>
-                </div>-->
-
                 <div id="treeElementsDiv" class="twelve colgrid treeBG" ng-controller="forest.TreeController" ng-show="noLeaves == ''">
                     <div class="row" ng-repeat="leafRow in (leaves.length/3 | threeColumnFilter)" post-render> 
                         <div class="four columns" ng-repeat="leaf in leaves.slice(3*$index, 3*$index + 3)"> 
@@ -65,10 +117,6 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <!--<div class="treeModify">
-                                                <a href class="switch" gumby-trigger="#modifyLeafModal"><i class="icon-cog"></i></a>
-                                            </div>-->
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -77,5 +125,4 @@
                 </div>
 
 
-          </div> <!-- end trees -->
-        </div>
+          </div>  end trees -->

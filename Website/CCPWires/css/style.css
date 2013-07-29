@@ -341,11 +341,10 @@ a:hover {
 }
 
 .forestRow {
-	margin-top: 30px;
+	margin: 30px 0;
 	text-align: left;
 	color: #888;
 	height: 30px;
-	margin-bottom: 30px;
 	border-bottom: 1px solid #ccc
 }
 
@@ -359,7 +358,7 @@ a:hover {
 	padding: 5px;
 	box-shadow: 0px 0px 10px #bbb;
 	border-radius: 5px;*/
-	font-size: 20pt;
+	font-size: 15pt;
 	line-height: 22pt;
 	font-family: Helvetica;
 	font-weight: bold;
@@ -410,7 +409,7 @@ a:hover {
 .card {
 	margin: 0 auto;
 	height: 175px;
-	width: 220px;
+	width: 100%;
 	margin-bottom: 30px;
 	box-shadow: 0px 0px 10px #bbb;
 	border-radius: 5px 5px 0 0;
@@ -553,7 +552,11 @@ a:hover {
 	display: block;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+
+	.col-sm-6 { 
+		width: 50%;
+	}
 
 	.responsiveShow {
 		display: block;
@@ -579,17 +582,25 @@ a:hover {
 		width: 100%;
 	}
 
-	#dashboard {
+	#dashboardWrap {
 		display: none;
+	}
+
+	.forestRow {
+		margin: 30px 20px;
 	}
 }
 
 
 
-@media (max-width: 480px) {
+@media (max-width: 479px) {
+
+	.col-12 {
+		width: 100%;
+	}
+	
 	.card {
 		height: 125px;
-		width: 125px;
 		margin-bottom: 50px;
 	}
 

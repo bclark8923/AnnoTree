@@ -124,6 +124,18 @@ a:hover {
 	margin-left: -50px;
 }
 
+.appHeader {
+	height:30px;
+	padding-top:5px;
+	margin-right:10px;
+	position: fixed;
+	color: white;
+	font-size: 15pt;
+	display: none;
+	width: 100%;
+	text-align: center;
+}
+
 .userLinkDiv {
 	position: absolute;
 	right: 20px;
@@ -439,6 +451,12 @@ a:hover {
 	color: #bbb;
 }
 
+.cardNameTitle {
+	height: 40px;
+	font-size: 15pt;
+	border-radius: 5px;
+}
+
 .cardImg {
 	max-height: 150px;
 	height: 100%;
@@ -552,7 +570,21 @@ a:hover {
 	display: block;
 }
 
+.tabletRow {
+	display: none;
+}
+
 @media (max-width: 767px) {
+
+	.tabletRow {
+		display: block;
+	}
+
+	.cardTitle {
+		height: 40px;
+		border-radius: 5px;
+		margin-bottom: 20px;
+	}
 
 	.col-sm-6 { 
 		width: 50%;
@@ -577,6 +609,14 @@ a:hover {
 		margin-bottom: 5px;
 	}
 
+	.logoHeader {
+		display: none;
+	}
+
+	.appHeader {
+		display: block;
+	}
+
 	#leafs, #leaf {
 		margin-left: 0;
 		width: 100%;
@@ -598,10 +638,17 @@ a:hover {
 	.col-12 {
 		width: 100%;
 	}
-	
+
 	.card {
 		height: 125px;
 		margin-bottom: 50px;
+	}
+
+	.cardTitle {
+		height: 40px;
+		border-radius: 5px;
+		margin-bottom: 20px;
+		cursor: none;
 	}
 
 	.cardImg {

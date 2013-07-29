@@ -3,11 +3,11 @@ html, body {
 }
 
 body, #containWrapper {
-	background-color: #f1f1f1;
+	background-color: #f7f7f7;
 	font-family: Lato;
 	height: 100%;
 	width: 100%;
-	/*background-image: url('../img/Pepsized_Blur_71.jpg');
+	/*background-image: url('../img/Pepsized_Blur_15.jpg');
 	background-size: cover;
 	background-attachment: fixed;*/
 }
@@ -115,6 +115,15 @@ a:hover {
 	background-color: #57AF35;
 }
 
+.logoHeader {
+	height:30px;
+	padding-top:5px;
+	margin-right:10px;
+	position: fixed;
+	left: 50%;
+	margin-left: -50px;
+}
+
 .userLinkDiv {
 	position: absolute;
 	right: 20px;
@@ -123,7 +132,7 @@ a:hover {
 }
 
 #userIcon {
-	border: 2px solid white;
+	border: 2px solid #92DF74;
 	height: 30px;
 	width: 30px;
 	margin-top: 3px;
@@ -244,6 +253,7 @@ a:hover {
 
 .appLogo {
 	border-radius: 5px;
+	width: 100%;
 }
 
 .appName {
@@ -261,16 +271,38 @@ a:hover {
 }
 
 .forestRow {
-	text-align: center;
-	height: 50px;
+	margin-top: 30px;
+	text-align: left;
+	color: #888;
+	height: 30px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid #ccc
+}
+
+.newForestRow {
+	border: none;
 }
 
 .forestName {
-	text-align: center;
+	/*text-align: center;
 	background-color: white;
 	padding: 5px;
 	box-shadow: 0px 0px 10px #bbb;
-	border-radius: 5px;
+	border-radius: 5px;*/
+	font-size: 20pt;
+	line-height: 22pt;
+	font-family: Helvetica;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.newForestName {
+	padding: 3px;
+	border: 2px dashed #bbb;
+}
+
+.newForestName:hover {
+	background-color: white;
 }
 
 #leaf {
@@ -309,12 +341,28 @@ a:hover {
 	border-radius: 5px 5px 0 0;
 }
 
+.card:hover {
+	background-color: white;
+	cursor: pointer;
+}
+
+.cardNew {
+	border: 2px dashed #bbb;
+	box-shadow: none;
+}
+
 .cardName {
 	text-align: center;
-	background-color: white;
+	background-color: #92DF74;
+	color: white;
 	border-radius: 5px 5px 0 0;
 	padding: 3px;
 	height: 25px;
+}
+
+.cardNameNew {
+	background-color: transparent;
+	color: #bbb;
 }
 
 .cardImg {
@@ -322,7 +370,16 @@ a:hover {
 	height: 100%;
 	width: 100%;
 	background-size: cover;
-	background-position: center;
+	background-position: center top;
+}
+
+.cardImg:hover {
+	-khtml-opacity:.70; 
+	-moz-opacity:.70; 
+	-ms-filter:"alpha(opacity=70)";
+	filter:alpha(opacity=70);
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.7);
+	opacity:.70; 
 }
 
 .cardImgNew {
@@ -344,7 +401,8 @@ a:hover {
 
 .cardNameLarge {
 	text-align: center;
-	background-color: white;
+	background-color: #92DF74;
+	color: white;
 	border-radius: 5px 5px 0 0;
 	padding: 3px;
 	height: 25px;

@@ -231,6 +231,11 @@ a:hover {
 	padding-top: 20px;
 	padding-bottom: 20px;
 	position: fixed;
+	opacity: 0;
+
+   transition: opacity .25s linear;
+   -moz-transition: opacity .25s linear;
+   -webkit-transition: opacity .25s linear;
 }
 
 .dashboard-inner {
@@ -240,6 +245,9 @@ a:hover {
 .dash-inner-wrap {
 	position: relative;
 	height: 100%;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px #bbb;
 }
 
 .dashboard-footer {
@@ -267,13 +275,10 @@ a:hover {
 	height: -moz-calc(100% - 27px);
 	height: -o-calc(100% - 27px);
 	word-wrap: break-word;
-	background-color: white;
 	overflow-y: auto;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	border-radius: 5px;
-	box-shadow: 0px 0px 10px #bbb;
 }
 
 .dashLinks {
@@ -308,8 +313,8 @@ a:hover {
 
 .newUserBadge {
 	font-weight: bold;
-	font-size: 15px;
-	padding: 0px 6px;
+	font-size: 12px;
+	padding: 2px 6px;
 	float: right;
 	margin-right: 5px;
 	margin-top: 2px; 
@@ -328,6 +333,11 @@ a:hover {
 	position: absolute;
 	overflow-y: auto;
 	overflow-x: hidden;
+	opacity: 0;
+
+   transition: opacity .25s linear;
+   -moz-transition: opacity .25s linear;
+   -webkit-transition: opacity .25s linear;
 }
 
 .forestRow {
@@ -390,6 +400,11 @@ a:hover {
 	padding-right: 20px;
 	position: absolute;
 	overflow-y: auto;
+	opacity: 0;
+
+   transition: opacity .25s linear;
+   -moz-transition: opacity .25s linear;
+   -webkit-transition: opacity .25s linear;
 }
 
 .card {
@@ -431,6 +446,10 @@ a:hover {
 	width: 100%;
 	background-size: cover;
 	background-position: center;
+
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
 }
 
 .cardImg:hover {
@@ -457,6 +476,11 @@ a:hover {
 	box-shadow: 0px 0px 10px #bbb;
 	border-radius: 5px 5px 0 0;
 	background-color: white;
+	opacity: 0;
+
+   transition: opacity .25s linear;
+   -moz-transition: opacity .25s linear;
+   -webkit-transition: opacity .25s linear;
 }
 
 .cardNameLarge {

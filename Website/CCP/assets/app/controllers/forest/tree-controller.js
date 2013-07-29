@@ -50,7 +50,7 @@
                         } else {
                             loadLeaves( response.data.branches[0].leaves );
 
-                            $timeout(function() { window.Gumby.init(); $("#loadingScreen").hide();}, 0);    
+                            $timeout(function() {$("#loadingScreen").hide();}, 0);    
                         }
                     },
                     function( response ) {
@@ -368,10 +368,6 @@
                             //addAnnotation(response.data.id);
 
                             //newAnnotation(response.data.id);
-                            
-
-                            $timeout(function() { Gumby.initialize('switches') }, 0);
-
                         },
                         function( response ) {
                             var errorData = "Our Create Leaf Service is currently down, please try again later.";
@@ -573,7 +569,6 @@
                             //$location.path("/forestFire");
                             alert(errorData);
                         }
-
                     }
                 );
                 /*$rootScope.modifyTree = tree;
@@ -589,18 +584,12 @@
                 $("#loadingScreen").hide();*/
             }
 
-            // ...
-
-
             // --- Define Controller Variables. ----------------- //
-
 
             // Get the render context local to this controller (and relevant params).
             var renderContext = requestContext.getRenderContext( "standard.tree" );
-
             
             // --- Define Scope Variables. ---------------------- //
-
 
             // I flag that data is being loaded.
             $scope.isLoading = true;
@@ -613,18 +602,17 @@
             $scope.noLeaves = "";
             $scope.noLeavesNL = "";
             $scope.newLeafHolder = { 
-                                id: "-1",
-                                name: "New Leaf",
-                                description: "Click here to add a new leaf to this tree.",
-                                logo: "img/tree01.png"
-                            };
+                id: "-1",
+                name: "New Leaf",
+                description: "Click here to add a new leaf to this tree.",
+                logo: "img/tree01.png"
+            };
 
             // The subview indicates which view is going to be rendered on the page.
             $scope.subview = renderContext.getNextSection();
             
 
             // --- Bind To Scope Events. ------------------------ //
-
 
             // I handle changes to the request context.
             $scope.$on(
@@ -633,30 +621,20 @@
 
                     // Make sure this change is relevant to this controller.
                     if ( ! renderContext.isChangeRelevant() ) {
-
                         return;
-
                     }
-
                     // Update the view that is being rendered.
                     $scope.subview = renderContext.getNextSection();
-
                 }
             );
 
-
             // --- Initialize. ---------------------------------- //
-
 
             // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
 
             // Load the "remote" data.
             $scope.$evalAsync(loadTreeData());
-
-            Gumby.init();
-
         }
     );
-
- })( angular, AnnoTree );
+})( angular, AnnoTree );

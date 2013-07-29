@@ -1,37 +1,35 @@
-
-
 <div ng-switch="subview" ng-controller="forest.TreeController">
-  <div id="scaffold">
-
-      <div id="mainContent" style="margin:0;border:0;">
-        
-              <div ng-switch="subview" class="l-body treeSubview">
-                <div ng-switch-when="leaves" ng-include=" 'assets/app/views/tree/leaves.html' "></div>
-                <div ng-switch-when="leaf" ng-include=" 'assets/app/views/tree/leaf.html' "></div>
-              </div>
-        <div id="options" >
-          <div id="actionHeader" class="valign">
-            <div class="taskHeader">
-              <p class="taskListHeadText">Task List</p>
+    <div class="wrapper">
+        <div id="dashboardWrap">
+            <div id="dashboard">
+                <div>
+                    <img class="appLogo" src="{{treeInfo.logo}}"><span class="appName">{{treeInfo.name}}</span>
+                </div>
+                <div style="margin-top:20px">
+                    <p><strong>API Key:</strong></p>
+                    <p>{{treeInfo.token}}</p>
+                </div>
+                <hr/>
+                <div style="margin-top:20px;">
+                    <div class="dashLinks">
+                        <i class="icon-leaf"></i>&nbsp;New Leaf
+                    </div>
+                    <div class="dashLinks">
+                        <i class="icon-group"></i>&nbsp;Users
+                    </div>
+                    <div class="dashLinks">
+                        <i class="icon-cog"></i>&nbsp;Tree Settings
+                    </div>
+                </div>
             </div>
-            <!--
-            <span class="actionBarButton">
-              <i class="icon-fa icon-tasks"></i>
-            </span>
-            <span class="actionBarButton">
-              <i class="icon-fa icon-comments-alt"></i>
-            </span>
-            <span class="actionBarButton">
-              <i class="icon-fa icon-leaf"></i>
-            </span>
-            -->
-          </div>
-          <div id="actionContent">
-            <div ng-include=" 'assets/app/views/tree/tasks.html' "></div>
-            
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+
+    <!-- Left Side Content -->
+    <div id="mainContent">
+        <div ng-switch="subview" class="treeSubview">
+            <div ng-switch-when="leaves" ng-include=" 'assets/app/views/tree/leaves.html' "></div>
+            <div ng-switch-when="leaf" ng-include=" 'assets/app/views/tree/leaf.html' "></div>
+        </div>
+    </div>
 </div>

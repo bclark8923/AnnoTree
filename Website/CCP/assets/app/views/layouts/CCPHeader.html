@@ -1,5 +1,4 @@
 <div ng-controller="layouts.StandardController">
-    <!-- App -->
     <!-- top navbar -->
     <div class="navbar navbar-fixed-top">
         <div class="nav-collapse collapse navbar-responsive-collapse">
@@ -16,14 +15,14 @@
             <img id="annoTreeLogo" src="img/AnnoTreeFadeIn.png" />
         </div>
         <div id="userLinkDiv">
-            <a href="" ng-click="openUserScreen()">
+            <a href="" class="userLink toggle active" ng-click="openUserScreen()">
                 <img id="userIcon" src="img/user.png">
             </a>
             <span class="logoutArrow userSettings"></span>
         </div>
         <div class="responsiveShow" style="width: 40px;height: 40px;margin-top: 5px;">
-            <a href="" id="paneToggle" style="padding:0;text-align:center;">
-                <i class="icon-reorder" style="color:white;font-size:18pt;"></i>
+            <a href="" id="paneToggle" style="padding:0;text-align:center;text-decoration:none">
+                <i class="icon-reorder responsiveShow" style="color:white;font-size:18pt"></i>
             </a>
         </div>
     </div>
@@ -42,7 +41,7 @@
     </div>
 
     <!-- Include Body Content. -->
-    <div id="wrapper" class="switch">
+    <div class="switch wrapper">
         <div ng-switch="subview">
             <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/index.html' "></div>
             <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/index.html' "></div>

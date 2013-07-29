@@ -134,6 +134,7 @@ a:hover {
 	display: none;
 	width: 100%;
 	text-align: center;
+	margin-left:-15px;
 }
 
 .userLinkDiv {
@@ -586,7 +587,7 @@ a:hover {
 		margin-bottom: 20px;
 	}
 
-	.col-sm-6 { 
+	.card-col.col-sm-6 { 
 		width: 50%;
 	}
 
@@ -635,7 +636,7 @@ a:hover {
 
 @media (max-width: 479px) {
 
-	.col-12 {
+	.card-col.col-12 {
 		width: 100%;
 	}
 

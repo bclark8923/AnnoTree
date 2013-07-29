@@ -3,7 +3,7 @@ html, body {
 }
 
 body, #containWrapper {
-	background-color: #f7f7f7;
+	background-color: #f1f1f1;
 	font-family: Lato;
 	height: 100%;
 	width: 100%;
@@ -211,6 +211,7 @@ a:hover {
 	position: fixed;
 	word-wrap: break-word;
 	padding: 10px;
+	overflow-y: auto;
 }
 
 #dashboardWrap {
@@ -259,6 +260,28 @@ a:hover {
 .appName {
 	margin-left: 10px;
 	font-size: 15pt;
+}
+
+.usersHeader {
+	border-radius: 5px;
+	background-color: #f1f1f1;
+	padding: 3px;
+	padding-left: 15px;
+}
+
+.newUserBadge {
+	font-weight: bold;
+	font-size: 15px;
+	padding: 0px 6px;
+	float: right;
+	margin-right: 5px;
+	margin-top: 2px; 
+	cursor: pointer;
+}
+
+.treeUser {
+	width: 100%;
+	margin-bottom: 10px;
 }
 
 #trees {
@@ -326,10 +349,10 @@ a:hover {
 	float: left;
 	margin-left: 25%;
 	padding-top: 60px;
-	padding-left: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
 	position: absolute;
 	overflow-y: auto;
-	overflow-x: hidden;
 }
 
 .card {
@@ -370,7 +393,7 @@ a:hover {
 	height: 100%;
 	width: 100%;
 	background-size: cover;
-	background-position: center top;
+	background-position: center;
 }
 
 .cardImg:hover {

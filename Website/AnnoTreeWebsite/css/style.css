@@ -260,6 +260,27 @@ img.grayScale {
   color: gray;
 }
 
+.twitterIcon, .facebookIcon, .googleIcon {
+  color: #444;
+
+  -webkit-transition: color 0.25s ease-in-out;         
+  -moz-transition: color 0.25s ease-in-out;          
+  -o-transition: color 0.25s ease-in-out;          
+  -transition: color 0.25s ease-in-out;
+}
+
+.twitterIcon:hover {
+  color: #4099ff;
+}
+
+.facebookIcon:hover {
+  color: #3b5998;
+}
+
+.googleIcon:hover {
+  color: #d34836;
+}
+
 @media only screen and (max-width: 767px) {
   .responsiveShow {
     display: block;

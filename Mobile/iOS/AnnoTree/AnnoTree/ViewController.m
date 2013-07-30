@@ -30,7 +30,7 @@
 
     [[self.viewWeb scrollView] setBounces: NO];
     
-    NSURL* url = [NSURL URLWithString:@"https://dev.annotree.com"];
+    NSURL* url = [NSURL URLWithString:@"https://ccp.annotree.com"];
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     

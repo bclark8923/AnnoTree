@@ -414,7 +414,7 @@
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     
     // set URL
-    NSURL *requestURL = [NSURL URLWithString:@"https://dev.annotree.com/services/ios/leaf"];
+    NSURL *requestURL = [NSURL URLWithString:@"https://ccp.annotree.com/services/ios/leaf"];
     [request setURL:requestURL];
     
     //NSLog(@"Connection");
@@ -439,7 +439,7 @@
 {
 	if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
 	{
-		if ([challenge.protectionSpace.host isEqualToString:@"dev.annotree.com"])
+		if ([challenge.protectionSpace.host isEqualToString:@"ccp.annotree.com"])
 		{
 			[challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
 		}

@@ -13,7 +13,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[AnnoTree sharedInstance] loadAnnoTree:UIInterfaceOrientationMaskAll withTree:@"a43ee85366161f644f1428574f190b6c919ba390d502458f8f4dc29e9b956501"];
+    [[AnnoTree sharedInstance] loadAnnoTree:UIInterfaceOrientationMaskAll withTree:@"c90847f5ddb1f7d72d100d01b376aa449b5d715cabf19ea998c48fb984e1db77"];
     // Override point for customization after application launch.
     return YES;
 }

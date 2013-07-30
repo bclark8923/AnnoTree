@@ -11,16 +11,25 @@
             // --- Define Scope Methods. ------------------------ //
             $scope.resetPassword = function() {
                 var token = ($location.search()).token;
-                //alert('token: ' + token);
-                var email = $scope.email;
+                alert('token: ' + token);
                 var password = $scope.password;
+                var confirmPassword = $scope.confirmPassword;
                 if (typeof password === 'undefined') {
                     password = '';
                 }
 
-                if (email && password.length >= 6) { // email  and password are valid
+                if (password.length < 6) {
+                    $("#errorMsg").html("Password should contain at least six characters where one character is a number");
+                    $scope.errorMsg = true; 
+                    
+                } else if (password != confirmPassword) {
+                    $("#errorMsg").html("Passwords do not match");
+                    $("#newPassword").val("");
+                    $("#confirmNewPassword").val("");
+                    $scope.errorMsg = true; 
+                } else { // password are valid
                     $('#authenticateWorking').addClass('active');
-                    var promise = authenticateService.resetPassword(email, password, token);
+                    var promise = authenticateService.resetPassword(password, token);
                     
                     promise.then(
                         function(response) { // success
@@ -49,12 +58,6 @@
                         }
                     );
                     $('#authenticateWorking').removeClass('active');
-                } else if (!email) {
-                    $("#errorMsg").html("Please enter a valid email");
-                    $scope.errorMsg = true;
-                } else if (!password.length < 6) {
-                    $("#errorMsg").html("Password should contain at least six characters and one number");
-                    $scope.errorMsg = true; 
                 }
             }
 

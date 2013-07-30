@@ -102,7 +102,7 @@
             $scope.newTree = function() {
 
                 var treeName = $scope.treeName;
-                var treeDescription = $scope.treeDescription;
+                var treeDescription = "NULL";
                 var formValid = $scope.createTreeForm.$valid;
                 var forestID = $rootScope.curForestAdd;
                 if(forestID == -1) {
@@ -114,9 +114,6 @@
                     $scope.invalidAddTree = true;
                     if(!treeName) {
                         $("#invalidAddTree").html("Please fill out a tree name.");
-                    }
-                    else if(!treeDescription) {
-                        $("#invalidAddTree").html("Please fill out a tree description.");
                     } else {
                         //shouldn't happen
                         $("#invalidAddTree").html("Please enter valid information.");

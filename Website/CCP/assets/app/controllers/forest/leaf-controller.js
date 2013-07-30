@@ -294,7 +294,6 @@
 
             // --- Initialize. ---------------------------------- //
 
-
             // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
 

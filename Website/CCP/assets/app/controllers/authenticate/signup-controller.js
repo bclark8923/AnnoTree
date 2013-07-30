@@ -34,6 +34,7 @@
                 var name = $scope.signUpName;
                 var email = $scope.signUpEmail;
                 var password = $scope.signUpPassword;
+                var confirmPassword = $scope.signUpConfirmPassword;
                 var formValid = $scope.signUpForm.$valid;
                 
                 //validate form
@@ -52,7 +53,13 @@
                         $("#validateError").html("Please enter valid information.");
                     }
                 } else if (password.length < 6) {
-                    $("#errorMsg").html("Password should contain at least six characters and one number");
+                    $("#validateError").html("Password should contain at least six characters and one number");
+                    $scope.invalidSignUp = true;
+                } else if (confirmPassword != password) {
+                    $("#validateError").html("Passwords do not match");
+                    $("#signUpPassword").val("");
+                    $("#confirmPassword").val("");
+                    $scope.invalidSignUp = true;
                 } else {
                     //Send signup api call
                     $('#authenticateWorking').addClass('active');

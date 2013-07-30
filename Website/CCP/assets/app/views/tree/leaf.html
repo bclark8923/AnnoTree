@@ -17,7 +17,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="leafComments" >
-                                <div class="leafComment" ng-repeat="comment in leaf.comments">
+                                <div class="leafComment" ng-repeat="comment in leaf.comments | orderBy:'created_at' | date:'yyyy-MM-dd HH:mm:ss'">
                                     <div class="userImageHolder">
                                         <img class="userCommentImage" ng-src="{{comment.avatar}}"> 
                                     </div>
@@ -34,10 +34,10 @@
                                     </div>
                                     <div class="userCommentHolder">
                                         <form class="form-horizontal" name="leafCommentForm" ng-submit="addLeafComment()">
-                                            <textarea type="text" class="form-control" maxlength="2048" id="newComment" placeholder="Enter a comment" ng-model="leafComment.comment" required></textarea>
-                                            <button type="submit" class="btn btn-annotree" id="commentBtn">
+                                            <input type="text" class="form-control" maxlength="2048" id="newComment" placeholder="Enter a comment" ng-model="leafComment.comment" required />
+                                            <!--button type="submit" class="btn btn-annotree" id="commentBtn">
                                                 <strong>Add Comment</strong>
-                                            </button>
+                                            </button-->
                                         </form>
                                     </div>
                                 </div>

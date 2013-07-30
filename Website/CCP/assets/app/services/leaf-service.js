@@ -30,7 +30,7 @@
             }
 
             function createAnnotation(leafID, formData, xhr) {
-                $("#loadingScreen").show();
+                //$("#loadingScreen").show();
                 /* 
                 return $http({
                     method: 'POST',

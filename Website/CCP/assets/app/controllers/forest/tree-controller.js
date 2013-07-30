@@ -16,7 +16,7 @@
                     if(leaves[i].annotations.length > 0) {
                         leaves[i].annotation = leaves[i].annotations[0].path;
                     } else {
-                        leaves[i].annotation = "img/tree01.png";
+                        leaves[i].annotation = "img/logo.png";
                     }
                 }
                 $rootScope.leaves = leaves;
@@ -81,6 +81,7 @@
                 $("#newLeafClose").click();
 
                 $scope.invalidAddLeaf = false;
+                $scope.$apply();
 
                 /*$route.reload();
 
@@ -114,7 +115,7 @@
             $scope.modifyTreeFn = function() {
 
                 var treeName = $rootScope.modifyTree.name;
-                var treeDescription = $rootScope.modifyTree.description;
+                var treeDescription = "NULL";
                 var treeID = $rootScope.modifyTree.id;
                 var formValid = $scope.modifyTreeForm.$valid;
 
@@ -123,9 +124,6 @@
                     $scope.invalidModifyTree = true;
                     if(!treeName) {
                         $("#invalidModifyTree").html("Please fill out a tree name.");
-                    }
-                    else if(!treeDescription) {
-                        $("#invalidModifyTree").html("Please fill out a tree description.");
                     } else {
                         //shouldn't happen
                         $("#invalidModifyTree").html("Please enter valid information.");
@@ -176,7 +174,7 @@
             }
 
             $scope.deleteCallback = function() {
-                $("#deleteCallbackModal").addClass('active');
+                $("#deleteCallbackModal").modal('show');
             }
 
             $scope.deleteTree = function() {
@@ -186,7 +184,8 @@
 
                 promise.then(
                     function( response ) {
-
+                        $('#deleteCallbackModal').modal('hide');
+                        $('#modifyTreeModal').modal('hide');
                         $scope.isLoading = false;
                         $location.path('/app');
 
@@ -225,18 +224,18 @@
             }
 
             $scope.openNewLeafModal = function () {
-                $("#newLeafModal").addClass('active');
+                $("#newLeafModal").modal('show');
             }
 
             $scope.closeNewLeafModal = function () {
-                $("#newLeafModal").removeClass('active');
+                $("#newLeafModal").modal('hide');
                 $("#invalidAddLeaf").html('');
                 $("#leafName").val('');
                 $("#annotationImage").val('');
                 $scope.invalidAddLeaf = false;
-                $scope.leafCreate = true;
-                $scope.annoCreate = true;
-                $("#loadingScreen").hide();
+                $scope.filesListing = [];
+                $("#newLeafModalWorking").removeClass('active');
+                $('#filesName').html('No files selected');
             }
 
             function newAnnotation(leafID) {
@@ -258,28 +257,9 @@
                 xhr.addEventListener("load", uploadComplete, false);
                 xhr.addEventListener("error", uploadFailed, false);
                 xhr.addEventListener("abort", uploadCanceled, false);
-                var result = leafService.createAnnotation(leafID, fd, xhr);
-                
-                result.
-                success(function(data, status, headers, config) {
-                    alert(status);
-                }).
-                error(function(data, status, headers, config) {
-                    alert(status);
-                });
+                leafService.createAnnotation(leafID, fd, xhr);
 
                 $scope.isLoading = false;
-
-                /*
-                promise.then(
-                    function(response) {}, // do nothing if successfully posting
-                    function(reponse) {
-                        if (response.data.status == 415) {
-                            alert(response.data.txt);
-                        } 
-                    }
-                );
-                */
             }
 
             function uploadComplete(evt) {
@@ -287,13 +267,12 @@
                 //alert(evt.target.responseText); 
                 if (this.status == 415 || this.status == 406) {
                     var jsonResp = JSON.parse(this.response);
-
-                    //alert('test:' + this.status + "<br/>text" + test.txt);
                 } else {
                     var annotationObject = jQuery.parseJSON( evt.target.responseText );
                     $scope.newLeafData.annotations.push(annotationObject);
                     $scope.newLeafData.annotation = annotationObject.path;
                     addLeaf( $scope.newLeafData );
+                    $scope.closeNewLeafModal();
                 }
             }
 
@@ -310,16 +289,6 @@
                 //delete new leaf
                 $location.path("/forestFire");
             }
-            
-            $scope.addAnnotation = function(leafId) {
-            
-            }
-
-            $scope.noAnnotation = function() {
-                $scope.newLeafData.annotation = "img/tree01.png";
-                addLeaf($scope.newLeafData);
-                $scope.closeNewLeafModal();
-            }
 
             $scope.newLeaf = function() {
 
@@ -330,7 +299,7 @@
                 var branchID = $scope.treeInfo.branches[0].id;
 
                 //validate form
-                if(!formValid) { // || annotationImageElement.files.length == 0) {
+                if(!formValid || annotationImageElement.files.length == 0) {
                     $scope.invalidAddLeaf = true;
                     if(!leafName) {
                         $("#invalidAddLeaf").html("Please fill out a leaf name.");
@@ -342,13 +311,12 @@
                     }
                 } else {
                     //return;
+                    $('#newLeafModalWorking').addClass('active');
                     var promise = leafService.createLeaf(branchID, leafName, leafDescription);
 
                     promise.then(
                         function( response ) {
                             $scope.invalidAddLeaf = false;
-
-                            //$scope.isLoading = false;
 
                             $scope.newLeafData = response.data;
                             $scope.newLeafData.annotations = [];
@@ -357,13 +325,10 @@
                             $scope.noLeavesNL = "";
                             $("#noLeavesDiv").hide();
                             $("#treeElementsDiv").show();
-                            $("#createAnnotation").attr('action', '//services/' + response.data.id + '/annotation');
-                            $scope.leafCreate = false;
-                            $scope.annoCreate = true;
-
+                            $("#createAnnotation").attr('action', '/services/' + response.data.id + '/annotation');
                             //addAnnotation(response.data.id);
 
-                            //newAnnotation(response.data.id);
+                            newAnnotation(response.data.id);
                         },
                         function( response ) {
                             var errorData = "Our Create Leaf Service is currently down, please try again later.";
@@ -393,7 +358,6 @@
                                 alert(errorData);
                             }
                             $("#invalidAddTree").html(errorData);
-
                         }
                     );
                 }
@@ -449,14 +413,15 @@
 
             $scope.addUser = function() {
                 $scope.addedUser.email = $scope.addUserID;
+                $('#modifyUsersModalWorking').addClass('active');
                 var promise = treeService.addUser($scope.treeInfo.id, $scope.addUserID);
 
                 promise.then(
                     function( response ) {
 
                         //if existing, push
-                        $scope.addedUser.first_name = response.data.first_name;
-                        $scope.addedUser.last_name = response.data.last_name;
+                        $scope.addedUser.first_name = response.data.firstName;
+                        $scope.addedUser.last_name = response.data.lastName;
                         $scope.addedUser.id = response.data.id;
                         $scope.treeInfo.users.push($scope.addedUser);
                         $scope.addUserID = "";
@@ -496,13 +461,13 @@
 
                     }
                 );
+                $('#modifyUsersModalWorking').removeClass('active');
             }
 
             $scope.openModifyUsersModal = function () {
                 var promise = treeService.getKnownPeople();
                 promise.then(
                     function( response ) {
-
                         $("#modifyUsersModal").modal('show');
 
                         var users = [];
@@ -519,21 +484,22 @@
                             users.push({user: response.data.users[i], label:response.data.users[i].first_name + ' ' + response.data.users[i].last_name + ' ' + response.data.users[i].email, value: response.data.users[i].email} );
                         }
                         $( "#userList" ).autocomplete({
-                          minLength: 1,
-                          source: users,
-                          select: function( event, ui ) {
-                            $( "#userList" ).val( ui.item.value );
-                            $scope.addedUser = ui.item.user;
-                            $scope.addUserID = ui.item.user.email;
-                            return false;
-                          }
+                            minLength: 1,
+                            source: users,
+                            select: function( event, ui ) {
+                                $( "#userList" ).val( ui.item.value );
+                                $scope.addedUser = ui.item.user;
+                                $scope.addUserID = ui.item.user.email;
+                                return false;
+                            }
                         })
+                        /*
                         .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-                          return $( "<div>" )
-                            .append( "<a>" + item.label + "</a>" )
-                            .appendTo("#appendDiv");
+                          return $( "<li>" )
+                            .append(item.label)
+                            .appendTo( ul );
                         };
-
+                        */
                     },
                     function( response ) {
                         alert('Our add and remove users service is currently down. Please try again later.');
@@ -601,7 +567,7 @@
                 id: "-1",
                 name: "New Leaf",
                 description: "Click here to add a new leaf to this tree.",
-                logo: "img/tree01.png"
+                logo: "img/logo.png"
             };
 
             // The subview indicates which view is going to be rendered on the page.
@@ -628,6 +594,11 @@
 
             // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
+            $scope.filesListing = [];
+            $("#annotationImage").change(function() {
+                var file = $('#annotationImage').val().replace(/C:\\fakepath\\/i, '');
+                $('#filesName').html(file);
+            });
 
             // Load the "remote" data.
             $scope.$evalAsync(loadTreeData());

@@ -85,7 +85,6 @@ sub reset {
 
     my $jsonReq = $self->req->json;
     my $params = {};
-    $params->{email} = $jsonReq->{email};
     $params->{password} = $jsonReq->{password};
     $params->{token} = $self->param('token');
     

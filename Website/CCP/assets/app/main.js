@@ -113,6 +113,15 @@ AnnoTree.directive('postRender', function($timeout) {
     }
 });
 
+AnnoTree.directive('upload', function() {
+    return {
+        link: function(scope, elem, attrs) {
+            alert(elem.value);
+            scope.filesListing = [elem.value];
+        }
+    }
+});
+
 AnnoTree.directive('renderPane', function($timeout) {
   return  { 
     link: function(scope, elm, attrs) { 
@@ -179,14 +188,19 @@ var interceptor = function( $q, $location ) {
   }
 };
  
-AnnoTree.filter('threeColumnFilter', function() {
-    return function(arrayLength) {
-        arrayLength = Math.ceil(arrayLength);
-        var arr = new Array(arrayLength), i = 0;
-        for (; i < arrayLength; i++) {
-            arr[i] = i;
-        }
-        return arr;
+AnnoTree.directive('backImg', function(){
+    return function(scope, element, attrs){
+        attrs.$observe('backImg', function(value) {
+            element.css({
+                'background-image': 'url(' + value +')'
+            });
+        });
+    };
+});
+
+AnnoTree.filter('reverse', function() {
+    return function(items) {
+        return items.slice().reverse();
     };
 });
 

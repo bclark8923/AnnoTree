@@ -254,7 +254,7 @@ sub addUserToTree {
     if (looks_like_number($cols->[0])) {
         my $num = $cols->[0];
         if ($num == 0) {
-            $json = {result => $num, txt => 'User added successfully'};
+            $json = {error => $num, txt => 'User already added successfully'};
         } elsif ($num == 1) {
             $json = {error => $num, txt => 'Tree does not exist or user does not have access to that tree'};
         }
@@ -282,54 +282,34 @@ sub addUserToTree {
         $json->{id} = $userInfo->[0];
         my $subject = '';
         if ($status == 3) {
-            $subject = 'You\'ve Been Invited To Another Tree';
+            $subject = "You've Been Invited To Another Tree";
             $json->{firstName} = $userInfo->[1];
             $json->{lastName} = $userInfo->[2];
             $body = 'Hi ';
             $body .= $json->{firstName} || $json->{lastName};
-            $body .= ",\n\n";
+            $body .= ",<br/><br/>";
             $body .= $curUserInfo->[0] || '';
             $body .= ' ' if $curUserInfo->[0];
             $body .= $curUserInfo->[1];
-            $body .= ' has invited you to the ' . $curUserInfo->[2] . " tree.\n\n";
-            $body .= 'Go to http://annotree.com/login to view this tree.' . "\n";
+            $body .= ' has invited you to the ' . $curUserInfo->[2] . " tree.<br/><br/>";
+            $body .= 'Go to <a href="https://ccp.annotree.com">https://ccp.annotree.com</a> to view this tree.' . "<br/>";
         } else {
-            $subject = 'You\'ve Been Invited To Join AnnoTree';
+            $subject = "You've Been Invited To Join AnnoTree";
             $json->{firstName} = '';
             $json->{lastName} = '';
-            $body = 'Hi,' . "\n\n";
+            $body = 'Hi,' . "<br/><br/>";
             $body .= $curUserInfo->[0] || '';
             $body .= ' ' if $curUserInfo->[0];
             $body .= $curUserInfo->[1];
-            $body .= ' has invited you to the ' . $curUserInfo->[2] . " tree.\n\n";
-            $body .= 'Go to http://annotree.com/signup to get started.' . "\n";
+            $body .= ' has invited you to the ' . $curUserInfo->[2] . " tree.<br/><br/>";
+            $body .= 'Go to <a href="https://ccp.annotree.com/#/authenticate/signUp">https://ccp.annotree.com/#/authenticate/signUp</a> to get started.' . "<br/>";
         }
-        $body .= "\n" . '-AnnoTree' . "\n";
 
-        my $smtpserver = 'smtp.mailgun.org';
-        my $smtpport = 587;
-        my $smtpuser   = 'postmaster@annotree.com';
-        my $smtppassword = '8-7sigqno8u7';
 
-        my $transport = Email::Sender::Transport::SMTP->new({
-          host => $smtpserver,
-          port => $smtpport,
-          sasl_username => $smtpuser,
-          sasl_password => $smtppassword,
-        });
-
-        my $email = Email::Simple->create(
-          header => [
-            To      => $params->{userToAdd},
-            From    => 'invite@annotree.com',
-            Subject => $subject,
-          ],
-          body => $body
-        );
-
-        sendmail($email, { transport => $transport });
+        my $to = $params->{userToAdd};
+        my $from = '"AnnoTree" <invite@annotree.com>';
+        AnnoTree::Model::Email->mail($to, $from, $subject, $body);
     }
- 
     
     return $json;
 }

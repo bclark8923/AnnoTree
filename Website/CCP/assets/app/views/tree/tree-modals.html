@@ -1,93 +1,38 @@
-
 <!-- New Leaf Modal -->
-<div class="modal" id="newLeafModal" ng-controller="forest.TreeController">
-    <div class="content" style="padding: 0;min-height:0;">
-        <div class="row authenticateHeader" style="padding:0;">
-            <a id="newLeafClose" class="close switch"  ng-click="closeNewLeafModal()" style="float:right;color:#444">
-                <i class="icon-remove-circle"></i>
-            </a>
-            <h3 style="padding-top:20px;">Create New Leaf</h3>
-        </div>
-        <div ng-show="leafCreate">
-            <form name="createLeafForm" ng-submit="newLeaf()" style="margin: 0;">
-                <div class="row" style="padding-bottom:30px;padding-top:30px;">
-                    <div class="ten columns centered center-text">
-                        <ul>
-                            <li class="danger alert" id="invalidAddLeaf" ng-show="invalidAddLeaf"></li>
-                            <li class="field" style="text-align:center;">
-                                <input id="leafName" class="text input" type="text" placeholder="Leaf" style="max-width:380px;" ng-model="leafName" required>   
-                            </li>
-            <!--
-            <li class="field" style="text-align:center;"><input id="annotationImage" class="text file" type="file" placeholder="Annotation" style="max-width:380px;" ng-model="annotationImage"></li>
-            -->
-                        </ul>
-                    </div>
-                </div>
-                <div class="row authenticateFooter">
-                    <div style="text-align: center; padding-top:15px;">
-                        <div>
-                            <button type="submit" class="medium oval btn success">
-                                <a ng-click="newLeaf()">Create Leaf</a>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div ng-show="annoCreate">
-            <form name="createAnnotation" id="createAnnotation" action="" method="POST" enctype="multipart/form-data" data-file-upload="options" data-ng-controller="forest.TreeController" data-ng-class="{'fileupload-processing' : processing() || loadingFiles}" style="margin: 0;">
-                <div class="row fileupload-buttonbar">
-                   <div class="centered ten columns">
-                        <!-- The fileinput-button span is used to style the file input field as button -->
-                        <span class="medium btn primary fileinput-button" ng-class="{disabled: disabled}">
-                            <i class="icon-plus"></i>
-                            <span>Add files...</span>
-                            <input type="file" name="files[]" ng-disabled="disabled" class=" text file">
-                        </span>
-                        <button type="button" class="btn success medium" data-ng-click="submit()">
-                            <i class="icon-upload"></i>
-                            <span>Start upload</span>
-                        </button>
-                        <button type="button" class="btn warning medium" data-ng-click="cancel()">
-                            <i class="icon-ban-circle"></i>
-                            <span>Cancel upload</span>
-                        </button>
-                        <!-- The loading indicator is shown during file processing -->
-                        <div class="fileupload-loading"></div>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div style="text-align: center; padding-top:15px;" class="row authenticateFooter">
-            <div>
-                <button type="submit" class="medium oval btn success">
-                    <a ng-click="noAnnotation()">I'm Done</a>
-                </button>
+<div class="modal" id="newLeafModal" data-backdrop="false" ng-controller="forest.TreeController">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="working" id="newLeafModalWorking">
+                <i class="icon-working icon-cog icon-spin"></i>
             </div>
+            <div class="modal-header">
+                <button class="close" ng-click="closeNewLeafModal()">
+                    <i class="icon-remove-circle"></i>
+                </button>
+                <h3 class="modal-title">Create Leaf</h3>
+            </div>
+            <form name="createLeafForm" ng-submit="newLeaf()">
+                <div class="modal-body">
+                    <p class="error-text" id="invalidAddLeaf" ng-show="invalidAddLeaf"></p>
+                    <div class="form-group">
+                        <input id="leafName" class="form-control" type="text" placeholder="Leaf name" ng-model="leafName" required />
+                    </div>
+                    <span class="btn btn-annotree fileinput-button">
+                        <i class="icon-plus"></i>
+                        <span>Add file...</span>
+                        <input type="file" name="files" id="annotationImage" ng-model="annotationImage" />
+                    </span>
+                    <span style="margin-left:5px" id="filesName">No files selected</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-annotree">
+                        <strong>Create Leaf</strong>
+                    </button>
+                </div>
+            </form>
         </div>
-                <!--
-                <div class="row" style="padding-bottom:30px;padding-top:30px;">
-                    <div class="ten columns centered center-text">
-                        <ul>
-                            <li class="danger alert" id="invalidAddLeaf" ng-show="invalidAddLeaf"></li>
-                            <li class="field" style="text-align:center;">
-                                <input id="annotationImage" class="text file" type="file" placeholder="Annotation" style="max-width:380px;" ng-model="annotationImage">
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row authenticateFooter">
-                <div style="text-align: center; padding-top:15px;">
-                    <div>
-                        <button type="submit" class="medium oval btn success">
-                            <a ng-click="noAnnotation()">I'm Done</a>
-                        </button>
-                    </div>
-                </div>
-                -->
     </div>
 </div>
-
 
 <!-- Modify Tree Modal -->
 <div class="modal" id="modifyTreeModal" data-backdrop="false" ng-controller="forest.TreeController" ng-model="modifyTree">
@@ -108,9 +53,6 @@
                     <div class="form-group">
                         <input id="treeName" class="form-control" type="text" placeholder="Tree name" ng-model="modifyTree.name" required />
                     </div>
-                    <div class="form-group">
-                        <input id="treeDescription" class="form-control" type="text" placeholder="Tree desciption" ng-model="modifyTree.description" required />
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-annotree">
@@ -128,71 +70,77 @@
     </div>
 </div>
 
-<div class="modal" id="deleteCallbackModal" ng-controller="forest.TreeController">
-  <div class="content" style="padding: 0;min-height:0;">
-    <div class="row" style="padding-bottom:30px;padding-top:30px;">
-      <div class="ten columns centered center-text">
-        <ul>
-          <li class="field" style="text-align:center;">Are you sure you want to delete this?</li>
-        </ul>
-      </div>
-    </div>
-    <div class="row authenticateFooter">
-      <div style="text-align: center; padding-top:15px;">
-        <div>
-          <button type="submit" class="medium oval btn danger"><a ng-click="deleteTree()">Yes</a></button>
-          <button type="submit" class="medium oval btn default cancelModal" ng-controller="AppController"><a ng-click="hideDelete()">No</a></button>
+<!-- Delete Tree Confirmation Modal-->
+<div class="modal" id="deleteCallbackModal" data-backdrop="false" ng-controller="forest.TreeController">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="icon-remove-circle"></i>
+                </button>
+                <h3 class="modal-title">Confirm Tree Deletion</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this tree?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" ng-click="deleteTree()">
+                    <strong>Yes</strong>
+                </button>
+                <button type="button" class="btn btn-annotree" data-dismiss="modal">
+                    <strong>No</strong>
+                </button>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
-
 
 <!-- Modify Users Modal -->
 <div class="modal" id="modifyUsersModal" data-backdrop="false" ng-controller="forest.TreeController">
     <div class="modal-dialog">
         <div class="modal-content">
+            <div class="working" id="modifyUsersModalWorking">
+                <i class="icon-working icon-cog icon-spin"></i>
+            </div>
             <div class="modal-header">
                 <button type="button" class="close" ng-click="closeModifyUsersModal()">
                     <i class="icon-remove-circle"></i>
                 </button>
-                <h3 class="modal-title">Add Users To Tree</h3>
+                <h3 class="modal-title">User Permissions</h3>
             </div>
-            <form name="createLeafForm" class="form-inline" ng-submit="addUser()">
                 <div class="modal-body">
-                    <table style="width: 100%;margin-bottom:10px">
-                        <tbody>
-                            <tr ng-repeat="user in treeInfo.users">
-                                <td>
-                                    {{user.first_name}} {{user.last_name}}
-                                </td>
-                                <td>
-                                    {{user.email}}
-                                </td>
-                                <td>
-                                    <i style="cursor:pointer;" ng-click="removeFromTree(user)" class="icon-remove-circle"></i>
-                                    <span class="error-text" style="display:none;margin-left:5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">Remove?</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="error-text" id="invalidAddUser" ng-show="invalidAddUser"></div>
+                    <div id="treeModifyUsers">
+                        <table>
+                            <tbody>
+                                <tr ng-repeat="user in treeInfo.users">
+                                    <td>
+                                        {{user.first_name}} {{user.last_name}}
+                                    </td>
+                                    <td>
+                                        {{user.email}}
+                                    </td>
+                                    <td>
+                                        <i ng-click="removeFromTree(user)" class="icon-remove-circle"></i>
+                                        <span class="error-text" style="display:none;margin-left:5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">Remove?</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                     <div class="row">
                         <div class="col-10">
-                            <input id="userList" class="form-control" type="email" placeholder="Email" ng-model="addUserID" required />
-                            <div id="appendDiv"></div>
+                            <input id="userList" style="display:inline" class="form-control" type="email" placeholder="Email" style="max-width:320px;" ng-model="addUserID" required> 
                         </div>
-                        <div class="col-2"><a class="btn btn-annotree" ng-click="addUser()">Add</a></div>
-                    </div>
-                    <span class="tipText" style="float:left">Tip: Search for a user or input an email to invite a new user to this tree.</span>
+                        <div class="col-2">
+                            <a class="btn btn-annotree" ng-click="addUser()"><strong>Add</strong></a>
+                        </div>
+                        <div class="tipText col-10">Tip: Search for a user or input an email to invite a new user to this tree.</div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-annotree" ng-click="closeModifyUsersModal()">
                         <strong>Done</strong>
                     </button>
                 </div>
-            </form>
         </div>
     </div>
 </div>

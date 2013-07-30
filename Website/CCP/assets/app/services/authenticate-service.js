@@ -17,8 +17,8 @@
                 return $http.post(apiRoot.getRoot() + '/services/user/logout');
             }
 
-            function resetPassword(email, password, token) {
-                return $http.post(apiRoot.getRoot() + '/services/user/reset/' + token, {email: email, password: password});
+            function resetPassword(password, token) {
+                return $http.post(apiRoot.getRoot() + '/services/user/reset/' + token, {password: password});
             }
 
             function requestPassword(email) {

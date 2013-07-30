@@ -11,8 +11,8 @@
                         </span>
                     </div>
                 </div>
-                <div class="row" ng-repeat="treeRow in (forest.trees.length/3 | threeColumnFilter)"> 
-                    <div class="card-col col-12 col-sm-6 col-lg-4" ng-repeat="tree in forest.trees.slice(3*$index, 3*$index + 3)"> 
+                <div class="row"> 
+                    <div class="card-col col-12 col-sm-6 col-lg-4" ng-repeat="tree in forest.trees | reverse"> 
                         <div ng-switch="tree.id">
                             <div ng-switch-when="-1">
                                 <div class="card new">
@@ -30,9 +30,7 @@
                                         <div class="cardName">
                                             <strong>{{tree.name}}</strong><br />
                                         </div>
-                                        <div class="cardImg">
-                                            <img ng-src="{{tree.logo}}" />
-                                        </div>
+                                        <div class="cardImg" back-img="{{tree.logo}}"></div>
                                     </a>
                                 </div>
                             </div>

@@ -257,9 +257,8 @@ sub reset {
     $pass = createSaltedHash($pass);
     
     my $result = AnnoTree::Model::MySQL->db->execute(
-        "call reset_password(:email, :pass, :token)",
+        "call reset_password(:pass, :token)",
         {
-            email   => $params->{email},
             token   => $params->{token},
             pass    => $pass
         }

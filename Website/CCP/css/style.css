@@ -40,6 +40,10 @@ textarea {
     resize: vertical;
 }
 
+input[type='text'], input[type='email'], input[type='password'], textarea {
+    font-size: 16px;
+}
+
 .form-control:focus {
     border-color: rgba(146,223,116,0.8);
     outline: 0;
@@ -123,11 +127,29 @@ a.btn-annotree {
     background: rgba(250,250,250,0.7);
 }
 
+#treeModifyUsers {
+   max-height:200px;overflow-y:auto;margin-bottom:30px; 
+}
+
+#treeModifyUsers table {
+    width: 100%;margin-bottom:10px;font-size:12pt;
+}
+
+#treeModifyUsers table i {
+    font-size: 14pt;
+    cursor: pointer;
+}
+
+#treeModifyUsers table i:hover {
+    color: #b94a48;
+}
+
 /* -----------------------
+ *
  * CCP Header Settings
  * ----------------------- */
 .navbar {
-    background-color: #555;
+    background-color: #444;
     min-height: 40px;
     color: #fff;
 }
@@ -159,8 +181,8 @@ a.btn-annotree {
     position: absolute;
     right: 20px;
     top: 2px;
+    width: 30px;
 }
-
 
 .userSettingsBox {
     box-shadow: 1px 1px 10px #bbb;
@@ -228,6 +250,20 @@ a.btn-annotree {
     z-index: 1000;
     display: none;
 }
+
+.appHeader {
+    height:30px;
+    padding-top:5px;
+    margin-right:10px;
+    position: fixed;
+    color: white;
+    font-size: 15pt;
+    display: none;
+    width: 100%;
+    text-align: center;
+    margin-left:-15px;
+}
+
 .logoHeader {
     height:30px;
     padding-top:5px;
@@ -316,19 +352,19 @@ a.btn-annotree {
  * Forest Settings
  * ----------------------- */
 .row.forest {
-    margin-top: 30px;
+    margin: 30px 0;
     text-align: left;
     color: #888;
     height: 30px;
-    margin-bottom: 30px;
     border-bottom: 1px solid #ccc    
 }
+
 .row.forest.new {
     border: none;
 }
 
 .forestName {
-    font-size: 20pt;
+    font-size: 15pt;
     line-height: 22pt;
     font-family: Helvetica;
     font-weight: bold;
@@ -342,7 +378,7 @@ a.btn-annotree {
 }
 
 .forestName:hover {
-    color: #92DF74;
+    color: #aaa;
     cursor: pointer;
 }
 
@@ -445,11 +481,6 @@ a.btn-annotree {
     text-decoration: none;
 }
 
-.card:hover {
-    opacity: .6;
-    cursor: pointer;    
-}
-
 .cardName {
     text-align: center;
     border-radius: 5px 5px 0 0;
@@ -464,18 +495,21 @@ a.btn-annotree {
     color: #bbb;
 }
 
-.cardImg img {
-    width: 100%;
-}
-
 .cardImg {
+    max-height: 150px;
+    height: 100%;
     width: 100%;
-    overflow: hidden;
-    height: 150px;
-    opacity: 1;
+    background-size: cover;
+    background-position: center;
+
     transition: opacity .25s ease-in-out;
     -moz-transition: opacity .25s ease-in-out;
     -webkit-transition: opacity .25s ease-in-out;
+}
+
+.cardImg:hover {
+    opacity: .6;
+    cursor: pointer;    
 }
 
 .cardImgNew {
@@ -484,9 +518,8 @@ a.btn-annotree {
     line-height: 90pt;
     font-weight: bold;
     color: #bbb;
-    padding-top: 15px;
-    color: #bbb;
 }
+
 .cardLarge {
     margin: 0 auto;
     min-height: 100%;
@@ -536,10 +569,10 @@ a.btn-annotree {
     float: left;
     margin-left: 25%;
     padding-top: 60px;
-    padding-left: 10px;
+    padding-left: 20px;
     position: absolute;
     overflow-y: auto;
-    overflow-x: auto;
+    overflow-x: hidden;
     transition: opacity .25s linear;
     -moz-transition: opacity .25s linear;
     -webkit-transition: opacity .25s linear;
@@ -647,18 +680,30 @@ a.btn-annotree {
         color: white;
         background-color: #92DF74;
     }
-
+    
+    .logoHeader {
+        display: none;
+    }
+    
+    .appHeader {
+        display: block;
+    }
+    
     .nav>li {
         margin-bottom: 5px;
     }
 
-    #leafs, #leaf {
+    #leaves, #leaf {
         margin-left: 0;
         width: 100%;
     }
 
-    #dashboard {
+    #dashboardWrap {
         display: none;
+    }
+
+    .forest.row {
+        margin: 30px 20px;
     }
 }
 

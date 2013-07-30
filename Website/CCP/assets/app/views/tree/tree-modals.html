@@ -150,54 +150,49 @@
 
 
 <!-- Modify Users Modal -->
-<div class="modal" id="modifyUsersModal" ng-controller="forest.TreeController">
-  <div class="content" style="padding: 0;min-height:0;">
-    <div class="row authenticateHeader" style="padding:0;">
-      <a id="newLeafClose" class="close switch"  ng-click="closeModifyUsersModal()" style="float:right;color:#444">
-        <i class="icon-remove-circle"></i>
-      </a>
-      <h3 style="padding-top:20px;">Add Users To This Tree</h3>
+<div class="modal" id="modifyUsersModal" data-backdrop="false" ng-controller="forest.TreeController">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="closeModifyUsersModal()">
+                    <i class="icon-remove-circle"></i>
+                </button>
+                <h3 class="modal-title">Add Users To Tree</h3>
+            </div>
+            <form name="createLeafForm" class="form-inline" ng-submit="addUser()">
+                <div class="modal-body">
+                    <table style="width: 100%;margin-bottom:10px">
+                        <tbody>
+                            <tr ng-repeat="user in treeInfo.users">
+                                <td>
+                                    {{user.first_name}} {{user.last_name}}
+                                </td>
+                                <td>
+                                    {{user.email}}
+                                </td>
+                                <td>
+                                    <i style="cursor:pointer;" ng-click="removeFromTree(user)" class="icon-remove-circle"></i>
+                                    <span class="error-text" style="display:none;margin-left:5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">Remove?</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="error-text" id="invalidAddUser" ng-show="invalidAddUser"></div>
+                    <div class="row">
+                        <div class="col-10">
+                            <input id="userList" class="form-control" type="email" placeholder="Email" ng-model="addUserID" required />
+                            <div id="appendDiv"></div>
+                        </div>
+                        <div class="col-2"><a class="btn btn-annotree" ng-click="addUser()">Add</a></div>
+                    </div>
+                    <span class="tipText" style="float:left">Tip: Search for a user or input an email to invite a new user to this tree.</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-annotree" ng-click="closeModifyUsersModal()">
+                        <strong>Done</strong>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <form name="createLeafForm" ng-submit="addUser()" style="margin: 0;">
-      <div class="row" style="padding-bottom:30px;padding-top:30px;">
-        <div class="ten columns centered center-text">
-          <div style="max-height:60px;overflow-y:auto;margin-bottom:30px;">
-            <table style="width: 100%;">
-              <tbody>
-                <tr ng-repeat="user in treeInfo.users">
-                  <td>
-                    {{user.first_name}} {{user.last_name}}
-                  </td>
-                  <td>
-                    {{user.email}}
-                  </td>
-                  <td>
-                    <i style="cursor:pointer;" ng-click="removeFromTree(user)" class="icon-remove-circle"></i>
-                    <span class="danger label" style="display:none;margin-left:5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">Remove?</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <ul>
-            <li class="danger alert" id="invalidAddUser" ng-show="invalidAddUser"></li>
-            <li class="append field" style="text-align:center;">
-              <input id="userList" class="text input" type="email" placeholder="Email" style="max-width:320px;" ng-model="addUserID" required> 
-              <span class="adjoined"><a ng-click="addUser()">Add</a></span>
-            </li>
-            <li style="font-size:8pt;line-height:5px;">
-              Tip: Search for a user or input an email to invite a new user to this tree.
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="row authenticateFooter">
-        <div style="text-align: center; padding-top:15px;">
-          <div>
-            <button type="submit" class="medium oval btn success"><a ng-click="closeModifyUsersModal()">Done</a></button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
 </div>

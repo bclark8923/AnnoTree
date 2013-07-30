@@ -16,34 +16,28 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="leafComments">
-                                <div class="leafComment">
+                            <div class="leafComments" >
+                                <div class="leafComment" ng-repeat="comment in leaf.comments">
                                     <div class="userImageHolder">
-                                        <img class="userCommentImage" ng-src="{{user.avatar}}"> 
+                                        <img class="userCommentImage" ng-src="{{comment.avatar}}"> 
                                     </div>
                                     <div class="userCommentHolder"> 
-                                        <p class="userCommentName">{{user.name}}</p> 
-                                        <p class="userComment">We should probably center the updating, Matt?</p>
+                                        <p class="userCommentName">{{comment.first_name}} {{comment.last_name}}</p> 
+                                        <p class="userComment">{{comment.comment}}</p>
                                     </div>
+                                    <hr class="smallHR"/>
                                 </div>
-                                <hr class="smallHR"/>
                                 <div class="leafComment">
+                                    <div class="error-text" id="leafCommentError" ng-modal="leafCommentError"></div>
                                     <div class="userImageHolder">
                                         <img class="userCommentImage" ng-src="{{user.avatar}}"> 
                                     </div>
-                                    <div class="userCommentHolder"> 
-                                        <p class="userCommentName">{{user.name}}</p> 
-                                        <p class="userComment">Maybe, Did some research and people liked it on the left</p>
-                                    </div>
-                                </div>
-                                <hr class="smallHR"/>
-                                <div class="leafComment">
-                                    <div class="userImageHolder">
-                                        <img class="userCommentImage" ng-src="{{user.avatar}}"> 
-                                    </div>
-                                    <div class="userCommentHolder"> 
-                                        <form class="form-horizontal">
-                                            <input type="text" class="form-control" id="newComment" placeholder="New Comment">
+                                    <div class="userCommentHolder">
+                                        <form class="form-horizontal" name="leafCommentForm" ng-submit="addLeafComment()">
+                                            <textarea type="text" class="form-control" maxlength="2048" id="newComment" placeholder="Enter a comment" ng-model="leafComment.comment" required></textarea>
+                                            <button type="submit" class="btn btn-annotree" id="commentBtn">
+                                                <strong>Add Comment</strong>
+                                            </button>
                                         </form>
                                     </div>
                                 </div>

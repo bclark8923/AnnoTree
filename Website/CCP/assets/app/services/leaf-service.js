@@ -9,6 +9,11 @@
                 $("#loadingScreen").show();
                 return $http.get(apiRoot.getRoot() + '/services/leaf/' + leafID);
             }
+            
+            function addLeafComment(leafID, comment) {
+                $("#loadingScreen").show();
+                return $http.post(apiRoot.getRoot() + '/services/comments/leaf/' + leafID, {comment: comment});
+            }
 
             function createLeaf(branchID, leafName, leafDescription) {
                 //$("#loadingScreen").show();
@@ -26,18 +31,18 @@
 
             function createAnnotation(leafID, formData, xhr) {
                 $("#loadingScreen").show();
-                
+                /* 
                 return $http({
                     method: 'POST',
                     url: apiRoot.getRoot() + "/services/" + leafID + "/annotation",
                     data: formData,
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 });
-                /*
+                */ 
                 xhr.open("POST", apiRoot.getRoot() + "/services/" + leafID + "/annotation");
                 xhr.send(formData);
                 return;
-                */
+                
             }
 
             // ---------------------------------------------- //
@@ -50,7 +55,8 @@
                 createLeaf: createLeaf,
                 updateLeaf: updateLeaf,
                 deleteLeaf: deleteLeaf,
-                createAnnotation: createAnnotation
+                createAnnotation: createAnnotation,
+                addLeafComment: addLeafComment
             });
 
 

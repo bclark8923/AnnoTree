@@ -54,6 +54,10 @@ textarea {
     border-color: #92DF74;
 }
 
+a.btn-annotree {
+    text-decoration: none;
+}
+
 .btn-annotree:hover {
     background-color: #83C968;
 }
@@ -141,10 +145,14 @@ textarea {
 }
 
 #userIcon {
-    border: 2px solid #92DF74;
+    border: 2px solid #fff;
     height: 30px;
     width: 30px;
     margin-top: 3px;
+}
+
+#userIcon:hover {
+    border: 2px solid #92DF74;
 }
 
 #userLinkDiv {
@@ -417,8 +425,8 @@ textarea {
  * ----------------------- */
 .card {
     margin: 0 auto;
-    /*height: 175px;*/
-    width: 220px;
+    height: 175px;
+    width: 100%;
     margin-bottom: 30px;
     box-shadow: 0px 0px 10px #bbb;
     border-radius: 5px 5px 0 0;
@@ -457,11 +465,11 @@ textarea {
 }
 
 .cardImg img {
-    max-width: 220px;
+    width: 100%;
 }
 
 .cardImg {
-    max-width: 220px;
+    width: 100%;
     overflow: hidden;
     height: 150px;
     opacity: 1;
@@ -596,6 +604,10 @@ textarea {
     margin-bottom: 10px;
 }
 
+#commentBtn {
+    margin-top: 7px;
+    float: right;
+}
 /* -----------------------
  * Responsive Media Settings
  * ----------------------- */
@@ -616,7 +628,10 @@ textarea {
     display: block;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+    .card-col.col-sm-6 { 
+        width: 50%;
+    }
 
     .responsiveShow {
         display: block;
@@ -645,21 +660,16 @@ textarea {
     #dashboard {
         display: none;
     }
-
-    .cardDesc {
-        display: inline;
-    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 479px) {
+    .card-col.col-12 {
+        width: 100%;
+    }
+    
     .card {
         height: 125px;
-        width: 125px;
         margin-bottom: 50px;
-    }
-
-    .cardDesc {
-        display: none;
     }
 
     .cardImg {

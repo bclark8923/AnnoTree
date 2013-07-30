@@ -29,7 +29,6 @@
                 localStorageService.add('activeLeaf', leaf.name);
             }
 
-
             // I load the "remote" data from the server.
             function loadLeafData() {
 
@@ -39,13 +38,9 @@
 
                 promise.then(
                     function( response ) {
-
                         $scope.isLoading = false;
-                        
                         loadLeaf( response.data );
-
                         $timeout(function() {$("#loadingScreen").hide(); }, 0);
-
                     },
                     function( response ) {
 
@@ -78,6 +73,40 @@
                     }
                 );
 
+            }
+            
+            // --- Define Scope Methods. ------------------------ //
+            $scope.addLeafComment = function() {
+                var formValid = $scope.leafCommentForm.$valid;
+                var comment = $scope.leafComment.comment;
+                if (!formValid) {
+                    if (!comment) {
+                        $('#leafCommentError').html("You didn't write a comment!");
+                        $scope.leafCommentError = true;
+                    }
+                } else {
+                    var leafID = $scope.leaf.id;
+                    var promise = leafService.addLeafComment(leafID, comment);
+
+                    promise.then(
+                        function( response ) {
+                            $scope.isLoading = false;
+                            $scope.leaf.comments = (response.data.comments);
+                            $('#newComment').val('');
+                        },
+                        function( response ) {
+                            var errorData;
+                            var errorNumber = parseInt(response.data.error);
+                            if(response.data.status == 406) {
+                                errorData = response.data;
+                            } else if(response.data.status != 401 && errorNumber != 0) {
+                                errorData = "Our service are experiencing issues currently. Please try again in a few minutes.";
+                            }
+                            $("#leafCommentError").html(errorData);
+                        }
+                    );
+                    $("#loadingScreen").hide();
+                }
             }
 
             $scope.openModifyLeafModal = function () {
@@ -213,7 +242,6 @@
 
 
 
-            // --- Define Scope Methods. ------------------------ //
 
             
 
@@ -236,6 +264,7 @@
             // I hold the categories to render.
             $scope.leafImage = "";
             $scope.leafName = "";
+            $scope.leafCommentError = false;
 
             // The subview indicates which view is going to be rendered on the page.
             $scope.subview = renderContext.getNextSection();

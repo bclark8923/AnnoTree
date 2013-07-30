@@ -93,11 +93,15 @@ sub startup {
     $authr->post('/user/feedback')                          ->to('controller-user#feedback');
     #$authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser');
 
-    # ===== TASKS =====
-    $authr->post('/tasks')                                  ->to('controller-task#create');
-    $authr->get('/:treeid/tasks' => [treeid => qr/\d+/])    ->to('controller-task#treeTaskInfo');
-    $authr->put('/tasks/:taskid' => [taskid => qr/\d+/])    ->to('controller-task#updateTask');
-    $authr->delete('/tasks/:taskid' => [taskid => qr/\d+/]) ->to('controller-task#deleteTask');
+    # ===== TASKS ===== deprecated for now
+    #$authr->post('/tasks')                                  ->to('controller-task#create');
+    #$authr->get('/:treeid/tasks' => [treeid => qr/\d+/])    ->to('controller-task#treeTaskInfo');
+    #$authr->put('/tasks/:taskid' => [taskid => qr/\d+/])    ->to('controller-task#updateTask');
+    #$authr->delete('/tasks/:taskid' => [taskid => qr/\d+/]) ->to('controller-task#deleteTask');
+    
+    # ===== COMMENTS =====
+    $authr->post('/comments/leaf/:leafid' => [leafid => qr/\d+/])   ->to('controller-comments#leafCreate');
+    $authr->get('/comments/leaf/:leafid' => [leafid => qr/\d+/])    ->to('controller-comments#leafInfo');
     
     # ===== FORESTS =====
     $authr->post('/forest')                                         ->to('controller-forest#create');

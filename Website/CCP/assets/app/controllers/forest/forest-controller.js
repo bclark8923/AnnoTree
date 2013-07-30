@@ -417,9 +417,6 @@
                             $("#noForestsDiv").hide();
 
                             addForest( response.data );
-                            //$scope.forests[0].name = "fuck";
-                            //$timeout(function() { Gumby.initialize('switches') }, 0);
-
                         },
                         function( response ) {
                             $scope.invalidAddForest = true;

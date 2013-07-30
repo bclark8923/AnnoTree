@@ -18,5 +18,5 @@ call create_branch(1, (select distinct id from tree where name = 'Tree Dwarves' 
 
 call create_leaf('Stoneform', 'Stoneform Tree Dwarves can temporarily turn to living stone, neutralizing any poisons, diseases, and bleeding wounds, and adding natural armor.', 1, (select id from branch where name = 'Tree Dwarve Racial Traits'));
 
-call create_comment(1, 'Removes all rogue poisons as well as Rupture and Garrote. ', (select id from leaf where name = 'Stoneform'));
+call create_leaf_comment(1, 'Removes all rogue poisons as well as Rupture and Garrote. ', (select id from leaf where name = 'Stoneform'));
 

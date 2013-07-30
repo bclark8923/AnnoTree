@@ -73,7 +73,26 @@ sub leafInfo {
             $annoIndex++;
         }
     }
-
+    
+    $json->{comments} = [];
+    my $commentsResult = AnnoTree::Model::MySQL->db->execute(
+        "call get_leaf_comments(:userid, :leafid)",
+        {
+            leafid  => $params->{leafid},
+            userid  => $params->{userid}
+        }
+    );
+    my $commentCols = $commentsResult->fetch;
+    unless (looks_like_number($commentCols->[0])) { 
+        my $commentIndex = 0;
+        while (my $comment = $commentsResult->fetch) {
+            for (my $i = 0; $i < @{$commentCols}; $i++) {
+                $json->{comments}->[$commentIndex]->{$commentCols->[$i]} = $comment->[$i];
+            }
+            $commentIndex++;
+        }
+    }
+    print Dumper($json);
     return $json;
 }
 

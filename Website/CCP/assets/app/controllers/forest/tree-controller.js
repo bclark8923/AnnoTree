@@ -503,7 +503,7 @@
                 promise.then(
                     function( response ) {
 
-                        $("#modifyUsersModal").addClass('active');
+                        $("#modifyUsersModal").modal('show');
 
                         var users = [];
                         var existingUsers = $scope.treeInfo.users;
@@ -529,9 +529,9 @@
                           }
                         })
                         .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-                          return $( "<li>" )
+                          return $( "<div>" )
                             .append( "<a>" + item.label + "</a>" )
-                            .appendTo( ul );
+                            .appendTo("#appendDiv");
                         };
 
                     },
@@ -573,7 +573,7 @@
             }
 
             $scope.closeModifyUsersModal = function () {
-                $("#modifyUsersModal").removeClass('active');
+                $("#modifyUsersModal").modal('hide');
                 /*$("#invalidModifyUser").html('');
                 $rootScope.modifyTree = null;
                 $scope.invalidModifyTree = false; 

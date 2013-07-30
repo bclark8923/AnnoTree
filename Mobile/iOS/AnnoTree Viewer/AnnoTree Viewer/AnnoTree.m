@@ -121,7 +121,7 @@
         [pencilIconToolbarButton setBackgroundImage:pencilIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
         [pencilIconToolbarButton setSelected:YES];
         [pencilIconToolbarButton setEnabled:NO];
-        /*[pencilIconToolbarButton addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];*/
+        [pencilIconToolbarButton addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
         [pencilIconToolbarButton addTarget:self action:@selector(enableDisableDrawing:) forControlEvents:UIControlEventTouchUpInside];
         pencilIconToolbarButton.hidden = YES;
         [annoTreeToolbar addSubview:pencilIconToolbarButton];
@@ -414,7 +414,7 @@
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     
     // set URL
-    NSURL *requestURL = [NSURL URLWithString:@"https://dev.annotree.com/services/ios/leaf"];
+    NSURL *requestURL = [NSURL URLWithString:@"https://ccp.annotree.com/services/ios/leaf"];
     [request setURL:requestURL];
     
     //NSLog(@"Connection");
@@ -439,7 +439,7 @@
 {
 	if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
 	{
-		if ([challenge.protectionSpace.host isEqualToString:@"dev.annotree.com"])
+		if ([challenge.protectionSpace.host isEqualToString:@"ccp.annotree.com"])
 		{
 			[challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
 		}
@@ -786,12 +786,12 @@
                     //CGContextDrawImage(context, CGRectMake(0.0, 0.0, 640, 960), iref);
 
                 }
-                
-                [[window layer] renderInContext:context];
-                
-                // Restore the context
-                CGContextRestoreGState(context);
             }
+        
+        [[window layer] renderInContext:context];
+        
+        // Restore the context
+        CGContextRestoreGState(context);
         //}
     }
     

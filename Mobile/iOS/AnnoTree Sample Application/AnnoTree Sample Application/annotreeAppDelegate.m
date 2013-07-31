@@ -1,26 +1,23 @@
 //
-//  AppDelegate.m
-//  AnnoTree Viewer
+//  annotreeAppDelegate.m
+//  AnnoTree Sample Application
 //
-//  Created by Brian Clark on 3/25/13.
+//  Created by Brian Clark on 7/31/13.
 //  Copyright (c) 2013 AnnoTree. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "annotreeAppDelegate.h"
 #import <AnnoTree/AnnoTree.h>
 
-@implementation AppDelegate
+@implementation annotreeAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[AnnoTree sharedInstance] loadAnnoTree:@"c90847f5ddb1f7d72d100d01b376aa449b5d715cabf19ea998c48fb984e1db77"];
-    //[self.window addGestureRecognizer:[[AnnoTree sharedInstance] getOpen]];
-    //[[[UIApplication sharedApplication] keyWindow] addSubview:[[AnnoTree sharedInstance] getAnnoTreeLauncher]];
-    //[[AnnoTree sharedInstance] initializeTree];
-    // Override point for customization after application launch.
+    [[AnnoTree sharedInstance] loadAnnoTree:@"Your Key Here"];
+    
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

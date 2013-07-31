@@ -88,9 +88,6 @@ static const CGFloat kAddressHeight = 26.0f;
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     [self.viewWeb loadRequest:request];
     [self updateButtons];
-    
-    //[self.view addSubview:[[AnnoTree sharedInstance] getAnnoTreeLauncher:UIInterfaceOrientationMaskAll]];
-    //[[[UIApplication sharedApplication] keyWindow] bringSubviewToFront:[[AnnoTree sharedInstance] getAnnoTreeLauncher]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -161,24 +158,6 @@ static const CGFloat kAddressHeight = 26.0f;
     [self.viewWeb loadRequest:request];
 }
 
-- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace
-{
-	return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
-{
-	if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
-	{
-		if ([challenge.protectionSpace.host isEqualToString:@"dev.annotree.com"])
-		{
-			[challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
-		}
-	}
-    
-	[challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
-}
-
 - (void)updateAddress:(NSURLRequest*)request
 {
     NSURL* url = [request mainDocumentURL];
@@ -195,7 +174,7 @@ static const CGFloat kAddressHeight = 26.0f;
 {
 	if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
 	{
-		if ([challenge.protectionSpace.host isEqualToString:@"dev.annotree.com"])
+		if ([challenge.protectionSpace.host isEqualToString:@"ccp.annotree.com"])
 		{
 			[challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
 		}
@@ -215,11 +194,10 @@ static const CGFloat kAddressHeight = 26.0f;
     [alertView show];
 }
 
-
+/*
 - (BOOL)shouldAutorotate
 {
     return [[AnnoTree sharedInstance] shouldAutorotate];
-}
- 
+}*/
 
 @end

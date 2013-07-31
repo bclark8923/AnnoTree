@@ -1,0 +1,503 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D3B3916517A9762B00A4148C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B3916417A9762B00A4148C /* Foundation.framework */; };
+		D3B3916717A9762B00A4148C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B3916617A9762B00A4148C /* CoreGraphics.framework */; };
+		D3B3916917A9762B00A4148C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B3916817A9762B00A4148C /* UIKit.framework */; };
+		D3B3916F17A9762B00A4148C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D3B3916D17A9762B00A4148C /* InfoPlist.strings */; };
+		D3B3917117A9762B00A4148C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B3917017A9762B00A4148C /* main.m */; };
+		D3B3917517A9762B00A4148C /* annotreeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B3917417A9762B00A4148C /* annotreeAppDelegate.m */; };
+		D3B3917717A9762B00A4148C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B3917617A9762B00A4148C /* Images.xcassets */; };
+		D3B3917E17A9762C00A4148C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B3917D17A9762C00A4148C /* XCTest.framework */; };
+		D3B3917F17A9762C00A4148C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B3916417A9762B00A4148C /* Foundation.framework */; };
+		D3B3918017A9762C00A4148C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B3916817A9762B00A4148C /* UIKit.framework */; };
+		D3B3919817A9766200A4148C /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3B3919317A9766200A4148C /* AnnoTree.bundle */; };
+		D3B3919917A9766200A4148C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B3919417A9766200A4148C /* MainStoryboard_iPad.storyboard */; };
+		D3B3919A17A9766200A4148C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B3919517A9766200A4148C /* MainStoryboard_iPhone.storyboard */; };
+		D3B3919B17A9766200A4148C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B3919717A9766200A4148C /* WebViewController.m */; };
+		D3B391AB17A976AB00A4148C /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B3919C17A9768000A4148C /* Default-Landscape@2x~ipad.png */; };
+		D3B391AC17A976AB00A4148C /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B3919D17A9768000A4148C /* Default-Portrait@2x~ipad.png */; };
+		D3B391AD17A976AB00A4148C /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B3919E17A9768000A4148C /* Icon-72.png */; };
+		D3B391AE17A976AB00A4148C /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B3919F17A9768000A4148C /* Icon-Small-50.png */; };
+		D3B391AF17A976AB00A4148C /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B391A017A9768000A4148C /* Icon-Small.png */; };
+		D3B391B017A976AB00A4148C /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B391A117A9768000A4148C /* Icon-Small@2x.png */; };
+		D3B391B117A976AB00A4148C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B391A217A9768000A4148C /* Icon.png */; };
+		D3B391B217A976AB00A4148C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B391A317A9768000A4148C /* Icon@2x.png */; };
+		D3B391B317A976AB00A4148C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B391A417A9768000A4148C /* Default-568h@2x.png */; };
+		D3B391B417A976AB00A4148C /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B391A517A9768000A4148C /* Default-Landscape.png */; };
+		D3B391B517A976AB00A4148C /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B391A617A9768000A4148C /* Default-Portrait.png */; };
+		D3B391B617A976AB00A4148C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B391A717A9768000A4148C /* Default.png */; };
+		D3B391B717A976AB00A4148C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B391A817A9768000A4148C /* Default@2x.png */; };
+		D3B391B917A97D6100A4148C /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B391B817A97D6100A4148C /* AnnoTree.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D3B3918117A9762C00A4148C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3B3915917A9762B00A4148C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D3B3916017A9762B00A4148C;
+			remoteInfo = "AnnoTree Sample Application";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D3B3916117A9762B00A4148C /* AnnoTree Sample Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnnoTree Sample Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3B3916417A9762B00A4148C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D3B3916617A9762B00A4148C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D3B3916817A9762B00A4148C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D3B3916C17A9762B00A4148C /* AnnoTree Sample Application-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnnoTree Sample Application-Info.plist"; sourceTree = "<group>"; };
+		D3B3916E17A9762B00A4148C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D3B3917017A9762B00A4148C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D3B3917217A9762B00A4148C /* AnnoTree Sample Application-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnnoTree Sample Application-Prefix.pch"; sourceTree = "<group>"; };
+		D3B3917317A9762B00A4148C /* annotreeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = annotreeAppDelegate.h; sourceTree = "<group>"; };
+		D3B3917417A9762B00A4148C /* annotreeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = annotreeAppDelegate.m; sourceTree = "<group>"; };
+		D3B3917617A9762B00A4148C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D3B3917C17A9762C00A4148C /* AnnoTree Sample ApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AnnoTree Sample ApplicationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3B3917D17A9762C00A4148C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D3B3919317A9766200A4148C /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AnnoTree.bundle; sourceTree = "<group>"; };
+		D3B3919417A9766200A4148C /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		D3B3919517A9766200A4148C /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		D3B3919617A9766200A4148C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		D3B3919717A9766200A4148C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		D3B3919C17A9768000A4148C /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		D3B3919D17A9768000A4148C /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		D3B3919E17A9768000A4148C /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		D3B3919F17A9768000A4148C /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		D3B391A017A9768000A4148C /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		D3B391A117A9768000A4148C /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		D3B391A217A9768000A4148C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		D3B391A317A9768000A4148C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		D3B391A417A9768000A4148C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D3B391A517A9768000A4148C /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
+		D3B391A617A9768000A4148C /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
+		D3B391A717A9768000A4148C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D3B391A817A9768000A4148C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		D3B391B817A97D6100A4148C /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AnnoTree.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D3B3915E17A9762B00A4148C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3B3916717A9762B00A4148C /* CoreGraphics.framework in Frameworks */,
+				D3B3916917A9762B00A4148C /* UIKit.framework in Frameworks */,
+				D3B391B917A97D6100A4148C /* AnnoTree.framework in Frameworks */,
+				D3B3916517A9762B00A4148C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3B3917917A9762C00A4148C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3B3917E17A9762C00A4148C /* XCTest.framework in Frameworks */,
+				D3B3918017A9762C00A4148C /* UIKit.framework in Frameworks */,
+				D3B3917F17A9762C00A4148C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D3B3915817A9762B00A4148C = {
+			isa = PBXGroup;
+			children = (
+				D3B3916A17A9762B00A4148C /* AnnoTree Sample Application */,
+				D3B3916317A9762B00A4148C /* Frameworks */,
+				D3B3916217A9762B00A4148C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D3B3916217A9762B00A4148C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D3B3916117A9762B00A4148C /* AnnoTree Sample Application.app */,
+				D3B3917C17A9762C00A4148C /* AnnoTree Sample ApplicationTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D3B3916317A9762B00A4148C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3B391B817A97D6100A4148C /* AnnoTree.framework */,
+				D3B3916417A9762B00A4148C /* Foundation.framework */,
+				D3B3916617A9762B00A4148C /* CoreGraphics.framework */,
+				D3B3916817A9762B00A4148C /* UIKit.framework */,
+				D3B3917D17A9762C00A4148C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D3B3916A17A9762B00A4148C /* AnnoTree Sample Application */ = {
+			isa = PBXGroup;
+			children = (
+				D3B3919317A9766200A4148C /* AnnoTree.bundle */,
+				D3B3919417A9766200A4148C /* MainStoryboard_iPad.storyboard */,
+				D3B3919517A9766200A4148C /* MainStoryboard_iPhone.storyboard */,
+				D3B3919617A9766200A4148C /* WebViewController.h */,
+				D3B3919717A9766200A4148C /* WebViewController.m */,
+				D3B3917317A9762B00A4148C /* annotreeAppDelegate.h */,
+				D3B3917417A9762B00A4148C /* annotreeAppDelegate.m */,
+				D3B3917617A9762B00A4148C /* Images.xcassets */,
+				D3B3916B17A9762B00A4148C /* Supporting Files */,
+			);
+			path = "AnnoTree Sample Application";
+			sourceTree = "<group>";
+		};
+		D3B3916B17A9762B00A4148C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3B3919C17A9768000A4148C /* Default-Landscape@2x~ipad.png */,
+				D3B3919D17A9768000A4148C /* Default-Portrait@2x~ipad.png */,
+				D3B3919E17A9768000A4148C /* Icon-72.png */,
+				D3B3919F17A9768000A4148C /* Icon-Small-50.png */,
+				D3B391A017A9768000A4148C /* Icon-Small.png */,
+				D3B391A117A9768000A4148C /* Icon-Small@2x.png */,
+				D3B391A217A9768000A4148C /* Icon.png */,
+				D3B391A317A9768000A4148C /* Icon@2x.png */,
+				D3B391A417A9768000A4148C /* Default-568h@2x.png */,
+				D3B391A517A9768000A4148C /* Default-Landscape.png */,
+				D3B391A617A9768000A4148C /* Default-Portrait.png */,
+				D3B391A717A9768000A4148C /* Default.png */,
+				D3B391A817A9768000A4148C /* Default@2x.png */,
+				D3B3916C17A9762B00A4148C /* AnnoTree Sample Application-Info.plist */,
+				D3B3916D17A9762B00A4148C /* InfoPlist.strings */,
+				D3B3917017A9762B00A4148C /* main.m */,
+				D3B3917217A9762B00A4148C /* AnnoTree Sample Application-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D3B3916017A9762B00A4148C /* AnnoTree Sample Application */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3B3918D17A9762C00A4148C /* Build configuration list for PBXNativeTarget "AnnoTree Sample Application" */;
+			buildPhases = (
+				D3B3915D17A9762B00A4148C /* Sources */,
+				D3B3915E17A9762B00A4148C /* Frameworks */,
+				D3B3915F17A9762B00A4148C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AnnoTree Sample Application";
+			productName = "AnnoTree Sample Application";
+			productReference = D3B3916117A9762B00A4148C /* AnnoTree Sample Application.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D3B3917B17A9762C00A4148C /* AnnoTree Sample ApplicationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3B3919017A9762C00A4148C /* Build configuration list for PBXNativeTarget "AnnoTree Sample ApplicationTests" */;
+			buildPhases = (
+				D3B3917817A9762C00A4148C /* Sources */,
+				D3B3917917A9762C00A4148C /* Frameworks */,
+				D3B3917A17A9762C00A4148C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3B3918217A9762C00A4148C /* PBXTargetDependency */,
+			);
+			name = "AnnoTree Sample ApplicationTests";
+			productName = "AnnoTree Sample ApplicationTests";
+			productReference = D3B3917C17A9762C00A4148C /* AnnoTree Sample ApplicationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D3B3915917A9762B00A4148C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = annotree;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = AnnoTree;
+				TargetAttributes = {
+					D3B3917B17A9762C00A4148C = {
+						TestTargetID = D3B3916017A9762B00A4148C;
+					};
+				};
+			};
+			buildConfigurationList = D3B3915C17A9762B00A4148C /* Build configuration list for PBXProject "AnnoTree Sample Application" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D3B3915817A9762B00A4148C;
+			productRefGroup = D3B3916217A9762B00A4148C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D3B3916017A9762B00A4148C /* AnnoTree Sample Application */,
+				D3B3917B17A9762C00A4148C /* AnnoTree Sample ApplicationTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D3B3915F17A9762B00A4148C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3B391AB17A976AB00A4148C /* Default-Landscape@2x~ipad.png in Resources */,
+				D3B391AC17A976AB00A4148C /* Default-Portrait@2x~ipad.png in Resources */,
+				D3B391AD17A976AB00A4148C /* Icon-72.png in Resources */,
+				D3B391AE17A976AB00A4148C /* Icon-Small-50.png in Resources */,
+				D3B391AF17A976AB00A4148C /* Icon-Small.png in Resources */,
+				D3B391B017A976AB00A4148C /* Icon-Small@2x.png in Resources */,
+				D3B391B117A976AB00A4148C /* Icon.png in Resources */,
+				D3B391B217A976AB00A4148C /* Icon@2x.png in Resources */,
+				D3B391B317A976AB00A4148C /* Default-568h@2x.png in Resources */,
+				D3B391B417A976AB00A4148C /* Default-Landscape.png in Resources */,
+				D3B391B517A976AB00A4148C /* Default-Portrait.png in Resources */,
+				D3B391B617A976AB00A4148C /* Default.png in Resources */,
+				D3B391B717A976AB00A4148C /* Default@2x.png in Resources */,
+				D3B3919A17A9766200A4148C /* MainStoryboard_iPhone.storyboard in Resources */,
+				D3B3919917A9766200A4148C /* MainStoryboard_iPad.storyboard in Resources */,
+				D3B3919817A9766200A4148C /* AnnoTree.bundle in Resources */,
+				D3B3916F17A9762B00A4148C /* InfoPlist.strings in Resources */,
+				D3B3917717A9762B00A4148C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3B3917A17A9762C00A4148C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D3B3915D17A9762B00A4148C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3B3917517A9762B00A4148C /* annotreeAppDelegate.m in Sources */,
+				D3B3919B17A9766200A4148C /* WebViewController.m in Sources */,
+				D3B3917117A9762B00A4148C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3B3917817A9762C00A4148C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D3B3918217A9762C00A4148C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D3B3916017A9762B00A4148C /* AnnoTree Sample Application */;
+			targetProxy = D3B3918117A9762C00A4148C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D3B3916D17A9762B00A4148C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3B3916E17A9762B00A4148C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D3B3918B17A9762C00A4148C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D3B3918C17A9762C00A4148C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D3B3918E17A9762C00A4148C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnnoTree Sample Application/AnnoTree Sample Application-Prefix.pch";
+				INFOPLIST_FILE = "AnnoTree Sample Application/AnnoTree Sample Application-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D3B3918F17A9762C00A4148C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnnoTree Sample Application/AnnoTree Sample Application-Prefix.pch";
+				INFOPLIST_FILE = "AnnoTree Sample Application/AnnoTree Sample Application-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D3B3919117A9762C00A4148C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AnnoTree Sample Application.app/AnnoTree Sample Application";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnnoTree Sample Application/AnnoTree Sample Application-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AnnoTree Sample ApplicationTests/AnnoTree Sample ApplicationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D3B3919217A9762C00A4148C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AnnoTree Sample Application.app/AnnoTree Sample Application";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnnoTree Sample Application/AnnoTree Sample Application-Prefix.pch";
+				INFOPLIST_FILE = "AnnoTree Sample ApplicationTests/AnnoTree Sample ApplicationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D3B3915C17A9762B00A4148C /* Build configuration list for PBXProject "AnnoTree Sample Application" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3B3918B17A9762C00A4148C /* Debug */,
+				D3B3918C17A9762C00A4148C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3B3918D17A9762C00A4148C /* Build configuration list for PBXNativeTarget "AnnoTree Sample Application" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3B3918E17A9762C00A4148C /* Debug */,
+				D3B3918F17A9762C00A4148C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D3B3919017A9762C00A4148C /* Build configuration list for PBXNativeTarget "AnnoTree Sample ApplicationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3B3919117A9762C00A4148C /* Debug */,
+				D3B3919217A9762C00A4148C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D3B3915917A9762B00A4148C /* Project object */;
+}

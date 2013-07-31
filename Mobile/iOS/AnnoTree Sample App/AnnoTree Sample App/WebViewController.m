@@ -7,6 +7,7 @@
 //
 
 #import "WebViewController.h"
+#import "AnnoTree.h"
 
 static const CGFloat kNavBarHeight = 52.0f;
 static const CGFloat kLabelHeight = 14.0f;
@@ -161,24 +162,6 @@ static const CGFloat kAddressHeight = 26.0f;
     [self.viewWeb loadRequest:request];
 }
 
-- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace
-{
-	return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
-{
-	if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
-	{
-		if ([challenge.protectionSpace.host isEqualToString:@"dev.annotree.com"])
-		{
-			[challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
-		}
-	}
-    
-	[challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
-}
-
 - (void)updateAddress:(NSURLRequest*)request
 {
     NSURL* url = [request mainDocumentURL];
@@ -220,6 +203,5 @@ static const CGFloat kAddressHeight = 26.0f;
 {
     return [[AnnoTree sharedInstance] shouldAutorotate];
 }
- 
 
 @end

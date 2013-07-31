@@ -1,0 +1,26 @@
+<div class="content">
+    <p>The AnnoTree SDK is an in app toolbar that will allow you to draw or write directly onto your application and send these "leafs" back to our central collaboration platform without ever leaving your app.  In order to install the SDK, follow the instructions below:</p>
+    <ol style="margin-left:20px;"> 
+        <li>Download the API and unzip the package. 
+            <ul>
+                <li>
+                    <a target="_blank" href="https://ccp.annotree.com/SDK/AnnoTreeSDK-0.1.zip">iOS API v0.1</a>
+                </li>
+            </ul>
+        </li>
+        <li>Add the Framework to your "Link with Binary Libraries"</li>
+        <li>Add the Bundle to your "Copy Bundle Resources"</li>
+        <li>
+            <p>Place this line of code in your AppDelegate</p>
+            <div style="margin-left:20px;">
+                <div  style="margin-bottom: 10px">
+                    <code>
+                        [[AnnoTree sharedInstance] loadAnnoTree:UIOrientation withTree:@"{{treeInfo.token}}"];
+                    </code>
+                </div>
+                Note: UIOrientation will be the orientation your app supports i.e. UIInterfaceOrientationMaskAll
+            </div>
+        </li>
+        <li>Create a Tree and get the API key from the modify menu</li>
+    </ol>
+</div>

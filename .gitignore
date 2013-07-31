@@ -6,3 +6,6 @@
 
 # VIM files
 *.swp
+
+# annotation_files
+Website/anno_tree/public/annotation_files/

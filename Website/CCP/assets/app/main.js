@@ -54,7 +54,13 @@ AnnoTree.config(
     .when(
             "/app/:treeID/docs", 
             {
-                action: "standard.tree.docs"
+                action: "standard.tree.docs.home"
+            }
+        )
+    .when(
+            "/app/:treeID/docs/ios", 
+            {
+                action: "standard.tree.docs.ios"
             }
         )
     .when(
@@ -81,22 +87,7 @@ AnnoTree.config(
                     redirectTo: "/authenticate/login"
                 }
             );
-   /*
-   .when(
-        "/docs",
-        {
-          action: "standard.docs.home"
-        }
-      )
-      .when(
-        "/docs/api",
-        {
-          action: "standard.docs.API"
-        }
-      )
-             
-
-      */
+ 
         $httpProvider.responseInterceptors.push( interceptor );
 
     }

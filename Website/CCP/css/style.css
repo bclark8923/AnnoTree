@@ -563,6 +563,7 @@ a.btn-annotree {
     margin-left: 25%;
     padding-top: 60px;
     padding-left: 20px;
+    padding-right: 20px;
     position: absolute;
     overflow-y: auto;
     overflow-x: hidden;
@@ -637,7 +638,7 @@ a.btn-annotree {
 }
 
 /* -----------------------
- * Responsive Media Settings
+ * Documents Settings
  * ----------------------- */
 #docs {
     height: 100%;

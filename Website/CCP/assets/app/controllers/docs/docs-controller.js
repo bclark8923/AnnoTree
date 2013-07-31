@@ -1,71 +1,71 @@
 (function( ng, app ){
 
-	"use strict";
+    "use strict";
 
-	app.controller(
-		"docs.HomeController",
-		function( $scope, $cookies, $rootScope, $location, $timeout, $route, requestContext, forestService, _ ) {
-
-
-			// --- Define Controller Methods. ------------------- //
+    app.controller(
+        "docs.HomeController",
+        function( $scope, $cookies, $rootScope, $location, $timeout, $route, requestContext, forestService, _ ) {
 
 
-			
-
-			// --- Define Scope Methods. ------------------------ //
-
-			
-			// ...
+            // --- Define Controller Methods. ------------------- //
 
 
-			// --- Define Controller Variables. ----------------- //
+            
+
+            // --- Define Scope Methods. ------------------------ //
+
+            
+            // ...
 
 
-			// Get the render context local to this controller (and relevant params).
-			var renderContext = requestContext.getRenderContext( "standard.docs" );
-
-			
-			// --- Define Scope Variables. ---------------------- //
+            // --- Define Controller Variables. ----------------- //
 
 
-			// I flag that data is being loaded.
+            // Get the render context local to this controller (and relevant params).
+            var renderContext = requestContext.getRenderContext( "standard.docs" );
 
-			// The subview indicates which view is going to be rendered on the page.
-			$scope.subview = renderContext.getNextSection();
-			
-
-			// --- Bind To Scope Events. ------------------------ //
+            
+            // --- Define Scope Variables. ---------------------- //
 
 
-			// I handle changes to the request context.
-			$scope.$on(
-				"requestContextChanged",
-				function() {
+            // I flag that data is being loaded.
 
-					// Make sure this change is relevant to this controller.
-					if ( ! renderContext.isChangeRelevant() ) {
+            // The subview indicates which view is going to be rendered on the page.
+            $scope.subview = renderContext.getNextSection();
+            
 
-						return;
-
-					}
-
-					// Update the view that is being rendered.
-					$scope.subview = renderContext.getNextSection();
-
-				}
-			);
+            // --- Bind To Scope Events. ------------------------ //
 
 
-			// --- Initialize. ---------------------------------- //
+            // I handle changes to the request context.
+            $scope.$on(
+                "requestContextChanged",
+                function() {
+
+                    // Make sure this change is relevant to this controller.
+                    if ( ! renderContext.isChangeRelevant() ) {
+
+                        return;
+
+                    }
+
+                    // Update the view that is being rendered.
+                    $scope.subview = renderContext.getNextSection();
+
+                }
+            );
 
 
-			// Set the window title.
-			$scope.setWindowTitle( "AnnoTree" );
+            // --- Initialize. ---------------------------------- //
 
-			// Load the "remote" data.
-			$("#loadingScreen").hide();
 
-		}
-	);
+            // Set the window title.
+            $scope.setWindowTitle( "AnnoTree" );
+
+            // Load the "remote" data.
+            $("#loadingScreen").hide();
+
+        }
+    );
 
  })( angular, AnnoTree );

@@ -45,13 +45,44 @@ AnnoTree.config(
               action: "authenticate.resetPassword"
           }
       )
-            .when(
-                "/app",
-                {
-                    action: "standard.forest"
-                }
-            )
+    .when(
+        "/app",
+        {
+            action: "standard.forest"
+        }
+    )
+    .when(
+            "/app/:treeID/docs", 
+            {
+                action: "standard.tree.docs"
+            }
+        )
+    .when(
+        "/app/:treeID",
+        {
+            action: "standard.tree.leaves"
+        }
+      )
       .when(
+          "/app/:treeID/:leafID",
+          {
+              action: "standard.tree.leaf"
+          }
+      )
+      
+      .when(
+          "/forestFire",
+          {
+              action: "standard.forestFire"
+          }
+      )
+            .otherwise(
+                {
+                    redirectTo: "/authenticate/login"
+                }
+            );
+   /*
+   .when(
         "/docs",
         {
           action: "standard.docs.home"
@@ -63,31 +94,9 @@ AnnoTree.config(
           action: "standard.docs.API"
         }
       )
-            .when(
-                "/app/:treeID",
-                {
-                    action: "standard.tree.leaves"
-                }
-      )
-      .when(
-          "/app/:treeID/:leafID",
-          {
-              action: "standard.tree.leaf"
-          }
-      )
-      .when(
-          "/forestFire",
-          {
-              action: "standard.forestFire"
-          }
-      )
-            .otherwise(
-                {
-                    redirectTo: "/authenticate/login"
-                }
-            )
-        ;
-    
+             
+
+      */
         $httpProvider.responseInterceptors.push( interceptor );
 
     }

@@ -7,7 +7,6 @@
 //
 
 #import "WebViewController.h"
-#import "AnnoTree.h"
 
 static const CGFloat kNavBarHeight = 52.0f;
 static const CGFloat kLabelHeight = 14.0f;
@@ -151,6 +150,14 @@ static const CGFloat kAddressHeight = 26.0f;
         url = [NSURL URLWithString:modifiedURLString];
     }
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
+    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+    if( connection )
+    {
+        int i = 0;
+        i++;
+        //mutableData = [[NSMutableData alloc] init];
+    }
     [self.viewWeb loadRequest:request];
 }
 
@@ -179,6 +186,24 @@ static const CGFloat kAddressHeight = 26.0f;
     self.addressField.text = absoluteString;
 }
 
+- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace
+{
+	return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+	if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
+	{
+		if ([challenge.protectionSpace.host isEqualToString:@"dev.annotree.com"])
+		{
+			[challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+		}
+	}
+    
+	[challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+}
+
 - (void)informError:(NSError *)error
 {
     NSString* localizedDescription = [error localizedDescription];
@@ -195,5 +220,6 @@ static const CGFloat kAddressHeight = 26.0f;
 {
     return [[AnnoTree sharedInstance] shouldAutorotate];
 }
+ 
 
 @end

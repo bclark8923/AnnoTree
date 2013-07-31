@@ -36,7 +36,7 @@
 @synthesize drawScreen;
 @synthesize annoTreeImageOpenView;
 @synthesize activeTree;
-@synthesize supportedOrientation;
+//@synthesize supportedOrientation;
 @synthesize enabled;
 @synthesize drawEnabled;
 @synthesize textEnabled;
@@ -75,7 +75,7 @@
         annoTreeWindow.hidden = NO;
         annoTreeWindow.backgroundColor = [UIColor clearColor];
         
-        supportedOrientation = UIInterfaceOrientationMaskAll;
+        //supportedOrientation = UIInterfaceOrientationMaskAll;
         
         /* Space between icons on toolbar */
         int space = 35.0;
@@ -121,7 +121,7 @@
         [pencilIconToolbarButton setBackgroundImage:pencilIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
         [pencilIconToolbarButton setSelected:YES];
         [pencilIconToolbarButton setEnabled:NO];
-        /*[pencilIconToolbarButton addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];*/
+        [pencilIconToolbarButton addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
         [pencilIconToolbarButton addTarget:self action:@selector(enableDisableDrawing:) forControlEvents:UIControlEventTouchUpInside];
         pencilIconToolbarButton.hidden = YES;
         [annoTreeToolbar addSubview:pencilIconToolbarButton];
@@ -414,7 +414,7 @@
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     
     // set URL
-    NSURL *requestURL = [NSURL URLWithString:@"https://dev.annotree.com/services/ios/leaf"];
+    NSURL *requestURL = [NSURL URLWithString:@"https://ccp.annotree.com/services/ios/leaf"];
     [request setURL:requestURL];
     
     //NSLog(@"Connection");
@@ -439,7 +439,7 @@
 {
 	if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
 	{
-		if ([challenge.protectionSpace.host isEqualToString:@"dev.annotree.com"])
+		if ([challenge.protectionSpace.host isEqualToString:@"ccp.annotree.com"])
 		{
 			[challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
 		}
@@ -665,9 +665,9 @@
      UIViewAutoresizingFlexibleHeight];
 }
 
-- (void) loadAnnoTree:(NSUInteger)orientation  withTree:(NSString*)tree
+- (void) loadAnnoTree:(NSString*)tree
 {
-    supportedOrientation = orientation;
+    //supportedOrientation = orientation;
     
     activeTree = tree;
     
@@ -786,12 +786,12 @@
                     //CGContextDrawImage(context, CGRectMake(0.0, 0.0, 640, 960), iref);
 
                 }
-                
-                [[window layer] renderInContext:context];
-                
-                // Restore the context
-                CGContextRestoreGState(context);
             }
+        
+        [[window layer] renderInContext:context];
+        
+        // Restore the context
+        CGContextRestoreGState(context);
         //}
     }
     
@@ -966,11 +966,11 @@
     
 	return image;
 }
-
+/*
 - (NSUInteger)supportedInterfaceOrientations
 {
     return supportedOrientation;
-}
+}*/
 
 - (BOOL)shouldAutorotate
 {

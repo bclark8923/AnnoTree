@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D31160D217A3598200C01A79 /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D31160D117A3598200C01A79 /* AnnoTree.bundle */; };
+		D31160D717A35F0100C01A79 /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31160D617A35F0100C01A79 /* AnnoTree.framework */; };
 		D31501D6176B718A00D0FE92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31501D5176B718A00D0FE92 /* Foundation.framework */; };
 		D31501D8176B718A00D0FE92 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31501D7176B718A00D0FE92 /* CoreGraphics.framework */; };
 		D31501DA176B718A00D0FE92 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31501D9176B718A00D0FE92 /* UIKit.framework */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D31160D117A3598200C01A79 /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AnnoTree.bundle; sourceTree = "<group>"; };
+		D31160D617A35F0100C01A79 /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AnnoTree.framework; sourceTree = "<group>"; };
 		D31501D2176B718A00D0FE92 /* AnnoTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnnoTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D31501D5176B718A00D0FE92 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D31501D7176B718A00D0FE92 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,6 +68,7 @@
 			files = (
 				D31501D8176B718A00D0FE92 /* CoreGraphics.framework in Frameworks */,
 				D31501DA176B718A00D0FE92 /* UIKit.framework in Frameworks */,
+				D31160D717A35F0100C01A79 /* AnnoTree.framework in Frameworks */,
 				D31501D6176B718A00D0FE92 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +108,7 @@
 		D31501D4176B718A00D0FE92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D31160D617A35F0100C01A79 /* AnnoTree.framework */,
 				D31501D5176B718A00D0FE92 /* Foundation.framework */,
 				D31501D7176B718A00D0FE92 /* CoreGraphics.framework */,
 				D31501D9176B718A00D0FE92 /* UIKit.framework */,
@@ -129,6 +135,7 @@
 		D31501DC176B718A00D0FE92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D31160D117A3598200C01A79 /* AnnoTree.bundle */,
 				D31501DD176B718A00D0FE92 /* AnnoTree-Info.plist */,
 				D31501DE176B718A00D0FE92 /* InfoPlist.strings */,
 				D31501E1176B718A00D0FE92 /* main.m */,
@@ -233,6 +240,7 @@
 			files = (
 				D31501EC176B718A00D0FE92 /* Main_iPad.storyboard in Resources */,
 				D31501F1176B718A00D0FE92 /* Images.xcassets in Resources */,
+				D31160D217A3598200C01A79 /* AnnoTree.bundle in Resources */,
 				D31501E9176B718A00D0FE92 /* Main_iPhone.storyboard in Resources */,
 				D31501E0176B718A00D0FE92 /* InfoPlist.strings in Resources */,
 			);
@@ -388,6 +396,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTree/AnnoTree-Prefix.pch";
 				INFOPLIST_FILE = "AnnoTree/AnnoTree-Info.plist";
@@ -405,6 +417,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTree/AnnoTree-Prefix.pch";
 				INFOPLIST_FILE = "AnnoTree/AnnoTree-Info.plist";

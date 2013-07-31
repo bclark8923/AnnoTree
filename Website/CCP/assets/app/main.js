@@ -58,12 +58,6 @@ AnnoTree.config(
             }
         )
     .when(
-            "/app/:treeID/docs/ios", 
-            {
-                action: "standard.tree.docs.ios"
-            }
-        )
-    .when(
         "/app/:treeID",
         {
             action: "standard.tree.leaves"

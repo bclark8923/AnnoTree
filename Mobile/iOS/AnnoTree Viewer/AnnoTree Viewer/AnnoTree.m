@@ -36,7 +36,7 @@
 @synthesize drawScreen;
 @synthesize annoTreeImageOpenView;
 @synthesize activeTree;
-@synthesize supportedOrientation;
+//@synthesize supportedOrientation;
 @synthesize enabled;
 @synthesize drawEnabled;
 @synthesize textEnabled;
@@ -75,7 +75,7 @@
         annoTreeWindow.hidden = NO;
         annoTreeWindow.backgroundColor = [UIColor clearColor];
         
-        supportedOrientation = UIInterfaceOrientationMaskAll;
+        //supportedOrientation = UIInterfaceOrientationMaskAll;
         
         /* Space between icons on toolbar */
         int space = 35.0;
@@ -665,9 +665,9 @@
      UIViewAutoresizingFlexibleHeight];
 }
 
-- (void) loadAnnoTree:(NSUInteger)orientation  withTree:(NSString*)tree
+- (void) loadAnnoTree:(NSString*)tree
 {
-    supportedOrientation = orientation;
+    //supportedOrientation = orientation;
     
     activeTree = tree;
     
@@ -966,11 +966,11 @@
     
 	return image;
 }
-
+/*
 - (NSUInteger)supportedInterfaceOrientations
 {
     return supportedOrientation;
-}
+}*/
 
 - (BOOL)shouldAutorotate
 {

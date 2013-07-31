@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AnnoTree.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

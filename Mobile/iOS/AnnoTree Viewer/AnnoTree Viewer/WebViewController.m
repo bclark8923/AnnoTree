@@ -7,7 +7,6 @@
 //
 
 #import "WebViewController.h"
-#import "AnnoTree.h"
 
 static const CGFloat kNavBarHeight = 52.0f;
 static const CGFloat kLabelHeight = 14.0f;
@@ -203,5 +202,6 @@ static const CGFloat kAddressHeight = 26.0f;
 {
     return [[AnnoTree sharedInstance] shouldAutorotate];
 }
+ 
 
 @end

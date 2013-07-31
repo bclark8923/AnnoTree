@@ -13,15 +13,8 @@ body, #containWrapper {
     height: 100%;
     width: 100%;
     color: #444;
-    /*
-    -webkit-background-size: cover; 
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; 
-    background: url('../img/forestBG2.png');
-    */
 }
-/* */
+
 div[ng-switch], div[ng-switch-when], div[ng-controller] {
     height: 100%;
     width: 100%;
@@ -596,6 +589,7 @@ a.btn-annotree {
 .leafImage {
     max-height: 95%;
     padding: 20px;
+    max-width: 95%;
 }
 
 .leafComments {
@@ -641,6 +635,25 @@ a.btn-annotree {
     margin-top: 7px;
     float: right;
 }
+
+/* -----------------------
+ * Responsive Media Settings
+ * ----------------------- */
+#docs {
+    height: 100%;
+    width: 75%;
+    float: left;
+    margin-left: 25%;
+    border-top: 40px solid transparent;
+    padding:20px;
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 /* -----------------------
  * Responsive Media Settings
  * ----------------------- */
@@ -693,7 +706,7 @@ a.btn-annotree {
         margin-bottom: 5px;
     }
 
-    #leaves, #leaf {
+    #leaves, #leaf, #docs {
         margin-left: 0;
         width: 100%;
     }

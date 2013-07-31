@@ -492,14 +492,7 @@
                                 $scope.addUserID = ui.item.user.email;
                                 return false;
                             }
-                        })
-                        /*
-                        .data( "ui-autocomplete" )._renderItem = function( ul, item ) {
-                          return $( "<li>" )
-                            .append(item.label)
-                            .appendTo( ul );
-                        };
-                        */
+                        });
                     },
                     function( response ) {
                         alert('Our add and remove users service is currently down. Please try again later.');

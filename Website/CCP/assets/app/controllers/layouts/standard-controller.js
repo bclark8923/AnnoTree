@@ -35,11 +35,9 @@
                 );
             }
             
-            /*
-            $scope.openFeedback = function() {
-                $("#feedbackModal").addClass('active');
+            $scope.openFeedbackModal = function() {
+                $("#feedbackModal").modal('show');
             };
-            */
 
             $scope.closeFeedbackModal = function() {
                 $("#feedbackModal").modal('hide');

@@ -11,6 +11,7 @@
             <div style="margin-top:20px">
                 <p><strong>API Key:</strong></p>
                 <p>{{treeInfo.token}}</p>
+                <a href="#/docs">AnnoTree iOS integration details</a>
             </div>
             <hr/>
             <div style="margin-top:20px;">
@@ -28,5 +29,6 @@
     <div ng-switch="subview">
         <div ng-switch-when="leaves" ng-include=" 'assets/app/views/tree/leaves.html' "></div>
         <div ng-switch-when="leaf" ng-include=" 'assets/app/views/tree/leaf.html' "></div>
+        <div ng-switch-when="docs" ng-include=" 'assets/app/views/docs/index.html' "></div>
     </div>
 </div>

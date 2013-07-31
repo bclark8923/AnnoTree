@@ -113,15 +113,6 @@ AnnoTree.directive('postRender', function($timeout) {
     }
 });
 
-AnnoTree.directive('upload', function() {
-    return {
-        link: function(scope, elem, attrs) {
-            alert(elem.value);
-            scope.filesListing = [elem.value];
-        }
-    }
-});
-
 AnnoTree.directive('renderPane', function($timeout) {
   return  { 
     link: function(scope, elm, attrs) { 

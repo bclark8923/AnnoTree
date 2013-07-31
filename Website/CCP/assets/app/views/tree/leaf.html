@@ -1,52 +1,51 @@
 <div id="treeContainer" ng-controller="forest.LeafController">
     <div ng-include=" 'assets/app/views/tree/leaf-modals.html' "></div>
-        <div id="leaf">
-            <div class="cardLarge">
-                <div class="cardNameLarge">
-                    <a ng-href="#/app/{{treeInfo.id}}">
-                        <i id="leafBack" class="icon-circle-arrow-left" style="margin-left:5px;float:left;"></i>
-                    </a>
-                    <strong>{{leaf.name}}</strong>
-                </div>
-                <div class="leafHolder">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="cardImgLarge">
-                                <img class="leafImage" ng-src="{{leaf.image}}">
-                            </div>
+    <div id="leaf">
+        <div class="cardLarge">
+            <div class="cardNameLarge">
+                <a ng-href="#/app/{{treeInfo.id}}">
+                    <i id="leafBack" class="icon-circle-arrow-left" style="margin-left:5px;float:left;"></i>
+                </a>
+                <strong>{{leaf.name}}</strong>
+            </div>
+            <div class="leafHolder">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="cardImgLarge">
+                            <img class="leafImage" ng-src="{{leaf.image}}">
                         </div>
-                        <div class="col-sm-6">
-                            <div class="leafComments" >
-                                <div class="leafComment" ng-repeat="comment in leaf.comments | orderBy:'created_at' | date:'yyyy-MM-dd HH:mm:ss'">
-                                    <div class="userImageHolder">
-                                        <img class="userCommentImage" ng-src="{{comment.avatar}}"> 
-                                    </div>
-                                    <div class="userCommentHolder"> 
-                                        <p class="userCommentName">{{comment.first_name}} {{comment.last_name}}</p> 
-                                        <p class="userComment">{{comment.comment}}</p>
-                                    </div>
-                                    <hr class="smallHR"/>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="leafComments" >
+                            <div class="leafComment" ng-repeat="comment in leaf.comments | orderBy:'created_at' | date:'yyyy-MM-dd HH:mm:ss'">
+                                <div class="userImageHolder">
+                                    <img class="userCommentImage" ng-src="{{comment.avatar}}"> 
                                 </div>
-                                <div class="leafComment">
-                                    <div class="error-text" id="leafCommentError" ng-modal="leafCommentError"></div>
-                                    <div class="userImageHolder">
-                                        <img class="userCommentImage" ng-src="{{user.avatar}}"> 
-                                    </div>
-                                    <div class="userCommentHolder">
-                                        <form class="form-horizontal" name="leafCommentForm" ng-submit="addLeafComment()">
-                                            <input type="text" class="form-control" maxlength="2048" id="newComment" placeholder="Enter a comment" ng-model="leafComment.comment" required />
-                                            <!--button type="submit" class="btn btn-annotree" id="commentBtn">
-                                                <strong>Add Comment</strong>
-                                            </button-->
-                                        </form>
-                                    </div>
+                                <div class="userCommentHolder"> 
+                                    <p class="userCommentName">{{comment.first_name}} {{comment.last_name}}</p> 
+                                    <p class="userComment">{{comment.comment}}</p>
+                                </div>
+                                <hr class="smallHR"/>
+                            </div>
+                            <div class="leafComment">
+                                <div class="error-text" id="leafCommentError" ng-modal="leafCommentError"></div>
+                                <div class="userImageHolder">
+                                    <img class="userCommentImage" ng-src="{{user.avatar}}"> 
+                                </div>
+                                <div class="userCommentHolder">
+                                    <form class="form-horizontal" name="leafCommentForm" ng-submit="addLeafComment()">
+                                        <input type="text" class="form-control" maxlength="2048" id="newComment" placeholder="Enter a comment" ng-model="leafComment.comment" required />
+                                        <!--button type="submit" class="btn btn-annotree" id="commentBtn">
+                                            <strong>Add Comment</strong>
+                                        </button-->
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> 
-        </div>
+            </div>
+        </div> 
     </div>
 </div post-render>
     <!--

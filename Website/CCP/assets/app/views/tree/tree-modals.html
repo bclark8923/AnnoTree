@@ -26,7 +26,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-annotree">
-                        <strong>Create Leaf</strong>
+                        <strong>Create</strong>
+                    </button>
+                    <button type="button" class="btn btn-warning" ng-click="closeNewLeafModal()">
+                        <strong>Cancel</strong>
                     </button>
                 </div>
             </form>
@@ -108,39 +111,41 @@
                 </button>
                 <h3 class="modal-title">User Permissions</h3>
             </div>
-                <div class="modal-body">
-                    <div id="treeModifyUsers">
-                        <table>
-                            <tbody>
-                                <tr ng-repeat="user in treeInfo.users">
-                                    <td>
-                                        {{user.first_name}} {{user.last_name}}
-                                    </td>
-                                    <td>
-                                        {{user.email}}
-                                    </td>
-                                    <td>
-                                        <i ng-click="removeFromTree(user)" class="icon-remove-circle"></i>
-                                        <span class="error-text" style="display:none;margin-left:5px;font-size: 7pt;padding: 0 5px;height: 15px;line-height: 15px;">Remove?</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <div class="modal-body">
+                <div id="treeModifyUsers">
+                    <table>
+                        <tbody>
+                            <tr ng-repeat="user in treeInfo.users">
+                                <td>
+                                    {{user.first_name}} {{user.last_name}}
+                                </td>
+                                <td>
+                                    {{user.email}}
+                                </td>
+                                <td>
+                                    <i ng-click="removeFromTree(user)" class="icon-remove-circle"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-10">
+                        <input id="userList" style="display:inline" class="form-control" type="email" placeholder="Email" style="max-width:320px;" ng-model="addUserID" required> 
                     </div>
-                    <div class="row">
-                        <div class="col-10">
-                            <input id="userList" style="display:inline" class="form-control" type="email" placeholder="Email" style="max-width:320px;" ng-model="addUserID" required> 
-                        </div>
-                        <div class="col-2">
-                            <a class="btn btn-annotree" ng-click="addUser()"><strong>Add</strong></a>
-                        </div>
-                        <div class="tipText col-10">Tip: Search for a user or input an email to invite a new user to this tree.</div>
+                    <div class="col-2">
+                        <a class="btn btn-annotree" ng-click="addUser()"><strong>Add</strong></a>
+                    </div>
+                    <div class="tipText col-10">
+                        Tip: Search for a user or input an email to invite a new user to this tree.
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-annotree" ng-click="closeModifyUsersModal()">
-                        <strong>Done</strong>
-                    </button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-annotree" ng-click="closeModifyUsersModal()">
+                    <strong>Done</strong>
+                </button>
+            </div>
         </div>
     </div>
 </div>

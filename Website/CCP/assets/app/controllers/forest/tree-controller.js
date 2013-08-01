@@ -267,6 +267,11 @@
                 //alert(evt.target.responseText); 
                 if (this.status == 415 || this.status == 406) {
                     var jsonResp = JSON.parse(this.response);
+                    leafService.deleteLeaf($scope.newLeafData.id);
+                    $("#invalidAddLeaf").html("Only images can be uploaded at this time");
+                    
+                    $scope.invalidAddLeaf = true;
+                    $("#newLeafModalWorking").removeClass('active');
                 } else {
                     var annotationObject = jQuery.parseJSON( evt.target.responseText );
                     $scope.newLeafData.annotations.push(annotationObject);

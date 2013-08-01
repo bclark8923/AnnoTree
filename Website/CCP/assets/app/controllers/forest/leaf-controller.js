@@ -203,6 +203,13 @@
                     function( response ) {
 
                         $scope.isLoading = false;
+                        var indexPos = 0;
+                        for (var i = 0; i < $rootScope.leaves.length; i++) {
+                            if ($rootScope.leaves[i].id == leafID) {
+                                $rootScope.leaves.splice(i, 1);
+                                break;
+                            }
+                        }
                         $("#deleteLeafCallbackModal").modal('hide');
                         $scope.closeModifyLeafModal();
                         $location.path('/app/'+$routeParams.treeID);

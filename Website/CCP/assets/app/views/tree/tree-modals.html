@@ -16,6 +16,7 @@
                     <p class="error-text" id="invalidAddLeaf" ng-show="invalidAddLeaf"></p>
                     <div class="form-group">
                         <input id="leafName" class="form-control" type="text" placeholder="Leaf name" ng-model="leafName" required />
+                        <span class="tipText">Tip: A leaf is an image that you wish to share with others</span>
                     </div>
                     <span class="btn btn-annotree fileinput-button">
                         <i class="icon-plus"></i>
@@ -23,6 +24,9 @@
                         <input type="file" name="files" id="annotationImage" ng-model="annotationImage" />
                     </span>
                     <span style="margin-left:5px" id="filesName">No files selected</span>
+                </div>
+                <div>
+                    Note that only images can be uploaded at this time
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-annotree">

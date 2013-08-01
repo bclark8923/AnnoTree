@@ -24,12 +24,12 @@
 
   <!-- Facebook Metadata /-->
   <meta property="fb:page_id" content="118364948355465" />
-  <meta property="og:title" content="AnnoTree | <?php echo get_the_title(); ?>" />
+  <meta property="og:title" content="<?php echo get_the_title(); ?> | AnnoTree" />
   <meta property="og:image" content="http://annotree.com/img/logo.png" />
   <meta property="og:description" content=""/>
 
   <!-- Google+ Metadata /-->
-  <meta itemprop="name" content="AnnoTree | <?php echo get_the_title(); ?>">
+  <meta itemprop="name" content="<?php echo get_the_title(); ?> | AnnoTree">
   <meta itemprop="description" content="">
   <meta itemprop="image" content="http://annotree.com/img/logo.png">
 

@@ -65,6 +65,10 @@ a.btn-annotree {
     background-color: #83C968;
 }
 
+.label-annotree {
+    background-color: #83C968;
+}
+
 .valign { 
     display: table;
     width: 100%;
@@ -691,25 +695,54 @@ a.btn-annotree {
     -webkit-transition: opacity .25s linear;
 }
 
-#docs #header {
-    font-size: 14pt;
-    padding-top: 5px;
-}
-
-#docs .title {
-    text-align: center;
-    font-weight: bold;
-}
-
 #docsBack {
     float:left;
     padding-left: 7px;
+    padding-top: 2px;
     text-decoration: none;
 }
 
 #docs .content {
-    padding: 10px;
-    font-size: 12pt;
+    padding: 20px;
+    font-size: 14pt;
+}
+
+.docDownload {
+    height: 50px;
+    margin: 10px;
+    background-color: #92DF74;
+    text-align: center;
+    font-size: 20pt;
+    color: white;
+    padding-top: 5px;
+    border-radius: 5px;
+}
+
+.docDownload:hover {
+    background-color: #83C968;
+    text-decoration: none;
+}
+
+.docList {
+    list-style:none;
+    padding-left: 10px;
+    margin-top: 20px;
+}
+
+.docList > li {
+    margin-bottom: 10px;
+}
+
+.docList > li > span.label, .docList > li > p > span.label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.code {
+    color: #92DF74;
+    background-color: #444;
+    font-weight: bold;
+    padding: 4px 8px;
 }
 /* -----------------------
  * Mobile Dashboard Settings

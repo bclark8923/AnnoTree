@@ -615,6 +615,13 @@ input[type='text'], input[type='email'],textarea {font-size:17px;} {
 	font-weight: bold;
 }
 
+.code {
+	color: #92DF74;
+	background-color: #444;
+	font-weight: bold;
+	padding: 4px 8px;
+}
+
 #helpModal .modal-dialog {
 	margin: 0 -40%;
 	width: 80%;

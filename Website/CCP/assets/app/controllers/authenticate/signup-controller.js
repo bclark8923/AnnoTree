@@ -98,6 +98,8 @@
                                         break;
                                     case 5:
                                         errorData = "A nonvalid character was used, valid characters are alphanumeric and !@#$%^&*()";
+                                    case 6:
+                                        errorData = response.data.txt;
                                         break;
                                     default:
                                         //pre-defined

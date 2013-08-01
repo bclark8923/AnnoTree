@@ -4,9 +4,12 @@
         <div class="cardLarge">
             <div class="cardNameLarge">
                 <a ng-href="#/app/{{treeInfo.id}}">
-                    <i id="leafBack" class="icon-circle-arrow-left" style="margin-left:5px;float:left;"></i>
+                    <i id="leafBack" class="icon-circle-arrow-left" style="margin-left:5px;margin-top:2px;float:left"></i>
                 </a>
                 <strong>{{leaf.name}}</strong>
+                <a ng-click="openModifyLeafModal()">
+                    <i id="leafBack" class="icon-cog" style="margin-right:5px;margin-top:2px;float:right"></i>
+                </a>
             </div>
             <div class="leafHolder">
                 <div class="row">
@@ -35,9 +38,6 @@
                                 <div class="userCommentHolder">
                                     <form class="form-horizontal" name="leafCommentForm" ng-submit="addLeafComment()">
                                         <input type="text" class="form-control" maxlength="2048" id="newComment" placeholder="Enter a comment" ng-model="leafComment.comment" required />
-                                        <!--button type="submit" class="btn btn-annotree" id="commentBtn">
-                                            <strong>Add Comment</strong>
-                                        </button-->
                                     </form>
                                 </div>
                             </div>

@@ -22,7 +22,7 @@
 
 
             // Get the render context local to this controller (and relevant params).
-            var renderContext = requestContext.getRenderContext( "standard.docs" );
+            var renderContext = requestContext.getRenderContext( "standard.tree.docs" );
 
             
             // --- Define Scope Variables. ---------------------- //

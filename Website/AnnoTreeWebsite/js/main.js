@@ -39,7 +39,7 @@ $(function() {
             var serializedData = {email: emailVar}
             // fire off the request to /form.php
             var request = $.ajax({
-                url: "/betasignup",
+                url: "/services/user/beta",
                 type: "post",
                 data: JSON.stringify(serializedData)
             });
@@ -63,7 +63,21 @@ $(function() {
                 $("#emailInput").removeClass('disabled');
                 $(".submitEmail").removeClass('disabled');
                 $("emailInput").prop('disabled', false);
-                $("#errorText").html('Sorry, our beta sign up is currently down. Please try again in a few minutes or email us at contact@annotree.com.');
+                var responseText = jQuery.parseJSON(jqXHR.responseText);
+                var errorNum = responseText.error;
+                var errorText = 'Sorry, our beta sign up is currently down. Please try again in a few minutes or email us at contact@annotree.com.';
+                if (errorNum == 1) {
+                    errorText = 'You have already registered for the beta and have been granted access. Please go <a href="https://ccp.annotree.com/#/authenticate/signUp">here</a> to sign up for the collaboration platform.';
+                } else if (errorNum == 2) {
+                    errorText = 'You have already been invited by another user to the beta and have been granted access. Please go <a href="https://ccp.annotree.com/#/authenticate/signUp">here</a> to access the collaboration platform.';
+                } else if (errorNum == 3) {
+                    errorText = 'You have already signed into the collaboration platform. Please go <a href="https://ccp.annotree.com/#/authenticate/login">here</a> to access the collaboration platform.';
+                } else if (errorNum == 4) {
+                    errorText = 'You have already signed up for the beta. Please be patient as we roll users in collaboration platform. Feel free to email us at contact@annotree.com if you want immediate access.';
+                } else if (errorNum == 5) {
+                    errorText = 'Please Enter a Valid Email';
+                }
+                $("#errorText").html(errorText);
                 $("#validateError").show();
             });
         } else {

@@ -521,6 +521,7 @@ a.btn-annotree {
     border-radius: 5px 5px 0 0;
     background-color: #fff;
     opacity: 1;
+    border-radius: 5px 5px;
 
     transition: opacity .25s linear;
     -moz-transition: opacity .25s linear;
@@ -533,8 +534,9 @@ a.btn-annotree {
     color: white;
     border-radius: 5px 5px 0 0;
     padding: 3px;
-    height: 25px;
+    height: 40px;
     border-bottom: 1px solid #ddd;
+    font-size: 18pt;
 }
 
 .cardImgLarge {
@@ -547,7 +549,7 @@ a.btn-annotree {
 .cardNameLarge i {
     color: #fff;
     text-decoration: none;
-    font-size: 14pt;
+    font-size: 22pt;
 }
 
 .cardNameLarge i:hover {
@@ -655,6 +657,40 @@ a.btn-annotree {
     box-sizing: border-box;
 }
 
+#docs #resources {
+    margin: 0 auto;
+    min-height: 100%;
+    width: 100%;
+    box-shadow: 0px 0px 10px #bbb;
+    border-radius: 5px;
+    background-color: #fff;
+    opacity: 1;
+
+    transition: opacity .25s linear;
+    -moz-transition: opacity .25s linear;
+    -webkit-transition: opacity .25s linear;
+}
+
+#docs #header {
+    font-size: 14pt;
+    padding-top: 5px;
+}
+
+#docs .title {
+    text-align: center;
+    font-weight: bold;
+}
+
+#docsBack {
+    float:left;
+    padding-left: 7px;
+    text-decoration: none;
+}
+
+#docs .content {
+    padding: 10px;
+    font-size: 12pt;
+}
 /* -----------------------
  * Responsive Media Settings
  * ----------------------- */

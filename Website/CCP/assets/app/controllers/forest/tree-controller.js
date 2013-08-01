@@ -267,6 +267,11 @@
                 //alert(evt.target.responseText); 
                 if (this.status == 415 || this.status == 406) {
                     var jsonResp = JSON.parse(this.response);
+                    leafService.deleteLeaf($scope.newLeafData.id);
+                    $("#invalidAddLeaf").html("Only images can be uploaded at this time");
+                    
+                    $scope.invalidAddLeaf = true;
+                    $("#newLeafModalWorking").removeClass('active');
                 } else {
                     var annotationObject = jQuery.parseJSON( evt.target.responseText );
                     $scope.newLeafData.annotations.push(annotationObject);
@@ -413,8 +418,9 @@
 
             $scope.addUser = function() {
                 $scope.addedUser.email = $scope.addUserID;
+                var email = $('#userList').val();
                 $('#modifyUsersModalWorking').addClass('active');
-                var promise = treeService.addUser($scope.treeInfo.id, $scope.addUserID);
+                var promise = treeService.addUser($scope.treeInfo.id, email);
 
                 promise.then(
                     function( response ) {
@@ -423,7 +429,12 @@
                         $scope.addedUser.first_name = response.data.firstName;
                         $scope.addedUser.last_name = response.data.lastName;
                         $scope.addedUser.id = response.data.id;
-                        $scope.treeInfo.users.push($scope.addedUser);
+                        var user = {};
+                        user.first_name = response.data.firstName;
+                        user.last_name = response.data.lastName;
+                        user.id = response.data.id;
+                        user.email = email;
+                        $scope.treeInfo.users.push(user);
                         $scope.addUserID = "";
                         //else alert user was invited
 

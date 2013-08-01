@@ -5,6 +5,8 @@
 -- 1 - existing beta user, allowed to sign up
 -- 2 - invited user, can sign up
 -- 3 - already an active User
+-- 4 - already signed up for the beta
+-- 5 - invalid email
 -- --------------------------------------------------------------------------------
 drop procedure IF EXISTS `create_beta_user`;
 DELIMITER $$

@@ -11,11 +11,10 @@
                     <li>
                         <a href="#/app"><i class="icon-home"></i>&nbsp;Home</a>
                     </li>
-                    <!-- li>
-                        <a href="#/docs"><i class="icon-folder-open"></i>&nbsp;Documents</a>
-                    </li-->
                     <li>
-                        <a ng-click="openFeedbackModal()"><i class="icon-share"></i>&nbsp;Feedback</a>
+                        <div>
+                            <a class="btn btn-annotree btn-small" style="margin-top:5px;margin-left:10px;color:#555" ng-click="openFeedbackModal()"><i class="icon-share"></i>&nbsp;Feedback</a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -95,7 +94,7 @@
                         <button type="button" class="btn btn-annotree" ng-show="feedbackThanks" ng-click="closeFeedbackModal()">
                             <strong>Close</strong>
                         </button>
-                        <button type="submit" class="btn btn-annotree" ng-show="feedbackSubmitButton" ng-click="submitFeedback()">
+                        <button type="submit" class="btn btn-annotree" ng-show="feedbackSubmitButton">
                             <strong>Submit Feedback</strong>
                         </button>
                     </div>

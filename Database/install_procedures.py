@@ -4,7 +4,6 @@ from os import system
 from sys import argv
 
 DEBUG = False
-PROCEDURE = False
 if len(argv) > 1:
     if argv[1] == "DEBUG": DEBUG = True
 
@@ -23,14 +22,10 @@ for line in config.split("\n"):
     if key == "password": password = value
 
 
-if DEBUG: system('echo "Creating Database" | cowsay')
-line = components.split("\n")[0]
-command = "mysql -u " + username + " --password=" + password + " < " + line
-system(command)
+if DEBUG: system('echo "Creating Procedures MOOOOO" | cowsay')
 
-if DEBUG: system('echo "Creating Database Tables" | cowsay')
 for line in components.split("\n")[1:]:
-  if len(line) < 1 or line[0] == "#":
+  if len(line) < 1 or line[0] == "#" or not "procedures" in line:
     continue
   command = "mysql -u " + username + " --password=" + password + " annotree < " + line
   system(command)

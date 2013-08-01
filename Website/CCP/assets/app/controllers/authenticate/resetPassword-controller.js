@@ -11,7 +11,6 @@
             // --- Define Scope Methods. ------------------------ //
             $scope.resetPassword = function() {
                 var token = ($location.search()).token;
-                alert('token: ' + token);
                 var password = $scope.password;
                 var confirmPassword = $scope.confirmPassword;
                 if (typeof password === 'undefined') {

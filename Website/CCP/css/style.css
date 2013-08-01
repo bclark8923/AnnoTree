@@ -51,8 +51,14 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
     border-color: #92DF74;
 }
 
+.btn-annotree a {
+    text-decoration: none;
+    color: #fff;
+}
+
 a.btn-annotree {
     text-decoration: none;
+    color: #fff;
 }
 
 .btn-annotree:hover {

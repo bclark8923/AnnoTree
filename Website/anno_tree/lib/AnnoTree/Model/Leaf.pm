@@ -5,6 +5,11 @@ use AnnoTree::Model::MySQL;
 use Scalar::Util qw(looks_like_number);
 use Data::Dumper;
 
+# Get the configuration settings
+my $conf = Config::General->new('/opt/config.txt');
+my %config = $conf->getall;
+my $path = $config{server}->{'annotationpath'};
+
 sub create {
     my ($class, $params) = @_;
     
@@ -192,17 +197,17 @@ sub deleteLeaf {
     my ($class, $params) = @_;
 
     my $annoResult = AnnoTree::Model::MySQL->db->execute(
-        "call get_annotations_by_leaf(:leafid)",
+        "call get_annotations_files_by_leaf(:leafid)",
         {
             leafid => $params->{leafid}
         }
     );
     my $annoPath = '';
-    my $return = $annoResult->fetch;
-    if (defined $return) {
-        ($annoPath) = $return->[0] =~ m/.*\/(.+)$/;
+    my @files = ();
+    while (my $return = $annoResult->fetch) {
+        push(@files, $return->[0]);
     }
-
+    
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call delete_leaf(:reqUser, :leafid)",
         {
@@ -214,7 +219,10 @@ sub deleteLeaf {
     my $json = {};
     my $num = $result->fetch->[0];
     if ($num == 0) {
-        $json = {result => $num, txt => $annoPath};
+        for my $file (@files) {
+            `rm $path/$file` if ($file ne 'anno_default.png' && defined $file);
+        }
+
     } elsif ($num == 1) {
         $json = {error => $num, txt => 'Nothing was deleted'};
     } elsif ($num == 2) {

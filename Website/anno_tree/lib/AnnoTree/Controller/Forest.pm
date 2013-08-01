@@ -83,16 +83,17 @@ sub deleteForest {
     $params->{reqUser} = $self->current_user->{userid};
     $params->{forestid} = $self->param('forestid');
     
-    my @annos = AnnoTree::Model::Forest->getForestAnnotations($params);
+    #my @annos = AnnoTree::Model::Forest->getForestAnnotations($params);
     my $json = AnnoTree::Model::Forest->deleteForest($params);
     
     my $status = 204;
     if (exists $json->{error}) {
         $status = 406;
     } else {
-        foreach my $anno (@annos) {
-            `rm $path/$anno`;
-        }
+        `rm -rf $path/$params->{forestid}`;
+        #foreach my $anno (@annos) {
+        #    `rm $path/$anno`;
+        #}
     }
 
     $self->render(json => $json, status => $status);

@@ -38,6 +38,8 @@ sub beta {
     
     my $jsonReq = $self->req->json;
     my $email = $jsonReq->{email};
+    
+    $self->debug('email: ' . $email . "\n");
 
     my $json = AnnoTree::Model::User->beta($email);
 
@@ -45,6 +47,8 @@ sub beta {
     if (exists $json->{error}) {
         $status = 406;
     }
+
+    $self->debug($self->dumper($json));
 
     $self->render(json => $json, status => $status);
 }

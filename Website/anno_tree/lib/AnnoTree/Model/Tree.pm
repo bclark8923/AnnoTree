@@ -282,7 +282,7 @@ sub addUserToTree {
         $json->{id} = $userInfo->[0];
         my $subject = '';
         if ($status == 3) {
-            $subject = "You've Been Invited To Another Tree";
+            $subject = "You've Been Invited To A Tree";
             $json->{firstName} = $userInfo->[1];
             $json->{lastName} = $userInfo->[2];
             $body = 'Hi ';

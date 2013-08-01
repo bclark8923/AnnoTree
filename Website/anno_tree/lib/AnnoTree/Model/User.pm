@@ -91,7 +91,9 @@ sub signup {
             return {error => $error, txt => 'Invalid email submitted'};
         } elsif ($error == 2) {
             return {error => $error, txt => 'You are already an active user. Please log in to continue.'};
-        } 
+        } elsif ($error == 6) {
+            return {error => $error, txt => 'You have not been granted access to the beta yet. If you want immediate access please contact us at contact@annotree.com'};
+        }
     }
     my $userInfo = $result->fetch; # get the newly created user's info
     for (my $i = 0; $i < @{$cols}; $i++) {
@@ -169,7 +171,7 @@ sub beta {
         
         AnnoTree::Model::Email->mail($email, $from, $subject, $message);
     } elsif ($num == 1) {
-        $json = {error => $num, txt => 'User can sign up'};
+        $json = {error => $num, txt => 'User already signed up for the beta and can sign in'};
     } elsif ($num == 2) {
         $json = {error => $num, txt => 'User has already been invited'};
     } elsif ($num == 3) {

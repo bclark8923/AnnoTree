@@ -14,7 +14,7 @@
     <h4>AnnoTree iOS Integration Instructions</h4>
     <p>The AnnoTree SDK is an in app toolbar that will allow you to draw or write directly onto your application and send these "leafs" back to our central collaboration platform without ever leaving your app.  In order to install the SDK, follow the instructions below:</p>
     <ol style="margin-left:20px;"> 
-        <li>Download the API and unzip the package. 
+        <li>Download the SDK and unzip the package. 
             <ul>
                 <li>
                     <a target="_blank" href="https://ccp.annotree.com/SDK/AnnoTreeSDK-0.1.zip">iOS API v0.1</a>
@@ -27,12 +27,13 @@
             <p>Place this line of code in your AppDelegate</p>
             <div  style="margin-left:20px;margin-bottom: 10px">
                 <code>
-                    [[AnnoTree sharedInstance] loadAnnoTree:@"Your API key here"];
+                    [[AnnoTree sharedInstance] loadAnnoTree:@"Your SDK key here"];
                 </code>
             </div>
             <ul>
-                <li>The API key is unique to each tree (an application)</li>
-                <li>The API key is found in your tree dashboard located to the left</li>
+                <li>SDK is only for UIKit based apps at the momennt</li>
+                <li>The SDK key is unique to each tree (an application)</li>
+                <li>The SDK key is found in your tree dashboard located to the left</li>
             </ul>
         </li>
     </ol>

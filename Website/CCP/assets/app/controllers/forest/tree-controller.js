@@ -413,8 +413,9 @@
 
             $scope.addUser = function() {
                 $scope.addedUser.email = $scope.addUserID;
+                var email = $('#userList').val();
                 $('#modifyUsersModalWorking').addClass('active');
-                var promise = treeService.addUser($scope.treeInfo.id, $scope.addUserID);
+                var promise = treeService.addUser($scope.treeInfo.id, email);
 
                 promise.then(
                     function( response ) {
@@ -423,7 +424,12 @@
                         $scope.addedUser.first_name = response.data.firstName;
                         $scope.addedUser.last_name = response.data.lastName;
                         $scope.addedUser.id = response.data.id;
-                        $scope.treeInfo.users.push($scope.addedUser);
+                        var user = {};
+                        user.first_name = response.data.firstName;
+                        user.last_name = response.data.lastName;
+                        user.id = response.data.id;
+                        user.email = email;
+                        $scope.treeInfo.users.push(user);
                         $scope.addUserID = "";
                         //else alert user was invited
 

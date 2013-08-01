@@ -110,7 +110,7 @@
             }
 
             $scope.openModifyLeafModal = function () {
-                $("#modifyLeafModal").addClass('active');
+                $("#modifyLeafModal").modal('show');
                 $rootScope.modifyLeaf = $scope.leaf;
                 $rootScope.originalName = $scope.leaf.name;
             }
@@ -121,7 +121,7 @@
             }
 
             $scope.closeModifyLeafModal = function () {
-                $("#modifyLeafModal").removeClass('active');
+                $("#modifyLeafModal").modal('hide');
                 $("#invalidModifyLeaf").html('');
                 $rootScope.modifyLeaf = null;
                 $scope.invalidModifyLeaf = false; 
@@ -191,7 +191,7 @@
             }
 
             $scope.deleteCallback = function() {
-                $("#deleteCallbackModal").addClass('active');
+                $("#deleteLeafCallbackModal").modal('show');
             }
 
             $scope.deleteLeaf = function() {
@@ -203,6 +203,7 @@
                     function( response ) {
 
                         $scope.isLoading = false;
+                        $("#deleteLeafCallbackModal").modal('hide');
                         $scope.closeModifyLeafModal();
                         $location.path('/app/'+$routeParams.treeID);
 

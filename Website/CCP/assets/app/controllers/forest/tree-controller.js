@@ -93,6 +93,9 @@
 
             $scope.openModifyTreeModal = function (tree) {
                 $("#modifyTreeModal").modal('show');
+                if (settingsPane.isOpen) {
+                    settingsPane.closeFast();
+                }
                 $rootScope.modifyTree = tree;
                 $rootScope.originalName = tree.name;
                 $rootScope.originalDescription = tree.description;
@@ -476,6 +479,10 @@
             }
 
             $scope.openModifyUsersModal = function () {
+                if (settingsPane.isOpen) {
+                    settingsPane.closeFast();
+                } 
+                
                 var promise = treeService.getKnownPeople();
                 promise.then(
                     function( response ) {

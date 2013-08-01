@@ -698,7 +698,7 @@ a.btn-annotree {
     font-size: 12pt;
 }
 /* -----------------------
- * Responsive Media Settings
+ * Mobile Dashboard Settings
  * ----------------------- */
 #mobileDashboard {
     height: 100%;
@@ -706,9 +706,24 @@ a.btn-annotree {
     background-color: white;
     position: fixed;
     word-wrap: break-word;
-    padding: 10px;
 }
 
+.mobile-dash-wrap {
+    height: -webkit-calc(100% - 27px);
+    height: calc(100% - 27px);
+    height: -moz-calc(100% - 27px);
+    height: -o-calc(100% - 27px);
+    width: 100%;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.mobile-dash-wrap li {
+    text-align: center;
+}
+/* -----------------------
+ * Responsive Media Settings
+ * ----------------------- */
 .responsiveShow {
     display: none;
 }

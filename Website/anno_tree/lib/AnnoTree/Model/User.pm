@@ -141,7 +141,7 @@ sub knownPeople {
     my $userIndex = 0;
     while (my $return = $result->fetch) {
         for (my $i = 0; $i < @{$cols}; $i++) {
-            $json->{users}->[$userIndex]->{$cols->[$i]} = $return->[$i];
+            $json->{users}->[$userIndex]->{$cols->[$i]} = $return->[$i] || '';
         }
         $userIndex++;
     }

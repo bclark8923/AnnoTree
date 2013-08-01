@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="modal in" id="helpModal" data-backdrop="false" aria-hidden="false" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" ng-click="closeFeedbackModal()">
+                      <i class="icon-remove-circle"></i>
+                  </button>
+                  <h3 class="modal-title">AnnoTree Help</h3>
+                </div>
+                <div class="modal-body" style="text-align:left">
+                    <h3>Forests</h3>
+                    <div class="row">
+                      <div class="col-12 col-lg-6">
+                        At the top level AnnoTree has forests.  This represents your company or organization for organizing all of your projects, or as we call them trees, together.
+                      </div>
+                      <div class="col-12 col-lg-6">
+                        <img style="width: 100%;" src="img/forestHelp.png">
+                      </div>
+                    </div>
+                    <h3>Trees</h3>
+                    <div class="row">
+                      <div class="col-12 col-lg-6">
+                        Inside forests you have your trees.  These represent applications or projects you are currently working on and hold all of the "leaves" that represent parts of your application.
+                      </div>
+                      <div class="col-12 col-lg-6">
+                        <img style="width: 100%;" src="img/treeHelp.png">
+                      </div>
+                    </div>
+                    <h3>Leaves</h3>
+                    <div class="row">
+                      <div class="col-12 col-lg-6">
+                        At the lowest level you have the various leaves on a tree.  These leaves hold the screenshots and annotations on your applications to collaborate on as a team.
+                      </div>
+                      <div class="col-12 col-lg-6">
+                        <img style="width: 100%;" src="img/leafHelp.png">
+                      </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-annotree" data-dismiss="modal">
+                        <strong>Got It!</strong>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobileDashboard">
+      <div class="mobile-dash-wrap">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Documents</a></li>
+        </ul>
+        <div class="appName">
+          AnnoTree CCP
+        </div>
+        <div style="text-align:center;">
+          <img class="appLogo" src="img/AnnoTreeLogoWebHolder.png">
+        </div>
+        <div style="margin-top:10px;">
+          <p style='font-weight:bold'>API Key:</p>
+          <p>a43ee85366161f644f1428574f190b6c919ba390d502458f8f4dc29e9b956501</p>
+        </div>
+        <div class="usersHeader">
+          Users <span class="badge newUserBadge">+</span>
+        </div>
+        <div id="users" style="margin-top:20px;">
+          <div class="col-6">
+            <img class="treeUser" src="img/user.png"> 
+          </div>
+          <div class="col-6">
+            <img class="treeUser" src="img/user.png"> 
+          </div>
+          <div class="col-6">
+            <img class="treeUser" src="img/user.png"> 
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-footer-mobile">
+        <span style="margin-left:10px;" class="badge">Edit</span>
+      </div>
+    </div>
+    <div id="containWrapper">
+      <div class="navbar navbar-fixed-top">
+        <img src="img/LogoNameWeb.png" class="logoHeader"/>
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Documents</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="userLinkDiv">
+            <a href="" class="userLink toggle active">
+              <img id="userIcon" src="img/user.png">
+            </a>
+            <span class="logoutArrow userSettings"></span>
+          </div>
+            <div class="responsiveShow" style="width: 40px;height: 40px;margin-top: 5px;">
+              <a style="text-decoration:none;padding:0;text-align:center;position:fixed;"><i id="paneToggle" class="icon-reorder responsiveShow" style="color:white;font-size:18pt;"></i></a>
+            </div>
+        </div>
+      </div>
+
+      <div id="userSettings" class="userSettingsBox userSettings">
+          <div>
+              <img style="float: left;height: 60px;margin-left: 10px;margin-top: 3px;" src="img/user.png">    
+              <p class="userSettingsName ng-binding" style="margin-left:80px;">Brian Clark</p>
+          </div>
+          <div style="position: absolute; bottom: 0; height: 40px; width: 248px; background-color: #eee;border-top:1px solid #bbb;">
+              <!-- Link to settings Modal - Modal To Be Implmented -->
+              <!-- <p class="btn success small settingsButton" style="margin-top:10px;border:1px solid #bbb;"><a class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p> -->
+              <p style="margin-top:5px;" class="btn btn-annotree logoutButton btn-small">Logout</p>
+          </div>
+      </div>
+
+      <div id="wrapper">
+        <div id="wrapper-inner">
+          
+          <div id="dashboardWrap">
+            <div class="dash-inner-wrap">
+              <div id="dashboard">
+                <div class="dashboard-inner">
+                  <div class="appName">
+                    AnnoTree CCP
+                  </div>
+                  <div style="text-align:center;">
+                    <img class="appLogo" src="img/AnnoTreeLogoWebHolder.png">
+                  </div>
+                  <div style="margin-top:10px;">
+                    <p style='font-weight:bold'>API Key:</p>
+                    <p>a43ee85366161f644f1428574f190b6c919ba390d502458f8f4dc29e9b956501</p>
+                  </div>
+                  <div class="usersHeader">
+                    Users <span class="badge newUserBadge">show</span>
+                  </div>
+                  <div id="users" style="margin-top:20px;display:none;">
+                    <div class="col-6">
+                      <img class="treeUser" src="img/user.png"> 
+                    </div>
+                    <div class="col-6">
+                      <img class="treeUser" src="img/user.png"> 
+                    </div>
+                    <div class="col-6">
+                      <img class="treeUser" src="img/user.png"> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="dashboard-footer">
+                <span style="margin-left:10px;" class="badge">Edit</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="leaf">
+            <div class="cardLarge">
+              <div class="cardNameLarge">
+                <i id="leafBack" class="icon-circle-arrow-left" style="font-size:14pt;margin-left:5px;float:left;"></i>
+                Developer Resources
+              </div>
+              <div class="docContent ng-scope">
+                <h3 style="margin-top:0;">AnnoTree SDK Integration Instructions</h3>
+                <p style="font-size:14pt;">The AnnoTree SDK (currently iOS only) is an in app toolbar that will allow you to draw or write directly onto your application and send these "leafs" back to our central collaboration platform without ever leaving your app.  In order to install the SDK, follow the instructions below:</p>
+                <div class="row">
+                  <div class="col-12 col-lg-6">
+                    <a style="text-decoration:none;" target="_blank" href="https://ccp.annotree.com/SDK/AnnoTreeSDK-0.1.zip">
+                      <div class="docDownload">
+                        <i class="icon-cloud-download"></i> iOS API v0.1
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-12 col-lg-6">
+                    <a style="text-decoration:none;" target="_blank" href="https://ccp.annotree.com/SDK/AnnoTree_Sample_Application.zip">
+                      <div class="docDownload">
+                        <i class="icon-cloud-download"></i> Sample App
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <ul class="docList"> 
+                    <li><span class="label label-success">1</span> Download the SDK and unzip the package.</li>
+                    <li><span class="label label-success">2</span> Add the Framework to your "Link with Binary Libraries"</li>
+                    <li><span class="label label-success">3</span> Add the Bundle to your "Copy Bundle Resources"</li>
+                    <li>
+                        <p><span class="label label-success">4</span> Place this line of code in your AppDelegate</p>
+                        <div style="margin-left:20px;margin-bottom: 10px">
+                            <code>
+                                [[AnnoTree sharedInstance] loadAnnoTree:@"Your SDK key here"];
+                            </code>
+                        </div>
+                        <ul style="padding-left:60px;">
+                            <li>SDK is only for UIKit based apps at the momennt</li>
+                            <li>The SDK key is unique to each tree (an application)</li>
+                            <li>The SDK key is found in your tree dashboard located to the left</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sliding-pane.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Optionally enable responsive features in IE8 -->
+    <script src="js/respond.js"></script>
+  </body>
+</html>

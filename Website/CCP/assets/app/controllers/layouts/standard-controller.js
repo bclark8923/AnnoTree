@@ -36,6 +36,9 @@
             }
             
             $scope.openFeedbackModal = function() {
+                if (settingsPane.isOpen) {
+                    settingsPane.closeFast();
+                }
                 $("#feedbackModal").modal('show');
             };
 

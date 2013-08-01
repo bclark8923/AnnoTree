@@ -1,12 +1,17 @@
 <div class="mobile-dash-wrap" ng-controller="forest.TreeController">
     <ul class="nav navbar-nav">
         <li>
-            <a href="#/app">
+            <a ng-click="mobileGoToHome()">
                 <strong>Home</strong>
             </a>
         </li>
         <li>
-            <a href="#/app/{{treeInfo.id}}/docs">
+            <a ng-click="openFeedbackModal()" ng-controller="layouts.StandardController">
+                <strong>Feedback</strong>
+            </a>
+        </li>
+        <li>
+            <a ng-click="mobileGoToDocs(treeInfo.id)">
                 <strong>Developer Resources</strong>
             </a>
         </li>

@@ -477,7 +477,21 @@
                 );
                 $('#modifyUsersModalWorking').removeClass('active');
             }
-
+            
+            $scope.mobileGoToHome = function() {
+                if (settingsPane.isOpen) {
+                    settingsPane.closeFast();
+                } 
+                $location.path("/app");
+            }
+            
+            $scope.mobileGoToDocs = function(treeID) {
+                if (settingsPane.isOpen) {
+                    settingsPane.closeFast();
+                } 
+                $location.path("/app/" + treeID + "/docs");
+            }
+            
             $scope.openModifyUsersModal = function () {
                 if (settingsPane.isOpen) {
                     settingsPane.closeFast();

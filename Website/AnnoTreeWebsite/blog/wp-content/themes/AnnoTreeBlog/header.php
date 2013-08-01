@@ -14,6 +14,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <title>AnnoTree | <?php echo get_the_title(); ?></title>
+  <meta property="og:description" content="AnnoTree | <?php echo get_the_title(); ?>" />
+
   <meta name="description" content="" />
   <meta name="keywords" content="" />
   <meta name="author" content="humans.txt">

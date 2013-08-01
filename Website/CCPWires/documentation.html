@@ -125,121 +125,46 @@
             <div class="cardLarge">
               <div class="cardNameLarge">
                 <i id="leafBack" class="icon-circle-arrow-left" style="font-size:14pt;margin-left:5px;float:left;"></i>
-                Test Name
+                Developer Resources
               </div>
-              <div class="leafHolder">
+              <div class="docContent ng-scope">
+                <h3 style="margin-top:0;">AnnoTree SDK Integration Instructions</h3>
+                <p style="font-size:14pt;">The AnnoTree SDK (currently iOS only) is an in app toolbar that will allow you to draw or write directly onto your application and send these "leafs" back to our central collaboration platform without ever leaving your app.  In order to install the SDK, follow the instructions below:</p>
                 <div class="row">
-                  <div class="col-sm-6">
-                    <div class="cardImgLarge">
-                      <img class="leafImage" src="img/photo1.PNG">
-                    </div>
+                  <div class="col-12 col-lg-6">
+                    <a style="text-decoration:none;" target="_blank" href="https://ccp.annotree.com/SDK/AnnoTreeSDK-0.1.zip">
+                      <div class="docDownload">
+                        <i class="icon-cloud-download"></i> iOS API v0.1
+                      </div>
+                    </a>
                   </div>
-                  <div class="col-sm-6">
-                    <div class="leafComments">
-                      <div class="leafComment">
-                        <div class="userImageHolder">
-                          <img class="userCommentImage" src="img/user.png"> 
-                        </div>
-                        <div class="userCommentHolder"> 
-                          <p class="userCommentName">Brian Clark</p> 
-                          <p class="userComment">We should probably center the updating, Matt?</p>
-                        </div>
+                  <div class="col-12 col-lg-6">
+                    <a style="text-decoration:none;" target="_blank" href="https://ccp.annotree.com/SDK/AnnoTree_Sample_Application.zip">
+                      <div class="docDownload">
+                        <i class="icon-cloud-download"></i> Sample App
                       </div>
-                      <hr class="smallHR"/>
-                      <div class="leafComment">
-                        <div class="userImageHolder">
-                          <img class="userCommentImage" src="img/user.png"> 
-                        </div>
-                        <div class="userCommentHolder"> 
-                          <p class="userCommentName">Matt Price</p> 
-                          <p class="userComment">Maybe, Did some research and people liked it on the left</p>
-                        </div>
-                      </div>
-                      <hr class="smallHR"/>
-                      <div class="leafComment">
-                        <div class="userImageHolder">
-                          <img class="userCommentImage" src="img/user.png"> 
-                        </div>
-                        <div class="userCommentHolder"> 
-                          <p class="userCommentName">Matt Price</p> 
-                          <p class="userComment">Maybe, Did some research and people liked it on the left</p>
-                        </div>
-                      </div>
-                      <hr class="smallHR"/>
-                      <div class="leafComment">
-                        <div class="userImageHolder">
-                          <img class="userCommentImage" src="img/user.png"> 
-                        </div>
-                        <div class="userCommentHolder"> 
-                          <p class="userCommentName">Matt Price</p> 
-                          <p class="userComment">Maybe, Did some research and people liked it on the left</p>
-                        </div>
-                      </div>
-                      <hr class="smallHR"/>
-                      <div class="leafComment">
-                        <div class="userImageHolder">
-                          <img class="userCommentImage" src="img/user.png"> 
-                        </div>
-                        <div class="userCommentHolder"> 
-                          <p class="userCommentName">Matt Price</p> 
-                          <p class="userComment">Maybe, Did some research and people liked it on the left</p>
-                        </div>
-                      </div>
-                      <hr class="smallHR"/>
-                      <div class="leafComment">
-                        <div class="userImageHolder">
-                          <img class="userCommentImage" src="img/user.png"> 
-                        </div>
-                        <div class="userCommentHolder"> 
-                          <p class="userCommentName">Matt Price</p> 
-                          <p class="userComment">Maybe, Did some research and people liked it on the left</p>
-                        </div>
-                      </div>
-                      <hr class="smallHR"/>
-                      <div class="leafComment">
-                        <div class="userImageHolder">
-                          <img class="userCommentImage" src="img/user.png"> 
-                        </div>
-                        <div class="userCommentHolder"> 
-                          <p class="userCommentName">Matt Price</p> 
-                          <p class="userComment">Maybe, Did some research and people liked it on the left</p>
-                        </div>
-                      </div>
-                      <hr class="smallHR"/>
-                      <div class="leafComment">
-                        <div class="userImageHolder">
-                          <img class="userCommentImage" src="img/user.png"> 
-                        </div>
-                        <div class="userCommentHolder"> 
-                          <p class="userCommentName">Matt Price</p> 
-                          <p class="userComment">Maybe, Did some research and people liked it on the left</p>
-                        </div>
-                      </div>
-                      <hr class="smallHR"/>
-                      <div class="leafComment">
-                        <div class="userImageHolder">
-                          <img class="userCommentImage" src="img/user.png"> 
-                        </div>
-                        <div class="userCommentHolder"> 
-                          <p class="userCommentName">Matt Price</p> 
-                          <p class="userComment">Maybe, Did some research and people liked it on the left</p>
-                        </div>
-                      </div>
-                      <hr class="smallHR"/>
-                      <div class="leafComment">
-                        <div class="userImageHolder">
-                          <img class="userCommentImage" src="img/user.png"> 
-                        </div>
-                        <div class="userCommentHolder"> 
-                          <form class="form-horizontal">
-                            <input type="text" class="form-control" id="newComment" placeholder="New Comment">
-                          </form>
-                        </div>
-                      </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
-              </div>
+                <ul class="docList"> 
+                    <li><span class="label label-success">1</span> Download the SDK and unzip the package.</li>
+                    <li><span class="label label-success">2</span> Add the Framework to your "Link with Binary Libraries"</li>
+                    <li><span class="label label-success">3</span> Add the Bundle to your "Copy Bundle Resources"</li>
+                    <li>
+                        <p><span class="label label-success">4</span> Place this line of code in your AppDelegate</p>
+                        <div style="margin-left:20px;margin-bottom: 10px">
+                            <code>
+                                [[AnnoTree sharedInstance] loadAnnoTree:@"Your SDK key here"];
+                            </code>
+                        </div>
+                        <ul style="padding-left:60px;">
+                            <li>SDK is only for UIKit based apps at the momennt</li>
+                            <li>The SDK key is unique to each tree (an application)</li>
+                            <li>The SDK key is found in your tree dashboard located to the left</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
             </div>
           </div>
         </div>

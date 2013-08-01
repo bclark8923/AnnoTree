@@ -14,7 +14,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <title>AnnoTree | <?php echo get_the_title(); ?></title>
-  <meta property="og:title" content="AnnoTree | <?php echo get_the_title(); ?>" />
 
   <meta name="description" content="" />
   <meta name="keywords" content="" />
@@ -24,15 +23,15 @@
   <link rel="icon" type="image/png" href="/favicon.png" />
 
   <!-- Facebook Metadata /-->
-  <meta property="fb:page_id" content="" />
-  <meta property="og:image" content="" />
+  <meta property="fb:page_id" content="118364948355465" />
+  <meta property="og:title" content="AnnoTree | <?php echo get_the_title(); ?>" />
+  <meta property="og:image" content="http://annotree.com/img/logo.png" />
   <meta property="og:description" content=""/>
-  <meta property="og:title" content=""/>
 
   <!-- Google+ Metadata /-->
-  <meta itemprop="name" content="">
+  <meta itemprop="name" content="AnnoTree | <?php echo get_the_title(); ?>">
   <meta itemprop="description" content="">
-  <meta itemprop="image" content="">
+  <meta itemprop="image" content="http://annotree.com/img/logo.png">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1 user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">

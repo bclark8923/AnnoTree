@@ -144,7 +144,6 @@ a.btn-annotree {
 }
 
 /* -----------------------
- *
  * CCP Header Settings
  * ----------------------- */
 .navbar {
@@ -644,6 +643,21 @@ a.btn-annotree {
     margin-top: 7px;
     float: right;
 }
+/* -----------------------
+ * Help Settings
+ * ----------------------- */
+#helpModal .modal-dialog {
+    margin: 0 -50%;
+    width: 100%;
+}
+
+#helpModal .modal-content {
+    width: 100%;
+}
+
+#helpModal img {
+    max-width: 100%;
+}
 
 /* -----------------------
  * Documents Settings
@@ -735,6 +749,10 @@ a.btn-annotree {
 @media (max-width: 767px) {
     .card-col.col-sm-6 { 
         width: 50%;
+    }
+    
+    #helpModal .modal-dialog {
+        margin: 0 0;
     }
 
     .responsiveShow {

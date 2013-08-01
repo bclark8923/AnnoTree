@@ -12,6 +12,9 @@
                         <a href="#/app"><i class="icon-home"></i>&nbsp;Home</a>
                     </li>
                     <li>
+                        <a ng-click="openHelpModal()"><i class="icon-lightbulb"></i>&nbsp;Help</a>
+                    </li>
+                    <li>
                         <div>
                             <a class="btn btn-annotree btn-small" style="margin-top:5px;margin-left:10px;color:#555" ng-click="openFeedbackModal()"><i class="icon-share"></i>&nbsp;Feedback</a>
                         </div>
@@ -62,13 +65,6 @@
         </div>
     </div>
 
- 
-
-    <!-- Feedback Button 
-    <button class="btn btn-annotree" style="position:fixed;bottom:0;left:50px;z-index:10000;border:2px solid #84db69;border-bottom-left-radius:0px;border-bottom-right-radius:0px;" data-toggle="modal" data-target="#feedbackModal">
-        <strong>Feedback</strong>
-    </button>
-    -->
     <!-- Feedback Modal -->
     <div class="modal" id="feedbackModal" data-backdrop="false">
         <div class="modal-dialog">
@@ -101,4 +97,34 @@
         </div>
     </div>
     
+    <!-- Help Modal -->
+    <div class="modal" id="helpModal" data-backdrop="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" ng-click="closeFeedbackModal()">
+                        <i class="icon-remove-circle"></i>
+                    </button>
+                    <h3 class="modal-title">Using AnnoTree</h3>
+                </div>
+                <form name="feedbackForm" ng-submit="submitFeedback()">
+                    <div class="modal-body" style="text-align:left">
+                        <h3>Forests</h3>
+                        A forest represents a company. It is a group of trees.<br />
+                        <img src="img/help/forestHelp.png" />
+                        <h3>Trees</h3>
+                        A tree represents a project.
+                        <h3>Leaves</h3>
+                        A leaf is an image or group of images that you are collaborating on.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-annotree" data-dismiss="modal">
+                            <strong>Got It!</strong>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   
 </div>

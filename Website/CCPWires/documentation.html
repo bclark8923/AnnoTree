@@ -164,7 +164,24 @@
                         </ul>
                     </li>
                 </ul>
-            </div>
+              </div>
+
+              <div class="docContent ng-scope">
+                <h3 style="margin-top:0;">Advanced Integration</h3>
+                <ul class="docList"> 
+                    <li><span class="label label-success">1</span> Disable application rotation when the SDK is in annotation mode by adding this section of code to your view controllers.</li>
+                    <li>
+                        <div style="margin-left:40px;margin-bottom: 10px">
+                            <div class="code">
+                              - (BOOL)shouldAutorotate<br/>
+                              {<br/>
+                              &nbsp;&nbsp;&nbsp;&nbsp;return [[AnnoTree sharedInstance] shouldAutorotate];<br/>
+                              }
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

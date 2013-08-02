@@ -307,7 +307,8 @@
 
             // Load the "remote" data.
             loadLeafData();
-            var cf = new ContentFlow('contentFlow', {reflectionColor: "#000000", loadingTimeout: "300000"});
+            var cf = new ContentFlow('contentFlow', {reflectionColor: "#000000"});
+            $timeout(function() {cf.init();}, 0);
 
         }
     );

@@ -43,5 +43,29 @@ $(document).ready(function() {
     setTimeout(function() {
       window.location.href = "leaf.html";
     }, 250);
-  })
+  });
+
+
+
+  $('#carousel-example-generic').children('.carousel-control').show();
+
+  if($('.carousel-inner .item:first').hasClass('active')) {
+    $('#carousel-example-generic').children('.left.carousel-control').hide();
+  } else if($('.carousel-inner .item:last').hasClass('active')) {
+    $('#carousel-example-generic').children('.right.carousel-control').hide();
+  }
+
+  $('#carousel-example-generic').on('slid', '', function() {
+
+    var $this = $(this);
+
+    $this.children('.carousel-control').show();
+
+    if($('.carousel-inner .item:first').hasClass('active')) {
+      $this.children('.left.carousel-control').hide();
+    } else if($('.carousel-inner .item:last').hasClass('active')) {
+      $this.children('.right.carousel-control').hide();
+    }
+
+  });
 });

@@ -516,15 +516,36 @@ input[type='text'], input[type='email'],textarea {font-size:17px;} {
 }
 
 .cardImgLarge {
-	height: 100%;
-	width: 100%;
-	float: left;
 	background-size: cover;
 	text-align: center;
 }
 
+.cardImgLargeData {
+	text-align: center;
+	font-weight: bold;
+	color: #888;
+}
+
+.carousel-control.right, .carousel-control.left {
+	background: transparent;
+	color: black;
+}
+
+.smokeBG {
+	background-color: rgba(30,30,30,0.5);
+	padding: 4px 8px;
+}
+
+.carousel-control .glyphicon, .carousel-control .icon-prev, .carousel-control .icon-next {
+	width: 80px;
+	height: 80px;
+	margin-top: -40px;
+	margin-left: -40px;
+	font-size: 80px;
+}
+
 .leafImage {
-	max-height: 95%;
+	max-height: 90%;
 	padding: 20px;
 }
 
@@ -595,7 +616,7 @@ input[type='text'], input[type='email'],textarea {font-size:17px;} {
 }
 
 .docDownload:hover {
-	background-color: #5cb85c;
+	background-color: #83C968;
 	text-decoration: none;
 }
 

@@ -129,10 +129,45 @@
               </div>
               <div class="leafHolder">
                 <div class="row">
-                  <div class="col-sm-6">
-                    <div class="cardImgLarge">
-                      <img class="leafImage" src="img/photo1.PNG">
+                  <div class="col-sm-6" style="text-align:center;">
+                    <div id="carousel-example-generic" class="carousel slide" data-interval="false" style="max-height:540px;margin-bottom:10px;">
+                      <!-- Indicators -->
+                      <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                      </ol>
+
+                      <!-- Wrapper for slides -->
+                      <div class="carousel-inner">
+                        <div class="cardImgLarge item active">
+                            <img class="leafImage" src="img/photo1.PNG">
+                          <!--
+                          <div class="cardImgLargeData">
+                          </div>-->
+                          <div class="carousel-caption">
+                            <span class="smokeBG">iPhone 5 - iOS 6.1 - Jul 6, 2013 8:54pm</span>
+                          </div>
+                        </div>
+                        <div class="cardImgLarge item">
+                          <img class="leafImage" src="img/photo1.PNG">
+                          <!--
+                          <div class="cardImgLargeData">
+                          </div>-->
+                          <div class="carousel-caption">
+                            <span class="smokeBG">iPhone 5 - iOS 6.1 - Jul 6, 2013 2:43pm</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Controls -->
+                      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="icon-prev"></span>
+                      </a>
+                      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="icon-next"></span>
+                      </a>
                     </div>
+                    <button type="button" class="btn btn-success">Add New Image</button>
                   </div>
                   <div class="col-sm-6">
                     <div class="leafComments">
@@ -143,36 +178,6 @@
                         <div class="userCommentHolder"> 
                           <p class="userCommentName">Brian Clark</p> 
                           <p class="userComment">We should probably center the updating, Matt?</p>
-                        </div>
-                      </div>
-                      <hr class="smallHR"/>
-                      <div class="leafComment">
-                        <div class="userImageHolder">
-                          <img class="userCommentImage" src="img/user.png"> 
-                        </div>
-                        <div class="userCommentHolder"> 
-                          <p class="userCommentName">Matt Price</p> 
-                          <p class="userComment">Maybe, Did some research and people liked it on the left</p>
-                        </div>
-                      </div>
-                      <hr class="smallHR"/>
-                      <div class="leafComment">
-                        <div class="userImageHolder">
-                          <img class="userCommentImage" src="img/user.png"> 
-                        </div>
-                        <div class="userCommentHolder"> 
-                          <p class="userCommentName">Matt Price</p> 
-                          <p class="userComment">Maybe, Did some research and people liked it on the left</p>
-                        </div>
-                      </div>
-                      <hr class="smallHR"/>
-                      <div class="leafComment">
-                        <div class="userImageHolder">
-                          <img class="userCommentImage" src="img/user.png"> 
-                        </div>
-                        <div class="userCommentHolder"> 
-                          <p class="userCommentName">Matt Price</p> 
-                          <p class="userComment">Maybe, Did some research and people liked it on the left</p>
                         </div>
                       </div>
                       <hr class="smallHR"/>

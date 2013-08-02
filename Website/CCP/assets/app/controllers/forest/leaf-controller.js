@@ -307,8 +307,46 @@
 
             // Load the "remote" data.
             loadLeafData();
-            var cf = new ContentFlow('contentFlow', {reflectionHeight: 0});
-            $timeout(function() {cf.init();}, 0);
+            coverflow('coverflow').setup({
+                playlist: [
+                    {
+                        "image": "img/AnnoTreeLogoFire.png",
+                        "title": "image fire"
+                    },
+                    {
+                        "image": "img/AnnoTreeLoading.png",
+                        "title": "image loading"
+                    },
+                    {
+                        "image": "https://ccp.localhost/services/annotation/12",
+                        "title": "Annotation"
+                    }
+                ],
+                width: '100%',
+                height: 500,
+                y: -20,
+                backgroundcolor: "ffffff",
+                coverwidth: 180,
+                coverheight: 150,
+                fixedsize: true,
+                textoffset: 50,
+                textstyle: ".coverflow-text{color:#000000;text-align:center;font-family:Arial Rounded MT Bold,Arial;} .coverflow-text h1{font-size:14px;font-weight:normal;line-height:21px;} .coverflow-text h2{font-size:11px;font-weight:normal;} .coverflow-text a{color:#0000EE;}"
+
+            });
+            /*
+            .on('ready', function() {
+
+                this.on('focus', function(index, link) {
+                    document.getElementById('cf-focus').value = index;
+                });
+                
+                this.on('click', function(index, link) {
+                    document.getElementById('cf-click').value = index;
+                });
+            });
+            */
+            //var cf = new ContentFlow('contentFlow', {reflectionHeight: 0});
+            //$timeout(function() {cf.init();}, 0);
 
         }
     );

@@ -75,7 +75,70 @@
 
             }
             
+            function newAnnotation(leafID) {
+                $scope.files = [];
+                var annotationImageElement = document.getElementById('newAnnotation');
+                var files = annotationImageElement.files;
+                //console.log('files:', files)
+                for (var i = 0; i < files.length; i++) {
+                    $scope.files.push(files[i]);
+                }
+
+                var fd = new FormData();
+                for (var i in $scope.files) {
+                    fd.append("uploadedFile", $scope.files[i]);
+                }
+                var xhr = new XMLHttpRequest();
+
+                //xhr.upload.addEventListener("progress", uploadProgress, false)
+                xhr.addEventListener("load", uploadComplete, false);
+                xhr.addEventListener("error", uploadFailed, false);
+                xhr.addEventListener("abort", uploadCanceled, false);
+                leafService.createAnnotation(leafID, fd, xhr);
+
+                $scope.isLoading = false;
+            }
+
+            function uploadComplete(evt) {
+                /* This event is raised when the server send back a response */
+                //alert(evt.target.responseText); 
+                if (this.status == 415 || this.status == 406) {
+                    var jsonResp = JSON.parse(this.response);
+                    $("#invalidAnnotation").html("Only images can be uploaded at this time");
+                    $scope.invalidAddLeaf = true;
+                    $("#annotationUploadBtn").button('reset');
+                } else {
+                    var annotationObject = jQuery.parseJSON( evt.target.responseText );
+                    $scope.leaf.annotations.push(annotationObject);
+                    $('#annotationName').html('No file selected');
+                    $("#annotationUploadBtn").button('reset');
+                    $scope.$apply();
+                }
+            }
+
+            function uploadFailed(evt) {
+                /* This event is raised when the server send back a response */
+                alert(evt.target.responseText);
+                //delete new leaf
+                $location.path("/forestFire");
+            }
+
+            function uploadCanceled(evt) {
+                /* This event is raised when the server send back a response */
+                alert(evt.target.responseText);
+                //delete new leaf
+                $location.path("/forestFire");
+            } 
             // --- Define Scope Methods. ------------------------ //
+            $scope.addNewAnnotation = function() {
+                var annotationElement = document.getElementById('newAnnotation');
+                if (annotationElement.files.length == 0) {
+                    $("#invalidAnnotation").html("Please add an image.");
+                } 
+                $("#annotationUploadBtn").button('loading');
+                newAnnotation($scope.leaf.id);
+            }
+
             $scope.addLeafComment = function() {
                 var formValid = $scope.leafCommentForm.$valid;
                 var comment = $scope.leafComment.comment;
@@ -304,50 +367,12 @@
 
             // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
-
+            $("#newAnnotation").change(function() {
+                var file = $('#newAnnotation').val().replace(/C:\\fakepath\\/i, '');
+                $('#annotationName').html(file);
+            });
             // Load the "remote" data.
             loadLeafData();
-            coverflow('coverflow').setup({
-                playlist: [
-                    {
-                        "image": "img/AnnoTreeLogoFire.png",
-                        "title": "image fire"
-                    },
-                    {
-                        "image": "img/AnnoTreeLoading.png",
-                        "title": "image loading"
-                    },
-                    {
-                        "image": "https://ccp.localhost/services/annotation/12",
-                        "title": "Annotation"
-                    }
-                ],
-                width: '100%',
-                height: 500,
-                y: -20,
-                backgroundcolor: "ffffff",
-                coverwidth: 180,
-                coverheight: 150,
-                fixedsize: true,
-                textoffset: 50,
-                textstyle: ".coverflow-text{color:#000000;text-align:center;font-family:Arial Rounded MT Bold,Arial;} .coverflow-text h1{font-size:14px;font-weight:normal;line-height:21px;} .coverflow-text h2{font-size:11px;font-weight:normal;} .coverflow-text a{color:#0000EE;}"
-
-            });
-            /*
-            .on('ready', function() {
-
-                this.on('focus', function(index, link) {
-                    document.getElementById('cf-focus').value = index;
-                });
-                
-                this.on('click', function(index, link) {
-                    document.getElementById('cf-click').value = index;
-                });
-            });
-            */
-            //var cf = new ContentFlow('contentFlow', {reflectionHeight: 0});
-            //$timeout(function() {cf.init();}, 0);
-
         }
     );
 })( angular, AnnoTree );

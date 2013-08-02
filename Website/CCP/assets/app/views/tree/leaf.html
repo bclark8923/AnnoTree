@@ -14,38 +14,44 @@
             <div class="leafHolder">
                 <div class="row">
                     <div class="col-12 col-sm-6">
-                        <div id="coverflow">
-                            <!--div id="contentFlow" class="ContentFlow">
-                                <div class="loadIndicator">
-                                    <div class="indicator"></div>
-                                </div>
-                                <div class="flow">
-                                    <div class="item">
-                                        <img class="content" src="img/AnnoTreeLoading.png" />
-                                        <div class="caption">Image 1</div>
-                                    </div>
-                                    <div class="item">
-                                        <img class="content" src="img/AnnoTreeLogoFire.png" />
-                                        <div class="caption">Image 2</div>
-                                    </div>
-                                     <div class="item">
-                                         <img class="content" ng-src="{{leaf.image}}" />
-                                        <div class="caption">Image 3</div>
+                        <div id="annotationCarousel" class="carousel slide" data-interval="false">
+                            <ol class="carousel-indicators">
+                                <li data-target="#annotationCarousel" ng-class="{active: $index==leaf.annotations.length-1}" ng-repeat="annotation in leaf.annotations" data-slide-to="{{$index}}"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="cardImgLarge item" ng-class="{active: $index==leaf.annotations.length-1}" ng-repeat="annotation in leaf.annotations">
+                                    <img class="leafImage" ng-src="{{annotation.path}}" />
+                                    <div>
+                                        Created: {{annotation.created_at}}
                                     </div>
                                 </div>
-                                <div class="globalCaption"></div>
-                                <div class="scrollbar">
-                                    <div class="slider">
-                                        <div class="position"></div>
-                                    </div>
-                                </div> 
-                            </div-->
+                            </div>
+                            <a class="leaf carousel-control" href="#annotationCarousel" data-slide="prev">
+                                <span class="icon-prev"></span>
+                            </a>
+                            <a class="right carousel-control" href="#annotationCarousel" data-slide="next">
+                                <span class="icon-next"></span>
+                            </a>
                         </div>
-                        <!--
-                        <div class="cardImgLarge">
+                        <form name="createLeafForm" ng-submit="addNewAnnotation()">
+                            <div class="addAnnotation" style="margin-top:40px">
+                                <div class="error-text" id="invalidAnnotation"></div>
+                                <span class="btn btn-annotree fileinput-button">
+                                    <i class="icon-plus"></i>
+                                    <span>Add Image</span>
+                                    <input type="file" name="files" id="newAnnotation" ng-model="newAnnotation" />
+                                </span>
+                                <span style="margin-left:5px" id="annotationName">No file selected</span>
+                            </div>
+                            <div class="addAnnotation" style="margin-top:10px">
+                                <button type="submit" id="annotationUploadBtn" class="btn btn-annotree" data-loading-text="Uploading...">
+                                    <strong>Upload</strong>
+                                </button>
+                            </div>
+                        </form>
+                        <!--div class="cardImgLarge">
                             <img class="leafImage" ng-src="{{leaf.image}}">
-                        </div>
-                        -->
+                        </div-->
                     </div>
                     <div class="col-12 col-sm-6">
                         <div class="leafComments" >

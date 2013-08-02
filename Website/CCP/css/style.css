@@ -549,12 +549,12 @@ a.btn-annotree {
 }
 
 .cardImgLarge {
-    height: 100%;
-    width: 100%;
-    float: left;
+    max-height: 100%;
+    max-width: 100%;
     background-size: cover;
     text-align: center;
 }
+
 .cardNameLarge i {
     color: #fff;
     text-decoration: none;
@@ -646,6 +646,53 @@ a.btn-annotree {
 #commentBtn {
     margin-top: 7px;
     float: right;
+}
+
+.leafImage {
+    max-height: 90%;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+#annotationCarousel {
+    max-height:540px;
+}
+
+.carousel-control.right, .carousel-control.left {
+    background: transparent;
+    color: #000;
+}
+
+.carousel-control .glyphicon, .carousel-control .icon-prev, .carousel-control .icon-next {
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+    margin-left: -40px;
+    font-size: 80px;
+    color: #000;
+}
+
+.carousel-indicators {
+    width: 100%;
+    left: 0;
+    margin-left: 0;
+}
+
+.carousel-indicators li {
+    border-color: #000;
+}
+
+.carousel-indicators .active {
+    background-color: #000;
+}
+
+#annotationCarousel a {
+    text-decoration: none;
+}
+
+.addAnnotation {
+    text-align: center;
+    width: 100%;
 }
 /* -----------------------
  * Help Settings

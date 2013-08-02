@@ -651,12 +651,17 @@ a.btn-annotree {
  * Help Settings
  * ----------------------- */
 #helpModal .modal-dialog {
-    margin: 0 -50%;
-    width: 100%;
+    margin: 0 -40%;
+    width: 80%;
 }
 
 #helpModal .modal-content {
     width: 100%;
+}
+
+#helpModal .modal-body {
+    text-align: left;
+    font-size: 14pt;
 }
 
 #helpModal img {

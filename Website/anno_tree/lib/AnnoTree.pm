@@ -55,6 +55,12 @@ sub startup {
             my $sessionObj = {
                 userid => $userid
             };
+            AnnoTree::Model::MySQL->db->execute(
+                'call update_login(:userid)',
+                {
+                    userid => $userid
+                }
+            ); 
             return $sessionObj;
         },
         validate_user => sub {

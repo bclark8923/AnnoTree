@@ -34,6 +34,12 @@
                     }
                 );
             }
+            $scope.openHelpModal = function() {
+                if (settingsPane.isOpen) {
+                    settingsPane.closeFast();
+                }
+                $("#helpModal").modal('show');
+            }; 
             
             $scope.openFeedbackModal = function() {
                 if (settingsPane.isOpen) {

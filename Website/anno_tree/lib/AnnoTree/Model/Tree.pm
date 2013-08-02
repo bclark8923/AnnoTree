@@ -47,18 +47,7 @@ sub create {
     for (my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $treeInfo->[$i];
     }
-=begin oldcode
-    my $token = sha256_hex($treeInfo->[0]);
-    my $tokenResult = AnnoTree::Model::MySQL->db->execute(
-        "call add_tree_token(:token, :treeid)",
-        {
-            token   => $token,
-            treeid  => $treeInfo->[0]
-        }
-    );
-    $json->{token} = $token;
-=end oldcode
-=cut
+
     return $json;
 }
 
@@ -351,7 +340,7 @@ sub deleteTree {
     my $json = {};
     my $num = $result->fetch->[0];
     if ($num == 0) {
-        $json = {result => $num, txt => 'Tree deleted successfully'};
+        $json = {result => $num, txt => 'Tree deleted successfully', forestid => $result->fetch->[0]};
     } elsif ($num == 1) {
         $json = {error => $num, txt => 'Tree does not exist or user does not have permissions to delete tree'};
     }

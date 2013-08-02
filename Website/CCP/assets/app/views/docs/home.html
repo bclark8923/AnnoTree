@@ -1,40 +1,42 @@
 <div class="content">
-    <h4>About</h4>
-    <p> 
-        AnnoTree is a collaborative tool to improve the connection between developers, designers, functional owners, and testers while creating applications.
+    <h3 style="margin-top:0">AnnoTree SDK Integration Instructions</h3>
+    <p>
+        The AnnoTree SDK (currently iOS only) is an in app toolbar that will allow you to draw or write directly onto your application and send these "leafs" back to our central collaboration platform without ever leaving your app.  In order to install the SDK, follow the instructions below: 
     </p>    
-    <p>
-        From the initial idea and wireframing up to production feedback, AnnoTree will allow you to track, view and collaborate on the entire application process.
-    </p>
-    <p>
-        Download a sample iOS app to test here:&nbsp;
-        <a target="_blank" href="https://ccp.annotree.com/SDK/AnnoTree_Sample_Application.zip">Sample App</a>
-    </p>
-    <br />
-    <h4>AnnoTree iOS Integration Instructions</h4>
-    <p>The AnnoTree SDK is an in app toolbar that will allow you to draw or write directly onto your application and send these "leafs" back to our central collaboration platform without ever leaving your app.  In order to install the SDK, follow the instructions below:</p>
-    <ol style="margin-left:20px;"> 
-        <li>Download the SDK and unzip the package. 
-            <ul>
-                <li>
-                    <a target="_blank" href="https://ccp.annotree.com/SDK/AnnoTreeSDK-0.1.zip">iOS API v0.1</a>
-                </li>
-            </ul>
-        </li>
-        <li>Add the Framework to your "Link with Binary Libraries"</li>
-        <li>Add the Bundle to your "Copy Bundle Resources"</li>
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <a target="_blank" href="https://ccp.annotree.com/SDK/AnnoTreeSDK-0.1.zip" style="text-decoration:none">
+                <div class="docDownload">
+                    <i class="icon-cloud-download"></i>&nbsp;
+                    <strong>iOS SDK v0.1</strong>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-lg-6">
+            <a target="_blank" href="https://ccp.annotree.com/SDK/AnnoTree_Sample_Application.zip" style="text-decoration:none">
+                <div class="docDownload">
+                    <i class="icon-cloud-download"></i>&nbsp;
+                    <strong>Sample App</strong>
+                </div>
+            </a>
+        </div>
+    </div>
+    <ul class="docList"> 
+        <li><span class="label label-annotree">1</span> Download the SDK and unzip the package.</li>
+        <li><span class="label label-annotree">2</span> Add the Framework to your "Link with Binary Libraries"</li>
+        <li><span class="label label-annotree">3</span> Add the Bundle to your "Copy Bundle Resources"</li>
         <li>
-            <p>Place this line of code in your AppDelegate</p>
-            <div  style="margin-left:20px;margin-bottom: 10px">
-                <code>
+            <p><span class="label label-annotree">4</span> Place this line of code in your AppDelegate</p>
+            <div style="margin-left:40px;margin-bottom: 10px">
+                <div class="code">
                     [[AnnoTree sharedInstance] loadAnnoTree:@"Your SDK key here"];
-                </code>
+                </div>
             </div>
-            <ul>
+            <ul style="padding-left:60px;">
                 <li>SDK is only for UIKit based apps at the momennt</li>
                 <li>The SDK key is unique to each tree (an application)</li>
                 <li>The SDK key is found in your tree dashboard located to the left</li>
             </ul>
         </li>
-    </ol>
+    </ul>
 </div>

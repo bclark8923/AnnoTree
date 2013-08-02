@@ -132,8 +132,6 @@ sub deleteLeaf {
     my $status = 204;
     if (exists $json->{error}) {
         $status = 406;
-    } else {
-        `rm $path/$json->{txt}` if ($json->{txt});
     }
 
     $self->render(json => $json, status => $status);

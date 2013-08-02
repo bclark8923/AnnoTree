@@ -104,16 +104,18 @@ sub deleteTree {
     $params->{reqUser} = $self->current_user->{userid};
     $params->{treeid} = $self->param('treeid');
     
-    my @annos = AnnoTree::Model::Tree->getTreeAnnotations($params);
+    #my @annos = AnnoTree::Model::Tree->getTreeAnnotations($params);
     my $json = AnnoTree::Model::Tree->deleteTree($params);
     
     my $status = 204;
     if (exists $json->{error}) {
         $status = 406;
     } else {
-        foreach my $anno (@annos) {
-            `rm $path/$anno`;
-        }
+        `rm -rf $path/$json->{forestid}/$params->{treeid}`;
+        delete $json->{forestid};
+        #foreach my $anno (@annos) {
+        #    `rm $path/$anno`;
+        #}
     }
 
     $self->render(json => $json, status => $status);

@@ -14,6 +14,7 @@ CREATE Procedure `delete_tree`(
 BEGIN
 IF (select id from user_tree where user_id = req_user and tree_id = treeid) then
   SET FOREIGN_KEY_CHECKS=0;
+    SET @forestid = (SELECT forest_id FROM tree WHERE id = treeid);
   delete t, ut, b, l, a from
           tree as t
            left join user_tree as ut on
@@ -28,7 +29,9 @@ IF (select id from user_tree where user_id = req_user and tree_id = treeid) then
           t.id = treeid and
           ut.user_id = req_user;
   SET FOREIGN_KEY_CHECKS=1;
-    select '0';
+    select '0'
+        UNION
+        SELECT @forestid;
 ELSE
     select '1';
 END IF;

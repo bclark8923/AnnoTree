@@ -37,7 +37,9 @@ If (@status and @status != 1) THEN
         user.last_name = last_name, 
         user.lang = lang, 
         user.time_zone = time_zone, 
-        user.profile_image_path = profile_image_path where user.email = email;
+        user.profile_image_path = profile_image_path,
+        user.signup_date = NOW()
+        where user.email = email;
     select 'id', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status' 
     union
      select id, first_name, last_name, email, created_at, lang, time_zone, profile_image_path, status from user where email = user.email;  
@@ -53,13 +55,15 @@ ELSEIF email REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
             user.last_name = last_name, 
             user.lang = lang, 
             user.time_zone = time_zone, 
-            user.profile_image_path = profile_image_path where user.email = email;
+            user.profile_image_path = profile_image_path,
+            user.signup_date = NOW()
+            where user.email = email;
         set @user_id = (SELECT id FROM user WHERE user.email = email);
     ELSE
         insert into `annotree`.`user`
-            (password, first_name, last_name, email, lang, time_zone, profile_image_path, status) 
+            (password, first_name, last_name, email, lang, time_zone, profile_image_path, status, signup_date) 
             values 
-            (password, first_name, last_name, email, lang, time_zone, profile_image_path, 3);
+            (password, first_name, last_name, email, lang, time_zone, profile_image_path, 3, NOW());
         set @user_id = LAST_INSERT_ID();
     END IF;
     select 'id', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status' 

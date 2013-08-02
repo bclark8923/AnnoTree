@@ -3,7 +3,7 @@
 -- returns the annotation file locations on disk for annotations associated with a leaf
 -- --------------------------------------------------------------------------------
 USE annotree;
-DROP PROCEDURE IF EXISTS `get_annotations_by_leaf`;
+DROP PROCEDURE IF EXISTS `get_annotations_files_by_leaf`;
 DELIMITER $$
 
 CREATE Procedure `get_annotations_files_by_leaf`(

@@ -130,6 +130,12 @@
                 $location.path("/forestFire");
             } 
             // --- Define Scope Methods. ------------------------ //
+            $scope.openAnnotationModal = function(path, name) {
+                $('#annotationImageDisplay').attr('src', path);
+                $('#annotationName').html(name);
+                $('#displayAnnotation').modal('show');
+            }
+
             $scope.addNewAnnotation = function() {
                 var annotationElement = document.getElementById('newAnnotation');
                 if (annotationElement.files.length == 0) {

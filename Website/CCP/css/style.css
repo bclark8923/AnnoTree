@@ -694,6 +694,21 @@ a.btn-annotree {
     text-align: center;
     width: 100%;
 }
+
+#displayAnnotation .modal-dialog {
+    margin: 0 -40%;
+    width: 80%;
+}
+
+#displayAnnotation .modal-content {
+    width: 100%;
+}
+
+#displayAnnotation .modal-body img {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
 /* -----------------------
  * Help Settings
  * ----------------------- */
@@ -838,8 +853,14 @@ a.btn-annotree {
     
     #helpModal .modal-dialog {
         margin: 0 0;
+        width: 100%;
     }
-
+    
+    #displayAnnotation .modal-dialog {
+        margin: 0 0;
+        width: 100%;
+    }
+    
     .responsiveShow {
         display: block;
     }

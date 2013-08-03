@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `annotree`.`user` (
     `profile_image_path` VARCHAR(45) NULL ,
     `status` tinyint NOT NULL,
     `signup_date` TIMESTAMP NULL,
-    `last_login` TIMESTAMP NULL,``
+    `last_login` TIMESTAMP NULL,
     PRIMARY KEY (`id`),
     UNIQUE KEY `email` (`email`(255))
 )

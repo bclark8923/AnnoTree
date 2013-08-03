@@ -14,14 +14,10 @@
                     <li>
                         <a ng-click="openHelpModal()"><i class="icon-lightbulb"></i>&nbsp;Help</a>
                     </li>
-                    <li>
-                        <div>
-                            <a class="btn btn-annotree btn-small" style="margin-top:5px;margin-left:10px;color:#555" ng-click="openFeedbackModal()"><i class="icon-share"></i>&nbsp;Feedback</a>
-                        </div>
-                    </li>
                 </ul>
             </div>
             <div id="userLinkDiv">
+                <a class="btn btn-annotree btn-small" style="margin-top:2px;margin-right:10px;color:#555" ng-click="openFeedbackModal()"><i class="icon-share"></i>&nbsp;Feedback</a>
                 <a href="" class="userLink toggle active" ng-click="openUserScreen()">
                     <img id="userIcon" ng-src="{{user.avatar}}">
                 </a>

@@ -136,6 +136,9 @@
 
             // --- Initialize. ---------------------------------- //
             $scope.setWindowTitle( "AnnoTree" );
+            if ($location.path() == "/app/ft") {
+                $("#helpModal").modal('show');
+            }
         }
     );
 }) ( angular, AnnoTree );

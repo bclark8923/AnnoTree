@@ -17,7 +17,7 @@
                 localStorageService.add('useravatar', response.data.profile_image_path);
 
                 //redirect to app
-                $location.path("app");
+                $location.path("/app/ft");
             }
 
 

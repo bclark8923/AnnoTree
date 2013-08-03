@@ -7,7 +7,7 @@ use Data::Dumper;
 use Config::General;
 
 # file upload size limit - 5MB
-$ENV{MOJO_MAX_MESSAGE_SIZE} = 5242880;
+$ENV{MOJO_MAX_MESSAGE_SIZE} = 10485760;
 
 # This method will run once at server start
 sub startup {

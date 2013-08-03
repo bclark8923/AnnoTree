@@ -599,7 +599,7 @@ a.btn-annotree {
 }
 
 .leafImage {
-    max-height: 95%;
+    max-height: 450px;
     padding: 20px;
     max-width: 95%;
 }

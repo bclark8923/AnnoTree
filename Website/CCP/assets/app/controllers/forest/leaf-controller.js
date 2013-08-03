@@ -26,7 +26,7 @@
                 }
                 leaf.image = leafImage;
                 for (var i = 0; i < leaf.annotations.length; i++) {
-                    leaf.annotations[i].created_at = Date.parse(leaf.annotations[i].created_at);
+                    leaf.annotations[i].created_at = parseDate(leaf.annotations[i].created_at.substring(0,10));
                 }
                 $scope.leaf = leaf;
                 localStorageService.add('activeLeaf', leaf.name);
@@ -102,6 +102,11 @@
                 $scope.isLoading = false;
             }
 
+            function parseDate(input) {
+                var parts = input.split('-');
+                return new Date(parts[0], parts[1]-1, parts[2]);
+            }
+
             function uploadComplete(evt) {
                 /* This event is raised when the server send back a response */
                 //alert(evt.target.responseText); 
@@ -112,7 +117,7 @@
                     $("#annotationUploadBtn").button('reset');
                 } else {
                     var annotationObject = jQuery.parseJSON( evt.target.responseText );
-                    annotationObject.created_at = Date.parse(annotationObject.created_at);
+                    annotationObject.created_at = parseDate(annotationObject.created_at.substring(0, 10));
                     $scope.leaf.annotations.push(annotationObject);
                     $('#annotationName').html('No file selected');
                     $("#annotationUploadBtn").button('reset');

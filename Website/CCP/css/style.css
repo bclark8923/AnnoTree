@@ -602,6 +602,7 @@ a.btn-annotree {
     max-height: 450px;
     padding: 20px;
     max-width: 95%;
+    margin-bottom: 10px;
 }
 
 .leafComments {
@@ -646,12 +647,6 @@ a.btn-annotree {
 #commentBtn {
     margin-top: 7px;
     float: right;
-}
-
-.leafImage {
-    max-height: 90%;
-    padding: 20px;
-    margin-bottom: 10px;
 }
 
 #annotationCarousel {

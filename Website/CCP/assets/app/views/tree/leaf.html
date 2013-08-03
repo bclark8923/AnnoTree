@@ -22,7 +22,7 @@
                                 <div class="cardImgLarge item" ng-class="{active: $index==leaf.annotations.length-1}" ng-repeat="annotation in leaf.annotations">
                                     <img class="leafImage" ng-src="{{annotation.path}}" ng-click="openAnnotationModal(annotation.path, annotation.filename)"/>
                                     <div>
-                                        Created: {{annotation.created_at}}
+                                        Created: {{annotation.created_at | date:'fullDate'}}
                                     </div>
                                 </div>
                             </div>
@@ -49,9 +49,6 @@
                                 </button>
                             </div>
                         </form>
-                        <!--div class="cardImgLarge">
-                            <img class="leafImage" ng-src="{{leaf.image}}">
-                        </div-->
                     </div>
                     <div class="col-12 col-sm-6">
                         <div class="leafComments" >

@@ -25,6 +25,9 @@
                     leafImage = leaf.annotations[0].path
                 }
                 leaf.image = leafImage;
+                for (var i = 0; i < leaf.annotations.length; i++) {
+                    leaf.annotations[i].created_at = Date.parse(leaf.annotations[i].created_at);
+                }
                 $scope.leaf = leaf;
                 localStorageService.add('activeLeaf', leaf.name);
             }
@@ -109,6 +112,7 @@
                     $("#annotationUploadBtn").button('reset');
                 } else {
                     var annotationObject = jQuery.parseJSON( evt.target.responseText );
+                    annotationObject.created_at = Date.parse(annotationObject.created_at);
                     $scope.leaf.annotations.push(annotationObject);
                     $('#annotationName').html('No file selected');
                     $("#annotationUploadBtn").button('reset');
@@ -132,7 +136,7 @@
             // --- Define Scope Methods. ------------------------ //
             $scope.openAnnotationModal = function(path, name) {
                 $('#annotationImageDisplay').attr('src', path);
-                $('#annotationName').html(name);
+                $('#displayAnnotationName').html(name);
                 $('#displayAnnotation').modal('show');
             }
 

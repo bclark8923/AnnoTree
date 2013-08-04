@@ -139,4 +139,19 @@ sub removeUserFromTree {
     $self->render(json => $json, status => $status);
 }
 
+sub iosTokens {
+    my $self = shift;
+
+    my $jsonReq = $self->req->json;
+    $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{tokens}); 
+    
+    $self->debug($self->dumper($jsonReq));
+    my $tokens = $jsonReq->{tokens};
+    $self->debug($self->dumper($tokens));
+
+    my $json = AnnoTree::Model::Tree->iosTokens($tokens);
+
+    $self->render(status => 200, json => $json);
+}
+
 return 1;

@@ -318,8 +318,8 @@
         //NSLog(@"%@", leafName.text);
         NSString *leafNameTrimmed = [leafName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         if([leafNameTrimmed length] >= 1) {
-            [leafUploading show];
             [self sendLeaf:leafNameTrimmed];
+            [leafUploading show];
         } else {
             return;
         }

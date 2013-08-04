@@ -20,9 +20,17 @@
 
             // I apply the remote data to the local view model.
             function loadLeaf( leaf ) {
-                var leafImage = "img/leaf01.png";
-                if(leaf.annotations.length > 0) {
+                var leafImage = "img/noImage.png";
+                if (leaf.annotations.length > 0) {
                     leafImage = leaf.annotations[0].path
+                } else {
+                    var now = new Date();
+                    var nowStr = '' + now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + (now.getDate());
+                    leaf.annotations[0] = {
+                        'path': 'img/noImage.png',
+                        'created_at': nowStr
+                    };
+                    $('#annotationAbout').hide();
                 }
                 leaf.image = leafImage;
                 for (var i = 0; i < leaf.annotations.length; i++) {
@@ -30,6 +38,16 @@
                 }
                 $scope.leaf = leaf;
                 localStorageService.add('activeLeaf', leaf.name);
+                
+                // Annotation carousel arrow shows
+                $timeout(function() {
+                    if (leaf.annotations.length == 1) {
+                        $('#annotationCarousel').children('.carousel-control').hide();
+                    } else {
+                        $('#annotationCarousel').children('.carousel-control').show();
+                    }
+
+                }, 0, true);
             }
 
             // I load the "remote" data from the server.
@@ -115,13 +133,30 @@
                     $("#invalidAnnotation").html("Only images can be uploaded at this time");
                     $scope.invalidAddLeaf = true;
                     $("#annotationUploadBtn").button('reset');
+                } else if (this.status == 413) {
+                   $("#invalidAnnotation").html("Image is too large. Only images less then 10MB may be uploaded at this time.");
+                    $scope.invalidAddLeaf = true;
+                    $("#annotationUploadBtn").button('reset'); 
                 } else {
                     var annotationObject = jQuery.parseJSON( evt.target.responseText );
                     annotationObject.created_at = parseDate(annotationObject.created_at.substring(0, 10));
-                    $scope.leaf.annotations.push(annotationObject);
+                    if ($scope.leaf.annotations[0].path == 'img/noImage.png') {
+                        $('#annotationAbout').show();
+                        $scope.leaf.annotations[0] = annotationObject;
+                    } else {
+                        $scope.leaf.annotations.push(annotationObject);
+                    }
                     $('#annotationName').html('No file selected');
                     $("#annotationUploadBtn").button('reset');
                     $scope.$apply();
+                    $timeout(function() {
+                        if ($scope.leaf.annotations.length == 1) {
+                            $('#annotationCarousel').children('.carousel-control').hide();
+                        } else {
+                            $('#annotationCarousel').children('.carousel-control').show();
+                        }
+
+                    }, 0, true);
                 }
             }
 
@@ -388,6 +423,9 @@
             });
             // Load the "remote" data.
             loadLeafData();
+
+            
+
         }
     );
 })( angular, AnnoTree );

@@ -201,4 +201,26 @@ $(document).ready(function() {
       settingsPane.closeFast();
     }
   });
+
+// Annotation carousel arrow shows
+$('#annotationCarousel').children('.carousel-control').show();
+
+if($('.carousel-inner .item:first').hasClass('active')) {
+    $('#annotationCarousel').children('.left.carousel-control').hide();
+} else if($('.carousel-inner .item:last').hasClass('active')) {
+    $('#annotationCarousel').children('.right.carousel-control').hide();
+}
+
+$('#annotationCarousel').on('slid', '', function() {
+    var $this = $(this);
+
+    $this.children('.carousel-control').show();
+
+    if($('.carousel-inner .item:first').hasClass('active')) {
+        $this.children('.left.carousel-control').hide();
+    } else if($('.carousel-inner .item:last').hasClass('active')) {
+        $this.children('.right.carousel-control').hide();
+    }
+});
+
 });

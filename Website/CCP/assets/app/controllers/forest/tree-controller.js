@@ -16,7 +16,7 @@
                     if(leaves[i].annotations.length > 0) {
                         leaves[i].annotation = leaves[i].annotations[0].path;
                     } else {
-                        leaves[i].annotation = "img/logo.png";
+                        leaves[i].annotation = "img/noImageBG.png";
                     }
                 }
                 $rootScope.leaves = leaves;
@@ -272,7 +272,11 @@
                     var jsonResp = JSON.parse(this.response);
                     leafService.deleteLeaf($scope.newLeafData.id);
                     $("#invalidAddLeaf").html("Only images can be uploaded at this time");
-                    
+                    $scope.invalidAddLeaf = true;
+                    $("#newLeafModalWorking").removeClass('active');
+                } else if (this.status == 413) {
+                   leafService.deleteLeaf($scope.newLeafData.id);
+                   $("#invalidAddLeaf").html("Image is too large. Only images less then 10MB may be uploaded at this time.");
                     $scope.invalidAddLeaf = true;
                     $("#newLeafModalWorking").removeClass('active');
                 } else {
@@ -307,12 +311,10 @@
                 var branchID = $scope.treeInfo.branches[0].id;
 
                 //validate form
-                if(!formValid || annotationImageElement.files.length == 0) {
+                if(!formValid) {
                     $scope.invalidAddLeaf = true;
-                    if(!leafName) {
+                    if (!leafName) {
                         $("#invalidAddLeaf").html("Please fill out a leaf name.");
-                    } else if (annotationImageElement.files.length == 0) {
-                        $("#invalidAddLeaf").html("Please add an image.");
                     } else {
                         //shouldn't happen
                         $("#invalidAddLeaf").html("Please enter valid information.");
@@ -335,8 +337,12 @@
                             $("#treeElementsDiv").show();
                             $("#createAnnotation").attr('action', '/services/' + response.data.id + '/annotation');
                             //addAnnotation(response.data.id);
-
-                            newAnnotation(response.data.id);
+                            if (annotationImageElement.files.length > 0) {
+                                newAnnotation(response.data.id);
+                            } else {
+                                addLeaf( $scope.newLeafData );
+                                $scope.closeNewLeafModal();
+                            }
                         },
                         function( response ) {
                             var errorData = "Our Create Leaf Service is currently down, please try again later.";

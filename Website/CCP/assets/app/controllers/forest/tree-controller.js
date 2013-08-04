@@ -14,7 +14,7 @@
 
                 for (var i = 0; i < leaves.length; i++) {
                     if(leaves[i].annotations.length > 0) {
-                        leaves[i].annotation = leaves[i].annotations[0].path;
+                        leaves[i].annotation = leaves[i].annotations[leaves[i].annotations.length - 1].path;
                     } else {
                         leaves[i].annotation = "img/noImageBG.png";
                     }
@@ -75,13 +75,21 @@
             function addLeaf(newLeaf) {
 
                 $rootScope.leaves.pop();
+                if (newLeaf.annotations.length == 0) {
+                    newLeaf.annotation = "img/noImageBG.png";
+                }
                 $rootScope.leaves.push(newLeaf);
                 $rootScope.leaves.push($scope.newLeafHolder);
 
                 $("#newLeafClose").click();
 
                 $scope.invalidAddLeaf = false;
-                $scope.$apply();
+                
+                if(!$scope.$$phase) {
+                    $scope.$apply();
+                }
+                //$scope.$apply();
+                $scope.closeNewLeafModal();
 
                 /*$route.reload();
 
@@ -284,7 +292,6 @@
                     $scope.newLeafData.annotations.push(annotationObject);
                     $scope.newLeafData.annotation = annotationObject.path;
                     addLeaf( $scope.newLeafData );
-                    $scope.closeNewLeafModal();
                 }
             }
 
@@ -340,8 +347,7 @@
                             if (annotationImageElement.files.length > 0) {
                                 newAnnotation(response.data.id);
                             } else {
-                                addLeaf( $scope.newLeafData );
-                                $scope.closeNewLeafModal();
+                                addLeaf( $scope.newLeafData);
                             }
                         },
                         function( response ) {

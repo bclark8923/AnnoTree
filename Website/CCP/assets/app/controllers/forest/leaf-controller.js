@@ -30,7 +30,6 @@
                         'path': 'img/noImage.png',
                         'created_at': nowStr
                     };
-                    $('#annotationAbout').hide();
                 }
                 leaf.image = leafImage;
                 for (var i = 0; i < leaf.annotations.length; i++) {
@@ -43,6 +42,9 @@
                 $timeout(function() {
                     if (leaf.annotations.length == 1) {
                         $('#annotationCarousel').children('.carousel-control').hide();
+                        if (leaf.annotations[0].path == 'img/noImage.png') {
+                            $('#annotationAbout').hide();
+                        }
                     } else {
                         $('#annotationCarousel').children('.carousel-control').show();
                     }
@@ -124,6 +126,15 @@
                 var parts = input.split('-');
                 return new Date(parts[0], parts[1]-1, parts[2]);
             }
+            
+            function updateRootScopeAnnotation(leafID, path) {
+                for (var i = 0; i < $rootScope.leaves.length; i++) {
+                    if ($rootScope.leaves[i].id == leafID) {
+                        $rootScope.leaves[i].annotation = path;
+                        break;
+                    }
+                }
+            }
 
             function uploadComplete(evt) {
                 /* This event is raised when the server send back a response */
@@ -146,6 +157,7 @@
                     } else {
                         $scope.leaf.annotations.push(annotationObject);
                     }
+                    updateRootScopeAnnotation($scope.leaf.id, annotationObject.path);
                     $('#annotationName').html('No file selected');
                     $("#annotationUploadBtn").button('reset');
                     $scope.$apply();

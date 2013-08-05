@@ -28,7 +28,8 @@
                     var nowStr = '' + now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + (now.getDate());
                     leaf.annotations[0] = {
                         'path': 'img/noImage.png',
-                        'created_at': nowStr
+                        'created_at': nowStr,
+                        'filename': 'No Image Found'
                     };
                 }
                 leaf.image = leafImage;
@@ -45,8 +46,11 @@
                         if (leaf.annotations[0].path == 'img/noImage.png') {
                             $('#annotationAbout').hide();
                         }
+                        $('#annotationCarousel').children('.carousel-indicators').hide();
+
                     } else {
                         $('#annotationCarousel').children('.carousel-control').show();
+                        $('#annotationCarousel').children('.carousel-indicators').show();
                     }
 
                 }, 0, true);
@@ -142,12 +146,11 @@
                 if (this.status == 415 || this.status == 406) {
                     var jsonResp = JSON.parse(this.response);
                     $("#invalidAnnotation").html("Only images can be uploaded at this time");
-                    $scope.invalidAddLeaf = true;
-                    $("#annotationUploadBtn").button('reset');
+                    $("#invalidAnnotation").show();
+                    $("#uploadAnnotationModalWorking").removeClass('active');
                 } else if (this.status == 413) {
                    $("#invalidAnnotation").html("Image is too large. Only images less then 10MB may be uploaded at this time.");
-                    $scope.invalidAddLeaf = true;
-                    $("#annotationUploadBtn").button('reset'); 
+                    $("#uploadAnnotationModalWorking").removeClass('active');
                 } else {
                     var annotationObject = jQuery.parseJSON( evt.target.responseText );
                     annotationObject.created_at = parseDate(annotationObject.created_at.substring(0, 10));
@@ -158,18 +161,23 @@
                         $scope.leaf.annotations.push(annotationObject);
                     }
                     updateRootScopeAnnotation($scope.leaf.id, annotationObject.path);
-                    $('#annotationName').html('No file selected');
-                    $("#annotationUploadBtn").button('reset');
+                    $("#invalidAnnotation").hide();
                     $scope.$apply();
                     $timeout(function() {
                         if ($scope.leaf.annotations.length == 1) {
                             $('#annotationCarousel').children('.carousel-control').hide();
+                            $('#annotationCarousel').children('.carousel-indicators').hide();
                         } else {
                             $('#annotationCarousel').children('.carousel-control').show();
+                            $('#annotationCarousel').children('.carousel-indicators').show();
                         }
 
                     }, 0, true);
+                    $("#uploadAnnotationModalWorking").removeClass('active');
+                    $('#uploadAnnotationModal').modal('hide');
                 }
+                $('#newAnnotation').replaceWith($('#newAnnotation').clone());
+                $('#annotationName').html('No file selected');
             }
 
             function uploadFailed(evt) {
@@ -186,6 +194,10 @@
                 $location.path("/forestFire");
             } 
             // --- Define Scope Methods. ------------------------ //
+            $scope.openUploadAnnotationModal = function() {
+                $('#uploadAnnotationModal').modal('show');
+            }
+
             $scope.openAnnotationModal = function(path, name) {
                 $('#annotationImageDisplay').attr('src', path);
                 $('#displayAnnotationName').html(name);
@@ -195,10 +207,12 @@
             $scope.addNewAnnotation = function() {
                 var annotationElement = document.getElementById('newAnnotation');
                 if (annotationElement.files.length == 0) {
-                    $("#invalidAnnotation").html("Please add an image.");
-                } 
-                $("#annotationUploadBtn").button('loading');
-                newAnnotation($scope.leaf.id);
+                    $("#invalidAnnotation").html("Please select an image.");
+                    $("#invalidAnnotation").show();
+                } else { 
+                    $("#uploadAnnotationModalWorking").addClass('active');
+                    newAnnotation($scope.leaf.id);
+                }
             }
 
             $scope.addLeafComment = function() {
@@ -431,6 +445,9 @@
             $scope.setWindowTitle( "AnnoTree" );
             $("#newAnnotation").change(function() {
                 var file = $('#newAnnotation').val().replace(/C:\\fakepath\\/i, '');
+                if (file == '') {
+                    file = 'No file selected';
+                }
                 $('#annotationName').html(file);
             });
             // Load the "remote" data.

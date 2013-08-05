@@ -246,7 +246,7 @@
                 $scope.invalidAddLeaf = false;
                 $scope.filesListing = [];
                 $("#newLeafModalWorking").removeClass('active');
-                $('#filesName').html('No files selected');
+                $('#filesName').html('No files selected (optional)');
             }
 
             function newAnnotation(leafID) {
@@ -634,6 +634,9 @@
             $scope.filesListing = [];
             $("#annotationImage").change(function() {
                 var file = $('#annotationImage').val().replace(/C:\\fakepath\\/i, '');
+                if (file == '') {
+                    file = 'No file selected (optional)';
+                }
                 $('#filesName').html(file);
             });
 

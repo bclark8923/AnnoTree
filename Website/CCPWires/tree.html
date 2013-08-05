@@ -13,6 +13,75 @@
   </head>
   <body>
 
+    <div class="modal ng-scope in" id="newLeafModal" data-backdrop="false" ng-controller="forest.TreeController" aria-hidden="false" style="display: block;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="working" id="newLeafModalWorking">
+                    <i class="icon-working icon-cog icon-spin"></i>
+                </div>
+                <div class="modal-header">
+                    <button class="close" ng-click="closeNewLeafModal()">
+                        <i class="icon-remove-circle"></i>
+                    </button>
+                    <h3 class="modal-title">Create Leaf</h3>
+                </div>
+                <form name="createLeafForm" ng-submit="newLeaf()" class="ng-pristine ng-invalid ng-invalid-required">
+                    <div class="modal-body">
+                        <p class="error-text" id="invalidAddLeaf" ng-show="invalidAddLeaf" style="display: none;"></p>
+                        <div class="form-group">
+                            <input id="leafName" class="form-control ng-pristine ng-invalid ng-invalid-required" type="text" placeholder="Leaf name" ng-model="leafName" required="">
+                            <span class="tipText">Tip: A leaf is an app image, service, or new idea that you wish to collaborate on with others</span>
+                        </div>
+                        <!--
+                        <span class="btn btn-annotree fileinput-button">
+                            <i class="icon-plus"></i>
+                            <span>Add file...</span>
+                            <input type="file" name="files" id="annotationImage" ng-model="annotationImage" class="ng-pristine ng-valid">
+                        </span>
+                        <span style="margin-left:5px" id="filesName">No file selected</span>
+                        -->
+                        <div class="leafType">
+                          <div class="row">
+                            <div class="col-4">
+                              <div class="leafTypeIcon">
+                                <div class="leafTypeIconContainer">
+                                  <i class="icon-picture"></i><br/>
+                                  Image
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-4">
+                              <div class="leafTypeIcon">
+                                <div class="leafTypeIconContainer">
+                                  <i class="icon-wrench"></i><br/>
+                                  Service
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-4">
+                              <div class="leafTypeIcon">
+                                <div class="leafTypeIconContainer">
+                                  <i class="icon-lightbulb"></i><br/>
+                                  Idea
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-annotree">
+                            <strong>Create</strong>
+                        </button>
+                        <button type="button" class="btn btn-warning" ng-click="closeNewLeafModal()">
+                            <strong>Cancel</strong>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div id="mobileDashboard">
       <div class="mobile-dash-wrap">
         <ul class="nav navbar-nav">

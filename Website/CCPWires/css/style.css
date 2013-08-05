@@ -549,6 +549,47 @@ input[type='text'], input[type='email'],textarea {font-size:17px;} {
 	padding: 20px;
 }
 
+.modal-content {
+color: #444;
+text-align: center;
+}
+
+.fileinput-button input {
+position: absolute;
+top: 0;
+right: 0;
+margin: 0;
+opacity: 0;
+filter: alpha(opacity=0);
+transform: translate(-300px, 0) scale(4);
+font-size: 23px;
+direction: ltr;
+cursor: pointer;
+}
+
+.leafTypeIcon {
+	background-color: #92DF74;
+	width: 90px;
+	height: 90px;
+	margin: 0 auto;
+	color: white;
+	border-radius: 5px;
+	font-size: 15pt;
+}
+
+.leafTypeIconContainer {
+	padding-top: 15px;
+}
+
+.leafTypeIconContainer > i {
+	font-size: 24pt;
+}
+
+.leafTypeIcon:hover {
+	background-color: x;
+	cursor: pointer;
+}
+
 .leafComments {
 	padding: 10px;
 }

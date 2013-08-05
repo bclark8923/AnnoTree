@@ -357,6 +357,19 @@ input[type='text'], input[type='email'],textarea {font-size:17px;} {
    -webkit-transition: opacity .25s linear;
 }
 
+#userSettings {
+	height: 100%;
+	width: 100%;
+	padding-top: 60px;
+	position: absolute;
+	overflow-y: auto;
+	overflow-x: hidden;
+
+   transition: opacity .25s linear;
+   -moz-transition: opacity .25s linear;
+   -webkit-transition: opacity .25s linear;
+}
+
 .forestRow {
 	margin: 30px 0;
 	text-align: left;

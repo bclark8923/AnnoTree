@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <img src="img/LogoNameWeb.png" class="logoHeader"/>
+      <div class="nav-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Documents</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="userLinkDiv">
+          <a href="" class="userLink toggle active">
+            <img id="userIcon" src="img/user.png">
+          </a>
+          <span class="logoutArrow userSettings"></span>
+        </div>
+          <div class="responsiveShow" style="width: 40px;height: 40px;margin-top: 5px;">
+            <a href="" id="paneToggle" style="padding:0;text-align:center;"><i class="icon-reorder responsiveShow" style="color:white;font-size:18pt;"></i></a>
+          </div>
+      </div>
+    </div>
+
+    <div id="userSettings" class="userSettingsBox userSettings">
+        <div>
+            <img style="float: left;height: 60px;margin-left: 10px;margin-top: 3px;" src="img/user.png">    
+            <p class="userSettingsName ng-binding" style="margin-left:80px;">Brian Clark</p>
+        </div>
+        <div style="position: absolute; bottom: 0; height: 40px; width: 248px; background-color: #eee;border-top:1px solid #bbb;">
+            <!-- Link to settings Modal - Modal To Be Implmented -->
+            <!-- <p class="btn success small settingsButton" style="margin-top:10px;border:1px solid #bbb;"><a class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p> -->
+            <p style="margin-top:5px;" class="btn btn-annotree logoutButton btn-small">Logout</p>
+        </div>
+    </div>
+
+    <div id="wrapper">
+      <div id="userSettings">
+        <div class="container">
+          <div class="row">
+            <div class="col-0 col-sm-3">
+              <div class="row" style="box-shadow: 0px 0px 10px #bbb;border-radius:5px;max-width: 200px;background-color:white;height: 80px;padding-top:10px; margin-bottom:30px;">
+                <div class="col-3">
+                  <img src="img/user.png" style="width:40px;height:40px;">
+                </div>
+                <div class="col-9" style="font-size:8pt;">
+                  Brian Clark <br/>
+                  bclark8923@gmail.com
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-9">
+              <div style="box-shadow: 0px 0px 10px #bbb;background-color:white;border-radius:5px;padding:20px;">
+                <h3 style="margin-top:0;margin-bottom:20px;">User Settings</h3>
+                <form class="form-horizontal" style="padding:0 20px;">
+                  <div class="form-group">
+                    <label class="col-2 control-label" style="text-align:right;" for="exampleInputEmail">First Name</label>
+                    <div class="col-10">
+                      <input type="text" class="form-control" id="firstNameInput" placeholder="First Name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-2 control-label" for="exampleInputEmail">Last Name</label>
+                    <div class="col-10">
+                      <input type="text" class="form-control" id="lastNameInput" placeholder="Last Name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-2 control-label" for="exampleInputEmail">Email</label>
+                    <div class="col-10">
+                      <input type="email" class="form-control" id="emailInput" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-2 control-label" for="exampleInputEmail">Picture</label>
+                    <div class="col-10">
+                      <input type="file" id="imageUpload" placeholder="Email">
+                      <br/>
+                      <img src="img/user.png" style="width:70px;height:70px;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                      <button type="submit" class="btn btn-annotree">Save</button>
+                      <button type="submit" class="btn btn-danger">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Optionally enable responsive features in IE8 -->
+    <script src="js/respond.js"></script>
+  </body>
+</html>

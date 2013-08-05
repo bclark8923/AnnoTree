@@ -685,9 +685,10 @@ a.btn-annotree {
     text-decoration: none;
 }
 
-.addAnnotation {
+#addAnnotation {
     text-align: center;
     width: 100%;
+    margin-top: 40px;
 }
 
 #displayAnnotation .modal-dialog {

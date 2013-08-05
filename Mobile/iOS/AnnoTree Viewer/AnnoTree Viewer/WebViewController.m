@@ -186,23 +186,6 @@ static const CGFloat kAddressHeight = 26.0f;
     self.addressField.text = absoluteString;
 }
 
-- (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace
-{
-	return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
-{
-	if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
-	{
-		if ([challenge.protectionSpace.host isEqualToString:@"dev.annotree.com"])
-		{
-			[challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
-		}
-	}
-    
-	[challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
-}
 
 - (void)informError:(NSError *)error
 {

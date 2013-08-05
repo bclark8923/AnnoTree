@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>AnnoTree Viewer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>AnnoTree.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>AnnoTreeResources.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Framework.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D3180C0F176182E300A6B8E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3180C24176184B300A6B8E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D321648A172C18B500573823</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3216498172C18B600573823</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3AAA1A217000FC300954DDF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3AAA1CB17000FC400954DDF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

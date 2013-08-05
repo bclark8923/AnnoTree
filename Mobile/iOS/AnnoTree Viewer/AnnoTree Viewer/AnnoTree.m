@@ -318,8 +318,8 @@
         //NSLog(@"%@", leafName.text);
         NSString *leafNameTrimmed = [leafName.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         if([leafNameTrimmed length] >= 1) {
-            [leafUploading show];
             [self sendLeaf:leafNameTrimmed];
+            [leafUploading show];
         } else {
             return;
         }
@@ -448,9 +448,14 @@
 	[challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
 }
 
+
+//this code is copy and pasted from
+//http://blog.logichigh.com/2008/06/05/uiimage-fix/
+//Creator states public domain in comments
+
 - (UIImage*)scaleAndRotateImage:(UIImage *)image
 {
-	int kMaxResolution = 320; // Or whatever
+	int kMaxResolution = 3000; // Or whatever
 	
 	CGImageRef imgRef = image.CGImage;
 	

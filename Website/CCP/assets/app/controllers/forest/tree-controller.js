@@ -23,7 +23,15 @@
                 $rootScope.leaves.push($scope.newLeafHolder);
             }
 
-
+            function annotationNameChange() {
+               $("#annotationImage").change(function() {
+                    var file = $('#annotationImage').val().replace(/C:\\fakepath\\/i, '');
+                    if (file == '') {
+                        file = 'No file selected (optional)';
+                    }
+                    $('#filesName').html(file);
+                }); 
+            }
             // I load the "remote" data from the server.
             function loadTreeData() {
 
@@ -235,6 +243,9 @@
             }
 
             $scope.openNewLeafModal = function () {
+                $('#annotationImage').replaceWith($('#annotationImage').clone());
+                $('#filesName').html('No files selected (optional)');
+                annotationNameChange();
                 $("#newLeafModal").modal('show');
             }
 
@@ -244,6 +255,7 @@
                 $("#leafName").val('');
                 $("#annotationImage").val('');
                 $('#annotationImage').replaceWith($('#annotationImage').clone());
+                annotationNameChange();
                 $scope.invalidAddLeaf = false;
                 $scope.filesListing = [];
                 $("#newLeafModalWorking").removeClass('active');
@@ -294,6 +306,9 @@
                     $scope.newLeafData.annotation = annotationObject.path;
                     addLeaf( $scope.newLeafData );
                 }
+                $('#annotationImage').replaceWith($('#annotationImage').clone());
+                annotationNameChange();
+                $('#filesName').html('No files selected (optional)');
             }
 
             function uploadFailed(evt) {
@@ -333,6 +348,7 @@
                         $scope.invalidAddLeaf = true; 
                         $('#annotationImage').replaceWith($('#annotationImage').clone());
                         $('#filesName').html('No files selected (optional)');
+                        annotationNameChange();
                     } else {
                         $('#newLeafModalWorking').addClass('active');
                         var promise = leafService.createLeaf(branchID, leafName, leafDescription);
@@ -639,13 +655,7 @@
             // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
             $scope.filesListing = [];
-            $("#annotationImage").change(function() {
-                var file = $('#annotationImage').val().replace(/C:\\fakepath\\/i, '');
-                if (file == '') {
-                    file = 'No file selected (optional)';
-                }
-                $('#filesName').html(file);
-            });
+            
 
             // Load the "remote" data.
             $scope.$evalAsync(loadTreeData());

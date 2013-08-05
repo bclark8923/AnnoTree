@@ -17,8 +17,17 @@
                 $("#viewLeafModal").removeClass('active');
             }
 
-
             // I apply the remote data to the local view model.
+            function annotationNameChange() {
+                $("#newAnnotation").change(function() {
+                   var file = $('#newAnnotation').val().replace(/C:\\fakepath\\/i, '');
+                    if (file == '') {
+                        file = 'No file selected';
+                    }
+                    $('#annotationName').html(file);
+                });
+            }
+
             function loadLeaf( leaf ) {
                 var leafImage = "img/noImage.png";
                 if (leaf.annotations.length > 0) {
@@ -178,6 +187,7 @@
                 }
                 $('#newAnnotation').replaceWith($('#newAnnotation').clone());
                 $('#annotationName').html('No file selected');
+                annotationNameChange();
             }
 
             function uploadFailed(evt) {
@@ -195,6 +205,10 @@
             } 
             // --- Define Scope Methods. ------------------------ //
             $scope.openUploadAnnotationModal = function() {
+                $("#invalidAnnotation").hide();
+                $('#newAnnotation').replaceWith($('#newAnnotation').clone());
+                $('#annotationName').html('No file selected');
+                annotationNameChange();
                 $('#uploadAnnotationModal').modal('show');
             }
 
@@ -214,6 +228,7 @@
                     $("#invalidAnnotation").show();
                     $('#newAnnotation').replaceWith($('#newAnnotation').clone());
                     $('#annotationName').html('No file selected');
+                    annotationNameChange();
                 } else { 
                     $("#uploadAnnotationModalWorking").addClass('active');
                     newAnnotation($scope.leaf.id);
@@ -448,18 +463,9 @@
 
             // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
-            $("#newAnnotation").change(function() {
-                var file = $('#newAnnotation').val().replace(/C:\\fakepath\\/i, '');
-                if (file == '') {
-                    file = 'No file selected';
-                }
-                $('#annotationName').html(file);
-            });
+
             // Load the "remote" data.
             loadLeafData();
-
-            
-
         }
     );
 })( angular, AnnoTree );

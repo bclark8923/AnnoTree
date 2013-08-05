@@ -182,14 +182,14 @@
 
             function uploadFailed(evt) {
                 /* This event is raised when the server send back a response */
-                alert(evt.target.responseText);
+                //alert(evt.target.responseText);
                 //delete new leaf
                 $location.path("/forestFire");
             }
 
             function uploadCanceled(evt) {
                 /* This event is raised when the server send back a response */
-                alert(evt.target.responseText);
+                //alert(evt.target.responseText);
                 //delete new leaf
                 $location.path("/forestFire");
             } 
@@ -209,6 +209,11 @@
                 if (annotationElement.files.length == 0) {
                     $("#invalidAnnotation").html("Please select an image.");
                     $("#invalidAnnotation").show();
+                } else if (annotationElement.files[0].size > 10485760) {
+                   $("#invalidAnnotation").html("Image is too large. Only images less then 10MB may be uploaded at this time.");
+                    $("#invalidAnnotation").show();
+                    $('#newAnnotation').replaceWith($('#newAnnotation').clone());
+                    $('#annotationName').html('No file selected');
                 } else { 
                     $("#uploadAnnotationModalWorking").addClass('active');
                     newAnnotation($scope.leaf.id);

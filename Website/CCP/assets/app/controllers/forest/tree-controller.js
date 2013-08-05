@@ -243,6 +243,7 @@
                 $("#invalidAddLeaf").html('');
                 $("#leafName").val('');
                 $("#annotationImage").val('');
+                $('#annotationImage').replaceWith($('#annotationImage').clone());
                 $scope.invalidAddLeaf = false;
                 $scope.filesListing = [];
                 $("#newLeafModalWorking").removeClass('active');
@@ -327,59 +328,65 @@
                         $("#invalidAddLeaf").html("Please enter valid information.");
                     }
                 } else {
-                    //return;
-                    $('#newLeafModalWorking').addClass('active');
-                    var promise = leafService.createLeaf(branchID, leafName, leafDescription);
+                    if (annotationImageElement.files.length > 0 && annotationImageElement.files[0].size > 10485760) {
+                       $("#invalidAddLeaf").html("Image is too large. Only images less then 10MB may be uploaded at this time.");
+                        $scope.invalidAddLeaf = true; 
+                        $('#annotationImage').replaceWith($('#annotationImage').clone());
+                        $('#filesName').html('No files selected (optional)');
+                    } else {
+                        $('#newLeafModalWorking').addClass('active');
+                        var promise = leafService.createLeaf(branchID, leafName, leafDescription);
 
-                    promise.then(
-                        function( response ) {
-                            $scope.invalidAddLeaf = false;
+                        promise.then(
+                            function( response ) {
+                                $scope.invalidAddLeaf = false;
 
-                            $scope.newLeafData = response.data;
-                            $scope.newLeafData.annotations = [];
+                                $scope.newLeafData = response.data;
+                                $scope.newLeafData.annotations = [];
 
-                            $scope.noLeaves = "";
-                            $scope.noLeavesNL = "";
-                            $("#noLeavesDiv").hide();
-                            $("#treeElementsDiv").show();
-                            $("#createAnnotation").attr('action', '/services/' + response.data.id + '/annotation');
-                            //addAnnotation(response.data.id);
-                            if (annotationImageElement.files.length > 0) {
-                                newAnnotation(response.data.id);
-                            } else {
-                                addLeaf( $scope.newLeafData);
-                            }
-                        },
-                        function( response ) {
-                            var errorData = "Our Create Leaf Service is currently down, please try again later.";
-                            var errorNumber = parseInt(response.data.error);
-                            if(response.data.status == 406) {
-                                switch(errorNumber)
-                                {
-                                    case 0:
-                                        errorData = "Please fill out all of the fields";
-                                        break;
-                                    case 1:
-                                        errorData = "This user does not exist in our system. Please contact Us.";
-                                        break;
-                                    case 2:
-                                        errorData = "The branch you attempted to add to no longer exists.";
-                                        break;
-                                    case 4:
-                                        errorData = "Please enter a valid leaf name.";
-                                        break;
-                                    default:
-                                        //go to Fail Page
-                                        //$location.path("/forestFire");
+                                $scope.noLeaves = "";
+                                $scope.noLeavesNL = "";
+                                $("#noLeavesDiv").hide();
+                                $("#treeElementsDiv").show();
+                                $("#createAnnotation").attr('action', '/services/' + response.data.id + '/annotation');
+                                //addAnnotation(response.data.id);
+                                if (annotationImageElement.files.length > 0) {
+                                    newAnnotation(response.data.id);
+                                } else {
+                                    addLeaf( $scope.newLeafData);
                                 }
-                            } else if(response.data.status != 401 && errorNumber != 0) {
-                                //go to Fail Page
-                                //$location.path("/forestFire");
-                                alert(errorData);
+                            },
+                            function( response ) {
+                                var errorData = "Our Create Leaf Service is currently down, please try again later.";
+                                var errorNumber = parseInt(response.data.error);
+                                if(response.data.status == 406) {
+                                    switch(errorNumber)
+                                    {
+                                        case 0:
+                                            errorData = "Please fill out all of the fields";
+                                            break;
+                                        case 1:
+                                            errorData = "This user does not exist in our system. Please contact Us.";
+                                            break;
+                                        case 2:
+                                            errorData = "The branch you attempted to add to no longer exists.";
+                                            break;
+                                        case 4:
+                                            errorData = "Please enter a valid leaf name.";
+                                            break;
+                                        default:
+                                            //go to Fail Page
+                                            //$location.path("/forestFire");
+                                    }
+                                } else if(response.data.status != 401 && errorNumber != 0) {
+                                    //go to Fail Page
+                                    //$location.path("/forestFire");
+                                    alert(errorData);
+                                }
+                                $("#invalidAddTree").html(errorData);
                             }
-                            $("#invalidAddTree").html(errorData);
-                        }
-                    );
+                        );
+                    }
                 }
             }
 

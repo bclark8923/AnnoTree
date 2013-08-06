@@ -15,6 +15,8 @@
 @synthesize drawingEnabled;
 @synthesize textEnabled;
 
+int textBoxTag= 101;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -81,6 +83,11 @@
         
         /*UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(pos.x, pos.y-textboxHeight/2, textboxWidth, textboxHeight)];*/
         UITextView *textField = [[UITextView alloc] initWithFrame:CGRectMake(pos.x-10, pos.y-textboxHeight, textboxWidth, textboxHeight)];
+
+        
+    
+
+        
         //textField.borderStyle = UITextBorderStyleRoundedRect;
         textField.font = [UIFont systemFontOfSize:15];
         //textField.borderStyle = UITextBorderStyleLine;
@@ -95,11 +102,27 @@
         UIColor *bgColor = UIColorFromRGB(0xF7F8F5);
         textField.backgroundColor = [bgColor colorWithAlphaComponent:0.8];
         [textField setInputAccessoryView:[self getKeyboardAccessoryView]];
+        
+        UIView *clearView = [[UIView alloc] initWithFrame:textField.frame];
+        [clearView setTag:textBoxTag];
+        textBoxTag += 1;
+        [self.viewForBaselineLayout addSubview:clearView];
+        
+        
         [self addSubview:textField];
         [textBoxes addObject:textField];
-        [textField becomeFirstResponder];
+        
+        for(int i = 101; i < 101 + [textBoxes count]; i++){
+            UITextField *text = textBoxes[i-101];
+            if([[mytouch view] tag] == i && [mytouch tapCount] ==2){
+                [text becomeFirstResponder];
+            }
+        }
+        
     }
 }
+
+
 
 
 -(UIToolbar*) getKeyboardAccessoryView {
@@ -150,6 +173,15 @@
         [myPath addLineToPoint:[mytouch locationInView:self]];
         [self setNeedsDisplay];
     }
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint location = [touch locationInView:self.viewForBaselineLayout];
+    for(int i = 101; i < textBoxTag; i++){
+        if ([[touch view] tag] == i) {
+            ((UITextField *)textBoxes[i-101]).center = location;
+            [[touch view] setCenter:location];
+        }
+    }
+    
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

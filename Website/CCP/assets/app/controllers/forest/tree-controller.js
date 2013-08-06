@@ -76,7 +76,10 @@
                 );
 
             }
-
+            function validateEmail(email) { 
+                var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
 
             // --- Define Scope Methods. ------------------------ //
 
@@ -457,60 +460,66 @@
             $scope.addUser = function() {
                 $scope.addedUser.email = $scope.addUserID;
                 var email = $('#userList').val();
-                $('#modifyUsersModalWorking').addClass('active');
-                var promise = treeService.addUser($scope.treeInfo.id, email);
+                if (validateEmail(email)) {
+                    $('#modifyUsersModalWorking').addClass('active');
+                    var promise = treeService.addUser($scope.treeInfo.id, email);
 
-                promise.then(
-                    function( response ) {
+                    promise.then(
+                        function( response ) {
 
-                        //if existing, push
-                        $scope.addedUser.first_name = response.data.firstName;
-                        $scope.addedUser.last_name = response.data.lastName;
-                        $scope.addedUser.id = response.data.id;
-                        var user = {};
-                        user.first_name = response.data.firstName;
-                        user.last_name = response.data.lastName;
-                        user.id = response.data.id;
-                        user.email = email;
-                        $scope.treeInfo.users.push(user);
-                        $scope.addUserID = "";
-                        //else alert user was invited
+                            //if existing, push
+                            $scope.addedUser.first_name = response.data.firstName;
+                            $scope.addedUser.last_name = response.data.lastName;
+                            $scope.addedUser.id = response.data.id;
+                            var user = {};
+                            user.first_name = response.data.firstName;
+                            user.last_name = response.data.lastName;
+                            user.id = response.data.id;
+                            user.email = email;
+                            $scope.treeInfo.users.push(user);
+                            $scope.addUserID = "";
+                            //else alert user was invited
 
-                    },
-                    function( response ) {
-                        //alert('broked');
-                        //return;
-                        var errorData = "Our Create Leaf Service is currently down, please try again later.";
-                        var errorNumber = parseInt(response.data.error);
-                        if(response.data.status == 406) {
-                            switch(errorNumber)
-                            {
-                                case 0:
-                                    errorData = "Please fill out all of the fields";
-                                    break;
-                                case 1:
-                                    errorData = "This user does not exist in our system. Please contact Us.";
-                                    break;
-                                case 2:
-                                    errorData = "The branch you attempted to add to no longer exists.";
-                                    break;
-                                case 4:
-                                    errorData = "Please enter a valid leaf name.";
-                                    break;
-                                default:
-                                    //go to Fail Page
-                                    //$location.path("/forestFire");
+                        },
+                        function( response ) {
+                            //alert('broked');
+                            //return;
+                            var errorData = '';
+                            var errorNumber = parseInt(response.data.error);
+                            if(response.status == 406) {
+                                switch(errorNumber)
+                                {
+                                    case 0:
+                                        errorData = response.data.txt;
+                                        break;
+                                    case 1:
+                                        errorData = "This user does not exist in our system. Please contact Us.";
+                                        break;
+                                    case 2:
+                                        errorData = response.data.txt;
+                                        break;
+                                    case 4:
+                                        errorData = "Please enter a valid leaf name.";
+                                        break;
+                                    default:
+                                        //go to Fail Page
+                                        //$location.path("/forestFire");
+                                }
+                                $('#invalidEmailError').html(errorData);
+                                $scope.invalidEmailErrorShow = true;
+                            } else if(response.status != 401 && errorNumber != 0) {
+                                //go to Fail Page
+                                $location.path("/forestFire");
                             }
-                            alert(errorData);
-                        } else if(response.data.status != 401 && errorNumber != 0) {
-                            //go to Fail Page
-                            //$location.path("/forestFire");
-                            alert(errorData);
-                        }
 
-                    }
-                );
-                $('#modifyUsersModalWorking').removeClass('active');
+                        }
+                    );
+                    $scope.invalidEmailErrorShow = false;
+                    $('#modifyUsersModalWorking').removeClass('active');
+                } else {
+                    $('#invalidEmailError').html('Please enter a valid email');
+                    $scope.invalidEmailErrorShow = true;
+                }
             }
             
             $scope.mobileGoToHome = function() {
@@ -530,7 +539,9 @@
             $scope.openModifyUsersModal = function () {
                 if (settingsPane.isOpen) {
                     settingsPane.closeFast();
-                } 
+                }
+                $scope.invalidEmailErrorShow = false;
+                $('#userList').val('');
                 
                 var promise = treeService.getKnownPeople();
                 promise.then(
@@ -600,6 +611,8 @@
 
             $scope.closeModifyUsersModal = function () {
                 $("#modifyUsersModal").modal('hide');
+                $scope.invalidEmailErrorShow = false;
+
                 /*$("#invalidModifyUser").html('');
                 $rootScope.modifyTree = null;
                 $scope.invalidModifyTree = false; 
@@ -655,6 +668,7 @@
             // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
             $scope.filesListing = [];
+            $scope.invalidEmailErrorShow = false;
             
 
             // Load the "remote" data.

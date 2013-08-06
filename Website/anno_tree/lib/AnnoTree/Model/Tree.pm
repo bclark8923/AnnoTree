@@ -243,7 +243,7 @@ sub addUserToTree {
     if (looks_like_number($cols->[0])) {
         my $num = $cols->[0];
         if ($num == 0) {
-            $json = {error => $num, txt => 'User already added successfully'};
+            $json = {error => $num, txt => $params->{userToAdd} . ' has already been added to this tree'};
         } elsif ($num == 1) {
             $json = {error => $num, txt => 'Tree does not exist or user does not have access to that tree'};
         }

@@ -256,6 +256,7 @@
                         $('#leafCommentError').html("You didn't write a comment!");
                         $scope.leafCommentError = true;
                     }
+                    $('#newComment').prop('disabled', false);
                 } else {
                     var leafID = $scope.leaf.id;
                     var promise = leafService.addLeafComment(leafID, comment);
@@ -265,7 +266,7 @@
                             $scope.isLoading = false;
                             $scope.leaf.comments = (response.data.comments);
                             $('#newComment').val('');
-                            //setScroll();
+                            $('#newComment').prop('disabled', false);
                         },
                         function( response ) {
                             var errorData;
@@ -276,11 +277,11 @@
                                 errorData = "Our service are experiencing issues currently. Please try again in a few minutes.";
                             }
                             $("#leafCommentError").html(errorData);
+                            $('#newComment').prop('disabled', false);
                         }
                     );
                     $("#loadingScreen").hide();
                 }
-                $('#newComment').prop('disabled', false);
             }
 
             $scope.openModifyLeafModal = function () {

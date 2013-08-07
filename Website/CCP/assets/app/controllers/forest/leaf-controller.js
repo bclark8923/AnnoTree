@@ -7,6 +7,18 @@
 
 
             // --- Define Controller Methods. ------------------- //
+            function setScroll() {
+               $timeout(function() {
+                    var leafHeight = $('#leaf').height();
+                    var commentArea = $('#commentArea').height() + 75;
+                    $('#commentsWrapper').css('max-height', leafHeight - commentArea);
+                    $('#commentsWrapper').scrollTop(99999999);
+                }, 0); 
+            }
+            
+            $scope.$watch('leaf.comments', function() {
+                setScroll();
+            });
 
             $scope.openViewLeafModal = function (tree) {
                 $("#viewLeafModal").addClass('active');
@@ -253,6 +265,7 @@
                             $scope.isLoading = false;
                             $scope.leaf.comments = (response.data.comments);
                             $('#newComment').val('');
+                            //setScroll();
                         },
                         function( response ) {
                             var errorData;
@@ -465,7 +478,7 @@
 
             // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
-
+            //setScroll();
             // Load the "remote" data.
             loadLeafData();
         }

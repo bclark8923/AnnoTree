@@ -39,17 +39,19 @@
                     </div>
                     <div class="col-12 col-sm-6">
                         <div class="leafComments" >
-                            <div class="leafComment" ng-repeat="comment in leaf.comments | orderBy:'created_at' | date:'yyyy-MM-dd HH:mm:ss'">
-                                <div class="userImageHolder">
-                                    <img class="userCommentImage" ng-src="{{comment.avatar}}"> 
+                            <div id="commentsWrapper">
+                                <div class="leafComment" ng-repeat="comment in leaf.comments | orderBy:'created_at' | date:'yyyy-MM-dd HH:mm:ss'">
+                                    <div class="userImageHolder">
+                                        <img class="userCommentImage" ng-src="{{comment.avatar}}"> 
+                                    </div>
+                                    <div class="userCommentHolder"> 
+                                        <p class="userCommentName">{{comment.first_name}} {{comment.last_name}}</p> 
+                                        <p class="userComment">{{comment.comment}}</p>
+                                    </div>
+                                    <hr class="smallHR"/>
                                 </div>
-                                <div class="userCommentHolder"> 
-                                    <p class="userCommentName">{{comment.first_name}} {{comment.last_name}}</p> 
-                                    <p class="userComment">{{comment.comment}}</p>
-                                </div>
-                                <hr class="smallHR"/>
                             </div>
-                            <div class="leafComment">
+                            <div class="leafComment" id="commentArea">
                                 <div class="error-text" id="leafCommentError" ng-modal="leafCommentError"></div>
                                 <div class="userImageHolder">
                                     <img class="userCommentImage" ng-src="{{user.avatar}}"> 

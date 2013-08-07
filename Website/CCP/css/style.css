@@ -617,6 +617,10 @@ a.btn-annotree {
     padding: 10px;
 }
 
+#commentsWrapper {
+    overflow-y: auto;
+}
+
 .leafComment {
     margin: 5px 0;
 }

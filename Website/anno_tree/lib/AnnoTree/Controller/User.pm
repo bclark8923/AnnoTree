@@ -100,4 +100,12 @@ sub reset {
     $self->render(status => $status, json => $json);
 }
 
+sub getUserInformation {
+    my $self = shift;
+
+    my $json = AnnoTree::Model::User->getUserInformation($self->current_user->{userid});
+
+    $self->render(json => $json, status => 200);
+}
+
 return 1;

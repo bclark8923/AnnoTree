@@ -96,6 +96,7 @@ sub startup {
     $r->post('/user/reset/:token')                          ->to('controller-user#reset');
     $authr->post('/user/logout')                            ->to('controller-auth#logoutUser');
     $authr->get('/user/knownpeople')                        ->to('controller-user#knownPeople');
+    $authr->get('/user')                                    ->to('controller-user#getUserInformation');
     $authr->post('/user/feedback')                          ->to('controller-user#feedback');
     #$authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser');
 

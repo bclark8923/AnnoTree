@@ -13,7 +13,7 @@
                     var commentArea = $('#commentArea').height() + 75;
                     var height = leafHeight - commentArea;
                     if (height < 100) {
-                        height = 540;
+                        height = 400;
                     }
                     $('#commentsWrapper').css('max-height', height);
                     $('#commentsWrapper').scrollTop(99999999);

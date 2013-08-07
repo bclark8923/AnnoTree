@@ -7,6 +7,22 @@
 
 
             // --- Define Controller Methods. ------------------- //
+            function setScroll() {
+               $timeout(function() {
+                    var leafHeight = $('#leaf').height();
+                    var commentArea = $('#commentArea').height() + 75;
+                    var height = leafHeight - commentArea;
+                    if (height < 100) {
+                        height = 400;
+                    }
+                    $('#commentsWrapper').css('max-height', height);
+                    $('#commentsWrapper').scrollTop(99999999);
+                }, 0); 
+            }
+            
+            $scope.$watch('leaf.comments', function() {
+                setScroll();
+            });
 
             $scope.openViewLeafModal = function (tree) {
                 $("#viewLeafModal").addClass('active');
@@ -236,6 +252,7 @@
             }
 
             $scope.addLeafComment = function() {
+                $('#newComment').prop('disabled', true);
                 var formValid = $scope.leafCommentForm.$valid;
                 var comment = $scope.leafComment.comment;
                 if (!formValid) {
@@ -243,8 +260,8 @@
                         $('#leafCommentError').html("You didn't write a comment!");
                         $scope.leafCommentError = true;
                     }
+                    $('#newComment').prop('disabled', false);
                 } else {
-                    $('#newComment').prop('disabled', true);
                     var leafID = $scope.leaf.id;
                     var promise = leafService.addLeafComment(leafID, comment);
 
@@ -253,6 +270,7 @@
                             $scope.isLoading = false;
                             $scope.leaf.comments = (response.data.comments);
                             $('#newComment').val('');
+                            $('#newComment').prop('disabled', false);
                         },
                         function( response ) {
                             var errorData;
@@ -263,9 +281,9 @@
                                 errorData = "Our service are experiencing issues currently. Please try again in a few minutes.";
                             }
                             $("#leafCommentError").html(errorData);
+                            $('#newComment').prop('disabled', false);
                         }
                     );
-                    $('#newComment').prop('disabled', false);
                     $("#loadingScreen").hide();
                 }
             }
@@ -465,7 +483,7 @@
 
             // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
-
+            //setScroll();
             // Load the "remote" data.
             loadLeafData();
         }

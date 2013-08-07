@@ -132,6 +132,7 @@
                 $rootScope.modifyTree = null;
                 $scope.invalidModifyTree = false; 
                 $("#loadingScreen").hide();
+                $('#modifyTreeModalWorking').removeClass('active');
             }
             
             $scope.modifyTreeFn = function() {
@@ -419,6 +420,9 @@
                         //if existing, push
                         var index = $scope.treeInfo.users.indexOf($scope.removeUser);
                         $scope.treeInfo.users.splice(index, 1);
+                        if ($rootScope.user.id == user.id) {
+                            $location.path("app");
+                        }
                         //else alert user was invited
 
                     },

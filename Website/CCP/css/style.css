@@ -617,6 +617,10 @@ a.btn-annotree {
     padding: 10px;
 }
 
+#commentsWrapper {
+    overflow-y: auto;
+}
+
 .leafComment {
     margin: 5px 0;
 }
@@ -704,22 +708,18 @@ a.btn-annotree {
     width: 80%;
 }
 
-#displayAnnotation .modal-content {
-    /*box-shadow: none;
-    border: none;
-    background: rgba(250,250,250,0.0);*/
-}
-
 #displayAnnotation img {
     max-width: 100%;
     margin: 0 auto;
     display: block;
+    padding: 20px;
 }
 
 #displayAnnotation .close {
     opacity: 0.8;
     color: #444;
     font-size: 40pt;
+    text-shadow: none;
 }
 
 #displayAnnotation .close:hover {

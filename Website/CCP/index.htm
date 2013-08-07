@@ -20,14 +20,12 @@
 
         <script src="assets/vendor/modernizr/modernizr-2.6.2.min.js"></script>
         <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-42753127-1', 'annotree.com');
-          ga('send', 'pageview');
-
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-42753127-1', 'annotree.com');
+            ga('send', 'pageview');
         </script>
     </head>
     <body>
@@ -42,32 +40,14 @@
             </div>
         </div> 
         <div ng-switch="subview">
-         
-            <!--
-                This subview will show while the AngularJS app is loading since it's visible right in 
-                the page. Once the app kicks in, however, the calculated subview will determine the
-                appropriate layout to render.
-            -->
-            <!--<div ng-switch-when="loading" class="l-loading" style="opacity:0.5;">
-                
-                <div style="text-align:center;">
-                    <img src="img/AnnoTreeLoading.png" style="width:200px;margin-top: 200px;"/>
-                </div>  
-
-            </div>-->
-
             <!-- Core layouts. -->
             <div ng-switch-when="authenticate" ng-include=" 'assets/app/views/layouts/Authenticate.html' "></div>
             <div ng-switch-when="standard" ng-include=" 'assets/app/views/layouts/CCPHeader.html' "></div>
         </div>
 
-
         <!-- ### JavaScript Modules. ### -->
-
-
         <!-- Load vendor scripts. -->
         <script src="assets/vendor/jquery/jquery-1.10.2.min.js"></script>
-
         <script type="text/javascript" src="assets/vendor/jquery/jquery-ui-1.10.3.custom.min.js"></script>
         <script type="text/javascript" src="assets/vendor/lodash/lodash.min.js"></script>
         <script type="text/javascript" src="assets/vendor/angularjs/angular.min.js"></script>
@@ -114,6 +94,5 @@
         
         <!-- Load Beans. -->
         <script type="text/javascript" src="assets/app/beans/render-context.js"></script>
-
     </body>
 </html>

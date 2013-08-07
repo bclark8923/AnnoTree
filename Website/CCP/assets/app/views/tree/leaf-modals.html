@@ -40,23 +40,14 @@
 
 <!-- View Annotation Modal -->
 <div class="modal fade" id="displayAnnotation"  ng-controller="forest.LeafController">
-    <div style="float:right">
-        <button type="button" class="close responsiveHide" data-dismiss="modal">
-            <i class="icon-remove-circle" ></i>
-        </button> 
-    </div>
     <div class="modal-dialog">
-       <img id="annotationImageDisplay" />
+        <div class="modal-content">
+            <button style="position:absolute;right:5px;z-index:1060" type="button" class="close" data-dismiss="modal">
+                <i class="icon-remove-circle" ></i>
+            </button> 
+            <img id="annotationImageDisplay" />
+        </div>
     </div>
-</div>
-
-<!-- View Leaf Modal -->
-<div class="modal" id="viewLeafModal" data-backdrop="false" ng-controller="forest.LeafController">
-  <div class="" style="height:100%;">
-    <div style="height:100%;">
-        <img class="singleLeafImage" style="vertical-align:middle;cursor:pointer;max-width:90%;max-height:90%;margin:0;border:10px solid #444;" ng-src="{{leaf.image}}" ng-click="closeViewLeafModal()" gumby-retina />
-    </div>
-  </div>
 </div>
 
 <!-- Modify Leaf Modal -->

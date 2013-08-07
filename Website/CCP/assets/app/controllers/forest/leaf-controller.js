@@ -11,7 +11,11 @@
                $timeout(function() {
                     var leafHeight = $('#leaf').height();
                     var commentArea = $('#commentArea').height() + 75;
-                    $('#commentsWrapper').css('max-height', leafHeight - commentArea);
+                    var height = leafHeight - commentArea;
+                    if (height < 100) {
+                        height = 540;
+                    }
+                    $('#commentsWrapper').css('max-height', height);
                     $('#commentsWrapper').scrollTop(99999999);
                 }, 0); 
             }

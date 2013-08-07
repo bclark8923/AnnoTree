@@ -248,6 +248,7 @@
             }
 
             $scope.addLeafComment = function() {
+                $('#newComment').prop('disabled', true);
                 var formValid = $scope.leafCommentForm.$valid;
                 var comment = $scope.leafComment.comment;
                 if (!formValid) {
@@ -256,7 +257,6 @@
                         $scope.leafCommentError = true;
                     }
                 } else {
-                    $('#newComment').prop('disabled', true);
                     var leafID = $scope.leaf.id;
                     var promise = leafService.addLeafComment(leafID, comment);
 
@@ -278,9 +278,9 @@
                             $("#leafCommentError").html(errorData);
                         }
                     );
-                    $('#newComment').prop('disabled', false);
                     $("#loadingScreen").hide();
                 }
+                $('#newComment').prop('disabled', false);
             }
 
             $scope.openModifyLeafModal = function () {

@@ -2,6 +2,13 @@
 <div ng-switch="subview" ng-controller="forest.ForestController">
     <div id="forestContainer">
         <div class="container" >
+            <div class="row forest new" style="margin-bottom:30px">
+                <div class="col-12">
+                    <span class="forestName new" ng-click="openNewForestModal()">
+                        <strong>Create Forest</strong>
+                  </span>
+                </div>
+            </div>
             <div ng-repeat="forest in forests" post-render>
                 <div class="row forest">
                     <div class="col-12">
@@ -36,13 +43,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row forest new" style="margin-bottom:30px">
-                <div class="col-12">
-                    <span class="forestName new" ng-click="openNewForestModal()">
-                        <strong>Create Forest</strong>
-                  </span>
                 </div>
             </div>
         </div>

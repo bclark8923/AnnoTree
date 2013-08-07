@@ -171,14 +171,8 @@
                                     $("#invalidAddTree").html(errorData);
                                     
                                     //if this breaks at all we have a problem on our end
-                                    //$location.path("/forestFire");
-                                    //alert(errorData);
-
                                 }
                             );
-                
-                            //$timeout(function() { Gumby.initialize('switches') }, 0);
-
                         },
                         function( response ) {
                             $scope.invalidAddTree = true;

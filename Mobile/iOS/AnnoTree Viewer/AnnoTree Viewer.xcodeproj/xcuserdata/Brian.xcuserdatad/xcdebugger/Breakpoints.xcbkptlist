@@ -130,7 +130,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "589"
          endingLineNumber = "589"
-         landmarkName = "-setSelectedButton:"
+         landmarkName = "-scaleAndRotateImage:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -182,7 +182,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "580"
          endingLineNumber = "580"
-         landmarkName = "-connection:didReceiveData:"
+         landmarkName = "-scaleAndRotateImage:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

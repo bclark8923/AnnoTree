@@ -13,7 +13,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[AnnoTree sharedInstance] loadAnnoTree:@"Your Key Here"];
+    [[AnnoTree sharedInstance] loadAnnoTree:@"26216c655846f917a259c2ce2e98224c50fbd3d0a2451301e740cae250cf8231"];
     
     return YES;
 }

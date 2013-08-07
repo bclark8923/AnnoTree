@@ -2,8 +2,8 @@
 //  MyLineDrawingView.h
 //  DrawLines
 //
-//  Created by Reetu Raj on 11/05/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Brian Clark on 6/7/13.
+//  Copyright (c) 2013 AnnoTree. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -24,6 +24,7 @@
 
 /* Begin PBXBuildFile section */
 		067B05FC17AF01AD00C7C3FE /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 067B05FB17AF01AD00C7C3FE /* AnnoTree.bundle */; };
+		06800E4817B3C8F200EA650D /* MoveableText.m in Sources */ = {isa = PBXBuildFile; fileRef = 06800E4717B3C8F200EA650D /* MoveableText.m */; };
 		06865BF617B106070048BD86 /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06865BF517B106070048BD86 /* AnnoTree.framework */; };
 		D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */; };
 		D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C688171B413400BA9B2F /* Default-Portrait@2x~ipad.png */; };
@@ -147,6 +148,8 @@
 
 /* Begin PBXFileReference section */
 		067B05FB17AF01AD00C7C3FE /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = "../../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator/AnnoTree.bundle"; sourceTree = "<group>"; };
+		06800E4617B3C8F200EA650D /* MoveableText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveableText.h; sourceTree = "<group>"; };
+		06800E4717B3C8F200EA650D /* MoveableText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveableText.m; sourceTree = "<group>"; };
 		06865BF517B106070048BD86 /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnnoTree.framework; path = "../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos/AnnoTree.framework"; sourceTree = "<group>"; };
 		D314C668171B2D7700BA9B2F /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		D314C669171B2D7700BA9B2F /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
@@ -332,6 +335,8 @@
 				D3AAA1F517002C4400954DDF /* AnnotationView.m */,
 				D3180C481761969800A6B8E0 /* AnnotationViewController.h */,
 				D3180C491761969800A6B8E0 /* AnnotationViewController.m */,
+				06800E4617B3C8F200EA650D /* MoveableText.h */,
+				06800E4717B3C8F200EA650D /* MoveableText.m */,
 			);
 			name = Annotations;
 			sourceTree = "<group>";
@@ -813,6 +818,7 @@
 				D3AAA1B317000FC300954DDF /* main.m in Sources */,
 				D3AAA1B717000FC300954DDF /* AppDelegate.m in Sources */,
 				D3AAA1C617000FC300954DDF /* WebViewController.m in Sources */,
+				06800E4817B3C8F200EA650D /* MoveableText.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

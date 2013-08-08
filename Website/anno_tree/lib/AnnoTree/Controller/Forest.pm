@@ -99,4 +99,43 @@ sub deleteForest {
     $self->render(json => $json, status => $status);
 }
 
+sub forestUsers {
+    my $self = shift;
+
+    my $params = {};
+    $params->{userid} = $self->current_user->{userid};
+    $params->{forestid} = $self->param('forestid');
+    
+    my $json = AnnoTree::Model::Forest->forestUsers($params);
+
+    my $status = 200;
+    if (exists $json->{error}) {
+        $status = 406;
+    }
+
+    $self->render(json => $json, status => $status);
+}
+
+sub updateOwner {
+    my $self = shift;
+    
+    my $jsonReq = $self->req->json;
+
+    $self->render(json => {error => '0', txt => 'Missing required JSON name/value pairs in request or they have no value'}, status => 406) and return unless ($jsonReq->{owner});
+
+    my $params = {};
+    $params->{reqUser} = $self->current_user->{userid};
+    $params->{forestid} = $self->param('forestid');
+    $params->{newOwner} = $jsonReq->{owner};
+
+    my $json = AnnoTree::Model::Forest->updateOwner($params);
+
+    my $status = 200;
+    if (exists $json->{error}) {
+        $status = 406;
+    }
+
+    $self->render(json => $json, status => $status);
+}
+
 return 1;

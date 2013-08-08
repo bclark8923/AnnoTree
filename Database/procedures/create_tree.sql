@@ -30,7 +30,7 @@ IF (select id from user where id = u) THEN
             SET @forest_owner = (SELECT f.owner_id 
                 FROM forest AS f INNER JOIN tree AS t ON t.forest_id = f.id
                 WHERE t.id = @tree_id);
-            IF (@forest_owner != u) THEN
+            IF (@forest_owner != u AND @forest_owner IS NOT NULL) THEN
                 INSERT INTO user_tree (user_id, tree_id)
                     VALUES (@forest_owner, @tree_id);
             END IF;

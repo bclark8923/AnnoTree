@@ -6,7 +6,7 @@ USE annotree;
 DROP PROCEDURE IF EXISTS `delete_user_from_tree`;
 DELIMITER $$
 
-CREATE Procedure `delete_user_from_tree`(
+CREATE PROCEDURE `delete_user_from_tree`(
     IN treeid INT,
     IN del_user INT,
     IN req_user INT

@@ -406,6 +406,9 @@ a.btn-annotree {
     -webkit-transition: opacity .25s linear;
 }
 
+#forestOwnerInfo {
+text-align:left;line-height:38px;vertical-align:middle;
+}
 /* -----------------------
  * Dashboard Settings
  * ----------------------- */

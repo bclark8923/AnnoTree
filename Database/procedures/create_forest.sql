@@ -26,6 +26,7 @@ IF (SELECT id FROM user WHERE id = userid_in) THEN
         SELECT f.id, f.name, f.description, f.created_at, u.email
         FROM forest AS f INNER JOIN user AS u ON u.id = f.owner_id
         WHERE f.id = @id;
+    COMMIT;
 ELSE
     SELECT '1';
 END IF;

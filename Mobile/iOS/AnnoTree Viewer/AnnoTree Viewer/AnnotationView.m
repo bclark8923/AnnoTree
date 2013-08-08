@@ -8,12 +8,15 @@
 
 #import "AnnotationView.h"
 #import "AnnoTree.h"
+#import "MoveableText.h"
 
 
 @implementation AnnotationView
 
 @synthesize drawingEnabled;
 @synthesize textEnabled;
+
+static int textBoxTag = 101;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -66,6 +69,7 @@
     
     if(textEnabled) {
         UITouch *mytouch=[[touches allObjects] objectAtIndex:0];
+
         //NSLog(@"size is %f, %f", [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
         
         CGPoint pos = [mytouch locationInView: mytouch.view];
@@ -80,7 +84,12 @@
         //NSLog(@"%i", textboxWidth);
         
         /*UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(pos.x, pos.y-textboxHeight/2, textboxWidth, textboxHeight)];*/
-        UITextView *textField = [[UITextView alloc] initWithFrame:CGRectMake(pos.x-10, pos.y-textboxHeight, textboxWidth, textboxHeight)];
+        MoveableText *textField = [[MoveableText alloc] initWithFrame:CGRectMake(pos.x-10, pos.y-textboxHeight, textboxWidth, textboxHeight)];
+
+        
+    
+
+        
         //textField.borderStyle = UITextBorderStyleRoundedRect;
         textField.font = [UIFont systemFontOfSize:15];
         //textField.borderStyle = UITextBorderStyleLine;
@@ -95,11 +104,16 @@
         UIColor *bgColor = UIColorFromRGB(0xF7F8F5);
         textField.backgroundColor = [bgColor colorWithAlphaComponent:0.8];
         [textField setInputAccessoryView:[self getKeyboardAccessoryView]];
+        
+                
         [self addSubview:textField];
         [textBoxes addObject:textField];
         [textField becomeFirstResponder];
+
     }
 }
+
+
 
 
 -(UIToolbar*) getKeyboardAccessoryView {
@@ -150,6 +164,7 @@
         [myPath addLineToPoint:[mytouch locationInView:self]];
         [self setNeedsDisplay];
     }
+    
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

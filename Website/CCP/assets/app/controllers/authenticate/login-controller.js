@@ -154,19 +154,11 @@
                 }
             );
 
-
             // --- Initialize. ---------------------------------- //
-
-
+            $("#loadingScreen").hide();
+            
             // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
-
-            if(!$scope.subview) {
-                //window.Gumby.init();
-            }
-
-
         }
     );
-
- })( angular, AnnoTree );
+})( angular, AnnoTree );

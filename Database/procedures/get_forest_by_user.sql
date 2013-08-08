@@ -2,25 +2,22 @@
 -- get_forest_by_user
 -- Note: Returns a list of forest associated with a user's id
 -- --------------------------------------------------------------------------------
-use annotree;
-drop procedure IF EXISTS `get_forest_by_user`;
+USE annotree;
+DROP PROCEDURE IF EXISTS `get_forest_by_user`;
 DELIMITER $$
 
 CREATE PROCEDURE `get_forest_by_user`(
-  in u INT)
+    IN userid_in INT
+)
 BEGIN
-if (select id from user where id = u) then
-select 'id', 'name', 'description', 'created_at'
-union
-select forest.id, forest.name, forest.description, forest.created_at
-            from forest
-            join
-                user_forest
-                    on user_forest.forest_id = forest.id  
-                    and user_forest.user_id = u;
-set @id = LAST_INSERT_ID();
-else 
-select '1';
-end if;
+IF (SELECT id FROM user WHERE id = userid_in) THEN
+    SELECT 'id', 'name', 'description', 'created_at', 'owner'
+    UNION
+    SELECT f.id, f.name, f.description, f.created_at, u.email
+        FROM forest AS f JOIN user_forest AS uf ON uf.forest_id = f.id AND uf.user_id = userid_in
+        LEFT OUTER JOIN user AS u ON u.id = f.owner_id;
+ELSE
+    SELECT '1';
+END IF;
 END $$
-delimiter ; $$
+DELIMITER ; $$

@@ -24,7 +24,8 @@
 
 /* Begin PBXBuildFile section */
 		06818B0117B21D3500E830B8 /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06818B0017B21D3500E830B8 /* AnnoTree.framework */; };
-		0683CA2D17B1F32C0096833F /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0683CA2C17B1F32C0096833F /* AnnoTree.bundle */; };
+		06CA71D717B3CCB0005841C4 /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06CA71D417B3CCB0005841C4 /* AnnoTree.bundle */; };
+		06CA71DC17B3CD08005841C4 /* MoveableText.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CA71DB17B3CD08005841C4 /* MoveableText.m */; };
 		D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */; };
 		D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C688171B413400BA9B2F /* Default-Portrait@2x~ipad.png */; };
 		D3180C27176184B300A6B8E0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C26176184B300A6B8E0 /* CoreFoundation.framework */; };
@@ -147,7 +148,9 @@
 
 /* Begin PBXFileReference section */
 		06818B0017B21D3500E830B8 /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnnoTree.framework; path = "../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos/AnnoTree.framework"; sourceTree = "<group>"; };
-		0683CA2C17B1F32C0096833F /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = ../../../../Website/CCP/SDK/AnnoTree.bundle; sourceTree = "<group>"; };
+		06CA71D417B3CCB0005841C4 /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = "../../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos/AnnoTree.bundle"; sourceTree = "<group>"; };
+		06CA71DA17B3CD08005841C4 /* MoveableText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveableText.h; sourceTree = "<group>"; };
+		06CA71DB17B3CD08005841C4 /* MoveableText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveableText.m; sourceTree = "<group>"; };
 		D314C668171B2D7700BA9B2F /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		D314C669171B2D7700BA9B2F /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
@@ -328,6 +331,8 @@
 		D314C667171B2D5A00BA9B2F /* Annotations */ = {
 			isa = PBXGroup;
 			children = (
+				06CA71DA17B3CD08005841C4 /* MoveableText.h */,
+				06CA71DB17B3CD08005841C4 /* MoveableText.m */,
 				D3AAA1F417002C4400954DDF /* AnnotationView.h */,
 				D3AAA1F517002C4400954DDF /* AnnotationView.m */,
 				D3180C481761969800A6B8E0 /* AnnotationViewController.h */,
@@ -509,7 +514,7 @@
 		D3AAA1E71700186400954DDF /* AnnoTree */ = {
 			isa = PBXGroup;
 			children = (
-				0683CA2C17B1F32C0096833F /* AnnoTree.bundle */,
+				06CA71D417B3CCB0005841C4 /* AnnoTree.bundle */,
 				D314C666171B2D4200BA9B2F /* ToolbarActions */,
 				D3AAA1E41700182B00954DDF /* Images */,
 				D3AAA1ED170018EE00954DDF /* AnnoTree.h */,
@@ -706,7 +711,7 @@
 				D3AAA1C317000FC300954DDF /* MainStoryboard_iPad.storyboard in Resources */,
 				D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */,
 				D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */,
-				0683CA2D17B1F32C0096833F /* AnnoTree.bundle in Resources */,
+				06CA71D717B3CCB0005841C4 /* AnnoTree.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -813,6 +818,7 @@
 				D3AAA1B317000FC300954DDF /* main.m in Sources */,
 				D3AAA1B717000FC300954DDF /* AppDelegate.m in Sources */,
 				D3AAA1C617000FC300954DDF /* WebViewController.m in Sources */,
+				06CA71DC17B3CD08005841C4 /* MoveableText.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

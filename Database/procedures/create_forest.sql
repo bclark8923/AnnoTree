@@ -2,34 +2,33 @@
 -- create_forest
 -- returns 0 - success
 -- --------------------------------------------------------------------------------
-use annotree;
-drop  procedure IF EXISTS `create_forest`;
+USE annotree;
+DROP PROCEDURE IF EXISTS `create_forest`;
 DELIMITER $$
 
-
-CREATE Procedure `create_forest`(
-  in user INT,
-  in n varchar(45),
-  in d varchar(1024)
-  )
+CREATE PROCEDURE `create_forest`(
+    IN userid_in INT,
+    IN n VARCHAR(45),
+    IN d VARCHAR(1024)
+)
 BEGIN
-IF (select id from user where id = user) then
-insert into `annotree`.`forest` 
-  (name, description)
-  values (n, d);
-set @id = LAST_INSERT_ID();
-insert into `annotree`.`user_forest`
-  (user_id, forest_id)
-values
-  (user, @id);
-select 'id', 'name', 'description', 'created_at' 
-union 
-select id, name, description, created_at
-from forest
-where id = @id;
-set @forest_id = @id;
+IF (SELECT id FROM user WHERE id = userid_in) THEN
+    INSERT INTO `annotree`.`forest`
+        (name, description, owner_id)
+        values (n, d, userid_in);
+        SET @id = LAST_INSERT_ID();
+    INSERT INTO `annotree`.`user_forest`
+        (user_id, forest_id)
+        VALUES
+        (userid_in, @id);
+    SELECT 'id', 'name', 'description', 'created_at', 'owner'
+        UNION
+        SELECT f.id, f.name, f.description, f.created_at, u.email
+        FROM forest AS f INNER JOIN user AS u ON u.id = f.owner_id
+        WHERE f.id = @id;
+    COMMIT;
 ELSE
-SELECT '1';
+    SELECT '1';
 END IF;
 END $$
-delimiter ; $$
+DELIMITER ; $$

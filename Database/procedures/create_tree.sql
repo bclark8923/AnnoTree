@@ -27,10 +27,15 @@ IF (select id from user where id = u) THEN
               (forest_id, name, description, logo, owner_id, token, created_at)
               values (f, n, d, l, u, token_in, created_in);
             set @tree_id = LAST_INSERT_ID();
-            insert into `annotree`.`user_tree`
-              (user_id, tree_id)
-            values
-              (u, @tree_id);
+            SET @forest_owner = (SELECT f.owner_id 
+                FROM forest AS f INNER JOIN tree AS t ON t.forest_id = f.id
+                WHERE t.id = @tree_id);
+            IF (@forest_owner != u AND @forest_owner IS NOT NULL) THEN
+                INSERT INTO user_tree (user_id, tree_id)
+                    VALUES (@forest_owner, @tree_id);
+            END IF;
+            insert into `annotree`.`user_tree` (user_id, tree_id)
+                values (u, @tree_id);
             select 'id', 'forest_id', 'name', 'description', 'created_at', 'logo', 'token' 
             union 
             select id, forest_id, name, description, created_at, logo, token

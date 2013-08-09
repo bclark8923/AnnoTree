@@ -173,4 +173,60 @@ sub deleteForest {
     return $json;
 }
 
+sub forestUsers {
+    my ($class, $params) = @_;
+    
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call get_forest_users(:forestid, :userid)",
+        {
+            forestid    => $params->{forestid},
+            userid      => $params->{userid}
+        }
+    );
+
+    my $json = {};
+    my $cols = $result->fetch;
+    return {error => $cols->[0], txt => 'User does not have permissions to access that forest or forest does not exist'} if (looks_like_number($cols->[0]));
+    
+    my $userCount = 0;
+    while (my $user = $result->fetch) {
+        for (my $i = 0; $i < @{$cols}; $i++) {
+            $json->{users}->[$userCount]->{$cols->[$i]} = $user->[$i] || '';
+        }
+        $userCount++;
+    }
+
+    return $json;
+}
+
+sub updateOwner {
+    my ($class, $params) = @_;
+    
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call update_forest_owner(:forestid, :reqUser, :newOwner)",
+        {
+            forestid    => $params->{forestid},
+            reqUser     => $params->{reqUser},
+            newOwner    => $params->{newOwner}
+        }
+    );
+
+    my $return = $result->fetch;
+    if (looks_like_number($return->[0])) {
+        my $error = $return->[0];
+        if ($error == 1) {
+            return {error => $error, txt => 'Selected user does not have permissions to access that forest or forest does not exist'};
+        } elsif ($error == 2) {
+            return {error => $error, txt => 'Selected user does not have permissions to own that forest'};
+        } elsif ($error == 3) {
+            return {error => $error, txt => 'Selected user is already the owner of that forest'};
+            
+        }
+    }
+    
+    my $json = {email => $return->[0]};
+
+    return $json;
+}
+
 return 1;

@@ -113,7 +113,9 @@ sub startup {
     # ===== FORESTS =====
     $authr->post('/forest')                                         ->to('controller-forest#create');
     $authr->get('/forest')                                          ->to('controller-forest#forestInfo');
+    $authr->get('/forest/:forestid/users' => [forestid => qr/\d+/]) ->to('controller-forest#forestUsers');
     $authr->put('/forest/:forestid' => [forestid => qr/\d+/])       ->to('controller-forest#update');
+    $authr->put('/forest/:forestid/owner' => [forestid => qr/\d+/]) ->to('controller-forest#updateOwner');
     $authr->delete('/forest/:forestid' => [forestid => qr/\d+/])    ->to('controller-forest#deleteForest');
 
     # ===== TREES =====

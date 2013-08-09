@@ -38,7 +38,19 @@
                 $scope.isLoading = true;
 
                 var promise = treeService.getTree($routeParams.treeID);
-
+                var found = false;
+                for (var i = 0; i < $rootScope.forests.length; i++) {
+                    for (var n = 0; n < $rootScope.forests[i].trees.length; n++) {
+                        if ($rootScope.forests[i].trees[n].id == $routeParams.treeID) {
+                            $scope.forestOwner = $rootScope.forests[i].owner;
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (found) {
+                        break;
+                    }
+                }
                 promise.then(
                     function( response ) {
 
@@ -74,15 +86,14 @@
                         }
                     }
                 );
-
             }
+
             function validateEmail(email) { 
                 var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 return re.test(email);
             }
 
             // --- Define Scope Methods. ------------------------ //
-
             function addLeaf(newLeaf) {
 
                 $rootScope.leaves.pop();
@@ -99,15 +110,7 @@
                 if(!$scope.$$phase) {
                     $scope.$apply();
                 }
-                //$scope.$apply();
                 $scope.closeNewLeafModal();
-
-                /*$route.reload();
-
-                if(!$scope.$$phase) {
-                    $scope.$apply();
-                }*/
-
             }
 
             $scope.openModifyTreeModal = function (tree) {
@@ -427,11 +430,9 @@
 
                     },
                     function( response ) {
-                        //alert('broked');
-                        //return;
                         var errorData = "Our Remove User From Tree Service is currently down, please try again later.";
                         var errorNumber = parseInt(response.data.error);
-                        if(response.data.status == 406) {
+                        if(response.status == 406) {
                             switch(errorNumber)
                             {
                                 case 0:
@@ -443,6 +444,9 @@
                                 case 2:
                                     errorData = "The branch you attempted to add to no longer exists.";
                                     break;
+                                case 3:
+                                    errorData = response.data.txt;
+                                    break;
                                 case 4:
                                     errorData = "Please enter a valid leaf name.";
                                     break;
@@ -450,7 +454,8 @@
                                     //go to Fail Page
                                     //$location.path("/forestFire");
                             }
-                            alert(errorData);
+                            $('#invalidRemoveError').html(errorData);
+                            $scope.invalidRemoveErrorShow = true;
                         } else if(response.data.status != 401 && errorNumber != 0) {
                             //go to Fail Page
                             //$location.path("/forestFire");
@@ -463,6 +468,7 @@
 
             $scope.addUser = function() {
                 $scope.addedUser.email = $scope.addUserID;
+                $scope.invalidRemoveErrorShow = false;
                 var email = $('#userList').val();
                 if (validateEmail(email)) {
                     $('#modifyUsersModalWorking').addClass('active');
@@ -545,6 +551,7 @@
                     settingsPane.closeFast();
                 }
                 $scope.invalidEmailErrorShow = false;
+                $scope.invalidRemoveErrorShow = false;
                 $('#userList').val('');
                 
                 var promise = treeService.getKnownPeople();
@@ -673,7 +680,7 @@
             $scope.setWindowTitle( "AnnoTree" );
             $scope.filesListing = [];
             $scope.invalidEmailErrorShow = false;
-            
+            $scope.invalidRemoveErrorShow = false;
 
             // Load the "remote" data.
             $scope.$evalAsync(loadTreeData());

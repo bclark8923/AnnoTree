@@ -368,6 +368,8 @@ sub removeUserFromTree {
         $json = {error => $num, txt => 'There was no user to remove'};
     } elsif ($num == 2) {
         $json = {error => $num, txt => 'Tree does not exist or user does not have permissions to remove that user from the tree'};
+    } elsif ($num == 3) {
+        $json = {error => $num, txt => 'You can\'t remove the forest owner from a tree'};
     }
  
 

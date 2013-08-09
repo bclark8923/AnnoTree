@@ -325,7 +325,7 @@
                         $("#invalidModifyLeaf").html("Please enter valid information.");
                     }
                 } else {
-                    //return;
+                    $('#modifyLeafModalWorking').addClass('active');
                     var promise = leafService.updateLeaf(leafID, branchID, leafName, leafDescription);
 
                     promise.then(
@@ -366,6 +366,8 @@
 
                         }
                     );
+                    $('#modifyLeafModalWorking').removeClass('active');
+
                 }
             }
 

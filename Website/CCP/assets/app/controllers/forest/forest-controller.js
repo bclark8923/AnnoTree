@@ -66,11 +66,8 @@
 
             }
 
-
             // --- Define Scope Methods. ------------------------ //
-
             function addTree(newTree) {
-
                 for(var i = 0; i < $rootScope.forests.length; i++) { 
                     if($rootScope.forests[i].id == newTree.forest_id) {
                         $rootScope.forests[i].trees.pop();
@@ -79,9 +76,55 @@
                         break;
                     }
                 }
-
                 $scope.closeNewTreeModal();
+            }
+            
+            $scope.changeForestOwnerFn = function() {
+                var newOwnerID = $('#forestOwnerSelect').val();
+                if (newOwnerID == 'nochange') {
+                    $('#changeOwnerError').html('Please select a new owner');
+                    $('#changeOwnerError').show();
+                } else {
+                    $('#changeForestOwnerModalWorking').addClass('active');
+                    var promise = forestService.updateForestOwner(newOwnerID, $rootScope.modifyForest.id);
+                    promise.then(
+                        function( response ) {
+                            $scope.changeOwnerError = false;
+                            $('#changeForestOwnerModal').modal('hide'); 
+                            $('#modifyForestModal').modal('hide'); 
+                            for (var i = 0; i < $rootScope.forests.length; i++) {
+                                if ($rootScope.forests[i].id == $rootScope.modifyForest.id) {
+                                    $rootScope.forests[i].owner = response.data.email;
+                                    break;
+                                }
+                            }
+                        },
+                        function( response ) {
+                            //if this happens then user does not have permissions to the forest
+                            $('#changeOwnerError').html(response.data.txt);
+                            $('#changeOwnerError').show();
+                        }
+                    ); 
+                    $('#changeForestOwnerModalWorking').removeClass('active');
+                }
+            }
 
+            $scope.openChangeForestOwnerModal = function() {
+                $('#changeForestOwnerModal').modal('show');
+                $('#changeOwnerError').hide();
+                var promise = forestService.getForestUsers($rootScope.modifyForest.id);
+                promise.then(
+                    function( response ) {
+                        $rootScope.potentialForestOwners = response.data.users;
+                    },
+                    function( response ) {
+                        //if this happens then user does not have permissions to the forest
+                    }
+                );
+            } 
+            
+            $scope.closeChangeForestOwnerModal = function() {
+                $('#changeForestOwnerModal').modal('hide');
             }
 
             $scope.openNewTreeModal = function (forest) {
@@ -171,14 +214,8 @@
                                     $("#invalidAddTree").html(errorData);
                                     
                                     //if this breaks at all we have a problem on our end
-                                    //$location.path("/forestFire");
-                                    //alert(errorData);
-
                                 }
                             );
-                
-                            //$timeout(function() { Gumby.initialize('switches') }, 0);
-
                         },
                         function( response ) {
                             $scope.invalidAddTree = true;
@@ -225,11 +262,19 @@
                 }
             }
 
-
             $scope.openModifyForestModal = function (forest) {
                 $("#modifyForestModal").modal('show');
                 $rootScope.modifyForest = forest;
                 $rootScope.originalName = forest.name;
+                for (var i = 0; i < $rootScope.forests.length; i++) {
+                    if ($rootScope.forests[i].id == forest.id) {
+                        $scope.forestOwner = $rootScope.forests[i].owner;
+                        if ($scope.forestOwner == null) {
+                            $scope.forestOwner = 'No current owner';
+                        }
+                        break;
+                    }
+                }
             }
 
             $scope.cancelModifyForestModal = function () {
@@ -440,19 +485,13 @@
                                 $location.path("/forestFire");
                             }
                             $("#invalidAddForest").html(errorData);
-
                         }
                     );
                     $('#newForestModalWorking').removeClass('active');
                 }
             }
 
-            // ...
-
-
             // --- Define Controller Variables. ----------------- //
-
-
             // Get the render context local to this controller (and relevant params).
             var renderContext = requestContext.getRenderContext( "standard.forest" );
 
@@ -501,9 +540,7 @@
                 }
             );
 
-
             // --- Initialize. ---------------------------------- //
-
 
             // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );

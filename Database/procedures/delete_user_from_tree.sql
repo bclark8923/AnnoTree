@@ -2,26 +2,36 @@
 -- delete_user_from_tree
 -- returns ??
 -- --------------------------------------------------------------------------------
-use annotree;
-drop  procedure IF EXISTS `delete_user_from_tree`;
+USE annotree;
+DROP PROCEDURE IF EXISTS `delete_user_from_tree`;
 DELIMITER $$
 
-
-CREATE Procedure `delete_user_from_tree`(
-    in treeid int,
-    in del_user int,
-    in req_user int
+CREATE PROCEDURE `delete_user_from_tree`(
+    IN treeid INT,
+    IN del_user INT,
+    IN req_user INT
 )
 BEGIN
-IF (select ut.id from user_tree ut where ut.user_id = req_user and ut.tree_id = treeid) THEN
-        delete from user_tree where user_id = del_user and tree_id = treeid;
-        if row_count() = 1 then
-          select '0';
+IF (SELECT ut.id FROM user_tree ut WHERE ut.user_id = req_user AND ut.tree_id = treeid) THEN
+    SET @forest_owner = (SELECT f.owner_id 
+        FROM forest AS f INNER JOIN tree AS t ON t.forest_id = f.id
+        WHERE t.id = treeid);
+    IF (@forest_owner = del_user) THEN
+        SELECT '3';
+    ELSE
+        DELETE FROM user_tree WHERE user_id = del_user AND tree_id = treeid;
+        IF row_count() = 1 THEN
+            IF (SELECT id FROM tree WHERE id = treeid AND owner_id = del_user) THEN
+                UPDATE tree SET owner_id = @forest_owner
+                    WHERE id = treeid;
+            END IF;
+            SELECT '0';
         ELSE 
-          select '1';
+          SELECT '1';
         END IF;
+    END IF;
 ELSE
-    select '2';
+    SELECT '2';
 END IF;
 END $$
-delimiter ; $$
+DELIMITER ; $$

@@ -485,19 +485,13 @@
                                 $location.path("/forestFire");
                             }
                             $("#invalidAddForest").html(errorData);
-
                         }
                     );
                     $('#newForestModalWorking').removeClass('active');
                 }
             }
 
-            // ...
-
-
             // --- Define Controller Variables. ----------------- //
-
-
             // Get the render context local to this controller (and relevant params).
             var renderContext = requestContext.getRenderContext( "standard.forest" );
 

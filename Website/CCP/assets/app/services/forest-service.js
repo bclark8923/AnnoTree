@@ -11,12 +11,10 @@
             }
 
             function updateForest(forestID, forestName, forestDescription) {
-                $("#loadingScreen").show();
                 return $http.put(apiRoot.getRoot() + '/services/forest/' + forestID, {name: forestName, description: forestDescription});
             }
 
             function createForest(forestName, forestDescription) {
-                $("#loadingScreen").show();
                 return $http.post(apiRoot.getRoot() + '/services/forest', {name: forestName, description: forestDescription});
             }
 

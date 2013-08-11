@@ -1,0 +1,22 @@
+<div id="editor" style="z-index:99999"></div>
+
+<form action="save.php" method="post">
+    <input type="hidden" name="data" />
+    <input type="submit" value="Save" />
+</form>
+<script type="text/javascript" src="jquery-2.0.3.js"></script>
+<script type="text/javascript" src="raphael-2.0.1.js"></script>
+<script type="text/javascript" src="json2.min.js"></script>
+<script type="text/javascript" src="raphael.sketchpad.js"></script>
+<script type="text/javascript">
+    var sketchpad = Raphael.sketchpad("editor", {
+        width: 400,
+        height: 400,
+        editing: true
+    });
+
+    // When the sketchpad changes, update the input field.
+    sketchpad.change(function() {
+        $("#data").val(sketchpad.json());
+    });
+</script>

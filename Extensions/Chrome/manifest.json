@@ -1,0 +1,15 @@
+{
+    "manifest_version": 2,
+
+    "name": "AnnoTree",
+    "description": "Annotate all the things",
+    "version": "0.1",
+
+    "permissions": [
+        "tabs", "https://*/*", "http://*/*"
+    ],
+    "browser_action": {
+        "default_icon": "favicon.png",
+        "default_popup": "popup.html"
+    }
+}

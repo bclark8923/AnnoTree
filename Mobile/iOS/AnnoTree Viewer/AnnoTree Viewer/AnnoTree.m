@@ -214,8 +214,8 @@
         NSLog(@"Initialized AnnoTree");
         
         /* Stuff for AnnoTree Browser */
-        UIScrollViewPageViewController *help = [[UIScrollViewPageViewController alloc] init];
-        [self.view addSubview:help.view];
+        //UIScrollViewPageViewController *help = [[UIScrollViewPageViewController alloc] init];
+        //[self.view addSubview:help.view];
     }
     return self;
 }

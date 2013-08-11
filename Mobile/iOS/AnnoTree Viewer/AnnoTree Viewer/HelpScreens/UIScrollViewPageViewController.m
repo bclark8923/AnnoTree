@@ -7,6 +7,7 @@
 //
 
 #import "UIScrollViewPageViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface UIScrollViewPageViewController ()
 
@@ -55,14 +56,22 @@
 		
         if(i == 4) {
             CGRect buttonFrame;
-            buttonFrame.origin.x = (frame.size.width / 2) - 50;
+            UIColor *buttonColor = [UIColor colorWithRed:146.0/255.0 green:223.0/255.0 blue:116.0/255.0 alpha:1];
+            
+            buttonFrame.origin.x = (frame.size.width / 2) - 100;
             buttonFrame.origin.y = (frame.size.height / 2) - 25;
-            buttonFrame.size.width = 100;
+            buttonFrame.size.width = 200;
             buttonFrame.size.height = 50;
-            UIButton *subviewButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            
+            UIButton *subviewButton = [UIButton buttonWithType:UIButtonTypeCustom];
             subviewButton.frame = buttonFrame;
-            [subviewButton setTitle:@"Button" forState:UIControlStateNormal];
+            subviewButton.layer.cornerRadius = 10; // this value vary as per your desire
+            subviewButton.clipsToBounds = YES;
+            [subviewButton setTitle:@"Start Drawing Now" forState:UIControlStateNormal];
             [subviewButton setTag:i+1];
+            [subviewButton setBackgroundColor:buttonColor];
+            [subviewButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            
             [subviewButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
             [subview addSubview:subviewButton];
         }

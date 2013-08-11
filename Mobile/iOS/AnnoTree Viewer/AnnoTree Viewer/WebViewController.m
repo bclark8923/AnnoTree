@@ -84,7 +84,7 @@ static const CGFloat kAddressHeight = 26.0f;
     
     self.viewWeb.delegate = self;
     self.viewWeb.scalesPageToFit = YES;
-    NSURL* url = [NSURL URLWithString:@"http://www.google.com"];
+    NSURL* url = [NSURL URLWithString:@"http://www.annotree.com"];
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     [self.viewWeb loadRequest:request];
     [self updateButtons];

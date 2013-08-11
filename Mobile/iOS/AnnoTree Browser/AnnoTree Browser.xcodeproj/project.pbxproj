@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D379349317B803CF00F968D7 /* AnnoTree Browser-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D379349117B803CF00F968D7 /* AnnoTree Browser-Info.plist */; };
+		D379349517B8051D00F968D7 /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D379349417B8051D00F968D7 /* AnnoTree.bundle */; };
 		D37FECC517B2BB0800FCDD11 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37FECC417B2BB0800FCDD11 /* OpenGLES.framework */; };
 		D37FECC717B2BDCA00FCDD11 /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37FECC617B2BDCA00FCDD11 /* AnnoTree.framework */; };
 		D3B3916517A9762B00A4148C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B3916417A9762B00A4148C /* Foundation.framework */; };
@@ -16,7 +18,6 @@
 		D3B3917117A9762B00A4148C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B3917017A9762B00A4148C /* main.m */; };
 		D3B3917517A9762B00A4148C /* annotreeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B3917417A9762B00A4148C /* annotreeAppDelegate.m */; };
 		D3B3917717A9762B00A4148C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B3917617A9762B00A4148C /* Images.xcassets */; };
-		D3B3919817A9766200A4148C /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3B3919317A9766200A4148C /* AnnoTree.bundle */; };
 		D3B3919917A9766200A4148C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B3919417A9766200A4148C /* MainStoryboard_iPad.storyboard */; };
 		D3B3919A17A9766200A4148C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B3919517A9766200A4148C /* MainStoryboard_iPhone.storyboard */; };
 		D3B3919B17A9766200A4148C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B3919717A9766200A4148C /* WebViewController.m */; };
@@ -36,20 +37,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D379349117B803CF00F968D7 /* AnnoTree Browser-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AnnoTree Browser-Info.plist"; sourceTree = "<group>"; };
+		D379349217B803CF00F968D7 /* AnnoTree Browser-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AnnoTree Browser-Prefix.pch"; sourceTree = "<group>"; };
+		D379349417B8051D00F968D7 /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AnnoTree.bundle; sourceTree = "<group>"; };
 		D37FECC417B2BB0800FCDD11 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		D37FECC617B2BDCA00FCDD11 /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AnnoTree.framework; sourceTree = "<group>"; };
-		D3B3916117A9762B00A4148C /* AnnoTree Sample Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnnoTree Sample Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3B3916117A9762B00A4148C /* AnnoTree Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnnoTree Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B3916417A9762B00A4148C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D3B3916617A9762B00A4148C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D3B3916817A9762B00A4148C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		D3B3916C17A9762B00A4148C /* AnnoTree Sample Application-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnnoTree Sample Application-Info.plist"; sourceTree = "<group>"; };
 		D3B3916E17A9762B00A4148C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D3B3917017A9762B00A4148C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D3B3917217A9762B00A4148C /* AnnoTree Sample Application-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnnoTree Sample Application-Prefix.pch"; sourceTree = "<group>"; };
 		D3B3917317A9762B00A4148C /* annotreeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = annotreeAppDelegate.h; sourceTree = "<group>"; };
 		D3B3917417A9762B00A4148C /* annotreeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = annotreeAppDelegate.m; sourceTree = "<group>"; };
 		D3B3917617A9762B00A4148C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D3B3919317A9766200A4148C /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AnnoTree.bundle; sourceTree = "<group>"; };
 		D3B3919417A9766200A4148C /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		D3B3919517A9766200A4148C /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		D3B3919617A9766200A4148C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
@@ -88,7 +89,7 @@
 		D3B3915817A9762B00A4148C = {
 			isa = PBXGroup;
 			children = (
-				D3B3916A17A9762B00A4148C /* AnnoTree Sample Application */,
+				D3B3916A17A9762B00A4148C /* AnnoTree Browser */,
 				D3B3916317A9762B00A4148C /* Frameworks */,
 				D3B3916217A9762B00A4148C /* Products */,
 			);
@@ -97,7 +98,7 @@
 		D3B3916217A9762B00A4148C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D3B3916117A9762B00A4148C /* AnnoTree Sample Application.app */,
+				D3B3916117A9762B00A4148C /* AnnoTree Browser.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,10 +115,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D3B3916A17A9762B00A4148C /* AnnoTree Sample Application */ = {
+		D3B3916A17A9762B00A4148C /* AnnoTree Browser */ = {
 			isa = PBXGroup;
 			children = (
-				D3B3919317A9766200A4148C /* AnnoTree.bundle */,
+				D379349417B8051D00F968D7 /* AnnoTree.bundle */,
 				D3B3919417A9766200A4148C /* MainStoryboard_iPad.storyboard */,
 				D3B3919517A9766200A4148C /* MainStoryboard_iPhone.storyboard */,
 				D3B3919617A9766200A4148C /* WebViewController.h */,
@@ -127,12 +128,14 @@
 				D3B3917617A9762B00A4148C /* Images.xcassets */,
 				D3B3916B17A9762B00A4148C /* Supporting Files */,
 			);
-			path = "AnnoTree Sample Application";
+			path = "AnnoTree Browser";
 			sourceTree = "<group>";
 		};
 		D3B3916B17A9762B00A4148C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D379349117B803CF00F968D7 /* AnnoTree Browser-Info.plist */,
+				D379349217B803CF00F968D7 /* AnnoTree Browser-Prefix.pch */,
 				D3B3919C17A9768000A4148C /* Default-Landscape@2x~ipad.png */,
 				D3B3919D17A9768000A4148C /* Default-Portrait@2x~ipad.png */,
 				D3B3919E17A9768000A4148C /* Icon-72.png */,
@@ -146,10 +149,8 @@
 				D3B391A617A9768000A4148C /* Default-Portrait.png */,
 				D3B391A717A9768000A4148C /* Default.png */,
 				D3B391A817A9768000A4148C /* Default@2x.png */,
-				D3B3916C17A9762B00A4148C /* AnnoTree Sample Application-Info.plist */,
 				D3B3916D17A9762B00A4148C /* InfoPlist.strings */,
 				D3B3917017A9762B00A4148C /* main.m */,
-				D3B3917217A9762B00A4148C /* AnnoTree Sample Application-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -157,9 +158,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D3B3916017A9762B00A4148C /* AnnoTree Sample Application */ = {
+		D3B3916017A9762B00A4148C /* AnnoTree Browser */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D3B3918D17A9762C00A4148C /* Build configuration list for PBXNativeTarget "AnnoTree Sample Application" */;
+			buildConfigurationList = D3B3918D17A9762C00A4148C /* Build configuration list for PBXNativeTarget "AnnoTree Browser" */;
 			buildPhases = (
 				D3B3915D17A9762B00A4148C /* Sources */,
 				D3B3915E17A9762B00A4148C /* Frameworks */,
@@ -169,9 +170,9 @@
 			);
 			dependencies = (
 			);
-			name = "AnnoTree Sample Application";
+			name = "AnnoTree Browser";
 			productName = "AnnoTree Sample Application";
-			productReference = D3B3916117A9762B00A4148C /* AnnoTree Sample Application.app */;
+			productReference = D3B3916117A9762B00A4148C /* AnnoTree Browser.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -184,7 +185,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = AnnoTree;
 			};
-			buildConfigurationList = D3B3915C17A9762B00A4148C /* Build configuration list for PBXProject "AnnoTree Sample Application" */;
+			buildConfigurationList = D3B3915C17A9762B00A4148C /* Build configuration list for PBXProject "AnnoTree Browser" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -196,7 +197,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D3B3916017A9762B00A4148C /* AnnoTree Sample Application */,
+				D3B3916017A9762B00A4148C /* AnnoTree Browser */,
 			);
 		};
 /* End PBXProject section */
@@ -208,6 +209,7 @@
 			files = (
 				D3B391AB17A976AB00A4148C /* Default-Landscape@2x~ipad.png in Resources */,
 				D3B391AC17A976AB00A4148C /* Default-Portrait@2x~ipad.png in Resources */,
+				D379349317B803CF00F968D7 /* AnnoTree Browser-Info.plist in Resources */,
 				D3B391AD17A976AB00A4148C /* Icon-72.png in Resources */,
 				D3B391AE17A976AB00A4148C /* Icon-Small-50.png in Resources */,
 				D3B391AF17A976AB00A4148C /* Icon-Small.png in Resources */,
@@ -221,9 +223,9 @@
 				D3B391B717A976AB00A4148C /* Default@2x.png in Resources */,
 				D3B3919A17A9766200A4148C /* MainStoryboard_iPhone.storyboard in Resources */,
 				D3B3919917A9766200A4148C /* MainStoryboard_iPad.storyboard in Resources */,
-				D3B3919817A9766200A4148C /* AnnoTree.bundle in Resources */,
 				D3B3916F17A9762B00A4148C /* InfoPlist.strings in Resources */,
 				D3B3917717A9762B00A4148C /* Images.xcassets in Resources */,
+				D379349517B8051D00F968D7 /* AnnoTree.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,18 +337,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Shock Games, LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shock Games, LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer: brian clark (ZCW8PU22EX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: brian clark (ZCW8PU22EX)";
 				DYLIB_COMPATIBILITY_VERSION = 0.1.1;
 				DYLIB_CURRENT_VERSION = 0.1.1;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AnnoTree Sample Application/AnnoTree Sample Application-Prefix.pch";
-				INFOPLIST_FILE = "AnnoTree Sample Application/AnnoTree Sample Application-Info.plist";
+				GCC_PREFIX_HEADER = "AnnoTree Browser/AnnoTree Browser-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/AnnoTree Browser/AnnoTree Browser-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A225A517-A630-4766-BDF1-12A4BF9283A8";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A225A517-A630-4766-BDF1-12A4BF9283A8";
+				PRODUCT_NAME = "AnnoTree Browser";
+				PROVISIONING_PROFILE = "5E6E5FC2-AF3F-40CE-BFAF-EF3B24A21690";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5E6E5FC2-AF3F-40CE-BFAF-EF3B24A21690";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -356,18 +358,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Shock Games, LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: brian clark (ZCW8PU22EX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: brian clark (ZCW8PU22EX)";
 				DYLIB_COMPATIBILITY_VERSION = 0.1.1;
 				DYLIB_CURRENT_VERSION = 0.1.1;
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AnnoTree Sample Application/AnnoTree Sample Application-Prefix.pch";
-				INFOPLIST_FILE = "AnnoTree Sample Application/AnnoTree Sample Application-Info.plist";
+				GCC_PREFIX_HEADER = "AnnoTree Browser/AnnoTree Browser-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/AnnoTree Browser/AnnoTree Browser-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A225A517-A630-4766-BDF1-12A4BF9283A8";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A225A517-A630-4766-BDF1-12A4BF9283A8";
+				PRODUCT_NAME = "AnnoTree Browser";
+				PROVISIONING_PROFILE = "5E6E5FC2-AF3F-40CE-BFAF-EF3B24A21690";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5E6E5FC2-AF3F-40CE-BFAF-EF3B24A21690";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -375,7 +377,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D3B3915C17A9762B00A4148C /* Build configuration list for PBXProject "AnnoTree Sample Application" */ = {
+		D3B3915C17A9762B00A4148C /* Build configuration list for PBXProject "AnnoTree Browser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D3B3918B17A9762C00A4148C /* Debug */,
@@ -384,7 +386,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D3B3918D17A9762C00A4148C /* Build configuration list for PBXNativeTarget "AnnoTree Sample Application" */ = {
+		D3B3918D17A9762C00A4148C /* Build configuration list for PBXNativeTarget "AnnoTree Browser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D3B3918E17A9762C00A4148C /* Debug */,

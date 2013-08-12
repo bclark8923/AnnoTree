@@ -77,17 +77,26 @@ var kittenGenerator = {
   }
 };
 
-function callback() {
-
-};
-
 // Run our kitten generation script as soon as the document's DOM is ready.
 document.addEventListener('DOMContentLoaded', function () {
   //kittenGenerator.requestKittens();
     var startBtn = document.getElementById('startBtn');
     startBtn.addEventListener('click', function() {
-        //alert('test');
+        /*alert('test');
+        chrome.tabs.getCurrent(function(tab) {
+            tabId = tab.id;
+        });
+        */
         chrome.tabs.executeScript(null, {file: "canvas.js"});
+    });
+
+    var screenshotBtn = document.getElementById('screenshot');
+    screenshotBtn.addEventListener('click', function() {
+        chrome.tabs.captureVisibleTab(null, {format: 'jpeg', quality: 100}, function(dataUrl) {
+            chrome.tabs.create({
+                url: dataUrl
+            });
+        });
     });
 });
 

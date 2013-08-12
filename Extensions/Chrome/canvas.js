@@ -6674,36 +6674,110 @@ function log(msg) {
 log('event page loaded');
 //document.body.style.backgroundColor="red";
 //$('body').css('background-color', "#ff0000");
-var e = $('<div id="AnnoTree_editor" style="position:absolute;left:0;top:0;z-index:99999"></div>');
+var e = $('<div id="AnnoTree_editor" style="position:absolute;z-index:99999"></div>');
+var leftOffset = $(window).scrollLeft();
+var topOffset = $(window).scrollTop();
+e.css('top', topOffset);
+e.css('left', leftOffset);
 $('body').append(e);
-var hidden_input = $('<input type="hidden" id="data2" name="data2" />');
-$('body').append(hidden_input);
+var widget = $('<div id="AnnoTree_widget" style="border:1px solid #000;position:absolute;z-index:100000"></div>');
+widget.css('top', topOffset + 50);
+widget.css('left', leftOffset + 50);
+var penRed = $('<button id="AnnoTree_penRed" type="button">Red</button>');
+widget.append(penRed);
+var penBlue = $('<button id="AnnoTree_penBlue" type="button">Blue</button>');
+widget.append(penBlue);
+var penGreen = $('<button id="AnnoTree_penGreen" type="button">Green</button>');
+widget.append(penGreen);
+var fatPen = $('<button id="AnnoTree_fatPen" type="button">Thick Pen</button>');
+widget.append(fatPen);
+var thinPen = $('<button id="AnnoTree_thinPen" type="button">Thin Pen</button>');
+widget.append(thinPen);
+var undo = $('<button id="AnnoTree_undo" type="button">Undo</button>');
+widget.append(undo);
+var redo = $('<button id="AnnoTree_redo" type="button">Redo</button>');
+widget.append(redo);
+var clear = $('<button id="AnnoTree_clear" type="button">Clear</button>');
+widget.append(clear);
+var eraseDraw = $('<button id="AnnoTree_eraseDraw" type="button">Erase</button>');
+widget.append(eraseDraw);
+$('body').append(widget);
 
-alert('width:' + $(window).width() + ' height: ' + $(window).height());
-$('body').css('overflow', 'hidden');
+window.onscroll = function() {
+    window.scrollTo(leftOffset, topOffset);
+}
+
 $('AnnoTree_editor').ready(function() {
     var editor = Raphael.sketchpad("AnnoTree_editor", {
         width: $(window).width(),
         height:$(window).height(),
         editing: true
     });
-
-    editor.change(function() {
-        $('#data2').val(editor.json());
-    });
-
+    
     editor.pen().width(5);
     editor.pen().color('#f00');
     editor.pen().opacity(1);
 
-    editor.strokes([{
-        "type":"path",
-        "path":[["M",10,10],["L",90,90]],
-        "fill":"none",
-        "stroke":"#000000",
-        "stroke-opacity":1,
-        "stroke-width":5,
-        "stroke-linecap":"round",
-        "stroke-linejoin":"round"
-    }]);
+    $('#AnnoTree_penRed').click(function() {
+        editor.pen().color('#f00');
+    });
+    
+    $('#AnnoTree_penBlue').click(function() {
+        editor.pen().color('#00f');
+    });
+
+    $('#AnnoTree_penGreen').click(function() {
+        editor.pen().color('#0f0');
+    });
+    
+    $('#AnnoTree_fatPen').click(function() {
+        editor.pen().width(15);
+    });
+    
+    $('#AnnoTree_thinPen').click(function() {
+        editor.pen().width(5);
+    });
+    
+    $('#AnnoTree_undo').click(function() {
+        editor.undo();
+    }); 
+    
+    $('#AnnoTree_redo').click(function() {
+        editor.redo();
+    }); 
+   
+    $('#AnnoTree_clear').click(function() {
+        editor.clear();
+    }); 
+    
+    var editing = true;
+    $('#AnnoTree_eraseDraw').click(function() {
+        if (editing) {
+            editing = false;
+            $('#AnnoTree_eraseDraw').html("Draw");
+            editor.editing("erase");
+        } else {
+            editing = true;
+            $('#AnnoTree_eraseDraw').html("Erase");
+            editor.editing(true);
+        }
+    });
+
+    function enable(ele, enable) {
+        if (enable) {
+            $(ele).show();
+        } else {
+            $(ele).hide();
+        }
+    }
+
+    function update_actions() {
+        enable('#AnnoTree_undo', editor.undoable());
+        enable('#AnnoTree_redo', editor.redoable());
+        enable('#AnnoTree_clear', editor.strokes().length > 0);
+    }
+
+    editor.change(update_actions);
+
+    update_actions();
 });

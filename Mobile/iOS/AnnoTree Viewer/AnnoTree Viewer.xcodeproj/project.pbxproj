@@ -23,9 +23,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		06818B0117B21D3500E830B8 /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06818B0017B21D3500E830B8 /* AnnoTree.framework */; };
-		06CA71D717B3CCB0005841C4 /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06CA71D417B3CCB0005841C4 /* AnnoTree.bundle */; };
-		06CA71DC17B3CD08005841C4 /* MoveableText.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CA71DB17B3CD08005841C4 /* MoveableText.m */; };
+		06800E4817B3C8F200EA650D /* MoveableText.m in Sources */ = {isa = PBXBuildFile; fileRef = 06800E4717B3C8F200EA650D /* MoveableText.m */; };
 		D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */; };
 		D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C688171B413400BA9B2F /* Default-Portrait@2x~ipad.png */; };
 		D3180C27176184B300A6B8E0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C26176184B300A6B8E0 /* CoreFoundation.framework */; };
@@ -85,7 +83,30 @@
 		D3E0AF78178FC690009BEEDF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7659617810C6A0046C8D5 /* Icon.png */; };
 		D3E0AF79178FC690009BEEDF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7659717810C6A0046C8D5 /* Icon@2x.png */; };
 		D3E0AFA617903BAC009BEEDF /* AnnoTreeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658C17810A1F0046C8D5 /* AnnoTreeLogo.png */; };
+		D3E1267217B80FF200DC1BE5 /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E1267117B80FF200DC1BE5 /* AnnoTree.framework */; };
+		D3E1267417B8100100DC1BE5 /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3E1267317B8100100DC1BE5 /* AnnoTree.bundle */; };
+		D3E1267B17B814D500DC1BE5 /* UIScrollViewPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1267917B814D500DC1BE5 /* UIScrollViewPageViewController.m */; };
+		D3E1267C17B814D500DC1BE5 /* UIScrollViewPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E1267A17B814D500DC1BE5 /* UIScrollViewPageViewController.xib */; };
+		D3E1267E17B8196100DC1BE5 /* UIScrollViewPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1267917B814D500DC1BE5 /* UIScrollViewPageViewController.m */; };
+		D3E1267F17B8196C00DC1BE5 /* UIScrollViewPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E1267817B814D500DC1BE5 /* UIScrollViewPageViewController.h */; };
+		D3E1268017B8197C00DC1BE5 /* UIScrollViewPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E1267A17B814D500DC1BE5 /* UIScrollViewPageViewController.xib */; };
+		D3E1269217B82C0D00DC1BE5 /* Screen1.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1268D17B82C0D00DC1BE5 /* Screen1.png */; };
+		D3E1269317B82C0D00DC1BE5 /* Screen2.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1268E17B82C0D00DC1BE5 /* Screen2.png */; };
+		D3E1269417B82C0D00DC1BE5 /* Screen3.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1268F17B82C0D00DC1BE5 /* Screen3.png */; };
+		D3E1269517B82C0D00DC1BE5 /* Screen4.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1269017B82C0D00DC1BE5 /* Screen4.png */; };
+		D3E1269617B82C0D00DC1BE5 /* Screen5.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1269117B82C0D00DC1BE5 /* Screen5.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		D3E1267D17B818A400DC1BE5 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		D3180C13176182F100A6B8E0 /* PBXContainerItemProxy */ = {
@@ -147,10 +168,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		06818B0017B21D3500E830B8 /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnnoTree.framework; path = "../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos/AnnoTree.framework"; sourceTree = "<group>"; };
-		06CA71D417B3CCB0005841C4 /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = "../../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos/AnnoTree.bundle"; sourceTree = "<group>"; };
-		06CA71DA17B3CD08005841C4 /* MoveableText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveableText.h; sourceTree = "<group>"; };
-		06CA71DB17B3CD08005841C4 /* MoveableText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveableText.m; sourceTree = "<group>"; };
+		06800E4617B3C8F200EA650D /* MoveableText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveableText.h; sourceTree = "<group>"; };
+		06800E4717B3C8F200EA650D /* MoveableText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveableText.m; sourceTree = "<group>"; };
 		D314C668171B2D7700BA9B2F /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		D314C669171B2D7700BA9B2F /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
@@ -221,6 +240,16 @@
 		D3AAA1F517002C4400954DDF /* AnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationView.m; sourceTree = "<group>"; };
 		D3D53FF1171A194500552253 /* ToolbarBg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarBg.h; sourceTree = "<group>"; };
 		D3D53FF2171A194500552253 /* ToolbarBg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarBg.m; sourceTree = "<group>"; };
+		D3E1267117B80FF200DC1BE5 /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnnoTree.framework; path = ../ActiveSDK/AnnoTree.framework; sourceTree = "<group>"; };
+		D3E1267317B8100100DC1BE5 /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = ../../ActiveSDK/AnnoTree.bundle; sourceTree = "<group>"; };
+		D3E1267817B814D500DC1BE5 /* UIScrollViewPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIScrollViewPageViewController.h; path = HelpScreens/UIScrollViewPageViewController.h; sourceTree = "<group>"; };
+		D3E1267917B814D500DC1BE5 /* UIScrollViewPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIScrollViewPageViewController.m; path = HelpScreens/UIScrollViewPageViewController.m; sourceTree = "<group>"; };
+		D3E1267A17B814D500DC1BE5 /* UIScrollViewPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIScrollViewPageViewController.xib; path = HelpScreens/UIScrollViewPageViewController.xib; sourceTree = "<group>"; };
+		D3E1268D17B82C0D00DC1BE5 /* Screen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screen1.png; path = HelpScreens/Screen1.png; sourceTree = "<group>"; };
+		D3E1268E17B82C0D00DC1BE5 /* Screen2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screen2.png; path = HelpScreens/Screen2.png; sourceTree = "<group>"; };
+		D3E1268F17B82C0D00DC1BE5 /* Screen3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screen3.png; path = HelpScreens/Screen3.png; sourceTree = "<group>"; };
+		D3E1269017B82C0D00DC1BE5 /* Screen4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screen4.png; path = HelpScreens/Screen4.png; sourceTree = "<group>"; };
+		D3E1269117B82C0D00DC1BE5 /* Screen5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screen5.png; path = HelpScreens/Screen5.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,7 +289,7 @@
 				D3AAA1A717000FC300954DDF /* UIKit.framework in Frameworks */,
 				D3AAA1A917000FC300954DDF /* Foundation.framework in Frameworks */,
 				D3AAA1AB17000FC300954DDF /* CoreGraphics.framework in Frameworks */,
-				06818B0117B21D3500E830B8 /* AnnoTree.framework in Frameworks */,
+				D3E1267217B80FF200DC1BE5 /* AnnoTree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,12 +360,12 @@
 		D314C667171B2D5A00BA9B2F /* Annotations */ = {
 			isa = PBXGroup;
 			children = (
-				06CA71DA17B3CD08005841C4 /* MoveableText.h */,
-				06CA71DB17B3CD08005841C4 /* MoveableText.m */,
 				D3AAA1F417002C4400954DDF /* AnnotationView.h */,
 				D3AAA1F517002C4400954DDF /* AnnotationView.m */,
 				D3180C481761969800A6B8E0 /* AnnotationViewController.h */,
 				D3180C491761969800A6B8E0 /* AnnotationViewController.m */,
+				06800E4617B3C8F200EA650D /* MoveableText.h */,
+				06800E4717B3C8F200EA650D /* MoveableText.m */,
 			);
 			name = Annotations;
 			sourceTree = "<group>";
@@ -438,7 +467,7 @@
 		D3AAA1A517000FC300954DDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				06818B0017B21D3500E830B8 /* AnnoTree.framework */,
+				D3E1267117B80FF200DC1BE5 /* AnnoTree.framework */,
 				D3AAA1A617000FC300954DDF /* UIKit.framework */,
 				D3AAA1A817000FC300954DDF /* Foundation.framework */,
 				D3AAA1AA17000FC300954DDF /* CoreGraphics.framework */,
@@ -451,6 +480,7 @@
 		D3AAA1AC17000FC300954DDF /* AnnoTree Viewer */ = {
 			isa = PBXGroup;
 			children = (
+				D3E1267317B8100100DC1BE5 /* AnnoTree.bundle */,
 				D3AAA1E71700186400954DDF /* AnnoTree */,
 				D3AAA1B517000FC300954DDF /* AppDelegate.h */,
 				D3AAA1B617000FC300954DDF /* AppDelegate.m */,
@@ -514,7 +544,7 @@
 		D3AAA1E71700186400954DDF /* AnnoTree */ = {
 			isa = PBXGroup;
 			children = (
-				06CA71D417B3CCB0005841C4 /* AnnoTree.bundle */,
+				D3E1267517B813D200DC1BE5 /* HelpScreens */,
 				D314C666171B2D4200BA9B2F /* ToolbarActions */,
 				D3AAA1E41700182B00954DDF /* Images */,
 				D3AAA1ED170018EE00954DDF /* AnnoTree.h */,
@@ -523,6 +553,21 @@
 				D36291021730465C00F08E8A /* UIWindowAnnoTree.m */,
 			);
 			name = AnnoTree;
+			sourceTree = "<group>";
+		};
+		D3E1267517B813D200DC1BE5 /* HelpScreens */ = {
+			isa = PBXGroup;
+			children = (
+				D3E1268D17B82C0D00DC1BE5 /* Screen1.png */,
+				D3E1268E17B82C0D00DC1BE5 /* Screen2.png */,
+				D3E1268F17B82C0D00DC1BE5 /* Screen3.png */,
+				D3E1269017B82C0D00DC1BE5 /* Screen4.png */,
+				D3E1269117B82C0D00DC1BE5 /* Screen5.png */,
+				D3E1267817B814D500DC1BE5 /* UIScrollViewPageViewController.h */,
+				D3E1267917B814D500DC1BE5 /* UIScrollViewPageViewController.m */,
+				D3E1267A17B814D500DC1BE5 /* UIScrollViewPageViewController.xib */,
+			);
+			name = HelpScreens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -538,6 +583,7 @@
 				D362912F173067B000F08E8A /* UIWindowAnnoTree.h in Headers */,
 				D32164C5172C21BC00573823 /* ShareViewController.h in Headers */,
 				D3180C4A1761969900A6B8E0 /* AnnotationViewController.h in Headers */,
+				D3E1267F17B8196C00DC1BE5 /* UIScrollViewPageViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +656,7 @@
 				D3AAA1A117000FC300954DDF /* Resources */,
 			);
 			buildRules = (
+				D3E1267D17B818A400DC1BE5 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -673,6 +720,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E1268017B8197C00DC1BE5 /* UIScrollViewPageViewController.xib in Resources */,
 				D3E0AFA617903BAC009BEEDF /* AnnoTreeLogo.png in Resources */,
 				D3E0AF57178F9026009BEEDF /* PencilIconToolbarSelected.png in Resources */,
 				D3E0AF58178F9026009BEEDF /* SelectIconToolbarSelected.png in Resources */,
@@ -711,7 +759,13 @@
 				D3AAA1C317000FC300954DDF /* MainStoryboard_iPad.storyboard in Resources */,
 				D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */,
 				D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */,
-				06CA71D717B3CCB0005841C4 /* AnnoTree.bundle in Resources */,
+				D3E1267417B8100100DC1BE5 /* AnnoTree.bundle in Resources */,
+				D3E1267C17B814D500DC1BE5 /* UIScrollViewPageViewController.xib in Resources */,
+				D3E1269217B82C0D00DC1BE5 /* Screen1.png in Resources */,
+				D3E1269317B82C0D00DC1BE5 /* Screen2.png in Resources */,
+				D3E1269417B82C0D00DC1BE5 /* Screen3.png in Resources */,
+				D3E1269517B82C0D00DC1BE5 /* Screen4.png in Resources */,
+				D3E1269617B82C0D00DC1BE5 /* Screen5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,7 +804,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\nset +u\n# Avoid recursively calling this script.\nif [[ $SF_MASTER_SCRIPT_RUNNING ]]\nthen\nexit 0\nfi\nset -u\nexport SF_MASTER_SCRIPT_RUNNING=1\n\nSF_TARGET_NAME=AnnoTree\nSF_EXECUTABLE_PATH=\"lib${SF_TARGET_NAME}.a\"\nSF_WRAPPER_NAME=\"${SF_TARGET_NAME}.framework\"\n\n# The following conditionals come from\n# https://github.com/kstenerud/iOS-Universal-Framework\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\nSF_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\nSF_SDK_VERSION=${BASH_REMATCH[1]}\necho \"$SF_SDK_VERSION\"\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SF_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\nSF_OTHER_PLATFORM=iphonesimulator\nelse\nSF_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$SF_SDK_PLATFORM$ ]]\nthen\nSF_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${SF_OTHER_PLATFORM}\"\nelse\necho \"Could not find platform name from build products directory: $BUILT_PRODUCTS_DIR\"\nexit 1\nfi\n\n# Build the other platform.\nxcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${SF_OTHER_PLATFORM}${SF_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" OBJROOT=\"${OBJROOT}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\" $ACTION\n\n# Smash the two static libraries into one fat binary and store it in the .framework\nlipo -create \"${BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" -output \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n\n# Copy the binary to the other architecture folder to have a complete framework in both.\ncp -a \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n";
+			shellScript = "set -e\nset +u\n# Avoid recursively calling this script.\nif [[ $SF_MASTER_SCRIPT_RUNNING ]]\nthen\nexit 0\nfi\nset -u\nexport SF_MASTER_SCRIPT_RUNNING=1\n\nSF_TARGET_NAME=AnnoTree\nSF_EXECUTABLE_PATH=\"lib${SF_TARGET_NAME}.a\"\nSF_WRAPPER_NAME=\"${SF_TARGET_NAME}.framework\"\n\n# The following conditionals come from\n# https://github.com/kstenerud/iOS-Universal-Framework\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\nSF_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\nSF_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SF_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\nSF_OTHER_PLATFORM=iphonesimulator\nelse\nSF_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$SF_SDK_PLATFORM$ ]]\nthen\nSF_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${SF_OTHER_PLATFORM}\"\nelse\necho \"Could not find platform name from build products directory: $BUILT_PRODUCTS_DIR\"\nexit 1\nfi\n\n# Build the other platform.\nxcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${SF_OTHER_PLATFORM}${SF_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" OBJROOT=\"${OBJROOT}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\" $ACTION\n\n# Smash the two static libraries into one fat binary and store it in the .framework\nlipo -create \"${BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" -output \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n\n# Copy the binary to the other architecture folder to have a complete framework in both.\ncp -a \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n";
 		};
 		D3216497172C18B600573823 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -792,6 +846,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E1267E17B8196100DC1BE5 /* UIScrollViewPageViewController.m in Sources */,
 				D32164AF172C190300573823 /* AnnotationView.m in Sources */,
 				D32164B0172C190300573823 /* ShareViewController.m in Sources */,
 				D32164B1172C190300573823 /* ToolbarBg.m in Sources */,
@@ -818,7 +873,8 @@
 				D3AAA1B317000FC300954DDF /* main.m in Sources */,
 				D3AAA1B717000FC300954DDF /* AppDelegate.m in Sources */,
 				D3AAA1C617000FC300954DDF /* WebViewController.m in Sources */,
-				06CA71DC17B3CD08005841C4 /* MoveableText.m in Sources */,
+				06800E4817B3C8F200EA650D /* MoveableText.m in Sources */,
+				D3E1267B17B814D500DC1BE5 /* UIScrollViewPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,10 +972,7 @@
 		D3180C11176182E400A6B8E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				DYLIB_COMPATIBILITY_VERSION = 0.1.1;
-				DYLIB_CURRENT_VERSION = 0.1.1;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -929,10 +982,7 @@
 		D3180C12176182E400A6B8E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				DYLIB_COMPATIBILITY_VERSION = 0.1.1;
-				DYLIB_CURRENT_VERSION = 0.1.1;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1125,7 +1175,7 @@
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-amwqjvzfpjsmpaewhyubzhmzswiq/Build/Products/Debug-iphoneos\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\"",
-					"\"$(SRCROOT)/../../../Website/CCP/SDK\"",
+					"\"$(SRCROOT)/../ActiveSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTree Viewer/AnnoTree Viewer-Prefix.pch";
@@ -1160,7 +1210,7 @@
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-amwqjvzfpjsmpaewhyubzhmzswiq/Build/Products/Debug-iphoneos\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\"",
-					"\"$(SRCROOT)/../../../Website/CCP/SDK\"",
+					"\"$(SRCROOT)/../ActiveSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTree Viewer/AnnoTree Viewer-Prefix.pch";

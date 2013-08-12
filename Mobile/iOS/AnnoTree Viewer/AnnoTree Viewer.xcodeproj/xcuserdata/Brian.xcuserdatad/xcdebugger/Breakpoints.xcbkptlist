@@ -26,8 +26,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "62"
          endingLineNumber = "62"
-         landmarkName = "@implementation AnnoTree"
-         landmarkType = "3">
+         landmarkName = "+sharedInstance"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -39,8 +39,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "53"
          endingLineNumber = "53"
-         landmarkName = "+sharedInstance"
-         landmarkType = "5">
+         landmarkName = "@implementation AnnoTree"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -130,7 +130,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "599"
          endingLineNumber = "599"
-         landmarkName = "-connectionDidFinishLoading:"
+         landmarkName = "-scaleAndRotateImage:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -182,7 +182,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "590"
          endingLineNumber = "590"
-         landmarkName = "-connectionDidFinishLoading:"
+         landmarkName = "-scaleAndRotateImage:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -273,8 +273,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "325"
          endingLineNumber = "325"
-         landmarkName = "-alertView:didDismissWithButtonIndex:"
-         landmarkType = "5">
+         landmarkName = "@implementation AnnoTree"
+         landmarkType = "3">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -286,8 +286,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "301"
          endingLineNumber = "301"
-         landmarkName = "@implementation AnnoTree"
-         landmarkType = "3">
+         landmarkName = "-alertViewShouldEnableFirstOtherButton:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -511,7 +511,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AnnoTree Viewer/HelpScreens/UIScrollViewPageViewController.m"

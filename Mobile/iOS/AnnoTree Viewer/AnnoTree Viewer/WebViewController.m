@@ -7,6 +7,7 @@
 //
 
 #import "WebViewController.h"
+#import "UIScrollViewPageViewController.h"
 
 static const CGFloat kNavBarHeight = 52.0f;
 static const CGFloat kLabelHeight = 14.0f;
@@ -88,6 +89,9 @@ static const CGFloat kAddressHeight = 26.0f;
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     [self.viewWeb loadRequest:request];
     [self updateButtons];
+    
+    UIScrollViewPageViewController *help = [[UIScrollViewPageViewController alloc] init];
+    [self.view addSubview:help.view];
     
     //[self.view addSubview:[[AnnoTree sharedInstance] getAnnoTreeLauncher:UIInterfaceOrientationMaskAll]];
     //[[[UIApplication sharedApplication] keyWindow] bringSubviewToFront:[[AnnoTree sharedInstance] getAnnoTreeLauncher]];

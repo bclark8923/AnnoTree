@@ -10,6 +10,7 @@
 #import "ToolbarBg.h"
 #import "ShareViewController.h"
 #import "AnnotationViewController.h"
+#import "UIScrollViewPageViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/EAGLDrawable.h>
@@ -17,7 +18,6 @@
 #import <OpenGLES/ES1/glext.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
-#import "UIScrollViewPageViewController.h"
 
 
 @interface AnnoTree ()
@@ -37,6 +37,7 @@
 @synthesize drawScreen;
 @synthesize annoTreeImageOpenView;
 @synthesize activeTree;
+@synthesize helpView;
 //@synthesize supportedOrientation;
 @synthesize enabled;
 @synthesize drawEnabled;
@@ -214,8 +215,13 @@
         NSLog(@"Initialized AnnoTree");
         
         /* Stuff for AnnoTree Browser */
-        //UIScrollViewPageViewController *help = [[UIScrollViewPageViewController alloc] init];
-        //[self.view addSubview:help.view];
+        BOOL help = YES;
+        if(help) {
+            helpView = [[UIScrollViewPageViewController alloc] init];
+            helpView.controlWindow = annoTreeWindow;
+            [self.view addSubview:helpView.view];
+            [annoTreeWindow setEnabled:YES];
+        }
     }
     return self;
 }

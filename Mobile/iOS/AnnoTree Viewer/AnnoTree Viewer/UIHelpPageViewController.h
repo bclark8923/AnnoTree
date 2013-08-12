@@ -1,5 +1,5 @@
 //
-//  UIScrollViewPageViewController.h
+//  UIHelpPageViewController.h
 //  AnnoTree Viewer
 //
 //  Created by Brian Clark on 8/11/13.
@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "UIWindowAnnoTree.h"
 
-@interface UIScrollViewPageViewController : UIViewController <UIScrollViewDelegate> {
+@interface UIHelpPageViewController : UIViewController <UIScrollViewDelegate> {
 	BOOL pageControlBeingUsed;
 }
+
 
 @property (nonatomic, retain) UIScrollView* scrollView;
 @property (nonatomic, retain) UIPageControl* pageControl;

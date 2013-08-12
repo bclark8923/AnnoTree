@@ -10,6 +10,7 @@
 #import "ShareViewController.h"
 #import "UIWindowAnnoTree.h"
 #import "AnnotationViewController.h"
+#import "UIScrollViewPageViewController.h"
 
 @interface AnnoTree : UIViewController {
     //UIWindow *AnnoTreeWindow;
@@ -26,6 +27,7 @@
 @property (nonatomic, retain) AnnotationViewController *drawScreen;
 @property (nonatomic, retain) UIButton *annoTreeImageOpenView;
 @property (nonatomic, retain) NSString *activeTree;
+@property (nonatomic, retain) UIScrollViewPageViewController* helpView;
 //@property NSUInteger supportedOrientation;
 @property BOOL enabled;
 @property BOOL drawEnabled;

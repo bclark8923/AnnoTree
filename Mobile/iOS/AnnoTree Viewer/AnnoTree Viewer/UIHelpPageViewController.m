@@ -1,19 +1,18 @@
 //
-//  UIScrollViewPageViewController.m
+//  UIHelpPageViewController.m
 //  AnnoTree Viewer
 //
 //  Created by Brian Clark on 8/11/13.
 //  Copyright (c) 2013 AnnoTree. All rights reserved.
 //
 
-#import "UIScrollViewPageViewController.h"
-#import <QuartzCore/QuartzCore.h>
+#import "UIHelpPageViewController.h"
 
-@interface UIScrollViewPageViewController ()
+@interface UIHelpPageViewController ()
 
 @end
 
-@implementation UIScrollViewPageViewController
+@implementation UIHelpPageViewController
 
 @synthesize scrollView;
 @synthesize pageControl;
@@ -23,15 +22,26 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        // Custom initialization
+        NSLog(@"initwithnibname");
+        //self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        //self.view.backgroundColor = [UIColor grayColor];
         
         scrollView = [[UIScrollView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         scrollView.delegate = self;
-        scrollView.clipsToBounds = YES;
-        scrollView.showsHorizontalScrollIndicator = NO;
-        scrollView.pagingEnabled = YES;
         [self.view addSubview:scrollView];
         
-        NSLog(@"init");
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGFloat screenHeight = screenRect.size.height;
+        
+        CGRect pageFrame;
+        pageFrame.origin.x = (self.view.frame.size.width / 2) - (screenRect.size.width/2);
+        pageFrame.origin.y = screenHeight - 50;
+        pageFrame.size.width = screenRect.size.width;
+        pageFrame.size.height = 50;
+        
+        pageControl = [[UIPageControl alloc] initWithFrame:pageFrame];
+        [self.view addSubview:pageControl];
     }
     return self;
 }
@@ -39,9 +49,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    NSLog(@"viewdidload");
+	// Do any additional setup after loading the view.
     
-    NSLog(@"view load");
     self.scrollView.bounces = NO;
 	
 	pageControlBeingUsed = NO;
@@ -63,8 +73,6 @@
 		UIView *subview = [[UIView alloc] initWithFrame:frame];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[images objectAtIndex:i]];
         imageView.frame = scrollView.frame;
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
-        imageView.clipsToBounds = YES;
         [subview addSubview:imageView];
 		
         if(i == 4) {
@@ -93,28 +101,9 @@
 	}
 	
 	self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * images.count, self.scrollView.frame.size.height);
-	
     
-    CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
-    CGFloat screenHeight = screenRect.size.height;
-    
-    CGRect framePageControl;
-    framePageControl.origin.x = (self.scrollView.frame.size.width / 2) - 100;
-    framePageControl.origin.y = (self.scrollView.frame.size.height / 2) - 25;
-    framePageControl.size.width = 200;
-    framePageControl.size.height = 50;
-    pageControl = [[UIPageControl alloc] initWithFrame:framePageControl];
 	self.pageControl.currentPage = 0;
-	self.pageControl.numberOfPages = images.count;
-    
-    pageControl.backgroundColor = [UIColor clearColor];
-    
-    if ([pageControl respondsToSelector:@selector(setPageIndicatorTintColor:)]) {
-        pageControl.pageIndicatorTintColor = [UIColor grayColor];
-        pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
-    }
-    
-    [self.view addSubview:pageControl];
+    self.pageControl.numberOfPages = images.count;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
@@ -150,12 +139,9 @@
 }
 
 - (IBAction)buttonPressed:(id)sender {
-    //scrollView.hidden = YES;
-    //pageControl.hidden = YES;
-    //self.view.hidden = YES;
-    [self.scrollView removeFromSuperview];
-    [self.view removeFromSuperview];
-    [controlWindow setEnabled:NO];
+    self.scrollView.hidden = YES;
+    self.pageControl.hidden = YES;
+    [controlWindow setEnabled:YES];
 }
 
 - (void)viewDidUnload {

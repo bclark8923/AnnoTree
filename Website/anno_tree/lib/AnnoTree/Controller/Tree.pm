@@ -3,6 +3,7 @@ package AnnoTree::Controller::Tree;
 use Mojo::Base 'Mojolicious::Controller';
 use AnnoTree::Model::Tree;
 use Config::General;
+use Email::Valid;
 
 # Get the configuration settings
 my $conf = Config::General->new('/opt/config.txt');
@@ -81,7 +82,9 @@ sub addUserToTree {
     my $self = shift;
     
     my $jsonReq = $self->req->json;
-    $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{userToAdd}); 
+    $self->render(json => {error => '3', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{userToAdd});
+    
+    $self->render(json => {error => '2', txt => 'Please enter a valid email'}, status => 406) and return unless (Email::Valid->address($jsonReq->{userToAdd}));
 
     my $params = {};
     $params->{treeid} = $self->param('treeid');
@@ -137,6 +140,21 @@ sub removeUserFromTree {
     }
 
     $self->render(json => $json, status => $status);
+}
+
+sub iosTokens {
+    my $self = shift;
+
+    my $jsonReq = $self->req->json;
+    $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{tokens}); 
+    
+    $self->debug($self->dumper($jsonReq));
+    my $tokens = $jsonReq->{tokens};
+    $self->debug($self->dumper($tokens));
+
+    my $json = AnnoTree::Model::Tree->iosTokens($tokens);
+
+    $self->render(status => 200, json => $json);
 }
 
 return 1;

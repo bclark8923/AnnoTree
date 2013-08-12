@@ -16,7 +16,7 @@
             }
 
             function updateTree(treeID, treeName, treeDescription) {
-                $("#loadingScreen").show();
+                //$("#loadingScreen").show();
                 return $http.put(apiRoot.getRoot() + '/services/tree/' + treeID, {name: treeName, description: treeDescription});
             }
 

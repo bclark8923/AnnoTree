@@ -23,7 +23,7 @@
                         <span>Add file...</span>
                         <input type="file" name="files" id="annotationImage" ng-model="annotationImage" />
                     </span>
-                    <span style="margin-left:5px" id="filesName">No file selected</span>
+                    <span style="margin-left:5px" id="filesName">No file selected (optional)</span>
                 </div>
                 <div>
                     Note that only images (max size is 10MB) can be uploaded at this time
@@ -103,7 +103,7 @@
 </div>
 
 <!-- Modify Users Modal -->
-<div class="modal" id="modifyUsersModal" data-backdrop="false" ng-controller="forest.TreeController">
+<div class="modal" id="modifyUsersModal" data-backdrop="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="working" id="modifyUsersModalWorking">
@@ -116,6 +116,7 @@
                 <h3 class="modal-title">User Permissions</h3>
             </div>
             <div class="modal-body">
+                <div class="error-text" id="invalidRemoveError" ng-show="invalidRemoveErrorShow"></div>
                 <div id="treeModifyUsers">
                     <table>
                         <tbody>
@@ -127,13 +128,14 @@
                                     {{user.email}}
                                 </td>
                                 <td>
-                                    <i ng-click="removeFromTree(user)" class="icon-remove-circle"></i>
+                                    <i ng-click="removeFromTree(user)" class="icon-remove-circle" ng-hide="user.email == forestOwner"></i>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="row">
+                    <div class="col-10 error-text" id="invalidEmailError" ng-show="invalidEmailErrorShow"></div>
                     <div class="col-10">
                         <input id="userList" style="display:inline" class="form-control" type="email" placeholder="Email" style="max-width:320px;" ng-model="addUserID" required> 
                     </div>

@@ -3,18 +3,18 @@
     <div id="dashboardWrap">
         <div id="dashboard">
             <div class="appName">
-                {{treeInfo.name}}
+                <a ng-href="#/app/{{treeInfo.id}}">{{treeInfo.name}}</a>
             </div> 
             <div>
                 <img class="appLogo" ng-src="{{treeInfo.logo}}">
             </div>
-            <div style="margin-top:20px">
-                <p><strong>SDK Key:</strong></p>
-                <p>{{treeInfo.token}}</p>
-                <a style="font-size:13pt" href="#/app/{{treeInfo.id}}/docs">Developer Resources</a>
-            </div>
             <hr/>
             <div style="margin-top:20px;">
+                <a style="text-decoration:none" href="#/app/{{treeInfo.id}}/docs">
+                    <div class="dashLinks">
+                        <i class="icon-book"></i>&nbsp;Developer Resources
+                    </div>
+                </a>
                 <div class="dashLinks" ng-click="openModifyUsersModal()">
                     <i class="icon-group"></i>&nbsp;Users
                 </div>

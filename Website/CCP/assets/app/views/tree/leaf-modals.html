@@ -1,36 +1,62 @@
-<!-- View Annotation Modal -->
-<div class="modal" id="displayAnnotation" data-backdrop="false" ng-controller="forest.LeafController">
+<!-- Upload Annotation Modal -->
+<div class="modal" id="uploadAnnotationModal" data-backdrop="false">
     <div class="modal-dialog">
         <div class="modal-content">
+            <div class="working" id="uploadAnnotationModalWorking">
+                <i class="icon-working icon-cog icon-spin"></i>
+            </div>
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">
                     <i class="icon-remove-circle"></i>
                 </button>
-                <h3 class="modal-title" id="displayAnnotationName"></h3>
+                <h3 class="modal-title">Add Image</h3>
             </div>
-            <div class="modal-body">
-                    <div style="width:100%;height:100%">
-                        <img id="annotationImageDisplay" />
-                    </div>
-            </div>
+            <form name="createLeafForm" ng-submit="addNewAnnotation()">
+                <div class="modal-body">
+                    <div class="error-text" id="invalidAnnotation"></div>
+                    <span class="btn btn-annotree fileinput-button">
+                        <i class="icon-plus"></i>
+                        <span>Add Image</span>
+                        <input type="file" name="files" id="newAnnotation" ng-model="newAnnotation" />
+                    </span>
+                    <span style="margin-left:5px" id="annotationName">No file selected</span>
+                    
+                </div>
+                <div>
+                    Note that only images (max size is 10MB) can be uploaded at this time
+                </div>
+                <div class="modal-footer">
+                   <button type="submit" class="btn btn-annotree">
+                        <strong>Upload</strong>
+                    </button>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">
+                        <strong>Cancel</strong>
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
- 
 
-<!-- View Leaf Modal -->
-<div class="modal" id="viewLeafModal" data-backdrop="false" ng-controller="forest.LeafController">
-  <div class="" style="height:100%;">
-    <div style="height:100%;">
-        <img class="singleLeafImage" style="vertical-align:middle;cursor:pointer;max-width:90%;max-height:90%;margin:0;border:10px solid #444;" ng-src="{{leaf.image}}" ng-click="closeViewLeafModal()" gumby-retina />
+<!-- View Annotation Modal -->
+<div class="modal fade" id="displayAnnotation"  ng-controller="forest.LeafController">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button style="position:absolute;right:5px;z-index:1060" type="button" class="close" data-dismiss="modal">
+                <i class="icon-remove-circle" ></i>
+            </button> 
+            <img id="annotationImageDisplay" />
+        </div>
     </div>
-  </div>
 </div>
 
 <!-- Modify Leaf Modal -->
 <div class="modal" id="modifyLeafModal" data-backdrop="false" ng-controller="forest.LeafController" ng-model="modifyLeaf">
     <div class="modal-dialog">
         <div class="modal-content">
+            <div class="working" id="modifyLeafModalWorking">
+                <i class="icon-working icon-cog icon-spin"></i>
+            </div>
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" ng-click="closeModifyLeafModal()">
                     <i class="icon-remove-circle"></i>

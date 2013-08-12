@@ -11,18 +11,13 @@
             </a>
         </li>
         <li>
-            <a ng-click="openFeedbackModal()" ng-controller="layouts.StandardController">
-                <strong>Feedback</strong>
-            </a>
-        </li>
-        <li>
             <a ng-click="mobileGoToDocs(treeInfo.id)">
                 <strong>Developer Resources</strong>
             </a>
         </li>
     </ul> 
     <div class="appName">
-        {{treeInfo.name}}
+        <a ng-href="#/app/{{treeInfo.id}}">{{treeInfo.name}}</a>
     </div> 
     <div>
         <img class="appLogo" ng-src="{{treeInfo.logo}}" />

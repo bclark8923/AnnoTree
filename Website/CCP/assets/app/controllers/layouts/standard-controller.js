@@ -3,10 +3,22 @@
 
     app.controller(
         "layouts.StandardController",
-        function( $scope, localStorageService, $location, authenticateService, requestContext, feedbackService, _ ) {
+        function( $scope, $rootScope, localStorageService, $location, authenticateService, requestContext, feedbackService, _ ) {
 
 
             // --- Define Controller Methods. ------------------- //
+            function loadUserData() {
+                var promise = authenticateService.getUserInfo();
+                promise.then(
+                    function( response ) {
+                        $rootScope.user = response.data;
+                    },
+                    function( response ) {
+                        // there should never be a failure unless services are down
+                    }
+                ); 
+            }
+
 
             // --- Define Scope Methods. ------------------------ //
             $scope.openUserScreen = function() {
@@ -136,6 +148,7 @@
 
             // --- Initialize. ---------------------------------- //
             $scope.setWindowTitle( "AnnoTree" );
+            $scope.$evalAsync(loadUserData());
             if ($location.path() == "/app/ft") {
                 $("#helpModal").modal('show');
             }

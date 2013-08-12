@@ -11,7 +11,6 @@
             }
             
             function addLeafComment(leafID, comment) {
-                $("#loadingScreen").show();
                 return $http.post(apiRoot.getRoot() + '/services/comments/leaf/' + leafID, {comment: comment});
             }
 
@@ -21,7 +20,6 @@
             }
 
             function updateLeaf(leafID, branchID, leafName, leafDescription) {
-                $("#loadingScreen").show();
                 return $http.put(apiRoot.getRoot() + '/services/leaf/' + leafID, {name: leafName, description: leafDescription, branchid: branchID});
             }
 

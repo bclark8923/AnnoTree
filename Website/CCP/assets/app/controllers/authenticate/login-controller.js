@@ -4,7 +4,7 @@
 
     app.controller(
         "authenticate.LoginController",
-        function( $scope, localStorageService, $location, requestContext, authenticateService, _ ) {
+        function( $scope, $rootScope, localStorageService, $location, requestContext, authenticateService, _ ) {
 
 
             // --- Define Controller Methods. ------------------- //
@@ -15,7 +15,7 @@
                 //set session information
                 localStorageService.add('username', response.data.first_name + ' ' + response.data.last_name);
                 localStorageService.add('useravatar', response.data.profile_image_path);
-
+                $rootScope.user = response.data;
                 //redirect to app
                 $location.path("app");
             }
@@ -154,19 +154,11 @@
                 }
             );
 
-
             // --- Initialize. ---------------------------------- //
-
-
+            $("#loadingScreen").hide();
+            
             // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
-
-            if(!$scope.subview) {
-                //window.Gumby.init();
-            }
-
-
         }
     );
-
- })( angular, AnnoTree );
+})( angular, AnnoTree );

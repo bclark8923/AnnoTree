@@ -22,7 +22,7 @@
                                 <div class="cardImgLarge item" ng-class="{active: $index==leaf.annotations.length-1}" ng-repeat="annotation in leaf.annotations">
                                     <img class="leafImage" ng-src="{{annotation.path}}" ng-click="openAnnotationModal(annotation.path, annotation.filename)"/>
                                     <div>
-                                        Created: {{annotation.created_at | date:'fullDate'}}
+                                        <span id="annotationAbout">Created: {{annotation.created_at | date:'fullDate'}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -33,36 +33,25 @@
                                 <span class="icon-next"></span>
                             </a>
                         </div>
-                        <form name="createLeafForm" ng-submit="addNewAnnotation()">
-                            <div class="addAnnotation" style="margin-top:40px">
-                                <div class="error-text" id="invalidAnnotation"></div>
-                                <span class="btn btn-annotree fileinput-button">
-                                    <i class="icon-plus"></i>
-                                    <span>Add Image</span>
-                                    <input type="file" name="files" id="newAnnotation" ng-model="newAnnotation" />
-                                </span>
-                                <span style="margin-left:5px" id="annotationName">No file selected</span>
-                            </div>
-                            <div class="addAnnotation" style="margin-top:10px">
-                                <button type="submit" id="annotationUploadBtn" class="btn btn-annotree" data-loading-text="Uploading...">
-                                    <strong>Upload</strong>
-                                </button>
-                            </div>
-                        </form>
+                        <div id="addAnnotation">
+                            <a class="btn btn-annotree" ng-click="openUploadAnnotationModal()">Add Image</a>
+                        </div>
                     </div>
                     <div class="col-12 col-sm-6">
                         <div class="leafComments" >
-                            <div class="leafComment" ng-repeat="comment in leaf.comments | orderBy:'created_at' | date:'yyyy-MM-dd HH:mm:ss'">
-                                <div class="userImageHolder">
-                                    <img class="userCommentImage" ng-src="{{comment.avatar}}"> 
+                            <div id="commentsWrapper">
+                                <div class="leafComment" ng-repeat="comment in leaf.comments | orderBy:'created_at' | date:'yyyy-MM-dd HH:mm:ss'">
+                                    <div class="userImageHolder">
+                                        <img class="userCommentImage" ng-src="{{comment.avatar}}"> 
+                                    </div>
+                                    <div class="userCommentHolder"> 
+                                        <p class="userCommentName">{{comment.first_name}} {{comment.last_name}}</p> 
+                                        <p class="userComment">{{comment.comment}}</p>
+                                    </div>
+                                    <hr class="smallHR"/>
                                 </div>
-                                <div class="userCommentHolder"> 
-                                    <p class="userCommentName">{{comment.first_name}} {{comment.last_name}}</p> 
-                                    <p class="userComment">{{comment.comment}}</p>
-                                </div>
-                                <hr class="smallHR"/>
                             </div>
-                            <div class="leafComment">
+                            <div class="leafComment" id="commentArea">
                                 <div class="error-text" id="leafCommentError" ng-modal="leafCommentError"></div>
                                 <div class="userImageHolder">
                                     <img class="userCommentImage" ng-src="{{user.avatar}}"> 

@@ -3,9 +3,6 @@
         <!-- top navbar -->
         <div class="navbar navbar-fixed-top">
             <img src="img/LogoNameWeb.png" class="logoHeader" />
-            <!--div class="appHeader">
-                AnnoTree CCP
-            </div-->
             <div class="nav-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav">
                     <li>
@@ -77,7 +74,7 @@
                         <p ng-show="feedbackAbout">Let us know what features you want to see next, any problems you have while using AnnoTree, or anything else you feel that we should be aware of.</p>
                         <div class="error-text" id="invalidSubmitFeedback" ng-show="invalidSubmitFeedback"></div>
                         <div class="form-group">
-                            <textarea id="feedback" class="form-control" rows="5" type="text" placeholder="Feedback" ng-model="feedback" required ng-show="feedbackArea"></textarea>
+                            <textarea id="feedback" class="form-control" rows="5" type="text" placeholder="Feedback" ng-model="feedback" required ng-show="feedbackArea" maxlength="5000"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">

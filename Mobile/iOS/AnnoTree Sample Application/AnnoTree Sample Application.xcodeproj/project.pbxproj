@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D37FECC517B2BB0800FCDD11 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37FECC417B2BB0800FCDD11 /* OpenGLES.framework */; };
+		D37FECC717B2BDCA00FCDD11 /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37FECC617B2BDCA00FCDD11 /* AnnoTree.framework */; };
 		D3B3916517A9762B00A4148C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B3916417A9762B00A4148C /* Foundation.framework */; };
 		D3B3916717A9762B00A4148C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B3916617A9762B00A4148C /* CoreGraphics.framework */; };
 		D3B3916917A9762B00A4148C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B3916817A9762B00A4148C /* UIKit.framework */; };
@@ -14,9 +16,6 @@
 		D3B3917117A9762B00A4148C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B3917017A9762B00A4148C /* main.m */; };
 		D3B3917517A9762B00A4148C /* annotreeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D3B3917417A9762B00A4148C /* annotreeAppDelegate.m */; };
 		D3B3917717A9762B00A4148C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3B3917617A9762B00A4148C /* Images.xcassets */; };
-		D3B3917E17A9762C00A4148C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B3917D17A9762C00A4148C /* XCTest.framework */; };
-		D3B3917F17A9762C00A4148C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B3916417A9762B00A4148C /* Foundation.framework */; };
-		D3B3918017A9762C00A4148C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B3916817A9762B00A4148C /* UIKit.framework */; };
 		D3B3919817A9766200A4148C /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3B3919317A9766200A4148C /* AnnoTree.bundle */; };
 		D3B3919917A9766200A4148C /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B3919417A9766200A4148C /* MainStoryboard_iPad.storyboard */; };
 		D3B3919A17A9766200A4148C /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3B3919517A9766200A4148C /* MainStoryboard_iPhone.storyboard */; };
@@ -34,20 +33,11 @@
 		D3B391B517A976AB00A4148C /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B391A617A9768000A4148C /* Default-Portrait.png */; };
 		D3B391B617A976AB00A4148C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B391A717A9768000A4148C /* Default.png */; };
 		D3B391B717A976AB00A4148C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3B391A817A9768000A4148C /* Default@2x.png */; };
-		D3B391B917A97D6100A4148C /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3B391B817A97D6100A4148C /* AnnoTree.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		D3B3918117A9762C00A4148C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D3B3915917A9762B00A4148C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D3B3916017A9762B00A4148C;
-			remoteInfo = "AnnoTree Sample Application";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		D37FECC417B2BB0800FCDD11 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		D37FECC617B2BDCA00FCDD11 /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AnnoTree.framework; sourceTree = "<group>"; };
 		D3B3916117A9762B00A4148C /* AnnoTree Sample Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AnnoTree Sample Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3B3916417A9762B00A4148C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D3B3916617A9762B00A4148C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,8 +49,6 @@
 		D3B3917317A9762B00A4148C /* annotreeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = annotreeAppDelegate.h; sourceTree = "<group>"; };
 		D3B3917417A9762B00A4148C /* annotreeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = annotreeAppDelegate.m; sourceTree = "<group>"; };
 		D3B3917617A9762B00A4148C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D3B3917C17A9762C00A4148C /* AnnoTree Sample ApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AnnoTree Sample ApplicationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3B3917D17A9762C00A4148C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D3B3919317A9766200A4148C /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AnnoTree.bundle; sourceTree = "<group>"; };
 		D3B3919417A9766200A4148C /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		D3B3919517A9766200A4148C /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
@@ -79,7 +67,6 @@
 		D3B391A617A9768000A4148C /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
 		D3B391A717A9768000A4148C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		D3B391A817A9768000A4148C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		D3B391B817A97D6100A4148C /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AnnoTree.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,20 +74,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D37FECC517B2BB0800FCDD11 /* OpenGLES.framework in Frameworks */,
 				D3B3916717A9762B00A4148C /* CoreGraphics.framework in Frameworks */,
 				D3B3916917A9762B00A4148C /* UIKit.framework in Frameworks */,
-				D3B391B917A97D6100A4148C /* AnnoTree.framework in Frameworks */,
 				D3B3916517A9762B00A4148C /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D3B3917917A9762C00A4148C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D3B3917E17A9762C00A4148C /* XCTest.framework in Frameworks */,
-				D3B3918017A9762C00A4148C /* UIKit.framework in Frameworks */,
-				D3B3917F17A9762C00A4148C /* Foundation.framework in Frameworks */,
+				D37FECC717B2BDCA00FCDD11 /* AnnoTree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				D3B3916117A9762B00A4148C /* AnnoTree Sample Application.app */,
-				D3B3917C17A9762C00A4148C /* AnnoTree Sample ApplicationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,11 +105,11 @@
 		D3B3916317A9762B00A4148C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D3B391B817A97D6100A4148C /* AnnoTree.framework */,
+				D37FECC617B2BDCA00FCDD11 /* AnnoTree.framework */,
+				D37FECC417B2BB0800FCDD11 /* OpenGLES.framework */,
 				D3B3916417A9762B00A4148C /* Foundation.framework */,
 				D3B3916617A9762B00A4148C /* CoreGraphics.framework */,
 				D3B3916817A9762B00A4148C /* UIKit.framework */,
-				D3B3917D17A9762C00A4148C /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -197,24 +174,6 @@
 			productReference = D3B3916117A9762B00A4148C /* AnnoTree Sample Application.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D3B3917B17A9762C00A4148C /* AnnoTree Sample ApplicationTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D3B3919017A9762C00A4148C /* Build configuration list for PBXNativeTarget "AnnoTree Sample ApplicationTests" */;
-			buildPhases = (
-				D3B3917817A9762C00A4148C /* Sources */,
-				D3B3917917A9762C00A4148C /* Frameworks */,
-				D3B3917A17A9762C00A4148C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D3B3918217A9762C00A4148C /* PBXTargetDependency */,
-			);
-			name = "AnnoTree Sample ApplicationTests";
-			productName = "AnnoTree Sample ApplicationTests";
-			productReference = D3B3917C17A9762C00A4148C /* AnnoTree Sample ApplicationTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -224,11 +183,6 @@
 				CLASSPREFIX = annotree;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = AnnoTree;
-				TargetAttributes = {
-					D3B3917B17A9762C00A4148C = {
-						TestTargetID = D3B3916017A9762B00A4148C;
-					};
-				};
 			};
 			buildConfigurationList = D3B3915C17A9762B00A4148C /* Build configuration list for PBXProject "AnnoTree Sample Application" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -243,7 +197,6 @@
 			projectRoot = "";
 			targets = (
 				D3B3916017A9762B00A4148C /* AnnoTree Sample Application */,
-				D3B3917B17A9762C00A4148C /* AnnoTree Sample ApplicationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -274,13 +227,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D3B3917A17A9762C00A4148C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -294,22 +240,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D3B3917817A9762C00A4148C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		D3B3918217A9762C00A4148C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D3B3916017A9762B00A4148C /* AnnoTree Sample Application */;
-			targetProxy = D3B3918117A9762C00A4148C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D3B3916D17A9762B00A4148C /* InfoPlist.strings */ = {
@@ -339,6 +270,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -354,8 +286,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -377,6 +311,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -386,7 +321,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -398,15 +335,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)",
-				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shock Games, LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shock Games, LLC";
+				DYLIB_COMPATIBILITY_VERSION = 0.1.1;
+				DYLIB_CURRENT_VERSION = 0.1.1;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTree Sample Application/AnnoTree Sample Application-Prefix.pch";
 				INFOPLIST_FILE = "AnnoTree Sample Application/AnnoTree Sample Application-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "A225A517-A630-4766-BDF1-12A4BF9283A8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A225A517-A630-4766-BDF1-12A4BF9283A8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -416,56 +356,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)",
-				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shock Games, LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DYLIB_COMPATIBILITY_VERSION = 0.1.1;
+				DYLIB_CURRENT_VERSION = 0.1.1;
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTree Sample Application/AnnoTree Sample Application-Prefix.pch";
 				INFOPLIST_FILE = "AnnoTree Sample Application/AnnoTree Sample Application-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "A225A517-A630-4766-BDF1-12A4BF9283A8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A225A517-A630-4766-BDF1-12A4BF9283A8";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		D3B3919117A9762C00A4148C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AnnoTree Sample Application.app/AnnoTree Sample Application";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AnnoTree Sample Application/AnnoTree Sample Application-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "AnnoTree Sample ApplicationTests/AnnoTree Sample ApplicationTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		D3B3919217A9762C00A4148C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AnnoTree Sample Application.app/AnnoTree Sample Application";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(SYSTEM_APPS_DIR)/Xcode5-DP.app/Contents/Developer/Library/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AnnoTree Sample Application/AnnoTree Sample Application-Prefix.pch";
-				INFOPLIST_FILE = "AnnoTree Sample ApplicationTests/AnnoTree Sample ApplicationTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -488,14 +391,7 @@
 				D3B3918F17A9762C00A4148C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		D3B3919017A9762C00A4148C /* Build configuration list for PBXNativeTarget "AnnoTree Sample ApplicationTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D3B3919117A9762C00A4148C /* Debug */,
-				D3B3919217A9762C00A4148C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

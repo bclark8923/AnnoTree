@@ -24,6 +24,10 @@
             function requestPassword(email) {
                 return $http.post(apiRoot.getRoot() + '/services/user/reset', {email: email});
             }
+
+            function getUserInfo() {
+                return $http.get(apiRoot.getRoot() + '/services/user/');
+            }
             // ---------------------------------------------- //
             // ---------------------------------------------- //
 
@@ -34,7 +38,8 @@
                 login: login,
                 logout: logout,
                 requestPassword: requestPassword,
-                resetPassword: resetPassword
+                resetPassword: resetPassword,
+                getUserInfo: getUserInfo
             });
 
 

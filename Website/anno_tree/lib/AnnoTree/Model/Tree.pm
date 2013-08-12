@@ -15,8 +15,8 @@ sub create {
     my ($class, $params) = @_;
 
     my $created = Time::Piece::localtime->strftime('%F %T');  
-    print $created . "\n";
-    my $token = sha256_hex($params->{forestid}, $params->{userid}, $created);
+    
+    my $token = sha256_hex($params->{forestid}, $params->{userid}, $created, int(rand(1000000000)));
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call create_tree(:userid, :forestid, :name, :desc, :logo, :token, :created)",
         {
@@ -243,7 +243,7 @@ sub addUserToTree {
     if (looks_like_number($cols->[0])) {
         my $num = $cols->[0];
         if ($num == 0) {
-            $json = {error => $num, txt => 'User already added successfully'};
+            $json = {error => $num, txt => $params->{userToAdd} . ' has already been added to this tree'};
         } elsif ($num == 1) {
             $json = {error => $num, txt => 'Tree does not exist or user does not have access to that tree'};
         }
@@ -368,8 +368,35 @@ sub removeUserFromTree {
         $json = {error => $num, txt => 'There was no user to remove'};
     } elsif ($num == 2) {
         $json = {error => $num, txt => 'Tree does not exist or user does not have permissions to remove that user from the tree'};
+    } elsif ($num == 3) {
+        $json = {error => $num, txt => 'You can\'t remove the forest owner from a tree'};
     }
  
+
+    return $json;
+}
+
+sub iosTokens {
+    my ($class, $tokens) = @_;
+
+    print Dumper($tokens);
+    my $json = {tokens => []};
+    my $index = 0;
+    for my $token (@{$tokens}) {
+        my $result = AnnoTree::Model::MySQL->db->execute(
+            "call get_tree_name_from_token(:token)",
+            {
+                token => $token
+            }
+        );
+        my $return = $result->fetch;
+        my $treeName = '';
+        $treeName = $return->[0] if defined $return;
+        $json->{tokens}->[$index] = {$token => $treeName};
+        $index++;
+    }
+
+    print Dumper($json);
 
     return $json;
 }

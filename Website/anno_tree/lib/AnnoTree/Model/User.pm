@@ -279,4 +279,25 @@ sub reset {
     return $json;
 }
 
+sub getUserInformation {
+    my ($class, $userid) = @_;
+
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call get_user_info(:id)",
+        {
+            id => $userid
+        }
+    );
+
+    my $json = {};
+    my $cols = $result->fetch;
+    my $userInfo = $result->fetch;
+    
+    for (my $i = 0; $i < @{$cols}; $i++) {
+        $json->{$cols->[$i]} = $userInfo->[$i];
+    }
+
+    return $json;
+}
+
 return 1;

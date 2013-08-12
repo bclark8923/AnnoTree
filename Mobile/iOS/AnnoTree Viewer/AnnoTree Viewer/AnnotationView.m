@@ -16,7 +16,6 @@
 @synthesize drawingEnabled;
 @synthesize textEnabled;
 
-static int textBoxTag = 101;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -108,10 +107,8 @@ static int textBoxTag = 101;
                 
         [self addSubview:textField];
         [textBoxes addObject:textField];
-        
-        
+        [textField becomeFirstResponder];
 
-        
     }
 }
 

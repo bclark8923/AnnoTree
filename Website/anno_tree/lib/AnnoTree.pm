@@ -96,6 +96,7 @@ sub startup {
     $r->post('/user/reset/:token')                          ->to('controller-user#reset');
     $authr->post('/user/logout')                            ->to('controller-auth#logoutUser');
     $authr->get('/user/knownpeople')                        ->to('controller-user#knownPeople');
+    $authr->get('/user')                                    ->to('controller-user#getUserInformation');
     $authr->post('/user/feedback')                          ->to('controller-user#feedback');
     #$authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser');
 
@@ -112,7 +113,9 @@ sub startup {
     # ===== FORESTS =====
     $authr->post('/forest')                                         ->to('controller-forest#create');
     $authr->get('/forest')                                          ->to('controller-forest#forestInfo');
+    $authr->get('/forest/:forestid/users' => [forestid => qr/\d+/]) ->to('controller-forest#forestUsers');
     $authr->put('/forest/:forestid' => [forestid => qr/\d+/])       ->to('controller-forest#update');
+    $authr->put('/forest/:forestid/owner' => [forestid => qr/\d+/]) ->to('controller-forest#updateOwner');
     $authr->delete('/forest/:forestid' => [forestid => qr/\d+/])    ->to('controller-forest#deleteForest');
 
     # ===== TREES =====
@@ -122,6 +125,7 @@ sub startup {
     $authr->delete('/tree/:treeid' => [treeid => qr/\d+/])      ->to('controller-tree#deleteTree');
     $authr->put('/tree/:treeid/user' => [treeid => qr/\d+/])    ->to('controller-tree#addUserToTree');
     $authr->delete('/tree/:treeid/user/:userid' => [treeid => qr/\d+/, userid => qr/\d+/])    ->to('controller-tree#removeUserFromTree');
+    $r->get('/ios/tokens')  ->to('controller-tree#iosTokens');
  
     # ===== BRANCHES =====
     $authr->post('/:treeid/branch' => [treeid => qr/\d+/])->to('controller-branch#create');

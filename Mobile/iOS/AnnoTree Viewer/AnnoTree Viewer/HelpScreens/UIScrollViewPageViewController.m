@@ -25,7 +25,7 @@
     if (self) {
         
         scrollView = [[UIScrollView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        scrollView.delegate = self;
+        //scrollView.delegate = self;
         scrollView.clipsToBounds = YES;
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.pagingEnabled = YES;
@@ -89,11 +89,10 @@
             [subview addSubview:subviewButton];
         }
 		
-		[self.scrollView addSubview:subview];
+		[scrollView addSubview:subview];
 	}
 	
-	self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * images.count, self.scrollView.frame.size.height);
-	
+	scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * images.count, scrollView.frame.size.height);
     
     CGRect screenRect = [[UIScreen mainScreen] applicationFrame];
     CGFloat screenHeight = screenRect.size.height;
@@ -163,6 +162,7 @@
 	// e.g. self.myOutlet = nil;
 	self.scrollView = nil;
 	self.pageControl = nil;
+    self.controlWindow = nil;
 }
 
 - (void)didReceiveMemoryWarning

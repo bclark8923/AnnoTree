@@ -90,9 +90,6 @@ static const CGFloat kAddressHeight = 26.0f;
     [self.viewWeb loadRequest:request];
     [self updateButtons];
     
-    UIScrollViewPageViewController *help = [[UIScrollViewPageViewController alloc] init];
-    [self.view addSubview:help.view];
-    
     //[self.view addSubview:[[AnnoTree sharedInstance] getAnnoTreeLauncher:UIInterfaceOrientationMaskAll]];
     //[[[UIApplication sharedApplication] keyWindow] bringSubviewToFront:[[AnnoTree sharedInstance] getAnnoTreeLauncher]];
 }

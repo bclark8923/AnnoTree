@@ -219,7 +219,7 @@
         if(help) {
             helpView = [[UIScrollViewPageViewController alloc] init];
             helpView.controlWindow = annoTreeWindow;
-            [self.view addSubview:helpView.view];
+            [annoTreeWindow addSubview:helpView.view];
             [annoTreeWindow setEnabled:YES];
         }
     }

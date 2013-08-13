@@ -1,0 +1,43 @@
+App Launches
+
+Help Screen Overlays app
+Multi screen with next button
+
+Screen 1: 
+	Welcome to AnnoTree
+	AnnoTree helps you create better webites and apps
+
+Screen 2:
+	Draw on your apps!
+	We allow you to draw on your website or mobile app
+
+Screen 3:
+	It's simple
+	Simply tap the tree icon that hovers in the top left to start drawing
+
+Screen 4:
+	Share with your team
+	To save these drawings sign up on AnnoTree.com and share these drawings with your team
+
+Screen 5:
+	Begin today!
+	Start collaborating and annotating today! (Done button)
+
+
+Add to share button:
+	if no sdk key set - pop up to tell them to hit the cog and set their app identifier
+
+
+Add Cog as last on toolbar
+brings up screen
+	Can set browser home page
+	Can set Website Identifier
+		Below that says "where do I get this?" - hyperlink to below
+
+Where do i get this brings up a Help Screen - Will say:
+	Sign up on AnnoTree.com for our beta
+	When you get access, you can create a tree
+	A tree can represent the website you are working on
+	Here you can go to developer resources to get your identifier
+
+Eventually bulding login/sign up and create tree/send to tree on this screen would be best

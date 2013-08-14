@@ -25,7 +25,21 @@ $(document).ready(function() {
   $(".treeCard").click(function() {
     $("#trees").css('opacity', 0);
     setTimeout(function() {
-      window.location.href = "tree.html";
+      window.location.href = "tree-branches.html";
+    }, 250);
+  })
+
+  $(".branchCard").click(function() {
+    $("#trees").css('opacity', 0);
+    setTimeout(function() {
+      window.location.href = "tree-leaves.html";
+    }, 250);
+  })
+
+  $(".leafCard").click(function() {
+    $("#trees").css('opacity', 0);
+    setTimeout(function() {
+      window.location.href = "leaf.html";
     }, 250);
   })
 
@@ -36,20 +50,6 @@ $(document).ready(function() {
       window.location.href = "tree-leaves.html";
     }, 250);
   })
-
-  $(".cardImg").click(function() {
-    if ($(this).hasClass('noclick')) {
-        $(this).removeClass('noclick');
-    }
-    else {
-      $("#leafs").css('opacity', 0);
-      $("#dashboardWrap").css('opacity', 0);
-      setTimeout(function() {
-        window.location.href = "leaf.html";
-      }, 250);
-    }
-  });
-
 
 
   $('#carousel-example-generic').children('.carousel-control').show();
@@ -84,7 +84,8 @@ $(document).ready(function() {
     connectToSortable: "#leafs",
     helper: "clone",
     revert: "invalid",
-    handle: ".cardName"
+    handle: "div.cardName",
+    cancel: ".ui-state-disabled"
   });
   $( "div" ).disableSelection();
 });

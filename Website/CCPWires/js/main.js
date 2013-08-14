@@ -33,16 +33,21 @@ $(document).ready(function() {
     $(".cardLarge").css('opacity', 0);
     $("#dashboardWrap").css('opacity', 0);
     setTimeout(function() {
-      window.location.href = "tree.html";
+      window.location.href = "tree-leaves.html";
     }, 250);
   })
 
-  $(".leafCard").click(function() {
-    $("#leafs").css('opacity', 0);
-    $("#dashboardWrap").css('opacity', 0);
-    setTimeout(function() {
-      window.location.href = "leaf.html";
-    }, 250);
+  $(".cardImg").click(function() {
+    if ($(this).hasClass('noclick')) {
+        $(this).removeClass('noclick');
+    }
+    else {
+      $("#leafs").css('opacity', 0);
+      $("#dashboardWrap").css('opacity', 0);
+      setTimeout(function() {
+        window.location.href = "leaf.html";
+      }, 250);
+    }
   });
 
 
@@ -68,4 +73,18 @@ $(document).ready(function() {
     }
 
   });
+
+  //draggable shit
+  $( "#leafs > .container > .row" ).sortable({
+      revert: true,
+      cancel: ".ui-state-disabled"
+  });
+
+  $( "#leafs" ).draggable({
+    connectToSortable: "#leafs",
+    helper: "clone",
+    revert: "invalid",
+    handle: ".cardName"
+  });
+  $( "div" ).disableSelection();
 });

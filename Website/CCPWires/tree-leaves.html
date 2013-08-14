@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="modal ng-scope in" id="newLeafModal" data-backdrop="false" ng-controller="forest.TreeController" aria-hidden="false" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="working" id="newLeafModalWorking">
+                    <i class="icon-working icon-cog icon-spin"></i>
+                </div>
+                <div class="modal-header">
+                    <button class="close" ng-click="closeNewLeafModal()">
+                        <i class="icon-remove-circle"></i>
+                    </button>
+                    <h3 class="modal-title">Create Leaf</h3>
+                </div>
+                <form name="createLeafForm" ng-submit="newLeaf()" class="ng-pristine ng-invalid ng-invalid-required">
+                    <div class="modal-body">
+                        <p class="error-text" id="invalidAddLeaf" ng-show="invalidAddLeaf" style="display: none;"></p>
+                        <div class="form-group">
+                            <input id="leafName" class="form-control ng-pristine ng-invalid ng-invalid-required" type="text" placeholder="Leaf name" ng-model="leafName" required="">
+                            <span class="tipText">Tip: A leaf is an application feature, service, or new idea that you wish to collaborate on with others</span>
+                        </div>
+                        <!--
+                        <span class="btn btn-annotree fileinput-button">
+                            <i class="icon-plus"></i>
+                            <span>Add file...</span>
+                            <input type="file" name="files" id="annotationImage" ng-model="annotationImage" class="ng-pristine ng-valid">
+                        </span>
+                        <span style="margin-left:5px" id="filesName">No file selected</span>
+                        -->
+                        <div class="leafType">
+                          <div class="row">
+                            <div class="col-4">
+                              <div class="leafTypeIcon">
+                                <div class="leafTypeIconContainer">
+                                  <i class="icon-picture"></i><br/>
+                                  Feature
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-4">
+                              <div class="leafTypeIcon">
+                                <div class="leafTypeIconContainer">
+                                  <i class="icon-wrench"></i><br/>
+                                  Service
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-4">
+                              <div class="leafTypeIcon">
+                                <div class="leafTypeIconContainer">
+                                  <i class="icon-lightbulb"></i><br/>
+                                  Idea
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-annotree">
+                            <strong>Create</strong>
+                        </button>
+                        <button type="button" class="btn btn-warning" ng-click="closeNewLeafModal()">
+                            <strong>Cancel</strong>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobileDashboard">
+      <div class="mobile-dash-wrap">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Documents</a></li>
+        </ul>
+        <div class="appName">
+          AnnoTree CCP
+        </div>
+        <div style="text-align:center;">
+          <img class="appLogo" src="img/AnnoTreeLogoWebHolder.png">
+        </div>
+        <div style="margin-top:10px;">
+          <p style='font-weight:bold'>API Key:</p>
+          <p>a43ee85366161f644f1428574f190b6c919ba390d502458f8f4dc29e9b956501</p>
+        </div>
+        <div class="usersHeader">
+          Users <span class="badge newUserBadge">+</span>
+        </div>
+        <div id="users" style="margin-top:20px;">
+          <div class="col-6">
+            <img class="treeUser" src="img/user.png"> 
+          </div>
+          <div class="col-6">
+            <img class="treeUser" src="img/user.png"> 
+          </div>
+          <div class="col-6">
+            <img class="treeUser" src="img/user.png"> 
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-footer-mobile">
+        <span style="margin-left:10px;" class="badge">Edit</span>
+      </div>
+    </div>
+    <div id="containWrapper">
+      <div class="navbar navbar-fixed-top">
+        <img src="img/LogoNameWeb.png" class="logoHeader"/>
+        <div class="appHeader">
+          AnnoTree CCP
+        </div>
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="forest.html">Home</a></li>
+            <li><a href="#">Documents</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="userLinkDiv">
+            <a href="" class="userLink toggle active">
+              <img id="userIcon" src="img/user.png">
+            </a>
+            <span class="logoutArrow userSettings"></span>
+          </div>
+            <div class="responsiveShow" style="width: 40px;height: 40px;margin-top: 5px;">
+              <a style="text-decoration:none;padding:0;text-align:center;position:fixed;"><i id="paneToggle" class="icon-reorder responsiveShow" style="color:white;font-size:18pt;"></i></a>
+            </div>
+        </div>
+      </div>
+
+      <div id="userSettings" class="userSettingsBox userSettings">
+          <div>
+              <img style="float: left;height: 60px;margin-left: 10px;margin-top: 3px;" src="img/user.png">    
+              <p class="userSettingsName ng-binding" style="margin-left:80px;">Brian Clark</p>
+          </div>
+          <div style="position: absolute; bottom: 0; height: 40px; width: 248px; background-color: #eee;border-top:1px solid #bbb;">
+              <!-- Link to settings Modal - Modal To Be Implmented -->
+              <!-- <p class="btn success small settingsButton" style="margin-top:10px;border:1px solid #bbb;"><a class="switch active" gumby-trigger="#userSettingsModal | .userSettings">Settings</a></p> -->
+              <p style="margin-top:5px;" class="btn btn-annotree logoutButton btn-small">Logout</p>
+          </div>
+      </div>
+
+      <div id="wrapper">
+
+        <div id="dashboardWrap">
+          <div class="dash-inner-wrap">
+            <div id="dashboard">
+              <div class="dashboard-inner">
+                <div class="appName">
+                  AnnoTree CCP
+                </div>
+                <div style="text-align:center;">
+                  <img class="appLogo" src="img/AnnoTreeLogoWebHolder.png">
+                </div>
+                <div style="margin-top:10px;">
+                  <p style='font-weight:bold'>API Key:</p>
+                  <p>a43ee85366161f644f1428574f190b6c919ba390d502458f8f4dc29e9b956501</p>
+                </div>
+                <div class="usersHeader">
+                  Users <span class="badge newUserBadge">show</span>
+                </div>
+                <div id="users" style="margin-top:20px; display:none;">
+                  <div class="col-6">
+                    <img class="treeUser" src="img/user.png"> 
+                  </div>
+                  <div class="col-6">
+                    <img class="treeUser" src="img/user.png"> 
+                  </div>
+                  <div class="col-6">
+                    <img class="treeUser" src="img/user.png"> 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard-footer responsiveHide">
+              <span style="margin-left:10px;" class="badge">Edit</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="leafs">
+          <div class="container">
+            <div class="row">
+              <div class="card-col col-12 col-sm-6 col-lg-4 ui-state-disabled">
+                <div class="card cardNew">
+                  <div class="cardName cardNameNew">
+                    New Leaf
+                  </div>
+                  <div class="cardImg cardImgNew">
+                    +
+                  </div>
+                </div>
+              </div>
+              <div class="card-col col-12 col-sm-6 col-lg-4">
+                <div class="card leafCard">
+                  <div class="cardName">
+                    Test Name
+                  </div>
+                  <div class="cardImg" style="background-image:url('img/photo5.PNG');">
+
+                  </div>
+  <!--
+                  <div class="cardComments">
+                    one<br/>
+                    two<br/>
+                    three<br/>
+                  </div>
+                -->
+                </div>
+              </div>
+              <div class="card-col col-12 col-sm-6 col-lg-4">
+                <div class="card leafCard">
+                  <div class="cardName">
+                    Test Name
+                  </div>
+                  <div class="cardImg" style="background-image:url('img/photo1.PNG');">
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-col col-12 col-sm-6 col-lg-4">
+                <div class="card leafCard">
+                  <div class="cardName">
+                    Test Name
+                  </div>
+                  <div class="cardImg" style="background-image:url('img/photo2.PNG');">
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-col col-12 col-sm-6 col-lg-4">
+                <div class="card leafCard">
+                  <div class="cardName">
+                    Test Name
+                  </div>
+                  <div class="cardImg" style="background-image:url('img/photo3.PNG');">
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-col col-12 col-sm-6 col-lg-4">
+                <div class="card leafCard">
+                  <div class="cardName">
+                    Test Name
+                  </div>
+                  <div class="cardImg" style="background-image:url('img/photo4.PNG');">
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-col col-12 col-sm-6 col-lg-4">
+                <div class="card leafCard">
+                  <div class="cardName">
+                    Test Name
+                  </div>
+                  <div class="cardImg" style="background-image:url('img/photo5.PNG');">
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-col col-12 col-sm-6 col-lg-4">
+                <div class="card leafCard">
+                  <div class="cardName">
+                    Test Name
+                  </div>
+                  <div class="cardImg" style="background-image:url('img/photo1.PNG');">
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-col col-12 col-sm-6 col-lg-4">
+                <div class="card leafCard">
+                  <div class="cardName">
+                    Test Name
+                  </div>
+                  <div class="cardImg" style="background-image:url('img/photo2.PNG');">
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-col col-12 col-sm-6 col-lg-4">
+                <div class="card leafCard">
+                  <div class="cardName">
+                    Test Name
+                  </div>
+                  <div class="cardImg" style="background-image:url('img/photo3.PNG');">
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-col col-12 col-sm-6 col-lg-4">
+                <div class="card leafCard">
+                  <div class="cardName">
+                    Test Name
+                  </div>
+                  <div class="cardImg" style="background-image:url('img/photo4.PNG');">
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-col col-12 col-sm-6 col-lg-4">
+                <div class="card leafCard">
+                  <div class="cardName">
+                    Test Name
+                  </div>
+                  <div class="cardImg" style="background-image:url('img/photo5.PNG');">
+
+                  </div>
+                </div>
+              </div>
+              <div class="card-col col-12 col-sm-6 col-lg-4">
+                <div class="card leafCard">
+                  <div class="cardName">
+                    Test Name
+                  </div>
+                  <div class="cardImg" style="background-image:url('img/photo1.PNG');">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js">
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sliding-pane.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Optionally enable responsive features in IE8 -->
+    <script src="js/respond.js"></script>
+  </body>
+</html>

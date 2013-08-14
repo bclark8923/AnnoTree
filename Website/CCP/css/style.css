@@ -711,6 +711,7 @@ text-align:left;line-height:38px;vertical-align:middle;
     width: 80%;
 }
 
+<<<<<<< Updated upstream
 #displayAnnotation img {
     max-width: 100%;
     margin: 0 auto;
@@ -729,6 +730,17 @@ text-align:left;line-height:38px;vertical-align:middle;
     opacity: 0.5;
 }
 
+=======
+#displayAnnotation .modal-content {
+    width: 100%;
+}
+
+#displayAnnotation .modal-body img {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+>>>>>>> Stashed changes
 /* -----------------------
  * Help Settings
  * ----------------------- */

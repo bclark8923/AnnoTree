@@ -107,6 +107,17 @@
 
                 $scope.invalidAddLeaf = false;
                 
+<<<<<<< Updated upstream
+=======
+                if(!$scope.$$phase) {
+                    $scope.$apply();
+                }
+                //$scope.$apply();
+                $scope.closeNewLeafModal();
+
+                /*$route.reload();
+
+>>>>>>> Stashed changes
                 if(!$scope.$$phase) {
                     $scope.$apply();
                 }
@@ -679,8 +690,12 @@
             // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
             $scope.filesListing = [];
+<<<<<<< Updated upstream
             $scope.invalidEmailErrorShow = false;
             $scope.invalidRemoveErrorShow = false;
+=======
+            
+>>>>>>> Stashed changes
 
             // Load the "remote" data.
             $scope.$evalAsync(loadTreeData());

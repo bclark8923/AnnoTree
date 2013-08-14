@@ -231,7 +231,11 @@
             $scope.openAnnotationModal = function(path, name) {
                 $('#annotationImageDisplay').attr('src', path);
                 $('#displayAnnotationName').html(name);
+<<<<<<< Updated upstream
                 $('#displayAnnotation').appendTo("body").modal('show');
+=======
+                $('#displayAnnotation').modal('show');
+>>>>>>> Stashed changes
             }
 
             $scope.addNewAnnotation = function() {
@@ -262,6 +266,7 @@
                     }
                     $('#newComment').prop('disabled', false);
                 } else {
+                    $('#newComment').prop('disabled', true);
                     var leafID = $scope.leaf.id;
                     var promise = leafService.addLeafComment(leafID, comment);
 
@@ -284,6 +289,7 @@
                             $('#newComment').prop('disabled', false);
                         }
                     );
+                    $('#newComment').prop('disabled', false);
                     $("#loadingScreen").hide();
                 }
             }

@@ -300,4 +300,24 @@ sub getUserInformation {
     return $json;
 }
 
+sub loginTrees {
+    my ($class, $params) = @_;
+
+    my $json = {test => 'test'};
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        'call validate_user(:email)',
+        {
+            email => $params->{email}
+        }
+    );
+
+    my $return = $result->fetch;
+    return {error => '1', txt => 'Invalid email'} unless defined $return;
+    my $shash = $return->[1];
+    my $valid = Crypt::SaltedHash->validate($shash, $params->{password});
+    return {error => '2', txt => 'Invalid password'} unless $valid;
+    
+    return $json;
+}
+
 return 1;

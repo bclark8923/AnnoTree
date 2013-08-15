@@ -94,6 +94,7 @@ sub startup {
     $r->post('/user/beta')                                  ->to('controller-user#beta');
     $r->post('/user/reset')                                 ->to('controller-user#setReset');
     $r->post('/user/reset/:token')                          ->to('controller-user#reset');
+    $r->get('/user/login/trees')                            ->to('controller-user#loginTrees');
     $authr->post('/user/logout')                            ->to('controller-auth#logoutUser');
     $authr->get('/user/knownpeople')                        ->to('controller-user#knownPeople');
     $authr->get('/user')                                    ->to('controller-user#getUserInformation');

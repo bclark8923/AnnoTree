@@ -108,4 +108,22 @@ sub getUserInformation {
     $self->render(json => $json, status => 200);
 }
 
+sub loginTrees {
+    my $self = shift;
+
+    my $jsonReq = $self->req->json;
+    $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{loginEmail} && exists $jsonReq->{loginPassword});
+
+    my $params = {};
+    $params->{email} = $jsonReq->{loginEmail};
+    $params->{password} = $jsonReq->{loginPassword};
+
+    my $json = AnnoTree::Model::User->loginTrees($params);
+    
+    my $status = 200;
+    $status = 406 if (exists $json->{error});
+    
+    $self->render(status => $status, json => $json);
+}
+
 return 1;

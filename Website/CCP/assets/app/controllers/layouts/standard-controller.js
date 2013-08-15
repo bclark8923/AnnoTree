@@ -148,10 +148,8 @@
 
             // --- Initialize. ---------------------------------- //
             $scope.setWindowTitle( "AnnoTree" );
-<<<<<<< Updated upstream
             $scope.$evalAsync(loadUserData());
-=======
->>>>>>> Stashed changes
+            
             if ($location.path() == "/app/ft") {
                 $("#helpModal").modal('show');
             }

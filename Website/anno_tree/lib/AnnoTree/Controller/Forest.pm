@@ -94,7 +94,6 @@ sub deleteForest {
         #foreach my $anno (@annos) {
         #    `rm $path/$anno`;
         #}
-<<<<<<< Updated upstream
     }
 
     $self->render(json => $json, status => $status);
@@ -134,8 +133,6 @@ sub updateOwner {
     my $status = 200;
     if (exists $json->{error}) {
         $status = 406;
-=======
->>>>>>> Stashed changes
     }
 
     $self->render(json => $json, status => $status);

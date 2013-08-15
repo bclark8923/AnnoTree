@@ -98,50 +98,54 @@
                     <button type="button" class="close" data-dismiss="modal">
                         <i class="icon-remove-circle"></i>
                     </button>
-                    <h3 class="modal-title">How To Use AnnoTree</h3>
+                    <h3 class="modal-title">AnnoTree Help</h3>
                 </div>
-                <form name="feedbackForm" ng-submit="submitFeedback()">
-                    <div class="modal-body">
-                        <h3>Collaboration On Application Development</h3>
-                        <div class="row">
-                            <div class="col-12">
-                                AnnoTree is a tool for organizing and collaborating on application creation. At a high level we organize things into Forests (your organization), Trees (your projects), and Leaves (parts of your projects).
-                            </div>
-                        </div>
-                        <h3>Forest</h3>
-                        <div class="row">
-                            <div class="col-12 col-lg-6">
-                                At the top level AnnoTree has forests.  This represents your company or organization for organizing all of your projects, or as we call them trees, together.
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <img style="width: 100%;" src="img/help/forestHelp.png">
-                            </div>
-                        </div>
-                        <h3>Trees</h3>
-                        <div class="row">
-                            <div class="col-12 col-lg-6">
-                                Inside forests you have your trees.  These represent applications or projects you are currently working on and hold all of the "leaves" that represent parts of your application.
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <img style="width: 100%;" src="img/help/treeHelp.png">
-                            </div>
-                        </div>
-                        <h3>Leaves</h3>
-                        <div class="row">
-                            <div class="col-12 col-lg-6">
-                                At the lowest level you have the various leaves on a tree.  These leaves hold the screenshots and annotations on your applications to collaborate on as a team.
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <img style="width: 100%;" src="img/help/leafHelp.png">
-                            </div>
+                <div class="modal-body">
+                    <h3>Collaboration On Application Development</h3>
+                    <div class="row">
+                        <div class="col-12">
+                            The AnnoTree Collaboration Platform is a collaborative project management system designed around the concept of a tree. Within your forest which represents an organization you work with, you have your trees which each represent a different application within that company. When inside each tree, you will see your leaves where each leaf represents an annotation sent from the AnnoTree Widget or a file uploaded directly as a leaf.
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-annotree" data-dismiss="modal">
-                            <strong>Got It!</strong>
-                        </button>
+                    <h3>Forest</h3>
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            By either creating a Forest or being invited to an existing one, you are instantly able to collaborate within any of the Trees inside the Forest. Through a simple, easy-to-navigate menu, you can create, join, rename and delete Forests.
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <img style="width: 100%;" src="img/help/forestHelp.png">
+                        </div>
                     </div>
-                </form>
+                    <h3>Trees</h3>
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            Through the same, intuitive menu system, you can create any number of Trees within a Forest you have created or been invited to. You can create a Tree for each application you are developing and set up unique permissions for each tree to ensure the right team members are working on the right projects. Once inside your tree, you can send annotations directly from the AnnoTree Widget or upload them from your local hard drive.<br/><br/>
+                            While inside a Tree, you will see any currently uploaded Leaves, as well as an option to Add a New Leaf. If you select the "New Leaf" button, you will be prompted to name the leaf and locate the file you wish to upload as the Leaf on your local hard drive. Once you have named the Leaf and located your file, you hit "Create" which will automatically add the Leaf into your Forest.<br/><br/>
+                            If you select a Leaf that has been previously uploaded, it will bring you into the Leaf menu.<br/><br/>
+                            Within the Tree, you will also see a series of options on the left-hand side, including Developer Resources, Users, and Tree Settings.<br/><br/>
+                            The Developer Resources is your information portal for your Tree. Here, you will find the SDK key needed to sync your Tree with your mobile devices as well as the code where your unique SDK key is inserted. Additionally, there are step-by-step instructions to assist in the process of integrating the SDK into your Application. Lastly, you can download the Sample Application which can illustrate the AnnoTree functions in a demo application before having to commit to our platform.<br/><br/>
+                            When you select Users, a User Permissions box is shown where you can add or remove users from a Tree. To add a user, begin typing their name or email address in the Email box and it will auto-populate with any registered users matching the text you have entered. From there, you can select the desired user or continue by entering the full email address and hitting "Add". To remove a user, simply click the "x" next to a user shown to have access to the Tree.<br/><br/>
+                            Inside the Tree Settings, you can Rename or Delete your Tree.
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <img style="width: 100%;" src="img/help/treeHelp.png">
+                        </div>
+                    </div>
+                    <h3>Leaves</h3>
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            At the lowest level you have the various leaves on a tree.  These leaves hold the screenshots and annotations on your applications to collaborate on as a team.
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <img style="width: 100%;" src="img/help/leafHelp.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-annotree" data-dismiss="modal">
+                        <strong>Got It!</strong>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

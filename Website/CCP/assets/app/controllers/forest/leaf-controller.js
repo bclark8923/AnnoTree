@@ -231,11 +231,8 @@
             $scope.openAnnotationModal = function(path, name) {
                 $('#annotationImageDisplay').attr('src', path);
                 $('#displayAnnotationName').html(name);
-<<<<<<< Updated upstream
                 $('#displayAnnotation').appendTo("body").modal('show');
-=======
-                $('#displayAnnotation').modal('show');
->>>>>>> Stashed changes
+                /*$('#displayAnnotation').modal('show');*/
             }
 
             $scope.addNewAnnotation = function() {

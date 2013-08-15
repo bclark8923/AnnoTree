@@ -10,6 +10,5 @@
 # annotation_files
 Website/anno_tree/public/annotation_files/
 
-Mobile/iOS/AnnoTree Viewer/AnnoTree Viewer.xcodeproj/project.xcworkspace/xcuserdata/mmax.xcuserdatad/UserInterfaceState.xcuserstate
-
+# Xcod user state file
 *.xcuserstate

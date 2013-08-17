@@ -2,28 +2,58 @@
 <html>
     <head>
         <title>AnnoTree</title>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
         <style>
             body {
-                min-width: 357px;
-                overflow-x: hidden;
+                font-family:'Lato', GeosansLightRegular, Helvetica, Arial, sans-serif !important;
+                background-color: #f1f1f1;
+                color: #444;
+                min-width: 350px;
+                font-size: 16px;
+            }
+            #login #header {
+                font-size: 20px;
+                font-weight: bold;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            #login input {
+                width: 250px;
+            }
+            #footer {
+                margin-top: 10px;
+                text-align: center;
+                font-size: 14px;
+            }
+            #errorText {
+                text-align: center;
+                margin-top: 0px;
+                margin-bottom: 5px;
+                color: #b94a48;
             }
         </style>
-
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
-     -->
         <script src="jquery-2.0.3.js"></script>
         <script src="popup.js"></script>
     </head>
     <body>
-        To do:<br/>
-        1) Make it look pretty<br/>
-        2) Enable loading of tree tokens (permanently)<br/>
-        3) AnnoTree toolbar<br/>
-        <button id="startBtn" type="button">AnnoTate That Shit</button>
-        <button id="screenshot" type="button">Screenshot That Ho</button>
+        <div id="login" style="display:none">
+            <div id="header">
+                Login to AnnoTree
+            </div>
+            <div id="errorText"></div>
+            <div>
+                <label for="liEmail">Email:</label>
+                <input type="email" name="liEmail" id="liEmail" />
+            </div>
+            <div>
+                <label for="liPassword">Password:</label>
+                <input type="password" name="liPassword" id="liPassword" />
+            </div>
+            <button type="button" id="loginBtn">Login</button>
+            <div id="footer">
+                Don't have an AnnoTree account? Request access to the beta at <a href="http://annotree.com" target="_blank">http://annotree.com</a>
+            </div>
+        </div>
     </body>
 </html>

@@ -123,7 +123,7 @@ my $validTreeID = $jsonBody->{id};
 ######### END VALID TREE CREATION 2 TEST #########
 
 my $uaAnno = Mojo::UserAgent->new;
-$tx = $uaAnno->get($server . $port . '/user/login/trees' => json => {
+$tx = $uaAnno->post($server . $port . '/user/login/trees' => json => {
     loginEmail     => $validUserEmail,
     loginPassword  => $validUserPass
 });
@@ -133,12 +133,12 @@ print Dumper($jsonBody);
 ######### START INVALID EMAIL USER LOGIN TREE TEST #########
 $testname = 'User login tree - invalid email: ';
 my $uaAnnoInvalid = Mojo::UserAgent->new;
-$tx = $uaAnnoInvalid->get($server . $port . '/user/login/trees' => json => {
+$tx = $uaAnnoInvalid->post($server . $port . '/user/login/trees' => json => {
     loginEmail     => 'somefaceemail@fake.com',
     loginPassword  => $validUserPass
 });
 $jsonBody = $json->decode($tx->res->body);
-ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
+ok(401 == $tx->res->code,                       $testname . 'Response Code is 406');
 ok(1 == $jsonBody->{error},                     $testname . 'Response JSON error number is 1');
 ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END INVALID EMAIL USER LOGIN TREE TEST #########
@@ -146,12 +146,12 @@ ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error
 ######### START INVALID EMAIL USER LOGIN TREE TEST #########
 $testname = 'User login tree - invalid password: ';
 my $uaAnnoInvalid = Mojo::UserAgent->new;
-$tx = $uaAnnoInvalid->get($server . $port . '/user/login/trees' => json => {
+$tx = $uaAnnoInvalid->post($server . $port . '/user/login/trees' => json => {
     loginEmail     => $validUserEmail,
     loginPassword  => 'badpassword1'
 });
 $jsonBody = $json->decode($tx->res->body);
-ok(406 == $tx->res->code,                       $testname . 'Response Code is 406');
+ok(401 == $tx->res->code,                       $testname . 'Response Code is 406');
 ok(2 == $jsonBody->{error},                     $testname . 'Response JSON error number is 2');
 ok(exists $jsonBody->{txt},                     $testname . 'Response JSON error text exists');
 ######### END INVALID EMAIL USER LOGIN TREE TEST #########

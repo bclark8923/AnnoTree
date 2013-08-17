@@ -303,7 +303,7 @@ sub getUserInformation {
 sub loginTrees {
     my ($class, $params) = @_;
 
-    my $json = {test => 'test'};
+    my $json = {};
     my $result = AnnoTree::Model::MySQL->db->execute(
         'call validate_user(:email)',
         {
@@ -317,6 +317,23 @@ sub loginTrees {
     my $valid = Crypt::SaltedHash->validate($shash, $params->{password});
     return {error => '2', txt => 'Invalid password'} unless $valid;
     
+
+    my $trees = AnnoTree::Model::MySQL->db->execute(
+        'call get_trees_for_user(:userid)',
+        {
+            userid => $return->[0]
+        }
+    );
+
+    my $cols = $trees->fetch;
+    my $index = 0;
+    while (my $tree = $trees->fetch) {
+        for (my $i = 0; $i < @{$cols}; $i++) {
+            $json->{trees}->[$index]->{$cols->[$i]} = $tree->[$i];
+        }
+        $index++;
+    }
+
     return $json;
 }
 

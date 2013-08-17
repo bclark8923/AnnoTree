@@ -121,7 +121,7 @@ sub loginTrees {
     my $json = AnnoTree::Model::User->loginTrees($params);
     
     my $status = 200;
-    $status = 406 if (exists $json->{error});
+    $status = 401 if (exists $json->{error});
     
     $self->render(status => $status, json => $json);
 }

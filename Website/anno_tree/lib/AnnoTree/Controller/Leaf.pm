@@ -121,6 +121,37 @@ sub iosTestUpload {
     $self->render(template => 'leaves/testupload');
 }
 
+sub chromeUpload {
+    my $self = shift;
+    my $jsonReq = $self->req->json;
+    #$self->debug($self->dumper($jsonReq));
+    my $params = {};
+    $params->{token} = $jsonReq->{token};
+    $params->{leafName} = $jsonReq->{leafName};
+    $params->{annotation} = $jsonReq->{annotation};
+    $self->render(json => {error => '0', txt => 'Missing request parameters or they are ill formed'}, status => 406) and return unless ($params->{token} && $params->{token} =~ m/[a-f0-9]{64}/ && $params->{annotation} =~ m/image\/jpeg/ && $params->{leafName} && $params->{leafName} =~ m/[a-zA-Z0-9]/);
+    $params->{annotation} =~ s/data:image\/jpeg;base64,//; 
+    $params->{owner} = $jsonReq->{owner};
+    $params->{metaSystem} = $jsonReq->{metaSystem};
+    $params->{metaVendor} = $jsonReq->{metaVendor};
+    $params->{site} = $jsonReq->{site};
+    $params->{mime} = 'image/jpeg';
+    $params->{filename} = 'chrome_screenshot.jpg';
+
+    $params->{metaVersion} = $self->param('metaVersion') || undef;
+    $params->{path} = $server . '/services/annotation/';
+    $params->{metaModel} = $self->param('metaModel') || undef;
+    $params->{metaOrientation} = 'landscape';
+    
+    my $json = AnnoTree::Model::Leaf->chromeUpload($params, $path);
+    my $status = 200;
+    if (exists $json->{error}) {
+        $status = 406;
+    }
+    #$self->debug($self->dumper($json));
+
+    $self->render(json => $json, status => $status);
+}
 sub deleteLeaf {
     my $self = shift;
     

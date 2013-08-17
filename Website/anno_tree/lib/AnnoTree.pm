@@ -94,7 +94,7 @@ sub startup {
     $r->post('/user/beta')                                  ->to('controller-user#beta');
     $r->post('/user/reset')                                 ->to('controller-user#setReset');
     $r->post('/user/reset/:token')                          ->to('controller-user#reset');
-    $r->get('/user/login/trees')                            ->to('controller-user#loginTrees');
+    $r->post('/user/login/trees')                           ->to('controller-user#loginTrees');
     $authr->post('/user/logout')                            ->to('controller-auth#logoutUser');
     $authr->get('/user/knownpeople')                        ->to('controller-user#knownPeople');
     $authr->get('/user')                                    ->to('controller-user#getUserInformation');
@@ -136,8 +136,9 @@ sub startup {
     $authr->get('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#leafInfo');
     $authr->put('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#update');
     $authr->delete('/leaf/:leafid' => [leafid => qr/\d+/])      ->to('controller-leaf#deleteLeaf');
-    $r->post('/ios/leaf' => [leafid => qr/\d+/])    ->to('controller-leaf#iosUpload');
-    $r->get('/ios/leaf' => [leafid => qr/\d+/])     ->to('controller-leaf#iosTestUpload');
+    $r->post('/ios/leaf')       ->to('controller-leaf#iosUpload');
+    $r->post('/chrome/leaf')    ->to('controller-leaf#chromeUpload');
+    $r->get('/ios/leaf')        ->to('controller-leaf#iosTestUpload');
 
     # ===== ANNOTATIONS =====
     $authr->post('/:leafid/annotation' => [leafid => qr/\d+/])->to('controller-annotation#create');

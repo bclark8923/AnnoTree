@@ -4,6 +4,7 @@ use Mojo::Base -strict;
 use AnnoTree::Model::MySQL;
 use Scalar::Util qw(looks_like_number);
 use Data::Dumper;
+use MIME::Base64;
 
 # Get the configuration settings
 my $conf = Config::General->new('/opt/config.txt');
@@ -155,7 +156,6 @@ sub iosUpload {
     }
     my $leafInfo = $result->fetch;
     my $leafid = $leafInfo->[0];
-    my $fsName = $leafid . '_' . $params->{filename};
     my $annoResult = AnnoTree::Model::MySQL->db->execute(
         "call create_annotation(:mime, :path, :filename, :leafid, :metaSystem, :metaVersion, :metaModel, :metaVendor, :metaOrientation)",
         {
@@ -190,6 +190,72 @@ sub iosUpload {
     `mkdir $path/$dir[0]/$dir[1]` unless (-d "$path/$dir[0]/$dir[1]");
     `mkdir $path/$dir[0]/$dir[1]/$dir[2]` unless (-d "$path/$dir[0]/$dir[1]/$dir[2]");
     
+    return $json;
+}
+
+sub chromeUpload {
+    my ($class, $params, $path) = @_;
+    
+    my $json = {};
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call create_leaf_on_tree(:token, :leafname)",
+        {
+            token       => $params->{token},
+            leafname    => $params->{leafName}
+        }
+    ); 
+    
+    my $cols = $result->fetch;
+    if (looks_like_number($cols->[0])) {
+        my $error = $cols->[0];
+        if ($error == 1) {
+            return {error => $error, txt => 'Tree does not exist'};
+        } elsif ($error == 2) {
+            return {error => $error, txt => 'No branches exist'};
+        }
+    }
+    my $leafInfo = $result->fetch;
+    my $leafid = $leafInfo->[0];
+    my $annoResult = AnnoTree::Model::MySQL->db->execute(
+        "call create_annotation(:mime, :path, :filename, :leafid, :metaSystem, :metaVersion, :metaModel, :metaVendor, :metaOrientation)",
+        {
+            mime            => $params->{mime},
+            path            => $params->{path},
+            filename        => $params->{filename},
+            leafid          => $leafid,
+            metaSystem      => $params->{metaSystem},
+            metaVersion     => $params->{metaVersion},
+            metaModel       => $params->{metaModel},
+            metaVendor      => $params->{metaVendor},
+            metaOrientation => $params->{metaOrientation},
+        }
+    );
+
+    $cols = $annoResult->fetch;
+    if (looks_like_number($cols->[0])) { 
+        my $error = $cols->[0];
+        if ($error == 1) {
+            return {error => '3', txt => 'Can\'t create a annotation on a leaf that does not exist'};
+        }
+    }
+    my $annoInfo = $annoResult->fetch;
+    
+    for (my $i = 0; $i < @{$cols}; $i++) {
+        $json->{$cols->[$i]} = $annoInfo->[$i] if $cols->[$i];
+    }
+    my ($diskDir) = $json->{filename_disk} =~ m{(.*)/};
+    my @dir = split(/\//, $diskDir);
+    `mkdir $path/$dir[0]` unless (-d "$path/$dir[0]");
+    `mkdir $path/$dir[0]/$dir[1]` unless (-d "$path/$dir[0]/$dir[1]");
+    `mkdir $path/$dir[0]/$dir[1]/$dir[2]` unless (-d "$path/$dir[0]/$dir[1]/$dir[2]");
+    my $decoded = decode_base64($params->{annotation});
+    #print "$path/$json->{filename_disk}";
+    open my $fh, '>', "$path/$json->{filename_disk}";
+    binmode $fh;
+    print $fh $decoded;
+    close $fh;
+    delete $json->{filename_disk};
+ 
     return $json;
 }
 

@@ -6,10 +6,31 @@
     "version": "0.1",
 
     "permissions": [
-        "tabs", "https://*/*", "http://*/*"
+        "tabs",
+        "https://*/*", 
+        "http://*/*"
     ],
+    "background": {
+        "scripts": ["background.js"]
+    },
     "browser_action": {
-        "default_icon": "favicon.png",
-        "default_popup": "popup.html"
-    }
+        "default_icon": "favicon.png"
+    },
+    "web_accessible_resources": [
+        "favicon.png",
+        "line_4px.png",
+        "line_10px.png",
+        "line_16px.png",
+        "images/CloseIconToolbar.png",
+        "images/ShareIconToolbar.png",
+        "images/PencilIconToolbar.png",
+        "images/PencilIconToolbarSelected.png",
+        "images/UndoIconToolbar.png",
+        "images/RedoIconToolbar.png",
+        "images/TrashIconToolbar.png",
+        "images/EraserIconToolbar.png",
+        "images/EraserIconToolbarSelected.png",
+        "images/TreeIconToolbar.png",
+        "images/TreeIconToolbarSelected.png"
+    ]
 }

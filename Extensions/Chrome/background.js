@@ -25,11 +25,13 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 });
 
 var sr;
+var email;
+var emailp;
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         sr = sendResponse;
-        if (request.action == "send") {
+        if (request.action == "send") { // sends screenshot to CCP
             chrome.tabs.captureVisibleTab(null, {format: 'jpeg', quality: 100}, function(dataUrl) {
                 var json = {
                     annotation: dataUrl,
@@ -59,8 +61,24 @@ chrome.runtime.onMessage.addListener(
                 });
             });
             //sendResponse({farewell: "goodbye"});
-        } if (request.action == "trees") {
-            sendResponse({treesArray: trees});
+        } if (request.action == "trees") { // automatically updates trees
+            var json = {
+                loginEmail: email,
+                loginPassword: emailp
+            } 
+            $.ajax({
+                type: "POST",
+                url: 'https://dev.annotree.com/services/user/login/trees',
+                data: JSON.stringify(json),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                statusCode: {
+                    200: function(res) {
+                        trees = res.trees;
+                        sr({treesArray: trees});
+                    }
+                }
+            });
         }
         return true;
     }

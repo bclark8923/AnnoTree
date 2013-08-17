@@ -6,9 +6,11 @@ function logIn() {
     bg.loggedIn = true;
     window.close();
     */
+    var email = $('#liEmail').val();
+    var pass = $('#liPassword').val();
     var json = {
-        loginEmail: $('#liEmail').val(),
-        loginPassword: $('#liPassword').val()
+        loginEmail: email,
+        loginPassword: pass
     }
     $.ajax({
         type: "POST",
@@ -26,6 +28,8 @@ function logIn() {
                 var bg = chrome.extension.getBackgroundPage();
                 bg.loggedIn = true;
                 bg.trees = res.trees;
+                bg.email = email;
+                bg.emailp = pass;
                 chrome.tabs.executeScript(null, {file: "canvas.js"});
                 chrome.browserAction.setPopup({popup: ''});
                 //bg.hello();

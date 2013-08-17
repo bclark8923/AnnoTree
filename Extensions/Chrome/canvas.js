@@ -6711,13 +6711,13 @@ colorDiv.append(coBlue);
 var coGreen = $('<div id="AnnoTree_coGreen" style="width:20px;height:20px;background-color:#0f0;font-size:16px;line-height:20px;text-align:center;display:inline-block;margin:0 0 0 3px;padding:0;vertical-align:top;cursor:pointer"></div>');
 colorDiv.append(coGreen);
 penOptions.append(colorDiv);
-var smallPenLine = chrome.extension.getURL("line_4px.png");
+var smallPenLine = chrome.extension.getURL("images/line_4px.png");
 var smallPen = $('<div id="AnnoTree_smallPen" style="margin-top:5px"><img style="padding:0;margin:0;height:20px;width:90px;border:2px solid #f00;cursor:pointer" src="' + smallPenLine + '" /></div>');
 penOptions.append(smallPen);
-var mediumPenLine = chrome.extension.getURL("line_10px.png");
+var mediumPenLine = chrome.extension.getURL("images/line_10px.png");
 var mediumPen = $('<div id="AnnoTree_mediumPen" style="margin-top:5px"><img style="padding:0;margin:0;height:20px;width:90px;cursor:pointer" src="' + mediumPenLine + '" /></div>');
 penOptions.append(mediumPen);
-var largePenLine = chrome.extension.getURL("line_16px.png");
+var largePenLine = chrome.extension.getURL("images/line_16px.png");
 var largePen = $('<div id="AnnoTree_largePen" style="margin-top:5px"><img style="padding:0;margin:0;height:20px;width:90px;cursor:pointer" src="' + largePenLine + '" /></div>');
 penOptions.append(largePen);
 
@@ -6729,7 +6729,7 @@ treeDiv.append(treeSelection);
 // toolbar setup
 var widget = $('<div id="AnnoTree_widget" style="width:42px;border:1px solid #444;border-radius:21px;z-index:100000;padding-bottom:0px;display:inline-block:position:absolute;left:0;top:0;box-sizing:content-box"></div>');
 widget.css('background-color', '#444');
-var imgURL = chrome.extension.getURL("favicon.png");
+var imgURL = chrome.extension.getURL("images/favicon.png");
 var img = $('<div style="background-color:#fff;width:38px;height:38px;border:2px solid #fff;border-radius:20px;cursor:pointer;text-align:left;box-sizing:content-box"><img src="' + imgURL + '" style="width:24px;height:24px;margin:7px 0 0 7px;padding:0"/></div>');
 widget.append(img);
 var penOpsImg = chrome.extension.getURL("images/PencilIconToolbar.png");

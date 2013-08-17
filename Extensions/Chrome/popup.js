@@ -1,5 +1,4 @@
 function logIn() {
-    //alert("test");
     /*
     chrome.tabs.executeScript(null, {file: "canvas.js"});
     chrome.browserAction.setPopup({popup: ''});
@@ -13,7 +12,7 @@ function logIn() {
     }
     $.ajax({
         type: "POST",
-        url: 'https://ccp.localhost/services/user/login/trees',
+        url: 'https://dev.annotree.com/services/user/login/trees',
         data: JSON.stringify(json),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -45,29 +44,6 @@ function logIn() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    /*
-    var loggedIn = false;
-    if (loggedIn) {
-        var startBtn = document.getElementById('startBtn');
-        startBtn.addEventListener('click', function() {
-            /*alert('test');
-            chrome.tabs.getCurrent(function(tab) {
-                tabId = tab.id;
-            });
-            *
-            chrome.tabs.executeScript(null, {file: "canvas.js"});
-        });
-
-        var screenshotBtn = document.getElementById('screenshot');
-        screenshotBtn.addEventListener('click', function() {
-            chrome.tabs.captureVisibleTab(null, {format: 'jpeg', quality: 100}, function(dataUrl) {
-                chrome.tabs.create({
-                    url: dataUrl
-                });
-            });
-        });
-    } else {
-    */
     $('#errorText').hide();
     $('#login').show();
     $("#loginBtn").click(function() {

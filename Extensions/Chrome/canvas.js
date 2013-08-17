@@ -6797,6 +6797,7 @@ var treeSelectionOpen = false;
 var penOpsImgSelected = chrome.extension.getURL("images/PencilIconToolbarSelected.png");
 var eraseImgSelected = chrome.extension.getURL("images/EraserIconToolbarSelected.png");
 var treeImgSelected = chrome.extension.getURL("images/TreeIconToolbarSelected.png");
+var editor;
 
 function removeX() {
     switch (curColor) {
@@ -6868,7 +6869,7 @@ $('#AnnoTree_treeBtn').click(function() {
 
 
 $('AnnoTree_editor').ready(function() {
-    var editor = Raphael.sketchpad("AnnoTree_editor", {
+    editor = Raphael.sketchpad("AnnoTree_editor", {
         width: $(window).width(),
         height:$(window).height(),
         editing: true

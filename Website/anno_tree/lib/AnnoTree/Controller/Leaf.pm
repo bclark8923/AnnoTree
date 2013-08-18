@@ -124,7 +124,7 @@ sub iosTestUpload {
 sub chromeUpload {
     my $self = shift;
     my $jsonReq = $self->req->json;
-    #$self->debug($self->dumper($jsonReq));
+    
     my $params = {};
     $params->{token} = $jsonReq->{token};
     $params->{leafName} = $jsonReq->{leafName};
@@ -137,11 +137,11 @@ sub chromeUpload {
     $params->{site} = $jsonReq->{site};
     $params->{mime} = 'image/jpeg';
     $params->{filename} = 'chrome_screenshot.jpg';
-
-    $params->{metaVersion} = $self->param('metaVersion') || undef;
+    ($params->{metaVersion}) = $jsonReq->{metaVersion} =~ m/Chrome\/([\.0-9a-zA-Z]+)/;
     $params->{path} = $server . '/services/annotation/';
-    $params->{metaModel} = $self->param('metaModel') || undef;
+    $params->{metaModel} = $jsonReq->{metaModel};
     $params->{metaOrientation} = 'landscape';
+    $self->debug($self->dumper($params));
     
     my $json = AnnoTree::Model::Leaf->chromeUpload($params, $path);
     my $status = 200;

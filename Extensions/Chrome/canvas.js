@@ -6733,28 +6733,28 @@ var imgURL = chrome.extension.getURL("images/favicon.png");
 var img = $('<div style="background-color:#fff;width:38px;height:38px;border:2px solid #fff;border-radius:20px;cursor:pointer;text-align:left;box-sizing:content-box"><img src="' + imgURL + '" style="width:24px;height:24px;margin:7px 0 0 7px;padding:0"/></div>');
 widget.append(img);
 var penOpsImg = chrome.extension.getURL("images/PencilIconToolbar.png");
-var penOps = $('<div id="AnnoTree_penOps" style="cursor:pointer"><img src="' + penOpsImg + '" style="width:42px;height:42px;" /></div>');
+var penOps = $('<div id="AnnoTree_penOps" style="cursor:pointer"><img src="' + penOpsImg + '" style="width:42px;height:42px;padding:0;margin:0" /></div>');
 widget.append(penOps);
 var eraseImg = chrome.extension.getURL("images/EraserIconToolbar.png");
-var eraseDraw = $('<div id="AnnoTree_eraseDraw" style="cursor:pointer"><img src="' + eraseImg + '" style="width:42px;height:42px;" /></div>');
+var eraseDraw = $('<div id="AnnoTree_eraseDraw" style="cursor:pointer"><img src="' + eraseImg + '" style="width:42px;height:42px;padding:0;margin:0;" /></div>');
 widget.append(eraseDraw);
 var undoImg = chrome.extension.getURL("images/UndoIconToolbar.png");
-var undo = $('<div id="AnnoTree_undo" style="cursor:pointer"><img src="' + undoImg + '" style="width:42px;height:42px;" /></div>');
+var undo = $('<div id="AnnoTree_undo" style="cursor:pointer"><img src="' + undoImg + '" style="width:42px;height:42px;padding:0;margin:0;" /></div>');
 widget.append(undo);
 var redoImg = chrome.extension.getURL("images/RedoIconToolbar.png");
-var redo = $('<div id="AnnoTree_redo" style="cursor:pointer"><img src="' + redoImg + '" style="width:42px;height:42px;" /></div>');
+var redo = $('<div id="AnnoTree_redo" style="cursor:pointer"><img src="' + redoImg + '" style="width:42px;height:42px;padding:0;margin:0;" /></div>');
 widget.append(redo);
 var clearImg = chrome.extension.getURL("images/TrashIconToolbar.png");
-var clear = $('<div id="AnnoTree_clear" style="cursor:pointer"><img src="' + clearImg + '" style="width:42px;height:42px;" /></div>');
+var clear = $('<div id="AnnoTree_clear" style="cursor:pointer"><img src="' + clearImg + '" style="width:42px;height:42px;padding:0;margin:0;" /></div>');
 widget.append(clear);
 var sendImg = chrome.extension.getURL("images/ShareIconToolbar.png");
-var send = $('<div id="AnnoTree_send" style="cursor:pointer"><img src="' + sendImg + '" style="width:42px;height:42px;" /></div>');
+var send = $('<div id="AnnoTree_send" style="cursor:pointer"><img src="' + sendImg + '" style="width:42px;height:42px;padding:0;margin:0;" /></div>');
 widget.append(send);
 var treeImg = chrome.extension.getURL("images/TreeIconToolbar.png");
-var treeBtn = $('<div id="AnnoTree_treeBtn" style="cursor:pointer"><img src="' + treeImg + '" style="width:42px;height:42px;" /></div>');
+var treeBtn = $('<div id="AnnoTree_treeBtn" style="cursor:pointer"><img src="' + treeImg + '" style="width:42px;height:42px;padding:0;margin:0;" /></div>');
 widget.append(treeBtn);
 var closeImg = chrome.extension.getURL("images/CloseIconToolbar.png");
-var close = $('<div id="AnnoTree_close" style="cursor:pointer"><img src="' + closeImg + '" style="width:42px;height:42px;" /></div>');
+var close = $('<div id="AnnoTree_close" style="cursor:pointer"><img src="' + closeImg + '" style="width:42px;height:42px;padding:0;margin:0;" /></div>');
 widget.append(close);
 
 // add toolbar and options to web page
@@ -6768,6 +6768,9 @@ treeDiv.hide();
 penOptions.hide();
 $('body').append(contain);
 $('#AnnoTree_contain').draggable();
+
+// initialize with background to track tab
+chrome.runtime.sendMessage({action: 'initialized'});
 
 // initial tree load
 chrome.runtime.sendMessage({action: 'trees'}, function(response) {
@@ -6982,6 +6985,7 @@ $('AnnoTree_editor').ready(function() {
     
     $('#AnnoTree_close').click(function() {
         editor.clear();
+        chrome.runtime.sendMessage({action: 'closed'});
         $('#AnnoTree_editor').remove();
         $('#AnnoTree_contain').remove();
         window.onscroll = function() {};

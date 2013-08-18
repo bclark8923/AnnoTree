@@ -6,6 +6,7 @@
 
 var loggedIn = false;
 var trees = null;
+var openTabs = [];
 
 if (loggedIn) {
     chrome.browserAction.setPopup({popup: ''});
@@ -20,8 +21,16 @@ function hello() {
 
 chrome.browserAction.onClicked.addListener(function(tab) {
     chrome.browserAction.setPopup({popup: ''});
-    //alert(tab.id);
-    chrome.tabs.executeScript(null, {file: "canvas.js"});
+    var isOpen = false;
+    for (var i = 0; i < openTabs.length; i++) {
+        if (openTabs[i] == tab.id) {
+            isOpen = true;
+            break;
+        }
+    }
+    if (!isOpen) {
+        chrome.tabs.executeScript(null, {file: "canvas.js"});
+    }
 });
 
 var sr;
@@ -32,19 +41,21 @@ chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         sr = sendResponse;
         if (request.action == "send") { // sends screenshot to CCP
-            chrome.tabs.captureVisibleTab(null, {format: 'jpeg', quality: 100}, function(dataUrl) {
+            chrome.tabs.captureVisibleTab(sender.tab.windowId, {format: 'jpeg', quality: 100}, function(dataUrl) {
                 var json = {
                     annotation: dataUrl,
                     leafName: 'Chrome Leaf',
                     token: request.token,
-                    owner: 'mattprice11@gmail.com',
-                    metaSystem: 'Chrome',
+                    owner: email,
+                    metaSystem: window.navigator.platform,
+                    metaModel: 'Chrome',
                     metaVendor: 'Google',
+                    metaVersion: window.navigator.appVersion,
                     site: sender.tab.url
                 }
                 $.ajax({
                     type: "POST",
-                    url: 'https://dev.annotree.com/services/chrome/leaf',
+                    url: 'https://ccp.localhost/services/chrome/leaf',
                     data: JSON.stringify(json),
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
@@ -61,14 +72,14 @@ chrome.runtime.onMessage.addListener(
                 });
             });
             //sendResponse({farewell: "goodbye"});
-        } if (request.action == "trees") { // automatically updates trees
+        } else if (request.action == "trees") { // automatically updates trees
             var json = {
                 loginEmail: email,
                 loginPassword: emailp
             } 
             $.ajax({
                 type: "POST",
-                url: 'https://dev.annotree.com/services/user/login/trees',
+                url: 'https://ccp.localhost/services/user/login/trees',
                 data: JSON.stringify(json),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -79,6 +90,15 @@ chrome.runtime.onMessage.addListener(
                     }
                 }
             });
+        } else if (request.action == "initialized") {
+            openTabs.push(sender.tab.id);
+        } else if (request.action == 'closed') {
+            for (var i = 0; i < openTabs.length; i++) {
+                if (openTabs[i] == sender.tab.id) {
+                    openTabs.splice(i, 1);
+                    break;
+                }
+            }
         }
         return true;
     }

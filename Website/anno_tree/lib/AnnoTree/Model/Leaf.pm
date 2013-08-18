@@ -198,10 +198,11 @@ sub chromeUpload {
     
     my $json = {};
     my $result = AnnoTree::Model::MySQL->db->execute(
-        "call create_leaf_on_tree(:token, :leafname)",
+        "call create_leaf_on_tree_owner(:token, :leafname, :owner)",
         {
             token       => $params->{token},
-            leafname    => $params->{leafName}
+            leafname    => $params->{leafName},
+            owner       => $params->{owner}
         }
     ); 
     
@@ -217,7 +218,7 @@ sub chromeUpload {
     my $leafInfo = $result->fetch;
     my $leafid = $leafInfo->[0];
     my $annoResult = AnnoTree::Model::MySQL->db->execute(
-        "call create_annotation(:mime, :path, :filename, :leafid, :metaSystem, :metaVersion, :metaModel, :metaVendor, :metaOrientation)",
+        "call create_annotation_with_owner(:mime, :path, :filename, :leafid, :metaSystem, :metaVersion, :metaModel, :metaVendor, :metaOrientation, :owner, :site)",
         {
             mime            => $params->{mime},
             path            => $params->{path},
@@ -228,6 +229,8 @@ sub chromeUpload {
             metaModel       => $params->{metaModel},
             metaVendor      => $params->{metaVendor},
             metaOrientation => $params->{metaOrientation},
+            owner           => $params->{owner},
+            site            => $params->{site},
         }
     );
 

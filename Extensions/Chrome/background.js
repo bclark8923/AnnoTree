@@ -44,7 +44,7 @@ chrome.runtime.onMessage.addListener(
             chrome.tabs.captureVisibleTab(sender.tab.windowId, {format: 'jpeg', quality: 100}, function(dataUrl) {
                 var json = {
                     annotation: dataUrl,
-                    leafName: 'Chrome Leaf',
+                    leafName: request.leafName,
                     token: request.token,
                     owner: email,
                     metaSystem: window.navigator.platform,

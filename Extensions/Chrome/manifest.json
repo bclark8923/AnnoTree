@@ -2,8 +2,10 @@
     "manifest_version": 2,
 
     "name": "AnnoTree",
-    "description": "Annotate all the things",
+    "description": "Annotate your webpage",
     "version": "0.1",
+    "author": "Silith.io",
+    "homepage_url": "http://annotree.com",
 
     "permissions": [
         "tabs",

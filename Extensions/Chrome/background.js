@@ -55,7 +55,7 @@ chrome.runtime.onMessage.addListener(
                 }
                 $.ajax({
                     type: "POST",
-                    url: 'https://ccp.localhost/services/chrome/leaf',
+                    url: 'https://dev.annotree.com/services/chrome/leaf',
                     data: JSON.stringify(json),
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
@@ -79,7 +79,7 @@ chrome.runtime.onMessage.addListener(
             } 
             $.ajax({
                 type: "POST",
-                url: 'https://ccp.localhost/services/user/login/trees',
+                url: 'https://dev.annotree.com/services/user/login/trees',
                 data: JSON.stringify(json),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",

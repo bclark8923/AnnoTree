@@ -6831,16 +6831,16 @@ function removeBorder() {
 }
 
 $('#AnnoTree_send').click(function() {
-    $('#AnnoTree_contain').hide();
-    var sendTo = $('#AnnoTree_treesSelection option:selected').val();
-    chrome.runtime.sendMessage({action: 'send', token: sendTo}, function(response) {
-        if (response.farewell == 'goodbye') {
-            $('#AnnoTree_contain').show();
-            /*
-            setTimeout(function() {
-            }, 5000);
-            */
-        }
+    $('#AnnoTree_widget').hide(10, function() {
+        $('#AnnoTree_contain').hide(10, function() {
+            var sendTo = $('#AnnoTree_treesSelection option:selected').val();
+            chrome.runtime.sendMessage({action: 'send', token: sendTo}, function(response) {
+                if (response.farewell == 'goodbye') {
+                    $('#AnnoTree_widget').show();
+                    $('#AnnoTree_contain').show();
+                }
+            });
+        });
     });
 });
 

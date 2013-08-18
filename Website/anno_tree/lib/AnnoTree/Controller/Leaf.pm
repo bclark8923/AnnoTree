@@ -141,7 +141,7 @@ sub chromeUpload {
     $params->{path} = $server . '/services/annotation/';
     $params->{metaModel} = $jsonReq->{metaModel};
     $params->{metaOrientation} = 'landscape';
-    $self->debug($self->dumper($params));
+    #$self->debug($self->dumper($params));
     
     my $json = AnnoTree::Model::Leaf->chromeUpload($params, $path);
     my $status = 200;

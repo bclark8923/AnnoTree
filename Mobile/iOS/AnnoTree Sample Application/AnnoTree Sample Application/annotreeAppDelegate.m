@@ -13,7 +13,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[AnnoTree sharedInstance] loadAnnoTree:@"26060a83fc3d5708514f7730b1630fa32803bebd692d808cf2910fbcccf87d62"];
+    [AnnoTree sharedInstance];
     
     return YES;
 }

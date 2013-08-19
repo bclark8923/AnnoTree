@@ -115,7 +115,7 @@ a.btn-annotree {
     color: #444;
     text-align: center;
     border: none;
-    box-shadow: 0px 0px 10px #bbb;
+    box-shadow: 0px 0px 10px #ddd;
 }
 
 .modal-footer {
@@ -191,7 +191,7 @@ a.btn-annotree {
 }
 
 .userSettingsBox {
-    box-shadow: 1px 1px 10px #bbb;
+    box-shadow: 1px 1px 10px #ddd;
     background-color: #fff;
     width: 250px;
     float: right;
@@ -315,7 +315,7 @@ a.btn-annotree {
     max-width: 400px;
     min-height: 200px;
     margin: 0 auto;
-    box-shadow: 0px 0px 10px #bbb;
+    box-shadow: 0px 0px 10px #ddd;
     margin-top: 10%;
     background-color: #fff;
     position: relative;
@@ -438,7 +438,7 @@ text-align:left;line-height:38px;vertical-align:middle;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px #bbb;
+    box-shadow: 0px 0px 10px #ddd;
     color: #444;
 }
 
@@ -448,10 +448,22 @@ text-align:left;line-height:38px;vertical-align:middle;
     padding: 3px 10px;
     margin: 10px 0px;
     cursor: pointer;
+    height: 40px;
 }
 
 .dashLinks:hover {
     color: #92DF74;
+}
+
+.dashLinksText {
+    float: left;
+    margin-left: 5px;
+}
+
+.dashLinksIcon {
+    width: 30px;
+    float: left;
+    text-align: center;
 }
 
 .appLogo {
@@ -477,7 +489,7 @@ text-align:left;line-height:38px;vertical-align:middle;
     height: 175px;
     width: 100%;
     margin-bottom: 30px;
-    box-shadow: 0px 0px 10px #bbb;
+    box-shadow: 0px 0px 10px #ddd;
     border-radius: 5px 5px 0 0;
 }
 
@@ -494,6 +506,31 @@ text-align:left;line-height:38px;vertical-align:middle;
     text-decoration: none;
 }
 
+.card.leafCard {
+    height: 125px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+    /*border: 5px solid white;
+    border: 5px solid #92DF74;*/
+    /*-webkit-filter: blur(2px);     
+    filter: blur(2px);*/
+}
+
+.card.leafCard.new {
+    height: 125px;
+    border: 2px dashed #bbb;
+}
+
+.cardImg.leafCard.cardImgNew {
+    line-height: 60pt;
+}
+
+.leafCardLink {
+    text-decoration: none;
+}
+
 .cardName {
     text-align: center;
     border-radius: 5px 5px 0 0;
@@ -501,6 +538,21 @@ text-align:left;line-height:38px;vertical-align:middle;
     min-height: 25px;
     background-color: #92DF74;
     color: #fff;
+    text-decoration: none;
+}
+
+.cardName.leafCardName {
+    background-color: rgba(146,223,116,0.9);
+    background-color: white;
+    background-color: #92DF74;
+    /*color: #222;*/
+    font-size: 9pt;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    /*background-color: rgba(30,30,30,0.6);*/
+    /*color: #222;
+    font-weight: bold;*/
 }
 
 .cardNameNew {
@@ -518,6 +570,20 @@ text-align:left;line-height:38px;vertical-align:middle;
     transition: opacity .25s ease-in-out;
     -moz-transition: opacity .25s ease-in-out;
     -webkit-transition: opacity .25s ease-in-out;
+
+
+    transition: background-color .25s ease-in-out;
+    -moz-transition: background-color .25s ease-in-out;
+    -webkit-transition: background-color .25s ease-in-out;
+}
+
+.cardImgLeaf {
+    height: 125px;
+    position: absolute;
+    top: 0;
+}
+
+.cardImgLeaf:hover {
 }
 
 .cardImg:hover {
@@ -537,7 +603,7 @@ text-align:left;line-height:38px;vertical-align:middle;
     margin: 0 auto;
     min-height: 100%;
     width: 100%;
-    box-shadow: 0px 0px 10px #bbb;
+    box-shadow: 0px 0px 10px #ddd;
     border-radius: 5px 5px 0 0;
     background-color: #fff;
     opacity: 1;
@@ -654,6 +720,10 @@ text-align:left;line-height:38px;vertical-align:middle;
     margin-bottom: 0;
 }
 
+.userComment {
+    word-wrap: break-word;
+}
+
 .smallHR {
     margin-top: 5px;
     margin-bottom: 10px;
@@ -704,6 +774,7 @@ text-align:left;line-height:38px;vertical-align:middle;
     text-align: center;
     width: 100%;
     margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 #displayAnnotation .modal-dialog {
@@ -772,7 +843,7 @@ text-align:left;line-height:38px;vertical-align:middle;
     margin: 0 auto;
     min-height: 100%;
     width: 100%;
-    box-shadow: 0px 0px 10px #bbb;
+    box-shadow: 0px 0px 10px #ddd;
     border-radius: 5px;
     background-color: #fff;
     opacity: 1;
@@ -830,6 +901,7 @@ text-align:left;line-height:38px;vertical-align:middle;
     background-color: #444;
     font-weight: bold;
     padding: 4px 8px;
+    word-wrap: break-word;
 }
 /* -----------------------
  * Mobile Dashboard Settings

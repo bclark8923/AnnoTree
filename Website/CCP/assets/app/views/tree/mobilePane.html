@@ -10,11 +10,6 @@
                 <strong>Help</strong>
             </a>
         </li>
-        <li>
-            <a ng-click="mobileGoToDocs(treeInfo.id)">
-                <strong>Developer Resources</strong>
-            </a>
-        </li>
     </ul> 
     <div class="appName">
         <a ng-href="#/app/{{treeInfo.id}}">{{treeInfo.name}}</a>
@@ -22,17 +17,16 @@
     <div>
         <img class="appLogo" ng-src="{{treeInfo.logo}}" />
     </div>
-    <div style="margin-top:10px;">
-        <p style='font-weight:bold'>API Key:</p>
-        <p>{{treeInfo.token}}</p>
-    </div>
     <hr/>
     <div style="margin-top:20px;">
+        <div class="dashLinks" ng-click="mobileGoToDocs(treeInfo.id)">
+            <div class="dashLinksIcon"><i class="icon-code"></i></div><div class="dashLinksText">SDK</div>
+        </div>
         <div class="dashLinks" ng-click="openModifyUsersModal()">
-            <i class="icon-group"></i>&nbsp;Users
+            <div class="dashLinksIcon"><i class="icon-group"></i></div><div class="dashLinksText">Users</div>
         </div>
         <div class="dashLinks" ng-click="openModifyTreeModal(treeInfo)">
-            <i class="icon-cog"></i>&nbsp;Tree Settings
+            <div class="dashLinksIcon"><i class="icon-cog"></i></div><div class="dashLinksText">Settings</div>
         </div>
     </div>
 </div>

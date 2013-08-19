@@ -5,26 +5,26 @@
                 <div ng-switch="leaf.id">
                     <div ng-switch-when="-1">
                         <div class="cardHolder">
-                            <div class="card new">
+                            <div class="card new leafCard">
                                 <div class="cardName cardNameNew">
                                     <strong>New Leaf</strong>
                                 </div>
-                                <div class="cardImg cardImgNew" ng-click="openNewLeafModal()">
+                                <div class="cardImg cardImgNew leafCard" ng-click="openNewLeafModal()">
                                     +
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div ng-switch-default>
-                        <div class="card">
-                            <a ng-href="#/app/{{treeInfo.id}}/{{leaf.id}}">
-                                    <div class="cardName">
-                                        <strong>{{leaf.name}}</strong>
-                                    </div>
-                                    <div class="cardImg" back-img="{{leaf.annotation}}"></div>
-                                </a>
+                        <a class="leafCardLink" ng-href="#/app/{{treeInfo.id}}/{{leaf.id}}">
+                            <div class="card leafCard">
+                                <div class="cardImg cardImgLeaf" back-img="{{leaf.annotation}}">
+                                </div>
+                                <div class="cardName leafCardName">
+                                    <strong>{{leaf.name}}</strong>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -37,6 +37,19 @@ var sr;
 var email;
 var emailp;
 
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+    //alert('tab updated');
+    if (changeInfo.status == 'complete') {
+        for (var i = 0; i < openTabs.length; i++) { 
+            if (openTabs[i] == tabId) {
+                openTabs.splice(i, 1);
+                alert('removing tab from openTabs');
+                break;
+            }
+        }
+    }
+});
+
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         sr = sendResponse;
@@ -53,6 +66,7 @@ chrome.runtime.onMessage.addListener(
                     metaVersion: window.navigator.appVersion,
                     site: sender.tab.url
                 }
+                sr({farewell: "goodbye"});
                 $.ajax({
                     type: "POST",
                     url: 'https://dev.annotree.com/services/chrome/leaf',
@@ -62,16 +76,13 @@ chrome.runtime.onMessage.addListener(
                     statusCode: {
                         401: function(res) {
                             alert('Annotation could not be uploaded. Please try again');
-                            sr({farewell: "goodbye"});
                         },
                         200: function(res) {
                             alert('Annotation successfully uploaded');
-                            sr({farewell: "goodbye"});
                         }
                     }
                 });
             });
-            //sendResponse({farewell: "goodbye"});
         } else if (request.action == "trees") { // automatically updates trees
             var json = {
                 loginEmail: email,
@@ -90,10 +101,10 @@ chrome.runtime.onMessage.addListener(
                     }
                 }
             });
-        } else if (request.action == "initialized") {
+        } else if (request.action == "initialized") { // track tabs widget is on
             openTabs.push(sender.tab.id);
         } else if (request.action == 'closed') {
-            for (var i = 0; i < openTabs.length; i++) {
+            for (var i = 0; i < openTabs.length; i++) { 
                 if (openTabs[i] == sender.tab.id) {
                     openTabs.splice(i, 1);
                     break;

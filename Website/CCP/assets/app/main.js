@@ -1,24 +1,14 @@
-// Create an application module for our demo.
+//angular boilerplate code
 var AnnoTree = angular.module( "AnnoTree", ['ngCookies'] );
-
 AnnoTree.run(function($rootScope, $templateCache) {
           $rootScope.$on('$viewContentLoaded', function() {
                          $templateCache.removeAll();
                          });
           });
 
-// Configure the routing. The $routeProvider will be automatically injected into 
-// the configurator.
+
 AnnoTree.config(
     function( $routeProvider, $locationProvider, $httpProvider ){
-
-        // Typically, when defining routes, you will map the route to a Template to be 
-        // rendered; however, this only makes sense for simple web sites. When you are 
-        // building more complex applications, with nested navigation, you probably need 
-        // something more complex. In this case, we are mapping routes to render "Actions" 
-        // rather than a template.
-
-        //$locationProvider.html5Mode(true);
 
         $routeProvider
             .when(
@@ -143,18 +133,13 @@ AnnoTree.directive('renderPane', function($timeout) {
 
 var preInterceptor = function( $q, $location ) {
   return function( promise ) {
-
     $("#loadingScreen").show();
- 
-    // return the original promise
     return promise;
   }
 };
 
 var interceptor = function( $q, $location ) {
   return function( promise ) {
- 
-    // convert the returned data using values passed to $http.get()'s config param
     var resolve = function( value ) {
         if(value.redirect) {
               $location.path("/authenticate/login");
@@ -168,13 +153,8 @@ var interceptor = function( $q, $location ) {
             return;
         }
     };
- 
-    // attach our actions
+
     promise.then( resolve, reject );
-    
-    //$("#loadingScreen").hide();
- 
-    // return the original promise
     return promise;
   }
 };

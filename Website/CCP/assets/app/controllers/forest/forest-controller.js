@@ -5,23 +5,14 @@
     app.controller(
         "forest.ForestController",
         function( $scope, $cookies, $rootScope, $location, $timeout, $route, requestContext, forestService, treeService, branchService, _ ) {
- 
 
-            // --- Define Controller Methods. ------------------- //
-
-
-            // I apply the remote data to the local view model.
             function loadTrees( forests ) {
-
                 for(var i = 0; i < forests.length; i++) {
                     forests[i].trees.push($scope.newTreeHolder);
                 }
-
                 $rootScope.forests = forests;
             }
 
-
-            // I load the "remote" data from the server.
             function loadForestData() {
 
                 $scope.isLoading = true;
@@ -31,7 +22,7 @@
                 promise.then(
                     function( response ) {
                         if(response.status == 204) {
-                            $scope.noForests = "Looks like you don't have a forest yet."
+                            $scope.noForests = "Looks like you don't have a forest yet.";
                             $scope.noForestsNL = "Click \"New Forest\" in the top right to get started!";
                         } else {
 
@@ -54,11 +45,9 @@
                                     errorData = "This user does not exist in our system. Please contact Us.";
                                     break;
                                 default:
-                                    //go to Fail Page
                                     $location.path("/forestFire");
                             }
                         } else if(response.data.status != 401 && errorNumber != 0)  {
-                            //go to Fail Page
                             $location.path("/forestFire");
                         }
                     }
@@ -66,7 +55,6 @@
 
             }
 
-            // --- Define Scope Methods. ------------------------ //
             function addTree(newTree) {
                 for(var i = 0; i < $rootScope.forests.length; i++) { 
                     if($rootScope.forests[i].id == newTree.forest_id) {
@@ -204,16 +192,13 @@
                                                 break;
                                             default:
                                                 //go to Fail Page
-                                                //$location.path("/forestFire");
+                                                $location.path("/forestFire");
                                         }
-                                        alert(errorData);
                                     } else if(response.data.status != 401 && errorNumber != 0) {
                                         //go to Fail Page
                                         $location.path("/forestFire");
                                     }
                                     $("#invalidAddTree").html(errorData);
-                                    
-                                    //if this breaks at all we have a problem on our end
                                 }
                             );
                         },
@@ -238,7 +223,7 @@
                                         break;
                                     default:
                                         //go to Fail Page
-                                        //$location.path("/forestFire");
+                                        $location.path("/forestFire");
                                 }
                             } else if(response.data.status == 403) {
                                 switch(errorNumber)
@@ -294,10 +279,10 @@
                 var forestID = $rootScope.modifyForest.id;
                 var forestName = $rootScope.modifyForest.name;
                 var forestDescription = "NULL";
-                var formValid = $scope.modifyForestForm.$valid;
+                var forestFormValid = $scope.modifyForestForm.$valid;
 
                 //validate form
-                if(!formValid) {
+                if(!forestFormValid) {
                     $scope.invalidModifyForest = true;
                     if(!forestName) {
                         $("#invalidModifyForest").html("Please fill out a forest name.");
@@ -400,8 +385,7 @@
                             }
                         } else if(response.data.status != 401 && errorNumber != 0) {
                             //go to Fail Page
-                            //$location.path("/forestFire");
-                            alert(errorData);
+                            $location.path("/forestFire");
                         }
                         $("#invalidModifyLeaf").html(errorData);
 

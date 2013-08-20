@@ -7,26 +7,12 @@
         function( $scope, $route, $routeParams, $location, requestContext, _ ) {
 
 
-            // --- Define Controller Methods. ------------------- //
-
-
-            // I check to see if the given route is a valid route; or, is the route being
-            // re-directed to the default route (due to failure to match pattern).
             function isRouteRedirect( route ) {
 
-                // If there is no action, then the route is redirection from an unknown 
-                // route to a known route.
                 return( ! route.current.action );
 
             }
 
-
-            // --- Define Scope Methods. ------------------------ //
-
-
-            // I get the current time for use when display the time a controller was rendered.
-            // This way, we can see the difference between when a controller was instantiated
-            // and when it was re-populated with data.
             $scope.getInstanceTime = function() {
 
                 var now = new Date();

@@ -5,8 +5,6 @@
         "forest.LeafController",
         function( $scope, $cookies, $rootScope, $location, $timeout, $route, $routeParams,  requestContext, leafService, localStorageService, _ ) {
 
-
-            // --- Define Controller Methods. ------------------- //
             function setScroll() {
                $timeout(function() {
                     var leafHeight = $('#leaf').height();
@@ -81,11 +79,9 @@
                 }, 0, true);
             }
 
-            // I load the "remote" data from the server.
             function loadLeafData() {
 
                 $scope.isLoading = true;
-
                 var promise = leafService.getLeaf($routeParams.leafID);
 
                 promise.then(
@@ -105,7 +101,6 @@
                                     errorData = "This user does not exist in our system. Please contact Us.";
                                     break;
                                 default:
-                                    //go to Fail Page
                                     $location.path("/forestFire");
                             }
                         } else if(response.data.status == 204) {
@@ -115,7 +110,6 @@
                                     errorData = "This user currently has no forests."; // load a sample page maybe?
                                     break;
                                 default:
-                                    //go to Fail Page
                                     $location.path("/forestFire");
                             }
                         } else if(response.data.status != 401 && errorNumber != 0) {
@@ -167,7 +161,6 @@
 
             function uploadComplete(evt) {
                 /* This event is raised when the server send back a response */
-                //alert(evt.target.responseText); 
                 if (this.status == 415 || this.status == 406) {
                     var jsonResp = JSON.parse(this.response);
                     $("#invalidAnnotation").html("Only images can be uploaded at this time");
@@ -207,16 +200,10 @@
             }
 
             function uploadFailed(evt) {
-                /* This event is raised when the server send back a response */
-                //alert(evt.target.responseText);
-                //delete new leaf
                 $location.path("/forestFire");
             }
 
             function uploadCanceled(evt) {
-                /* This event is raised when the server send back a response */
-                //alert(evt.target.responseText);
-                //delete new leaf
                 $location.path("/forestFire");
             } 
             // --- Define Scope Methods. ------------------------ //
@@ -359,8 +346,7 @@
                                 }
                             } else if(response.data.status != 401 && errorNumber != 0) {
                                 //go to Fail Page
-                                //$location.path("/forestFire");
-                                alert(errorData);
+                                $location.path("/forestFire");
                             }
                             $("#invalidModifyLeaf").html(errorData);
 
@@ -419,9 +405,7 @@
                                     //$location.path("/forestFire");
                             }
                         } else if(response.data.status != 401 && errorNumber != 0) {
-                            //go to Fail Page
-                            //$location.path("/forestFire");
-                            alert(errorData);
+                            $location.path("/forestFire");
                         }
                         $("#invalidModifyLeaf").html(errorData);
 

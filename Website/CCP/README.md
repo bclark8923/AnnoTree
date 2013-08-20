@@ -1,2 +1,1 @@
-
-# AngularJS - Deep Routing Example
+#This is the CCP

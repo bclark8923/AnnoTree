@@ -2,65 +2,21 @@
 
 	"use strict";
 
+
+    //TODO:CAN THIS BE DELETED?
 	app.controller(
 		"contact.ContactController",
 		function( $scope, requestContext, _ ) {
-
-
-			// --- Define Controller Methods. ------------------- //
-
-
-			// ...
-
-
-			// --- Define Scope Methods. ------------------------ //
-
-
-			// ...
-
-
-			// --- Define Controller Variables. ----------------- //
-
-
-			// Get the render context local to this controller (and relevant params).
-			var renderContext = requestContext.getRenderContext( "standard.contact" );
-
-			
-			// --- Define Scope Variables. ---------------------- //
-
-
-			// The subview indicates which view is going to be rendered on the page.
+            var renderContext = requestContext.getRenderContext( "standard.contact" );
 			$scope.subview = renderContext.getNextSection();
-			
-
-			// --- Bind To Scope Events. ------------------------ //
-
-
-			// I handle changes to the request context.
 			$scope.$on(
 				"requestContextChanged",
 				function() {
-
-					// Make sure this change is relevant to this controller.
-					if ( ! renderContext.isChangeRelevant() ) {
-
-						return;
-
-					}
-
-					// Update the view that is being rendered.
+					if ( ! renderContext.isChangeRelevant() ) {return;}
 					$scope.subview = renderContext.getNextSection();
-
 				}
 			);
-
-
-			// --- Initialize. ---------------------------------- //
-
-
 			$scope.setWindowTitle( "Contact Us" );
-
-
 		}
 	);
 

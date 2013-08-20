@@ -15,7 +15,7 @@
             }
 
             function createForest(forestName, forestDescription) {
-                return $http.post(apiRoot.getRoot() + '/services/forest', {name: forestName, description: forestDescription});
+                return $http.post(apiRoot.getRoot() + '/services/forest/', {name: forestName, description: forestDescription});
             }
 
             function deleteForest(forestID) {
@@ -29,11 +29,7 @@
             function updateForestOwner(ownerID, forestID) {
                 return $http.put(apiRoot.getRoot() + '/services/forest/' + forestID + '/owner', {owner: ownerID});
             }
-            // ---------------------------------------------- //
-            // ---------------------------------------------- //
 
-
-            // Return the public API.
             return({
                 getForests: getForests,
                 updateForest: updateForest,

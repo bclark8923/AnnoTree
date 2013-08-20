@@ -63,11 +63,8 @@
                                     //go to Fail Page
                                     //$location.path("/forestFire");
                             }
-                            alert(errorData);
                         } else if(response.data.status != 401 && errorNumber != 0) {
-                            //go to Fail Page
-                            //$location.path("/forestFire");
-                            //alert(errorData);
+                            $location.path("/forestFire");
                         }
                         $("#loadingScreen").hide();
                     }
@@ -176,14 +173,10 @@
                                     errorData = "Please enter valid characters (alphanumeric) only";
                                     break;
                                 default:
-                                    //go to Fail Page
-                                    //$location.path("/forestFire");
+                                    $location.path("/forestFire");
                             }
-                            alert(errorData);
                         } else if(response.data.status != 401 && errorNumber != 0) {
-                            //go to Fail Page
                             $location.path("/forestFire");
-                            //alert(errorData);
                         }
                         $("#loadingScreen").hide();
 

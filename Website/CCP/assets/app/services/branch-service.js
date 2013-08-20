@@ -10,11 +10,6 @@
                 return $http.post(apiRoot.getRoot() + '/services/' + treeID + '/branch', {name: branchName, description: branchDescription});
             }
 
-            // ---------------------------------------------- //
-            // ---------------------------------------------- //
-
-
-            // Return the public API.
             return({
                 createBranch: createBranch
             });

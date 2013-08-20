@@ -240,8 +240,7 @@
                             }
                         } else if(response.data.status != 401 && errorNumber != 0) {
                             //go to Fail Page
-                            //$location.path("/forestFire");
-                            alert(errorData);
+                            $location.path("/forestFire");
                         }
                         $("#invalidModifyLeaf").html(errorData);
 
@@ -295,7 +294,6 @@
 
             function uploadComplete(evt) {
                 /* This event is raised when the server send back a response */
-                //alert(evt.target.responseText); 
                 if (this.status == 415 || this.status == 406) {
                     var jsonResp = JSON.parse(this.response);
                     leafService.deleteLeaf($scope.newLeafData.id);
@@ -319,16 +317,11 @@
             }
 
             function uploadFailed(evt) {
-                /* This event is raised when the server send back a response */
-                alert(evt.target.responseText);
-                //delete new leaf
+                //TODO:add error message
                 $location.path("/forestFire");
             }
 
             function uploadCanceled(evt) {
-                /* This event is raised when the server send back a response */
-                alert(evt.target.responseText);
-                //delete new leaf
                 $location.path("/forestFire");
             }
 
@@ -402,9 +395,7 @@
                                             //$location.path("/forestFire");
                                     }
                                 } else if(response.data.status != 401 && errorNumber != 0) {
-                                    //go to Fail Page
-                                    //$location.path("/forestFire");
-                                    alert(errorData);
+                                    $location.path("/forestFire");
                                 }
                                 $("#invalidAddTree").html(errorData);
                             }
@@ -457,9 +448,7 @@
                             $('#invalidRemoveError').html(errorData);
                             $scope.invalidRemoveErrorShow = true;
                         } else if(response.data.status != 401 && errorNumber != 0) {
-                            //go to Fail Page
-                            //$location.path("/forestFire");
-                            alert(errorData);
+                            $location.path("/forestFire");
                         }
 
                     }
@@ -492,8 +481,6 @@
 
                         },
                         function( response ) {
-                            //alert('broked');
-                            //return;
                             var errorData = '';
                             var errorNumber = parseInt(response.data.error);
                             if(response.status == 406) {
@@ -584,6 +571,7 @@
                         });
                     },
                     function( response ) {
+                        //TODO: redo this
                         alert('Our add and remove users service is currently down. Please try again later.');
                         return;
                         var errorData = "Our Create Leaf Service is currently down, please try again later.";
@@ -604,40 +592,23 @@
                                     errorData = "Please enter a valid leaf name.";
                                     break;
                                 default:
-                                    //go to Fail Page
-                                    //$location.path("/forestFire");
+                                    $location.path("/forestFire");
                             }
-                            alert(errorData);
                         } else if(response.data.status != 401 && errorNumber != 0) {
-                            //go to Fail Page
-                            //$location.path("/forestFire");
-                            alert(errorData);
+                            $location.path("/forestFire");
                         }
                     }
                 );
-                /*$rootScope.modifyTree = tree;
-                $rootScope.originalName = tree.name;
-                $rootScope.originalDescription = tree.description;*/
             }
 
             $scope.closeModifyUsersModal = function () {
                 $("#modifyUsersModal").modal('hide');
                 $scope.invalidEmailErrorShow = false;
 
-                /*$("#invalidModifyUser").html('');
-                $rootScope.modifyTree = null;
-                $scope.invalidModifyTree = false; 
-                $("#loadingScreen").hide();*/
             }
 
-            // --- Define Controller Variables. ----------------- //
-
-            // Get the render context local to this controller (and relevant params).
             var renderContext = requestContext.getRenderContext( "standard.tree" );
-            
-            // --- Define Scope Variables. ---------------------- //
 
-            // I flag that data is being loaded.
             $scope.isLoading = true;
             $scope.leafCreate = true;
             $scope.annoCreate = true;
@@ -654,35 +625,22 @@
                 logo: "img/logo.png"
             };
 
-            // The subview indicates which view is going to be rendered on the page.
             $scope.subview = renderContext.getNextSection();
-            
 
-            // --- Bind To Scope Events. ------------------------ //
-
-            // I handle changes to the request context.
             $scope.$on(
                 "requestContextChanged",
                 function() {
-
-                    // Make sure this change is relevant to this controller.
                     if ( ! renderContext.isChangeRelevant() ) {
                         return;
                     }
-                    // Update the view that is being rendered.
                     $scope.subview = renderContext.getNextSection();
                 }
             );
 
-            // --- Initialize. ---------------------------------- //
-
-            // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
             $scope.filesListing = [];
             $scope.invalidEmailErrorShow = false;
             $scope.invalidRemoveErrorShow = false;
-
-            // Load the "remote" data.
             $scope.$evalAsync(loadTreeData());
         }
     );

@@ -28,11 +28,7 @@
             function getUserInfo() {
                 return $http.get(apiRoot.getRoot() + '/services/user/');
             }
-            // ---------------------------------------------- //
-            // ---------------------------------------------- //
 
-
-            // Return the public API.
             return({
                 signup: signup,
                 login: login,

@@ -7,37 +7,33 @@
         function( $scope, localStorageService, $location, requestContext, authenticateService, _ ) {
 
 
-            // --- Define Controller Methods. ------------------- //
 
-
-            // I apply the remote data to the local view model.
             function completeSignup ( response ) {
-                //set session information
+
                 localStorageService.add('username', response.data.first_name + ' ' + response.data.last_name);
                 localStorageService.add('useravatar', response.data.profile_image_path);
 
-                //redirect to app
+
                 $location.path("/app/ft");
             }
 
 
-            // I load the "remote" data from the server.
+
             $scope.validateSignUp = function() {
                 
-                //Mark the form as valid
+
                 $scope.invalidSignUp = false;
 
-                //check for validation
+
                 $scope.$broadcast('$validate');
                 
-                //obtain the values
+
                 var name = $scope.signUpName;
                 var email = $scope.signUpEmail;
                 var password = $scope.signUpPassword;
                 var confirmPassword = $scope.signUpConfirmPassword;
                 var formValid = $scope.signUpForm.$valid;
-                
-                //validate form
+
                 if(!formValid) {
                     $scope.invalidSignUp = true;
                     if(!name) {
@@ -49,7 +45,7 @@
                     else if(!password) {
                         $("#validateError").html("Please enter a valid password.");
                     } else {
-                        //shouldn't happen
+
                         $("#validateError").html("Please enter valid information.");
                     }
                 } else if (password.length < 6) {
@@ -61,7 +57,7 @@
                     $("#confirmPassword").val("");
                     $scope.invalidSignUp = true;
                 } else {
-                    //Send signup api call
+
                     $('#authenticateWorking').addClass('active');
                     var promise = authenticateService.signup(name, email, password);
 
@@ -69,15 +65,14 @@
                         function( response ) {
 
                             $scope.isLoading = false;
-                            //complete signup
                             completeSignup ( response );
 
                         },
                         function( response ) {
-                            //error responses from API
                             $scope.invalidSignUp = true;
                             var errorData = "Our Sign Up Service is currently down, please try again later.";
                             var errorNumber = parseInt(response.data.error);
+                            //TODO:fix this
                             if(response.status == 406) {
                                 switch(errorNumber)
                                 {
@@ -102,8 +97,6 @@
                                         errorData = response.data.txt;
                                         break;
                                     default:
-                                        //pre-defined
-                                        //go to Fail Page
                                         $location.path("/forestFire");
                                 }
                             } else {
@@ -118,59 +111,18 @@
                 }
             }
 
-
-            // --- Define Scope Methods. ------------------------ //
-
-
-            // ...
-
-
-            // --- Define Controller Variables. ----------------- //
-
-
-            // Get the render context local to this controller (and relevant params).
             var renderContext = requestContext.getRenderContext( "authenticate.signup" );
-
-            
-            // --- Define Scope Variables. ---------------------- //
-
-
-            // I flag that data is being loaded.
             $scope.isLoading = true;
-
-            //set the form to valid
             $scope.invalidSignUp = false;
-
-            // The subview indicates which view is going to be rendered on the page.
             $scope.subview = renderContext.getNextSection();
             
-
-            // --- Bind To Scope Events. ------------------------ //
-
-
-            // I handle changes to the request context.
             $scope.$on(
                 "requestContextChanged",
                 function() {
-
-                    // Make sure this change is relevant to this controller.
-                    if ( ! renderContext.isChangeRelevant() ) {
-
-                        return;
-
-                    }
-
-                    // Update the view that is being rendered.
+                    if ( ! renderContext.isChangeRelevant() ) { return;}
                     $scope.subview = renderContext.getNextSection();
-
                 }
             );
-
-
-            // --- Initialize. ---------------------------------- //
-
-
-            // Set the window title.
             $scope.setWindowTitle( "AnnoTree" );
         }
     );

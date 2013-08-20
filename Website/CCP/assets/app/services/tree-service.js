@@ -39,11 +39,6 @@
                 return $http.delete(apiRoot.getRoot() + '/services/tree/' + treeID + "/user/" + userID);
             }
 
-            // ---------------------------------------------- //
-            // ---------------------------------------------- //
-
-
-            // Return the public API.
             return({
                 getTree: getTree,
                 createTree: createTree,
@@ -53,7 +48,6 @@
                 addUser: addUser,
                 removeUser: removeUser
             });
-
 
         }
     );

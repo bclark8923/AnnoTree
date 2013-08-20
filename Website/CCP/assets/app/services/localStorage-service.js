@@ -1,12 +1,12 @@
 (function( ng, app ) {
-    
+    //This is from https://github.com/grevory/angular-local-storage/
+    //Licensed under the Apache License, Version 2.0 (the "License");
+    //Aug 18th 2013
+
     "use strict";
 
     app.constant('prefix', 'AnnoTree');
-    // Cookie options (usually in case of fallback)
-    // expiry = Number of days before cookies expire // 0 = Does not expire
-    // path = The web path the cookie represents
-    app.constant('cookie', { expiry:30, path: '/'});
+    app.constant('cookie', { expiry:60*24*365, path: '/'});
 
     app.service("localStorageService", [
         '$rootScope',
@@ -186,7 +186,7 @@
               while (thisCookie.charAt(0)==' ') {
                 thisCookie = thisCookie.substring(1,thisCookie.length);
               }
-              key = thisCookie.substring(prefixLength,thisCookie.indexOf('='));
+              var key = thisCookie.substring(prefixLength,thisCookie.indexOf('='));
               removeFromCookies(key);
             }
           };

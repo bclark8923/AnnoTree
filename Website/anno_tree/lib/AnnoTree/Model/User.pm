@@ -34,7 +34,6 @@ sub createSaltedHash {
 sub getUserInfo {
     my ($class, $email) = @_;
     
-    #$controller->debug('before query');
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call get_user(:email)",
         {
@@ -46,7 +45,7 @@ sub getUserInfo {
     my $cols = $result->fetch; # get the columns (keys for json)
     
     my $userInfo = $result->fetch; # get the newly created user's info
-    return {error => '1', txt => 'User does not exist'} unless ($userInfo->[0]); # user does not exist
+    return {error => '1', txt => 'User does not exist'} unless ($userInfo->[0]);
     
     for(my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $userInfo->[$i];
@@ -164,7 +163,7 @@ sub beta {
     my $num = $result->fetch->[0];
     if ($num == 0) {
         $json = {result => $num, txt => 'User added as inactive beta user'};
-        
+        # TODO: this should use the email module
         my $from = '"AnnoTree" <invite@annotree.com>';
         my $subject = "Thanks for Signing Up for AnnoTree";
         my $message = "Thanks for signing up for the AnnoTree beta. We are currently rolling in users to test our platform and will reach out to you soon when we're ready to bring you on board.<br/><br/>In the meantime, we invite you to follow us on social media and at <a href=\"http://blog.annotree.com\">http://blog.annotree.com</a> to stay up-to-date on our product, our vision, and how AnnoTree will reshape the mobile development space.<br/><br/>If you have any questions, please feel free to reply to this email and we'll get back to you as soon as possible!";
@@ -216,7 +215,8 @@ sub feedback {
 # let's an user apply to reset their password
 sub setReset {
     my ($class, $email) = @_;
-
+    
+    # TODO: do this all in one procedure
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call request_password(:email)",
         {
@@ -253,6 +253,7 @@ sub reset {
     my ($class, $params) = @_;
 
     my $pass = $params->{password};
+    #TODO - combine this code with signup into a function
     return {error => '3', txt => 'Password must be at least six characters'} if (length($pass) < 6); # password must be at least 6 characters
     return {error => '4', txt => 'Password must contain at least one number'} if ($pass !~ m/\d/);
     return {error => '5', txt => 'Valid password characters are alphanumeric or !@#$%^&*()'} if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()

@@ -13,6 +13,7 @@ sub mail {
     my $smtpuser = 'postmaster@annotree.com';
     my $smtppassword = '8-7sigqno8u7';
 
+    # TODO: view for body / minimum split up on diff lines
     my @parts = (
         Email::MIME->create(
             attributes => {

@@ -6,21 +6,20 @@ use Crypt::SaltedHash;
 use Data::Dumper;
 use Config::General;
 
-# file upload size limit - 5MB
+# file upload size limit - 10MB
 $ENV{MOJO_MAX_MESSAGE_SIZE} = 10485760;
 
 # This method will run once at server start
 sub startup {
     my $self = shift;
     
-    # Get the configuration settings
     my $conf = Config::General->new('/opt/config.txt');
     my %config = $conf->getall;
  
     # secret passphrase for sessions
     $self->secret('protect the ANN0T33$ before THEY g3t T@k3n');
     
-    # set what mode we should be operating in
+    # set what mode we should be operating in - TODO: add modes
     $self->mode('development');
 
     # load the plugins
@@ -37,9 +36,6 @@ sub startup {
     });
 =end oldmysqlcon
 =cut
-    # print Dumper(\%config);
-    # print $config{database}->{server} . "\n";
-    # print $config{database}->{port} . "\n";
     AnnoTree::Model::MySQL->init({
         database    => 'annotree',
         host        => $config{database}->{server},
@@ -71,17 +67,14 @@ sub startup {
                     email => $email
                 }
             );
-            while (my $return = $result->fetch) {
-                my $shash = $return->[1];
-                my $valid = Crypt::SaltedHash->validate($shash, $pw);
-                return undef unless $valid;
-                return $return->[0];
-            }
+            my $return = $result->fetch;
+            my $shash = $return->[1];
+            my $valid = Crypt::SaltedHash->validate($shash, $pw);
+            return undef unless $valid;
+            return $return->[0];
             return undef;
         }
     });
-    # Documentation browser under "/perldoc"
-    #$self->plugin('PODRenderer');
     
     # Routes
     my $r = $self->routes->bridge('/services');
@@ -120,12 +113,12 @@ sub startup {
     $authr->delete('/forest/:forestid' => [forestid => qr/\d+/])    ->to('controller-forest#deleteForest');
 
     # ===== TREES =====
-    $authr->post('/:forestid/tree' => [forestid => qr/\d+/])    ->to('controller-tree#create');
-    $authr->get('/tree/:treeid' => [treeid => qr/\d+/])         ->to('controller-tree#treeInfo');
-    $authr->put('/tree/:treeid' => [treeid => qr/\d+/])         ->to('controller-tree#update');
-    $authr->delete('/tree/:treeid' => [treeid => qr/\d+/])      ->to('controller-tree#deleteTree');
-    $authr->put('/tree/:treeid/user' => [treeid => qr/\d+/])    ->to('controller-tree#addUserToTree');
-    $authr->delete('/tree/:treeid/user/:userid' => [treeid => qr/\d+/, userid => qr/\d+/])    ->to('controller-tree#removeUserFromTree');
+    $authr->post('/:forestid/tree' => [forestid => qr/\d+/])                                ->to('controller-tree#create');
+    $authr->get('/tree/:treeid' => [treeid => qr/\d+/])                                     ->to('controller-tree#treeInfo');
+    $authr->put('/tree/:treeid' => [treeid => qr/\d+/])                                     ->to('controller-tree#update');
+    $authr->delete('/tree/:treeid' => [treeid => qr/\d+/])                                  ->to('controller-tree#deleteTree');
+    $authr->put('/tree/:treeid/user' => [treeid => qr/\d+/])                                ->to('controller-tree#addUserToTree');
+    $authr->delete('/tree/:treeid/user/:userid' => [treeid => qr/\d+/, userid => qr/\d+/])  ->to('controller-tree#removeUserFromTree');
     $r->get('/ios/tokens')  ->to('controller-tree#iosTokens');
  
     # ===== BRANCHES =====
@@ -143,7 +136,6 @@ sub startup {
     # ===== ANNOTATIONS =====
     $authr->post('/:leafid/annotation' => [leafid => qr/\d+/])->to('controller-annotation#create');
     $authr->get('/annotation/:annoid' => [annoid => qr/\d+/])->to('controller-annotation#getImage'); 
-
 }
 
 return 1;

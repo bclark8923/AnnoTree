@@ -12,6 +12,7 @@ my $port = ':' . $config{server}->{'port'};
 my $path = $config{server}->{'annotationpath'};
 my $url = $server . $port . '/annotation_files/';
 
+#TODO: fix how error returns are handled
 # creates a new leaf
 sub create {
     my $self = shift;
@@ -41,7 +42,6 @@ sub update {
     my $self = shift;
 
     my $jsonReq = $self->req->json;
-    $self->debug($self->dumper($jsonReq));
     $self->render(json => {error => '0', txt => 'Missing required JSON name/value pairs in request or they have no value'}, status => 406) and return unless ($jsonReq->{'description'} && $jsonReq->{'name'} && exists $jsonReq->{'branchid'});
     $self->render(json => {error => '5', txt => 'Leaf name must contain at least one alphanumeric character'}, status => 406) and return unless ($jsonReq->{'name'} =~ m/[A-Za-z0-9]/);
 
@@ -51,7 +51,7 @@ sub update {
     $params->{name} = $jsonReq->{name};
     $params->{reqUser} = $self->current_user->{userid};
     $params->{branchid} = $jsonReq->{branchid};
-    $self->debug($self->dumper($params));
+    
     my $json = AnnoTree::Model::Leaf->update($params);
     my $status = 204;
     if (exists $json->{error}) {
@@ -80,16 +80,19 @@ sub leafInfo {
     $self->render(json => $json, status => $status);
 }
 
+# logging post parameters in development
 sub iosUpload {
     my $self = shift;
-    #$self->debug($self->dumper($self->req));
+    
     my $params = {};
     $params->{token} = $self->param('token');
     $params->{leafName} = $self->param('leafName');
     my $upload = $self->req->upload('annotation');
-    $self->render(json => {error => '0', txt => 'Missing form request parameters or they are ill formed'}, status => 406) and return unless ($params->{token} && $params->{token} =~ m/[a-f0-9]{64}/ && defined $upload && exists $upload->{filename} && $upload->{filename} ne '' && $self->param('leafName') && $self->param('leafName') =~ m/[a-zA-Z0-9]/);
-    #$self->debug($self->dumper($upload));
-    #$self->debug("token: $params->{token} \n filename: $upload->{filename} \n content-type: " . $upload->headers->content_type . "\n");
+    $self->render(json => {error => '0', txt => 'Missing form request parameters or they are ill formed'}, status => 406) and return 
+        unless ($params->{token} && $params->{token} =~ m/[a-f0-9]{64}/ && defined $upload 
+        && exists $upload->{filename} && $upload->{filename} ne '' && $self->param('leafName') 
+        && $self->param('leafName') =~ m/[a-zA-Z0-9]/);
+    
     $params->{filename} = $upload->{filename};
     $params->{mime} = $upload->headers->content_type;
 
@@ -102,7 +105,7 @@ sub iosUpload {
     $params->{metaModel} = $self->param('metaModel') || undef;
     $params->{metaVendor} = $self->param('metaVendor') || undef;
     $params->{metaOrientation} = $self->param('metaOrientation') || undef;
-    
+    #TODO: upload plugin
     my $json = AnnoTree::Model::Leaf->iosUpload($params, $path);
     my $status = 200;
     if (exists $json->{error}) {
@@ -115,6 +118,7 @@ sub iosUpload {
     $self->render(json => $json, status => $status);
 }
 
+#TODO: delete
 sub iosTestUpload {
     my $self = shift;
 
@@ -141,17 +145,16 @@ sub chromeUpload {
     $params->{path} = $server . '/services/annotation/';
     $params->{metaModel} = $jsonReq->{metaModel};
     $params->{metaOrientation} = 'landscape';
-    #$self->debug($self->dumper($params));
     
     my $json = AnnoTree::Model::Leaf->chromeUpload($params, $path);
     my $status = 200;
     if (exists $json->{error}) {
         $status = 406;
     }
-    #$self->debug($self->dumper($json));
 
     $self->render(json => $json, status => $status);
 }
+
 sub deleteLeaf {
     my $self = shift;
     
@@ -160,7 +163,7 @@ sub deleteLeaf {
     $params->{leafid} = $self->param('leafid');
     my $json = AnnoTree::Model::Leaf->deleteLeaf($params);
 
-    my $status = 204;
+    my $status = 204; #TODO: teteriary ?: operator instead
     if (exists $json->{error}) {
         $status = 406;
     }

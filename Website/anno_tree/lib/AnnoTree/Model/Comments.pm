@@ -4,6 +4,7 @@ use Mojo::Base -strict;
 use AnnoTree::Model::MySQL;
 use Scalar::Util qw(looks_like_number);
 
+#TODO: truncate length of comment 2048 check length in angular
 sub leafCreate {
     my ($class, $params) = @_;
 
@@ -34,13 +35,7 @@ sub leafCreate {
         }
         $commentIndex++;
     }
-=begin single
-    my $commentInfo = $result->fetch;
-    for (my $i = 0; $i < @{$cols}; $i++) {
-        $json->{$cols->[$i]} = $commentInfo->[$i] || '';
-    }
-=end single
-=cut
+    
     return $json;
 }
 

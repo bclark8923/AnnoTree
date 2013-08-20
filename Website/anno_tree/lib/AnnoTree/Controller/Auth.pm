@@ -4,9 +4,6 @@ use Mojo::Base 'Mojolicious::Controller';
 use AnnoTree::Model::User;
 
 # handles user signup
-# Need to add: (now being handled on DB side)
-# 1) Create a sample forest, tree, branch, sample leaves if not an invited user
-# 2) If an invited user than don't create sample
 sub signup {
     my $self = shift;
     
@@ -27,19 +24,10 @@ sub signup {
     $params->{'password'} = $jsonReq->{'signUpPassword'};
     
     my $json = AnnoTree::Model::User->signup($params);
-    # something was wrong with one of the passed in parameters
-    # 1: email sucks
-    # 2: email already exists
-    # 3: password is not at least 6 characters in length
-    # 4: no number in password
-    # 5: nonvalid character used
     $self->render(json => $json, status => 406) and return if (exists $json->{error});
     
     # this should just authenticate the user without returning a 401 since the user was created successfully above
     $self->render(json => {error => '1', txt => 'Invalid credentials provided'}, status => 401) and return unless $self->authenticate($params->{email}, $params->{password});
-
-    # check to see if user already belongs to a forest
-    # if user does not then create sample
 
     $self->render(json => $json);
 }

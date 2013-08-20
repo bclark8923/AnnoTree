@@ -98,7 +98,7 @@ sub leafInfo {
             $commentIndex++;
         }
     }
-    print Dumper($json);
+    
     return $json;
 }
 
@@ -184,6 +184,8 @@ sub iosUpload {
     for (my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $annoInfo->[$i] if $cols->[$i];
     }
+
+    #TODO: use perl plugin
     my ($diskDir) = $json->{filename_disk} =~ m{(.*)/};
     my @dir = split(/\//, $diskDir);
     `mkdir $path/$dir[0]` unless (-d "$path/$dir[0]");
@@ -198,10 +200,10 @@ sub chromeUpload {
     
     my $json = {};
     my $result = AnnoTree::Model::MySQL->db->execute(
-        "call create_leaf_on_tree_owner(:token, :leafname, :owner)",
+        "call create_leaf_on_tree_owner(:token, :leafName, :owner)",
         {
             token       => $params->{token},
-            leafname    => $params->{leafName},
+            leafName    => $params->{leafName},
             owner       => $params->{owner}
         }
     ); 
@@ -252,7 +254,7 @@ sub chromeUpload {
     `mkdir $path/$dir[0]/$dir[1]` unless (-d "$path/$dir[0]/$dir[1]");
     `mkdir $path/$dir[0]/$dir[1]/$dir[2]` unless (-d "$path/$dir[0]/$dir[1]/$dir[2]");
     my $decoded = decode_base64($params->{annotation});
-    #print "$path/$json->{filename_disk}";
+    
     open my $fh, '>', "$path/$json->{filename_disk}";
     binmode $fh;
     print $fh $decoded;
@@ -291,7 +293,6 @@ sub deleteLeaf {
         for my $file (@files) {
             `rm $path/$file` if ($file ne 'anno_default.png' && defined $file);
         }
-
     } elsif ($num == 1) {
         $json = {error => $num, txt => 'Nothing was deleted'};
     } elsif ($num == 2) {

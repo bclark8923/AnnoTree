@@ -21,12 +21,11 @@ sub create {
     my $upload = $self->req->upload('uploadedFile');
     $self->render(json => {error => '0', txt => 'You must include a file'}, status => 406) and return unless (defined $upload && exists $upload->{filename} && $upload->{filename} ne '');
     $params->{leafid} = $self->param('leafid');
-
     $params->{filename} = $upload->{filename};
     $params->{path} = $server . '/services/annotation/';
     $params->{mime} = $upload->headers->content_type;
     
-    # limit annotations to only images
+    # limit annotations to only images TODO: limit file image types
     $self->render(json => {error => '0', txt => 'You can only upload images'}, status => 415) and return unless $params->{mime} =~ m/image/;
 
     $params->{metaSystem} = $self->param('metaSystem') || undef;

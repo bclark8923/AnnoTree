@@ -16,7 +16,6 @@ sub create {
     
     my $jsonReq = $self->req->json;
     $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{name} && exists $jsonReq->{description}); 
-    
     my $params = {};
     $params->{forestid} = $self->param('forestid');
     $params->{userid} = $self->current_user->{userid};
@@ -107,7 +106,7 @@ sub deleteTree {
     $params->{reqUser} = $self->current_user->{userid};
     $params->{treeid} = $self->param('treeid');
     
-    #my @annos = AnnoTree::Model::Tree->getTreeAnnotations($params);
+    #TODO check my @annos = AnnoTree::Model::Tree->getTreeAnnotations($params);
     my $json = AnnoTree::Model::Tree->deleteTree($params);
     
     my $status = 204;
@@ -116,9 +115,6 @@ sub deleteTree {
     } else {
         `rm -rf $path/$json->{forestid}/$params->{treeid}`;
         delete $json->{forestid};
-        #foreach my $anno (@annos) {
-        #    `rm $path/$anno`;
-        #}
     }
 
     $self->render(json => $json, status => $status);

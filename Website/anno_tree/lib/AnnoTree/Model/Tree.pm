@@ -33,7 +33,6 @@ sub create {
     my $json = {};
     my $cols = $result->fetch;
     if (looks_like_number($cols->[0])) { 
-        # returns a 1 if user does not exist or was deleted
         my $error = $cols->[0];
         if ($error == 1) {
             return {error => $error, txt => 'Can\'t create a tree with a user that does not exist or was deleted'};
@@ -213,7 +212,7 @@ sub update {
 
     my $json = {};
     my $num = $result->fetch->[0];
-    #print Dumper($cols);
+   
     if ($num == 0) {
         $json = {result => $num, txt => 'Task updated successfully'};
     } elsif ($num == 1) {
@@ -317,7 +316,6 @@ sub getTreeAnnotations {
     my @annos;
     while (my $return = $annoResult->fetch) {
         if (defined $return->[0]) {
-
             ($annoPath) = $return->[0] =~ m/.*\/(.+)$/;
             push(@annos, $annoPath) if $annoPath;
         }
@@ -379,7 +377,6 @@ sub removeUserFromTree {
 sub iosTokens {
     my ($class, $tokens) = @_;
 
-    print Dumper($tokens);
     my $json = {tokens => []};
     my $index = 0;
     for my $token (@{$tokens}) {
@@ -395,8 +392,6 @@ sub iosTokens {
         $json->{tokens}->[$index] = {$token => $treeName};
         $index++;
     }
-
-    print Dumper($json);
 
     return $json;
 }

@@ -12,12 +12,7 @@ sub deleteUser {
     my $result = AnnoTree::Model::User->deleteUser($userid);
     
     my $status = 200;
-    if (exists $result->{error}) {
-        my $error = $result->{error};
-        if ($error == 1) { # user does not exist
-            $status = 404;
-        }
-    }
+    $status = 404 if (exists $result->{error});
 
     $self->render(json => $result, status => $status);
 }
@@ -44,9 +39,7 @@ sub beta {
     my $json = AnnoTree::Model::User->beta($email);
 
     my $status = 204;
-    if (exists $json->{error}) {
-        $status = 406;
-    }
+    $status = 406 if (exists $result->{error});
 
     $self->debug($self->dumper($json));
 
@@ -61,7 +54,6 @@ sub feedback {
     my $params = {};
     $params->{userid} = $self->current_user->{userid};
     $params->{feedback} = $jsonReq->{feedback};
-    #$self->debug($self->dumper($params));
 
     AnnoTree::Model::User->feedback($params);
 

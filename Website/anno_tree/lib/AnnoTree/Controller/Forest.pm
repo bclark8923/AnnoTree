@@ -55,6 +55,7 @@ sub forestInfo {
 
 }
 
+#TODO: errors for if db connection fails
 sub update {
     my $self = shift;
     my $jsonReq = $self->req->json;
@@ -90,10 +91,7 @@ sub deleteForest {
     if (exists $json->{error}) {
         $status = 406;
     } else {
-        `rm -rf $path/$params->{forestid}`;
-        #foreach my $anno (@annos) {
-        #    `rm $path/$anno`;
-        #}
+        `rm -rf $path/$params->{forestid}`; # TODO: use perl library, place in model
     }
 
     $self->render(json => $json, status => $status);

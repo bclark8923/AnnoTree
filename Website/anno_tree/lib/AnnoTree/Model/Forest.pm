@@ -35,6 +35,7 @@ sub create {
     return $json;
 }
 
+# TODO: simplify and combine these procedures
 sub forestInfo {
     my ($class, $userid) = @_;
     
@@ -128,6 +129,7 @@ sub update {
     return $json; 
 }
 
+# TODO: can this be deleted?
 sub getForestAnnotations {
     my ($class, $params) = @_;
 

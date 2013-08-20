@@ -1008,6 +1008,10 @@ text-align:left;line-height:38px;vertical-align:middle;
         max-height: 100px;
     }
 
+    .cardImg.cardImgLeaf {
+        max-height: 125px;
+    }
+
     .cardImgNew {
         font-size: 70pt;
         line-height: 70pt;

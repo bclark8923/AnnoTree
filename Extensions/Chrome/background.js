@@ -38,12 +38,10 @@ var email;
 var emailp;
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-    //alert('tab updated');
     if (changeInfo.status == 'complete') {
         for (var i = 0; i < openTabs.length; i++) { 
             if (openTabs[i] == tabId) {
                 openTabs.splice(i, 1);
-                alert('removing tab from openTabs');
                 break;
             }
         }
@@ -76,6 +74,12 @@ chrome.runtime.onMessage.addListener(
                     statusCode: {
                         401: function(res) {
                             alert('Annotation could not be uploaded. Please try again');
+                        },
+                        406: function(res) {
+                            alert('Annotation could not be uploaded. Please try again');
+                        },
+                        500: function(res) {
+                            alert('AnnoTree is currently down. Please try again in a few minutes or contact us at contact');
                         },
                         200: function(res) {
                             alert('Annotation successfully uploaded');

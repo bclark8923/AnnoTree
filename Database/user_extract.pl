@@ -11,7 +11,7 @@ use Data::Dumper;
 use strict;
 use warnings;
 
-### subroutines ###
+### Subroutines ###
 sub createTableHeaders {
     my $headerNames = shift;
 
@@ -25,6 +25,19 @@ sub createTableHeaders {
     return $header;
 }
 
+sub createTableData {
+    my $data = shift;
+
+    return '<td style="border: 1px solid #000;text-align:center;padding:5px">' . $data . '</td>';
+}
+
+sub createLabel {
+    my $label = shift;
+
+    return '<span style="font-weight:bold">' . $label . '</span>: ';
+}
+
+### Create Email Content ###
 # Current date information
 my $created = Time::Piece::localtime->strftime('%F');
 my $date = substr($created, 0, 8) . (substr($created, 8, 2) - 1);
@@ -78,11 +91,11 @@ my $pastDayGrowthRate = (($numTotalUsers - $usersPast) / $usersPast) * 100;
 $usersPast = ($numTotalUsers - $numPastWeekUsers) || 1;
 my $pastWeekGrowthRate = (($numTotalUsers - $usersPast) / $usersPast) * 100;
 
-$message .= '<span style="font-weight:bold">Total number of users</span>: ' . $numTotalUsers  . '<br/>';
-$message .= '<span style="font-weight:bold">Users created since yesterday</span>: ' . $numNewUsers . ' (' . $pastDayGrowthRate . '%)<br/>';
-$message .= '<span style="font-weight:bold">Users created in the past week</span>: ' . $numPastWeekUsers . ' (' . $pastWeekGrowthRate . '%)<br/>';
+$message .= createLabel('Total number of users') . $numTotalUsers  . '<br/>';
+$message .= createLabel('Users created since yesterday') . $numNewUsers . ' (' . $pastDayGrowthRate . '%)<br/>';
+$message .= createLabel('Users created in the past 7 days') . $numPastWeekUsers . ' (' . $pastWeekGrowthRate . '%)<br/><br/>';
 
-$message .= '<span style="font-weight:bold">Total number of ___ created since ' . $date . ' -</span><br/>';
+$message .= createLabel('Total number of ___ created since ' . $date . ' -') . '<br/>';
 
 # Trees created in the past day
 $result = $db->execute(
@@ -94,7 +107,7 @@ $result = $db->execute(
 
 my $numCreatedTrees = $result->fetch->[0];
 
-$message .= '<span style="font-weight:bold">Trees</span>: ' . $numCreatedTrees . '<br/>';
+$message .= createLabel('Trees') . $numCreatedTrees . '<br/>';
 
 # Leaves created in the past day
 $result = $db->execute(
@@ -106,7 +119,7 @@ $result = $db->execute(
 
 my $numCreatedLeaves = $result->fetch->[0];
 
-$message .= '<span style="font-weight:bold">Leaves</span>: ' . $numCreatedLeaves . '<br/>';
+$message .= createLabel('Leaves') . $numCreatedLeaves . '<br/>';
 
 # Annotations created in the past day
 $result = $db->execute(
@@ -118,7 +131,7 @@ $result = $db->execute(
 
 my $numCreatedAnnotations = $result->fetch->[0];
 
-$message .= '<span style="font-weight:bold">Annotations</span>: ' . $numCreatedAnnotations . '<br/><br/>';
+$message .= createLabel('Annotations') . $numCreatedAnnotations . '<br/><br/>';
 
 # Get user information for the users that have logged on in the past day
 $result = $db->execute(
@@ -128,7 +141,7 @@ $result = $db->execute(
     }
 );
 
-$message .= '<span style="font-weight:bold">People who logged in since ' . $date . '</span>:<br/>';
+$message .= createLabel('People who have logged in since ' . $date) . '<br/>';
 $message .= '<table style="border:1px solid #000;text-align:center;margin-bottom:15px">' . createTableHeaders([
         'Email',
         'First Name',
@@ -141,7 +154,7 @@ $message .= '<table style="border:1px solid #000;text-align:center;margin-bottom
 while (my $info = $result->fetch) {
     $message .= '<tr>';
     for (my $i = 0; $i < @{$info}; $i++) {
-        $message .= '<td style="border: 1px solid #000;text-align:center;padding:5px">' . $info->[$i] . '</td>';
+        $message .= createTableData($info->[$i]);
     }
     $message .= '</tr>';
 }
@@ -155,7 +168,7 @@ $result = $db->execute(
     }
 );
 
-$message .= '<span style="font-weight:bold">People created since ' . $date . '</span>:<br/>';
+$message .= createLabel('People created since ' . $date) . '<br/>';
 $message .= '<table style="border:1px solid #000;text-align:center;margin-bottom:15px">' . createTableHeaders([
         'Email',
         'First Name',
@@ -168,7 +181,7 @@ $message .= '<table style="border:1px solid #000;text-align:center;margin-bottom
 while (my $info = $result->fetch) {
     $message .= '<tr>';
     for (my $i = 0; $i < @{$info}; $i++) {
-        $message .= '<td style="border: 1px solid #000;text-align:center;padding:5px">' . $info->[$i] . '</td>';
+        $message .= createTableData($info->[$i]);
     }
     $message .= '</tr>';
 }
@@ -182,7 +195,7 @@ $result = $db->execute(
     }
 );
 
-$message .= '<span style="font-weight:bold">Beta users</span>:<br/>';
+$message .= createLabel('Beta users') . '<br/>';
 $message .= '<table style="border:1px solid #000;text-align:center;margin-bottom:15px">' . createTableHeaders([
         'Email',
         'Created'
@@ -190,16 +203,54 @@ $message .= '<table style="border:1px solid #000;text-align:center;margin-bottom
 while (my $info = $result->fetch) {
     $message .= '<tr>';
     for (my $i = 0; $i < @{$info}; $i++) {
-        $message .= '<td style="border: 1px solid #000;text-align:center;padding:5px">' . $info->[$i] . '</td>';
+        $message .= createTableData($info->[$i]);
+    }
+    $message .= '</tr>';
+}
+$message .= '</table>';
+
+# Get number of leaves per tree - top 20 only
+$result = $db->execute(
+    "select count(leaf.id) as 'leaves', tree.name, concat(user.first_name, ' ', user.last_name) as 'username', user.email from leaf join branch on branch.id = leaf.branch_id join tree on branch.tree_id = tree.id join user on tree.owner_id = user.id group by leaf.branch_id order by count(leaf.id) desc limit 0, 20"
+);
+
+$message .= createLabel('Top 20 trees based on number of leaves created') . '<br/>';
+$message .= '<table style="border:1px solid #000;text-align:center;margin-bottom:15px">' . createTableHeaders([
+        '# of Leaves',
+        'Tree Name',
+        'Tree Owner Name',
+        'Tree Owner Email'
+    ]);
+while (my $info = $result->fetch) {
+    $message .= '<tr>';
+    for (my $i = 0; $i < @{$info}; $i++) {
+        $message .= createTableData($info->[$i]);
     }
     $message .= '</tr>';
 }
 $message .= '</table>';
 
 
+# Number of annotations based on device
+$result = $db->execute(
+    "select meta_model, count(*) from annotation where meta_model is not null and filename_disk != 'anno_default.png' group by meta_model"
+);
 
-#=begin code
-# Send the email
+$message .= createLabel('Number of annotations per device') . '<br/>';
+$message .= '<table style="border:1px solid #000;text-align:center;margin-bottom:15px">' . createTableHeaders([
+        'Device',
+        '#',
+    ]);
+while (my $info = $result->fetch) {
+    $message .= '<tr>';
+    for (my $i = 0; $i < @{$info}; $i++) {
+        $message .= createTableData($info->[$i]);
+    }
+    $message .= '</tr>';
+}
+$message .= '</table>';
+
+### Send the email ###
 my $smtpserver = 'smtp.mailgun.org';
 my $smtpport = 587;
 my $smtpuser = 'postmaster@annotree.com';
@@ -248,6 +299,4 @@ my $emailObj = Email::MIME->create(
     parts => [@parts]
 );
 
-sendmail($emailObj, { transport => $transport });
-#=end code
-#=cut
+sendmail($emailObj, {transport => $transport});

@@ -73,13 +73,13 @@ chrome.runtime.onMessage.addListener(
                     dataType: "json",
                     statusCode: {
                         401: function(res) {
-                            alert('Annotation could not be uploaded. Please try again');
+                            alert('Annotation could not be uploaded. Please try again or contact us at support@annotree.com');
                         },
                         406: function(res) {
-                            alert('Annotation could not be uploaded. Please try again');
+                            alert('Annotation could not be uploaded. Please try again or contact us at support@annotree.com');
                         },
                         500: function(res) {
-                            alert('AnnoTree is currently down. Please try again in a few minutes or contact us at contact');
+                            alert('AnnoTree is currently down. Please try again in a few minutes or contact us at support@annotree.com');
                         },
                         200: function(res) {
                             alert('Annotation successfully uploaded');

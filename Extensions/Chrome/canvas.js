@@ -6701,6 +6701,7 @@ e.css('left', leftOffset);
 $('body').append(e);
 
 // pen options setup
+// TODO: generate dom elements using functions
 var penOptions = $('<div id="AnnoTree_penOptions" style="padding:5px;background-color:#444;z-index:100000;display:inline-block;position:absolute;top:46px;left:44px;text-align:center"></div>');
 var colorDiv = $('<div style="width:90px;height:20px"></div>');
 var coRed = $('<div id="AnnoTree_coRed" style="width:20px;height:20px;background-color:#f00;font-size:16px;line-height:20px;text-align:center;display:inline-block;padding:0;margin:0;vertical-align:top;cursor:pointer">X</div>');
@@ -6815,6 +6816,7 @@ function removeX() {
     }
 }
 
+//TODO: change these to constants
 function removeBorder() {
     switch (curSize) {
         case 4:
@@ -6830,6 +6832,7 @@ function removeBorder() {
 }
 
 // hides the annotree widget and asks the background page to send the screenshot to the ccp
+//TODO: Add check that name matches [a-zA-Z0-9]
 $('#AnnoTree_send').click(function() {
     var name = prompt('Enter a name for this leaf', 'Leaf name');
     if (name != null) {
@@ -6848,10 +6851,10 @@ $('#AnnoTree_send').click(function() {
 });
 
 // grabs the latest tree information from the background page
+//TODO: Show message if user has no tree
 $('#AnnoTree_treeBtn').click(function() {
     if (treeSelectionOpen) {
         $('#AnnoTree_treeBtn img').attr('src', treeImg);
-        //$('#AnnoTree_trees').hide();
         treeSelectionOpen = false;
         $('#AnnoTree_trees').toggle('slide');
     } else {
@@ -6869,7 +6872,6 @@ $('#AnnoTree_treeBtn').click(function() {
                 }
                 $('#AnnoTree_treesSelection').append(o);
             }
-            //$('#AnnoTree_trees').show();
             $('#AnnoTree_trees').toggle('slide');
         });
         treeSelectionOpen = true;
@@ -6924,7 +6926,6 @@ $('AnnoTree_editor').ready(function() {
             $('#AnnoTree_editor').css('left', leftOffset);
             $('#AnnoTree_editor').css('position', 'absolute');
             $('#AnnoTree_editor').css('z-index', '99999');
-            //$('#AnnoTree_penOptions').hide();
             $('#AnnoTree_penOptions').toggle('slide');
             coOpen = false;
             editing = false;
@@ -6933,18 +6934,13 @@ $('AnnoTree_editor').ready(function() {
                 $('#AnnoTree_eraseDraw img').attr('src', eraseImg);
                 erasing = false;
             }
-            //$('#AnnoTree_editor').css('top', topOffset);
-            //$('#AnnoTree_editor').css('left', leftOffset);
-            //$('#AnnoTree_editor').css('position', 'absolute');
-            //$('#AnnoTree_editor').css('z-index', '99999');
             editor.editing(true);
             $('#AnnoTree_penOps img').attr('src', penOpsImgSelected);
-            //$('#AnnoTree_penOptions').show();
             $('#AnnoTree_penOptions').toggle('slide');
             coOpen = true;
             editing = true;
         }
-    })
+    });
 
     $('#AnnoTree_penRed').click(function() {
         editor.pen().color('#f00');
@@ -7003,7 +6999,6 @@ $('AnnoTree_editor').ready(function() {
         if (!erasing) {
             if (coOpen) {
                 $('#AnnoTree_penOps img').attr('src', penOpsImg);
-                //$('#AnnoTree_penOptions').hide();
                 $('#AnnoTree_penOptions').toggle('slide');
                 coOpen = false;
             }

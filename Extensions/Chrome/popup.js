@@ -1,5 +1,7 @@
 function logIn() {
     /*
+    //DON'T DELETE THIS
+    //This is used for testing style changes
     chrome.tabs.executeScript(null, {file: "canvas.js"});
     chrome.browserAction.setPopup({popup: ''});
     var bg = chrome.extension.getBackgroundPage();
@@ -18,6 +20,7 @@ function logIn() {
         data: JSON.stringify(json),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
+        //TODO: catch 500
         statusCode: {
             401: function(res) {
                 $('#errorText').html(res.responseJSON.txt);
@@ -32,15 +35,6 @@ function logIn() {
                 bg.emailp = pass;
                 chrome.tabs.executeScript(null, {file: "canvas.js"});
                 chrome.browserAction.setPopup({popup: ''});
-                //bg.hello();
-                /*
-                chrome.tabs.query({
-                    active: true,
-                    currentWindow: true
-                }, 
-                function(tabsArray) {
-                    alert(tabsArray.length);
-                });*/
                 window.close();
             }
         }

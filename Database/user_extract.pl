@@ -95,7 +95,7 @@ $message .= createLabel('Total number of users') . $numTotalUsers  . '<br/>';
 $message .= createLabel('Users created since yesterday') . $numNewUsers . ' (' . $pastDayGrowthRate . '%)<br/>';
 $message .= createLabel('Users created in the past 7 days') . $numPastWeekUsers . ' (' . $pastWeekGrowthRate . '%)<br/><br/>';
 
-$message .= createLabel('Total number of ___ created since ' . $date . ' -') . '<br/>';
+$message .= createLabel('Total number of ___ created since ' . $date) . '<br/>';
 
 # Trees created in the past day
 $result = $db->execute(
@@ -135,7 +135,7 @@ $message .= createLabel('Annotations') . $numCreatedAnnotations . '<br/><br/>';
 
 # Get user information for the users that have logged on in the past day
 $result = $db->execute(
-    "select email, first_name, last_name, created_at, signup_date, last_login, status from user where last_login > :date",
+    "select email, first_name, last_name, created_at, signup_date, last_login from user where last_login > :date",
     {
         date => $date
     }
@@ -148,8 +148,7 @@ $message .= '<table style="border:1px solid #000;text-align:center;margin-bottom
         'Last Name',
         'Created',
         'Signup',
-        'Last Login',
-        'Status'
+        'Last Login'
     ]);
 while (my $info = $result->fetch) {
     $message .= '<tr>';

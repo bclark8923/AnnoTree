@@ -1,6 +1,7 @@
 -- --------------------------------------------------------------------------------
--- get_branches
+-- get_branches_and_leafs
 -- Note: Returns a list of branches and leaves associated with a tree
+-- TODO:Check if this is being used
 -- --------------------------------------------------------------------------------
 use annotree;
 drop  procedure IF EXISTS `get_branches_and_leafs`;

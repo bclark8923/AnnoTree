@@ -8,12 +8,12 @@ use annotree;
 drop  procedure IF EXISTS `delete_leaf`;
 DELIMITER $$
 
-
 CREATE Procedure `delete_leaf`(
     in userid INT,
     in leafid INT
 )
 BEGIN
+--TODO: joins
 IF (select ut.id from user_tree ut, branch b, leaf l where l.id = leafid and l.branch_id = b.id and b.tree_id = ut.tree_id and ut.user_id = userid) then
     SET FOREIGN_KEY_CHECKS=0;
     delete l, a  

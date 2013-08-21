@@ -13,15 +13,17 @@ CREATE PROCEDURE `get_leaf_comments` (
 )
 BEGIN
 IF (SELECT ut.id
-    FROM user_tree AS ut INNER JOIN branch AS b ON b.tree_id = ut.tree_id
-    INNER JOIN leaf AS l ON l.branch_id = b.id
+    FROM user_tree AS ut 
+        INNER JOIN branch AS b ON b.tree_id = ut.tree_id
+        INNER JOIN leaf AS l ON l.branch_id = b.id
     WHERE l.id = leaf_id_in
-    AND ut.user_id = user_in) THEN
+    AND ut.user_id = user_in) 
+THEN
     SELECT 'id', 'comment', 'created_at', 'updated_at', 'first_name', 'last_name', 'avatar'
-        UNION
-        SELECT lc.id, lc.`comment`, lc.created_at, lc.updated_at, u.first_name, u.last_name, u.profile_image_path
-        FROM leaf_comment AS lc INNER JOIN `user` AS u ON lc.user_id = u.id
-        WHERE leaf_id = leaf_id_in;
+    UNION
+    SELECT lc.id, lc.`comment`, lc.created_at, lc.updated_at, u.first_name, u.last_name, u.profile_image_path
+    FROM leaf_comment AS lc INNER JOIN `user` AS u ON lc.user_id = u.id
+    WHERE leaf_id = leaf_id_in;
 ELSE 
     SELECT '1';
 END IF;

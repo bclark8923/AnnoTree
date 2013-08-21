@@ -30,8 +30,9 @@ IF (select id from leaf where id = leaf_id_in) THEN
             WHERE id = @id;
     ELSE 
         select concat(t.forest_id, '/', b.tree_id, '/', b.id, '/') INTO dir
-            FROM tree AS t INNER JOIN branch AS b ON t.id = b.tree_id
-            INNER JOIN leaf AS l on l.branch_id = b.id
+            FROM tree AS t 
+                INNER JOIN branch AS b ON t.id = b.tree_id
+                INNER JOIN leaf AS l on l.branch_id = b.id
             WHERE l.id = leaf_id_in;
         UPDATE annotation SET path = concat(path_in, @id),
             filename_disk = concat(dir, @id, '_', filename)

@@ -1,6 +1,7 @@
 -- --------------------------------------------------------------------------------
--- get_tree
+-- get_trees_for_user
 -- returns 0 - success
+-- TODO: See if this is being used if so rename it
 -- --------------------------------------------------------------------------------
 USE annotree;
 DROP PROCEDURE IF EXISTS `get_trees_for_user`;

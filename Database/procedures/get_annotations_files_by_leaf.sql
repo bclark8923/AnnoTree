@@ -1,6 +1,7 @@
 -- --------------------------------------------------------------------------------
 -- get_annotations_files_by_leaf
 -- returns the annotation file locations on disk for annotations associated with a leaf
+-- TODO:Check to see if this is being used
 -- --------------------------------------------------------------------------------
 USE annotree;
 DROP PROCEDURE IF EXISTS `get_annotations_files_by_leaf`;

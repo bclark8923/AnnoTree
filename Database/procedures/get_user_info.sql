@@ -1,6 +1,7 @@
 -- --------------------------------------------------------------------------------
 -- get_user_info
 -- returns the information for an individual user
+-- TODO:MERGE ALL get_user
 -- --------------------------------------------------------------------------------
 USE annotree;
 DROP PROCEDURE IF EXISTS `get_user_info`;

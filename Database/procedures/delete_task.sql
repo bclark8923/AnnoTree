@@ -12,6 +12,7 @@ CREATE Procedure `delete_task`(
   in req_user int
   )
 BEGIN
+--TODO:JOINS
 IF (select ut.id from user_tree ut, task t where ut.user_id = req_user and ut.tree_id = t.tree_id and t.id = taskid) THEN
         delete from task where task.id = taskid;
         if row_count() = 1 then

@@ -1,6 +1,8 @@
 -- --------------------------------------------------------------------------------
 -- create_annotation_with_owner
 -- returns ??
+-- TODO: merge with create_annotation
+-- Have null owner_email set null in database
 -- --------------------------------------------------------------------------------
 use annotree;
 drop  procedure IF EXISTS `create_annotation_with_owner`;

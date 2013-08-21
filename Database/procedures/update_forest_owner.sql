@@ -4,6 +4,7 @@
 -- on error - returns 1 if requesting user does not have permissions on that forest
 --            returns 2 if new owner does not have permissions on that forest
 --            returns 3 if new owner is already the owner for the forest
+--TODO: Rewrite without curser
 -- --------------------------------------------------------------------------------
 USE annotree;
 DROP PROCEDURE IF EXISTS `update_forest_owner`;

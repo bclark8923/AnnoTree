@@ -1,6 +1,7 @@
 -- --------------------------------------------------------------------------------
 -- get_leafs
 -- Note: Returns a list of leaves
+-- TODO: see if this is getting used
 -- --------------------------------------------------------------------------------
 use annotree;
 drop  procedure IF EXISTS `get_leafs`;
@@ -8,7 +9,6 @@ DELIMITER $$
 
 
 CREATE Procedure `get_leafs`(
-  -- in user INT,
   in b INT
   )
 BEGIN

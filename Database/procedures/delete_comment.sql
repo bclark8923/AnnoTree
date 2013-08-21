@@ -1,6 +1,7 @@
 -- --------------------------------------------------------------------------------
 -- delete_comment
 -- returns 0 - success
+-- TODO: convert for leaf_comments
 -- --------------------------------------------------------------------------------
 use annotree;
 drop  procedure IF EXISTS `delete_comment`;

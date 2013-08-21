@@ -1,6 +1,7 @@
 -- --------------------------------------------------------------------------------
 -- get_branches
 -- Note: Returns a list of branches associated with a user's tree
+-- TODO: check if this is being used
 -- --------------------------------------------------------------------------------
 use annotree;
 drop  procedure IF EXISTS `get_branches`;

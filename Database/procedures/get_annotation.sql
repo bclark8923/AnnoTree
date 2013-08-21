@@ -1,9 +1,10 @@
 -- --------------------------------------------------------------------------------
 -- get_annotation
 -- returns ??
+-- TODO:should there be a check?
 -- --------------------------------------------------------------------------------
 use annotree;
-drop  procedure IF EXISTS `get_annotation`;
+drop procedure IF EXISTS `get_annotation`;
 DELIMITER $$
 
 

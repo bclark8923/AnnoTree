@@ -1,6 +1,7 @@
 -- --------------------------------------------------------------------------------
--- get_tree
+-- get_trees_by_user_by_forest
 -- returns 0 - success
+-- TODO: does this need user check
 -- --------------------------------------------------------------------------------
 use annotree;
 drop  procedure IF EXISTS `get_trees_by_user_by_forest`;

@@ -1,6 +1,7 @@
 -- --------------------------------------------------------------------------------
 -- get_user
 -- returns the information for an individual user
+-- TODO: See if this is needed check get_user
 -- --------------------------------------------------------------------------------
 use annotree;
 drop procedure IF EXISTS `get_user_by_id`;

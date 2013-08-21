@@ -1,6 +1,7 @@
 -- --------------------------------------------------------------------------------
 -- create_leaf_on_tree
 -- creates a leaf on a tree with a single branch (used for iOS uploads)
+-- TODO:Merge into create annotation.
 -- returns 1 if tree does not exist, 2 if branch does not exist, leaf info if all went well
 -- --------------------------------------------------------------------------------
 use annotree;

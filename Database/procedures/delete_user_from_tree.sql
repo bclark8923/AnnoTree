@@ -1,6 +1,8 @@
 -- --------------------------------------------------------------------------------
 -- delete_user_from_tree
--- returns ??
+-- returns failure 3 - del_user is forest_owner
+--         failure 2 - req_user does not have permissions
+--         failure 1 - del_user does not belong to the tree
 -- --------------------------------------------------------------------------------
 USE annotree;
 DROP PROCEDURE IF EXISTS `delete_user_from_tree`;
@@ -14,8 +16,9 @@ CREATE PROCEDURE `delete_user_from_tree`(
 BEGIN
 IF (SELECT ut.id FROM user_tree ut WHERE ut.user_id = req_user AND ut.tree_id = treeid) THEN
     SET @forest_owner = (SELECT f.owner_id 
-        FROM forest AS f INNER JOIN tree AS t ON t.forest_id = f.id
-        WHERE t.id = treeid);
+                         FROM forest AS f 
+                            INNER JOIN tree AS t ON t.forest_id = f.id
+                         WHERE t.id = treeid);
     IF (@forest_owner = del_user) THEN
         SELECT '3';
     ELSE

@@ -14,8 +14,11 @@ IF (SELECT id FROM user WHERE id = userid_in) THEN
     SELECT 'id', 'name', 'description', 'created_at', 'owner'
     UNION
     SELECT f.id, f.name, f.description, f.created_at, u.email
-        FROM forest AS f JOIN user_forest AS uf ON uf.forest_id = f.id AND uf.user_id = userid_in
-        LEFT OUTER JOIN user AS u ON u.id = f.owner_id;
+        FROM forest AS f 
+            JOIN user_forest AS uf ON
+                uf.forest_id = f.id 
+                AND uf.user_id = userid_in
+            LEFT JOIN user AS u ON u.id = f.owner_id;
 ELSE
     SELECT '1';
 END IF;

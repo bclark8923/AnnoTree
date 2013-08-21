@@ -3,6 +3,7 @@ use annotree;
 -- --------------------------------------------------------------------------------
 -- activate_user 
 -- return 0 on activate -1 on failure
+-- TODO:REMOVE THIS
 -- --------------------------------------------------------------------------------
 drop procedure if exists `activate_user`;
 

@@ -23,7 +23,6 @@ IF (SELECT id FROM user WHERE email = email_in AND status = 3) THEN
       FROM reset_password AS r INNER JOIN user AS u 
       ON r.email = u.email 
       WHERE r.email = email_in;
-    COMMIT;
 ELSE
     select '1';
 END IF;

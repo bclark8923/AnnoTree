@@ -20,7 +20,6 @@ IF (@email IS NOT NULL) THEN
     IF (@hour = 0) THEN
         DELETE FROM reset_password WHERE email = @email;
         UPDATE user SET password = pass_in WHERE email = @email;
-        COMMIT;
         SELECT '0';
     ELSE
         SELECT '2';

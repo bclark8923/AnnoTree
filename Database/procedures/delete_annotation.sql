@@ -1,6 +1,7 @@
 -- --------------------------------------------------------------------------------
 -- delete_annotation
 -- returns ??
+-- TODO: add check
 -- --------------------------------------------------------------------------------
 use annotree;
 drop  procedure IF EXISTS `delete_annotation`;

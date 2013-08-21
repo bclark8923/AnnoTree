@@ -66,6 +66,7 @@ ELSEIF email REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
             (password, first_name, last_name, email, lang, time_zone, profile_image_path, 3, NOW());
         set @user_id = LAST_INSERT_ID();
     END IF;
+    --TODO: Revert this back to calling the stored procedures @name is a session variable.
     select 'id', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status' 
     union
     select id, first_name, last_name, email, created_at, lang, time_zone, profile_image_path, status from user where id = @user_id;

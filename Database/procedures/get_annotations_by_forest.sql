@@ -1,6 +1,7 @@
 -- --------------------------------------------------------------------------------
 -- get_annotations_by_forest
 -- returns the annotation path for annotations associated with a forest
+-- TODO: see if this is used
 -- --------------------------------------------------------------------------------
 
 use annotree;

@@ -16,10 +16,11 @@ CREATE Procedure `create_tree`(
   in n varchar(45),
   in d varchar(1024),
   in l varchar(1024),
-    IN token_in varchar(64),
-    IN created_in TIMESTAMP
+  IN token_in varchar(64),
+  IN created_in TIMESTAMP
   )
 BEGIN
+--TODO: Change inserts into one insert with select statement.
 IF (select id from user where id = u) THEN
     IF (select id from forest where id = f) THEN
         IF (select id from user_forest where user_id = u and forest_id = f) THEN

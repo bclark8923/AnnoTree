@@ -16,7 +16,7 @@ function logIn() {
     }
     $.ajax({
         type: "POST",
-        url: 'https://dev.annotree.com/services/user/login/trees',
+        url: 'https://ccp.annotree.com/services/user/login/trees',
         data: JSON.stringify(json),
         contentType: "application/json; charset=utf-8",
         dataType: "json",

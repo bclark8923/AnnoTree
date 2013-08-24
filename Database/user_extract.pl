@@ -280,6 +280,27 @@ while (my $info = $result->fetch) {
 }
 $message .= '</table>';
 
+# Users that have not signed into the CCP and status is not beta
+$result = $db->execute(
+    "select email, created_at, status from user where signup_date is null and status != 0 order by created_at desc"
+);
+
+$message .= createLabel('Users that can access the CCP but have no logged in') . '<br/>';
+$message .= '<table style="border:1px solid #000;text-align:center;margin-bottom:15px">' . createTableHeaders([
+        'Email',
+        'Created',
+        'Status'
+    ]);
+while (my $info = $result->fetch) {
+    $message .= '<tr>';
+    for (my $i = 0; $i < @{$info}; $i++) {
+        $message .= createTableData($info->[$i]);
+    }
+    $message .= '</tr>';
+}
+$message .= '</table>';
+
+
 ### Send the email ###
 my $smtpserver = 'smtp.mailgun.org';
 my $smtpport = 587;

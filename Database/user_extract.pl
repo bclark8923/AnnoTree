@@ -93,7 +93,38 @@ my $pastWeekGrowthRate = (($numTotalUsers - $usersPast) / $usersPast) * 100;
 
 $message .= createLabel('Total number of users') . $numTotalUsers  . '<br/>';
 $message .= createLabel('Users created since yesterday') . $numNewUsers . ' (' . $pastDayGrowthRate . '%)<br/>';
-$message .= createLabel('Users created in the past 7 days') . $numPastWeekUsers . ' (' . $pastWeekGrowthRate . '%)<br/><br/>';
+$message .= createLabel('Users created in the past 7 days') . $numPastWeekUsers . ' (' . $pastWeekGrowthRate . '%)<br/>';
+
+# Active user growth
+$result = $db->execute(
+    "select count(*) from user where status = 3"
+);
+my $totalActiveUsers = $result->fetch->[0];
+
+$result = $db->execute(
+    "select count(*) from user where status = 3 and signup_date > :date", 
+    {
+        date => $date
+    }
+);
+my $numNewActiveUsers = $result->fetch->[0];
+
+$result = $db->execute(
+    "select count(*) from user where status = 3 and signup_date > :date", 
+    {
+        date => $dateLastWeek
+    }
+);
+my $numPastWeekActiveUsers = $result->fetch->[0];
+
+$usersPast = ($totalActiveUsers - $numNewActiveUsers) || 1;
+my $activeGrowthRate = (($totalActiveUsers - $usersPast) / $usersPast) * 100;
+
+$usersPast = ($totalActiveUsers - $numPastWeekActiveUsers) || 1;
+my $activePastWeekGrowthRate = (($totalActiveUsers - $usersPast) / $usersPast) * 100;
+
+$message .= createLabel('Active users created since yesterday') . $numNewActiveUsers . ' (' . $activeGrowthRate . '%)<br/>';
+$message .= createLabel('Active users created in the past 7 days') . $numPastWeekActiveUsers . ' (' . $activePastWeekGrowthRate . '%)<br/><br/>';
 
 $message .= createLabel('Total number of ___ created since ' . $date) . '<br/>';
 
@@ -161,7 +192,7 @@ $message .= '</table>';
 
 # Users created in the past day
 $result = $db->execute(
-    "select email, first_name, last_name, created_at, signup_date, last_login, status from user where created_at > :date",
+    "select email, first_name, last_name, created_at, signup_date, last_login, status from user where created_at > :date order by status desc",
     {
         date => $date
     }
@@ -188,13 +219,13 @@ $message .= '</table>';
 
 # Get beta users
 $result = $db->execute(
-    "select email, created_at from user where status = 0",
+    "select email, created_at from user where status = 0 order by created_at desc",
     {
         date => $date
     }
 );
 
-$message .= createLabel('Beta users') . '<br/>';
+$message .= createLabel('Beta queue') . '<br/>';
 $message .= '<table style="border:1px solid #000;text-align:center;margin-bottom:15px">' . createTableHeaders([
         'Email',
         'Created'

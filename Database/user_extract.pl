@@ -300,7 +300,6 @@ while (my $info = $result->fetch) {
 }
 $message .= '</table>';
 
-
 ### Send the email ###
 my $smtpserver = 'smtp.mailgun.org';
 my $smtpport = 587;

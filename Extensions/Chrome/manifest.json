@@ -3,14 +3,15 @@
 
     "name": "AnnoTree",
     "description": "Annotate your webpage",
-    "version": "0.1",
+    "version": "0.9",
     "author": "Silith.io",
     "homepage_url": "http://annotree.com",
 
     "permissions": [
         "tabs",
         "https://*/*", 
-        "http://*/*"
+        "http://*/*",
+        "file://*"
     ],
     "background": {
         "scripts": ["background.js"]
@@ -33,6 +34,11 @@
         "images/EraserIconToolbar.png",
         "images/EraserIconToolbarSelected.png",
         "images/TreeIconToolbar.png",
-        "images/TreeIconToolbarSelected.png"
+        "images/TreeIconToolbarSelected.png",
+        "images/TextIconToolbar.png",
+        "images/TextIconToolbarSelected.png",
+        "images/text_14px.png",
+        "images/text_18px.png",
+        "images/text_22px.png"
     ]
 }

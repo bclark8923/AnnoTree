@@ -6,17 +6,17 @@
 
 var loggedIn = false;
 var trees = null;
+var selectedTree = ''
 var openTabs = [];
+var sr;
+var email;
+var emailp;
 
 if (loggedIn) {
     chrome.browserAction.setPopup({popup: ''});
     chrome.tabs.executeScript(null, {file: "canvas.js"});
 } else {
     chrome.browserAction.setPopup({popup: 'popup.html'});
-}
-
-function hello() {
-    alert('hi world');
 }
 
 chrome.browserAction.onClicked.addListener(function(tab) {
@@ -32,10 +32,6 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         chrome.tabs.executeScript(null, {file: "canvas.js"});
     }
 });
-
-var sr;
-var email;
-var emailp;
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     if (changeInfo.status == 'complete') {
@@ -107,6 +103,23 @@ chrome.runtime.onMessage.addListener(
             });
         } else if (request.action == "initialized") { // track tabs widget is on
             openTabs.push(sender.tab.id);
+            var json = {
+                loginEmail: email,
+                loginPassword: emailp
+            } 
+            $.ajax({
+                type: "POST",
+                url: 'https://ccp.annotree.com/services/user/login/trees',
+                data: JSON.stringify(json),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                statusCode: {
+                    200: function(res) {
+                        trees = res.trees;
+                        sr({treesArray: trees, token: selectedTree });
+                    }
+                }
+            });
         } else if (request.action == 'closed') {
             for (var i = 0; i < openTabs.length; i++) { 
                 if (openTabs[i] == sender.tab.id) {
@@ -114,6 +127,8 @@ chrome.runtime.onMessage.addListener(
                     break;
                 }
             }
+        } else if (request.action == 'selectedTree') {
+            selectedTree = request.token;
         }
         return true;
     }

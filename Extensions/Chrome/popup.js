@@ -7,7 +7,7 @@ function logIn() {
     var bg = chrome.extension.getBackgroundPage();
     bg.loggedIn = true;
     window.close();
-    */
+    /**/ 
     var email = $('#liEmail').val();
     var pass = $('#liPassword').val();
     var json = {
@@ -20,7 +20,6 @@ function logIn() {
         data: JSON.stringify(json),
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        //TODO: catch 500
         statusCode: {
             401: function(res) {
                 $('#errorText').html(res.responseJSON.txt);
@@ -36,6 +35,9 @@ function logIn() {
                 chrome.tabs.executeScript(null, {file: "canvas.js"});
                 chrome.browserAction.setPopup({popup: ''});
                 window.close();
+            },
+            500: function(res) {
+                alert('AnnoTree is currently down. Please try again in a few minutes or contact us at support@annotree.com');
             }
         }
     });
@@ -47,4 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
     $("#loginBtn").click(function() {
         logIn();
     });
+});
+
+$(document).keypress(function(e) {
+  if(e.which == 13) {
+        logIn();
+    }
 });

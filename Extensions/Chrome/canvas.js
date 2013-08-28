@@ -6687,123 +6687,444 @@ var equiv = function () {
 
 }();
 
-
-function log(msg) {
-    console.log(msg);
-}
-
-// editor set up
-var e = $('<div id="AnnoTree_editor" style="position:absolute;z-index:99999"></div>');
+/** ******************************************************
+ * Start custom extension code
+ *  ******************************************************
+ */
+// ----- Global Variables -----
+var constants = {
+    'smallPen': 4,
+    'mediumPen': 10,
+    'largePen': 16,
+    'smallText': 14,
+    'mediumText': 18,
+    'largeText': 22,
+    'red': '#f00',
+    'green': '#0f0',
+    'blue': '#00f',
+    img: {
+        'magicCircle': chrome.extension.getURL("images/favicon.png"),
+        'penOps': chrome.extension.getURL("images/PencilIconToolbar.png"),
+        'penOpsSelected': chrome.extension.getURL("images/PencilIconToolbarSelected.png"),
+        'erase': chrome.extension.getURL("images/EraserIconToolbar.png"),
+        'eraseSelected': chrome.extension.getURL("images/EraserIconToolbarSelected.png"),
+        'undo': chrome.extension.getURL("images/UndoIconToolbar.png"),
+        'redo': chrome.extension.getURL("images/RedoIconToolbar.png"),
+        'clear': chrome.extension.getURL("images/TrashIconToolbar.png"),
+        'send': chrome.extension.getURL("images/ShareIconToolbar.png"),
+        'tree': chrome.extension.getURL("images/TreeIconToolbar.png"),
+        'treeSelected': chrome.extension.getURL("images/TreeIconToolbarSelected.png"),
+        'close': chrome.extension.getURL("images/CloseIconToolbar.png"),
+        'text': chrome.extension.getURL("images/TextIconToolbar.png"),
+        'textSelected': chrome.extension.getURL("images/TextIconToolbarSelected.png"),
+        'smallPen': chrome.extension.getURL("images/line_4px.png"),
+        'mediumPen': chrome.extension.getURL("images/line_10px.png"),
+        'largePen': chrome.extension.getURL("images/line_16px.png"),
+        'smallText': chrome.extension.getURL("images/text_14px.png"),
+        'mediumText': chrome.extension.getURL("images/text_18px.png"),
+        'largeText': chrome.extension.getURL("images/text_22px.png")
+    }
+};
 var leftOffset = $(window).scrollLeft();
 var topOffset = $(window).scrollTop();
-e.css('top', topOffset);
-e.css('left', leftOffset);
-$('body').append(e);
+var taCount = 0;
+var pen = {
+    'color': 'red',
+    'size': constants.smallPen
+};
+var coOpen = false;
+var selectedTree = '';
+var erasing = false;
+var writingText = false;
+var treeSelectionOpen = false;
+var editor;
+var toolbarHidden = true;
+var text = {
+    'color': 'red',
+    'size': constants.smallText
+};
 
+// ----- DOM generation functions -----
+function createColorButtons(id, color, margin, text) {
+    return $('<div id="' + id + '" style="width:20px;height:20px;background-color:' + color + ';font-size:16px;line-height:20px;text-align:center;display:inline-block;padding:0;margin:' + margin + ';vertical-align:top;cursor:pointer">' + text + '</div>');
+}
+
+function createColorDiv() {
+    return $('<div style="width:90px;height:20px"></div>');
+}
+
+function createOptionsBox(id, vertPos) {
+    return $('<div id="' + id + '" style="padding:5px;background-color:#444;z-index:100000;display:inline-block;position:absolute;' + vertPos + ';left:40px;text-align:center;vertical-align:top;margin:0;box-sizing:content-box; border-radius:0 5px 5px 0"></div>');
+}
+
+function createPenLines(id, img, selected) {
+    var border = '';
+    if (selected) {
+        border = 'border:2px solid #f00';
+    }
+    return $('<div id="' + id + '" style="margin-top:5px"><img style="padding:0;margin:0;height:20px;width:90px;cursor:pointer;' + border + '" src="' + img + '" /></div>');
+}
+
+function createTextSizes(id, img, selected) {
+    var border = '';
+    if (selected) {
+        border = 'border:2px solid #f00';
+    }
+    return $('<div id="' + id + '" style="margin:0 3px 0 0;display:inline-block;vertical-align:middle"><img style="padding:0;margin:0 3px 0 0;height:26px;width:26px;cursor:pointer;' + border + '" src="' + img + '" /></div>');
+}
+
+function createToolbarButtons(id, title, img) {
+    return $('<div id="' + id + '" title="' + title + '" style="cursor:pointer;width:40px;height:40px"><img src="' + img + '" style="width:40px;height:40px;padding:0;margin:0" /></div>');
+}
+
+function createOptionSection() {
+    return $('<div style="margin:5px 0 0 0;width:100px"></div>');
+}
+
+// ----- Create the toolbar -----
 // pen options setup
-// TODO: generate dom elements using functions
-var penOptions = $('<div id="AnnoTree_penOptions" style="padding:5px;background-color:#444;z-index:100000;display:inline-block;position:absolute;top:46px;left:44px;text-align:center"></div>');
-var colorDiv = $('<div style="width:90px;height:20px"></div>');
-var coRed = $('<div id="AnnoTree_coRed" style="width:20px;height:20px;background-color:#f00;font-size:16px;line-height:20px;text-align:center;display:inline-block;padding:0;margin:0;vertical-align:top;cursor:pointer">X</div>');
-colorDiv.append(coRed);
-var coBlue = $('<div id="AnnoTree_coBlue" style="width:20px;height:20px;background-color:#00f;font-size:16px;line-height:20px;text-align:center;display:inline-block;margin:0 0 0 3px;padding:0;vertical-align:top;cursor:pointer"></div>');
-colorDiv.append(coBlue);
-var coGreen = $('<div id="AnnoTree_coGreen" style="width:20px;height:20px;background-color:#0f0;font-size:16px;line-height:20px;text-align:center;display:inline-block;margin:0 0 0 3px;padding:0;vertical-align:top;cursor:pointer"></div>');
-colorDiv.append(coGreen);
+var penOptions = createOptionsBox('AnnoTree_penOptions', 'top:43px');
+var colorDiv = createColorDiv();
+colorDiv.append(createColorButtons('AnnoTree_coRed', constants.red, '0', 'X'));
+colorDiv.append(createColorButtons('AnnoTree_coBlue', constants.blue, '0 0 0 3px', ''));
+colorDiv.append(createColorButtons('AnnoTree_coGreen', constants.green, '0 0 0 3px', ''));
 penOptions.append(colorDiv);
-var smallPenLine = chrome.extension.getURL("images/line_4px.png");
-var smallPen = $('<div id="AnnoTree_smallPen" style="margin-top:5px"><img style="padding:0;margin:0;height:20px;width:90px;border:2px solid #f00;cursor:pointer" src="' + smallPenLine + '" /></div>');
-penOptions.append(smallPen);
-var mediumPenLine = chrome.extension.getURL("images/line_10px.png");
-var mediumPen = $('<div id="AnnoTree_mediumPen" style="margin-top:5px"><img style="padding:0;margin:0;height:20px;width:90px;cursor:pointer" src="' + mediumPenLine + '" /></div>');
-penOptions.append(mediumPen);
-var largePenLine = chrome.extension.getURL("images/line_16px.png");
-var largePen = $('<div id="AnnoTree_largePen" style="margin-top:5px"><img style="padding:0;margin:0;height:20px;width:90px;cursor:pointer" src="' + largePenLine + '" /></div>');
-penOptions.append(largePen);
+penOptions.append(createPenLines('AnnoTree_smallPen', constants.img.smallPen, true));
+penOptions.append(createPenLines('AnnoTree_mediumPen', constants.img.mediumPen, false));
+penOptions.append(createPenLines('AnnoTree_largePen', constants.img.largePen, false));
+var penFuncDiv = createOptionSection();
+penFuncDiv.append(createTextSizes("AnnoTree_undo", constants.img.undo, false));
+penFuncDiv.append(createTextSizes("AnnoTree_redo", constants.img.redo, false));
+penFuncDiv.append(createTextSizes("AnnoTree_clear", constants.img.clear, false));
+penOptions.append(penFuncDiv);
+
+// text options setup
+var textOptions = createOptionsBox('AnnoTree_textOptions', 'top:83px');
+var textColorDiv = createColorDiv();
+textColorDiv.append(createColorButtons('AnnoTree_textRed', constants.red, '0', 'X'));
+textColorDiv.append(createColorButtons('AnnoTree_textBlue', constants.blue, '0 0 0 3px', ''));
+textColorDiv.append(createColorButtons('AnnoTree_textGreen', constants.green, '0 0 0 3px', ''));
+textOptions.append(textColorDiv);
+var sizeDiv = createOptionSection();
+sizeDiv.append(createTextSizes('AnnoTree_textSmall', constants.img.smallText, true));
+sizeDiv.append(createTextSizes('AnnoTree_textMedium', constants.img.mediumText, false));
+sizeDiv.append(createTextSizes('AnnoTree_textLarge', constants.img.largeText, false));
+textOptions.append(sizeDiv);
 
 // tree selection setup
-var treeDiv = $('<div id="AnnoTree_trees" style="padding:5px;margin:0;background-color:#444;z-index:100000;display:inline-block;position:absolute;bottom:56px;left:44px"></div>');
-var treeSelection = $('<select id="AnnoTree_treesSelection" style="font-size:14px;height:20px;line-height:20px;font-family:Arial, Helvetica, sans-serif;color:#000;padding:0 0 0 4px;margin:0"></select>');
+var treeDiv = createOptionsBox('AnnoTree_trees', 'bottom:88px');
+var treeSelection = $('<select id="AnnoTree_treesSelection" style="font-size:14px;height:20px;line-height:20px;font-family:Arial, Helvetica, sans-serif;color:#000;padding:0 0 0 4px;margin:0;border-radius:5px"></select>');
 treeDiv.append(treeSelection);
 
 // toolbar setup
-var widget = $('<div id="AnnoTree_widget" style="width:42px;border:1px solid #444;border-radius:21px;z-index:100000;padding-bottom:0px;display:inline-block:position:absolute;left:0;top:0;box-sizing:content-box"></div>');
-widget.css('background-color', '#444');
-var imgURL = chrome.extension.getURL("images/favicon.png");
-var img = $('<div style="background-color:#fff;width:38px;height:38px;border:2px solid #fff;border-radius:20px;cursor:pointer;text-align:left;box-sizing:content-box"><img src="' + imgURL + '" style="width:24px;height:24px;margin:7px 0 0 7px;padding:0"/></div>');
-widget.append(img);
-var penOpsImg = chrome.extension.getURL("images/PencilIconToolbar.png");
-var penOps = $('<div id="AnnoTree_penOps" title="Pen" style="cursor:pointer"><img src="' + penOpsImg + '" style="width:42px;height:42px;padding:0;margin:0" /></div>');
-widget.append(penOps);
-var eraseImg = chrome.extension.getURL("images/EraserIconToolbar.png");
-var eraseDraw = $('<div id="AnnoTree_eraseDraw" title="Click on a line to remove it" style="cursor:pointer"><img src="' + eraseImg + '" style="width:42px;height:42px;padding:0;margin:0;" /></div>');
-widget.append(eraseDraw);
-var undoImg = chrome.extension.getURL("images/UndoIconToolbar.png");
-var undo = $('<div id="AnnoTree_undo" title="Undo" style="cursor:pointer"><img src="' + undoImg + '" style="width:42px;height:42px;padding:0;margin:0;" /></div>');
-widget.append(undo);
-var redoImg = chrome.extension.getURL("images/RedoIconToolbar.png");
-var redo = $('<div id="AnnoTree_redo" title="Redo" style="cursor:pointer"><img src="' + redoImg + '" style="width:42px;height:42px;padding:0;margin:0;" /></div>');
-widget.append(redo);
-var clearImg = chrome.extension.getURL("images/TrashIconToolbar.png");
-var clear = $('<div id="AnnoTree_clear" title="Delete all annotations" style="cursor:pointer"><img src="' + clearImg + '" style="width:42px;height:42px;padding:0;margin:0;" /></div>');
-widget.append(clear);
-var sendImg = chrome.extension.getURL("images/ShareIconToolbar.png");
-var send = $('<div id="AnnoTree_send" title="Send the screenshot" style="cursor:pointer"><img src="' + sendImg + '" style="width:42px;height:42px;padding:0;margin:0;" /></div>');
-widget.append(send);
-var treeImg = chrome.extension.getURL("images/TreeIconToolbar.png");
-var treeBtn = $('<div id="AnnoTree_treeBtn" title="Select a tree to send screenshots to" style="cursor:pointer"><img src="' + treeImg + '" style="width:42px;height:42px;padding:0;margin:0;" /></div>');
-widget.append(treeBtn);
-var closeImg = chrome.extension.getURL("images/CloseIconToolbar.png");
-var close = $('<div id="AnnoTree_close" title="Close" style="cursor:pointer"><img src="' + closeImg + '" style="width:42px;height:42px;padding:0;margin:0;" /></div>');
-widget.append(close);
+var widget = $('<div id="AnnoTree_widget" style="z-index:100000;padding-bottom:0px;display:inline-block:position:absolute;left:0;top:0;box-sizing:content-box"></div>');
+var toolbarToggle = $('<div id="AnnoTree_toolbarToggle" style="width:40px;border:1px solid #444;border-bottom-right-radius:20px;border-bottom-left-radius:20px;background-color:#444;padding:20px 0 0 0;margin:0;position:absolute;top:20px;box-sizing:content-box"></div>');
+toolbarToggle.append(createToolbarButtons("AnnoTree_penOps", "Pen", constants.img.penOps));
+toolbarToggle.append(createToolbarButtons("AnnoTree_textOps", "Text", constants.img.text));
+toolbarToggle.append(createToolbarButtons("AnnoTree_eraseDraw", "Click on a line or textbox to remove it", constants.img.erase));
+toolbarToggle.append(createToolbarButtons("AnnoTree_treeBtn", "Select a tree to send screenshots to", constants.img.tree));
+toolbarToggle.append(createToolbarButtons("AnnoTree_send", "Send the screenshot", constants.img.send));
+toolbarToggle.append(createToolbarButtons("AnnoTree_close", "Close", constants.img.close));
+toolbarToggle.append(treeDiv);
+widget.append(toolbarToggle);
+widget.append($('<div id="AnnoTree_magicCircle" style="background-color:#fff;width:40px;height:40px;border:1px solid #444;border-radius:20px;cursor:pointer;text-align:left;box-sizing:content-box;position:absolute;top:0;left:0;opacity:0.8"><img src="' + constants.img.magicCircle + '" style="width:24px;height:24px;margin:8px 0 0 8px;padding:0"/></div>'));
 
 // add toolbar and options to web page
-var contain = $('<div id="AnnoTree_contain" style="position:absolute;z-index:100000;font-family:Arial, Helvetica, sans-serif;color:#000"></div>');
-contain.css('top', topOffset + 50);
-contain.css('left', leftOffset + 50);
+var contain = $('<div id="AnnoTree_contain" style="position:fixed;z-index:100000;font-family:Arial, Helvetica, sans-serif;color:#000"></div>');
+contain.css('top', 50);
+contain.css('right', 150);
 contain.append(widget);
 contain.append(penOptions);
-contain.append(treeDiv);
+contain.append(textOptions);
+toolbarToggle.hide();
 treeDiv.hide();
 penOptions.hide();
+textOptions.hide();
 $('body').append(contain);
 $('#AnnoTree_contain').draggable();
 
-// initialize with background to track tab
-chrome.runtime.sendMessage({action: 'initialized'});
-
-// initial tree load
-chrome.runtime.sendMessage({action: 'trees'}, function(response) {
+// initialize with background to track tab, get initial tree setup
+chrome.runtime.sendMessage({action: 'initialized'}, function(response) {
     var t = response.treesArray;
     for (var i = 0; i < t.length; i++) {
         var o = null;
-        if (i == 0) {
-            o = $('<option value="' + t[i].token + '" selected="selected">' + t[i].name + '</option>');
+        if (response.token == '') {
+            if (i == 0) {
+                o = $('<option value="' + t[i].token + '" selected="selected">' + t[i].name + '</option>');
+            } else {
+                o = $('<option value="' + t[i].token + '">' + t[i].name + '</option>');
+            }
         } else {
-            o = $('<option value="' + t[i].token + '">' + t[i].name + '</option>');
+            if (t[i].token == response.token) {
+                o = $('<option value="' + t[i].token + '" selected="selected">' + t[i].name + '</option>');
+            } else {
+                o = $('<option value="' + t[i].token + '">' + t[i].name + '</option>');
+            } 
         }
         $('#AnnoTree_treesSelection').append(o);
     }
 });
 
-window.onscroll = function() {
-    window.scrollTo(leftOffset, topOffset);
+// ----- Toolbar functions -----
+$('#AnnoTree_magicCircle').dblclick(function() {
+    if (toolbarHidden) {
+        $('#AnnoTree_magicCircle').css('opacity', '1.0');
+        startEditor(); 
+    } else {
+        $('#AnnoTree_trees').hide();
+        $('#AnnoTree_penOptions').hide();
+        $('#AnnoTree_textOptions').hide();
+        $('#AnnoTree_penOps img').attr('src', constants.img.penOps);
+        $('#AnnoTree_eraseDraw img').attr('src', constants.img.erase);
+        $('#AnnoTree_treeBtn img').attr('src', constants.img.tree);
+        $('#AnnoTree_textOps img').attr('src', constants.img.text);
+        writingText = false; 
+        coOpen = false;
+        erasing = false;
+        treeSelectionOpen = false;
+        editor.clear();
+        $('#AnnoTree_editor').remove();
+        window.onscroll = function() {};
+    }
+    toolbarHidden = !toolbarHidden;
+    $('#AnnoTree_toolbarToggle').toggle('slide', {direction: "up"}, 400, function() {
+        if (toolbarHidden) {
+            $('#AnnoTree_magicCircle').css('opacity', '0.8');
+        }
+    });
+})
+
+// hides the annotree widget and asks the background page to send the screenshot to the ccp
+$('#AnnoTree_send').click(function() {
+    var name = prompt('Enter a name for this leaf', 'Leaf name');
+    if (name != null) {
+        var leafCheck = new RegExp("[a-zA-z0-9]");
+        if (leafCheck.test(name)) {
+            $('#AnnoTree_widget').hide(10, function() {
+                $('#AnnoTree_contain').hide(10, function() {
+                    var sendTo = $('#AnnoTree_treesSelection option:selected').val();
+                    if (typeof(sendTo) === 'undefined') {
+                        alert('You have no trees to send screenshots to.  Log into https://ccp.annotree.com to create a tree.');
+                            $('#AnnoTree_widget').show();
+                            $('#AnnoTree_contain').show();
+                    } else {
+                        chrome.runtime.sendMessage({action: 'send', token: sendTo, leafName: name}, function(response) {
+                            if (response.farewell == 'goodbye') {
+                                $('#AnnoTree_widget').show();
+                                $('#AnnoTree_contain').show();
+                            }
+                        });
+                    }
+                });
+            });
+        } else {
+            alert("You must include at least one alphanumeric character in your leaf name");
+        }
+    }
+});
+
+function resetToolbar() {
+    if (erasing) {
+        $('#AnnoTree_eraseDraw img').attr('src', constants.img.erase);
+        erasing = false;
+    } 
+    if (coOpen) {
+        $('#AnnoTree_penOps img').attr('src', constants.img.penOps);
+        $('#AnnoTree_penOptions').toggle('slide');
+        coOpen = false;
+    }
+    if (writingText) {
+        $('#AnnoTree_textOps img').attr('src', constants.img.text);
+        $('#AnnoTree_editor').off('click', writeText);
+        $('#AnnoTree_textOptions').toggle('slide');
+        $('.AnnoTree_surDiv').draggable('disable');
+        $('.AnnoTree_textArea').css('resize', 'none');
+        $('.AnnoTree_textArea').prop('readOnly', true);
+        writingText = false; 
+    } 
+    if (treeSelectionOpen) {
+        $('#AnnoTree_trees').toggle('slide');
+        $('#AnnoTree_treeBtn img').attr('src', constants.img.tree);
+        treeSelectionOpen = false; 
+    }
 }
 
-var curColor = 'red';
-var coOpen = false;
-var curSize = 4;
-var selectedTree = '';
-var editing = true;
-var erasing = false;
-var treeSelectionOpen = false;
-var penOpsImgSelected = chrome.extension.getURL("images/PencilIconToolbarSelected.png");
-var eraseImgSelected = chrome.extension.getURL("images/EraserIconToolbarSelected.png");
-var treeImgSelected = chrome.extension.getURL("images/TreeIconToolbarSelected.png");
-var editor;
+// detect a change in tree selection - store tree in background
+$('#AnnoTree_treesSelection').change(function() {
+    var tree = $('#AnnoTree_treesSelection option:selected').val();
+    chrome.runtime.sendMessage({action: 'selectedTree', token: tree});
+    $('#AnnoTree_trees').toggle('slide');
+    $('#AnnoTree_treeBtn img').attr('src', constants.img.tree);
+    treeSelectionOpen = false;
+})
 
-function removeX() {
-    switch (curColor) {
+// grabs the latest tree information from the background page
+$('#AnnoTree_treeBtn').click(function() {
+    if (treeSelectionOpen) {
+        $('#AnnoTree_treeBtn img').attr('src', constants.img.tree);
+        treeSelectionOpen = false;
+        $('#AnnoTree_trees').toggle('slide');
+    } else {
+        var chosen = $('#AnnoTree_treesSelection option:selected').val();
+        $('#AnnoTree_treesSelection').empty();
+        $('#AnnoTree_treeBtn img').attr('src', constants.img.treeSelected);
+        chrome.runtime.sendMessage({action: 'trees'}, function(response) {
+            var t = response.treesArray;
+            if (typeof(t) === 'undefined') {
+                alert('You have no trees to send screenshots to.  Log into https://ccp.annotree.com to create a tree.');
+                $('#AnnoTree_treeBtn img').attr('src', constants.img.tree);
+            } else {
+                resetToolbar();
+                pauseEditor();
+                for (var i = 0; i < t.length; i++) {
+                    var o = null;
+                    if (chosen == t[i].token) {
+                        o = $('<option value="' + t[i].token + '" selected="selected">' + t[i].name + '</option>');
+                    } else {
+                        o = $('<option value="' + t[i].token + '">' + t[i].name + '</option>');
+                    }
+                    $('#AnnoTree_treesSelection').append(o);
+                }
+                $('#AnnoTree_trees').toggle('slide');
+                treeSelectionOpen = true;
+            }
+        });
+    }
+});
+
+$('#AnnoTree_undo').click(function() {
+    editor.undo();
+}); 
+
+$('#AnnoTree_redo').click(function() {
+    editor.redo();
+}); 
+
+$('#AnnoTree_clear').click(function() {
+    editor.clear();
+}); 
+
+$('#AnnoTree_close').click(function() {
+    editor.clear();
+    chrome.runtime.sendMessage({action: 'closed'});
+    $('#AnnoTree_editor').remove();
+    $('#AnnoTree_contain').remove();
+    window.onscroll = function() {};
+}); 
+
+$('#AnnoTree_eraseDraw').click(function() {
+    if (erasing) {
+        resetToolbar();
+        pauseEditor();
+    } else {
+        resetToolbar();
+        $('#AnnoTree_eraseDraw img').attr('src', constants.img.eraseSelected);
+        editor.editing("erase");
+        erasing = true;
+        $('.AnnoTree_surDiv').css("cursor", "crosshair");
+        $('.AnnoTree_textArea').css("cursor", "crosshair");
+    }
+});
+
+// ----- Text functions -----
+function setTextColor(ele, color) {
+    switch (text.color) {
+        case 'red':
+            $('#AnnoTree_textRed').html('');
+            break;
+        case 'green':
+            $('#AnnoTree_textGreen').html('');
+            break;
+        case 'blue':
+            $('#AnnoTree_textBlue').html('');
+            break;
+    }
+    $(ele).html('X');
+    text.color = color;
+}
+
+$('#AnnoTree_textGreen').click(function() {
+    setTextColor('#AnnoTree_textGreen', 'green');
+});
+
+$('#AnnoTree_textRed').click(function() {
+    setTextColor('#AnnoTree_textRed', 'red');
+});
+
+$('#AnnoTree_textBlue').click(function() {
+    setTextColor('#AnnoTree_textBlue', 'blue');
+});
+
+function setTextSize(ele, size) {
+    switch (text.size) {
+        case constants.smallText:
+            $('#AnnoTree_textSmall img').css('border', '0');
+            break;
+        case constants.mediumText:
+            $('#AnnoTree_textMedium img').css('border', '0');
+            break;
+        case constants.largeText:
+            $('#AnnoTree_textLarge img').css('border', '0');
+            break;
+    }
+    $(ele).css('border', '2px solid #f00');
+    text.size = size;
+}
+
+$('#AnnoTree_textSmall').click(function() {
+    setTextSize('#AnnoTree_textSmall img', constants.smallText);
+});
+
+$('#AnnoTree_textMedium').click(function() {
+    setTextSize('#AnnoTree_textMedium img', constants.mediumText);
+});
+
+$('#AnnoTree_textLarge').click(function() {
+    setTextSize('#AnnoTree_textLarge img', constants.largeText);
+});
+
+$('#AnnoTree_textOps').click(function() {
+    if (writingText) {
+        resetToolbar();
+    } else {
+        resetToolbar();
+        pauseEditor();
+        $('#AnnoTree_textOps img').attr('src', constants.img.textSelected);
+        $('#AnnoTree_textOptions').toggle('slide');
+        $('#AnnoTree_editor').on('click', writeText);
+        $('.AnnoTree_textArea').css('resize', 'both');
+        $('.AnnoTree_textArea').prop('readOnly', false);
+        $('.AnnoTree_surDiv').draggable('enable');
+        $('.AnnoTree_surDiv').css("cursor", "pointer");
+        $('.AnnoTree_textArea').css("cursor", "default");
+        writingText = true;
+    }
+});
+
+function writeText(evt) {
+    var yPos = evt.clientY;
+    var xPos = evt.clientX;
+    var divId = 'AnnoTree_sur' + taCount;
+    var taId = 'AnnoTree_ta' + taCount;
+    var div = $('<div id="' + divId + '" class="AnnoTree_surDiv" style="font-size:2px;padding:2px 15px 2px 2px;margin:0;background-color:' + constants[text.color] + ';position:absolute;z-index:100000;left:' + xPos + 'px;top:' + yPos + 'px;cursor:pointer;box-sizing:content-box;line-height:' + text.size + 'px;font-size:' + text.size + 'px;opacity:1.0"></div>');
+    var ta = $('<textarea id="' + taId + '" class="AnnoTree_textArea" style="color:' + constants[text.color] + ';font-size:' + text.size + 'px;border:none;margin:0;resize:both;font-family:Arial, Helvetica, sans-serif;overflow:hidden;width:100px;vertical-align:top;box-sizing:content-box;border-radius:0;line-height:' + text.size + 'px;height:' + text.size + 'px" rows="1" type="text"></textarea>');
+    div.append(ta);
+    div.draggable();
+    $('#AnnoTree_editor').append(div);
+    $('#' + taId).focus();
+    taCount++;
+
+    $('#' + divId).click(function(evt) {
+        evt.stopPropagation();
+        if (erasing) {
+            $('#' + divId).remove();
+        }
+    });
+}
+
+// ----- Pen functions -----
+function setPenColor(ele, color) {
+    switch (pen.color) {
         case 'red':
             $('#AnnoTree_coRed').html('');
             break;
@@ -6814,224 +7135,112 @@ function removeX() {
             $('#AnnoTree_coBlue').html('');
             break;
     }
+    $(ele).html('X');
+    pen.color = color;
+    editor.pen().color(constants[color]);
 }
 
-//TODO: change these to constants
-function removeBorder() {
-    switch (curSize) {
-        case 4:
+$('#AnnoTree_coGreen').click(function() {
+    setPenColor('#AnnoTree_coGreen', 'green');
+});
+
+$('#AnnoTree_coRed').click(function() {
+    setPenColor('#AnnoTree_coRed', 'red');
+});
+
+$('#AnnoTree_coBlue').click(function() {
+    setPenColor('#AnnoTree_coBlue', 'blue');
+});
+        
+$('#AnnoTree_penOps').click(function() {
+    if (coOpen) {
+        resetToolbar();
+        pauseEditor();
+    } else {
+        resetToolbar();
+        editor.editing(true);
+        $('#AnnoTree_penOps img').attr('src', constants.img.penOpsSelected);
+        $('#AnnoTree_penOptions').toggle('slide');
+        coOpen = true;
+    }
+});
+
+function setPenSize(ele, size) {
+    switch (pen.size) {
+        case constants.smallPen:
             $('#AnnoTree_smallPen img').css('border', '0');
             break;
-        case 10:
+        case constants.mediumPen:
             $('#AnnoTree_mediumPen img').css('border', '0');
             break;
-        case 16:
+        case constants.largePen:
             $('#AnnoTree_largePen img').css('border', '0');
             break;
     }
+    $(ele).css('border', '2px solid #f00');
+    editor.pen().width(size);
+    pen.size = size;
 }
 
-// hides the annotree widget and asks the background page to send the screenshot to the ccp
-//TODO: Add check that name matches [a-zA-Z0-9]
-$('#AnnoTree_send').click(function() {
-    var name = prompt('Enter a name for this leaf', 'Leaf name');
-    if (name != null) {
-        $('#AnnoTree_widget').hide(10, function() {
-            $('#AnnoTree_contain').hide(10, function() {
-                var sendTo = $('#AnnoTree_treesSelection option:selected').val();
-                chrome.runtime.sendMessage({action: 'send', token: sendTo, leafName: name}, function(response) {
-                    if (response.farewell == 'goodbye') {
-                        $('#AnnoTree_widget').show();
-                        $('#AnnoTree_contain').show();
-                    }
-                });
-            });
-        });
-    }
+$('#AnnoTree_smallPen').click(function() {
+    setPenSize('#AnnoTree_smallPen img', constants.smallPen);
 });
 
-// grabs the latest tree information from the background page
-//TODO: Show message if user has no tree
-$('#AnnoTree_treeBtn').click(function() {
-    if (treeSelectionOpen) {
-        $('#AnnoTree_treeBtn img').attr('src', treeImg);
-        treeSelectionOpen = false;
-        $('#AnnoTree_trees').toggle('slide');
+$('#AnnoTree_mediumPen').click(function() {
+    setPenSize('#AnnoTree_mediumPen img', constants.mediumPen);
+});
+
+$('#AnnoTree_largePen').click(function() {
+    setPenSize('#AnnoTree_largePen img', constants.largePen);
+});
+
+// ----- Pen editor specific functions -----
+function enable(ele, enable) {
+    if (enable) {
+        $(ele).css('opacity', '1.0');
     } else {
-        var chosen = $('#AnnoTree_treesSelection option:selected').val();
-        $('#AnnoTree_treesSelection').empty();
-        $('#AnnoTree_treeBtn img').attr('src', treeImgSelected);
-        chrome.runtime.sendMessage({action: 'trees'}, function(response) {
-            var t = response.treesArray;
-            for (var i = 0; i < t.length; i++) {
-                var o = null;
-                if (chosen == t[i].token) {
-                    o = $('<option value="' + t[i].token + '" selected="selected">' + t[i].name + '</option>');
-                } else {
-                    o = $('<option value="' + t[i].token + '">' + t[i].name + '</option>');
-                }
-                $('#AnnoTree_treesSelection').append(o);
-            }
-            $('#AnnoTree_trees').toggle('slide');
-        });
-        treeSelectionOpen = true;
+        $(ele).css('opacity', '0.4');
     }
-});
+}
 
+function updateActions() {
+    enable('#AnnoTree_undo', editor.undoable());
+    enable('#AnnoTree_redo', editor.redoable());
+    enable('#AnnoTree_clear', editor.strokes().length > 0);
+}
 
-$('AnnoTree_editor').ready(function() {
-    editor = Raphael.sketchpad("AnnoTree_editor", {
-        width: $(window).width(),
-        height:$(window).height(),
-        editing: true
-    });
-    
+function pauseEditor() {
     editor.editing("pause");
     $('#AnnoTree_editor').css('top', topOffset);
     $('#AnnoTree_editor').css('left', leftOffset);
     $('#AnnoTree_editor').css('position', 'absolute');
     $('#AnnoTree_editor').css('z-index', '99999');
+}
 
+function startEditor() {
+    var e = $('<div id="AnnoTree_editor" style="position:absolute;z-index:99999"></div>');
+    leftOffset = $(window).scrollLeft();
+    topOffset = $(window).scrollTop(); 
+    e.css('top', topOffset);
+    e.css('left', leftOffset);
+    $('body').append(e);
+
+    window.onscroll = function() {
+        window.scrollTo(leftOffset, topOffset);
+    }
+
+    editor = Raphael.sketchpad("AnnoTree_editor", {
+        width: $(window).width(),
+        height: $(window).height(),
+        editing: true
+    });
     
-    editor.pen().width(4);
+    pauseEditor();
+
+    editor.pen().width(constants.smallPen);
     editor.pen().color('#f00');
     editor.pen().opacity(1);
     
-    $('#AnnoTree_coGreen').click(function() {
-        removeX();
-        $('#AnnoTree_coGreen').html('X');
-        editor.pen().color('#0f0');
-        curColor = 'green';
-    });
-
-    $('#AnnoTree_coRed').click(function() {
-        removeX();
-        $('#AnnoTree_coRed').html('X');
-        editor.pen().color('#f00');
-        curColor = 'red';
-    });
-    
-    $('#AnnoTree_coBlue').click(function() {
-        removeX();
-        $('#AnnoTree_coBlue').html('X');
-        editor.pen().color('#00f');
-        curColor = 'blue';
-    });
-    
-    $('#AnnoTree_penOps').click(function() {
-        if (coOpen) {
-            $('#AnnoTree_penOps img').attr('src', penOpsImg);
-            editor.editing("pause");
-            $('#AnnoTree_editor').css('top', topOffset);
-            $('#AnnoTree_editor').css('left', leftOffset);
-            $('#AnnoTree_editor').css('position', 'absolute');
-            $('#AnnoTree_editor').css('z-index', '99999');
-            $('#AnnoTree_penOptions').toggle('slide');
-            coOpen = false;
-            editing = false;
-        } else {
-            if (erasing) {
-                $('#AnnoTree_eraseDraw img').attr('src', eraseImg);
-                erasing = false;
-            }
-            editor.editing(true);
-            $('#AnnoTree_penOps img').attr('src', penOpsImgSelected);
-            $('#AnnoTree_penOptions').toggle('slide');
-            coOpen = true;
-            editing = true;
-        }
-    });
-
-    $('#AnnoTree_penRed').click(function() {
-        editor.pen().color('#f00');
-    });
-    
-    $('#AnnoTree_penBlue').click(function() {
-        editor.pen().color('#00f');
-    });
-
-    $('#AnnoTree_penGreen').click(function() {
-        editor.pen().color('#0f0');
-    });
-    
-    $('#AnnoTree_smallPen').click(function() {
-        removeBorder();
-        $('#AnnoTree_smallPen img').css('border', '2px solid #f00');
-        editor.pen().width(4);
-        curSize = 4;
-    });
-    
-    $('#AnnoTree_mediumPen').click(function() {
-        removeBorder();
-        $('#AnnoTree_mediumPen img').css('border', '2px solid #f00');
-        editor.pen().width(10);
-        curSize = 10;
-    });
-    
-    $('#AnnoTree_largePen').click(function() {
-        removeBorder();
-        $('#AnnoTree_largePen img').css('border', '2px solid #f00');
-        editor.pen().width(16);
-        curSize = 16;
-    });
-    
-    $('#AnnoTree_undo').click(function() {
-        editor.undo();
-    }); 
-    
-    $('#AnnoTree_redo').click(function() {
-        editor.redo();
-    }); 
-   
-    $('#AnnoTree_clear').click(function() {
-        editor.clear();
-    }); 
-    
-    $('#AnnoTree_close').click(function() {
-        editor.clear();
-        chrome.runtime.sendMessage({action: 'closed'});
-        $('#AnnoTree_editor').remove();
-        $('#AnnoTree_contain').remove();
-        window.onscroll = function() {};
-    }); 
-    
-    $('#AnnoTree_eraseDraw').click(function() {
-        if (!erasing) {
-            if (coOpen) {
-                $('#AnnoTree_penOps img').attr('src', penOpsImg);
-                $('#AnnoTree_penOptions').toggle('slide');
-                coOpen = false;
-            }
-            editing = false;
-            $('#AnnoTree_eraseDraw img').attr('src', eraseImgSelected);
-            editor.editing("erase");
-            erasing = true;
-        } else {
-            $('#AnnoTree_eraseDraw img').attr('src', eraseImg);
-            editor.editing("pause");
-            $('#AnnoTree_editor').css('top', topOffset);
-            $('#AnnoTree_editor').css('left', leftOffset);
-            $('#AnnoTree_editor').css('position', 'absolute');
-            $('#AnnoTree_editor').css('z-index', '99999');
-            erasing = false;
-        }
-    });
-
-    function enable(ele, enable) {
-        if (enable) {
-            $(ele).show();
-        } else {
-            $(ele).hide();
-        }
-    }
-
-    function update_actions() {
-        enable('#AnnoTree_undo', editor.undoable());
-        enable('#AnnoTree_redo', editor.redoable());
-        enable('#AnnoTree_clear', editor.strokes().length > 0);
-    }
-
-    editor.change(update_actions);
-
-    update_actions();
-});
+    editor.change(updateActions);
+    updateActions();
+}

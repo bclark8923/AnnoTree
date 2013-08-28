@@ -46,6 +46,7 @@ function logIn() {
 document.addEventListener('DOMContentLoaded', function() {
     $('#errorText').hide();
     $('#login').show();
+    $('#liEmail').focus();
     $("#loginBtn").click(function() {
         logIn();
     });

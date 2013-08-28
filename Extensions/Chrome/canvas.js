@@ -6817,7 +6817,7 @@ var treeSelection = $('<select id="AnnoTree_treesSelection" style="font-size:14p
 treeDiv.append(treeSelection);
 
 // toolbar setup
-var widget = $('<div id="AnnoTree_widget" style="z-index:100000;padding-bottom:0px;display:inline-block:position:absolute;left:0;top:0;box-sizing:content-box"></div>');
+var widget = $('<div id="AnnoTree_widget" style="z-index:100000;padding-bottom:0px;display:inline-block;position:absolute;left:0;top:0;box-sizing:content-box"></div>');
 var toolbarToggle = $('<div id="AnnoTree_toolbarToggle" style="width:40px;border:1px solid #444;border-bottom-right-radius:20px;border-bottom-left-radius:20px;background-color:#444;padding:20px 0 0 0;margin:0;position:absolute;top:20px;box-sizing:content-box"></div>');
 toolbarToggle.append(createToolbarButtons("AnnoTree_penOps", "Pen", constants.img.penOps));
 toolbarToggle.append(createToolbarButtons("AnnoTree_textOps", "Text", constants.img.text));
@@ -6900,21 +6900,27 @@ $('#AnnoTree_send').click(function() {
     if (name != null) {
         var leafCheck = new RegExp("[a-zA-z0-9]");
         if (leafCheck.test(name)) {
-            $('#AnnoTree_widget').hide(10, function() {
-                $('#AnnoTree_contain').hide(10, function() {
-                    var sendTo = $('#AnnoTree_treesSelection option:selected').val();
-                    if (typeof(sendTo) === 'undefined') {
-                        alert('You have no trees to send screenshots to.  Log into https://ccp.annotree.com to create a tree.');
-                            $('#AnnoTree_widget').show();
-                            $('#AnnoTree_contain').show();
-                    } else {
-                        chrome.runtime.sendMessage({action: 'send', token: sendTo, leafName: name}, function(response) {
-                            if (response.farewell == 'goodbye') {
+            $('#AnnoTree_widget').hide(0, function() {
+                $('#AnnoTree_toolbarToggle').hide(0, function() {
+                    $('#AnnoTree_contain').hide(10, function() {
+                        var sendTo = $('#AnnoTree_treesSelection option:selected').val();
+                        if (typeof(sendTo) === 'undefined') {
+                            alert('You have no trees to send screenshots to.  Log into https://ccp.annotree.com to create a tree.');
                                 $('#AnnoTree_widget').show();
+                                $('#AnnoTree_toolbarToggle').show();
                                 $('#AnnoTree_contain').show();
-                            }
-                        });
-                    }
+                        } else {
+                            setTimeout(function() {
+                                chrome.runtime.sendMessage({action: 'send', token: sendTo, leafName: name}, function(response) {
+                                    if (response.farewell == 'goodbye') {
+                                        $('#AnnoTree_widget').show();
+                                        $('#AnnoTree_toolbarToggle').show();
+                                        $('#AnnoTree_contain').show();
+                                    }
+                                });
+                            }, 800);
+                        }
+                    });
                 });
             });
         } else {
@@ -7107,7 +7113,7 @@ function writeText(evt) {
     var divId = 'AnnoTree_sur' + taCount;
     var taId = 'AnnoTree_ta' + taCount;
     var div = $('<div id="' + divId + '" class="AnnoTree_surDiv" style="font-size:2px;padding:2px 15px 2px 2px;margin:0;background-color:' + constants[text.color] + ';position:absolute;z-index:100000;left:' + xPos + 'px;top:' + yPos + 'px;cursor:pointer;box-sizing:content-box;line-height:' + text.size + 'px;font-size:' + text.size + 'px;opacity:1.0"></div>');
-    var ta = $('<textarea id="' + taId + '" class="AnnoTree_textArea" style="color:' + constants[text.color] + ';font-size:' + text.size + 'px;border:none;margin:0;resize:both;font-family:Arial, Helvetica, sans-serif;overflow:hidden;width:100px;vertical-align:top;box-sizing:content-box;border-radius:0;line-height:' + text.size + 'px;height:' + text.size + 'px" rows="1" type="text"></textarea>');
+    var ta = $('<textarea id="' + taId + '" class="AnnoTree_textArea" style="color:' + constants[text.color] + ';font-size:' + text.size + 'px;border:none;margin:0;resize:both;font-family:Arial, Helvetica, sans-serif;overflow:hidden;width:100px;vertical-align:top;box-sizing:content-box;border-radius:0;line-height:' + text.size + 'px;min-height:' + text.size + 'px;height:' + text.size + 'px;padding:4px" rows="1" type="text"></textarea>');
     div.append(ta);
     div.draggable();
     $('#AnnoTree_editor').append(div);
@@ -7215,10 +7221,13 @@ function pauseEditor() {
     $('#AnnoTree_editor').css('left', leftOffset);
     $('#AnnoTree_editor').css('position', 'absolute');
     $('#AnnoTree_editor').css('z-index', '99999');
+    $('#AnnoTree_editor').css('height', $(window).outerHeight() + 'px');
+    $('#AnnoTree_editor').css('width', $(window).outerWidth() + 'px');
+    $('#AnnoTree_editor').css('overflow', 'hidden');
 }
 
 function startEditor() {
-    var e = $('<div id="AnnoTree_editor" style="position:absolute;z-index:99999"></div>');
+    var e = $('<div id="AnnoTree_editor" style="position:absolute;z-index:99999;height:' + $(window).outerHeight() + 'px;width:' + $(window).outerWidth() + 'px;overflow:hidden"></div>');
     leftOffset = $(window).scrollLeft();
     topOffset = $(window).scrollTop(); 
     e.css('top', topOffset);

@@ -23,7 +23,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		06800E4817B3C8F200EA650D /* MoveableText.m in Sources */ = {isa = PBXBuildFile; fileRef = 06800E4717B3C8F200EA650D /* MoveableText.m */; };
 		D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */; };
 		D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C688171B413400BA9B2F /* Default-Portrait@2x~ipad.png */; };
 		D3180C27176184B300A6B8E0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C26176184B300A6B8E0 /* CoreFoundation.framework */; };
@@ -85,7 +84,6 @@
 		D3E0AF78178FC690009BEEDF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7659617810C6A0046C8D5 /* Icon.png */; };
 		D3E0AF79178FC690009BEEDF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7659717810C6A0046C8D5 /* Icon@2x.png */; };
 		D3E0AFA617903BAC009BEEDF /* AnnoTreeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658C17810A1F0046C8D5 /* AnnoTreeLogo.png */; };
-		D3E1267217B80FF200DC1BE5 /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3E1267117B80FF200DC1BE5 /* AnnoTree.framework */; };
 		D3E1267417B8100100DC1BE5 /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3E1267317B8100100DC1BE5 /* AnnoTree.bundle */; };
 		D3E1267E17B8196100DC1BE5 /* UIScrollViewPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1267917B814D500DC1BE5 /* UIScrollViewPageViewController.m */; };
 		D3E1267F17B8196C00DC1BE5 /* UIScrollViewPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E1267817B814D500DC1BE5 /* UIScrollViewPageViewController.h */; };
@@ -99,6 +97,13 @@
 		D3E126F817B8383E00DC1BE5 /* Screen3.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1268F17B82C0D00DC1BE5 /* Screen3.png */; };
 		D3E126F917B8383E00DC1BE5 /* Screen4.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1269017B82C0D00DC1BE5 /* Screen4.png */; };
 		D3E126FA17B8383E00DC1BE5 /* Screen5.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1269117B82C0D00DC1BE5 /* Screen5.png */; };
+		D3F2BB5A17CDCA5B00A8B1FF /* ToolbarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2BB5217CDC4A400A8B1FF /* ToolbarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3F2BB5B17CDCA6700A8B1FF /* PencilTool.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2BB5617CDC5E100A8B1FF /* PencilTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3F2BB5C17CDCA7500A8B1FF /* MoveableText.h in Headers */ = {isa = PBXBuildFile; fileRef = 06800E4617B3C8F200EA650D /* MoveableText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3F2BB5E17CDCA7B00A8B1FF /* MoveableText.m in Sources */ = {isa = PBXBuildFile; fileRef = 06800E4717B3C8F200EA650D /* MoveableText.m */; };
+		D3F2BB5F17CDCA9700A8B1FF /* ToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F2BB5317CDC4A400A8B1FF /* ToolbarButton.m */; };
+		D3F2BB6017CDCA9D00A8B1FF /* PencilTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F2BB5717CDC5E100A8B1FF /* PencilTool.m */; };
+		D3F2BB6417CDCCAD00A8B1FF /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F2BB6117CDCC9F00A8B1FF /* AnnoTree.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -245,7 +250,6 @@
 		D3AAA1F517002C4400954DDF /* AnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationView.m; sourceTree = "<group>"; };
 		D3D53FF1171A194500552253 /* ToolbarBg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarBg.h; sourceTree = "<group>"; };
 		D3D53FF2171A194500552253 /* ToolbarBg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarBg.m; sourceTree = "<group>"; };
-		D3E1267117B80FF200DC1BE5 /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnnoTree.framework; path = ../ActiveSDK/AnnoTree.framework; sourceTree = "<group>"; };
 		D3E1267317B8100100DC1BE5 /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = ../../ActiveSDK/AnnoTree.bundle; sourceTree = "<group>"; };
 		D3E1267817B814D500DC1BE5 /* UIScrollViewPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIScrollViewPageViewController.h; path = HelpScreens/UIScrollViewPageViewController.h; sourceTree = "<group>"; };
 		D3E1267917B814D500DC1BE5 /* UIScrollViewPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIScrollViewPageViewController.m; path = HelpScreens/UIScrollViewPageViewController.m; sourceTree = "<group>"; };
@@ -262,6 +266,11 @@
 		D3E126EE17B837EB00DC1BE5 /* AnnoTreeBrowserResources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnnoTreeBrowserResources-Info.plist"; sourceTree = "<group>"; };
 		D3E126F017B837EB00DC1BE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D3E126F217B837EB00DC1BE5 /* AnnoTreeBrowserResources-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnnoTreeBrowserResources-Prefix.pch"; sourceTree = "<group>"; };
+		D3F2BB5217CDC4A400A8B1FF /* ToolbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarButton.h; sourceTree = "<group>"; };
+		D3F2BB5317CDC4A400A8B1FF /* ToolbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarButton.m; sourceTree = "<group>"; };
+		D3F2BB5617CDC5E100A8B1FF /* PencilTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PencilTool.h; sourceTree = "<group>"; };
+		D3F2BB5717CDC5E100A8B1FF /* PencilTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PencilTool.m; sourceTree = "<group>"; };
+		D3F2BB6117CDCC9F00A8B1FF /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AnnoTree.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +288,7 @@
 			files = (
 				D3180C5B1764FF5A00A6B8E0 /* OpenGLES.framework in Frameworks */,
 				D321648C172C18B500573823 /* Foundation.framework in Frameworks */,
+				D3F2BB6417CDCCAD00A8B1FF /* AnnoTree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +311,6 @@
 				D3AAA1A717000FC300954DDF /* UIKit.framework in Frameworks */,
 				D3AAA1A917000FC300954DDF /* Foundation.framework in Frameworks */,
 				D3AAA1AB17000FC300954DDF /* CoreGraphics.framework in Frameworks */,
-				D3E1267217B80FF200DC1BE5 /* AnnoTree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +382,10 @@
 			children = (
 				D314C667171B2D5A00BA9B2F /* Annotations */,
 				D314C665171B2D2700BA9B2F /* SharePage */,
+				D3F2BB5217CDC4A400A8B1FF /* ToolbarButton.h */,
+				D3F2BB5317CDC4A400A8B1FF /* ToolbarButton.m */,
+				D3F2BB5617CDC5E100A8B1FF /* PencilTool.h */,
+				D3F2BB5717CDC5E100A8B1FF /* PencilTool.m */,
 			);
 			name = ToolbarActions;
 			sourceTree = "<group>";
@@ -489,7 +502,7 @@
 		D3AAA1A517000FC300954DDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D3E1267117B80FF200DC1BE5 /* AnnoTree.framework */,
+				D3F2BB6117CDCC9F00A8B1FF /* AnnoTree.framework */,
 				D3AAA1A617000FC300954DDF /* UIKit.framework */,
 				D3AAA1A817000FC300954DDF /* Foundation.framework */,
 				D3AAA1AA17000FC300954DDF /* CoreGraphics.framework */,
@@ -636,6 +649,9 @@
 				D32164C5172C21BC00573823 /* ShareViewController.h in Headers */,
 				D3180C4A1761969900A6B8E0 /* AnnotationViewController.h in Headers */,
 				D3E1267F17B8196C00DC1BE5 /* UIScrollViewPageViewController.h in Headers */,
+				D3F2BB5A17CDCA5B00A8B1FF /* ToolbarButton.h in Headers */,
+				D3F2BB5B17CDCA6700A8B1FF /* PencilTool.h in Headers */,
+				D3F2BB5C17CDCA7500A8B1FF /* MoveableText.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,6 +951,9 @@
 				D3216493172C18B500573823 /* AnnoTreeLibrary.m in Sources */,
 				D36291041730465C00F08E8A /* UIWindowAnnoTree.m in Sources */,
 				D3180C4D1761969900A6B8E0 /* AnnotationViewController.m in Sources */,
+				D3F2BB5E17CDCA7B00A8B1FF /* MoveableText.m in Sources */,
+				D3F2BB5F17CDCA9700A8B1FF /* ToolbarButton.m in Sources */,
+				D3F2BB6017CDCA9D00A8B1FF /* PencilTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -954,7 +973,6 @@
 				D3AAA1B317000FC300954DDF /* main.m in Sources */,
 				D3AAA1B717000FC300954DDF /* AppDelegate.m in Sources */,
 				D3AAA1C617000FC300954DDF /* WebViewController.m in Sources */,
-				06800E4817B3C8F200EA650D /* MoveableText.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1089,6 +1107,10 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COMBINE_HIDPI_IMAGES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTreeResources/AnnoTreeResources-Prefix.pch";
@@ -1111,6 +1133,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COMBINE_HIDPI_IMAGES = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTreeResources/AnnoTreeResources-Prefix.pch";
@@ -1134,6 +1160,10 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/AnnoTreeLibrary.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTreeLibrary/AnnoTreeLibrary-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -1154,6 +1184,10 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/AnnoTreeLibrary.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTreeLibrary/AnnoTreeLibrary-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;

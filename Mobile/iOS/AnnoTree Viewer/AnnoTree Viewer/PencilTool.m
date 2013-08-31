@@ -14,8 +14,11 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
-    }
+        UIImage *pencilIconImage = [UIImage imageNamed:@"AnnoTree.bundle/PencilIconToolbar.png"];
+        UIImage *pencilIconImageSelected = [UIImage imageNamed:@"AnnoTree.bundle/PencilIconToolbarSelected.png"];
+        [self setBackgroundImage:pencilIconImage forState:UIControlStateNormal];
+        [self setBackgroundImage:pencilIconImageSelected forState:UIControlStateHighlighted];
+        [self setBackgroundImage:pencilIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];    }
     return self;
 }
 

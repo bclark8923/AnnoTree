@@ -18,6 +18,7 @@
 #import <OpenGLES/ES1/glext.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
+#import "PencilTool.h"
 
 
 @interface AnnoTree ()
@@ -113,19 +114,7 @@
         [toolbarObjects addObject:toolbarBg];
         
         /* Pencil Icon for toolbar */
-        UIButton *pencilIconToolbarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [pencilIconToolbarButton setFrame:CGRectMake(0,space, sizeIcon, sizeIcon)];
-        pencilIconToolbarButton.userInteractionEnabled = YES;
-        UIImage *pencilIconImage = [UIImage imageNamed:@"AnnoTree.bundle/PencilIconToolbar.png"];
-        UIImage *pencilIconImageSelected = [UIImage imageNamed:@"AnnoTree.bundle/PencilIconToolbarSelected.png"];
-        [pencilIconToolbarButton setBackgroundImage:pencilIconImage forState:UIControlStateNormal];
-        [pencilIconToolbarButton setBackgroundImage:pencilIconImageSelected forState:UIControlStateHighlighted];
-        [pencilIconToolbarButton setBackgroundImage:pencilIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
-        [pencilIconToolbarButton setSelected:YES];
-        [pencilIconToolbarButton setEnabled:NO];
-        [pencilIconToolbarButton addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
-        [pencilIconToolbarButton addTarget:self action:@selector(enableDisableDrawing:) forControlEvents:UIControlEventTouchUpInside];
-        pencilIconToolbarButton.hidden = YES;
+        UIButton *pencilIconToolbarButton = [PencilTool buttonWithType:UIButtonTypeCustom];
         [annoTreeToolbar addSubview:pencilIconToolbarButton];
         [toolbarButtons addObject:pencilIconToolbarButton];
         

@@ -6,8 +6,7 @@
 //  Copyright (c) 2013 AnnoTree. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface ToolbarButton : NSObject
-
+@interface ToolbarButton : UIButton
 @end

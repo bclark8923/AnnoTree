@@ -26,7 +26,7 @@
 @property (nonatomic, retain) AnnotationViewController *drawScreen;
 @property (nonatomic, retain) UIButton *annoTreeImageOpenView;
 @property (nonatomic, retain) NSString *activeTree;
-@property NSUInteger supportedOrientation;
+//@property NSUInteger supportedOrientation;
 @property BOOL enabled;
 @property BOOL drawEnabled;
 @property BOOL textEnabled;
@@ -42,6 +42,6 @@
 
 + (id)sharedInstance;
 
-- (void) loadAnnoTree:(NSUInteger)orientation withTree:(NSString*)tree;
+- (void) loadAnnoTree:(NSString*)tree;
 
 @end

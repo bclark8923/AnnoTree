@@ -1,10 +1,8 @@
-(function( ng, app ){
-
+(function(ng, app){
     "use strict";
 
-    app.controller(
-        "forest.ForestController",
-        function( $scope, $cookies, $rootScope, $location, $timeout, $route, requestContext, forestService, treeService, branchService, _ ) {
+    app.controller("forest.ForestController",
+        function( $scope, $cookies, $rootScope, $location, $timeout, $route, requestContext, forestService, treeService, branchService) {
 
             function loadTrees( forests ) {
                 for(var i = 0; i < forests.length; i++) {

@@ -1,114 +1,66 @@
 (function( ng, app ){
-
     "use strict";
 
-    app.controller(
-        "authenticate.LoginController",
-        function( $scope, $rootScope, localStorageService, $location, requestContext, authenticateService, _ ) {
-
-            function completeLogin( response ) {
-                //set session information
-                localStorageService.add('username', response.data.first_name + ' ' + response.data.last_name);
-                localStorageService.add('useravatar', response.data.profile_image_path);
-                $rootScope.user = response.data;
-                $location.path("app");
-            }
-
-
+    app.controller("authenticate.LoginController",
+        function($scope, $rootScope, localStorageService, $location, requestContext, authenticateService) {
+            function setError(msg) {
+                $scope.loginPassword = '';
+                $scope.errorText = msg;
+                $scope.errorMessage = true;
+            } 
+            
             $scope.validateLogin = function() {
-
-                $scope.$broadcast('$validate');
-                
-
                 var email = $scope.loginEmail;
                 var password = $scope.loginPassword;
                 var loginValid = $scope.loginForm.$valid;
 
-                if(!loginValid) {
-                    $scope.invalidLogin = true;
-                    if(!email) {
-                        $("#validateError").html("Please enter a valid email.");
-                    }
-                    else if(!password) {
-                        $("#validateError").html("Please enter a valid password.");
+                if (!loginValid) {
+                    if (!email) {
+                        setError('Please enter a valid email');
+                    } else if (!password) {
+                        setError('Please enter a valid password');
                     } else {
-                        $("#validateError").html("Please enter valid information.");
+                        setError('Please enter valid information');
                     }
-                }
-                else {
-                    //send API call
-                    $('#authenticateWorking').addClass('active');
+                } else {
+                    $('#authenticateWorking').addClass('active'); // TODO: way to handle this in angular?
                     var promise = authenticateService.login(email, password);
 
                     promise.then(
-                        function( response ) {
-
-                            $scope.isLoading = false;
-                            completeLogin( response );
-
+                        function(response) {
+                            // this should just redirect to main app where the user information is then loaded
+                            //set session information TODO: remove this
+                            $('#authenticateWorking').removeClass('active'); // TODO: angular way
+                            //localStorageService.add('username', response.data.first_name + ' ' + response.data.last_name);
+                            //localStorageService.add('useravatar', response.data.profile_image_path);
+                            //$rootScope.user = response.data; //TODO:is this used?
+                            $location.path("app");
                         },
-                        function( response ) {
-
-                            $scope.invalidLogin = true;
-                            var errorData = "Our Login Service is currently down, please try again later.";
-                            var errorNumber = parseInt(response.data.error);
-                            if(response.status == 406) {
-                                switch(errorNumber)
-                                {
-                                    //TODO:use error messages from web services
-                                    case 0:
-                                        errorData = "Please fill out all of the fields.";
-                                        break;
-                                    case 1:
-                                        errorData = "This email does not exist in our system.";
-                                        break;
-                                    default:
-                                        //TODO: move this into a function
-                                        $location.path("/forestFire");
-                                        break;
-                                }
-                            } else if (response.status == 401) {
-                                switch(errorNumber)
-                                {
-                                    case 1:
-                                        errorData = "Invalid Email/Password information.";
-                                        break;
-                                    default:
-                                        $location.path("/forestFire");
-                                        break;
-                                }
+                        function(response) {
+                            if (response.status != 500  && response.status != 502) {
+                                setError(response.data.txt);
                             } else {
-                                $location.path("/forestFire");
+                                setError('AnnoTree is currently down.  Try again in a few minutes or contact us at support@annotree.com');
                             }
-                            $("#validateError").html(errorData);
-
-                            //Function for popping up alerts
-                            //$scope.openModalWindow( "error", "Our login service is currently down, please try again later." );
-
+                            $('#authenticateWorking').removeClass('active'); // TODO: angular way
                         }
                     );
-                    $('#authenticateWorking').removeClass('active');
                 }
             }
 
-
-            var renderContext = requestContext.getRenderContext( "authenticate.login" );
-
-            $scope.isLoading = true;
-            $scope.invalidLogin = false;
+            var renderContext = requestContext.getRenderContext("authenticate.login");
             $scope.subview = renderContext.getNextSection();
-            
-            $scope.$on(
-                "requestContextChanged",
-                function() {
-                    if ( ! renderContext.isChangeRelevant() ) {return;}
-                    $scope.subview = renderContext.getNextSection();
+            $scope.$on("requestContextChanged", function() {
+                if (!renderContext.isChangeRelevant()) {
+                    return;
                 }
-            );
+                $scope.subview = renderContext.getNextSection();
+            });
 
             //TODO:Move into main section
             $("#loadingScreen").hide();
-            $scope.setWindowTitle( "AnnoTree" );
+            $scope.errorMessage = false;
+            $scope.setWindowTitle("AnnoTree");
         }
     );
-})( angular, AnnoTree );
+})(angular, AnnoTree);

@@ -1,70 +1,70 @@
 (function( ng, app ){
 
-	"use strict";
+    "use strict";
 
-	app.controller(
-		"layouts.SplashController",
-		function( $scope, requestContext, _ ) {
-
-
-			// --- Define Controller Methods. ------------------- //
+    app.controller(
+        "layouts.SplashController",
+        function( $scope, requestContext, _ ) {
 
 
-			// ...
+            // --- Define Controller Methods. ------------------- //
 
 
-			// --- Define Scope Methods. ------------------------ //
+            // ...
 
 
-			// ...
+            // --- Define Scope Methods. ------------------------ //
 
 
-			// --- Define Controller Variables. ----------------- //
+            // ...
 
 
-			// Get the render context local to this controller (and relevant params).
-			var renderContext = requestContext.getRenderContext( "splash" );
-
-			
-			// --- Define Scope Variables. ---------------------- //
+            // --- Define Controller Variables. ----------------- //
 
 
-			// The subview indicates which view is going to be rendered on the page.
-			$scope.subview = renderContext.getNextSection();
+            // Get the render context local to this controller (and relevant params).
+            var renderContext = requestContext.getRenderContext( "splash" );
 
-			// Get the current year for copyright output.
-			$scope.copyrightYear = ( new Date() ).getFullYear();
-
-
-			// --- Bind To Scope Events. ------------------------ //
+            
+            // --- Define Scope Variables. ---------------------- //
 
 
-			// I handle changes to the request context.
-			$scope.$on(
-				"requestContextChanged",
-				function() {
+            // The subview indicates which view is going to be rendered on the page.
+            $scope.subview = renderContext.getNextSection();
 
-					// Make sure this change is relevant to this controller.
-					if ( ! renderContext.isChangeRelevant() ) {
-
-						return;
-
-					}
-
-					// Update the view that is being rendered.
-					$scope.subview = renderContext.getNextSection();
-
-				}
-			);
+            // Get the current year for copyright output.
+            $scope.copyrightYear = ( new Date() ).getFullYear();
 
 
-			// --- Initialize. ---------------------------------- //
+            // --- Bind To Scope Events. ------------------------ //
 
 
-			// ...
+            // I handle changes to the request context.
+            $scope.$on(
+                "requestContextChanged",
+                function() {
+
+                    // Make sure this change is relevant to this controller.
+                    if ( ! renderContext.isChangeRelevant() ) {
+
+                        return;
+
+                    }
+
+                    // Update the view that is being rendered.
+                    $scope.subview = renderContext.getNextSection();
+
+                }
+            );
 
 
-		}
-	);
+            // --- Initialize. ---------------------------------- //
+
+
+            // ...
+
+
+        }
+    );
 
 })( angular, AnnoTree );

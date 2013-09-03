@@ -10,7 +10,7 @@ sub signup {
     my $jsonReq = $self->req->json;
     
     # returns a 406 if the right parameters are not provided
-    $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{signUpName} && exists $jsonReq->{signUpEmail} && exists $jsonReq->{signUpPassword});
+    $self->render(json => {error => '0', txt => 'Fill out all required fields'}, status => 406) and return unless (exists $jsonReq->{signUpName} && exists $jsonReq->{signUpEmail} && exists $jsonReq->{signUpPassword});
 
     my $params = {};
     if ($jsonReq->{signUpName} =~ m/.*\s+\S+\Z/) {
@@ -27,7 +27,7 @@ sub signup {
     $self->render(json => $json, status => 406) and return if (exists $json->{error});
     
     # this should just authenticate the user without returning a 401 since the user was created successfully above
-    $self->render(json => {error => '1', txt => 'Invalid credentials provided'}, status => 401) and return unless $self->authenticate($params->{email}, $params->{password});
+    $self->render(json => {error => '1', txt => 'Invalid email/password combination'}, status => 401) and return unless $self->authenticate($params->{email}, $params->{password});
 
     $self->render(json => $json);
 }
@@ -38,18 +38,15 @@ sub login {
 
     my $jsonReq = $self->req->json;
     
-    $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{loginEmail} && exists $jsonReq->{loginPassword});
+    $self->render(json => {error => '0', txt => 'Fill out all required fields'}, status => 406) and return unless (exists $jsonReq->{loginEmail} && exists $jsonReq->{loginPassword});
     
-    $self->render(json => {error => '1', txt => 'Invalid credentials provided'}, status => 401) and return unless $self->authenticate($jsonReq->{loginEmail}, $jsonReq->{loginPassword});
+    $self->render(json => {error => '1', txt => 'Invalid email/password combination'}, status => 401) and return unless $self->authenticate($jsonReq->{loginEmail}, $jsonReq->{loginPassword});
     
     my $json = AnnoTree::Model::User->getUserInfo($jsonReq->{loginEmail});
     
     my $status = 200;
-    if (exists $json->{error}) {
-        my $error = $json->{error};
-        if ($error == 1) { # user does not exist (this should never occur if the user has been authenticated above)
-            $status = 406;
-        }
+    if (exists $json->{error}) { # user does not exist (this should never occur if the user has been authenticated above)
+        $status = 406;
     }
     $self->render(json => $json, status => $status);
 }

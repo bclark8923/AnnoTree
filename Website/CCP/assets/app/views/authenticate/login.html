@@ -2,15 +2,15 @@
     <p class="authenticateMessage">Login</p>
     <form name="loginForm" ng-submit="validateLogin()">
         <fieldset>
-            <div class="error-text" id="validateError" ng-show="invalidLogin"></div>
+            <div class="error-text" ng-show="errorMessage">{{errorText}}</div>
             <div class="form-group">
-                <input id="loginEmail" class="form-control" type="email" placeholder="Email" ng-model="loginEmail" required>
+                <input class="form-control" type="email" placeholder="Email" ng-model="loginEmail" required>
             </div>
             <div class="form-group">
-                <input id="loginPassword" class="form-control" type="password" placeholder="Password" ng-model="loginPassword" required>
+                <input class="form-control" type="password" placeholder="Password" ng-model="loginPassword" required>
             </div>
             <div class="authenticateFooter">
-                <button type="submit" class="btn btn-annotree" ng-click="validateLogin()">
+                <button type="submit" class="btn btn-annotree">
                     <strong>Login</strong>
                 </button>
                 <p class="authenticateLinkParagraph">

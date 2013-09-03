@@ -16,7 +16,7 @@
             <div id="userLinkDiv">
                 <a class="btn btn-annotree btn-small" style="margin-top:2px;margin-right:10px;color:#555" ng-click="openFeedbackModal()"><i class="icon-share"></i>&nbsp;Feedback</a>
                 <a href="" class="userLink toggle active" ng-click="openUserScreen()">
-                    <img id="userIcon" ng-src="{{user.avatar}}">
+                    <img id="userIcon" ng-src="{{user.profile_image_path}}">
                 </a>
                 <span class="logoutArrow userSettings"></span>
             </div>
@@ -30,8 +30,8 @@
         <!-- User Settings Display -->
         <div id="userSettings" class="userSettingsBox userSettings">
             <div>
-                <img ng-src="{{user.avatar}}">    
-                <p class="userSettingsName ng-binding" style="margin-left:80px;">{{user.name}}</p>
+                <img ng-src="{{user.profile_image_path}}">    
+                <p class="userSettingsName ng-binding" style="margin-left:80px;">{{user.first_name + " " + user.last_name}}</p>
             </div>
             <div id="footer">
                 <p style="margin-top:5px;" class="btn btn-annotree logoutButton btn-small" ng-click="logout()">
@@ -53,8 +53,8 @@
     <!-- slide over page for mobile options -->
     <div id="mobileDashboard" render-pane>
         <div ng-switch="subview">
-            <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/mobilePane.html' "></div>
-            <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/mobilePane.html' "></div>
+            <div ng-switch-when="forest" ng-include="'assets/app/views/forest/mobilePane.html'"></div>
+            <div ng-switch-when="tree" ng-include="'assets/app/views/tree/mobilePane.html'"></div>
         </div>
     </div>
 

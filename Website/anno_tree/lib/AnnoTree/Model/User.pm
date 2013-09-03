@@ -45,7 +45,7 @@ sub getUserInfo {
     my $cols = $result->fetch; # get the columns (keys for json)
     
     my $userInfo = $result->fetch; # get the newly created user's info
-    return {error => '1', txt => 'User does not exist'} unless ($userInfo->[0]);
+    return {error => '1', txt => 'We have no user information for you.  Did you sign up for AnnoTree?'} unless ($userInfo->[0]);
     
     for(my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $userInfo->[$i];
@@ -62,7 +62,7 @@ sub signup {
     
     return {error => '3', txt => 'Password must be at least six characters'} if (length($pass) < 6); # password must be at least 6 characters
     return {error => '4', txt => 'Password must contain at least one number'} if ($pass !~ m/\d/);
-    return {error => '5', txt => 'Valid password characters are alphanumeric or !@#$%^&*()'} if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
+    return {error => '5', txt => 'Valid password characters are alphanumeric and !@#$%^&*()'} if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
     $pass = createSaltedHash($pass);
     my $created = Time::Piece::localtime->strftime('%F %T');  
     my $token = sha256_hex($params->{email}, $created);
@@ -87,7 +87,7 @@ sub signup {
     if (looks_like_number($cols->[0])) { # if there is an error return
         my $error = $cols->[0];
         if ($error == 1) {
-            return {error => $error, txt => 'Invalid email submitted'};
+            return {error => $error, txt => 'Please enter a valid email'};
         } elsif ($error == 2) {
             return {error => $error, txt => 'You are already an active user. Please log in to continue.'};
         } elsif ($error == 6) {
@@ -226,7 +226,7 @@ sub setReset {
 
     my $json = {};
     my $cols = $result->fetch;
-    return {error => $cols->[0], txt => 'Email does not exist or user is not active'} if (looks_like_number($cols->[0]));
+    return {error => $cols->[0], txt => 'This email address does not exist in our system'} if (looks_like_number($cols->[0]));
     my $userInfo = $result->fetch;
     my $name = $userInfo->[1] || $userInfo->[2];
 

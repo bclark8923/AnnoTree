@@ -1,24 +1,19 @@
-(function( ng, app ){
+(function(ng, app){
     "use strict";
 
-    app.controller(
-        "layouts.StandardController",
-        function( $scope, $rootScope, localStorageService, $location, authenticateService, requestContext, feedbackService, _ ) {
-
-
-            // --- Define Controller Methods. ------------------- //
+    app.controller("layouts.StandardController",
+        function($scope, $rootScope, $location, authenticateService, requestContext, feedbackService) {
             function loadUserData() {
                 var promise = authenticateService.getUserInfo();
                 promise.then(
                     function( response ) {
-                        $rootScope.user = response.data;
+                        $scope.user = response.data;
                     },
                     function( response ) {
                         // there should never be a failure unless services are down
                     }
                 ); 
             }
-
 
             // --- Define Scope Methods. ------------------------ //
             $scope.openUserScreen = function() {
@@ -46,6 +41,7 @@
                     }
                 );
             }
+
             $scope.openHelpModal = function() {
                 if (settingsPane.isOpen) {
                     settingsPane.closeFast();
@@ -108,16 +104,12 @@
             // --- Define Controller Variables. ----------------- //
 
             // Get the render context local to this controller (and relevant params).
-            var renderContext = requestContext.getRenderContext( "standard" );
+            var renderContext = requestContext.getRenderContext("standard");
 
-            
-            // --- Define Scope Variables. ---------------------- //
-
-            // The subview indicates which view is going to be rendered on the page.
             $scope.subview = renderContext.getNextSection();
 
             // Get the current year for copyright output.
-            $scope.copyrightYear = ( new Date() ).getFullYear();
+            //$scope.copyrightYear = ( new Date() ).getFullYear();
 
             $scope.invalidFeedback = false;
             $scope.feedbackThanks = false;
@@ -125,26 +117,17 @@
             $scope.feedbackArea = true;
             $scope.feedbackAbout = true;
 
-            $scope.user = {name : localStorageService.get('username'), avatar : localStorageService.get('useravatar')};
+            //$scope.user = {name : localStorageService.get('username'), avatar : localStorageService.get('useravatar')};
 
             // --- Bind To Scope Events. ------------------------ //
 
             // I handle changes to the request context.
-            $scope.$on(
-                "requestContextChanged",
-                function() {
-
-                    // Make sure this change is relevant to this controller.
-                    if ( ! renderContext.isChangeRelevant() ) {
-
-                        return;
-
-                    }
-
-                    // Update the view that is being rendered.
-                    $scope.subview = renderContext.getNextSection();
+            $scope.$on("requestContextChanged", function() {
+                if (!renderContext.isChangeRelevant()) {
+                    return;
                 }
-            );
+                $scope.subview = renderContext.getNextSection();
+            });
 
             // --- Initialize. ---------------------------------- //
             $scope.setWindowTitle( "AnnoTree" );
@@ -154,4 +137,4 @@
             }
         }
     );
-}) ( angular, AnnoTree );
+})(angular, AnnoTree);

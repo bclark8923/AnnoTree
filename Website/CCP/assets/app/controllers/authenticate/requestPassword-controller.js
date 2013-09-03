@@ -1,66 +1,60 @@
-(function( ng, app ){
+(function(ng, app){
     "use strict";
 
-    app.controller(
-        "authenticate.RequestpasswordController",
-        function( $scope, $location, requestContext, authenticateService, _ ) {
+    app.controller("authenticate.RequestPasswordController",
+        function($scope, $location, requestContext, authenticateService) {
+            function setError(msg) {
+                $scope.errorText = msg;
+                $scope.errorMessage = true;
+                $scope.email = '';
+            }
+
             $scope.requestPassword = function() {
                 var email = $scope.email;
                 if (email) {
-                    $('#authenticateWorking').addClass('active');
+                    $('#authenticateWorking').addClass('active'); //TODO: angular way
                     var promise = authenticateService.requestPassword(email);
                     
                     promise.then(
-                        function(response) { //success case
-                            $("#textMsg").html('Please check ' + email + ' to reset your password.');
-                            $scope.resetEmailSent = true;
+                        function(response) {
+                            $scope.textMsg = 'Please check ' + email + ' to reset your password.';
                             $scope.returnToLogin = true;
-                            $scope.invalidEmail = false;
+                            $scope.errorMessage = false;
                             $scope.emailInput = false;
                             $scope.resetButtons = false;
+                            $('#authenticateWorking').removeClass('active'); //TODO:Make this angular
                         },
                         function(response) { //failure case
-                            var errorData = "Our password reset service is currently down, please try again later.";
-                            var errorNumber = parseInt(response.data.error);
-                            //TODO:Change this to use ccp
-                            if (response.status == 406 && errorNumber == 1) {
-                                errorData = 'That email address does not exist in our system.';
-                            } else if (response.status != 401 && errorNumber != 0) {
-                                //TODO:YOU ALREADY KNOW
-                                $location.path("/forestFire");
+                            if (response.status != 500  && response.status != 502) {
+                                setError(response.data.txt);
+                            } else {
+                               setError('AnnoTree is currently down.  Try again in a few minutes or contact us at support@annotree.com');
                             }
-                            //TODO:Make this angular
-                            $("#invalidEmail").html(errorData);
-                            $scope.invalidEmail = true;
+                        $('#authenticateWorking').removeClass('active'); //TODO:Make this angular
                         }
                     );
-                    //TODO:Make this angular
-                    $('#authenticateWorking').removeClass('active');
-                } else { // email is not valid
-                    $scope.invalidEmail = true;
+                    
+                } else {
+                    setError('Enter a valid email');
                 }
             }
 
             var renderContext = requestContext.getRenderContext( "authenticate.requestPassword" );
+            //TODO:see if you can pass scope into directive
+            $scope.$on("requestContextChanged", function() {
+                if (!renderContext.isChangeRelevant()) {
+                    return;
+                }
+                $scope.subview = renderContext.getNextSection();
+            });
 
             $scope.subview = renderContext.getNextSection();
             $scope.invalidEmail = false;
-            $scope.resetEmailSent = false;
             $scope.emailInput = true;
             $scope.resetButtons = true;
             $scope.returnToLogin = false;
-
-            //TODO:see if you can pass scope into directive
-            $scope.$on(
-                "requestContextChanged",
-                function() {
-                    if ( ! renderContext.isChangeRelevant() ) {
-                        return;
-                    }
-                    $scope.subview = renderContext.getNextSection();
-                }
-            );
+            $scope.textMessage = 'Enter your email and we will send you a reset link';
             $scope.setWindowTitle( "AnnoTree" );
         }
     );
-})( angular, AnnoTree );
+})(angular, AnnoTree);

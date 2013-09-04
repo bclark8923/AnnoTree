@@ -2,42 +2,37 @@
     "use strict";
 
     app.controller("layouts.StandardController",
-        function($scope, $rootScope, $location, authenticateService, requestContext, feedbackService) {
+        function($scope, $rootScope, $location, authenticateService, requestContext, feedbackService, constants) {
+            var feedbackDefaultMessage = 'Let us know what features you want to see next, any problems you have while using AnnoTree, or anything else you feel that we should be aware of.';
+
             function loadUserData() {
                 var promise = authenticateService.getUserInfo();
                 promise.then(
-                    function( response ) {
+                    function(response) {
                         $scope.user = response.data;
                     },
-                    function( response ) {
+                    function(response) { 
+                        //TODO: what to do on error? 
                         // there should never be a failure unless services are down
                     }
                 ); 
             }
 
-            // --- Define Scope Methods. ------------------------ //
-            $scope.openUserScreen = function() {
-                if ($('#userSettings').hasClass('active')) {
-                    $('#userSettings').removeClass('active');
-                } else {
-                    $('#userSettings').addClass('active');
-                }
+            function setFeedbackError(msg) {
+                $scope.feedbackErrorText = msg;
+                $scope.feedbackErrorMessage = true;
             }
 
             $scope.logout = function() {
-
                 var promise = authenticateService.logout();
 
                 promise.then(
-                    function( response ) {
-
+                    function(response) {
                         $location.path('authenticate/login');
-
                     },
-                    function( response ) {
-
-                        $scope.openModalWindow( "error", "Sorry, the logout service is currently down." );
-
+                    function(response) { 
+                        //TODO: what to do when logout fails?
+                        $location.path('authenticate/login');
                     }
                 );
             }
@@ -48,90 +43,64 @@
                 }
                 $("#helpModal").modal('show');
             }; 
-            
-            $scope.openFeedbackModal = function() {
-                if (settingsPane.isOpen) {
-                    settingsPane.closeFast();
-                }
-                $("#feedbackModal").modal('show');
-            };
 
-            $scope.closeFeedbackModal = function() {
-                $("#feedbackModal").modal('hide');
-                $scope.feedback = "";
-                $scope.invalidFeedback = false;
-                $scope.feedbackSubmitButton = true;
-                $scope.feedbackArea = true;
-                $scope.feedbackAbout = true;
-                $scope.feedbackThanks = false;
+            $scope.openFeedbackModal = function() {
+                $("#feedbackModal").modal('show');
+                $scope.feedbackText = '';
+                $scope.feedbackErrorMessage = false;
+                $scope.feedbackModalWorking = false;
+                $scope.feedbackProvide = true;
+                $scope.feedbackMessage = feedbackDefaultMessage;
             };
 
             $scope.submitFeedback = function() {
-                var feedback = $scope.feedback;
+                var feedback = $scope.feedbackText;
                 var formValid = $scope.feedbackForm.$valid;
 
                 if (!formValid) {
-                    $scope.invalidSubmitFeedback = true;
-                    $("#invalidSubmitFeedback").html('Please enter feedback');
+                    setFeedbackError('Please provide feedback');
                 } else {
+                    $scope.feedbackModalWorking = true;
                     var promise = feedbackService.submitFeedback(feedback);
 
-                     promise.then(
+                    promise.then(
                         function(response) {
-                            //worked
-                            //$scope.closeFeedbackModal();
-                            $scope.feedbackThanks = true;
-                            $scope.feedbackArea = false;
-                            $scope.feedbackAbout = false;
-                            $scope.feedbackSubmitButton = false;
-                            $scope.invalidSubmitFeedback = false;
+                            $scope.feedbackMessage = 'Thanks for submitting your feedback! We appreciate you taking the time to make AnnoTree better.';
+                            $scope.feedbackProvide = false;
+                            $scope.feedbackErrorMessage = false;
+                            $scope.feedbackModalWorking = false;
                         },
                         function(response) {
-                            //didn't work
-                            $scope.invalidSubmitFeedback = true;
-                            var errorData = "Our feedback service is currently down, please try again later.";
-                            var errorNumber = parseInt(response.data.error);
-                            if(response.data.status != 401 && errorNumber != 0) {
-                                //go to Fail Page
-                                $location.path("/forestFire");
+                            if (response.status != 500  && response.status != 502) {
+                                setFeedbackError(response.data.txt);
+                            } else {
+                                setFeedbackError(constants.servicesDown());
                             }
-                            $("#invalidSubmitFeedback").html(errorData);
+                            $scope.feedbackModalWorking = false;
                         }
                     );
                 }
             };
 
-            // --- Define Controller Variables. ----------------- //
-
-            // Get the render context local to this controller (and relevant params).
             var renderContext = requestContext.getRenderContext("standard");
-
             $scope.subview = renderContext.getNextSection();
-
-            // Get the current year for copyright output.
-            //$scope.copyrightYear = ( new Date() ).getFullYear();
-
-            $scope.invalidFeedback = false;
-            $scope.feedbackThanks = false;
-            $scope.feedbackSubmitButton = true;
-            $scope.feedbackArea = true;
-            $scope.feedbackAbout = true;
-
-            //$scope.user = {name : localStorageService.get('username'), avatar : localStorageService.get('useravatar')};
-
-            // --- Bind To Scope Events. ------------------------ //
-
-            // I handle changes to the request context.
             $scope.$on("requestContextChanged", function() {
                 if (!renderContext.isChangeRelevant()) {
                     return;
                 }
                 $scope.subview = renderContext.getNextSection();
+                $scope.userSettingsBox = false;
             });
+    
+            $scope.feedbackModalWorking = false;
+            $scope.userSettingsBox = false;
+            $scope.feedbackErrorMessage = false;
+            $scope.feedbackProvide = true;
+            $scope.feedbackMessage = feedbackDefaultMessage;
+            $scope.setWindowTitle('AnnoTree');
 
-            // --- Initialize. ---------------------------------- //
-            $scope.setWindowTitle( "AnnoTree" );
             $scope.$evalAsync(loadUserData());
+            
             if ($location.path() == "/app/ft") {
                 $("#helpModal").modal('show');
             }

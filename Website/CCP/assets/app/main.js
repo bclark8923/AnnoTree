@@ -47,6 +47,14 @@ AnnoTree.config(
     }
 );
 
+AnnoTree.factory('constants', function() {
+    return {
+        servicesDown: function() {
+            return 'AnnoTree is currently down.  Try again in a few minutes or contact us at support@annotree.com';
+        }
+    }
+});
+
 AnnoTree.factory('apiRoot', function() {
     return {
         getRoot: function() {

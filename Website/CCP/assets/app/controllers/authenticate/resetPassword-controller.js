@@ -2,7 +2,7 @@
     "use strict";
 
     app.controller("authenticate.ResetPasswordController",
-        function( $scope, $location, requestContext, authenticateService, _ ) {
+        function( $scope, $location, requestContext, authenticateService, constants) {
             function setError(msg) {
                 $scope.errorText = msg;
                 $scope.errorMessage = true;
@@ -46,7 +46,7 @@
                                     $scope.requestPassword = true;
                                 }
                             } else {
-                               setError('AnnoTree is currently down.  Try again in a few minutes or contact us at support@annotree.com');
+                               setError(constants.servicesDown());
                             } 
                             $('#authenticateWorking').removeClass('active'); //TODO angular way
                         }

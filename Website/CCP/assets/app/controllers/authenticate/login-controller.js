@@ -2,7 +2,7 @@
     "use strict";
 
     app.controller("authenticate.LoginController",
-        function($scope, $rootScope, localStorageService, $location, requestContext, authenticateService) {
+        function($scope, $rootScope, localStorageService, $location, requestContext, authenticateService, constants) {
             function setError(msg) {
                 $scope.loginPassword = '';
                 $scope.errorText = msg;
@@ -40,7 +40,7 @@
                             if (response.status != 500  && response.status != 502) {
                                 setError(response.data.txt);
                             } else {
-                                setError('AnnoTree is currently down.  Try again in a few minutes or contact us at support@annotree.com');
+                                setError(constants.servicesDown());
                             }
                             $('#authenticateWorking').removeClass('active'); // TODO: angular way
                         }

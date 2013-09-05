@@ -2,7 +2,7 @@
     "use strict";
 
     app.controller("authenticate.RequestPasswordController",
-        function($scope, $location, requestContext, authenticateService, constants) {
+        function($scope, $location, $http, apiRoot, requestContext, constants) {
             function setError(msg) {
                 $scope.errorText = msg;
                 $scope.errorMessage = true;
@@ -13,7 +13,9 @@
                 var email = $scope.email;
                 if (email) {
                     $('#authenticateWorking').addClass('active'); //TODO: angular way
-                    var promise = authenticateService.requestPassword(email);
+                    var promise = $http.post(apiRoot.getRoot() + '/services/user/reset', {
+                        email: email
+                    });//authenticateService.requestPassword(email);
                     
                     promise.then(
                         function(response) {
@@ -39,7 +41,7 @@
                 }
             }
 
-            var renderContext = requestContext.getRenderContext( "authenticate.requestPassword" );
+            var renderContext = requestContext.getRenderContext("authenticate.requestPassword");
             //TODO:see if you can pass scope into directive
             $scope.$on("requestContextChanged", function() {
                 if (!renderContext.isChangeRelevant()) {

@@ -40,7 +40,9 @@ IF (SELECT id FROM user_forest WHERE user_id = req_user AND forest_id = fid_in) 
                 END IF;
             END LOOP;
             CLOSE tree_cur;
-            SELECT email FROM user WHERE id = new_owner;
+            SELECT 'id', 'email', 'first_name', 'last_name'
+                UNION
+                SELECT id, email, first_name, last_name FROM user WHERE id = new_owner;
         END IF;
     ELSE
         SELECT '2';

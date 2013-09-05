@@ -805,7 +805,6 @@ text-align:left;line-height:38px;vertical-align:middle;
  * Help Settings
  * ----------------------- */
 #helpModal .modal-dialog {
-    margin: 0 -40%;
     width: 80%;
 }
 
@@ -945,7 +944,6 @@ text-align:left;line-height:38px;vertical-align:middle;
     }
     
     #helpModal .modal-dialog {
-        margin: 0 0;
         width: 100%;
     }
     

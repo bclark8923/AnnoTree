@@ -1,12 +1,12 @@
-(function(ng, app){
+(function(ng, app) {
     "use strict";
 
     app.controller("layouts.StandardController",
-        function($scope, $rootScope, $location, authenticateService, requestContext, feedbackService, constants) {
+        function($scope, $location, $http, requestContext, apiRoot, constants) {
             var feedbackDefaultMessage = 'Let us know what features you want to see next, any problems you have while using AnnoTree, or anything else you feel that we should be aware of.';
 
             function loadUserData() {
-                var promise = authenticateService.getUserInfo();
+                var promise = $http.get(apiRoot.getRoot() + '/services/user/');//authenticateService.getUserInfo();
                 promise.then(
                     function(response) {
                         $scope.user = response.data;
@@ -24,7 +24,7 @@
             }
 
             $scope.logout = function() {
-                var promise = authenticateService.logout();
+                var promise = $http.post(apiRoot.getRoot() + '/services/user/logout');
 
                 promise.then(
                     function(response) {
@@ -38,7 +38,7 @@
             }
 
             $scope.openHelpModal = function() {
-                if (settingsPane.isOpen) {
+                if (settingsPane.isOpen) { // TODO: check if this is needed
                     settingsPane.closeFast();
                 }
                 $("#helpModal").modal('show');
@@ -61,7 +61,9 @@
                     setFeedbackError('Please provide feedback');
                 } else {
                     $scope.feedbackModalWorking = true;
-                    var promise = feedbackService.submitFeedback(feedback);
+                    var promise = $http.post(apiRoot.getRoot() + '/services/user/feedback', {
+                        feedback: feedback
+                    });//feedbackService.submitFeedback(feedback);
 
                     promise.then(
                         function(response) {
@@ -97,10 +99,9 @@
             $scope.feedbackErrorMessage = false;
             $scope.feedbackProvide = true;
             $scope.feedbackMessage = feedbackDefaultMessage;
-            $scope.setWindowTitle('AnnoTree');
 
             $scope.$evalAsync(loadUserData());
-            
+            console.log('standard');
             if ($location.path() == "/app/ft") {
                 $("#helpModal").modal('show');
             }

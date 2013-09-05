@@ -2,7 +2,7 @@
     "use strict";
 
     app.controller("authenticate.ResetPasswordController",
-        function( $scope, $location, requestContext, authenticateService, constants) {
+        function( $scope, $location, $http, apiRoot, requestContext, constants) {
             function setError(msg) {
                 $scope.errorText = msg;
                 $scope.errorMessage = true;
@@ -27,7 +27,9 @@
                     setError('Valid password characters are alphanumeric or !@#$%^&*()');
                 } else {
                     $('#authenticateWorking').addClass('active');
-                    var promise = authenticateService.resetPassword(password, token);
+                    var promise = $http.post(apiRoot.getRoot() + '/services/user/reset/' + token, {
+                        password: password
+                    });//authenticateService.resetPassword(password, token);
                     
                     promise.then(
                         function(response) {
@@ -54,7 +56,7 @@
                 }
             }
 
-            var renderContext = requestContext.getRenderContext( "authenticate.resetPassword" );
+            var renderContext = requestContext.getRenderContext("authenticate.resetPassword");
             $scope.subview = renderContext.getNextSection();
             $scope.$on("requestContextChanged", function() {
                 if (!renderContext.isChangeRelevant()) {

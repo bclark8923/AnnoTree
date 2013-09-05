@@ -2,534 +2,298 @@
     "use strict";
 
     app.controller("forest.ForestController",
-        function( $scope, $cookies, $rootScope, $location, $timeout, $route, requestContext, forestService, treeService, branchService) {
-
-            function loadTrees( forests ) {
-                for(var i = 0; i < forests.length; i++) {
-                    forests[i].trees.push($scope.newTreeHolder);
-                }
-                $rootScope.forests = forests;
-            }
-
+        function($scope, $cookies, $rootScope, $location, $timeout, $route, $http, requestContext, branchService, apiRoot, constants) {
             function loadForestData() {
-
-                $scope.isLoading = true;
-
-                var promise = forestService.getForests();
+                var promise = $http.get(apiRoot.getRoot() + '/services/forest');
 
                 promise.then(
-                    function( response ) {
-                        if(response.status == 204) {
-                            $scope.noForests = "Looks like you don't have a forest yet.";
-                            $scope.noForestsNL = "Click \"New Forest\" in the top right to get started!";
-                        } else {
-
-                            loadTrees( response.data.forests );
-
+                    function(response) {
+                        if (response.status == 200) {
+                            $scope.forests = response.data.forests;
                         }
-                        
-                        $scope.isLoading = false;
-                        
-                        $timeout(function() {$("#loadingScreen").hide(); }, 0);
-
                     },
-                    function( response ) {
-                        var errorData = "Our Create Tree Service is currently down, please try again later.";
-                        var errorNumber = parseInt(response.data.error);
-                        if(response.data.status == 406) {
-                            switch(errorNumber)
-                            {
-                                case 1:
-                                    errorData = "This user does not exist in our system. Please contact Us.";
-                                    break;
-                                default:
-                                    $location.path("/forestFire");
-                            }
-                        } else if(response.data.status != 401 && errorNumber != 0)  {
-                            $location.path("/forestFire");
-                        }
+                    function(response) {
+                        $location.path("/forestFire");
                     }
                 );
-
             }
 
-            function addTree(newTree) {
-                for(var i = 0; i < $rootScope.forests.length; i++) { 
-                    if($rootScope.forests[i].id == newTree.forest_id) {
-                        $rootScope.forests[i].trees.pop();
-                        $rootScope.forests[i].trees.push(newTree);
-                        $rootScope.forests[i].trees.push($scope.newTreeHolder);
-                        break;
-                    }
-                }
-                $scope.closeNewTreeModal();
-            }
-            
             $scope.changeForestOwnerFn = function() {
-                var newOwnerID = $('#forestOwnerSelect').val();
+                var newOwnerID = $scope.changeForestOwnerSelect;
+
                 if (newOwnerID == 'nochange') {
-                    $('#changeOwnerError').html('Please select a new owner');
-                    $('#changeOwnerError').show();
+                    setChangeForestOwnerError('Please select a new owner');
+                } else if (newOwnerID == $scope.modifyForestRef.owner.id) {
+                    setChangeForestOwnerError($scope.modifyForestRef.owner.first_name + ' ' + $scope.modifyForestRef.owner.last_name + ' is already the forest owner');
                 } else {
-                    $('#changeForestOwnerModalWorking').addClass('active');
-                    var promise = forestService.updateForestOwner(newOwnerID, $rootScope.modifyForest.id);
+                    $scope.changeForestOwnerWorking = true;
+                    var promise = $http.put(apiRoot.getRoot() + '/services/forest/' + $scope.modifyForestRef.id + '/owner', {
+                        owner: newOwnerID
+                    });
+
                     promise.then(
-                        function( response ) {
-                            $scope.changeOwnerError = false;
-                            $('#changeForestOwnerModal').modal('hide'); 
-                            $('#modifyForestModal').modal('hide'); 
-                            for (var i = 0; i < $rootScope.forests.length; i++) {
-                                if ($rootScope.forests[i].id == $rootScope.modifyForest.id) {
-                                    $rootScope.forests[i].owner = response.data.email;
+                        function(response) {
+                            for (var i = 0; i < $scope.forests.length; i++) {
+                                if ($scope.forests[i].id == $scope.modifyForestRef.id) {
+                                    $scope.forests[i].owner = response.data;
                                     break;
                                 }
                             }
+                            $scope.changeForestOwnerWorking = false;
+                            $('#changeForestOwnerModal').modal('hide'); //TODO: angular way
+                            $('#modifyForestModal').modal('hide'); //TODO: angular way
                         },
-                        function( response ) {
-                            //if this happens then user does not have permissions to the forest
-                            $('#changeOwnerError').html(response.data.txt);
-                            $('#changeOwnerError').show();
+                        function(response) {
+                            if (response.status != 500 && response.status != 502) {
+                                setChangeForestOwnerError(response.data.txt);
+                            } else {
+                                setChangeForestOwnerError(constants.servicesDown());
+                            }
+                            $scope.changeForestOwnerWorking = false;
                         }
                     ); 
-                    $('#changeForestOwnerModalWorking').removeClass('active');
                 }
             }
-
+            
+            function setChangeForestOwnerError(msg) {
+                $scope.changeForestOwnerErrorText = msg;
+                $scope.changeForestOwnerErrorMessage = true;
+            }
+            
+            //TODO: use ngOptions when roles and permissions are created
             $scope.openChangeForestOwnerModal = function() {
-                $('#changeForestOwnerModal').modal('show');
-                $('#changeOwnerError').hide();
-                var promise = forestService.getForestUsers($rootScope.modifyForest.id);
+                $('#changeForestOwnerModal').appendTo('body').modal('show'); //TODO: angular way
+                $scope.changeForestOwnerErrorMessage = false;
+                $scope.changeForestOwnerWorking = true;
+                var promise = $http.get(apiRoot.getRoot() + '/services/forest/' + $scope.modifyForestRef.id + '/users');
+                
                 promise.then(
-                    function( response ) {
+                    function(response) {
                         $rootScope.potentialForestOwners = response.data.users;
+                        $scope.changeForestOwnerWorking = false;
+                        $scope.changeForestOwnerSelect = 'nochange';
                     },
-                    function( response ) {
-                        //if this happens then user does not have permissions to the forest
+                    function(response) {
+                        if (response.status != 500 && response.status != 502) {
+                            setChangeForestOwnerError(response.data.txt);
+                        } else {
+                            setChangeForestOwnerError(constants.servicesDown());
+                        }
+                        $scope.changeForestOwnerWorking = false;
                     }
                 );
             } 
-            
-            $scope.closeChangeForestOwnerModal = function() {
-                $('#changeForestOwnerModal').modal('hide');
+
+            $scope.openNewTreeModal = function(forestID) {
+                $scope.newTreeErrorMessage = false;
+                $scope.newTreeWorking = false;
+                $scope.newTreeName = '';
+                $("#newTreeModal").appendTo('body').modal('show');
+                $scope.newTreeForestID = forestID;
+            }
+           
+            function setNewTreeError(msg) {
+                $scope.newTreeErrorText = msg;
+                $scope.newTreeErrorMessage = true;
             }
 
-            $scope.openNewTreeModal = function (forest) {
-                $("#newTreeModal").modal('show');
-                $rootScope.curForestAdd = forest.id;
-            }
-
-            $scope.closeNewTreeModal = function () {
-                $("#newTreeModal").modal('hide');
-                $("#invalidAddTree").html('');
-                $("#treeName").val('');
-                $("#treeDescription").val('');
-                $scope.invalidAddTree = false; 
-                $rootScope.curForestAdd = -1;
-                $("#loadingScreen").hide();
-            }
-
-            $scope.newTree = function() {
-
-                var treeName = $scope.treeName;
+            $scope.newTreeFn = function() {
+                var treeName = $scope.newTreeName;
                 var treeDescription = "NULL";
-                var formValid = $scope.createTreeForm.$valid;
-                var forestID = $rootScope.curForestAdd;
-                if(forestID == -1) {
-                    formValid = false;
-                }
+                var forestID = $scope.newTreeForestID;
 
-                //validate form
-                if(!formValid) {
-                    $scope.invalidAddTree = true;
-                    if(!treeName) {
-                        $("#invalidAddTree").html("Please fill out a tree name.");
-                    } else {
-                        //shouldn't happen
-                        $("#invalidAddTree").html("Please enter valid information.");
-                    }
+                if (!treeName) {
+                    setNewTreeError("Please enter a tree name.");
+                } else if (!nameTest.test(treeName)){
+                    setNewTreeError("A tree name must include at least one alphanumeric character");
                 } else {
-                    $('#newTreeModalWorking').addClass('active');
-                    var promise = treeService.createTree(forestID, treeName, treeDescription);
+                    $scope.newTreeWorking = true;
+                    var promise = $http.post(apiRoot.getRoot() + '/services/' + forestID + '/tree', {
+                        name: treeName
+                    });
 
                     promise.then(
-                        function( response ) {
-                    
-                            var branchName = "Loose Leaves";
-                            var branchDescription = "A collection of loose leaves sent to this tree.";
-                            var promise = branchService.createBranch(response.data.id, branchName, branchDescription);
-                            $scope.newTreeData = response.data;
-
-                            promise.then(
-                                function(response) {
-                                    //worked
-
-                                    $scope.isLoading = false;
-                                    $scope.invalidAddTree = false;
-
-                                    addTree( $scope.newTreeData );
-                                },
-                                function(response) {
-                                    //delete tree
-                                    $scope.invalidAddTree = true;
-                                    var errorData = "Our Create Branch Service is currently down, please try again later.";
-                                    var errorNumber = parseInt(response.data.error);
-                                    if(response.data.status == 406) {
-                                        switch(errorNumber)
-                                        {
-                                            case 0:
-                                                errorData = "Please fill out all of the fields";
-                                                break;
-                                            case 1:
-                                                errorData = "This user does not exist in our system. Please contact Us.";
-                                                break;
-                                            case 2:
-                                                errorData = "The tree you attempted to add to no longer exists.";
-                                                break;
-                                            case 4:
-                                                errorData = "Please enter a valid branch name.";
-                                                break;
-                                            default:
-                                                //go to Fail Page
-                                                $location.path("/forestFire");
-                                        }
-                                    } else if(response.data.status != 401 && errorNumber != 0) {
-                                        //go to Fail Page
-                                        $location.path("/forestFire");
-                                    }
-                                    $("#invalidAddTree").html(errorData);
+                        function(response) {
+                            var newTree = response.data;
+                            for (var i = 0; i < $scope.forests.length; i++) { 
+                                if ($scope.forests[i].id == newTree.forest_id) {
+                                    $scope.forests[i].trees.push(newTree);
+                                    break;
                                 }
-                            );
-                        },
-                        function( response ) {
-                            $scope.invalidAddTree = true;
-                            var errorData = "Our Create Tree Service is currently down, please try again later.";
-                            var errorNumber = parseInt(response.data.error);
-                            if(response.data.status == 406) {
-                                switch(errorNumber)
-                                {
-                                    case 0:
-                                        errorData = "Please fill out all of the fields";
-                                        break;
-                                    case 1:
-                                        errorData = "This user does not exist in our system. Please contact Us.";
-                                        break;
-                                    case 2:
-                                        errorData = "The forest you attempted to add to no longer exists.";
-                                        break;
-                                    case 4:
-                                        errorData = "Please enter a valid forest name.";
-                                        break;
-                                    default:
-                                        //go to Fail Page
-                                        $location.path("/forestFire");
-                                }
-                            } else if(response.data.status == 403) {
-                                switch(errorNumber)
-                                {
-                                    case 3:
-                                        errorData = "You currently don't have permission to create a tree in this forest.";
-                                        break;
-                                    default:
-                                        //go to Fail Page
-                                        $location.path("/forestFire");
-                                }
-                            } else if(response.data.status != 401 && errorNumber != 0) {
-                                //go to Fail Page
-                                $location.path("/forestFire");
                             }
-                            $("#invalidAddTree").html(errorData);
-
+                            $scope.newTreeWorking = false;
+                            $("#newTreeModal").modal('hide'); //TODO: angular way
+                        },
+                        function(response) {
+                            if (response.status != 500 && response.status != 502) {
+                                setNewTreeError(response.data.txt);
+                            } else {
+                                setNewTreeError(constants.servicesDown());
+                            }
+                            $scope.newTreeWorking = false;
                         }
                     );
                     $('#newTreeModalWorking').removeClass('active');
                 }
             }
 
-            $scope.openModifyForestModal = function (forest) {
-                $("#modifyForestModal").modal('show');
-                $rootScope.modifyForest = forest;
-                $rootScope.originalName = forest.name;
-                for (var i = 0; i < $rootScope.forests.length; i++) {
-                    if ($rootScope.forests[i].id == forest.id) {
-                        $scope.forestOwner = $rootScope.forests[i].owner;
-                        if ($scope.forestOwner == null) {
+            $scope.openModifyForestModal = function(forest) {
+                $scope.modifyForestWorking = false;
+                $scope.modifyForestErrorMessage = false;
+                $scope.modifyForestRef = forest;
+                $scope.modifyForestName = angular.copy(forest.name);
+                for (var i = 0; i < $scope.forests.length; i++) {
+                    if ($scope.forests[i].id == forest.id) {
+                        if ($scope.forests[i].owner === undefined) {
                             $scope.forestOwner = 'No current owner';
+                        } else {
+                            $scope.forestOwner = $scope.forests[i].owner;
                         }
                         break;
                     }
                 }
+                $("#modifyForestModal").appendTo('body').modal('show'); //TODO:angular way
             }
 
-            $scope.cancelModifyForestModal = function () {
-                $rootScope.modifyForest.name = $rootScope.originalName;
-                $scope.closeModifyForestModal();
-            }
-
-            $scope.closeModifyForestModal = function () {
-                $("#modifyForestModal").modal('hide');
-                $("#invalidModifyForest").html('');
-                $rootScope.modifyForest = null;
-                $scope.invalidModifyForest = false; 
-                $("#loadingScreen").hide();
+            function setModifyForestError(msg) {
+                $scope.modifyForestErrorText = msg;
+                $scope.modifyForestErrorMessage = true;
             }
 
             $scope.modifyForestFn = function() {
-                var forestID = $rootScope.modifyForest.id;
-                var forestName = $rootScope.modifyForest.name;
-                var forestDescription = "NULL";
-                var forestFormValid = $scope.modifyForestForm.$valid;
+                var forestID = $scope.modifyForestRef.id;
+                var forestName = $scope.modifyForestName;
 
-                //validate form
-                if(!forestFormValid) {
-                    $scope.invalidModifyForest = true;
-                    if(!forestName) {
-                        $("#invalidModifyForest").html("Please fill out a forest name.");
-                    }
-                    else if(!forestDescription) {
-                        $("#invalidModifyForest").html("Please fill out a forest description.");
-                    } else {
-                        //shouldn't happen
-                        $("#invalidModifyForest").html("Please enter valid information.");
-                    }
+                if (!forestName) {
+                    setModifyForestError("Please enter a forest name");
+                } else if (!nameTest.test(forestName)) {
+                    setModifyForestError("A forest name must include at least one alphanumeric character");
                 } else {
-                    $('#modifyForestModalWorking').addClass('active');
-                    var promise = forestService.updateForest(forestID, forestName, forestDescription);
+                    $scope.modifyForestWorking = true;
+                    var promise = $http.put(apiRoot.getRoot() + '/services/forest/' + forestID, {
+                        name: forestName
+                    });
 
                     promise.then(
-                        function( response ) {
-
-                            $scope.isLoading = false;
+                        function(response) {
+                            $scope.modifyForestWorking = false;
+                            $scope.modifyForestRef.name = forestName;
                             $scope.invalidModifyForest = false;
-                            $scope.closeModifyForestModal();
-                            
+                            $("#modifyForestModal").modal('hide'); //TODO:angular way 
                         },
-                        function( response ) {
-                            $scope.invalidModifyForest = true;
-                            var errorData = "Our Modify Forest Service is currently down, please try again later.";
-                            var errorNumber = parseInt(response.data.error);
-                            if(response.data.status == 406) {
-                                switch(errorNumber)
-                                {
-                                    case 0:
-                                        errorData = "Please fill out all of the fields";
-                                        break;
-                                    case 1:
-                                        errorData = "This user does not exist in our system. Please contact Us.";
-                                        break;
-                                    case 2:
-                                        errorData = "Please enter a valid forest name.";
-                                        break;
-                                    default:
-                                        //go to Fail Page
-                                        //$location.path("/forestFire");    
-                                }
-                            } else if(response.data.status != 401 && errorNumber != 0) {
-                                //go to Fail Page
-                                $location.path("/forestFire");
+                        function(response) {
+                            if (response.status != 500 && response.status != 502) {
+                                setModifyForestError(response.data.txt);
+                            } else {
+                                setModifyForestError(constants.servicesDown());
                             }
-                            $("#invalidModifyForest").html(errorData);
-
+                            $scope.modifyForestWorking = false;
                         }
                     );
-                    $('#modifyForestModalWorking').removeClass('active');
                 }
             }
 
             $scope.deleteForestCallback = function() {
-                $("#deleteCallbackModal").modal('show');
+                $scope.deleteForestWorking = false;
+                $scope.deleteForestErrorMessage = false;
+                $("#deleteCallbackModal").appendTo('body').modal('show'); //TODO:angular way 
+            }
+            
+            function setDeleteForestError(msg) {
+                $scope.deleteForestErrorText = msg;
+                $scope.deleteForestErrorMessage = true;
             }
 
             $scope.deleteForest = function() {
-                $('#deleteCallbackModalWorking').addClass('active');
-                var forestID = $rootScope.modifyForest.id;
-                var promise = forestService.deleteForest(forestID);
+                $scope.deleteForestWorking = true;
+                var promise = $http.delete(apiRoot.getRoot() + '/services/forest/' + $scope.modifyForestRef.id);
 
                 promise.then(
-                    function( response ) {
-
-                        $scope.isLoading = false;
-
-                        for(var i = 0; i < $rootScope.forests.length; i++) { 
-                            if($rootScope.forests[i].id == $rootScope.modifyForest.id) {
-                                $rootScope.forests.splice(i,1);
+                    function(response) {
+                        for (var i = 0; i < $scope.forests.length; i++) { 
+                            if ($scope.forests[i].id == $scope.modifyForestRef.id) {
+                                $scope.forests.splice(i, 1);
                                 break;
                             }
                         }
-                        $scope.closeModifyForestModal();
-                        $("#deleteCallbackModal").modal('hide');
-
+                        $scope.deleteForestWorking = false;
+                        $("#deleteCallbackModal").modal('hide'); //TODO:angular way 
+                        $("#modifyForestModal").modal('hide'); //TODO:angular way 
                     },
-                    function( response ) {
-                        var errorData = "Our Modify Leaf Service is currently down, please try again later.";
-                        var errorNumber = parseInt(response.data.error);
-                        if(response.data.status == 406) {
-                            switch(errorNumber)
-                            {
-                                case 0:
-                                    errorData = "Please fill out all of the fields";
-                                    break;
-                                case 1:
-                                    errorData = "This user does not exist in our system. Please contact Us.";
-                                    break;
-                                case 2:
-                                    errorData = "The branch you attempted to add to no longer exists.";
-                                    break;
-                                case 4:
-                                    errorData = "Please enter a valid leaf name.";
-                                    break;
-                                default:
-                                    //go to Fail Page
-                                    //$location.path("/forestFire");
-                            }
-                        } else if(response.data.status != 401 && errorNumber != 0) {
-                            //go to Fail Page
-                            $location.path("/forestFire");
+                    function(response) {
+                        if (response.status != 500 && response.status != 502) {
+                            setDeleteForestError(response.data.txt);
+                        } else {
+                            setDeleteForestError(constants.servicesDown());
                         }
-                        $("#invalidModifyLeaf").html(errorData);
-
+                        $scope.deleteForestWorking = false;
                     }
                 );
-                $('#deleteCallbackModalWorking').removeClass('active');
             }
 
-            $scope.openNewForestModal = function () {
-                $("#newForestModal").modal('show');
+            $scope.openNewForestModal = function() {
+                $scope.newForestName = '';
+                $scope.newForestErrorMessage = false;
+                $scope.newForestModalWorking = false;
+                $("#newForestModal").appendTo('body').modal('show'); //TODO:angular way 
             }
-
-            $scope.closeNewForestModal = function () {
-                $("#newForestModal").modal('hide');
-                $("#invalidAddForest").html('');
-                $("#forestName").val('');
-                $scope.invalidAddForest = false; 
-                $("#loadingScreen").hide();
-            }
-
-            function addForest(newForest) {
-                newForest.trees = [];
-                newForest.trees.push($scope.newTreeHolder);
-                $rootScope.forests.push(newForest);
-                $scope.closeNewForestModal();
+            
+            function setNewForestError(msg) {
+                $scope.newForestErrorText = msg;
+                $scope.newForestErrorMessage = true;
             }
 
             $scope.newForest = function() {
-                var forestName = $scope.forestName;
-                var forestDescription = "NULL";
-                var formValid = $scope.createForestForm.$valid;
+                var forestName = $scope.newForestName;
 
-                //validate form
-                if(!formValid) {
-                    $scope.invalidAddForest = true;
-                    if(!forestName) {
-                        $("#invalidAddForest").html("Please fill out a forest name.");
-                    }
-                    else if(!forestDescription) {
-                        $("#invalidAddForest").html("Please fill out a forest description.");
-                    } else {
-                        //shouldn't happen
-                        $("#invalidAddForest").html("Please enter valid information.");
-                    }
+                if (!forestName) {
+                    setNewForestError("Please enter a forest name");
+                } else if (!nameTest.test(forestName)) {
+                    setNewForestError("A forest name must include at least one alphanumeric character");
                 } else {
-                    $('#newForestModalWorking').addClass('active');
-                    var promise = forestService.createForest(forestName, forestDescription);
+                    $scope.newForestModalWorking = true;
+
+                    var promise = $http.post(apiRoot.getRoot() + '/services/forest/', {
+                        name: forestName
+                    });
 
                     promise.then(
-                        function( response ) {
-
-                            $scope.isLoading = false;
-                            $scope.invalidAddForest = false;
-                            $scope.noForests = "";
-                            $("#noForestsDiv").hide();
-
-                            addForest( response.data );
+                        function(response) {
+                            $scope.newForestErrorMessage = false;
+                            var newForest = response.data;
+                            newForest.owner = angular.copy($scope.user);
+                            newForest.trees = [];
+                            $scope.forests.push(newForest);
+                            $scope.newForestModalWorking = false;
+                            $('#newForestModal').modal('hide');  //TODO:angular way 
                         },
-                        function( response ) {
-                            $scope.invalidAddForest = true;
-                            var errorData = "Our Create Forest Service is currently down, please try again later.";
-                            var errorNumber = parseInt(response.data.error);
-                            if(response.data.status == 406) {
-                                switch(errorNumber)
-                                {
-                                    case 0:
-                                        errorData = "Please fill out all of the fields";
-                                        break;
-                                    case 1:
-                                        errorData = "This user does not exist in our system. Please contact Us.";
-                                        break;
-                                    case 2:
-                                        errorData = "Please enter a valid forest name.";
-                                        break;
-                                    default:
-                                        //go to Fail Page
-                                        //$location.path("/forestFire");    
-                                }
-                            } else if(response.data.status != 401 && errorNumber != 0) {
-                                //go to Fail Page
-                                $location.path("/forestFire");
+                        function(response) {
+                            if (response.status != 500 && response.status != 502) {
+                                setNewForestError(response.data.txt);
+                            } else {
+                                setNewForestError(constants.servicesDown());
                             }
-                            $("#invalidAddForest").html(errorData);
+                            $scope.newForestModalWorking = false;
                         }
                     );
-                    $('#newForestModalWorking').removeClass('active');
                 }
             }
 
-            // --- Define Controller Variables. ----------------- //
-            // Get the render context local to this controller (and relevant params).
-            var renderContext = requestContext.getRenderContext( "standard.forest" );
-
+            $scope.forests = [];
+            var nameTest = new RegExp('[A-Za-z0-9]');
             
-            // --- Define Scope Variables. ---------------------- //
-
-
-            // I flag that data is being loaded.
-            $scope.isLoading = true;
-
-            // I hold the categories to render.
-            $rootScope.forests = [];
-            $scope.branchID = -1;
-            $scope.curForestAdd = -1;
-            $scope.noForests = "";
-
-            // The subview indicates which view is going to be rendered on the page.
+            var renderContext = requestContext.getRenderContext("standard.forest");
             $scope.subview = renderContext.getNextSection();
-
-            $scope.newTreeHolder = { 
-                                id: "-1",
-                                name: "New Tree",
-                                description: "Click here to add a new tree to this forest.",
-                                logo: "img/tree01.png"
-                            };
-            
-
-            // --- Bind To Scope Events. ------------------------ //
-
-
-            // I handle changes to the request context.
-            $scope.$on(
-                "requestContextChanged",
-                function() {
-
-                    // Make sure this change is relevant to this controller.
-                    if ( ! renderContext.isChangeRelevant() ) {
-
-                        return;
-
-                    }
-
-                    // Update the view that is being rendered.
-                    $scope.subview = renderContext.getNextSection();
-
+            $scope.$on("requestContextChanged", function() {
+                if (!renderContext.isChangeRelevant()) {
+                    return;
                 }
-            );
+                $scope.subview = renderContext.getNextSection();
+            });
 
-            // --- Initialize. ---------------------------------- //
-
-            // Set the window title.
-            $scope.setWindowTitle( "AnnoTree" );
-
-            // Load the "remote" data.
             $scope.$evalAsync(loadForestData());
-
+            $("#loadingScreen").hide();  //TODO:angular way 
+            console.log('forest');
         }
     );
- })( angular, AnnoTree );
+})(angular, AnnoTree);

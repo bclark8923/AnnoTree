@@ -1,35 +1,31 @@
 -- --------------------------------------------------------------------------------
 -- create_branch
--- returns 0 - success
+-- returns  0 - success
+--          1 - error: user does not have permissions
+--          2 - error: tree does not exist
 -- --------------------------------------------------------------------------------
-use annotree;
-drop  procedure IF EXISTS `create_branch`;
+USE annotree;
+DROP PROCEDURE IF EXISTS `create_branch`;
 DELIMITER $$
 
-
-CREATE Procedure `create_branch`(
-  in user INT,
-  in t INT,
-  in n varchar(45),
-  in d varchar(1024)
-  )
+CREATE PROCEDURE `create_branch` (
+    IN user_id_in INT,
+    IN tree_id_in INT,
+    IN name_in VARCHAR(45),
+    IN desc_in VARCHAR(1024)
+)
 BEGIN
-IF (select id from user where id = user) then
-    IF (select id from tree where id = t) then
-        insert into `annotree`.`branch` 
+IF (SELECT id FROM user WHERE id = user_id_in) THEN
+    IF (SELECT id FROM tree WHERE id = tree_id_in) THEN
+        INSERT INTO `annotree`.`branch`
           (tree_id, name, description)
-          values (t, n, d);
-        set @branch_id = LAST_INSERT_ID();
-        select 'id', 'tree_id', 'name', 'description', 'created_at' 
-        union 
-        select id, tree_id, name, description, created_at
-        from `annotree`.`branch`
-        where id = @branch_id;
+          VALUES (tree_id_in, name_in, desc_in);
+        SELECT '0';
     ELSE
-        select '2';
+        SELECT '2';
     END IF;
 ELSE
-    select '1';
+    SELECT '1';
 END IF;
 END $$
-delimiter ; $$
+DELIMITER ; $$

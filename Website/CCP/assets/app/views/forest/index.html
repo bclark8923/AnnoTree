@@ -1,5 +1,4 @@
 <div ng-switch="subview" ng-controller="forest.ForestController">
-    <div ng-include=" 'assets/app/views/forest/forest-modals.html' "></div>
     <div id="forestContainer">
         <div class="container" >
             <div class="row forest new" style="margin-bottom:30px">
@@ -9,7 +8,7 @@
                   </span>
                 </div>
             </div>
-            <div ng-repeat="forest in forests" post-render>
+            <div ng-repeat="forest in forests | orderBy:forest.id" post-render>
                 <div class="row forest">
                     <div class="col-12">
                         <span class="forestName" ng-click="openModifyForestModal(forest)">
@@ -19,31 +18,212 @@
                     </div>
                 </div>
                 <div class="row"> 
-                    <div class="card-col col-12 col-sm-6 col-lg-4" ng-repeat="tree in forest.trees | reverse"> 
-                        <div ng-switch="tree.id">
-                            <div ng-switch-when="-1">
-                                <div class="card new">
-                                    <div class="cardName cardNameNew">
-                                        <strong>New Tree</strong><br />
-                                    </div>
-                                    <div class="cardImg cardImgNew" ng-click="openNewTreeModal(forest)">
-                                        +
-                                    </div>
-                                </div> 
+                    <div class="card-col col-12 col-sm-6 col-lg-4">
+                        <div class="card new">
+                            <div class="cardName cardNameNew">
+                                <strong>New Tree</strong><br />
                             </div>
-                            <div ng-switch-default>
-                                <div class="card">
-                                    <a ng-href="#/app/{{tree.id}}">
-                                        <div class="cardName">
-                                            <strong>{{tree.name}}</strong><br />
-                                        </div>
-                                        <div class="cardImg" back-img="{{tree.logo}}"></div>
-                                    </a>
-                                </div>
+                            <div class="cardImg cardImgNew" ng-click="openNewTreeModal(forest.id)">
+                                +
                             </div>
                         </div>
                     </div>
+                    <div class="card-col col-12 col-sm-6 col-lg-4" ng-repeat="tree in forest.trees | orderBy:tree.id | reverse"> 
+                        <div class="card">
+                            <a ng-href="#/app/{{tree.id}}">
+                                <div class="cardName">
+                                    <strong>{{tree.name}}</strong><br />
+                                </div>
+                                <div class="cardImg" back-img="{{tree.logo}}"></div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Forest Modal -->
+    <div class="modal" id="newForestModal" data-backdrop="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="working" ng-class="{active:newForestModalWorking}">
+                    <i class="icon-working icon-cog icon-spin"></i>
+                </div>
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">
+                        <i class="icon-remove-circle"></i>
+                    </button>
+                    <h3 class="modal-title">Create New Forest</h3>
+                </div>
+                <form name="createForestForm" ng-submit="newForest()">
+                    <div class="modal-body">
+                        <div class="error-text" ng-show="newForestErrorMessage">{{newForestErrorText}}</div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Forest name" ng-model="newForestName" />
+                            <span class="tipText">Tip: A forest is a collection of trees (Applications) such as a company, organization, or more</span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-annotree">
+                            <strong>Create</strong>
+                        </button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">
+                            <strong>Cancel</strong>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modify Forest Modal -->
+    <div class="modal" id="modifyForestModal" ng-model="modifyForest" data-backdrop="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="working" ng-class="{active:modifyForestWorking}">
+                    <i class="icon-working icon-cog icon-spin"></i>
+                </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="icon-remove-circle"></i>
+                    </button>
+                    <h3 class="modal-title">Update Forest</h3>
+                </div>
+                <form name="modifyForestForm" ng-submit="modifyForestFn()">
+                    <div class="modal-body">
+                        <div class="error-text" ng-show="modifyForestErrorMessage">{{modifyForestErrorText}}</div>
+                        <div class="form-group">
+                            <input id="forestName" class="form-control" type="text" ng-model="modifyForestName" />
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-8" id="forestOwnerInfo" style="">
+                                Forest owner: {{forestOwner.first_name + ' ' + forestOwner.last_name + ' (' + forestOwner.email + ')'}}
+                            </div>
+                            <div class="col-sm-4">
+                                <a class="btn btn-annotree" ng-click="openChangeForestOwnerModal()">
+                                    <strong>Update Owner</strong>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-annotree">
+                            <strong>Rename</strong>
+                        </button>
+                        <button type="button" class="btn btn-danger" ng-click="deleteForestCallback()">
+                            <strong>Delete</strong>
+                        </button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">
+                            <strong>Cancel</strong>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Change Forest Owner Modal -->
+    <div class="modal" id="changeForestOwnerModal" ng-model="modifyForest" data-backdrop="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="working" ng-class="{active:changeForestOwnerWorking}">
+                    <i class="icon-working icon-cog icon-spin"></i>
+                </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="icon-remove-circle"></i>
+                    </button>
+                    <h3 class="modal-title">Update Forest Owner</h3>
+                </div>
+                <form name="changeForestOwnerForm" ng-submit="changeForestOwnerFn()">
+                    <div class="modal-body">
+                        Current owner: {{forestOwner.first_name + ' ' + forestOwner.last_name + ' (' + forestOwner.email + ')'}}
+                        <div class="row" style="margin:10px 10px 0 10px">
+                            <div class="col-12">
+                                <div class="error-text" ng-show="changeForestOwnerErrorMessage">{{changeForestOwnerErrorText}}</div>
+                                <select class="form-control" ng-model="changeForestOwnerSelect">
+                                    <option value="nochange" selected>Choose a new owner...</option>
+                                    <option value="{{user.id}}" ng-repeat="user in potentialForestOwners">
+                                        {{user.first_name}} {{user.last_name}} ({{user.email}})
+                                        </option>
+                                </select>
+                                <span class="tipText">A forest owner has access to every tree within the forest and can't be removed from trees</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-annotree">
+                            <strong>Update</strong>
+                        </button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">
+                            <strong>Cancel</strong>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete forest modal -->
+    <div class="modal" id="deleteCallbackModal" data-backdrop="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="working" ng-class="{active:deleteForestWorking}">
+                    <i class="icon-working icon-cog icon-spin"></i>
+                </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="icon-remove-circle"></i>
+                    </button>
+                    <h3 class="modal-title">Delete Forest</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this? This action can not be undone.</p>
+                    <div class="error-text" ng-show="deleteForestErrorMessage">{{deleteForestErrorText}}</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="deleteForest()">
+                        <strong>Yes</strong>
+                    </button>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">
+                        <strong>Cancel</strong>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Tree Modal -->
+    <div class="modal" id="newTreeModal" data-backdrop="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="working" ng-class="{active:newTreeWorking}">
+                    <i class="icon-working icon-cog icon-spin"></i>
+                </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="icon-remove-circle"></i>
+                    </button>
+                    <h3 class="modal-title">Create New Tree</h3>
+                </div>
+                <form name="createTreeForm" ng-submit="newTreeFn()">
+                    <div class="modal-body">
+                        <p class="error-text" ng-show="newTreeErrorMessage">{{newTreeErrorText}}</p>
+                        <div class="form-group">
+                            <input id="treeName" class="form-control" type="text" placeholder="Tree name" ng-model="newTreeName" />
+                            <span class="tipText">Tip: A Tree represents an application or project</span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-annotree">
+                            <strong>Create</strong>
+                        </button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">
+                            <strong>Cancel</strong>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

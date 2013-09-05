@@ -2,8 +2,22 @@
     "use strict";
 
     app.service("authenticateService",
-        function($http, apiRoot) {
+        function() {
+            var reqPath = '';
 
+            function getReqPath() {
+                return reqPath;
+            }
+
+            function setReqPath(path) {
+                reqPath = path;
+            }
+
+            return({
+                setReqPath: setReqPath,
+                getReqPath: getReqPath
+            });
+/*
             function signup(name, email, password) {
                 return $http.post(apiRoot.getRoot() + '/services/user/signup', {
                     signUpName: name, 
@@ -47,6 +61,7 @@
                 resetPassword: resetPassword,
                 getUserInfo: getUserInfo
             });
+            */
         }
     );
 })(angular, AnnoTree);

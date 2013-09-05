@@ -2,7 +2,7 @@
     "use strict";
 
     app.controller("authenticate.SignupController",
-        function($scope, localStorageService, $location, requestContext, authenticateService, constants) {
+        function($scope, localStorageService, $location, $http, apiRoot, requestContext, authenticateService, constants) {
             function setError(msg) {
                 $scope.signUpPassword = '';
                 $scope.signUpConfirmPassword = '';
@@ -39,7 +39,11 @@
                     setError('Valid password characters are alphanumeric or !@#$%^&*()');
                 } else {
                     $('#authenticateWorking').addClass('active'); // TODO: angular way
-                    var promise = authenticateService.signup(name, email, password);
+                    var promise = $http.post(apiRoot.getRoot() + '/services/user/signup', {
+                        signUpName: name, 
+                        signUpEmail: email, 
+                        signUpPassword: password
+                    });//authenticateService.signup(name, email, password);
 
                     promise.then(
                         function(response) {

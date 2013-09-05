@@ -14,7 +14,7 @@ sub create {
         {
             userid  => $params->{userid},
             name    => $params->{name},
-            desc    => $params->{desc}
+            desc    => undef
         }
     );
 
@@ -24,7 +24,7 @@ sub create {
         # returns a 1 if user does not exist or was deleted
         my $error = $cols->[0];
         if ($error == 1) {
-            return {error => $error, txt => 'Can\'t create a forest with a user that does not exist or was deleted'};
+            return {error => $error, txt => 'There seems to be an internal error within our system.  Your user account may have been deleted.  Please contact us at support@annotree.com.'};
         }
     }
     my $forestInfo = $result->fetch;
@@ -50,11 +50,15 @@ sub forestInfo {
     my $forestCount = 0;
     my $cols = $result->fetch;
     
-    return {error => $cols->[0], txt => 'Can\'t retrieve forests for a user that does not exist or was deleted'} if (looks_like_number($cols->[0])); # returns a 1 if user does not exist or was deleted
+    return {error => $cols->[0], txt => 'There seems to be an internal error within our system.  Your user account may have been deleted.  Please contact us at support@annotree.com.'} if (looks_like_number($cols->[0])); # returns a 1 if user does not exist or was deleted
     
     while (my $forest = $result->fetch) {
         for (my $i = 0; $i < @{$cols}; $i++) {
-            $json->{forests}->[$forestCount]->{$cols->[$i]} = $forest->[$i];
+            if ($cols->[$i] =~ m/owner_(.*)/) {
+                $json->{forests}->[$forestCount]->{owner}->{$1} = $forest->[$i];
+            } else {
+                $json->{forests}->[$forestCount]->{$cols->[$i]} = $forest->[$i];
+            }
         }
         
         my $treeResult = AnnoTree::Model::MySQL->db->execute(
@@ -73,7 +77,7 @@ sub forestInfo {
             for (my $i = 0; $i < @{$treeCols}; $i++) {
                 $json->{forests}->[$forestCount]->{trees}->[$treeCount]->{$treeCols->[$i]} = $tree->[$i];
             }
-
+=begin usercode
             my $userResult = AnnoTree::Model::MySQL->db->execute(
                 'call get_users_by_tree(:userid, :treeid)',
                 {
@@ -91,7 +95,8 @@ sub forestInfo {
                 }
                 $userCount++;
             }
-
+=end usercode
+=cut
             $treeCount++;
         }
         $forestCount++;
@@ -110,7 +115,7 @@ sub update {
         {
             forestid        => $params->{forestid},
             name            => $params->{name},
-            desc            => $params->{desc},
+            desc            => undef,
             reqUser         => $params->{reqUser}
         }
     );
@@ -123,7 +128,7 @@ sub update {
     } elsif ($num == 1) {
         $json = {result => $num, txt => 'Nothing was changed'};
     } elsif ($num == 2) {
-        $json = {error => $num, txt => 'Forest does not exist or user does not have permissions to that forest'};
+        $json = {error => $num, txt => 'Forest does not exist or you do not have permissions to that forest'};
     }
     
     return $json; 
@@ -169,7 +174,7 @@ sub deleteForest {
     if ($num == 0) {
         $json = {result => $num, txt => 'Forest deleted successfully'};
     } elsif ($num == 1) {
-        $json = {error => $num, txt => 'Forest does not exist or user does not have permissions to delete forest'};
+        $json = {error => $num, txt => 'Forest does not exist or you do not have permission to delete forest'};
     }
 
     return $json;
@@ -213,9 +218,9 @@ sub updateOwner {
         }
     );
 
-    my $return = $result->fetch;
-    if (looks_like_number($return->[0])) {
-        my $error = $return->[0];
+    my $cols = $result->fetch;
+    if (looks_like_number($cols->[0])) {
+        my $error = $cols->[0];
         if ($error == 1) {
             return {error => $error, txt => 'Selected user does not have permissions to access that forest or forest does not exist'};
         } elsif ($error == 2) {
@@ -226,7 +231,11 @@ sub updateOwner {
         }
     }
     
-    my $json = {email => $return->[0]};
+    my $json = {};
+    my $ownerInfo = $result->fetch;
+    for (my $i = 0; $i < @{$cols}; $i++) {
+        $json->{$cols->[$i]} = $ownerInfo->[$i];
+    } 
 
     return $json;
 }

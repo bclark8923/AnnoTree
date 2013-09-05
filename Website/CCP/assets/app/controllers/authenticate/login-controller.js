@@ -2,7 +2,7 @@
     "use strict";
 
     app.controller("authenticate.LoginController",
-        function($scope, $rootScope, localStorageService, $location, requestContext, authenticateService, constants) {
+        function($scope, $rootScope, localStorageService, $location, $http, apiRoot, requestContext, constants, authenticateService) {
             function setError(msg) {
                 $scope.loginPassword = '';
                 $scope.errorText = msg;
@@ -24,7 +24,10 @@
                     }
                 } else {
                     $('#authenticateWorking').addClass('active'); // TODO: way to handle this in angular?
-                    var promise = authenticateService.login(email, password);
+                    var promise = $http.post(apiRoot.getRoot() + '/services/user/login', {
+                        loginEmail: email, 
+                        loginPassword: password
+                    });//authenticateService.login(email, password);
 
                     promise.then(
                         function(response) {
@@ -34,7 +37,13 @@
                             //localStorageService.add('username', response.data.first_name + ' ' + response.data.last_name);
                             //localStorageService.add('useravatar', response.data.profile_image_path);
                             //$rootScope.user = response.data; //TODO:is this used?
-                            $location.path("app");
+                            var reqPath = authenticateService.getReqPath();
+                            if (reqPath != '') {
+                                authenticateService.setReqPath('');
+                                $location.path(reqPath);
+                            } else {
+                                $location.path("app");
+                            }
                         },
                         function(response) {
                             if (response.status != 500  && response.status != 502) {
@@ -58,7 +67,7 @@
             });
 
             //TODO:Move into main section
-            $("#loadingScreen").hide();
+            $("#loadingScreen").hide(); // TODO: angular way
             $scope.errorMessage = false;
             $scope.setWindowTitle("AnnoTree");
         }

@@ -15,14 +15,13 @@ sub create {
     my $self = shift;
     
     my $jsonReq = $self->req->json;
-    $self->render(json => {error => '0', txt => 'Missing JSON name/value pairs in request'}, status => 406) and return unless (exists $jsonReq->{name} && exists $jsonReq->{description}); 
+    $self->render(json => {error => '0', txt => 'Please enter a tree name'}, status => 406) and return unless (exists $jsonReq->{name}); 
     my $params = {};
     $params->{forestid} = $self->param('forestid');
     $params->{userid} = $self->current_user->{userid};
     $params->{name} = $jsonReq->{name};
-    $params->{desc} = $jsonReq->{description};
     $params->{logo} = 'img/logo.png';
-    $self->render(json => {error => '4', txt => 'No name for the tree provided - include at least one alphanumeric character'}, status => 406) and return unless ($params->{name} =~ m/[A-Za-z0-9]/);
+    $self->render(json => {error => '4', txt => 'A tree name must include at least one alphanumeric character'}, status => 406) and return unless ($params->{name} =~ m/[A-Za-z0-9]/);
 
     my $json = AnnoTree::Model::Tree->create($params);
     my $status = 200;

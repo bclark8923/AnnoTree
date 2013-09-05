@@ -19,8 +19,8 @@
                         leaves[i].annotation = "img/noImageBG.png";
                     }
                 }
-                $rootScope.leaves = leaves;
-                $rootScope.leaves.push($scope.newLeafHolder);
+                $scope.leaves = leaves;
+                $scope.leaves.push($scope.newLeafHolder);
             }
 
             function annotationNameChange() {
@@ -39,10 +39,11 @@
 
                 var promise = treeService.getTree($routeParams.treeID);
                 var found = false;
-                for (var i = 0; i < $rootScope.forests.length; i++) {
-                    for (var n = 0; n < $rootScope.forests[i].trees.length; n++) {
-                        if ($rootScope.forests[i].trees[n].id == $routeParams.treeID) {
-                            $scope.forestOwner = $rootScope.forests[i].owner;
+                /*
+                for (var i = 0; i < $scope.forests.length; i++) {
+                    for (var n = 0; n < $scope.forests[i].trees.length; n++) {
+                        if ($scope.forests[i].trees[n].id == $routeParams.treeID) {
+                            $scope.forestOwner = $scope.forests[i].owner;
                             found = true;
                             break;
                         }
@@ -50,7 +51,7 @@
                     if (found) {
                         break;
                     }
-                }
+                }*/
                 promise.then(
                     function( response ) {
 
@@ -96,12 +97,12 @@
             // --- Define Scope Methods. ------------------------ //
             function addLeaf(newLeaf) {
 
-                $rootScope.leaves.pop();
+                //$rootScope.leaves.pop();
                 if (newLeaf.annotations.length == 0) {
                     newLeaf.annotation = "img/noImageBG.png";
                 }
-                $rootScope.leaves.push(newLeaf);
-                $rootScope.leaves.push($scope.newLeafHolder);
+                //$rootScope.leaves.push(newLeaf);
+                //$rootScope.leaves.push($scope.newLeafHolder);
 
                 $("#newLeafClose").click();
 
@@ -118,31 +119,31 @@
                 if (settingsPane.isOpen) {
                     settingsPane.closeFast();
                 }
-                $rootScope.modifyTree = tree;
-                $rootScope.originalName = tree.name;
-                $rootScope.originalDescription = tree.description;
+                //$rootScope.modifyTree = tree;
+                //$rootScope.originalName = tree.name;
+                //$rootScope.originalDescription = tree.description;
             }
 
             $scope.cancelModifyTreeModal = function() {
-                $rootScope.modifyTree.name = $rootScope.originalName;
-                $rootScope.modifyTree.description = $rootScope.originalDescription;
+                //$rootScope.modifyTree.name = $rootScope.originalName;
+                //$rootScope.modifyTree.description = $rootScope.originalDescription;
                 $scope.closeModifyTreeModal();  
             }
 
             $scope.closeModifyTreeModal = function () {
                 $("#modifyTreeModal").modal('hide');
                 $("#invalidModifyTree").html('');
-                $rootScope.modifyTree = null;
+                //$rootScope.modifyTree = null;
                 $scope.invalidModifyTree = false; 
                 $("#loadingScreen").hide();
                 $('#modifyTreeModalWorking').removeClass('active');
             }
             
             $scope.modifyTreeFn = function() {
-
-                var treeName = $rootScope.modifyTree.name;
+                //TODO: work without rootScope
+                //var treeName = $rootScope.modifyTree.name;
                 var treeDescription = "NULL";
-                var treeID = $rootScope.modifyTree.id;
+                //var treeID = $rootScope.modifyTree.id;
                 var formValid = $scope.modifyTreeForm.$valid;
 
                 //validate form
@@ -204,8 +205,8 @@
             }
 
             $scope.deleteTree = function() {
-                //return;
-                var treeID = $rootScope.modifyTree.id;
+                //TODO: work without rootscope
+                //var treeID = $rootScope.modifyTree.id;
                 var promise = treeService.deleteTree(treeID);
 
                 promise.then(
@@ -414,9 +415,12 @@
                         //if existing, push
                         var index = $scope.treeInfo.users.indexOf($scope.removeUser);
                         $scope.treeInfo.users.splice(index, 1);
+                        //TODO: work without rootScope
+                        /*
                         if ($rootScope.user.id == user.id) {
                             $location.path("app");
                         }
+                        */
                         //else alert user was invited
 
                     },
@@ -614,7 +618,7 @@
             $scope.annoCreate = true;
 
             // I hold the categories to render.
-            $rootScope.leaves = [];
+            $scope.leaves = [];
             $scope.addedUser = {};
             $scope.noLeaves = "";
             $scope.noLeavesNL = "";

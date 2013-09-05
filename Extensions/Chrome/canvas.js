@@ -6753,8 +6753,8 @@ function createColorDiv() {
     return $('<div style="width:90px;height:20px"></div>');
 }
 
-function createOptionsBox(id, vertPos) {
-    return $('<div id="' + id + '" style="padding:5px;background-color:#444;z-index:100000;display:inline-block;position:absolute;' + vertPos + ';left:40px;text-align:center;vertical-align:top;margin:0;box-sizing:content-box; border-radius:0 5px 5px 0"></div>');
+function createOptionsBox(id, vertPos, w, h) {
+    return $('<div id="' + id + '" style="padding:5px;background-color:#444;z-index:100000;display:inline-block;position:absolute;' + vertPos + ';left:40px;text-align:center;vertical-align:top;margin:0;box-sizing:content-box; border-radius:0 5px 5px 0;width:' + w + 'px;height:' + h + 'px"></div>');
 }
 
 function createPenLines(id, img, selected) {
@@ -6762,7 +6762,7 @@ function createPenLines(id, img, selected) {
     if (selected) {
         border = 'border:2px solid #f00';
     }
-    return $('<div id="' + id + '" style="margin-top:5px"><img style="padding:0;margin:0;height:20px;width:90px;cursor:pointer;' + border + '" src="' + img + '" /></div>');
+    return $('<div id="' + id + '" style="margin:5px 0 0 0;padding:0;width:100px;height:24px"><img style="padding:0;margin:0;height:20px;width:90px;cursor:pointer;' + border + '" src="' + img + '" /></div>');
 }
 
 function createTextSizes(id, img, selected) {
@@ -6783,7 +6783,7 @@ function createOptionSection() {
 
 // ----- Create the toolbar -----
 // pen options setup
-var penOptions = createOptionsBox('AnnoTree_penOptions', 'top:43px');
+var penOptions = createOptionsBox('AnnoTree_penOptions', 'top:43px', 100, 140);
 var colorDiv = createColorDiv();
 colorDiv.append(createColorButtons('AnnoTree_coRed', constants.red, '0', 'X'));
 colorDiv.append(createColorButtons('AnnoTree_coBlue', constants.blue, '0 0 0 3px', ''));
@@ -6799,7 +6799,7 @@ penFuncDiv.append(createTextSizes("AnnoTree_clear", constants.img.clear, false))
 penOptions.append(penFuncDiv);
 
 // text options setup
-var textOptions = createOptionsBox('AnnoTree_textOptions', 'top:83px');
+var textOptions = createOptionsBox('AnnoTree_textOptions', 'top:83px', 100, 60);
 var textColorDiv = createColorDiv();
 textColorDiv.append(createColorButtons('AnnoTree_textRed', constants.red, '0', 'X'));
 textColorDiv.append(createColorButtons('AnnoTree_textBlue', constants.blue, '0 0 0 3px', ''));
@@ -6812,8 +6812,8 @@ sizeDiv.append(createTextSizes('AnnoTree_textLarge', constants.img.largeText, fa
 textOptions.append(sizeDiv);
 
 // tree selection setup
-var treeDiv = createOptionsBox('AnnoTree_trees', 'bottom:88px');
-var treeSelection = $('<select id="AnnoTree_treesSelection" style="font-size:14px;height:20px;line-height:20px;font-family:Arial, Helvetica, sans-serif;color:#000;padding:0 0 0 4px;margin:0;border-radius:5px"></select>');
+var treeDiv = createOptionsBox('AnnoTree_trees', 'bottom:88px', 210, 20);
+var treeSelection = $('<select id="AnnoTree_treesSelection" style="font-size:14px;height:20px;line-height:20px;font-family:Arial, Helvetica, sans-serif;color:#000;padding:0 0 0 4px;margin:0;border-radius:5px;width:210px"></select>');
 treeDiv.append(treeSelection);
 
 // toolbar setup
@@ -6830,9 +6830,9 @@ widget.append(toolbarToggle);
 widget.append($('<div id="AnnoTree_magicCircle" style="background-color:#fff;width:40px;height:40px;border:1px solid #444;border-radius:20px;cursor:pointer;text-align:left;box-sizing:content-box;position:absolute;top:0;left:0;opacity:0.8"><img src="' + constants.img.magicCircle + '" style="width:24px;height:24px;margin:8px 0 0 8px;padding:0"/></div>'));
 
 // add toolbar and options to web page
-var contain = $('<div id="AnnoTree_contain" style="position:fixed;z-index:100000;font-family:Arial, Helvetica, sans-serif;color:#000"></div>');
+var contain = $('<div id="AnnoTree_contain" style="position:fixed;z-index:100000;font-family:Arial, Helvetica, sans-serif;color:#000;width:250px"></div>');
 contain.css('top', 50);
-contain.css('right', 150);
+contain.css('right', 70);
 contain.append(widget);
 contain.append(penOptions);
 contain.append(textOptions);

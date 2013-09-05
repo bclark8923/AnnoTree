@@ -23,7 +23,7 @@ sub create {
             userid      => $params->{userid},
             forestid    => $params->{forestid},
             name        => $params->{name},
-            desc        => $params->{desc},
+            desc        => undef,
             logo        => $params->{logo},
             token       => $token,
             created     => $created
@@ -35,16 +35,41 @@ sub create {
     if (looks_like_number($cols->[0])) { 
         my $error = $cols->[0];
         if ($error == 1) {
-            return {error => $error, txt => 'Can\'t create a tree with a user that does not exist or was deleted'};
+            return {error => $error, txt => 'There seems to be an internal error within our system.  Your user account may have been deleted.  Please contact us at support@annotree.com.'};
         } elsif ($error == 2) {
             return {error => $error, txt => 'Forest does not exist'};
         } elsif ($error == 3) {
-            return {error => $error, txt => 'User does not have permissions to create a tree in this forest'};
+            return {error => $error, txt => 'You do not have permissions to create a tree in this forest'};
         } 
     }
     my $treeInfo = $result->fetch;
+    my $treeID;
     for (my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $treeInfo->[$i];
+        if ($cols->[$i] eq 'id') {
+            $treeID = $treeInfo->[$i];
+        }
+    }
+    print $treeID;
+    my $branchResult = AnnoTree::Model::MySQL->db->execute(
+        "call create_branch(:userid, :treeid, :name, :desc)",
+        {
+            userid      => $params->{userid},
+            treeid      => $treeID,
+            name        => 'Loose Leaves',
+            desc        => undef,
+        }
+    );
+    my $branchStatus = $branchResult->fetch->[0];
+    if ($branchStatus == 1 || $branchStatus == 2) {
+        AnnoTree::Model::MySQL->db->execute(
+            "call delete_tree(:reqUser, :treeid)",
+            {
+                treeid          => $treeID,
+                reqUser         => $params->{userid}
+            }
+        );
+        return {error => "5", txt => 'There seems to be an internal error within our system.  Try t0 create the tree again or contact us at support@annotree.com.'};
     }
 
     return $json;

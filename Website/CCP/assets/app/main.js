@@ -99,27 +99,32 @@ AnnoTree.directive('renderPane', function($timeout) {
     }
 });
 
+/*
 var preInterceptor = function($q, $location) {
     return function( promise ) {
         $("#loadingScreen").show();
         return promise;
     }
 };
-
-var interceptor = function($q, $location) {
+*/
+var interceptor = function($q, $location, authenticateService) {
     return function(promise) {
-        var resolve = function( value ) {
+        var resolve = function(value) {
             if (value.redirect) {
+                alert('redirect');
                 $location.path("/authenticate/login");
-                $("#loadingScreen").hide();
+                //$("#loadingScreen").hide();
                 return;
             }
         };
  
-        var reject = function( reason ) {
-            if(reason.status == 401 && reason.data.error == 0) {
+        var reject = function(reason) {
+            if (reason.status == 401 && reason.data.error == 0) {
+                if (authenticateService.getReqPath() == '') {
+                    authenticateService.setReqPath($location.path());
+                }
                 $location.path("/authenticate/login");
-                $("#loadingScreen").hide();
+                //$("#loadingScreen").hide();
                 return;
             }
         };

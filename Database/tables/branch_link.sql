@@ -10,7 +10,8 @@ DROP TABLE IF EXISTS `annotree`.`branch_link` ;
 CREATE  TABLE IF NOT EXISTS `annotree`.`branch_link` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `source_branch_id` INT NULL ,
-  `destination_branch_id` INT NULL ,
+  `destination_branch_id` INT NULL,
+  `priority` INT NOT NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) ,
   INDEX `fk_branch_link_1` (`source_branch_id` ASC) ,

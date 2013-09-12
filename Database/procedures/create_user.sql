@@ -76,7 +76,7 @@ ELSEIF email REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
         INSERT INTO tree (name, logo, owner_id, token, created_at, forest_id) VALUES (concat(@name,  '\'s Tree'), 'img/logo.png', @user_id, token_in, created_in, @forest_id);
         SET @tree_id = LAST_INSERT_ID();
         INSERT INTO user_tree (user_id, tree_id) VALUES (@user_id, @tree_id);
-        INSERT INTO branch (name, tree_id) VALUES (concat(@name, '\'s Branch'), @tree_id);
+        INSERT INTO branch (name, tree_id) VALUES ('User Feedback', @tree_id);
         SET @branch_id = LAST_INSERT_ID();
         INSERT INTO leaf (name, owner_user_id, branch_id) VALUES (concat(@name, '\'s Leaf'), @user_id, @branch_id);
         SET @leaf_id = LAST_INSERT_ID();
@@ -84,6 +84,34 @@ ELSEIF email REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
             VALUES ('image/png', 'anno_default.png', 'anno_default.png', @leaf_id, 'iOS', '6', 'Phone', 'Apple', 'Portrait');
         set @anno_id = LAST_INSERT_ID();
         update annotation set path = concat(services, @anno_id) where id = @anno_id;
+        INSERT INTO branch (name, tree_id) VALUES ('Bugs', @tree_id);
+        SET @branch_id = LAST_INSERT_ID();
+        INSERT INTO branch (name, tree_id) VALUES ('New', @tree_id);
+        SET @sub_branch_id = LAST_INSERT_ID();
+        INSERT INTO branch_link (source_branch_id, destination_branch_id, priority) 
+            VALUES (@branch_id, @sub_branch_id, '1');
+        INSERT INTO branch (name, tree_id) VALUES ('In Progress', @tree_id);
+        SET @sub_branch_id = LAST_INSERT_ID();
+        INSERT INTO branch_link (source_branch_id, destination_branch_id, priority) 
+            VALUES (@branch_id, @sub_branch_id, '2');
+        INSERT INTO branch (name, tree_id) VALUES ('Complete', @tree_id);
+        SET @sub_branch_id = LAST_INSERT_ID();
+        INSERT INTO branch_link (source_branch_id, destination_branch_id, priority) 
+            VALUES (@branch_id, @sub_branch_id, '3');
+        INSERT INTO branch (name, tree_id) VALUES ('Product Backlog', @tree_id);
+        SET @branch_id = LAST_INSERT_ID();
+        INSERT INTO branch (name, tree_id) VALUES ('New', @tree_id);
+        SET @sub_branch_id = LAST_INSERT_ID();
+        INSERT INTO branch_link (source_branch_id, destination_branch_id, priority) 
+            VALUES (@branch_id, @sub_branch_id, '1');
+        INSERT INTO branch (name, tree_id) VALUES ('In Progress', @tree_id);
+        SET @sub_branch_id = LAST_INSERT_ID();
+        INSERT INTO branch_link (source_branch_id, destination_branch_id, priority) 
+            VALUES (@branch_id, @sub_branch_id, '2');
+        INSERT INTO branch (name, tree_id) VALUES ('Complete', @tree_id);
+        SET @sub_branch_id = LAST_INSERT_ID();
+        INSERT INTO branch_link (source_branch_id, destination_branch_id, priority) 
+            VALUES (@branch_id, @sub_branch_id, '3');
     commit;
 ELSE
     select '1';

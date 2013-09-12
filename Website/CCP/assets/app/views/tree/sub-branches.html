@@ -1,0 +1,29 @@
+<div id="branchColumnHolder" ng-controller="tree.SubBranchController">
+    <div ng-repeat="branch in branches | orderBy:'priority'" class="col-sm-4">
+        <div class="branchColumnTitle">
+            {{branch.name}} 
+            <div class="branchCountLabel">
+                {{branch.leaves.length}}
+            </div>
+        </div>
+        <hr class="branchTitleHr" />
+        <div class="branchColDrop" id="{{'b' + branch.id + 'i0'}}" data-drop="true" jqyoui-droppable="{multiple:true, onDrop:'subBranchDrop'}" data-jqyoui-options="{hoverClass:'branchColDropHover'}" ng-model="subBranchDroppedLeaf"></div>
+        <div class="branchColumnLeaves">
+            <div ng-repeat="leaf in branch.leaves | orderBy:'priority'">
+                <div class="card-col col-xs-12" data-jqyoui-options="{revert: 'invalid', appendTo:'body'}" data-drag="true" jqyoui-draggable="{animate:true, index:{{$index}}}" ng-model="branch.leaves">
+                    <div class="card subBranchCard">
+                        <div class="cardName leafCardName">
+                            {{leaf.name}}
+                        </div>
+                        <div class="cardInformation">
+                            <button type="button" class="btn btn-annotree btn-xs">
+                                + Assign
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="branchColDrop" id="{{'b' + branch.id + 'i' + ($index + 1)}}" data-drop="true" jqyoui-droppable="{multiple:true, onDrop:'subBranchDrop'}" data-jqyoui-options="{hoverClass:'branchColDropHover'}" ng-model="subBranchDroppedLeaf"></div>
+            </div>
+        </div>
+    </div>
+</div>

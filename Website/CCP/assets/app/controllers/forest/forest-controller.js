@@ -13,7 +13,7 @@
                         }
                     },
                     function(response) {
-                        $location.path("/forestFire");
+                        $location.path("/forestFire"); //TODO: better way to handle this
                     }
                 );
             }

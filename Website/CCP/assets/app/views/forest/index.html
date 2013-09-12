@@ -30,7 +30,7 @@
                     </div>
                     <div class="card-col col-12 col-sm-6 col-lg-4" ng-repeat="tree in forest.trees | orderBy:tree.id | reverse"> 
                         <div class="card">
-                            <a ng-href="#/app/{{tree.id}}">
+                            <a ng-href="#/app/{{forest.id}}/{{tree.id}}/{{tree.default_branch}}">
                                 <div class="cardName">
                                     <strong>{{tree.name}}</strong><br />
                                 </div>

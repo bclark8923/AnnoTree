@@ -52,12 +52,10 @@ sub create {
     }
     print $treeID;
     my $branchResult = AnnoTree::Model::MySQL->db->execute(
-        "call create_branch(:userid, :treeid, :name, :desc)",
+        "call create_default_branches(:userid, :treeid)",
         {
             userid      => $params->{userid},
-            treeid      => $treeID,
-            name        => 'Loose Leaves',
-            desc        => undef,
+            treeid      => $treeID
         }
     );
     my $branchStatus = $branchResult->fetch->[0];
@@ -69,7 +67,7 @@ sub create {
                 reqUser         => $params->{userid}
             }
         );
-        return {error => "5", txt => 'There seems to be an internal error within our system.  Try t0 create the tree again or contact us at support@annotree.com.'};
+        return {error => "5", txt => 'There seems to be an internal error within our system.  Try to create the tree again or contact us at support@annotree.com.'};
     }
 
     return $json;
@@ -95,9 +93,13 @@ sub treeInfo {
     }
     my $treeInfo = $result->fetch;
     for (my $i = 0; $i < @{$cols}; $i++) {
-        $json->{$cols->[$i]} = $treeInfo->[$i];
+        if ($cols->[$i] =~ m/forest_owner_(.*)/) {
+            $json->{forest_owner}->{$1} = $treeInfo->[$i];
+        } else {
+            $json->{$cols->[$i]} = $treeInfo->[$i];
+        }
     }
-    
+=begin usercode
     $json->{users} = [];
     my $userResult = AnnoTree::Model::MySQL->db->execute(
         'call get_users_by_tree(:userid, :treeid)',
@@ -115,8 +117,8 @@ sub treeInfo {
         }
         $userCount++;
     }
-
-    $json->{branches} = [];
+=end usercode
+=cut
     my $branchResult = AnnoTree::Model::MySQL->db->execute(
         "call get_branches(:userid, :treeid)",
         {
@@ -128,9 +130,37 @@ sub treeInfo {
     if (looks_like_number($cols->[0])) {
         my $error = $cols->[0];
         if ($error == 1) {
-            return {error => $error, txt => 'Tree does not exist or user does not have access to that tree'};
+            return {error => $error, txt => 'You do not have permission to access to that tree'};
         }
     }
+    my $branchHolder = {};
+    my $branchHolderIndex = 0;
+    my $branches = [];
+    my $branchesIndex = 0;
+    while (my $branch = $branchResult->fetch) {
+        my $tempBranch;
+        for (my $i = 0; $i < @{$cols}; $i++) {
+            $tempBranch->{$cols->[$i]} = $branch->[$i];
+        }
+        if (defined $tempBranch->{parent_branch}) {
+            push @{$branchHolder->{$tempBranch->{parent_branch}}}, $tempBranch;
+        } else {
+            delete $tempBranch->{priority};
+            delete $tempBranch->{parent_branch};
+            $tempBranch->{sub_branches} = [];
+            $branches->[$branchesIndex] = $tempBranch;
+            $branchesIndex++;
+        }
+    }
+    for (my $i = 0; $i < @{$branches}; $i++) {
+        if (exists $branchHolder->{$branches->[$i]->{id}}) {
+            $branches->[$i]->{sub_branches} = $branchHolder->{$branches->[$i]->{id}};
+        }
+    }
+    $json->{branches} = $branches;
+    #print Dumper($branches);
+    #print Dumper($branchHolder);
+=begin oldcode
     my $branchIndex = 0;
     while (my $branch = $branchResult->fetch) {
         for (my $i = 0; $i < @{$cols}; $i++) {
@@ -170,52 +200,6 @@ sub treeInfo {
             $leafIndex++;
         }
         $branchIndex++;
-    }
-=begin oldcode
-    $result = AnnoTree::Model::MySQL->db->execute(
-        "call get_branches_and_leafs(:userid, :treeid)",
-        {
-            userid      => $params->{userid},
-            treeid      => $params->{treeid}
-        }
-    ); 
-    $cols = $result->fetch;
-    return $json unless defined $cols->[0];
-    my @tempCols = grep(m/branch/, @{$cols});
-    my @branchCols;
-    while (@tempCols) {
-        my $temp = shift @tempCols;
-        ($temp) = $temp =~ m/branch (\w+)/;
-        push @branchCols, $temp;
-    }
-    my @leafCols;
-    @tempCols = grep(m/leaf/, @{$cols});
-    while (@tempCols) {
-        my $temp = shift @tempCols;
-        ($temp) = $temp =~ m/leaf (\w+)/;
-        push @leafCols, $temp;
-    }
-    my $index;
-    my $numBranches = 0;
-    while (my $return = $result->fetch) {
-        my $foundBranch = -1;
-        for (my $i = 0; $i < @{$json->{branches}}; $i++) {
-            next unless $json->{branches}->[$i]->{id} == $return->[0];
-            print 'found branch';
-            $foundBranch = $i;
-        }
-        if ($foundBranch == -1) {
-            for (my $i = 0; $i < @branchCols; $i++) {
-                $json->{branches}->[$numBranches]->{$branchCols[$i]} = $return->[$i];
-            }
-        }
-        my $branchSpot = ($foundBranch == -1 ? $numBranches : $foundBranch);
-        $json->{branches}->[$branchSpot]->{leaves} = [] unless exists $json->{branches}->[$branchSpot]->{leaves};
-        my $leafCount = @{$json->{branches}->[$branchSpot]->{leaves}};
-        for (my $i = 0; $i < @leafCols; $i++) {
-            $json->{branches}->[$branchSpot]->{leaves}->[$leafCount]->{$leafCols[$i]} = $return->[$i + @branchCols];
-        }
-        $numBranches++;
     }
 =end oldcode
 =cut

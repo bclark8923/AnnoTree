@@ -1,4 +1,4 @@
-var AnnoTree = angular.module("AnnoTree", ['ngCookies']);
+var AnnoTree = angular.module("AnnoTree", ['ngCookies', 'ngDragDrop']);
 
 AnnoTree.run(function($rootScope, $templateCache) {
     $rootScope.$on('$viewContentLoaded', function() {
@@ -30,11 +30,11 @@ AnnoTree.config(
             .when("/app/:treeID/docs", {
                 action: "standard.tree.docs.home"
             })
-            .when("/app/:treeID", {
-                action: "standard.tree.leaves"
-            })
-            .when("/app/:treeID/:leafID", {
-                action: "standard.tree.leaf"
+            .when("/app/:forestID/:treeID/:branchID", {
+                action: "standard.tree"
+            })            
+            .when("/app/:forestID/:treeID", {
+                action: "standard.tree"
             })
             .when("/forestFire", {
                 action: "standard.forestFire"
@@ -42,7 +42,11 @@ AnnoTree.config(
             .otherwise({
                 redirectTo: "/authenticate/login"
             });
-     
+            /*
+            .when("/app/:treeID/:leafID", {
+                action: "standard.tree.leaf"
+            })
+            */
         $httpProvider.responseInterceptors.push(interceptor);
     }
 );
@@ -107,7 +111,7 @@ var preInterceptor = function($q, $location) {
     }
 };
 */
-var interceptor = function($q, $location, authenticateService) {
+var interceptor = function($q, $location, dataService) {
     return function(promise) {
         var resolve = function(value) {
             if (value.redirect) {
@@ -120,8 +124,8 @@ var interceptor = function($q, $location, authenticateService) {
  
         var reject = function(reason) {
             if (reason.status == 401 && reason.data.error == 0) {
-                if (authenticateService.getReqPath() == '') {
-                    authenticateService.setReqPath($location.path());
+                if (dataService.getReqPath() == '') {
+                    dataService.setReqPath($location.path());
                 }
                 $location.path("/authenticate/login");
                 //$("#loadingScreen").hide();
@@ -135,7 +139,7 @@ var interceptor = function($q, $location, authenticateService) {
 };
  
 AnnoTree.directive('backImg', function() {
-    return function(scope, element, attrs){
+    return function(scope, element, attrs) {
         attrs.$observe('backImg', function(value) {
             element.css({
                 'background-image': 'url(' + value +')'

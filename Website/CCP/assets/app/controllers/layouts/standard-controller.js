@@ -2,11 +2,11 @@
     "use strict";
 
     app.controller("layouts.StandardController",
-        function($scope, $location, $http, requestContext, apiRoot, constants) {
+        function($scope, $location, $http, requestContext, apiRoot, constants, dataService) {
             var feedbackDefaultMessage = 'Let us know what features you want to see next, any problems you have while using AnnoTree, or anything else you feel that we should be aware of.';
-
+            
             function loadUserData() {
-                var promise = $http.get(apiRoot.getRoot() + '/services/user/');//authenticateService.getUserInfo();
+                var promise = $http.get(apiRoot.getRoot() + '/services/user/');
                 promise.then(
                     function(response) {
                         $scope.user = response.data;
@@ -17,7 +17,7 @@
                     }
                 ); 
             }
-
+            
             function setFeedbackError(msg) {
                 $scope.feedbackErrorText = msg;
                 $scope.feedbackErrorMessage = true;
@@ -50,7 +50,7 @@
                 $scope.feedbackErrorMessage = false;
                 $scope.feedbackModalWorking = false;
                 $scope.feedbackProvide = true;
-                $scope.feedbackMessage = feedbackDefaultMessage;
+                $scope.feedbackMessage = 'Let us know what features you want to see next, any problems you have while using AnnoTree, or anything else you feel that we should be aware of.';
             };
 
             $scope.submitFeedback = function() {
@@ -63,7 +63,7 @@
                     $scope.feedbackModalWorking = true;
                     var promise = $http.post(apiRoot.getRoot() + '/services/user/feedback', {
                         feedback: feedback
-                    });//feedbackService.submitFeedback(feedback);
+                    });
 
                     promise.then(
                         function(response) {
@@ -94,16 +94,15 @@
                 $scope.userSettingsBox = false;
             });
     
-            $scope.feedbackModalWorking = false;
             $scope.userSettingsBox = false;
-            $scope.feedbackErrorMessage = false;
-            $scope.feedbackProvide = true;
-            $scope.feedbackMessage = feedbackDefaultMessage;
+            $scope.user = dataService.getUser();
+            if ($scope.user == null) {
+                $scope.$evalAsync(loadUserData());
+            }
 
-            $scope.$evalAsync(loadUserData());
             console.log('standard');
             if ($location.path() == "/app/ft") {
-                $("#helpModal").modal('show');
+                $("#helpModal").modal('show'); // TODO: angular way
             }
         }
     );

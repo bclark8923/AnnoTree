@@ -15,12 +15,11 @@ sub create {
     my ($class, $params) = @_;
     
     my $result = AnnoTree::Model::MySQL->db->execute(
-        "call create_leaf(:name, :desc, :userid, :branchid)",
+        "call create_leaf(:name, :userid, :branchid)",
         {
             userid      => $params->{userid},
             branchid    => $params->{branchid},
             name        => $params->{name},
-            desc        => $params->{desc},
         }
     );
 
@@ -30,7 +29,7 @@ sub create {
     if (looks_like_number($cols->[0])) { 
         my $error = $cols->[0];
         if ($error == 1) {
-            return {error => $error, txt => 'Can\'t create a leaf with a user that is not active'};
+            return {error => $error, txt => 'You do not have permissions to create a leaf on this branch'};
         } elsif ($error == 2) { 
             return {error => $error, txt => 'Branch does not exist'};
         } 
@@ -300,6 +299,55 @@ sub deleteLeaf {
     }
 
     return $json;
+}
+
+sub changeBranch {
+    my ($class, $params) = @_;
+    
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call leaf_change_branch(:user, :treeid, :branchid, :leafid)",
+        {
+            user        => $params->{user},
+            treeid      => $params->{treeid},
+            branchid    => $params->{branchid},
+            leafid      => $params->{leafid},
+        }
+    );
+
+    my $num = $result->fetch->[0];
+    if ($num == 1) {
+        return {error => '1', txt => 'You do not have permissions on that tree'};
+    } elsif ($num == 2) {
+        return {error => '2', txt => 'Branch does not exist'};
+    }
+
+    return {};
+}
+
+sub changeSubBranch {
+    my ($class, $params) = @_;
+
+   my $result = AnnoTree::Model::MySQL->db->execute(
+        "call leaf_change_sub_branch(:user, :treeid, :newBranchid, :leafid, :oldBranchid, :newPriority, :oldPriority)",
+        {
+            user        => $params->{user},
+            treeid      => $params->{treeid},
+            newBranchid => $params->{newBranchid},
+            leafid      => $params->{leafid},
+            oldBranchid => $params->{oldBranchid},
+            newPriority => $params->{newPriority},
+            oldPriority => $params->{oldPriority},
+        }
+    );
+
+    my $num = $result->fetch->[0];
+    if ($num == 1) {
+        return {error => '1', txt => 'You do not have permissions on that tree'};
+    } elsif ($num == 2) {
+        return {error => '2', txt => 'Branch does not exist'};
+    }
+
+    return {};
 }
 
 return 1;

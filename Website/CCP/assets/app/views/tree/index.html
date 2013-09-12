@@ -1,34 +1,77 @@
-<div ng-switch="subview" ng-controller="forest.TreeController">
-    <div ng-include=" 'assets/app/views/tree/tree-modals.html' "></div>
-    <div id="dashboardWrap">
-        <div id="dashboard">
-            <div class="appName">
-                <a ng-href="#/app/{{treeInfo.id}}">{{treeInfo.name}}</a>
-            </div> 
-            <div>
-                <img class="appLogo" ng-src="{{treeInfo.logo}}">
-            </div>
-            <hr/>
-            <div style="margin-top:20px;">
-                <a style="text-decoration:none" href="#/app/{{treeInfo.id}}/docs">
-                    <div class="dashLinks">
-                        <div class="dashLinksIcon"><i class="icon-code"></i></div><div class="dashLinksText">SDK</div>
-                    </div>
-                </a>
-                <div class="dashLinks" ng-click="openModifyUsersModal()">
-                    <div class="dashLinksIcon"><i class="icon-group"></i></div><div class="dashLinksText">Users</div>
+<div ng-controller="tree.TreeController">
+    <div class="treePageHeader">
+        <div class="treePageHeaderText">
+            <span class="icon-treeSettings">{{tree.name}} <i class="icon-cog"></i></span>
+            <span style="float:right;margin-right:20px;">
+                <span style="margin-right:20px;">
+                    <select>
+                        <option selected>All</option>
+                        <option>Assigned To Me</option>
+                        <option>Unassigned</option>
+                    </select>
+                </span>
+                <button class="btn btn-add-leaf btn-xs"  ng-click="openNewLeafModal()"><i class="icon-plus"></i> Add Leaf</button>
+            </span>
+        </div>
+    </div>
+    <div id="branchHolder" class="responsiveHide">
+        <div ng-repeat="branch in tree.branches">
+            <div ng-switch="activeBranch.id==branch.id">
+                <div ng-switch-when="true" class="activeBranch">
+                    {{branch.name}}
                 </div>
-                <div class="dashLinks" ng-click="openModifyTreeModal(treeInfo)">
-                    <div class="dashLinksIcon"><i class="icon-cog"></i></div><div class="dashLinksText">Settings</div>
+                <div ng-switch-when="false" class="branch" data-jqyoui-options="{hoverClass:'branchHover'}" ng-click="changeBranch(branch.id)" data-drop="true" jqyoui-droppable="{multiple:true, onDrop:'leafDrop'}" ng-model="droppedLeaf">
+                    {{branch.name}}
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- New Leaf Modal -->
+    <div class="modal" id="newLeafModal" data-backdrop="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="working" ng-class="{active:newLeafWorking}">
+                    <i class="icon-working icon-cog icon-spin"></i>
+                </div>
+                <div class="modal-header">
+                    <button class="close" ng-click="closeNewLeafModal()">
+                        <i class="icon-remove-circle"></i>
+                    </button>
+                    <h3 class="modal-title">Create Leaf</h3>
+                </div>
+                <form name="createLeafForm" ng-submit="newLeaf()">
+                    <div class="modal-body">
+                        <p class="error-text" ng-show="newLeafErrorMessage">{{newLeafErrorText}}</p>
+                        <div class="form-group">
+                            <input id="leafName" class="form-control" type="text" placeholder="Leaf name" ng-model="newLeafName" />
+                            <span class="tipText">Tip: A leaf is an image that you wish to share with others</span>
+                        </div>
+                        <span class="btn btn-annotree fileinput-button">
+                            <i class="icon-plus"></i>
+                            <span>Add file...</span>
+                            <input type="file" name="files" id="annotationImage" />
+                        </span>
+                        <span style="margin-left:5px" id="newLeafAnnotation"></span>
+                    </div>
+                    <div>
+                        Note that only images (max size is 10MB) can be uploaded at this time
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-annotree">
+                            <strong>Create</strong>
+                        </button>
+                        <button type="button" class="btn btn-warning" ng-click="closeNewLeafModal()">
+                            <strong>Cancel</strong>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div ng-switch="subview">
-        <div ng-switch-when="leaves" ng-include=" 'assets/app/views/tree/leaves.html' "></div>
-        <div ng-switch-when="leaf" ng-include=" 'assets/app/views/tree/leaf.html' "></div>
-        <div ng-switch-when="docs" ng-include=" 'assets/app/views/docs/index.html' "></div>
+        <div ng-switch-when="looseLeaves" ng-include="'assets/app/views/tree/leaves.html'"></div>
+        <div ng-switch-when="subBranches" ng-include="'assets/app/views/tree/sub-branches.html'"></div>
     </div>
 </div>

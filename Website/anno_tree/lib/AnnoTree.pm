@@ -122,12 +122,16 @@ sub startup {
     $r->get('/ios/tokens')  ->to('controller-tree#iosTokens');
  
     # ===== BRANCHES =====
-    $authr->post('/:treeid/branch' => [treeid => qr/\d+/])->to('controller-branch#create');
+    $authr->post('/:treeid/branch' => [treeid => qr/\d+/])                                      ->to('controller-branch#create');
+    $authr->get('/:treeid/branch/:branchid' => [treeid => qr/\d+/, branchid => qr/\d+/])        ->to('controller-branch#info');
+    $authr->get('/:treeid/parentbranch/:branchid' => [treeid => qr/\d+/, branchid => qr/\d+/])  ->to('controller-branch#parentInfo');
 
     # ===== LEAVES =====
     $authr->post('/:branchid/leaf' => [branchid => qr/\d+/])    ->to('controller-leaf#create');
     $authr->get('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#leafInfo');
     $authr->put('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#update');
+    $authr->put('/:treeid/:branchid/leaf/:leafid' => [treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])         ->to('controller-leaf#changeBranch');
+    $authr->put('/:treeid/:branchid/subchange/:leafid' => [treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])         ->to('controller-leaf#changeSubBranch');
     $authr->delete('/leaf/:leafid' => [leafid => qr/\d+/])      ->to('controller-leaf#deleteLeaf');
     $r->post('/ios/leaf')       ->to('controller-leaf#iosUpload');
     $r->post('/chrome/leaf')    ->to('controller-leaf#chromeUpload');

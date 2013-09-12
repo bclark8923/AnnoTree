@@ -41,22 +41,22 @@
         </div>
 
         <!-- Include Body Content. -->
-        <div class="switch wrapper">
+        <div class="wrapper">
             <div ng-switch="subview">
-                <div ng-switch-when="forest" ng-include=" 'assets/app/views/forest/index.html' "></div>
-                <div ng-switch-when="tree" ng-include=" 'assets/app/views/tree/index.html' "></div>
-                <div ng-switch-when="forestFire" ng-include=" 'assets/app/views/layouts/404.html' "></div>
+                <div ng-switch-when="forest" ng-include="'assets/app/views/forest/index.html'"></div>
+                <div ng-switch-when="tree" ng-include="'assets/app/views/tree/index.html'"></div>
+                <div ng-switch-when="forestFire" ng-include=" 'assets/app/views/layouts/404.html'"></div>
             </div>
         </div>
     </div>
 
-    <!-- slide over page for mobile options -->
+    <!-- slide over page for mobile options --> 
     <div id="mobileDashboard" render-pane>
         <div ng-switch="subview">
             <div ng-switch-when="forest" ng-include="'assets/app/views/forest/mobilePane.html'"></div>
-            <div ng-switch-when="tree" ng-include="'assets/app/views/tree/mobilePane.html'"></div>
+            <!-- <div ng-switch-when="tree" ng-include="'assets/app/views/tree/mobilePane.html'"></div>--> 
         </div>
-    </div>
+    </div>  
 
     <!-- Feedback Modal -->
     <div class="modal" id="feedbackModal" data-backdrop="true">

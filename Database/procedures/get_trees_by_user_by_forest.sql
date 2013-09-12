@@ -2,23 +2,23 @@
 -- get_tree
 -- returns 0 - success
 -- --------------------------------------------------------------------------------
-use annotree;
-drop  procedure IF EXISTS `get_trees_by_user_by_forest`;
+USE annotree;
+DROP PROCEDURE IF EXISTS `get_trees_by_user_by_forest`;
 DELIMITER $$
 
-
-CREATE Procedure `get_trees_by_user_by_forest`(
-  in u INT,
-  in f INT
-  )
+CREATE PROCEDURE `get_trees_by_user_by_forest`(
+    IN user_id_in INT,
+    IN forest_id_in INT
+)
 BEGIN
-select 'id', 'name', 'forest_id', 'description', 'created_at', 'token', 'logo' 
-union
-select tree.id, tree.name, tree.forest_id, tree.description, tree.created_at, tree.token, tree.logo 
-from tree 
-    join user_tree ut on
-        ut.tree_id = tree.id and
-        u = ut.user_id and
-        tree.forest_id = f;
+SELECT 'id', 'name', 'forest_id', 'description', 'created_at', 'token', 'logo', 'default_branch'
+UNION
+SELECT t.id, t.name, t.forest_id, t.description, t.created_at, t.token, t.logo, b.id
+    FROM tree AS t 
+    JOIN user_tree AS ut ON ut.tree_id = t.id
+    JOIN branch AS b ON b.tree_id = t.id
+    WHERE ut.user_id = user_id_in
+    AND t.forest_id = forest_id_in
+    AND b.name = 'User Feedback';
 END $$ 
 DELIMITER ; $$

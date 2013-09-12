@@ -1,36 +1,42 @@
 -- --------------------------------------------------------------------------------
 -- create_leaf
--- returns ??
+-- returns  success - leaf information
+--          1 - error: user does not have permission
+--          2 - error: branch does not exist
 -- --------------------------------------------------------------------------------
-use annotree;
-drop  procedure IF EXISTS `create_leaf`;
+USE annotree;
+DROP PROCEDURE IF EXISTS `create_leaf`;
 DELIMITER $$
 
-
-CREATE Procedure `create_leaf`(
-  in n VARCHAR(45),
-  in d VARCHAR(1024),
-  in owner_user_id INT,
-  in b_id INT
+CREATE PROCEDURE `create_leaf`(
+    IN name_in VARCHAR(512),
+    IN owner_user_id_in INT,
+    IN branch_id_in INT
   )
 BEGIN
-IF (select id from user where id = owner_user_id) THEN
-    IF (select id from branch where id = b_id) THEN
-        insert into `annotree`.`leaf` 
-          (name, description, owner_user_id, branch_id)
-          values (n, d, owner_user_id, b_id);
-        set @leaf_id = LAST_INSERT_ID();
+IF (SELECT ut.id FROM user_tree AS ut JOIN branch AS b ON b.tree_id = ut.tree_id 
+    WHERE ut.user_id = owner_user_id_in AND b.id = branch_id_in) THEN
+    IF (SELECT id FROM branch WHERE id = branch_id_in) THEN
+        SET @priority = (SELECT MAX(priority) FROM leaf
+            WHERE branch_id = branch_id_in);
+        IF (@priority IS NULL) THEN
+            SET @priority = 0;
+        END IF;
+        INSERT INTO `annotree`.`leaf` 
+            (name, owner_user_id, branch_id, priority)
+            VALUES (name_in, owner_user_id_in, branch_id_in, @priority + 1);
+        SET @leaf_id = LAST_INSERT_ID();
         -- TODO improve this
-        select 'id', 'name', 'description', 'owner_user_id', 'branch_id', 'created_at'
-        union 
-        select id, name, description, owner_user_id, branch_id, created_at 
-        from leaf 
-        where id = @leaf_id;
+        SELECT 'id', 'name', 'owner_user_id', 'branch_id', 'created_at', 'priority'
+            UNION 
+            SELECT id, name, owner_user_id, branch_id, created_at, priority 
+            FROM leaf 
+            WHERE id = @leaf_id;
     ELSE 
-        select '2';
+        SELECT '2';
     END IF;
 ELSE
-    select '1';
+    SELECT '1';
 END IF;
 END $$
 delimiter ; $$

@@ -513,10 +513,14 @@ text-align:left;line-height:38px;vertical-align:middle;
     background-position: center;
     overflow: hidden;
     position: relative;
-    /*border: 5px solid white;
-    border: 5px solid #92DF74;*/
-    /*-webkit-filter: blur(2px);     
-    filter: blur(2px);*/
+}
+
+.card.subBranchCard {
+    min-height: 50px;
+    margin: 4px 0;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
 }
 
 .card.leafCard.new {
@@ -544,16 +548,19 @@ text-align:left;line-height:38px;vertical-align:middle;
 
 .cardName.leafCardName {
     background-color: rgba(146,223,116,0.9);
-    background-color: white;
-    background-color: #92DF74;
-    /*color: #222;*/
-    font-size: 9pt;
-    position: absolute;
-    top: 0;
+    background-color: #fff;
+    /*background-color: #92DF74;*/
+    font-family: Helvetica;
+    font-weight: bold;
+    color: #222;
+    font-size: 11pt;
     width: 100%;
-    /*background-color: rgba(30,30,30,0.6);*/
-    /*color: #222;
-    font-weight: bold;*/
+}
+
+.cardInformation {
+    padding: 5px;
+    text-align: right;
+    background-color: #fff;
 }
 
 .cardNameNew {
@@ -572,12 +579,18 @@ text-align:left;line-height:38px;vertical-align:middle;
     -moz-transition: opacity .25s ease-in-out;
     -webkit-transition: opacity .25s ease-in-out;
 
-
+    /*
     transition: background-color .25s ease-in-out;
     -moz-transition: background-color .25s ease-in-out;
     -webkit-transition: background-color .25s ease-in-out;
+    */
 }
 
+.cardImg:hover {
+    opacity: .6;
+    cursor: pointer;    
+}
+/*
 .cardImgLeaf {
     height: 125px;
     position: absolute;
@@ -587,11 +600,8 @@ text-align:left;line-height:38px;vertical-align:middle;
 .cardImgLeaf:hover {
 }
 
-.cardImg:hover {
-    opacity: .6;
-    cursor: pointer;    
-}
 
+*/
 .cardImgNew {
     text-align: center;
     font-size: 90pt;
@@ -642,17 +652,137 @@ text-align:left;line-height:38px;vertical-align:middle;
 .cardNameLarge i:hover {
     color: #888;
 }
+
+/* -----------------------
+ * Tree Settings
+ * ----------------------- */
+.treePageHeader {
+    padding-top: 40px;
+    height: 80px;
+    background-color: #92DF74;
+}
+
+.treePageHeaderText {
+    font-size: 14pt;
+    padding: 5px;
+    padding-left: 20px;
+}
+
+.icon-treeSettings {
+    cursor: pointer;
+}
+
+#branchHolder {
+    height: calc(100% - 80px);
+    width: 230px;
+    float: left;
+}
+
+.btn-add-leaf {
+    height: 25px;
+    line-height: 5px;
+    background: #fff;
+    border: #fff;
+    color: #222;
+}
+
+.btn-add-leaf:hover {
+    background-color: #eee;
+    color: #222;
+}
+
+.branch {
+    background-color: #bbb;
+    width: 230px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 25px;
+    color: #fff;
+}
+
+.branchHover {
+    background-color: #ccc;
+}
+
+.branch:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.activeBranch, .activeBranch:hover {
+    background-color: #fff;
+    color: #222;
+    width: 230px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 25px;
+    cursor: auto;
+}
+/* -----------------------
+ * Sub-branch Settings
+ * ----------------------- */
+#branchColumnHolder {
+    height: calc(100% - 80px);
+    width: calc(100% - 230px);
+    float: left;
+    margin-left: 230px;
+    position: absolute;
+    background-color: #fff;
+    transition: opacity .25s linear;
+    -moz-transition: opacity .25s linear;
+    -webkit-transition: opacity .25s linear;
+}
+
+.branchColumnTitle {
+    text-align: center;
+    padding: 5px;
+}
+
+.branchCountLabel {
+    display: inline;
+    padding: .25em .6em;
+    font-size: 75%;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #999;
+    border-radius: .25em;
+}
+
+.branchTitleHr {
+    width: 90%;
+    margin: 0 0 0 3%;
+}
+
+.branchColumnLeaves {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    padding: 0;
+    outline: none;
+    min-height: 50px;
+}
+
+.branchColDrop {
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+}
+
+.branchColDropHover {
+    background-color: #ccc;
+}
 /* -----------------------
  * Leaf Settings
  * ----------------------- */
 #leaves {
-    height: 100%;
-    width: 75%;
+    height: calc(100% - 80px);
+    width: calc(100% - 230px);
     float: left;
-    margin-left: 25%;
-    padding-top: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
+    margin-left: 230px;
+    background-color: #fff;
+    padding: 20px;
     position: absolute;
     overflow-y: auto;
     overflow-x: hidden;
@@ -667,7 +797,7 @@ text-align:left;line-height:38px;vertical-align:middle;
     float: left;
     margin-left: 25%;
     border-top: 40px solid transparent;
-    padding:20px;
+    padding: 20px;
     position: absolute;
     overflow-y: auto;
     overflow-x: hidden;
@@ -938,11 +1068,23 @@ text-align:left;line-height:38px;vertical-align:middle;
     display: block;
 }
 
+@media (max-width: 1024px) {
+    #branchHolder {
+        width: 150px;
+    }
+
+    #branchColumnHolder, #leaves {
+        width: calc(100% - 150px);
+        margin-left: 150px;
+    }
+}
+
 @media (max-width: 767px) {
+    /*
     .card-col.col-sm-6 { 
         width: 50%;
     }
-    
+    */
     #helpModal .modal-dialog {
         width: 100%;
     }
@@ -979,7 +1121,7 @@ text-align:left;line-height:38px;vertical-align:middle;
         margin-bottom: 5px;
     }
 
-    #leaves, #leaf, #docs {
+    #leaves, #leaf, #docs, #branchColumnHolder {
         margin-left: 0;
         width: 100%;
     }

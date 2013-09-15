@@ -5,7 +5,7 @@ use AnnoTree::Model::MySQL;
 use Scalar::Util qw(looks_like_number);
 use Data::Dumper;
 
-my $getLeavesOnBranchCols = ['id', 'name', 'created_at', 'branch_id', 'priority'];
+my $getLeavesOnBranchCols = ['id', 'name', 'created_at', 'branch_id', 'priority', 'annotation'];
 
 sub create {
     my ($class, $params) = @_;
@@ -61,9 +61,13 @@ sub info {
     my $leavesIndex = 0;
     while (my $leaf = $leaves->fetch) {
         for (my $i = 0; $i < @{$cols}; $i++) {
-            $json->{leaves}->[$leavesIndex]->{$cols->[$i]} = $leaf->[$i];
+            if ($cols->[$i] eq 'priority') {
+                $json->{leaves}->[$leavesIndex]->{$cols->[$i]} = $leaf->[$i] + 0;
+            } else {
+                $json->{leaves}->[$leavesIndex]->{$cols->[$i]} = $leaf->[$i];
+            }
         }
-   
+=begin annotationcode 
         my $annoResult = AnnoTree::Model::MySQL->db->execute(
             'call get_annotation(:leafid)',
             {
@@ -80,6 +84,8 @@ sub info {
                 $annoIndex++;
             }
         }
+=end annotationcode
+=cut
         $leavesIndex++;
     }
     return $json;

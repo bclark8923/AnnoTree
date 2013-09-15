@@ -2,40 +2,72 @@
     "use strict";
 
     app.controller("tree.LeavesController", function(
-        $scope, $location, $http, $routeParams, apiRoot, constants
+        $scope, $location, $http, $routeParams, $timeout, apiRoot, constants
     ) {
         function loadLeavesData() {
-            //alert($scope.activeBranch.name);
             var branchID = $scope.activeBranch.id;
-            /*
-            if ($scope.activeBranch === undefined) {
-                branchID = $routeParams.branchID;
-            } else {
-                branchID = $scope.activeBranch.id;
-            }
-            */
+
             var promise = $http.get(apiRoot.getRoot() + '/services/' + $routeParams.treeID + '/branch/' + branchID);
             
             promise.then(
                 function(response) {
                     var leaves = response.data.leaves;
                     for (var i = 0; i < leaves.length; i++) {
-                        if (leaves[i].annotations !== undefined && leaves[i].annotations.length > 0) {
-                            leaves[i].annotation = leaves[i].annotations[leaves[i].annotations.length - 1].path;
-                        } else {
+                        if (leaves[i].annotation == null) {
                             leaves[i].annotation = "img/noImageBG.png";
                         }
                     }
                     $scope.leaves = leaves;
+                    if ($routeParams.leafID) {
+                        $scope.showLeaf($routeParams.leafID);
+                    }
                 },
                 function(response) {
                     $location.path("/forestFire"); //TODO: should redirect to app page and tell them why
                 }
             );
         }
-        
+
+        $scope.showLeaf = function(leafID) {
+            $scope.$broadcast('showLeaf', leafID);
+        }
+
         $scope.$on('newLeafCreated', function(evt, leafData) {
             $scope.leaves.push(leafData);
+            $scope.$apply();
+        });
+
+        $scope.$on('newAnnotation', function(evt, leafID, path) {
+            for (var i = 0; i < $scope.leaves.length; i++) {
+                if ($scope.leaves[i].id == leafID) {
+                    $scope.leaves[i].annotation = path;
+                    break;
+                }
+            }
+        });
+
+        $scope.$on('leafRename', function(evt, leafID, name) {
+            for (var i = 0; i < $scope.leaves.length; i++) {
+                if ($scope.leaves[i].id == leafID) {
+                    $scope.leaves[i].name = name;
+                    break;
+                }
+            }
+        });
+
+        $scope.$on('leafDelete', function(evt, leafID) {
+            var dropPriority = false;
+            var spliceIndex = 0;
+            for (var i = 0; i < $scope.leaves.length; i++) {
+                if (dropPriority) {
+                    $scope.leaves[i].priority--;
+                }
+                if ($scope.leaves[i].id == leafID) {
+                    spliceIndex = i;
+                    dropPriority = true;
+                }
+            }
+            $scope.leaves.splice(spliceIndex, 1);
         });
 
         $scope.$evalAsync(loadLeavesData());

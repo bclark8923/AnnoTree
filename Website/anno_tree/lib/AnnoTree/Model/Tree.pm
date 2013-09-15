@@ -99,26 +99,24 @@ sub treeInfo {
             $json->{$cols->[$i]} = $treeInfo->[$i];
         }
     }
-=begin usercode
-    $json->{users} = [];
-    my $userResult = AnnoTree::Model::MySQL->db->execute(
-        'call get_users_by_tree(:userid, :treeid)',
+
+    $result = AnnoTree::Model::MySQL->db->execute(
+        "call get_users_by_tree(:reqUser, :treeid)",
         {
-            userid      => $params->{userid},
-            treeid      => $params->{treeid}
+            treeid          => $params->{treeid},
+            reqUser         => $params->{userid}
         }
     );
-
-    my $userCols = $userResult->fetch;
-    my $userCount = 0;
-    while (my $user = $userResult->fetch) {
-        for (my $i = 0; $i < @{$userCols}; $i++) {
-            $json->{users}->[$userCount]->{$userCols->[$i]} = $user->[$i];
+    
+    $cols = $result->fetch;
+    my $userIndex = 0;
+    while (my $user = $result->fetch) {
+        for (my $i = 0; $i < @{$cols}; $i++) {
+            $json->{users}->[$userIndex]->{$cols->[$i]} = $user->[$i];
         }
-        $userCount++;
+        $userIndex++;
     }
-=end usercode
-=cut
+
     my $branchResult = AnnoTree::Model::MySQL->db->execute(
         "call get_branches(:userid, :treeid)",
         {
@@ -158,63 +156,18 @@ sub treeInfo {
         }
     }
     $json->{branches} = $branches;
-    #print Dumper($branches);
-    #print Dumper($branchHolder);
-=begin oldcode
-    my $branchIndex = 0;
-    while (my $branch = $branchResult->fetch) {
-        for (my $i = 0; $i < @{$cols}; $i++) {
-            $json->{branches}->[$branchIndex]->{$cols->[$i]} = $branch->[$i];
-        }
-        $json->{branches}->[$branchIndex]->{leaves} = [];
-        my $leafResult = AnnoTree::Model::MySQL->db->execute(
-            "call get_leafs(:branchid)",
-            {
-                branchid => $branch->[0]
-            }
-        );
-        my $leafCols = $leafResult->fetch;
-        my $leafIndex = 0;
-        while (my $leaf = $leafResult->fetch) {
-            for (my $i = 0; $i < @{$leafCols}; $i++) {
-                $json->{branches}->[$branchIndex]->{leaves}->[$leafIndex]->{$leafCols->[$i]} = $leaf->[$i]; 
-            }
-            $json->{branches}->[$branchIndex]->{leaves}->[$leafIndex]->{annotations} = [];
-            my $annoResult = AnnoTree::Model::MySQL->db->execute(
-                'call get_annotation(:leafid)',
-                {
-                    leafid => $leaf->[0]
-                }
-            );
-            my $annoCols = $annoResult->fetch;
-            unless (looks_like_number($annoCols->[0])) {
-                my $annoIndex = 0;
-                while (my $anno = $annoResult->fetch) {
-                    for (my $i = 0; $i < @{$annoCols}; $i++) {
-                        $json->{branches}->[$branchIndex]->{leaves}->[$leafIndex]->{annotations}->[$annoIndex]->{$annoCols->[$i]} = $anno->[$i]; 
-                    }
-                    $annoIndex++;
-                }
-            }
 
-            $leafIndex++;
-        }
-        $branchIndex++;
-    }
-=end oldcode
-=cut
     return $json;
 }
 
-sub update {
+sub rename {
     my ($class, $params) = @_;
 
     my $result = AnnoTree::Model::MySQL->db->execute(
-        "call update_tree(:treeid, :name, :desc, :reqUser)",
+        "call rename_tree(:treeid, :name, :reqUser)",
         {
             treeid          => $params->{treeid},
             name            => $params->{name},
-            desc            => $params->{desc},
             reqUser         => $params->{reqUser}
         }
     );
@@ -223,16 +176,45 @@ sub update {
     my $num = $result->fetch->[0];
    
     if ($num == 0) {
-        $json = {result => $num, txt => 'Task updated successfully'};
+        $json = {result => $num, txt => 'Tree updated successfully'};
     } elsif ($num == 1) {
-        $json = {result => $num, txt => 'Nothing was changed'};
-    } elsif ($num == 2) {
-        $json = {error => $num, txt => 'Task does not exist'};
-    } elsif ($num == 3) {
-        $json = {error => $num, txt => 'Requesting user does not exist or does not have access to the tree'};
+        $json = {error => $num, txt => 'You do not have permissions on that tree'};
     }
 
     return $json;
+}
+
+sub treeUsers {
+   my ($class, $params) = @_;
+
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call get_users_by_tree(:reqUser, :treeid)",
+        {
+            treeid          => $params->{treeid},
+            reqUser         => $params->{reqUser}
+        }
+    );
+
+    my $json = {};
+    
+    my $cols = $result->fetch;
+    if (looks_like_number($cols->[0])) {
+        my $num = $cols->[0];
+        if ($num == 1) {
+            $json = {error => $num, txt => 'You do not have permissions to access that tree'};
+        } 
+    }
+    
+    my $userIndex = 0;
+    while (my $user = $result->fetch) {
+        for (my $i = 0; $i < @{$cols}; $i++) {
+            $json->{users}->[$userIndex]->{$cols->[$i]} = $user->[$i];
+        }
+        $userIndex++;
+    }
+
+    return $json;
+
 }
 
 sub addUserToTree {
@@ -253,7 +235,7 @@ sub addUserToTree {
         if ($num == 0) {
             $json = {error => $num, txt => $params->{userToAdd} . ' has already been added to this tree'};
         } elsif ($num == 1) {
-            $json = {error => $num, txt => 'Tree does not exist or user does not have access to that tree'};
+            $json = {error => $num, txt => 'You do not have permissions to access that tree'};
         }
     } else {
         my $status = $result->fetch->[0];
@@ -280,8 +262,8 @@ sub addUserToTree {
         my $subject = '';
         if ($status == 3) {
             $subject = "You've Been Invited To A Tree";
-            $json->{firstName} = $userInfo->[1];
-            $json->{lastName} = $userInfo->[2];
+            $json->{first_name} = $userInfo->[1];
+            $json->{last_name} = $userInfo->[2];
             $body = 'Hi ';
             $body .= $json->{firstName} || $json->{lastName};
             $body .= ",<br/><br/>";
@@ -292,8 +274,8 @@ sub addUserToTree {
             $body .= 'Go to <a href="https://ccp.annotree.com">https://ccp.annotree.com</a> to view this tree.' . "<br/>";
         } else {
             $subject = "You've Been Invited To Join AnnoTree";
-            $json->{firstName} = '';
-            $json->{lastName} = '';
+            $json->{first_name} = '';
+            $json->{last_name} = '';
             $body = 'Hi,' . "<br/><br/>";
             $body .= $curUserInfo->[0] || '';
             $body .= ' ' if $curUserInfo->[0];
@@ -349,7 +331,7 @@ sub deleteTree {
     if ($num == 0) {
         $json = {result => $num, txt => 'Tree deleted successfully', forestid => $result->fetch->[0]};
     } elsif ($num == 1) {
-        $json = {error => $num, txt => 'Tree does not exist or user does not have permissions to delete tree'};
+        $json = {error => $num, txt => 'You do not have permission to delete this tree'};
     }
 
     return $json;
@@ -378,7 +360,6 @@ sub removeUserFromTree {
     } elsif ($num == 3) {
         $json = {error => $num, txt => 'You can\'t remove the forest owner from a tree'};
     }
- 
 
     return $json;
 }

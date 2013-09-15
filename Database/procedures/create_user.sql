@@ -70,15 +70,15 @@ ELSEIF email REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
     union
     select id, first_name, last_name, email, created_at, lang, time_zone, profile_image_path, status from user where id = @user_id;
         SET @name = concat(first_name, ' ', last_name);
-        INSERT INTO forest (name, owner_id) VALUES (concat(@name, '\'s Forest'), @user_id);
+        INSERT INTO forest (name, owner_id) VALUES (concat(@name, '\'s Sample Forest'), @user_id);
         SET @forest_id = LAST_INSERT_ID();
         INSERT INTO user_forest (user_id, forest_id) VALUES (@user_id, @forest_id);
-        INSERT INTO tree (name, logo, owner_id, token, created_at, forest_id) VALUES (concat(@name,  '\'s Tree'), 'img/logo.png', @user_id, token_in, created_in, @forest_id);
+        INSERT INTO tree (name, logo, owner_id, token, created_at, forest_id) VALUES (concat(@name,  '\'s Sample Tree'), 'img/logo.png', @user_id, token_in, created_in, @forest_id);
         SET @tree_id = LAST_INSERT_ID();
         INSERT INTO user_tree (user_id, tree_id) VALUES (@user_id, @tree_id);
         INSERT INTO branch (name, tree_id) VALUES ('User Feedback', @tree_id);
         SET @branch_id = LAST_INSERT_ID();
-        INSERT INTO leaf (name, owner_user_id, branch_id) VALUES (concat(@name, '\'s Leaf'), @user_id, @branch_id);
+        INSERT INTO leaf (name, owner_user_id, branch_id, priority) VALUES (concat(@name, '\'s Sample Leaf'), @user_id, @branch_id, '1');
         SET @leaf_id = LAST_INSERT_ID();
         INSERT INTO annotation (mime_type, filename, filename_disk, leaf_id, meta_system, meta_version, meta_model, meta_vendor, meta_orientation)
             VALUES ('image/png', 'anno_default.png', 'anno_default.png', @leaf_id, 'iOS', '6', 'Phone', 'Apple', 'Portrait');

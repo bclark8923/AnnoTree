@@ -1,9 +1,9 @@
-<div ng-controller="tree.TreeController">
+<div id="treeIndex" ng-controller="tree.TreeController">
     <div class="treePageHeader">
         <div class="treePageHeaderText">
-            <span class="icon-treeSettings">{{tree.name}} <i class="icon-cog"></i></span>
+            <span class="icon-treeSettings" ng-click="openModifyTreeModal()">{{tree.name}} <i class="icon-cog"></i></span>
             <span style="float:right;margin-right:20px;">
-                <span style="margin-right:20px;">
+                <span style="margin-right:20px;vertical-align:middle">
                     <select>
                         <option selected>All</option>
                         <option>Assigned To Me</option>
@@ -35,7 +35,7 @@
                     <i class="icon-working icon-cog icon-spin"></i>
                 </div>
                 <div class="modal-header">
-                    <button class="close" ng-click="closeNewLeafModal()">
+                    <button class="close" data-dismiss="modal">
                         <i class="icon-remove-circle"></i>
                     </button>
                     <h3 class="modal-title">Create Leaf</h3>
@@ -44,7 +44,7 @@
                     <div class="modal-body">
                         <p class="error-text" ng-show="newLeafErrorMessage">{{newLeafErrorText}}</p>
                         <div class="form-group">
-                            <input id="leafName" class="form-control" type="text" placeholder="Leaf name" ng-model="newLeafName" />
+                            <input id="leafName" class="form-control" type="text" placeholder="Leaf name" ng-model="newLeafName" maxlength="512" />
                             <span class="tipText">Tip: A leaf is an image that you wish to share with others</span>
                         </div>
                         <span class="btn btn-annotree fileinput-button">
@@ -61,11 +61,108 @@
                         <button type="submit" class="btn btn-annotree">
                             <strong>Create</strong>
                         </button>
-                        <button type="button" class="btn btn-warning" ng-click="closeNewLeafModal()">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">
                             <strong>Cancel</strong>
                         </button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modify Tree Modal -->
+    <div class="modal" id="modifyTreeModal" data-backdrop="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="working" ng-class="{active:modifyTreeModalWorking}">
+                    <i class="icon-working icon-cog icon-spin"></i>
+                </div>
+                <div class="modal-header">
+                    <button type="button" class="close" ng-hide="treeRenameShow" data-dismiss="modal">
+                        <i class="icon-remove-circle"></i>
+                    </button>
+                    <div ng-click="showRenameTree()" style="cursor:pointer" ng-hide="treeRenameShow">
+                        <h3 class="modal-title">{{tree.name}}</h3>
+                    </div>
+                    <div ng-show="treeRenameShow" style="text-align:left">
+                        <div class="error-text" ng-show="treeRenameErrorMessage">{{treeRenameErrorText}}</div>
+                        <input class="form-control" style="width:100%;display:block;margin-bottom:5px" rows="3" ng-model="treeRenameText" maxlength="45" />
+                        <button type="button" class="btn btn-annotree" ng-click="renameTree()">Rename</button>
+                        <button type="button" class="btn btn-warning" ng-click="treeRenameShow=false">
+                            <strong>Cancel</strong>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h4 style="margin-top:0">Invite Users</h4>
+                    <div class="error-text" ng-show="removeUserErrorMessage">{{removeUserErrorText}}</div>
+                    <div id="treeModifyUsers">
+                        <table>
+                            <tbody>
+                                <tr ng-repeat="user in tree.users">
+                                    <td>
+                                        {{user.first_name}} {{user.last_name}}
+                                    </td>
+                                    <td>
+                                        {{user.email}}
+                                    </td>
+                                    <td>
+                                        <i ng-click="removeFromTree(user)" class="icon-remove-circle" ng-hide="user.email == tree.forest_owner.email"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-10 error-text" ng-show="addUserErrorMessage">{{addUserErrorText}}</div>
+                        <div class="col-xs-10">
+                            <input id="userList" class="form-control" type="email" placeholder="Email" /> 
+                        </div>
+                        <div class="col-xs-2">
+                            <a class="btn btn-annotree" ng-click="addUser()"><strong>Add</strong></a>
+                        </div>
+                        <div class="tipText col-xs-10">
+                            Tip: Search for a user or input an email to invite a new user to this tree.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-annotree" data-dismiss="modal">
+                        <strong>Close</strong>
+                    </button>
+                    <button type="button" class="btn btn-danger" ng-click="openDeleteTree()">
+                        <strong>Delete</strong>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Delete Tree Confirmation Modal-->
+    <div class="modal" id="deleteTreeModal" data-backdrop="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="working" ng-class="{active:deleteTreeModalWorking}">
+                    <i class="icon-working icon-cog icon-spin"></i>
+                </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="icon-remove-circle"></i>
+                    </button>
+                    <h3 class="modal-title">Confirm Tree Deletion</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="error-text" ng-show="deleteTreeErrorMessage">{{deleteTreeErrorText}}</div>
+                    <p>Are you sure you want to delete this tree? This action can not be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="deleteTree()">
+                        <strong>Yes</strong>
+                    </button>
+                    <button type="button" class="btn btn-annotree" data-dismiss="modal">
+                        <strong>No</strong>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

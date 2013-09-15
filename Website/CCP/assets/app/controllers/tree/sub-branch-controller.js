@@ -64,6 +64,7 @@
                     break;
                 }
             }
+            /*
             var testData = "";
             for (var i = 0; i < $scope.branches.length; i++) {
                 if ($scope.branches[i].id == branchID) { 
@@ -73,6 +74,7 @@
                 }
             }
             alert(testData);
+            */
         }
 
         function setScroll() {
@@ -95,8 +97,51 @@
                     break;
                 }
             } 
+            $scope.$apply();
         }); 
-        
+       
+        $scope.showLeaf = function(leafID) {
+            $scope.$broadcast('showLeaf', leafID);
+        }
+
+        $scope.openAssign = function() {
+            alert('this will assign someone eventually');
+        }
+
+        $scope.$on('leafRename', function(evt, leafID, name, branchID) {
+            for (var b = 0; b < $scope.branches.length; b++) {
+                if ($scope.branches[b].id == branchID) {
+                    for (var i = 0; i < $scope.branches[b].leaves.length; i++) {
+                        if ($scope.branches[b].leaves[i].id == leafID) {
+                            $scope.branches[b].leaves[i].name = name;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+        }); 
+
+        $scope.$on('leafDelete', function(evt, leafID, branchID) {
+            var dropPriority = false;
+            var spliceIndex = 0;
+            for (var b = 0; b < $scope.branches.length; b++) {
+                if ($scope.branches[b].id == branchID) {
+                    for (var i = 0; i < $scope.branches[b].leaves.length; i++) {
+                        if (dropPriority) {
+                            $scope.branches[b].leaves[i].priority--;
+                        }
+                        if ($scope.branches[b].leaves[i].id == leafID) {
+                            spliceIndex = i;
+                            dropPriority = true;
+                        }
+                    }
+                    $scope.branches[b].leaves.splice(spliceIndex, 1);
+                    break;
+                }
+            }
+        });
+
         $(window).resize(setScroll);
         $scope.$watch('activeBranch', function(oldValue, newValue) {loadBranchData()}, true);
         $scope.$watch('branches', function(oldValue, newValue) {setScroll()}, true);

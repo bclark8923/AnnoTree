@@ -55,25 +55,38 @@ sub treeInfo {
     $self->render(json => $json, status => $status); 
 }
 
-sub update {
+sub rename {
     my $self = shift;
     my $jsonReq = $self->req->json;
 
-    $self->render(json => {error => '0', txt => 'Missing required JSON name/value pairs in request or they have no value'}, status => 406) and return unless ($jsonReq->{'description'} && $jsonReq->{'name'});
-    $self->render(json => {error => '1', txt => 'Tree name must contain at least one alphanumeric character'}, status => 406) and return unless ($jsonReq->{'name'} =~ m/[A-Za-z0-9]/);
+    $self->render(json => {error => '0', txt => 'Please enter a tree name'}, status => 406) and return unless ($jsonReq->{'name'});
+    $self->render(json => {error => '1', txt => 'A tree name must contain at least one alphanumeric character'}, status => 406) and return unless ($jsonReq->{'name'} =~ m/[A-Za-z0-9]/);
 
     my $params = {};
     $params->{treeid} = $self->param('treeid');
     $params->{name} = $jsonReq->{'name'};
-    $params->{desc} = $jsonReq->{'description'};
     $params->{reqUser} = $self->current_user->{userid};
 
-    my $json = AnnoTree::Model::Tree->update($params);
+    my $json = AnnoTree::Model::Tree->rename($params);
     my $status = 204;
-    if (exists $json->{error}) {
-       $status = 406;
-    }
+    $status = 406 if (exists $json->{error});
+    
     $self->render(json => $json, status => $status);
+}
+
+sub treeUsers {
+    my $self = shift;
+    
+    my $params = {};
+    $params->{treeid} = $self->param('treeid');
+    $params->{reqUser} = $self->current_user->{userid};
+
+    my $json = AnnoTree::Model::Tree->treeUsers($params);
+    my $status = 204;
+    $status = 406 if (exists $json->{error});
+    
+    $self->render(json => $json, status => $status);
+
 }
 
 sub addUserToTree {

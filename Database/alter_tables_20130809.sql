@@ -6,7 +6,6 @@ UPDATE branch SET description = NULL;
 ALTER TABLE leaf
 MODIFY name VARCHAR(512);
 
-
 ALTER TABLE leaf
 ADD priority INT NULL
 AFTER branch_id;

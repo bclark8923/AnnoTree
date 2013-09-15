@@ -2,7 +2,7 @@
     "use strict";
 
     app.controller("authenticate.AuthenticateController",
-        function($scope, requestContext, authenticateService) {
+        function($scope, requestContext) {
             var renderContext = requestContext.getRenderContext("authenticate");
             $scope.subview = renderContext.getNextSection();
             $scope.$on("requestContextChanged", function() {

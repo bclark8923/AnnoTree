@@ -17,6 +17,11 @@ CREATE PROCEDURE `leaf_change_branch` (
 BEGIN
 IF (SELECT id FROM user_tree WHERE user_id = user_id_in AND tree_id = tree_id_in) THEN
     IF (SELECT id FROM branch WHERE id = branch_id_in AND tree_id = tree_id_in) THEN
+        SET @old_priority = (SELECT priority FROM leaf WHERE id = leaf_id_in);
+        SET @old_branch = (SELECT branch_id FROM leaf WHERE id = leaf_id_in);
+        UPDATE leaf SET priority = priority - 1
+            WHERE priority > @old_priority
+            AND branch_id = @old_branch;
         IF (SELECT id FROM branch_link WHERE source_branch_id = branch_id_in AND priority = '1') THEN
             SET @priority = (SELECT MAX(priority) FROM leaf
                 WHERE branch_id = 
@@ -33,7 +38,14 @@ IF (SELECT id FROM user_tree WHERE user_id = user_id_in AND tree_id = tree_id_in
                 priority = (@priority + 1)
                 WHERE id = leaf_id_in;
         ELSE
-            UPDATE leaf SET branch_id = branch_id_in WHERE id = leaf_id_in;
+            SET @priority = (SELECT MAX(priority) FROM leaf
+                WHERE branch_id = branch_id_in);
+            IF (@priority IS NULL) THEN
+                SET @priority = 0;
+            END IF;
+            UPDATE leaf SET branch_id = branch_id_in,
+                priority = @priority + 1
+                WHERE id = leaf_id_in;
         END IF;
         SELECT '0';
     ELSE

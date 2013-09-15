@@ -239,7 +239,7 @@ var jqyoui = angular.module('ngDragDrop', []).service('ngDragDropService', ['$ti
                   ngDragDropService.callEventCallback(scope, dragSettings.onDrag, event, ui);
                 },
                 helper: function(event, ui) {
-                  return $('<div style="width:50px;height:50px;background-color:#f00"></div>');  
+                  return $('<img style="width:50px" src="img/dropLeaf.png" />');  
                 },
                 cursorAt: {left: 25, top: 25}
               });

@@ -1,4 +1,4 @@
-<div ng-switch="subview" ng-controller="forest.ForestController">
+<div id="forestIndex" ng-controller="forest.ForestController">
     <div id="forestContainer">
         <div class="container" >
             <div class="row forest new" style="margin-bottom:30px">
@@ -85,60 +85,23 @@
                     <i class="icon-working icon-cog icon-spin"></i>
                 </div>
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" ng-hide="forestRenameShow" data-dismiss="modal">
                         <i class="icon-remove-circle"></i>
                     </button>
-                    <h3 class="modal-title">Update Forest</h3>
-                </div>
-                <form name="modifyForestForm" ng-submit="modifyForestFn()">
-                    <div class="modal-body">
-                        <div class="error-text" ng-show="modifyForestErrorMessage">{{modifyForestErrorText}}</div>
-                        <div class="form-group">
-                            <input id="forestName" class="form-control" type="text" ng-model="modifyForestName" />
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-8" id="forestOwnerInfo" style="">
-                                Forest owner: {{forestOwner.first_name + ' ' + forestOwner.last_name + ' (' + forestOwner.email + ')'}}
-                            </div>
-                            <div class="col-sm-4">
-                                <a class="btn btn-annotree" ng-click="openChangeForestOwnerModal()">
-                                    <strong>Update Owner</strong>
-                                </a>
-                            </div>
-                        </div>
+                    <div ng-click="showRenameForest()" style="cursor:pointer" ng-hide="forestRenameShow">
+                        <h3 class="modal-title">{{modifyForestRef.name}}</h3>
                     </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-annotree">
-                            <strong>Rename</strong>
-                        </button>
-                        <button type="button" class="btn btn-danger" ng-click="deleteForestCallback()">
-                            <strong>Delete</strong>
-                        </button>
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">
+                    <div ng-show="forestRenameShow" style="text-align:left">
+                        <div class="error-text" ng-show="forestRenameErrorMessage">{{forestRenameErrorText}}</div>
+                        <input class="form-control" style="width:100%;display:block;margin-bottom:5px" rows="3" ng-model="forestRenameText" maxlength="45" />
+                        <button type="button" class="btn btn-annotree" ng-click="renameForest()">Rename</button>
+                        <button type="button" class="btn btn-warning" ng-click="forestRenameShow=false">
                             <strong>Cancel</strong>
                         </button>
                     </div>
                 </div>
-            </div>
-        </form>
-    </div>
-
-    <!-- Change Forest Owner Modal -->
-    <div class="modal" id="changeForestOwnerModal" ng-model="modifyForest" data-backdrop="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="working" ng-class="{active:changeForestOwnerWorking}">
-                    <i class="icon-working icon-cog icon-spin"></i>
-                </div>
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <i class="icon-remove-circle"></i>
-                    </button>
-                    <h3 class="modal-title">Update Forest Owner</h3>
-                </div>
-                <form name="changeForestOwnerForm" ng-submit="changeForestOwnerFn()">
-                    <div class="modal-body">
-                        Current owner: {{forestOwner.first_name + ' ' + forestOwner.last_name + ' (' + forestOwner.email + ')'}}
+                <div class="modal-body">
+                        Current owner: {{'(' + forestOwner + ')'}}
                         <div class="row" style="margin:10px 10px 0 10px">
                             <div class="col-12">
                                 <div class="error-text" ng-show="changeForestOwnerErrorMessage">{{changeForestOwnerErrorText}}</div>
@@ -146,21 +109,20 @@
                                     <option value="nochange" selected>Choose a new owner...</option>
                                     <option value="{{user.id}}" ng-repeat="user in potentialForestOwners">
                                         {{user.first_name}} {{user.last_name}} ({{user.email}})
-                                        </option>
+                                    </option>
                                 </select>
                                 <span class="tipText">A forest owner has access to every tree within the forest and can't be removed from trees</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-annotree">
-                            <strong>Update</strong>
-                        </button>
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">
-                            <strong>Cancel</strong>
-                        </button>
-                    </div>
-                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-annotree" data-dismiss="modal">
+                        <strong>Close</strong>
+                    </button>
+                    <button type="button" class="btn btn-danger" ng-click="deleteForestCallback()">
+                        <strong>Delete</strong>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

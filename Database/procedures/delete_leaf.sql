@@ -1,35 +1,45 @@
 -- --------------------------------------------------------------------------------
 -- delete_leaf
--- returns 0 - success
--- returns 1 - failure
--- returns 2 - user does not have permission to delete that leaf
+-- returns  0 - success
+--          1 - error: nothing was deleted
+--          2 - error: user does not have permission to delete that leaf
 -- --------------------------------------------------------------------------------
-use annotree;
-drop  procedure IF EXISTS `delete_leaf`;
+USE annotree;
+DROP PROCEDURE IF EXISTS `delete_leaf`;
 DELIMITER $$
 
-
-CREATE Procedure `delete_leaf`(
-    in userid INT,
-    in leafid INT
+CREATE PROCEDURE `delete_leaf`(
+    IN req_user INT,
+    IN leaf_id_in INT
 )
 BEGIN
-IF (select ut.id from user_tree ut, branch b, leaf l where l.id = leafid and l.branch_id = b.id and b.tree_id = ut.tree_id and ut.user_id = userid) then
+DECLARE del_priority INT;
+DECLARE del_branch INT;
+IF (SELECT ut.id FROM user_tree AS ut
+    JOIN branch AS b ON b.tree_id = ut.tree_id
+    JOIN leaf AS l ON l.branch_id = b.id
+    WHERE l.id = leaf_id_in
+    AND ut.user_id = req_user
+) THEN
     SET FOREIGN_KEY_CHECKS=0;
-    delete l, a  
-            from leaf as l 
-            left outer join annotation as a on
-                l.id = a.leaf_id
-        where
-            l.id = leafid;
-    if row_count() > 0 then 
-        select '0';
+    SELECT priority, branch_id INTO del_priority, del_branch
+        FROM leaf 
+        WHERE id = leaf_id_in;
+    UPDATE leaf SET priority = priority - 1
+        WHERE priority > del_priority
+        AND branch_id = del_branch;
+    DELETE l, a  
+        FROM leaf AS l 
+        LEFT OUTER JOIN annotation AS a ON l.id = a.leaf_id
+        WHERE l.id = leaf_id_in;
+    IF (ROW_COUNT() > 0) THEN
+        SELECT '0';
         SET FOREIGN_KEY_CHECKS=1;
-    else 
-        select '1';
-    end if;
+    ELSE 
+        SELECT '1';
+    END IF;
 ELSE
-    select '2';
+    SELECT '2';
 END IF;
 END $$
-delimiter ; $$
+DELIMITER ; $$

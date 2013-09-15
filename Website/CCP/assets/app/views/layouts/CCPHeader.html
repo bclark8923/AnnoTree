@@ -9,6 +9,10 @@
                         <a href="#/app"><i class="icon-home"></i>&nbsp;Home</a>
                     </li>
                     <li>
+                        <a href="#/app/docs"><i class="icon-code"></i>&nbsp;Docs</a>
+                    </li>
+
+                    <li>
                         <a ng-click="openHelpModal()"><i class="icon-lightbulb"></i>&nbsp;Help</a>
                     </li>
                 </ul>
@@ -45,7 +49,8 @@
             <div ng-switch="subview">
                 <div ng-switch-when="forest" ng-include="'assets/app/views/forest/index.html'"></div>
                 <div ng-switch-when="tree" ng-include="'assets/app/views/tree/index.html'"></div>
-                <div ng-switch-when="forestFire" ng-include=" 'assets/app/views/layouts/404.html'"></div>
+                <div ng-switch-when="forestFire" ng-include="'assets/app/views/layouts/404.html'"></div>
+                <div ng-switch-when="docs" ng-include="'assets/app/views/docs/index.html'"></div>
             </div>
         </div>
     </div>

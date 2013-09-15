@@ -115,7 +115,8 @@ sub startup {
     # ===== TREES =====
     $authr->post('/:forestid/tree' => [forestid => qr/\d+/])                                ->to('controller-tree#create');
     $authr->get('/tree/:treeid' => [treeid => qr/\d+/])                                     ->to('controller-tree#treeInfo');
-    $authr->put('/tree/:treeid' => [treeid => qr/\d+/])                                     ->to('controller-tree#update');
+    $authr->get('/tree/:treeid/users' => [treeid => qr/\d+/])                               ->to('controller-tree#treeUsers');
+    $authr->put('/tree/:treeid' => [treeid => qr/\d+/])                                     ->to('controller-tree#rename');
     $authr->delete('/tree/:treeid' => [treeid => qr/\d+/])                                  ->to('controller-tree#deleteTree');
     $authr->put('/tree/:treeid/user' => [treeid => qr/\d+/])                                ->to('controller-tree#addUserToTree');
     $authr->delete('/tree/:treeid/user/:userid' => [treeid => qr/\d+/, userid => qr/\d+/])  ->to('controller-tree#removeUserFromTree');
@@ -129,7 +130,7 @@ sub startup {
     # ===== LEAVES =====
     $authr->post('/:branchid/leaf' => [branchid => qr/\d+/])    ->to('controller-leaf#create');
     $authr->get('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#leafInfo');
-    $authr->put('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#update');
+    $authr->put('/leaf/:leafid' => [leafid => qr/\d+/])         ->to('controller-leaf#rename');
     $authr->put('/:treeid/:branchid/leaf/:leafid' => [treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])         ->to('controller-leaf#changeBranch');
     $authr->put('/:treeid/:branchid/subchange/:leafid' => [treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])         ->to('controller-leaf#changeSubBranch');
     $authr->delete('/leaf/:leafid' => [leafid => qr/\d+/])      ->to('controller-leaf#deleteLeaf');

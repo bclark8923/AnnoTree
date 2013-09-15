@@ -10,6 +10,7 @@
                 promise.then(
                     function(response) {
                         $scope.user = response.data;
+                        dataService.setUser(response.data);
                     },
                     function(response) { 
                         //TODO: what to do on error? 

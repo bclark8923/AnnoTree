@@ -2,7 +2,7 @@
     "use strict";
 
     app.controller("authenticate.SignupController",
-        function($scope, localStorageService, $location, $http, apiRoot, requestContext, authenticateService, constants) {
+        function($scope, $location, $http, apiRoot, requestContext, constants) {
             function setError(msg) {
                 $scope.signUpPassword = '';
                 $scope.signUpConfirmPassword = '';
@@ -48,14 +48,11 @@
                     promise.then(
                         function(response) {
                             $scope.errorMessage = false;
-                            // this should just redirect to main app where the user information is then loaded
                             //set session information TODO: remove this
                             $('#authenticateWorking').removeClass('active'); // TODO: angular way
-                            //localStorageService.add('username', response.data.first_name + ' ' + response.data.last_name);
-                            //localStorageService.add('useravatar', response.data.profile_image_path);
                             $location.path("/app/ft");
                         },
-                        function( response ) {
+                        function(response) {
                             if (response.status != 500  && response.status != 502) {
                                 setError(response.data.txt);
                             } else {

@@ -1,13 +1,5 @@
-<div id="docs" ng-controller="docs.HomeController">
+<div id="docs" ng-controller="docs.MainController">
     <div id="resources">
-        <div class="cardNameLarge">
-            <a ng-href="#/app/{{treeInfo.id}}">
-                <i id="docsBack" class="icon-circle-arrow-left"></i>
-            </a> 
-            <strong>Developer Resources</strong>
-        </div>
-
-        <!-- Content -->
         <div ng-switch="subview">
             <div ng-switch-when="home" ng-include=" 'assets/app/views/docs/home.html' "></div>
             <div ng-switch-when="ios" ng-include=" 'assets/app/views/docs/ios.html' "></div>

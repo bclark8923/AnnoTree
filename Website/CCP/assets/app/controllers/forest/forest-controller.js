@@ -2,7 +2,7 @@
     "use strict";
 
     app.controller("forest.ForestController",
-        function($scope, $cookies, $rootScope, $location, $timeout, $route, $http, requestContext, branchService, apiRoot, constants) {
+        function($scope, $location, $timeout, $route, $http, requestContext, apiRoot, constants) {
             function loadForestData() {
                 var promise = $http.get(apiRoot.getRoot() + '/services/forest');
 
@@ -17,72 +17,6 @@
                     }
                 );
             }
-
-            $scope.changeForestOwnerFn = function() {
-                var newOwnerID = $scope.changeForestOwnerSelect;
-
-                if (newOwnerID == 'nochange') {
-                    setChangeForestOwnerError('Please select a new owner');
-                } else if (newOwnerID == $scope.modifyForestRef.owner.id) {
-                    setChangeForestOwnerError($scope.modifyForestRef.owner.first_name + ' ' + $scope.modifyForestRef.owner.last_name + ' is already the forest owner');
-                } else {
-                    $scope.changeForestOwnerWorking = true;
-                    var promise = $http.put(apiRoot.getRoot() + '/services/forest/' + $scope.modifyForestRef.id + '/owner', {
-                        owner: newOwnerID
-                    });
-
-                    promise.then(
-                        function(response) {
-                            for (var i = 0; i < $scope.forests.length; i++) {
-                                if ($scope.forests[i].id == $scope.modifyForestRef.id) {
-                                    $scope.forests[i].owner = response.data;
-                                    break;
-                                }
-                            }
-                            $scope.changeForestOwnerWorking = false;
-                            $('#changeForestOwnerModal').modal('hide'); //TODO: angular way
-                            $('#modifyForestModal').modal('hide'); //TODO: angular way
-                        },
-                        function(response) {
-                            if (response.status != 500 && response.status != 502) {
-                                setChangeForestOwnerError(response.data.txt);
-                            } else {
-                                setChangeForestOwnerError(constants.servicesDown());
-                            }
-                            $scope.changeForestOwnerWorking = false;
-                        }
-                    ); 
-                }
-            }
-            
-            function setChangeForestOwnerError(msg) {
-                $scope.changeForestOwnerErrorText = msg;
-                $scope.changeForestOwnerErrorMessage = true;
-            }
-            
-            //TODO: use ngOptions when roles and permissions are created
-            $scope.openChangeForestOwnerModal = function() {
-                $('#changeForestOwnerModal').appendTo('body').modal('show'); //TODO: angular way
-                $scope.changeForestOwnerErrorMessage = false;
-                $scope.changeForestOwnerWorking = true;
-                var promise = $http.get(apiRoot.getRoot() + '/services/forest/' + $scope.modifyForestRef.id + '/users');
-                
-                promise.then(
-                    function(response) {
-                        $rootScope.potentialForestOwners = response.data.users;
-                        $scope.changeForestOwnerWorking = false;
-                        $scope.changeForestOwnerSelect = 'nochange';
-                    },
-                    function(response) {
-                        if (response.status != 500 && response.status != 502) {
-                            setChangeForestOwnerError(response.data.txt);
-                        } else {
-                            setChangeForestOwnerError(constants.servicesDown());
-                        }
-                        $scope.changeForestOwnerWorking = false;
-                    }
-                );
-            } 
 
             $scope.openNewTreeModal = function(forestID) {
                 $scope.newTreeErrorMessage = false;
@@ -137,58 +71,127 @@
                 }
             }
 
+            $scope.$watch('changeForestOwnerSelect', function() {
+                changeForestOwnerFn();
+            });
+
+            function changeForestOwnerFn() {
+                if ($scope.changeForestOwnerSelect !== undefined) {
+                    var newOwnerID = $scope.changeForestOwnerSelect;
+
+                    if (newOwnerID == 'nochange') {
+                        return;
+                    } else if (newOwnerID == $scope.modifyForestRef.owner.id) {
+                        setChangeForestOwnerError($scope.modifyForestRef.owner.first_name + ' ' + $scope.modifyForestRef.owner.last_name + ' is already the forest owner');
+                    } else {
+                        $scope.modifyForestWorking = true;
+                        var promise = $http.put(apiRoot.getRoot() + '/services/forest/' + $scope.modifyForestRef.id + '/owner', {
+                            owner: newOwnerID
+                        });
+
+                        promise.then(
+                            function(response) {
+                                for (var i = 0; i < $scope.forests.length; i++) {
+                                    if ($scope.forests[i].id == $scope.modifyForestRef.id) {
+                                        $scope.forests[i].owner = response.data;
+                                        break;
+                                    }
+                                }
+                                $scope.modifyForestWorking = false;
+                                $('#modifyForestModal').modal('hide'); //TODO: angular way
+                            },
+                            function(response) {
+                                if (response.status != 500 && response.status != 502) {
+                                    setChangeForestOwnerError(response.data.txt);
+                                } else {
+                                    setChangeForestOwnerError(constants.servicesDown());
+                                }
+                                $scope.changeForestOwnerWorking = false;
+                            }
+                        ); 
+                    }
+                }
+            }
+            
+            function setChangeForestOwnerError(msg) {
+                $scope.changeForestOwnerErrorText = msg;
+                $scope.changeForestOwnerErrorMessage = true;
+            }
+
+            //TODO: use ngOptions when roles and permissions are created
             $scope.openModifyForestModal = function(forest) {
+                $scope.changeForestOwnerErrorMessage = false;
+                var promise = $http.get(apiRoot.getRoot() + '/services/forest/' + forest.id + '/users');
+                
+                promise.then(
+                    function(response) {
+                        $scope.potentialForestOwners = response.data.users;
+                        $scope.changeForestOwnerWorking = false;
+                        $scope.changeForestOwnerSelect = 'nochange';
+                    },
+                    function(response) {
+                        if (response.status != 500 && response.status != 502) {
+                            setChangeForestOwnerError(response.data.txt);
+                        } else {
+                            setChangeForestOwnerError(constants.servicesDown());
+                        }
+                        $scope.changeForestOwnerWorking = false;
+                    }
+                );
+
                 $scope.modifyForestWorking = false;
                 $scope.modifyForestErrorMessage = false;
                 $scope.modifyForestRef = forest;
                 $scope.modifyForestName = angular.copy(forest.name);
                 for (var i = 0; i < $scope.forests.length; i++) {
                     if ($scope.forests[i].id == forest.id) {
-                        if ($scope.forests[i].owner === undefined) {
+                        if ($scope.forests[i].owner.id == null) {
                             $scope.forestOwner = 'No current owner';
                         } else {
-                            $scope.forestOwner = $scope.forests[i].owner;
+                            $scope.forestOwner = '';
+                            if ($scope.forests[i].owner.first_name != null) {
+                                $scope.forestOwner += $scope.forests[i].owner.first_name + ' ';
+                            }
+                            if ($scope.forests[i].owner.last_name != null) {
+                                $scope.forestOwner += $scope.forests[i].owner.last_name + ' ';
+                            }
+                            $scope.forestOwner += $scope.forests[i].owner.email;
                         }
                         break;
                     }
                 }
                 $("#modifyForestModal").appendTo('body').modal('show'); //TODO:angular way
             }
-
-            function setModifyForestError(msg) {
-                $scope.modifyForestErrorText = msg;
-                $scope.modifyForestErrorMessage = true;
+            
+            $scope.showRenameForest = function() {
+                $scope.forestRenameText = $scope.modifyForestRef.name;
+                $scope.forestRenameErrorMessage = false;
+                $scope.forestRenameShow = true;
             }
 
-            $scope.modifyForestFn = function() {
+            function setForestRenameError(msg) {
+                $scope.forestRenameErrorText = msg;
+                $scope.forestRenameErrorMessage = true;
+            }
+
+            $scope.renameForest = function() {
                 var forestID = $scope.modifyForestRef.id;
-                var forestName = $scope.modifyForestName;
+                var forestName = $scope.forestRenameText;
 
                 if (!forestName) {
-                    setModifyForestError("Please enter a forest name");
+                    setForestRenameError("Please enter a forest name");
                 } else if (!nameTest.test(forestName)) {
-                    setModifyForestError("A forest name must include at least one alphanumeric character");
+                    setForestRenameError("A forest name must include at least one alphanumeric character");
                 } else {
-                    $scope.modifyForestWorking = true;
                     var promise = $http.put(apiRoot.getRoot() + '/services/forest/' + forestID, {
                         name: forestName
                     });
+                    $scope.modifyForestRef.name = forestName;
+                    $scope.forestRenameShow = false;
 
                     promise.then(
-                        function(response) {
-                            $scope.modifyForestWorking = false;
-                            $scope.modifyForestRef.name = forestName;
-                            $scope.invalidModifyForest = false;
-                            $("#modifyForestModal").modal('hide'); //TODO:angular way 
-                        },
-                        function(response) {
-                            if (response.status != 500 && response.status != 502) {
-                                setModifyForestError(response.data.txt);
-                            } else {
-                                setModifyForestError(constants.servicesDown());
-                            }
-                            $scope.modifyForestWorking = false;
-                        }
+                        function(response) {}, //TODO: handle success/failure
+                        function(response) {}
                     );
                 }
             }
@@ -279,8 +282,25 @@
                 }
             }
 
+            $('#newForestModal').on('hidden.bs.modal', function() {
+                $('#newForestModal').appendTo('#forestIndex');
+            });       
+
+            $('#modifyForestModal').on('hidden.bs.modal', function() {
+                $('#modifyForestModal').appendTo('#forestIndex');
+            });
+
+            $('#deleteCallbackModal').on('hidden.bs.modal', function() {
+                $('#deleteCallbackModal').appendTo('#forestIndex');
+            });
+
+            $('#newTreeModal').on('hidden.bs.modal', function() {
+                $('#newTreeModal').appendTo('#forestIndex');
+            });       
+
             $scope.forests = [];
             var nameTest = new RegExp('[A-Za-z0-9]');
+            $scope.changeForestOwnerSelect = 'nochange';
             
             var renderContext = requestContext.getRenderContext("standard.forest");
             $scope.subview = renderContext.getNextSection();

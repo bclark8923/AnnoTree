@@ -2,7 +2,7 @@
     "use strict";
 
     app.controller("authenticate.LoginController",
-        function($scope, $rootScope, localStorageService, $location, $http, apiRoot, requestContext, constants, dataService) {
+        function($scope, $rootScope, $location, $http, apiRoot, requestContext, constants, dataService) {
             function setError(msg) {
                 $scope.loginPassword = '';
                 $scope.errorText = msg;
@@ -36,7 +36,12 @@
                             var reqPath = dataService.getReqPath();
                             if (reqPath != '') {
                                 dataService.setReqPath('');
-                                $location.path(reqPath);
+                                var forestFire = new RegExp('forestFire');
+                                if (forestFire.test(reqPath)) {
+                                    $location.path("app");
+                                } else {
+                                    $location.path(reqPath);
+                                }
                             } else {
                                 $location.path("app");
                             }

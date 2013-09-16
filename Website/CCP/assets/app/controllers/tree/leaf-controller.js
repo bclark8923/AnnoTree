@@ -182,6 +182,7 @@
 
                 $scope.leaf.name = leafName;
                 $scope.leafRenameShow = false;
+                setScroll();
                 $scope.$emit('leafRename', $scope.leaf.id, leafName, $scope.leaf.branch_id);
 
                 promise.then(

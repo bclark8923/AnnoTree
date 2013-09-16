@@ -10,15 +10,20 @@
         <div class="branchColDrop" id="{{'b' + branch.id + 'i0'}}" data-drop="true" jqyoui-droppable="{multiple:true, onDrop:'subBranchDrop'}" data-jqyoui-options="{hoverClass:'branchColDropHover'}" ng-model="subBranchDroppedLeaf"></div>
         <div class="branchColumnLeaves">
             <div ng-repeat="leaf in branch.leaves | orderBy:'priority'">
-                <div class="card-col col-xs-12" ng-click="showLeaf(leaf.id)" data-jqyoui-options="{revert: 'invalid', appendTo:'body'}" data-drag="true" jqyoui-draggable="{animate:true, index:{{$index}}}" ng-model="branch.leaves">
+                <div class="card-col col-xs-12" ng-click="showLeaf($event, leaf.id)" data-jqyoui-options="{revert: 'invalid', appendTo:'body'}" data-drag="true" jqyoui-draggable="{animate:true, index:{{$index}}, onStart:'hidePopovers'}" ng-model="branch.leaves">
                     <div class="card subBranchCard">
                         <div class="cardName leafCardName">
                             {{leaf.name}}
                         </div>
                         <div class="cardInformation">
-                            <button type="button" class="btn btn-annotree btn-xs" ng-click="openAssign(); $event.stopPropagation()">
-                                + Assign
-                            </button>
+                            <div style="padding:0 0 5px 5px">
+                                <button type="button" id="assign" class="btn btn-annotree btn-xs" ng-click="openAssign($event, leaf.id, branch.id)">
+                                    + Assign
+                                </button>
+                            </div>
+                            <div>
+                                <img id="assignedUser" ng-repeat="user in leaf.assigned" class="assignedUser" ng-src="{{user.profile_image_path}}" ng-click="openAssignedUser($event, leaf.id, user, branch.id)">
+                            </div>
                         </div>
                     </div>
                 </div>

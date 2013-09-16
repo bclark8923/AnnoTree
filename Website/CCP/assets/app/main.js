@@ -1,4 +1,4 @@
-var AnnoTree = angular.module("AnnoTree", ['ngCookies', 'ngDragDrop']);
+var AnnoTree = angular.module("AnnoTree", ['ngDragDrop']);
 
 AnnoTree.run(function($rootScope, $templateCache) {
     $rootScope.$on('$viewContentLoaded', function() {

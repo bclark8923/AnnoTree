@@ -16,7 +16,7 @@ CREATE PROCEDURE `create_user`(
     IN password VARCHAR(128), 
     IN first_name VARCHAR(45),
     IN last_name VARCHAR(45),
-    IN email VARCHAR(255),
+    IN email_in VARCHAR(255),
     IN lang VARCHAR(3),
     IN time_zone VARCHAR(15),
     IN profile_image_path VARCHAR(45),
@@ -25,7 +25,7 @@ CREATE PROCEDURE `create_user`(
     IN services VARCHAR(128)
 )
 BEGIN
-SET @status = (SELECT user.status FROM user WHERE email = user.email);
+SET @status = (SELECT status FROM user WHERE email = email_in);
 If (@status and @status != 1) THEN
     IF (@status = 3) THEN
         SELECT '2'; 
@@ -39,14 +39,14 @@ If (@status and @status != 1) THEN
         user.time_zone = time_zone, 
         user.profile_image_path = profile_image_path,
         user.signup_date = NOW()
-        where user.email = email;
+        where user.email = email_in;
     select 'id', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status' 
     union
-     select id, first_name, last_name, email, created_at, lang, time_zone, profile_image_path, status from user where email = user.email;  
+     select id, first_name, last_name, email, created_at, lang, time_zone, profile_image_path, status from user where email_in = user.email;  
   end if;
 ELSEIF (@status = 0) THEN
     SELECT '6';
-ELSEIF email REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
+ELSEIF email_in REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
     IF (@status = 1) THEN
         UPDATE user SET 
             user.status = 3, 
@@ -57,18 +57,18 @@ ELSEIF email REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
             user.time_zone = time_zone, 
             user.profile_image_path = profile_image_path,
             user.signup_date = NOW()
-            where user.email = email;
-        set @user_id = (SELECT id FROM user WHERE user.email = email);
+            where user.email = email_in;
+        set @user_id = (SELECT id FROM user WHERE user.email = email_in);
     ELSE
         insert into `annotree`.`user`
             (password, first_name, last_name, email, lang, time_zone, profile_image_path, status, signup_date) 
             values 
-            (password, first_name, last_name, email, lang, time_zone, profile_image_path, 3, NOW());
+            (password, first_name, last_name, email_in, lang, time_zone, profile_image_path, 3, NOW());
         set @user_id = LAST_INSERT_ID();
     END IF;
     select 'id', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status' 
     union
-    select id, first_name, last_name, email, created_at, lang, time_zone, profile_image_path, status from user where id = @user_id;
+    select id, first_name, last_name, email_in, created_at, lang, time_zone, profile_image_path, status from user where id = @user_id;
         SET @name = concat(first_name, ' ', last_name);
         INSERT INTO forest (name, owner_id) VALUES (concat(@name, '\'s Sample Forest'), @user_id);
         SET @forest_id = LAST_INSERT_ID();

@@ -28,9 +28,10 @@ IF (SELECT ut.id FROM user_tree AS ut
     UPDATE leaf SET priority = priority - 1
         WHERE priority > del_priority
         AND branch_id = del_branch;
-    DELETE l, a  
+    DELETE l, a, la
         FROM leaf AS l 
         LEFT OUTER JOIN annotation AS a ON l.id = a.leaf_id
+        LEFT OUTER JOIN leaf_assignments AS la ON l.id = la.leaf_id
         WHERE l.id = leaf_id_in;
     IF (ROW_COUNT() > 0) THEN
         SELECT '0';

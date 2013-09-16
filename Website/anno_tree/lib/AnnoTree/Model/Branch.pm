@@ -143,6 +143,22 @@ sub parentInfo {
                     $json->{branches}->[$branchesIndex]->{leaves}->[$leavesIndex]->{$cols->[$i]} = $leaf->[$i];
                 }
             }
+
+            $json->{branches}->[$branchesIndex]->{leaves}->[$leavesIndex]->{assigned} = [];
+            my $assignedIndex = 0;
+            my $assignedResult = AnnoTree::Model::MySQL->db->execute(
+                'call get_assigned_leaf_users(:leafid)',
+                {
+                    leafid => $leaf->[0]
+                }
+            );
+            my $assignedCols = $assignedResult->fetch;
+            while (my $assign = $assignedResult->fetch) {
+                for (my $i = 0; $i < @{$assignedCols}; $i++) {
+                    $json->{branches}->[$branchesIndex]->{leaves}->[$leavesIndex]->{assigned}->[$assignedIndex]->{$assignedCols->[$i]} = $assign->[$i];
+                }
+                $assignedIndex++;
+            }
        
             my $annoResult = AnnoTree::Model::MySQL->db->execute(
                 'call get_annotation(:leafid)',

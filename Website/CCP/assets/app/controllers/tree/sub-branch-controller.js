@@ -47,7 +47,6 @@
                         if (l >= 0 && $scope.branches[i].leaves[l].priority >= data.priority) {
                             $scope.branches[i].leaves[l].priority++;
                         }
-                        //alert($scope.branches[i].leaves[l].name + ' increased by 1');
                     }
                     $scope.branches[i].leaves.splice(priority, 0, data);
                     break;
@@ -59,22 +58,10 @@
                         if ($scope.branches[i].leaves[l].priority > oldPriority) {
                             $scope.branches[i].leaves[l].priority--;
                         }
-                        //alert($scope.branches[i].leaves[l].name + ' decreased by 1');
                     }
                     break;
                 }
             }
-            /*
-            var testData = "";
-            for (var i = 0; i < $scope.branches.length; i++) {
-                if ($scope.branches[i].id == branchID) { 
-                    for (var l = 0; l < $scope.branches[i].leaves.length; l++) {
-                        testData += $scope.branches[i].leaves[l].name + ' ' + $scope.branches[i].leaves[l].priority + "|";
-                    } 
-                }
-            }
-            alert(testData);
-            */
         }
 
         function setScroll() {
@@ -100,13 +87,183 @@
             $scope.$apply();
         }); 
        
-        $scope.showLeaf = function(leafID) {
-            $scope.$broadcast('showLeaf', leafID);
+        $scope.showLeaf = function(evt, leafID) {
+            if (!assignTest.test(evt.target.id)) {
+                $scope.$broadcast('showLeaf', leafID);
+            }
+        }
+        
+        function createAssignPopoverBody(leafID, branchID) {
+            var body = '<select style="form-control" id="assignSelect">';
+            body += '<option value="0" selected>Choose who to assign</option>';
+            for (var i = 0; i < $scope.tree.users.length; i++) {
+                var isAssigned = false;
+                for (var b = 0; b < $scope.branches.length; b++) {
+                    if ($scope.branches[b].id == branchID) {
+                        for (var l = 0; l < $scope.branches[b].leaves.length; l++) {
+                            if ($scope.branches[b].leaves[l].id == leafID) {
+                                for (var a = 0; a < $scope.branches[b].leaves[l].assigned.length; a++) {
+                                    if ($scope.branches[b].leaves[l].assigned[a].id == $scope.tree.users[i].id) {
+                                        isAssigned = true;
+                                        break;
+                                    }
+                                }
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+                if (!isAssigned) {
+                    body += '<option value="' + $scope.tree.users[i].id + '">' + createName($scope.tree.users[i]) + '</option>';
+                }
+            }
+            body += '</select>';
+
+            return body;
+        }
+        
+        function createName(user) {
+            var name = '';
+            if (user.first_name != null) {
+                name += user.first_name + ' ';
+            }
+            if (user.last_name != null) {
+                name += user.last_name;
+            }
+            if (name == '') {
+                name += user.email;
+            }
+            return name;
+        }
+        
+        function createAssignedUserPopoverBody() {
+            var container = $('<div style="text-align:center"></div>');
+            container.append($('<button type="button" id="assignRemove" class="btn btn-danger"><strong>Unassign</strong></button>'));
+            return container;
         }
 
-        $scope.openAssign = function() {
-            alert('this will assign someone eventually');
+        var assignedUserPopover = null;
+        var selectedAssignedUser = "";
+        $scope.openAssignedUser = function(evt, leafID, user, branchID) {
+            if (selectedAssignedUser != "" + user.id + leafID && assignedUserPopover != null) {
+                assignedUserPopover.popover('destroy');
+                assignedUserPopover = null;
+            }
+            if (assignedUserPopover == null) {
+                assignedUserPopover = $(evt.target).popover({
+                    title: createName(user),
+                    html: true,
+                    trigger: 'manual',
+                    content: createAssignedUserPopoverBody(),
+                    placement: 'top',
+                    container: 'body'
+                });
+                if (assignPopover != null) {
+                    assignPopover.popover('destroy');
+                    assignPopover = null; 
+                }
+                $(evt.target).popover('show');
+                selectedAssignedUser = "" + user.id + leafID;
+                $('#assignRemove').click(function() {
+                    //alert(leafID + " " + user.id);
+                    $http.delete(apiRoot.getRoot() + '/services/leaf/' + leafID + '/assign/' + user.id); //TODO: check for success/failure 
+                    for (var b = 0; b < $scope.branches.length; b++) {
+                        if ($scope.branches[b].id == branchID) {
+                            for (var l = 0; l < $scope.branches[b].leaves.length; l++) {
+                                if ($scope.branches[b].leaves[l].id == leafID) {
+                                    for (var a = 0; a < $scope.branches[b].leaves[l].assigned.length; a++) {
+                                        if ($scope.branches[b].leaves[l].assigned[a].id == user.id) {
+                                            $scope.branches[b].leaves[l].assigned.splice(a, 1);
+                                            $scope.hidePopovers();
+                                            $scope.$apply();
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    } 
+                });
+            } else {
+                assignedUserPopover.popover('destroy');
+                assignedUserPopover = null; 
+            }
         }
+
+        var assignPopover = null;
+        var selectedAssign = "";
+        $scope.openAssign = function(evt, leafID, branchID) {
+            if (selectedAssign != "" + leafID + branchID && assignPopover != null) {
+                assignPopover.popover('destroy');
+                assignPopover = null; 
+            }
+            if (assignPopover == null) {
+                assignPopover = $(evt.target).popover({
+                    title: 'Leaf Assignment',
+                    html: true,
+                    trigger: 'manual',
+                    content: createAssignPopoverBody(leafID, branchID),
+                    placement: 'top',
+                    container: 'body'
+                });
+                if (assignedUserPopover != null) {
+                    assignedUserPopover.popover('destroy');
+                    assignedUserPopover = null; 
+                }
+                $(evt.target).popover('show');
+                selectedAssign = "" + leafID + branchID;
+                $('#assignSelect').change(function(evt) {
+                    var userID = $('#assignSelect').val();
+                    $http.put(apiRoot.getRoot() + '/services/leaf/' + leafID + '/assign', {
+                        assign: userID
+                    }); //TODO: check for success/failure
+                    //alert($('#assignSelect').val() + " " + leafID);
+                    $("#assignSelect option[value='" + userID  + "']").remove();
+                    for (var i = 0; i < $scope.tree.users.length; i++) {
+                        if ($scope.tree.users[i].id == userID) {
+                            for (var b = 0; b < $scope.branches.length; b++) {
+                                if ($scope.branches[b].id == branchID) {
+                                    for (var l = 0; l < $scope.branches[b].leaves.length; l++) {
+                                        if ($scope.branches[b].leaves[l].id == leafID) {
+                                            $scope.branches[b].leaves[l].assigned.push($scope.tree.users[i]);
+                                            $scope.$apply();
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                });
+            } else {
+                assignPopover.popover('destroy');
+                assignPopover = null;
+            }
+        }
+        
+        $scope.hidePopovers = function() {
+            if (assignPopover != null) {
+                assignPopover.popover('destroy');
+                assignPopover = null;
+            }
+            if (assignedUserPopover != null) {
+                assignedUserPopover.popover('destroy');
+                assignedUserPopover = null;  
+            }        
+        }
+
+        $(document).on("click", function (evt) {
+            var inPopover = $(evt.target).closest('.popover').length > 0;
+            
+            if (!inPopover && !assignTest.test(evt.target.id)) {
+                $scope.hidePopovers();
+            }
+        });
 
         $scope.$on('leafRename', function(evt, leafID, name, branchID) {
             for (var b = 0; b < $scope.branches.length; b++) {
@@ -141,7 +298,8 @@
                 }
             }
         });
-
+        
+        var assignTest = new RegExp('assign');
         $(window).resize(setScroll);
         $scope.$watch('activeBranch', function(oldValue, newValue) {loadBranchData()}, true);
         $scope.$watch('branches', function(oldValue, newValue) {setScroll()}, true);

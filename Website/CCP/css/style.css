@@ -15,6 +15,10 @@ body, #containWrapper {
     color: #444;
 }
 
+.popover-title {
+    font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
+}
+
 div[ng-switch], div[ng-switch-when], div[ng-controller] {
     height: 100%;
     width: 100%;
@@ -562,6 +566,18 @@ text-align:left;line-height:38px;vertical-align:middle;
     padding: 5px;
     text-align: right;
     background-color: #fff;
+}
+
+.cardInformation div {
+    float: right;
+}
+
+.assignedUser {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #fff;
+    text-align: right;
+    cursor: pointer;
 }
 
 .cardNameNew {

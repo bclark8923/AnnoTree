@@ -342,4 +342,48 @@ sub changeSubBranch {
     return {};
 }
 
+sub assign {
+    my ($class, $params) = @_;
+
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call assign_to_leaf(:reqUser, :leafid, :assign)",
+        {
+            reqUser     => $params->{reqUser},
+            leafid      => $params->{leafid},
+            assign      => $params->{assign},
+        }
+    );
+
+    my $num = $result->fetch->[0];
+    if ($num == 1) {
+        return {error => '1', txt => 'You do not have permissions on that tree'};
+    } elsif ($num == 2) {
+        return {error => '2', txt => 'Assigned user does not have permissions on that tree'};
+    } elsif ($num == 3) {
+        return {error => '3', txt => 'User has already been assigned to that leaf'};
+    } 
+
+    return {};
+}
+
+sub assignRemove {
+    my ($class, $params) = @_;
+
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call remove_leaf_assignment(:reqUser, :leafid, :remove)",
+        {
+            reqUser     => $params->{reqUser},
+            leafid      => $params->{leafid},
+            remove      => $params->{remove},
+        }
+    );
+
+    my $num = $result->fetch->[0];
+    if ($num == 1) {
+        return {error => '1', txt => 'You do not have permissions on that tree'};
+    }
+
+    return {};
+}
+
 return 1;

@@ -94,6 +94,7 @@
             if (newLeaf.annotation == null) {
                 newLeaf.annotation = "img/noImageBG.png";
             }
+            newLeaf.assigned = [];
             $scope.$broadcast('newLeafCreated', newLeaf);
 
             $('#newLeafModal').modal('hide');

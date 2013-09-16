@@ -191,13 +191,48 @@ sub changeSubBranch {
     $params->{oldBranchid} = $jsonReq->{oldBranch};
     $params->{newPriority} = $jsonReq->{newPriority};
     $params->{oldPriority} = $jsonReq->{oldPriority};
-    $self->debug($self->dumper($params));
+    
     my $json = AnnoTree::Model::Leaf->changeSubBranch($params);
 
     my $status = 204;
     $status = 406 if (exists $json->{error});
 
     $self->render(json => $json, status => $status);
+}
+
+sub assign {
+    my $self = shift;
+
+    my $jsonReq = $self->req->json;
+    my $params = {};
+    $params->{reqUser} = $self->current_user->{userid};
+    $params->{leafid} = $self->param('leafid');
+    $params->{assign} = $jsonReq->{assign};
+
+    my $json = AnnoTree::Model::Leaf->assign($params);
+
+    my $status = 204;
+    $status = 406 if (exists $json->{error});
+
+    $self->render(json => $json, status => $status);
+}
+
+sub assignRemove {
+    my $self = shift;
+
+    my $params = {};
+    $params->{reqUser} = $self->current_user->{userid};
+    $params->{leafid} = $self->param('leafid');
+    $params->{remove} = $self->param('remove');
+    
+    $self->debug($self->dumper($params));
+    my $json = AnnoTree::Model::Leaf->assignRemove($params);
+
+    my $status = 204;
+    $status = 406 if (exists $json->{error});
+
+    $self->render(json => $json, status => $status);
+
 }
 
 return 1;

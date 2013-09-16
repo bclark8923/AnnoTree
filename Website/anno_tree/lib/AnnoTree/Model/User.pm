@@ -69,10 +69,10 @@ sub signup {
     
     my $result = AnnoTree::Model::MySQL->db->execute("call create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage, :token, :created, :services)", 
         {
-            email           => $params->{'email'}, 
+            email           => $params->{email}, 
             password        => '' . $pass,
-            firstName       => $params->{'firstName'},
-            lastName        => $params->{'lastName'},
+            firstName       => $params->{firstName},
+            lastName        => $params->{lastName},
             lang            => 'ENG',
             timezone        => 'EST',
             profileImage    => 'img/user.png',

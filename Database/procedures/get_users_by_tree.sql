@@ -13,9 +13,9 @@ CREATE PROCEDURE `get_users_by_tree`(
 )
 BEGIN
 IF (SELECT id FROM user_tree WHERE user_id = userid AND tree_id = treeid) THEN
-    SELECT 'id', 'first_name', 'last_name', 'email', 'status'
+    SELECT 'id', 'first_name', 'last_name', 'email', 'status', 'profile_image_path'
         UNION
-        SELECT u.id, u.first_name, u.last_name, u.email, u.status
+        SELECT u.id, u.first_name, u.last_name, u.email, u.status, u.profile_image_path
         FROM user u, user_tree ut 
         WHERE ut.user_id = u.id 
         AND ut.tree_id = treeid;

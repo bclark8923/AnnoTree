@@ -1,7 +1,8 @@
 -- --------------------------------------------------------------------------------
--- create_leaf_on_tree_owner
--- creates a leaf on a tree with a single branch (used for iOS uploads)
--- returns 1 if tree does not exist, 2 if branch does not exist, leaf info if all went well
+-- create_leaf_on_tree_owner - creates a leaf (used for chrome upload)
+-- returns  success - leaf info
+--          1 - error: user does not have permissions
+--          2 - error: branch does not exist
 -- --------------------------------------------------------------------------------
 use annotree;
 drop  procedure IF EXISTS `create_leaf_on_tree_owner`;
@@ -18,15 +19,18 @@ DECLARE ownerid INT;
 DECLARE branchid INT;
 select id into treeid from tree where token = t;
 SELECT id INTO ownerid FROM user WHERE email = owner_email;
-IF (treeid) THEN
-    select id into branchid from branch where tree_id = treeid;
+IF (SELECT id FROM user_tree WHERE tree_id = treeid AND user_id = ownerid) THEN
+    select id into branchid from branch where tree_id = treeid
+        AND name = 'User Feedback';
+    SET @priority = (SELECT MAX(priority) FROM leaf
+                WHERE branch_id = branchid);
     IF (branchid) THEN
-        insert into `annotree`.`leaf` (name, branch_id, owner_user_id)
-        values (n, branchid, ownerid);
+        insert into `annotree`.`leaf` (name, branch_id, owner_user_id, priority)
+        values (n, branchid, ownerid, @priority + 1);
         set @id = LAST_INSERT_ID();
-        select 'id', 'name', 'description', 'owner_user_id', 'branch_id', 'created_at'
+        select 'id', 'name', 'owner_user_id', 'branch_id', 'created_at'
         union 
-        select id, name, description, owner_user_id, branch_id, created_at 
+        select id, name, owner_user_id, branch_id, created_at 
         from leaf 
         where id = @id;
     ELSE

@@ -3,14 +3,11 @@
         <div class="treePageHeaderText">
             <span class="icon-treeSettings" ng-click="openModifyTreeModal()">{{tree.name}} <i class="icon-cog"></i></span>
             <span style="float:right;margin-right:20px;">
-                <span style="margin-right:20px;vertical-align:middle">
-                    <select>
-                        <option selected>All</option>
-                        <option>Assigned To Me</option>
-                        <option>Unassigned</option>
+                <span style="margin-right:20px;vertical-align:middle" ng-show="subview=='subBranches'">
+                    <select ng-model="leafDisplay" ng-options="ld.name for ld in leafDisplayOptions">
                     </select>
                 </span>
-                <button class="btn btn-add-leaf btn-xs"  ng-click="openNewLeafModal()"><i class="icon-plus"></i> Add Leaf</button>
+                <button class="btn btn-add-leaf btn-xs" ng-click="openNewLeafModal()"><i class="icon-plus"></i> Add Leaf</button>
             </span>
         </div>
     </div>

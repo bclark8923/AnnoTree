@@ -428,6 +428,17 @@
             $('#newLeafModal').appendTo('#treeIndex');
         });
         
+        $scope.leafDisplayOptions = [
+            {name: 'All', value: 0},
+            {name: 'Assigned To Me', value: 1},
+            {name: 'Unassigned', value: 2}
+        ];
+        $scope.leafDisplay = $scope.leafDisplayOptions[0];
+
+        $scope.$watch('leafDisplay', function() {
+            //alert($scope.leafDisplay.name);
+            $scope.$broadcast('filterLeaves', $scope.leafDisplay.value); 
+        });
         //$scope.$evalAsync(loadTreeData());
         var nameTest = new RegExp('[A-Za-z0-9]');
         loadTreeData($routeParams.treeID) 

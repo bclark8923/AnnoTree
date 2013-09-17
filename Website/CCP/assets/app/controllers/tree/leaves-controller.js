@@ -34,7 +34,9 @@
 
         $scope.$on('newLeafCreated', function(evt, leafData) {
             $scope.leaves.push(leafData);
-            $scope.$apply();
+            if(!$scope.$$phase) {
+                $scope.$apply();
+            }
         });
 
         $scope.$on('newAnnotation', function(evt, leafID, path) {

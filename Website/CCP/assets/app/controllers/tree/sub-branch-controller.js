@@ -93,6 +93,7 @@
                         });
                         leafData.assigned.push(user);
                     }
+                    $scope.numLeaves[i]++;
                     leafData.show = true;
                     $scope.branches[i].leaves.push(leafData);
                     break;

@@ -949,7 +949,7 @@ text-align:left;line-height:38px;vertical-align:middle;
     margin-top: 40px;
     margin-bottom: 20px;
 }
-
+/*
 #displayAnnotation .modal-dialog {
     margin: 0 -40%;
     width: 80%;
@@ -971,6 +971,17 @@ text-align:left;line-height:38px;vertical-align:middle;
 
 #displayAnnotation .close:hover {
     opacity: 0.5;
+}
+*/
+#annotationModal {
+    position: absolute;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.7);
+    text-align: center;
 }
 
 /* -----------------------

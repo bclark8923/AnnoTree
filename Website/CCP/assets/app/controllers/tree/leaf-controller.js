@@ -192,6 +192,20 @@
             }
         }
 
+        $scope.closeAnnotationModal = function() {
+            $('#annotationModal').remove();
+        }
+
+        $scope.openAnnotationModal = function(path) {
+            var width = $(window).outerWidth() - 20;
+            var height = $(window).outerHeight() - 20;
+            var sizeLimits = 'max-width:' + width + 'px;max-height:' + height + 'px';
+            var modal = $('<div id="annotationModal" class="valign" onclick="$(\'#annotationModal\').remove()"></div>');
+            var img = $('<div><img src="' + path + '" style="' + sizeLimits + '" /></div>');
+            modal.append(img);
+            $('body').append(modal);
+        }
+
         $scope.openDeleteLeaf = function() {
             $scope.deleteLeafWorking = false;
             $('#deleteLeafCallbackModal').appendTo('body').modal('show');

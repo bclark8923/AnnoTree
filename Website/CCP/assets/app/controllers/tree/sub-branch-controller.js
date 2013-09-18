@@ -74,7 +74,7 @@
             if ($(window).outerWidth() > 767) {
                 $timeout(function() {
                     var height = $(window).outerHeight();
-                    $('.branchColumnLeaves').css('max-height', height - 110);
+                    $('.branchColumnLeaves').css('max-height', height - 135);
                     $('#branchColumnHolder').css('overflow-y', 'hidden');
                 }, 0);
             } else {

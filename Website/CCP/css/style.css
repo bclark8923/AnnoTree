@@ -9,7 +9,7 @@ html, body {
 
 body, #containWrapper {
     font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
-    background-color: #f1f1f1;
+    background-color: #fff;
     height: 100%;
     width: 100%;
     color: #444;
@@ -344,14 +344,14 @@ a.btn-annotree {
 }
 
 .forestName.new:hover {
-    background-color: #fff;
+    background-color: #eee;
     color: #888;
 }
 
 #forestContainer {
     height: 100%;
-    width: 100%;
-    padding-top: 60px;
+    width: calc(100% - 80px);
+    padding: 20px;
     position: absolute;
     overflow-y: auto;
     overflow-x: hidden;
@@ -407,6 +407,9 @@ a.btn-annotree {
     height: 100%;
     overflow: hidden;
     position: relative;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
 }
 
 .card.leafCard.new {
@@ -435,11 +438,9 @@ a.btn-annotree {
 .cardName.leafCardName {
     background-color: rgba(146,223,116,0.9);
     background-color: #fff;
-    /*background-color: #92DF74;*/
     font-family: Helvetica;
-    font-weight: bold;
     color: #222;
-    font-size: 11pt;
+    font-size: 10pt;
     width: 100%;
 }
 
@@ -457,8 +458,10 @@ a.btn-annotree {
     width: 30px;
     height: 30px;
     border: 2px solid #fff;
-    text-align: right;
+    border-radius: 15px;
     cursor: pointer;
+    border: 1px solid #92DF74;
+    margin-bottom: 5px;
 }
 
 .cardNameNew {
@@ -564,31 +567,36 @@ a.btn-annotree {
 }
 
 .branch {
-    background-color: #bbb;
+    background-color: #fff;
     width: 170px;
-    height: 50px;
-    line-height: 50px;
+    height: 40px;
+    line-height: 40px;
     padding-left: 25px;
-    color: #fff;
+    color: #92DF74;
+    font-weight: 300;
 }
 
 .branchHover {
     background-color: #ccc;
+    color: #444;
+    font-weight: 500;
 }
 
 .branch:hover {
-    background-color: #ccc;
+    color: #888;
     cursor: pointer;
+    font-weight: 500;
 }
 
-.activeBranch, .activeBranch:hover {
+.activeBranch {
     background-color: #fff;
-    color: #222;
+    color: #888;
     width: 170px;
-    height: 30px;
-    line-height: 30px;
+    height: 40px;
+    line-height: 40px;
     padding-left: 25px;
     cursor: auto;
+    font-weight: 500;
 }
 
 #modifyTreeModal .modal-dialog {
@@ -617,13 +625,14 @@ a.btn-annotree {
 
 .branchCountLabel {
     display: inline;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #444;
     padding: .25em .6em;
     font-size: 75%;
-    color: #fff;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    background-color: #999;
     border-radius: .25em;
 }
 
@@ -659,7 +668,7 @@ a.btn-annotree {
  * ----------------------- */
 #leaves {
     height: calc(100% - 90px);
-    width: calc(100% - 250px);
+    width: calc(100% - 280px);
     float: left;
     margin-left: 170px;
     background-color: #f1f1f1;

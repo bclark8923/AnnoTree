@@ -12,11 +12,11 @@
                     <i class="icon-code icon-xlarge icon-sdebar"></i>
                 </a>
             </div>
-            <div>
+            <!--div>
                 <a ng-click="openHelpModal()">
                     <i class="icon-question-sign icon-xlarge icon-sidebar"></i>
                 </a>
-            </div>
+            </div-->
             <div style="position:fixed;bottom:70px;width:80px" ng-click="userSettingsBox=!userSettingsBox">
                 <img ng-src="{{user.profile_image_path}}" id="userIcon" />
             </div>
@@ -38,6 +38,9 @@
             </div>
         </div>
 
+        <button type="button" style="border-radius:5px 5px 0 0" id="feedback" class="btn btn-annotree" ng-click="openFeedbackModal()">
+            <strong>Feedback</strong>
+        </button>
         <!-- Include Body Content. -->
         <div class="wrapper">
             <div ng-switch="subview">

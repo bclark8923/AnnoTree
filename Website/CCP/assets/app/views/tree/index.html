@@ -1,13 +1,16 @@
 <div id="treeIndex" ng-controller="tree.TreeController">
     <div class="treePageHeader">
         <div class="treePageHeaderText">
-            <span class="icon-treeSettings" ng-click="openModifyTreeModal()">{{tree.name}} <i class="icon-cog"></i></span>
+            <span class="icon-treeSettings" ng-click="openModifyTreeModal()">
+                {{tree.name}}&nbsp;
+                <i class="icon-cog"></i>
+            </span>
             <span style="float:right;margin-right:20px;">
                 <span style="margin-right:20px;vertical-align:middle" ng-show="subview=='subBranches'">
                     <select ng-model="leafDisplay" ng-options="ld.name for ld in leafDisplayOptions">
                     </select>
                 </span>
-                <button class="btn btn-add-leaf btn-xs" ng-click="openNewLeafModal()"><i class="icon-plus"></i> Add Leaf</button>
+                <button class="btn btn-annotree btn-sm" ng-click="openNewLeafModal()"><i class="icon-plus"></i> Add Leaf</button>
             </span>
         </div>
     </div>
@@ -15,10 +18,10 @@
         <div ng-repeat="branch in tree.branches">
             <div ng-switch="activeBranch.id==branch.id">
                 <div ng-switch-when="true" class="activeBranch">
-                    {{branch.name}}
+                    <i ng-class="branch.icon"></i>&nbsp;{{branch.name}}
                 </div>
                 <div ng-switch-when="false" class="branch" data-jqyoui-options="{hoverClass:'branchHover'}" ng-click="changeBranch(branch.id)" data-drop="true" jqyoui-droppable="{multiple:true, onDrop:'leafDrop'}" ng-model="droppedLeaf">
-                    {{branch.name}}
+                    <i ng-class="branch.icon"></i>&nbsp;{{branch.name}}
                 </div>
             </div>
         </div>

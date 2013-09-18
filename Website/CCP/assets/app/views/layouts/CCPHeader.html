@@ -1,46 +1,40 @@
 <div ng-controller="layouts.StandardController" id="app">
     <div id="containWrapper">
         <!-- top navbar -->
-        <div class="navbar navbar-fixed-top" role="navigation">
-            <img src="img/LogoNameWeb.png" class="logoHeader" />
-            <div class="collapse navbar-collapse navbar-responsive-collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#/app"><i class="icon-home"></i>&nbsp;Home</a>
-                    </li>
-                    <li>
-                        <a href="#/app/docs"><i class="icon-code"></i>&nbsp;Docs</a>
-                    </li>
-
-                    <li>
-                        <a ng-click="openHelpModal()"><i class="icon-lightbulb"></i>&nbsp;Help</a>
-                    </li>
-                </ul>
-            </div>
-            <div id="userLinkDiv">
-                <a class="btn btn-annotree btn-sm" style="margin-top:2px;margin-right:10px;color:#555" ng-click="openFeedbackModal()"><i class="icon-share"></i>&nbsp;Feedback</a>
-                <a href="" class="userLink toggle active" ng-click="userSettingsBox=!userSettingsBox">
-                    <img id="userIcon" ng-src="{{user.profile_image_path}}">
+        <div class="treeOptions">
+            <div>
+                <a href="#/app">
+                    <i class="icon-home icon-xlarge icon-sidebar"></i>
                 </a>
-                <span class="logoutArrow userSettings"></span>
             </div>
-            <div class="responsiveShow" style="width:40px;height:40px;padding:8px 0 0 10px;">
-                <a id="paneToggle" style="padding:0;text-align:center;text-decoration:none">
-                    <i class="icon-reorder responsiveShow" style="color:white;font-size:18pt"></i>
+            <div>
+                <a href="#/app/docs">
+                    <i class="icon-code icon-xlarge icon-sdebar"></i>
                 </a>
+            </div>
+            <div>
+                <a ng-click="openHelpModal()">
+                    <i class="icon-question-sign icon-xlarge icon-sidebar"></i>
+                </a>
+            </div>
+            <div style="position:fixed;bottom:70px;width:80px" ng-click="userSettingsBox=!userSettingsBox">
+                <img ng-src="{{user.profile_image_path}}" id="userIcon" />
+            </div>
+            <div style="position:fixed;bottom:10px;width:80px">
+                <img src="img/AnnoTreeLogo.png" style="width:30px">
             </div>
         </div>
 
         <!-- User Settings Display -->
-        <div id="userSettings" class="userSettingsBox userSettings" ng-class="{active:userSettingsBox}">
+        <div id="userSettings" class="userSettingsBox" ng-class="{active:userSettingsBox}">
             <div>
                 <img ng-src="{{user.profile_image_path}}">    
-                <p class="userSettingsName ng-binding" style="margin-left:80px;">{{user.first_name + " " + user.last_name}}</p>
+                <p class="userSettingsName" style="margin-left:80px;">{{user.first_name + " " + user.last_name}}</p>
             </div>
             <div id="footer">
-                <p style="margin-top:5px;" class="btn btn-annotree logoutButton btn-sm" ng-click="logout()">
+                <button type="button" id="logoutButton" class="btn btn-annotree btn-sm" ng-click="logout()">
                     <strong>Logout</strong>
-                </p>
+                </button>
             </div>
         </div>
 

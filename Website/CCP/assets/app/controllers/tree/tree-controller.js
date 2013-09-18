@@ -66,13 +66,20 @@
                         if ($routeParams.branchID) {
                             if ($scope.tree.branches[i].id == $routeParams.branchID) {
                                 setActiveBranch($scope.tree.branches[i]);
-                                break;
                             } 
                         } else {
                             if ($scope.tree.branches[i].name == 'User Feedback') {
                                 setActiveBranch($scope.tree.branches[i]);
-                                break;
                             }
+                        }
+                        if ($scope.tree.branches[i].name == 'User Feedback') {
+                            $scope.tree.branches[i].icon = "icon-comments-alt";
+                        } else if ($scope.tree.branches[i].name == 'Product Backlog') {
+                            $scope.tree.branches[i].icon = "icon-folder-close-alt";
+                        } else if ($scope.tree.branches[i].name == 'Bugs') {
+                            $scope.tree.branches[i].icon = "icon-bug";
+                        } else if ($scope.tree.branches[i].name == 'Archive') {
+                            $scope.tree.branches[i].icon = "Archive";
                         }
                     }
                     $timeout(function() {$("#loadingScreen").hide();}, 0);

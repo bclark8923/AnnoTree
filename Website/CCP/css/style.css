@@ -111,6 +111,7 @@ a.btn-annotree {
     overflow-y: hidden;
     overflow-x: hidden;
     height: 100%;
+    /*width: 100%;*/
 }
 
 /* -----------------------
@@ -159,22 +160,36 @@ a.btn-annotree {
 /* -----------------------
  * CCP Header Settings
  * ----------------------- */
-.navbar {
+.treeOptions {
+    width: 80px;
+    float: left;
     background-color: #444;
-    min-height: 40px;
-    color: #fff;
+    height: 100%;
+    color: white;
+    text-align: center;
+    padding-top: 30px;
 }
 
-.navbar-nav>li>a, .navbar-nav>.active>a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: #fff;
+.treeOptions > div {
+    padding-bottom: 20px;
+}
+
+.treeOptions > div > a > i {
     text-decoration: none;
+    color: #fff;
 }
 
-.navbar-nav>li>a:hover, .navbar-nav>.active>a:focus {
-    color: #444;
-    background-color: #92DF74;
+.treeOptions > div > a > i:hover {
+    text-decoration: none;
+    color: #92DF74;
+}
+
+.icon-xlarge {
+    font-size: 20pt;
+}
+
+#userIcon, .icon-sidebar {
+    cursor: pointer;
 }
 
 #userIcon {
@@ -182,27 +197,20 @@ a.btn-annotree {
     height: 30px;
     width: 30px;
     margin-top: 3px;
+    border-radius: 15px;
 }
 
 #userIcon:hover {
     border: 2px solid #92DF74;
 }
 
-#userLinkDiv {
-    position: absolute;
-    right: 20px;
-    top: 2px;
-    width: 140px;
-}
-
 .userSettingsBox {
     box-shadow: 1px 1px 10px #ddd;
     background-color: #fff;
     width: 250px;
-    float: right;
     position: absolute;
-    top: 43px;
-    right: 15px;
+    bottom: 43px;
+    left: 90px;
     height: 120px;
     z-index: 999;
     border: 1px solid #bbb;
@@ -224,71 +232,13 @@ a.btn-annotree {
     border-top: 1px solid #bbb;
 }
 
-.userSettings.active {
+.userSettingsBox.active {
     display: block;
 }
 
-.userSettingsName {
-    margin-left: 10px;
-    margin-top: 5px;
-    height: 23px;
-    color: #888;
-    font-size: 13pt;
-}
-
-.logoutButton {
+#logoutButton {
     float: right;
-    margin-right: 10px;
-    margin-top: 0px;
-}
-
-.logoutArrow {
-    margin: 36px 0 0;
-    right: 6px;
-    border-style: dashed dashed solid;
-    border-color: transparent;
-    border-bottom-color: #fff;
-    border-width: 0 10px 10px;
-    cursor: default;
-    display: -moz-inline-box;
-    display: inline-block;
-    font-size: 0;
-    height: 0;
-    line-height: 0;
-    position: absolute;
-    top: 0;
-    width: 0;
-    z-index: 1000;
-    display: none;
-}
-
-.appHeader {
-    height:30px;
-    padding-top:5px;
-    margin-right:10px;
-    position: fixed;
-    color: white;
-    font-size: 15pt;
-    display: none;
-    width: 100%;
-    text-align: center;
-    margin-left:-15px;
-}
-
-.logoHeader {
-    height:30px;
-    padding-top:5px;
-    margin-right:10px;
-    position: fixed;
-    left: 50%;
-    margin-left: -50px;
-}
-
-#annoTreeLogo {
-    position: relative;
-    left: -50%;
-    height: 30px;
-    margin-top: 4px;
+    margin: 5px 10px 0 0;
 }
 
 /* -----------------------
@@ -412,78 +362,9 @@ a.btn-annotree {
 }
 
 #forestOwnerInfo {
-text-align:left;line-height:38px;vertical-align:middle;
-}
-/* -----------------------
- * Dashboard Settings
- * ----------------------- */
-#dashboardWrap {
-    height: 100%;
-    width: 25%;
-    float: left;
-    border-top: 40px solid transparent;
-    padding-left:20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    position: fixed;
-    opacity: 1;
-    transition: opacity .25s linear;
-    -moz-transition: opacity .25s linear;
-    -webkit-transition: opacity .25s linear;
-}
-
-#dashboard {
-    height: 100%;
-    padding: 10px;
-    word-wrap: break-word;
-    background-color: white;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px #ddd;
-    color: #444;
-}
-
-.dashLinks {
-    background-color: #f1f1f1;
-    font-size: 18pt;
-    padding: 3px 10px;
-    margin: 10px 0px;
-    cursor: pointer;
-    height: 40px;
-}
-
-.dashLinks:hover {
-    color: #92DF74;
-}
-
-.dashLinksText {
-    float: left;
-    margin-left: 5px;
-}
-
-.dashLinksIcon {
-    width: 30px;
-    float: left;
-    text-align: center;
-}
-
-.appLogo {
-    border-radius: 5px;
-    width: 100%;
-}
-
-.appName {
-    margin-left: 10px;
-    font-size: 15pt;
-    font-weight: bold;
-}
-
-.appName a {
-    text-decoration: none;
+    text-align: left;
+    line-height: 38px;
+    vertical-align: middle;
 }
 
 /* -----------------------
@@ -591,34 +472,16 @@ text-align:left;line-height:38px;vertical-align:middle;
     width: 100%;
     background-size: cover;
     background-position: center;
-
     transition: opacity .25s ease-in-out;
     -moz-transition: opacity .25s ease-in-out;
     -webkit-transition: opacity .25s ease-in-out;
-
-    /*
-    transition: background-color .25s ease-in-out;
-    -moz-transition: background-color .25s ease-in-out;
-    -webkit-transition: background-color .25s ease-in-out;
-    */
 }
 
 .cardImg:hover {
     opacity: .6;
     cursor: pointer;    
 }
-/*
-.cardImgLeaf {
-    height: 125px;
-    position: absolute;
-    top: 0;
-}
 
-.cardImgLeaf:hover {
-}
-
-
-*/
 .cardImgNew {
     text-align: center;
     font-size: 90pt;
@@ -674,15 +537,15 @@ text-align:left;line-height:38px;vertical-align:middle;
  * Tree Settings
  * ----------------------- */
 .treePageHeader {
-    padding-top: 40px;
-    height: 80px;
-    background-color: #92DF74;
+    height: 40px;
+    background-color: #fff;
 }
 
 .treePageHeaderText {
     font-size: 14pt;
     padding: 5px;
     padding-left: 20px;
+    color: #888;
 }
 
 .icon-treeSettings {
@@ -695,27 +558,14 @@ text-align:left;line-height:38px;vertical-align:middle;
 }
 
 #branchHolder {
-    height: calc(100% - 80px);
-    width: 230px;
+    height: 100%;
+    width: 170px;
     float: left;
-}
-
-.btn-add-leaf {
-    height: 25px;
-    line-height: 5px;
-    background: #fff;
-    border: #fff;
-    color: #222;
-}
-
-.btn-add-leaf:hover {
-    background-color: #eee;
-    color: #222;
 }
 
 .branch {
     background-color: #bbb;
-    width: 230px;
+    width: 170px;
     height: 50px;
     line-height: 50px;
     padding-left: 25px;
@@ -734,7 +584,7 @@ text-align:left;line-height:38px;vertical-align:middle;
 .activeBranch, .activeBranch:hover {
     background-color: #fff;
     color: #222;
-    width: 230px;
+    width: 170px;
     height: 30px;
     line-height: 30px;
     padding-left: 25px;
@@ -748,12 +598,13 @@ text-align:left;line-height:38px;vertical-align:middle;
  * Sub-branch Settings
  * ----------------------- */
 #branchColumnHolder {
-    height: calc(100% - 80px);
-    width: calc(100% - 230px);
+    height: calc(100% - 90px);
+    width: calc(100% - 280px);
     float: left;
-    margin-left: 230px;
+    margin-left: 170px;
     position: absolute;
-    background-color: #fff;
+    background-color: #f1f1f1;
+    border-radius: 10px;
     transition: opacity .25s linear;
     -moz-transition: opacity .25s linear;
     -webkit-transition: opacity .25s linear;
@@ -807,11 +658,14 @@ text-align:left;line-height:38px;vertical-align:middle;
  * Leaves Settings
  * ----------------------- */
 #leaves {
-    height: calc(100% - 80px);
-    width: calc(100% - 230px);
+    height: calc(100% - 90px);
+    width: calc(100% - 250px);
     float: left;
-    margin-left: 230px;
-    background-color: #fff;
+    margin-left: 170px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
     padding: 20px;
     position: absolute;
     overflow-y: auto;
@@ -949,30 +803,7 @@ text-align:left;line-height:38px;vertical-align:middle;
     margin-top: 40px;
     margin-bottom: 20px;
 }
-/*
-#displayAnnotation .modal-dialog {
-    margin: 0 -40%;
-    width: 80%;
-}
 
-#displayAnnotation img {
-    max-width: 100%;
-    margin: 0 auto;
-    display: block;
-    padding: 20px;
-}
-
-#displayAnnotation .close {
-    opacity: 0.8;
-    color: #444;
-    font-size: 40pt;
-    text-shadow: none;
-}
-
-#displayAnnotation .close:hover {
-    opacity: 0.5;
-}
-*/
 #annotationModal {
     position: absolute;
     z-index: 2000;

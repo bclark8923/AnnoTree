@@ -21,7 +21,9 @@ sub startup {
     
     # set what mode we should be operating in - TODO: add modes
     $self->mode('development');
-
+    
+    # sessions expire after a day
+    $self->sessions->default_expiration(86400);
     # load the plugins
     $self->plugin('DebugHelper');
 =begin oldmysqlcon
@@ -51,12 +53,14 @@ sub startup {
             my $sessionObj = {
                 userid => $userid
             };
+            
             AnnoTree::Model::MySQL->db->execute(
                 'call update_login(:userid)',
                 {
                     userid => $userid
                 }
-            ); 
+            );
+
             return $sessionObj;
         },
         validate_user => sub {
@@ -67,7 +71,9 @@ sub startup {
                     email => $email
                 }
             );
+            
             my $return = $result->fetch;
+            return undef if (!$return);
             my $shash = $return->[1];
             my $valid = Crypt::SaltedHash->validate($shash, $pw);
             return undef unless $valid;

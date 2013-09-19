@@ -20,11 +20,11 @@ select id, owner_id into treeid, treeowner from tree where token = t;
 IF (treeid) THEN
     select id into branchid from branch where tree_id = treeid
         AND name = 'User Feedback';
-    SET @priority = (SELECT MAX(priority) FROM leaf
-                WHERE branch_id = branchid);
+    UPDATE leaf SET priority = priority + 1
+        WHERE branch_id = branchid;     
     IF (branchid) THEN
         insert into `annotree`.`leaf` (name, branch_id, owner_user_id, priority)
-        values (n, branchid, treeowner, @priority + 1);
+        values (n, branchid, treeowner, 1);
         set @id = LAST_INSERT_ID();
         select 'id', 'name', 'owner_user_id', 'branch_id', 'created_at'
         union 

@@ -226,7 +226,11 @@ sub setReset {
 
     my $json = {};
     my $cols = $result->fetch;
-    return {error => $cols->[0], txt => 'This email address does not exist in our system'} if (looks_like_number($cols->[0]));
+    if (looks_like_number($cols->[0])) {
+        my $num = $cols->[0];
+        return {error => $num, txt => 'This email address does not exist in our system'} if $num == 1;
+        return {error => $num, txt => 'You still need to signup for AnnoTree!'} if $num == 2;
+    }
     my $userInfo = $result->fetch;
     my $name = $userInfo->[1] || $userInfo->[2];
 

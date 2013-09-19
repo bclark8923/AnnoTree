@@ -22,11 +22,11 @@ SELECT id INTO ownerid FROM user WHERE email = owner_email;
 IF (SELECT id FROM user_tree WHERE tree_id = treeid AND user_id = ownerid) THEN
     select id into branchid from branch where tree_id = treeid
         AND name = 'User Feedback';
-    SET @priority = (SELECT MAX(priority) FROM leaf
-                WHERE branch_id = branchid);
+    UPDATE leaf SET priority = priority + 1
+        WHERE branch_id = branchid;
     IF (branchid) THEN
         insert into `annotree`.`leaf` (name, branch_id, owner_user_id, priority)
-        values (n, branchid, ownerid, @priority + 1);
+        values (n, branchid, ownerid, 1);
         set @id = LAST_INSERT_ID();
         select 'id', 'name', 'owner_user_id', 'branch_id', 'created_at'
         union 

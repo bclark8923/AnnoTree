@@ -1,8 +1,32 @@
-<div id="docs" ng-controller="docs.MainController">
+<div ng-controller="docs.MainController">
+    <div class="docsPageHeader">
+        AnnoTree Documentation
+    </div>
+    <div id="docsHolder">
+        <a href="#/app/docs">
+            <div class="docs" ng-class="{activeDocs:subview=='home'}">
+                <i class="icon-code"></i>&nbsp;Home
+            </div>
+        </a>
+        <a href="#/app/docs/ios">
+            <div class="docs"  ng-class="{activeDocs:subview=='ios'}">
+                <i class="icon-apple"></i>&nbsp;iOS
+            </div>
+        </a>
+        <a href="#/app/docs/chrome">
+            <div class="docs"  ng-class="{activeDocs:subview=='chrome'}" onmouseover="$('#chromeImg').attr('src', 'img/chrome_icon.png')" onmouseout="$('#chromeImg').attr('src', 'img/chrome_icon_green.png')">
+                <img src="img/chrome_icon_green.png" id="chromeImg" ng-hide="subview=='chrome'" style="width:14px;padding-bottom:3px;" />
+                <img src="img/chrome_icon.png" ng-show="subview=='chrome'" style="width:14px;padding-bottom:3px;" />
+
+                Chrome
+            </div>
+        </a>
+    </div>
     <div id="resources">
         <div ng-switch="subview">
-            <div ng-switch-when="home" ng-include=" 'assets/app/views/docs/home.html' "></div>
-            <div ng-switch-when="ios" ng-include=" 'assets/app/views/docs/ios.html' "></div>
+            <div ng-switch-when="home" ng-include="'assets/app/views/docs/home.html'"></div>
+            <div ng-switch-when="ios" ng-include="'assets/app/views/docs/ios.html'"></div>
+            <div ng-switch-when="chrome" ng-include="'assets/app/views/docs/chrome.html'"></div>
         </div>
     </div>
 </div>

@@ -30,6 +30,12 @@ AnnoTree.config(
             .when("/app/docs", {
                 action: "standard.docs.home"
             })
+            .when("/app/docs/ios", {
+                action: "standard.docs.ios"
+            })            
+            .when("/app/docs/chrome", {
+                action: "standard.docs.chrome"
+            })
             .when("/app/:forestID/:treeID/:branchID/:leafID", {
                 action: "standard.tree"
             }) 

@@ -33,7 +33,10 @@
         }
 
         $scope.$on('newLeafCreated', function(evt, leafData) {
-            $scope.leaves.push(leafData);
+            $scope.leaves.unshift(leafData);
+            for (var i = 0; i < $scope.leaves.length; i++) {
+                $scope.leaves[i].priority = i + 1;
+            }
             if(!$scope.$$phase) {
                 $scope.$apply();
             }
@@ -71,7 +74,8 @@
             }
             $scope.leaves.splice(spliceIndex, 1);
         });
-
+        
+        $scope.$watch('activeBranch', function(oldValue, newValue) {loadLeavesData()}, true);
         $scope.$evalAsync(loadLeavesData());
         console.log('leaves');
     });

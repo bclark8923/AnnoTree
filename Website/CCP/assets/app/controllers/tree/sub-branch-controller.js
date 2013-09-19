@@ -343,6 +343,7 @@
                         }
                     }
                     $scope.branches[b].leaves.splice(spliceIndex, 1);
+                    $scope.numLeaves[b]--;
                     break;
                 }
             }

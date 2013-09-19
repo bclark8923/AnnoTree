@@ -244,7 +244,7 @@ a.btn-annotree {
 #feedback {
     position: absolute;
     bottom: 0px;
-    right: 30px;
+    right: 20px;
     z-index: 100;
 }
 
@@ -603,7 +603,7 @@ a.btn-annotree {
     line-height: 40px;
     padding-left: 25px;
     cursor: auto;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 #modifyTreeModal .modal-dialog {
@@ -614,7 +614,7 @@ a.btn-annotree {
  * ----------------------- */
 #branchColumnHolder {
     height: calc(100% - 90px);
-    width: calc(100% - 280px);
+    width: calc(100% - 270px);
     float: left;
     margin-left: 170px;
     position: absolute;
@@ -675,7 +675,7 @@ a.btn-annotree {
  * ----------------------- */
 #leaves {
     height: calc(100% - 90px);
-    width: calc(100% - 280px);
+    width: calc(100% - 270px);
     float: left;
     margin-left: 170px;
     background-color: #f1f1f1;
@@ -854,42 +854,70 @@ a.btn-annotree {
 /* -----------------------
  * Documents Settings
  * ----------------------- */
-#docs {
-    height: 100%;
-    width: 100%;
-    border-top: 40px solid transparent;
-    padding:20px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-#docs #resources {
-    margin: 0 auto;
-    min-height: 100%;
-    width: 100%;
-    box-shadow: 0px 0px 10px #ddd;
-    border-radius: 5px;
+.docsPageHeader {
+    height: 40px;
     background-color: #fff;
-    opacity: 1;
-
-    transition: opacity .25s linear;
-    -moz-transition: opacity .25s linear;
-    -webkit-transition: opacity .25s linear;
+    font-size: 14pt;
+    padding: 5px;
+    padding-left: 20px;
+    color: #888;
+    font-weight: bold;
 }
 
-#docsBack {
-    float:left;
-    padding-left: 7px;
-    padding-top: 2px;
+#docsHolder {
+    height: 100%;
+    width: 170px;
+    float: left;
+}
+
+#docsHolder > a {
     text-decoration: none;
 }
 
-#docs .content {
+.docs {
+    background-color: #fff;
+    width: 170px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 25px;
+    color: #92DF74;
+    font-weight: 300;
+}
+
+
+.docs:hover {
+    color: #888;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.activeDocs {
+    color: #888;
+    cursor: auto;
+    font-weight: 700;
+}
+
+.activeDocs:hover {
+    font-weight: 700;
+    cursor: auto;
+}
+
+#resources {
+    height: calc(100% - 90px);
+    width: calc(100% - 270px);
+    float: left;
+    margin-left: 170px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
     padding: 20px;
-    font-size: 14pt;
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: opacity .25s linear;
+    -moz-transition: opacity .25s linear;
+    -webkit-transition: opacity .25s linear;
 }
 
 .docDownload {

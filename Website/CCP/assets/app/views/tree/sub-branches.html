@@ -13,7 +13,7 @@
                 <div class="card-col col-xs-12" ng-click="showLeaf($event, leaf.id)" data-jqyoui-options="{revert: 'invalid', appendTo:'body'}" data-drag="true" jqyoui-draggable="{animate:true, index:{{leaf.priority - 1}}, onStart:'hidePopovers'}" ng-model="branch.leaves">
                     <div class="card subBranchCard">
                         <div class="cardName leafCardName">
-                            {{leaf.name}}
+                            {{leaf.name}} p{{leaf.priority}}
                         </div>
                         <div class="cardInformation">
                             <div style="padding:0 0 5px 5px">

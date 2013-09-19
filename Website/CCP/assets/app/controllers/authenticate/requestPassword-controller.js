@@ -29,6 +29,9 @@
                         function(response) { //failure case
                             if (response.status != 500  && response.status != 502) {
                                 setError(response.data.txt);
+                                if (response.data.error == 2) {
+                                    $scope.signup = true;
+                                }
                             } else {
                                setError(constants.servicesDown());
                             }
@@ -49,7 +52,8 @@
                 }
                 $scope.subview = renderContext.getNextSection();
             });
-
+            
+            $scope.signup = false;
             $scope.subview = renderContext.getNextSection();
             $scope.invalidEmail = false;
             $scope.emailInput = true;

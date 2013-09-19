@@ -3,7 +3,7 @@
         <div class="col-xs-12 col-sm-6 col-lg-4" ng-repeat="leaf in leaves | orderBy:'priority'">
                 <div class="card leafCard" ng-click="showLeaf(leaf.id)" back-img="{{leaf.annotation}}"  data-jqyoui-options="{revert: 'invalid', appendTo:'body'}" data-drag="true" jqyoui-draggable="{animate:true, index:{{$index}}}" ng-model="leaves" >
                 <div class="cardName leafCardName">
-                    {{leaf.name}}
+                    {{leaf.name}} p{{leaf.priority}}
                 </div>
             </div>
         </div>

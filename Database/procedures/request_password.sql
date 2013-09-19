@@ -25,7 +25,11 @@ IF (SELECT id FROM user WHERE email = email_in AND status = 3) THEN
       WHERE r.email = email_in;
     COMMIT;
 ELSE
-    select '1';
+    IF (SELECT id FROM user WHERE email = email_in AND (status = 1 OR status = 2)) THEN
+        SELECT '2';
+    ELSE
+        SELECT '1';
+    END IF;
 END IF;
 END $$
 DELIMITER ; $$

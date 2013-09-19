@@ -79,7 +79,7 @@
                         } else if ($scope.tree.branches[i].name == 'Bugs') {
                             $scope.tree.branches[i].icon = "icon-bug";
                         } else if ($scope.tree.branches[i].name == 'Archive') {
-                            $scope.tree.branches[i].icon = "Archive";
+                            $scope.tree.branches[i].icon = "icon-archive";
                         }
                     }
                     $timeout(function() {$("#loadingScreen").hide();}, 0);

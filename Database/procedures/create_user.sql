@@ -112,6 +112,7 @@ ELSEIF email_in REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
         SET @sub_branch_id = LAST_INSERT_ID();
         INSERT INTO branch_link (source_branch_id, destination_branch_id, priority) 
             VALUES (@branch_id, @sub_branch_id, '3');
+        INSERT INTO branch (name, tree_id) VALUES ('Archive', @tree_id);
     commit;
 ELSE
     select '1';

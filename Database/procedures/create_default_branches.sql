@@ -42,6 +42,7 @@ IF (SELECT id FROM user_tree WHERE user_id = user_id_in AND tree_id = tree_id_in
         SET @sub_branch_id = LAST_INSERT_ID();
         INSERT INTO branch_link (source_branch_id, destination_branch_id, priority) 
             VALUES (@branch_id, @sub_branch_id, '3');
+        INSERT INTO branch (tree_id, name) VALUES (tree_id_in, 'Archive');
         SELECT '0';
 ELSE
     SELECT '1';

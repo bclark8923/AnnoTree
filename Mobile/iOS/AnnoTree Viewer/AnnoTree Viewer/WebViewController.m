@@ -8,6 +8,9 @@
 
 #import "WebViewController.h"
 #import "UIScrollViewPageViewController.h"
+#import "DDLog.h"
+#import "DDTTYLogger.h"
+#import "DDASLLogger.h"
 
 static const CGFloat kNavBarHeight = 52.0f;
 static const CGFloat kLabelHeight = 14.0f;
@@ -119,6 +122,9 @@ static const CGFloat kAddressHeight = 26.0f;
     [self updateTitle:webView];
     NSURLRequest* request = [webView request];
     [self updateAddress:request];
+        [DDLog addLogger:[DDASLLogger sharedInstance]];
+        [DDLog addLogger:[DDTTYLogger sharedInstance]];
+
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error

@@ -1,5 +1,5 @@
 //
-//  AnnotationViewController.h
+//  DrawingViewController.h
 //  AnnoTree Viewer
 //
 //  Created by Brian Clark on 6/7/13.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AnnotationView.h"
 
-@interface AnnotationViewController : UIViewController
+@interface DrawingViewController : UIViewController
 
 @property (nonatomic, retain) AnnotationView *drawScreen;
 

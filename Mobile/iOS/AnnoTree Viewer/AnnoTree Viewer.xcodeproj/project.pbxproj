@@ -23,13 +23,15 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		D3024B0C17D54B1E0086102C /* ScreenShotUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D3024B0A17D54B1E0086102C /* ScreenShotUtil.h */; };
+		D3024B0D17D54B1E0086102C /* ScreenShotUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D3024B0B17D54B1E0086102C /* ScreenShotUtil.m */; };
 		D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */; };
 		D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C688171B413400BA9B2F /* Default-Portrait@2x~ipad.png */; };
 		D3180C27176184B300A6B8E0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C26176184B300A6B8E0 /* CoreFoundation.framework */; };
-		D3180C4A1761969900A6B8E0 /* AnnotationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3180C481761969800A6B8E0 /* AnnotationViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D3180C4C1761969900A6B8E0 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* AnnotationViewController.m */; };
-		D3180C4D1761969900A6B8E0 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* AnnotationViewController.m */; };
-		D3180C4E1761969900A6B8E0 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* AnnotationViewController.m */; };
+		D3180C4A1761969900A6B8E0 /* DrawingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3180C481761969800A6B8E0 /* DrawingViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3180C4C1761969900A6B8E0 /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* DrawingViewController.m */; };
+		D3180C4D1761969900A6B8E0 /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* DrawingViewController.m */; };
+		D3180C4E1761969900A6B8E0 /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* DrawingViewController.m */; };
 		D3180C5B1764FF5A00A6B8E0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C5A1764FF5A00A6B8E0 /* OpenGLES.framework */; };
 		D3180C5C1765009C00A6B8E0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C5A1764FF5A00A6B8E0 /* OpenGLES.framework */; };
 		D321648C172C18B500573823 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A817000FC300954DDF /* Foundation.framework */; };
@@ -97,13 +99,32 @@
 		D3E126F817B8383E00DC1BE5 /* Screen3.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1268F17B82C0D00DC1BE5 /* Screen3.png */; };
 		D3E126F917B8383E00DC1BE5 /* Screen4.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1269017B82C0D00DC1BE5 /* Screen4.png */; };
 		D3E126FA17B8383E00DC1BE5 /* Screen5.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1269117B82C0D00DC1BE5 /* Screen5.png */; };
+		D3EF7DBB17D5562800D69ED2 /* Leaf.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EF7DB917D5562800D69ED2 /* Leaf.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3EF7DBC17D5562800D69ED2 /* Leaf.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EF7DBA17D5562800D69ED2 /* Leaf.m */; };
+		D3F024C817E65032000F6D5B /* DDAbstractDatabaseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024B817E65032000F6D5B /* DDAbstractDatabaseLogger.h */; };
+		D3F024C917E65032000F6D5B /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024B917E65032000F6D5B /* DDAbstractDatabaseLogger.m */; };
+		D3F024CA17E65032000F6D5B /* DDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024BA17E65032000F6D5B /* DDASLLogger.h */; };
+		D3F024CB17E65032000F6D5B /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024BB17E65032000F6D5B /* DDASLLogger.m */; };
+		D3F024CC17E65032000F6D5B /* DDFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024BC17E65032000F6D5B /* DDFileLogger.h */; };
+		D3F024CD17E65032000F6D5B /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024BD17E65032000F6D5B /* DDFileLogger.m */; };
+		D3F024CE17E65032000F6D5B /* DDLog.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024BE17E65032000F6D5B /* DDLog.h */; };
+		D3F024CF17E65032000F6D5B /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024BF17E65032000F6D5B /* DDLog.m */; };
+		D3F024D017E65032000F6D5B /* DDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024C017E65032000F6D5B /* DDTTYLogger.h */; };
+		D3F024D117E65032000F6D5B /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024C117E65032000F6D5B /* DDTTYLogger.m */; };
+		D3F024D217E65032000F6D5B /* ContextFilterLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024C317E65032000F6D5B /* ContextFilterLogFormatter.h */; };
+		D3F024D317E65032000F6D5B /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024C417E65032000F6D5B /* ContextFilterLogFormatter.m */; };
+		D3F024D417E65032000F6D5B /* DispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024C517E65032000F6D5B /* DispatchQueueLogFormatter.h */; };
+		D3F024D517E65032000F6D5B /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024C617E65032000F6D5B /* DispatchQueueLogFormatter.m */; };
 		D3F2BB5A17CDCA5B00A8B1FF /* ToolbarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2BB5217CDC4A400A8B1FF /* ToolbarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3F2BB5B17CDCA6700A8B1FF /* PencilTool.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2BB5617CDC5E100A8B1FF /* PencilTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3F2BB5C17CDCA7500A8B1FF /* MoveableText.h in Headers */ = {isa = PBXBuildFile; fileRef = 06800E4617B3C8F200EA650D /* MoveableText.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3F2BB5E17CDCA7B00A8B1FF /* MoveableText.m in Sources */ = {isa = PBXBuildFile; fileRef = 06800E4717B3C8F200EA650D /* MoveableText.m */; };
 		D3F2BB5F17CDCA9700A8B1FF /* ToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F2BB5317CDC4A400A8B1FF /* ToolbarButton.m */; };
 		D3F2BB6017CDCA9D00A8B1FF /* PencilTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F2BB5717CDC5E100A8B1FF /* PencilTool.m */; };
-		D3F2BB6417CDCCAD00A8B1FF /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F2BB6117CDCC9F00A8B1FF /* AnnoTree.framework */; };
+		D3F2BB6C17D2982300A8B1FF /* TextTool.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2BB6A17D2982300A8B1FF /* TextTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3F2BB6D17D2982300A8B1FF /* TextTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F2BB6B17D2982300A8B1FF /* TextTool.m */; };
+		D3F2BB7217D29CD000A8B1FF /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F2BB7117D29CD000A8B1FF /* AnnoTree.framework */; };
+		D3F2BB7317D29CD000A8B1FF /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F2BB7117D29CD000A8B1FF /* AnnoTree.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -179,6 +200,8 @@
 /* Begin PBXFileReference section */
 		06800E4617B3C8F200EA650D /* MoveableText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveableText.h; sourceTree = "<group>"; };
 		06800E4717B3C8F200EA650D /* MoveableText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveableText.m; sourceTree = "<group>"; };
+		D3024B0A17D54B1E0086102C /* ScreenShotUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenShotUtil.h; sourceTree = "<group>"; };
+		D3024B0B17D54B1E0086102C /* ScreenShotUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenShotUtil.m; sourceTree = "<group>"; };
 		D314C668171B2D7700BA9B2F /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		D314C669171B2D7700BA9B2F /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
@@ -188,8 +211,8 @@
 		D3180C2A176184B300A6B8E0 /* AnnoTreeResources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnnoTreeResources-Info.plist"; sourceTree = "<group>"; };
 		D3180C2C176184B300A6B8E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D3180C2E176184B300A6B8E0 /* AnnoTreeResources-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnnoTreeResources-Prefix.pch"; sourceTree = "<group>"; };
-		D3180C481761969800A6B8E0 /* AnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewController.h; sourceTree = "<group>"; };
-		D3180C491761969800A6B8E0 /* AnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewController.m; sourceTree = "<group>"; };
+		D3180C481761969800A6B8E0 /* DrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingViewController.h; sourceTree = "<group>"; };
+		D3180C491761969800A6B8E0 /* DrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingViewController.m; sourceTree = "<group>"; };
 		D3180C5A1764FF5A00A6B8E0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		D321648B172C18B500573823 /* libAnnoTree.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAnnoTree.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D321648F172C18B500573823 /* AnnoTreeLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnnoTreeLibrary-Prefix.pch"; sourceTree = "<group>"; };
@@ -266,11 +289,30 @@
 		D3E126EE17B837EB00DC1BE5 /* AnnoTreeBrowserResources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnnoTreeBrowserResources-Info.plist"; sourceTree = "<group>"; };
 		D3E126F017B837EB00DC1BE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D3E126F217B837EB00DC1BE5 /* AnnoTreeBrowserResources-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnnoTreeBrowserResources-Prefix.pch"; sourceTree = "<group>"; };
+		D3EF7DB917D5562800D69ED2 /* Leaf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leaf.h; sourceTree = "<group>"; };
+		D3EF7DBA17D5562800D69ED2 /* Leaf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Leaf.m; sourceTree = "<group>"; };
+		D3F024B817E65032000F6D5B /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		D3F024B917E65032000F6D5B /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		D3F024BA17E65032000F6D5B /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		D3F024BB17E65032000F6D5B /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		D3F024BC17E65032000F6D5B /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		D3F024BD17E65032000F6D5B /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		D3F024BE17E65032000F6D5B /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		D3F024BF17E65032000F6D5B /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		D3F024C017E65032000F6D5B /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		D3F024C117E65032000F6D5B /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		D3F024C317E65032000F6D5B /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		D3F024C417E65032000F6D5B /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		D3F024C517E65032000F6D5B /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		D3F024C617E65032000F6D5B /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		D3F024C717E65032000F6D5B /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		D3F2BB5217CDC4A400A8B1FF /* ToolbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarButton.h; sourceTree = "<group>"; };
 		D3F2BB5317CDC4A400A8B1FF /* ToolbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarButton.m; sourceTree = "<group>"; };
 		D3F2BB5617CDC5E100A8B1FF /* PencilTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PencilTool.h; sourceTree = "<group>"; };
 		D3F2BB5717CDC5E100A8B1FF /* PencilTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PencilTool.m; sourceTree = "<group>"; };
-		D3F2BB6117CDCC9F00A8B1FF /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AnnoTree.framework; sourceTree = "<group>"; };
+		D3F2BB6A17D2982300A8B1FF /* TextTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextTool.h; sourceTree = "<group>"; };
+		D3F2BB6B17D2982300A8B1FF /* TextTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextTool.m; sourceTree = "<group>"; };
+		D3F2BB7117D29CD000A8B1FF /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnnoTree.framework; path = "../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos/AnnoTree.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,7 +330,7 @@
 			files = (
 				D3180C5B1764FF5A00A6B8E0 /* OpenGLES.framework in Frameworks */,
 				D321648C172C18B500573823 /* Foundation.framework in Frameworks */,
-				D3F2BB6417CDCCAD00A8B1FF /* AnnoTree.framework in Frameworks */,
+				D3F2BB7317D29CD000A8B1FF /* AnnoTree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +353,7 @@
 				D3AAA1A717000FC300954DDF /* UIKit.framework in Frameworks */,
 				D3AAA1A917000FC300954DDF /* Foundation.framework in Frameworks */,
 				D3AAA1AB17000FC300954DDF /* CoreGraphics.framework in Frameworks */,
+				D3F2BB7217D29CD000A8B1FF /* AnnoTree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +378,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3024B0517D5495E0086102C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D3024B0A17D54B1E0086102C /* ScreenShotUtil.h */,
+				D3024B0B17D54B1E0086102C /* ScreenShotUtil.m */,
+				D3EF7DB917D5562800D69ED2 /* Leaf.h */,
+				D3EF7DBA17D5562800D69ED2 /* Leaf.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		D314C662171B282900BA9B2F /* ToolBarIcons */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +440,8 @@
 				D3F2BB5317CDC4A400A8B1FF /* ToolbarButton.m */,
 				D3F2BB5617CDC5E100A8B1FF /* PencilTool.h */,
 				D3F2BB5717CDC5E100A8B1FF /* PencilTool.m */,
+				D3F2BB6A17D2982300A8B1FF /* TextTool.h */,
+				D3F2BB6B17D2982300A8B1FF /* TextTool.m */,
 			);
 			name = ToolbarActions;
 			sourceTree = "<group>";
@@ -395,8 +451,8 @@
 			children = (
 				D3AAA1F417002C4400954DDF /* AnnotationView.h */,
 				D3AAA1F517002C4400954DDF /* AnnotationView.m */,
-				D3180C481761969800A6B8E0 /* AnnotationViewController.h */,
-				D3180C491761969800A6B8E0 /* AnnotationViewController.m */,
+				D3180C481761969800A6B8E0 /* DrawingViewController.h */,
+				D3180C491761969800A6B8E0 /* DrawingViewController.m */,
 				06800E4617B3C8F200EA650D /* MoveableText.h */,
 				06800E4717B3C8F200EA650D /* MoveableText.m */,
 			);
@@ -502,7 +558,8 @@
 		D3AAA1A517000FC300954DDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D3F2BB6117CDCC9F00A8B1FF /* AnnoTree.framework */,
+				D3F024B717E65032000F6D5B /* Lumberjack */,
+				D3F2BB7117D29CD000A8B1FF /* AnnoTree.framework */,
 				D3AAA1A617000FC300954DDF /* UIKit.framework */,
 				D3AAA1A817000FC300954DDF /* Foundation.framework */,
 				D3AAA1AA17000FC300954DDF /* CoreGraphics.framework */,
@@ -582,6 +639,7 @@
 		D3AAA1E71700186400954DDF /* AnnoTree */ = {
 			isa = PBXGroup;
 			children = (
+				D3024B0517D5495E0086102C /* Util */,
 				D3E1267517B813D200DC1BE5 /* HelpScreens */,
 				D314C666171B2D4200BA9B2F /* ToolbarActions */,
 				D3AAA1E41700182B00954DDF /* Images */,
@@ -635,6 +693,37 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D3F024B717E65032000F6D5B /* Lumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				D3F024B817E65032000F6D5B /* DDAbstractDatabaseLogger.h */,
+				D3F024B917E65032000F6D5B /* DDAbstractDatabaseLogger.m */,
+				D3F024BA17E65032000F6D5B /* DDASLLogger.h */,
+				D3F024BB17E65032000F6D5B /* DDASLLogger.m */,
+				D3F024BC17E65032000F6D5B /* DDFileLogger.h */,
+				D3F024BD17E65032000F6D5B /* DDFileLogger.m */,
+				D3F024BE17E65032000F6D5B /* DDLog.h */,
+				D3F024BF17E65032000F6D5B /* DDLog.m */,
+				D3F024C017E65032000F6D5B /* DDTTYLogger.h */,
+				D3F024C117E65032000F6D5B /* DDTTYLogger.m */,
+				D3F024C217E65032000F6D5B /* Extensions */,
+			);
+			name = Lumberjack;
+			path = ../../../../CocaLumberjack/Lumberjack;
+			sourceTree = "<group>";
+		};
+		D3F024C217E65032000F6D5B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D3F024C317E65032000F6D5B /* ContextFilterLogFormatter.h */,
+				D3F024C417E65032000F6D5B /* ContextFilterLogFormatter.m */,
+				D3F024C517E65032000F6D5B /* DispatchQueueLogFormatter.h */,
+				D3F024C617E65032000F6D5B /* DispatchQueueLogFormatter.m */,
+				D3F024C717E65032000F6D5B /* README.txt */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -647,11 +736,21 @@
 				D32164C6172C21BC00573823 /* ToolbarBg.h in Headers */,
 				D362912F173067B000F08E8A /* UIWindowAnnoTree.h in Headers */,
 				D32164C5172C21BC00573823 /* ShareViewController.h in Headers */,
-				D3180C4A1761969900A6B8E0 /* AnnotationViewController.h in Headers */,
+				D3180C4A1761969900A6B8E0 /* DrawingViewController.h in Headers */,
 				D3E1267F17B8196C00DC1BE5 /* UIScrollViewPageViewController.h in Headers */,
 				D3F2BB5A17CDCA5B00A8B1FF /* ToolbarButton.h in Headers */,
 				D3F2BB5B17CDCA6700A8B1FF /* PencilTool.h in Headers */,
 				D3F2BB5C17CDCA7500A8B1FF /* MoveableText.h in Headers */,
+				D3F2BB6C17D2982300A8B1FF /* TextTool.h in Headers */,
+				D3024B0C17D54B1E0086102C /* ScreenShotUtil.h in Headers */,
+				D3EF7DBB17D5562800D69ED2 /* Leaf.h in Headers */,
+				D3F024C817E65032000F6D5B /* DDAbstractDatabaseLogger.h in Headers */,
+				D3F024CA17E65032000F6D5B /* DDASLLogger.h in Headers */,
+				D3F024CC17E65032000F6D5B /* DDFileLogger.h in Headers */,
+				D3F024CE17E65032000F6D5B /* DDLog.h in Headers */,
+				D3F024D017E65032000F6D5B /* DDTTYLogger.h in Headers */,
+				D3F024D217E65032000F6D5B /* ContextFilterLogFormatter.h in Headers */,
+				D3F024D417E65032000F6D5B /* DispatchQueueLogFormatter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -950,10 +1049,20 @@
 				D32164B2172C190300573823 /* AnnoTree.m in Sources */,
 				D3216493172C18B500573823 /* AnnoTreeLibrary.m in Sources */,
 				D36291041730465C00F08E8A /* UIWindowAnnoTree.m in Sources */,
-				D3180C4D1761969900A6B8E0 /* AnnotationViewController.m in Sources */,
+				D3180C4D1761969900A6B8E0 /* DrawingViewController.m in Sources */,
 				D3F2BB5E17CDCA7B00A8B1FF /* MoveableText.m in Sources */,
 				D3F2BB5F17CDCA9700A8B1FF /* ToolbarButton.m in Sources */,
 				D3F2BB6017CDCA9D00A8B1FF /* PencilTool.m in Sources */,
+				D3F2BB6D17D2982300A8B1FF /* TextTool.m in Sources */,
+				D3024B0D17D54B1E0086102C /* ScreenShotUtil.m in Sources */,
+				D3EF7DBC17D5562800D69ED2 /* Leaf.m in Sources */,
+				D3F024C917E65032000F6D5B /* DDAbstractDatabaseLogger.m in Sources */,
+				D3F024CB17E65032000F6D5B /* DDASLLogger.m in Sources */,
+				D3F024CD17E65032000F6D5B /* DDFileLogger.m in Sources */,
+				D3F024CF17E65032000F6D5B /* DDLog.m in Sources */,
+				D3F024D117E65032000F6D5B /* DDTTYLogger.m in Sources */,
+				D3F024D317E65032000F6D5B /* ContextFilterLogFormatter.m in Sources */,
+				D3F024D517E65032000F6D5B /* DispatchQueueLogFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -962,7 +1071,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D32164A8172C18B600573823 /* AnnoTreeLibraryTests.m in Sources */,
-				D3180C4E1761969900A6B8E0 /* AnnotationViewController.m in Sources */,
+				D3180C4E1761969900A6B8E0 /* DrawingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -981,7 +1090,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3AAA1DB17000FC400954DDF /* AnnoTree_ViewerTests.m in Sources */,
-				D3180C4C1761969900A6B8E0 /* AnnotationViewController.m in Sources */,
+				D3180C4C1761969900A6B8E0 /* DrawingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1163,6 +1272,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTreeLibrary/AnnoTreeLibrary-Prefix.pch";
@@ -1187,6 +1297,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTreeLibrary/AnnoTreeLibrary-Prefix.pch";
@@ -1305,6 +1416,7 @@
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\"",
 					"\"$(SRCROOT)/../ActiveSDK\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTree Viewer/AnnoTree Viewer-Prefix.pch";
@@ -1341,6 +1453,7 @@
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\"",
 					"\"$(SRCROOT)/../ActiveSDK\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTree Viewer/AnnoTree Viewer-Prefix.pch";

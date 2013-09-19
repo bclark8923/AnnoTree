@@ -1,18 +1,18 @@
 //
-//  AnnotationViewController.m
+//  DrawingViewController.m
 //  AnnoTree Viewer
 //
 //  Created by Brian Clark on 6/7/13.
 //  Copyright (c) 2013 AnnoTree. All rights reserved.
 //
 
-#import "AnnotationViewController.h"
+#import "DrawingViewController.h"
 
-@interface AnnotationViewController ()
+@interface DrawingViewController ()
 
 @end
 
-@implementation AnnotationViewController
+@implementation DrawingViewController
 
 @synthesize drawScreen;
 

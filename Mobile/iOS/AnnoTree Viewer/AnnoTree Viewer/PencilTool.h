@@ -7,7 +7,12 @@
 //
 
 #import "ToolbarButton.h"
+#import "DrawingViewController.h"
 
 @interface PencilTool : ToolbarButton
+
+@property (nonatomic, retain) DrawingViewController *drawScreen;
+
+- (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree;
 
 @end

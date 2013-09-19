@@ -7,6 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnnoTree.h"
 
 @interface ToolbarButton : UIButton
+
+@property AnnoTree *annoTree;
+- (id)initWithFrame:(CGRect)frame;
+-(IBAction)setSelectedButton;
 @end

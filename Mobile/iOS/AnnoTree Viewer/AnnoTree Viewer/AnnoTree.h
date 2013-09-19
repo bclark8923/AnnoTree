@@ -9,12 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "ShareViewController.h"
 #import "UIWindowAnnoTree.h"
-#import "AnnotationViewController.h"
+#import "DrawingViewController.h"
 #import "UIScrollViewPageViewController.h"
+#import "Leaf.h"
 
-@interface AnnoTree : UIViewController {
-    //UIWindow *AnnoTreeWindow;
-}
+@interface AnnoTree : UIViewController
 
 @property (nonatomic, retain) UIWindowAnnoTree *annoTreeWindow;
 @property (nonatomic, retain) UIWindow *keyWindow;
@@ -24,19 +23,20 @@
 @property (nonatomic, retain) NSMutableArray *toolbarButtons;
 @property (nonatomic, retain) NSMutableArray *toolbarObjects;
 @property (nonatomic, retain) ShareViewController *shareView;
-@property (nonatomic, retain) AnnotationViewController *drawScreen;
+//@property (nonatomic, retain) DrawingViewController *drawScreen;
 @property (nonatomic, retain) UIButton *annoTreeImageOpenView;
 @property (nonatomic, retain) NSString *activeTree;
 @property (nonatomic, retain) UIScrollViewPageViewController* helpView;
 //@property NSUInteger supportedOrientation;
 @property BOOL enabled;
-@property BOOL drawEnabled;
-@property BOOL textEnabled;
-@property BOOL selectEnabled;
+//@property BOOL drawEnabled;
+//@property BOOL textEnabled;
+//@property BOOL selectEnabled;
 @property int textViewHeightHold;
 @property int keyboardHeight;
 @property GLuint colorRenderbuffer;
-@property UIAlertView *leafUploading;
+
+@property Leaf *leaf;
 
 
 /* Temp */

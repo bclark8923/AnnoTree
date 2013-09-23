@@ -18,10 +18,11 @@
         <div ng-repeat="branch in tree.branches">
             <div ng-switch="activeBranch.id==branch.id">
                 <div ng-switch-when="true" class="activeBranch">
-                    <i ng-class="branch.icon"></i>&nbsp;{{branch.name}}
+                    <i ng-class="branch.icon" ng-show="branch.icon!=''"></i>{{branch.name}}
                 </div>
                 <div ng-switch-when="false" class="branch" data-jqyoui-options="{hoverClass:'branchHover'}" ng-click="changeBranch(branch.id)" data-drop="true" jqyoui-droppable="{multiple:true, onDrop:'leafDrop'}" ng-model="droppedLeaf">
-                    <i ng-class="branch.icon"></i>&nbsp;{{branch.name}}
+
+                    <i ng-class="branch.icon" ng-show="branch.icon!=''"></i>{{branch.name}}
                 </div>
             </div>
         </div>

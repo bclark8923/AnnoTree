@@ -16,6 +16,32 @@ body, #containWrapper {
     color: #444;
 }
 
+/* Track */ 
+::-webkit-scrollbar { 
+    width: 10px;
+} 
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: none; 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: none;
+    background: transparent;
+}
+
+/* Handle */
+:hover::-webkit-scrollbar-thumb {
+    background: #aaa; 
+}
+
 .popover-title {
     font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
 }
@@ -450,6 +476,7 @@ a.btn-annotree {
     color: #222;
     font-size: 10pt;
     width: 100%;
+    padding: 5px;
 }
 
 .cardInformation {
@@ -571,19 +598,28 @@ a.btn-annotree {
 }
 
 #branchHolder {
-    height: 100%;
+    max-height: calc(100% - 90px);
     width: 170px;
     float: left;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .branch {
-    background-color: #fff;
-    width: 170px;
-    height: 40px;
-    line-height: 40px;
     padding-left: 25px;
     color: #92DF74;
     font-weight: 300;
+}
+
+div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
+    width: 170px;
+    height: 40px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.branch > i {
+    margin-right: 5px;
 }
 
 .branchHover {
@@ -595,18 +631,17 @@ a.btn-annotree {
 .branch:hover {
     color: #888;
     cursor: pointer;
-    font-weight: 400;
 }
 
 .activeBranch {
-    background-color: #fff;
     color: #888;
-    width: 170px;
-    height: 40px;
-    line-height: 40px;
     padding-left: 25px;
     cursor: auto;
     font-weight: 400;
+}
+
+.activeBranch > i {
+    margin-right: 5px;
 }
 
 #branchHr {
@@ -674,7 +709,7 @@ a.btn-annotree {
 }
 
 .branchColumnLeaves {
-    overflow-y: auto;
+    /*overflow-y: auto;*/
     overflow-x: hidden;
     height: 100%;
     padding: 0;
@@ -914,7 +949,6 @@ a.btn-annotree {
 .docs:hover {
     color: #888;
     cursor: pointer;
-    font-weight: 400;
 }
 
 .activeDocs {

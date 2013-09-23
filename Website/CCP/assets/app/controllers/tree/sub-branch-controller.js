@@ -18,6 +18,9 @@
                     $scope.branches = response.data.branches;
                     leafFilter($scope.leafDisplay.value);
                     setScroll();
+                    if ($routeParams.leafID) {
+                        $scope.$broadcast('showLeaf',$routeParams.leafID);
+                    }
                 },
                 function(response) {
                     $location.path("/forestFire"); //TODO: should redirect to app page and tell them why
@@ -78,7 +81,7 @@
                     $('#branchColumnHolder').css('overflow-y', 'hidden');
                 }, 0);
             } else {
-                $('#branchColumnHolder').css('overflow-y', 'scroll');
+                $('#branchColumnHolder').css('overflow-y', 'auto');
                 $('.branchColumnLeaves').css('max-height', '100%');
             }
         }

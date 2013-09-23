@@ -10,7 +10,7 @@ DELIMITER $$
 
 CREATE Procedure `create_leaf_on_tree` (
     in t VARCHAR(64),
-    in n VARCHAR(45)
+    in n VARCHAR(512)
 )
 BEGIN
 DECLARE treeid INT;

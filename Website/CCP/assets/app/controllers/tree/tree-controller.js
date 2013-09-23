@@ -432,7 +432,9 @@
                 
                 promise.then(
                     function(response) {
-                        $scope.tree.branches.push(response.data);
+                        var branch = response.data;
+                        branch.icon = '';
+                        $scope.tree.branches.push(branch);
                         $scope.newBranchModalWorking = true;
                         $('#newBranchModal').modal('hide');
                     },

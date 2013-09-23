@@ -67,7 +67,8 @@ sub signup {
     my $created = Time::Piece::localtime->strftime('%F %T');  
     my $token = sha256_hex($params->{email}, $created);
     
-    my $result = AnnoTree::Model::MySQL->db->execute("call create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage, :token, :created, :services)", 
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage, :token, :created, :services)", 
         {
             email           => $params->{email}, 
             password        => '' . $pass,
@@ -105,7 +106,8 @@ sub signup {
 sub deleteUser {
     my ($class, $userid) = @_;
     
-    my $result = AnnoTree::Model::MySQL->db->execute("call delete_user(:userid)",
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call delete_user(:userid)",
         {
             userid => $userid
         }

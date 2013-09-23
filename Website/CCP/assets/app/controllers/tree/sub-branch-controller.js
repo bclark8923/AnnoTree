@@ -164,10 +164,10 @@
         
         function createName(user) {
             var name = '';
-            if (user.first_name != null) {
+            if (user.first_name != null && user.first_name != '') {
                 name += user.first_name + ' ';
             }
-            if (user.last_name != null) {
+            if (user.last_name != null && user.last_name != '') {
                 name += user.last_name;
             }
             if (name == '') {

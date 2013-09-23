@@ -11,7 +11,8 @@ DELIMITER $$
 CREATE Procedure `add_user_to_tree`(
     in treeid int,
     in email_in varchar(255),
-    in requesting_user INT
+    in requesting_user INT,
+    IN new_user_img VARCHAR(45)
 )
 BEGIN
 IF (select id from user_tree where tree_id = treeid and user_id = requesting_user) THEN
@@ -43,7 +44,7 @@ IF (select id from user_tree where tree_id = treeid and user_id = requesting_use
         COMMIT;
         END IF;
     ELSE
-        insert into user(email, status) values (email_in, 2);
+        insert into user(email, status, profile_image_path) values (email_in, 2, new_user_img);
         set @new_user_id = LAST_INSERT_ID();
         insert into user_tree (user_id, tree_id) values (@new_user_id, treeid);
          insert into user_forest(user_id, forest_id) 

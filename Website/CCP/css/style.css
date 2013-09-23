@@ -10,6 +10,7 @@ html, body {
 body, #containWrapper {
     font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
     background-color: #fff;
+    font-weight: 300;
     height: 100%;
     width: 100%;
     color: #444;
@@ -561,6 +562,8 @@ a.btn-annotree {
 .icon-treeSettings {
     cursor: pointer;
     vertical-align: middle;
+    font-family: 'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
+    font-weight: 400;
 }
 
 .icon-treeSettings:hover {
@@ -586,13 +589,13 @@ a.btn-annotree {
 .branchHover {
     background-color: #ccc;
     color: #444;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .branch:hover {
     color: #888;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .activeBranch {
@@ -603,11 +606,33 @@ a.btn-annotree {
     line-height: 40px;
     padding-left: 25px;
     cursor: auto;
-    font-weight: 700;
+    font-weight: 400;
+}
+
+#branchHr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 #modifyTreeModal .modal-dialog {
     width: 60%;
+}
+
+.btn-add-branch {
+    height: 25px;
+    line-height: 5px;
+    background: white;
+    border: white;
+    color: #222;
+    margin-left: 10px;
+}
+
+.btn-add-branch:hover {
+    background-color: #eee;
+    color: #222;
 }
 /* -----------------------
  * Sub-branch Settings
@@ -645,7 +670,7 @@ a.btn-annotree {
 
 .branchTitleHr {
     width: 90%;
-    margin: 0 0 0 3%;
+    margin: 0 0 0 5%;
 }
 
 .branchColumnLeaves {
@@ -861,7 +886,8 @@ a.btn-annotree {
     padding: 5px;
     padding-left: 20px;
     color: #888;
-    font-weight: bold;
+    font-family: 'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
+    font-weight: 400;
 }
 
 #docsHolder {
@@ -888,17 +914,17 @@ a.btn-annotree {
 .docs:hover {
     color: #888;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .activeDocs {
     color: #888;
     cursor: auto;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .activeDocs:hover {
-    font-weight: 700;
+    font-weight: 400;
     cursor: auto;
 }
 

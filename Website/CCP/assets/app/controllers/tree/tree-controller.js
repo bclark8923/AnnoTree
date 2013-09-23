@@ -80,6 +80,8 @@
                             $scope.tree.branches[i].icon = "icon-bug";
                         } else if ($scope.tree.branches[i].name == 'Archive') {
                             $scope.tree.branches[i].icon = "icon-archive";
+                        } else {
+                            $scope.tree.branches[i].icon = "";
                         }
                     }
                     $timeout(function() {$("#loadingScreen").hide();}, 0);
@@ -400,6 +402,51 @@
             }
         }
         
+        $scope.openNewBranchModal = function() {
+            $scope.selectedBranchType = 'grid';
+            $scope.newBranchName = '';
+            $scope.newBranchErrorMessage = false;
+            $scope.newBranchModalWorking = false;
+            $('#newBranchModal').appendTo('body').modal('show');
+        }
+        
+        function setNewBranchError(msg) {
+            $scope.newBranchErrorText = msg;
+            $scope.newBranchErrorMessage = true;
+            $scope.newBranchModalWorking = false;
+        }
+
+        $scope.newBranch = function() {
+            var branchName = $scope.newBranchName;
+
+            if (!branchName) {
+                setNewBranchError('Please enter a branch name');
+            } else if (!nameTest.test(branchName)) {
+                setNewBranchError("A branch name must include at least one alphanumeric character");
+            } else {
+                $scope.newBranchModalWorking = true;
+                var promise = $http.post(apiRoot.getRoot() + '/services/' + $scope.tree.id + '/branch', {
+                    name: branchName,
+                    type: $scope.selectedBranchType
+                });
+                
+                promise.then(
+                    function(response) {
+                        $scope.tree.branches.push(response.data);
+                        $scope.newBranchModalWorking = true;
+                        $('#newBranchModal').modal('hide');
+                    },
+                    function(response) {
+                        if (response.status != 500 && response.status != 502) {
+                            setNewBranchError(response.data.txt);
+                        } else {
+                            setNewBranchError(constants.servicesDown());
+                        }
+                    }
+                ); 
+            }
+        }
+        /*
         $scope.mobileGoToHome = function() {
             if (settingsPane.isOpen) {
                 settingsPane.closeFast();
@@ -413,7 +460,7 @@
             } 
             $location.path("/app/" + treeID + "/docs");
         }
-
+        */
         var renderContext = requestContext.getRenderContext("standard.tree");
         $scope.subview = renderContext.getNextSection();
         $scope.$on("requestContextChanged", function() {
@@ -434,6 +481,10 @@
         $('#newLeafModal').on('hidden.bs.modal', function() {
             $('#newLeafModal').appendTo('#treeIndex');
         });
+
+        $('#newBranchModal').on('hidden.bs.modal', function() {
+            $('#newBranchModal').appendTo('#treeIndex');
+        });        
         
         $scope.leafDisplayOptions = [
             {name: 'All', value: 0},

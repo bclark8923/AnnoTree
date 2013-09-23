@@ -221,11 +221,12 @@ sub addUserToTree {
     my ($class, $params) = @_;
     
     my $result = AnnoTree::Model::MySQL->db->execute(
-        "call add_user_to_tree(:treeid, :userToAdd, :requestingUser)",
+        "call add_user_to_tree(:treeid, :userToAdd, :requestingUser, :newUserImg)",
         {
             userToAdd       => $params->{userToAdd},
             treeid          => $params->{treeid},
-            requestingUser  => $params->{requestingUser}
+            requestingUser  => $params->{requestingUser},
+            newUserImg      => 'img/user.png',
         }
     ); 
     my $json = {};
@@ -259,6 +260,8 @@ sub addUserToTree {
         my $cols = $addedUser->fetch; # get the columns (keys for json)
         my $userInfo = $addedUser->fetch;
         $json->{id} = $userInfo->[0];
+        $json->{profile_image_path} = $userInfo->[6];
+        $json->{email} = $userInfo->[3];
         my $subject = '';
         if ($status == 3) {
             $subject = "You've Been Invited To A Tree";
@@ -293,6 +296,7 @@ sub addUserToTree {
     return $json;
 }
 
+#TODO: is this used?
 sub getTreeAnnotations {
     my ($class, $params) = @_;
 

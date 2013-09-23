@@ -102,7 +102,7 @@ sub addUserToTree {
     $params->{requestingUser} = $self->current_user->{userid};
     $params->{userToAdd} = $jsonReq->{userToAdd};
     my $json = AnnoTree::Model::Tree->addUserToTree($params);
-    
+
     my $status = 200;
     if (exists $json->{error}) {
        $status = 406;

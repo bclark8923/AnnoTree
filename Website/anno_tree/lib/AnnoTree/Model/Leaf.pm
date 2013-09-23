@@ -36,7 +36,11 @@ sub create {
     }
     my $leafInfo = $result->fetch;
     for (my $i = 0; $i < @{$cols}; $i++) {
-        $json->{$cols->[$i]} = $leafInfo->[$i];
+        if ($cols->[$i] eq 'priority') {
+            $json->{$cols->[$i]} = $leafInfo->[$i] + 0;
+        } else {
+            $json->{$cols->[$i]} = $leafInfo->[$i];
+        }
     }
     
     return $json;

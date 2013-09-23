@@ -11,12 +11,11 @@ sub create {
     my ($class, $params) = @_;
     
     my $result = AnnoTree::Model::MySQL->db->execute(
-        "call create_branch(:userid, :treeid, :name, :desc)",
+        "call create_branch(:userid, :treeid, :name)",
         {
             userid      => $params->{userid},
             treeid      => $params->{treeid},
             name        => $params->{name},
-            desc        => $params->{desc},
         }
     );
 
@@ -25,14 +24,31 @@ sub create {
     if (looks_like_number($cols->[0])) { 
         my $error = $cols->[0];
         if ($error == 1) {
-            return {error => $error, txt => 'Can\'t create a branch with a user that is not active'};
-        } elsif ($error == 2) { 
-            return {error => $error, txt => 'Tree does not exist'};
+            return {error => $error, txt => 'You do not have permissions to create a branch on this tree'};
         } 
     }
     my $branchInfo = $result->fetch;
     for (my $i = 0; $i < @{$cols}; $i++) {
         $json->{$cols->[$i]} = $branchInfo->[$i];
+    }
+    
+    $json->{sub_branches} = [];
+    if ($params->{type} eq 'tasks') {
+        my $result = AnnoTree::Model::MySQL->db->execute(
+            "call create_sub_branches(:branchid, :treeid)",
+            {
+                branchid    => $json->{id},
+                treeid      => $params->{treeid},
+            }
+        );
+        $cols = $result->fetch;
+        my $subIndex = 0;
+        while (my $sub = $result->fetch) {
+            for (my $i = 0; $i < @{$cols}; $i++) {
+                $json->{sub_branches}->[$subIndex]->{$cols->[$i]} = $sub->[$i];
+            }
+            $subIndex++;
+        }
     }
     
     return $json;

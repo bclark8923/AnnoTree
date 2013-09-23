@@ -22,3 +22,4 @@ DROP TABLE IF EXISTS uncategorized_annotation;
 DROP TABLE IF EXISTS task;
 DROP TABLE IF EXISTS task_statuses;
 
+UPDATE user SET profile_image_path = 'img/user.png';

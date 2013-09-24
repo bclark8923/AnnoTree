@@ -1,5 +1,5 @@
 <div id="branchColumnHolder" ng-controller="tree.SubBranchController">
-    <div ng-repeat="branch in branches | orderBy:'priority'" class="col-sm-4">
+    <div ng-repeat="branch in parentBranch.branches | orderBy:'priority'" class="col-sm-4">
         <div class="branchColumnTitle">
             {{branch.name}} 
             <div class="branchCountLabel">
@@ -7,10 +7,9 @@
             </div>
         </div>
         <hr class="branchTitleHr" />
-        <div class="branchColDrop" id="{{'b' + branch.id + 'i0'}}" data-drop="true" jqyoui-droppable="{multiple:true, onDrop:'subBranchDrop'}" data-jqyoui-options="{hoverClass:'branchColDropHover'}" ng-model="subBranchDroppedLeaf"></div>
-        <div class="branchColumnLeaves">
+        <div class="branchColumnLeaves" ui-multi-sortable ng-model="parentBranch" model-subset="branches[{{$index}}].leaves">
             <div ng-repeat="leaf in branch.leaves | orderBy:'priority'" ng-show="leaf.show">
-                <div class="card-col col-xs-12" ng-click="showLeaf($event, leaf.id)" data-jqyoui-options="{revert: 'invalid', appendTo:'body'}" data-drag="true" jqyoui-draggable="{animate:true, index:{{leaf.priority - 1}}, onStart:'hidePopovers'}" ng-model="branch.leaves">
+                <div class="card-col col-xs-12" ng-click="showLeaf($event, leaf.id)">
                     <div class="card subBranchCard">
                         <div class="cardName leafCardName">
                             {{leaf.name}}
@@ -27,7 +26,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="branchColDrop" id="{{'b' + branch.id + 'i' + (leaf.priority)}}" data-drop="true" jqyoui-droppable="{multiple:true, onDrop:'subBranchDrop'}" data-jqyoui-options="{hoverClass:'branchColDropHover'}" ng-model="subBranchDroppedLeaf"></div>
             </div>
         </div>
     </div>

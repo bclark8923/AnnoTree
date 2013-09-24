@@ -15,7 +15,7 @@
             
             promise.then(
                 function(response) {
-                    $scope.branches = response.data.branches;
+                    $scope.parentBranch = response.data; //.branches;
                     leafFilter($scope.leafDisplay.value);
                     setScroll();
                     if ($routeParams.leafID) {
@@ -43,29 +43,29 @@
                 oldPriority: oldPriority,
                 oldBranch: oldBranchID
             }); //TODO: check for success/failure
-            for (var i = 0; i < $scope.branches.length; i++) {
-                if ($scope.branches[i].id == branchID) {
+            for (var i = 0; i < $scope.parentBranch.branches.length; i++) {
+                if ($scope.parentBranch.branches[i].id == branchID) {
                     $scope.numLeaves[i]++;
                     if (branchID == oldBranchID) {
-                        if (priority >= $scope.branches[i].leaves.length || priority == oldPriority) {
+                        if (priority >= $scope.parentBranch.branches[i].leaves.length || priority == oldPriority) {
                             priority--;
                         }
                         $scope.numLeaves[i]--;
                     }
                     data.branch_id = branchID;
-                    $scope.branches[i].leaves.splice(priority, 0, data);
-                    for (var l = 0; l < $scope.branches[i].leaves.length; l++) {
-                        $scope.branches[i].leaves[l].priority = l + 1;
+                    $scope.parentBranch.branches[i].leaves.splice(priority, 0, data);
+                    for (var l = 0; l < $scope.parentBranch.branches[i].leaves.length; l++) {
+                        $scope.parentBranch.branches[i].leaves[l].priority = l + 1;
                     }
                     break;
                 }
             }
             if (branchID != oldBranchID) {
-                for (var i = 0; i < $scope.branches.length; i++) {
-                    if ($scope.branches[i].id == oldBranchID) {
+                for (var i = 0; i < $scope.parentBranch.branches.length; i++) {
+                    if ($scope.parentBranch.branches[i].id == oldBranchID) {
                         $scope.numLeaves[i]--;
-                        for (var l = 0; l < $scope.branches[i].leaves.length; l++) {
-                            $scope.branches[i].leaves[l].priority = l + 1;
+                        for (var l = 0; l < $scope.parentBranch.branches[i].leaves.length; l++) {
+                            $scope.parentBranch.branches[i].leaves[l].priority = l + 1;
                         }
                         break;
                     }
@@ -87,8 +87,8 @@
         }
                
         $scope.$on('newLeafCreated', function(evt, leafData) {
-            for (var i = 0; i < $scope.branches.length; i++) {
-                if ($scope.branches[i].id == leafData.branch_id) {
+            for (var i = 0; i < $scope.parentBranch.branches.length; i++) {
+                if ($scope.parentBranch.branches[i].id == leafData.branch_id) {
                     if ($scope.leafDisplay.value == 1) {
                         var user = dataService.getUser();
                         $http.put(apiRoot.getRoot() + '/services/leaf/' + leafData.id + '/assign', {
@@ -98,7 +98,7 @@
                     }
                     $scope.numLeaves[i]++;
                     leafData.show = true;
-                    $scope.branches[i].leaves.push(leafData);
+                    $scope.parentBranch.branches[i].leaves.push(leafData);
                     break;
                 }
             }
@@ -118,12 +118,12 @@
             body.append($('<option value="0" selected>Choose who to assign</option>'));
             for (var i = 0; i < $scope.tree.users.length; i++) {
                 var isAssigned = false;
-                for (var b = 0; b < $scope.branches.length; b++) {
-                    if ($scope.branches[b].id == branchID) {
-                        for (var l = 0; l < $scope.branches[b].leaves.length; l++) {
-                            if ($scope.branches[b].leaves[l].id == leafID) {
-                                for (var a = 0; a < $scope.branches[b].leaves[l].assigned.length; a++) {
-                                    if ($scope.branches[b].leaves[l].assigned[a].id == $scope.tree.users[i].id) {
+                for (var b = 0; b < $scope.parentBranch.branches.length; b++) {
+                    if ($scope.parentBranch.branches[b].id == branchID) {
+                        for (var l = 0; l < $scope.parentBranch.branches[b].leaves.length; l++) {
+                            if ($scope.parentBranch.branches[b].leaves[l].id == leafID) {
+                                for (var a = 0; a < $scope.parentBranch.branches[b].leaves[l].assigned.length; a++) {
+                                    if ($scope.parentBranch.branches[b].leaves[l].assigned[a].id == $scope.tree.users[i].id) {
                                         isAssigned = true;
                                         break;
                                     }
@@ -146,11 +146,11 @@
                 $("#assignSelect option[value='" + userID  + "']").remove();
                 for (var i = 0; i < $scope.tree.users.length; i++) {
                     if ($scope.tree.users[i].id == userID) {
-                        for (var b = 0; b < $scope.branches.length; b++) {
-                            if ($scope.branches[b].id == branchID) {
-                                for (var l = 0; l < $scope.branches[b].leaves.length; l++) {
-                                    if ($scope.branches[b].leaves[l].id == leafID) {
-                                        $scope.branches[b].leaves[l].assigned.push($scope.tree.users[i]);
+                        for (var b = 0; b < $scope.parentBranch.branches.length; b++) {
+                            if ($scope.parentBranch.branches[b].id == branchID) {
+                                for (var l = 0; l < $scope.parentBranch.branches[b].leaves.length; l++) {
+                                    if ($scope.parentBranch.branches[b].leaves[l].id == leafID) {
+                                        $scope.parentBranch.branches[b].leaves[l].assigned.push($scope.tree.users[i]);
                                         $scope.$apply();
                                         break;
                                     }
@@ -184,18 +184,18 @@
             var button = $('<button type="button" id="assignRemove" class="btn btn-danger"><strong>Unassign</strong></button>');
             button.click(function() {
                 $http.delete(apiRoot.getRoot() + '/services/leaf/' + leafID + '/assign/' + user.id); //TODO: check for success/failure 
-                for (var b = 0; b < $scope.branches.length; b++) {
-                    if ($scope.branches[b].id == branchID) {
-                        for (var l = 0; l < $scope.branches[b].leaves.length; l++) {
-                            if ($scope.branches[b].leaves[l].id == leafID) {
-                                for (var a = 0; a < $scope.branches[b].leaves[l].assigned.length; a++) {
-                                    if ($scope.branches[b].leaves[l].assigned[a].id == user.id) {
+                for (var b = 0; b < $scope.parentBranch.branches.length; b++) {
+                    if ($scope.parentBranch.branches[b].id == branchID) {
+                        for (var l = 0; l < $scope.parentBranch.branches[b].leaves.length; l++) {
+                            if ($scope.parentBranch.branches[b].leaves[l].id == leafID) {
+                                for (var a = 0; a < $scope.parentBranch.branches[b].leaves[l].assigned.length; a++) {
+                                    if ($scope.parentBranch.branches[b].leaves[l].assigned[a].id == user.id) {
                                         var curUser = dataService.getUser();
-                                        if ($scope.branches[b].leaves[l].assigned[a].id == curUser.id && $scope.leafDisplay.value == 1) {
+                                        if ($scope.parentBranch.branches[b].leaves[l].assigned[a].id == curUser.id && $scope.leafDisplay.value == 1) {
                                             $scope.numLeaves[b]--;
-                                            $scope.branches[b].leaves[l].show = false;
+                                            $scope.parentBranch.branches[b].leaves[l].show = false;
                                         }
-                                        $scope.branches[b].leaves[l].assigned.splice(a, 1);
+                                        $scope.parentBranch.branches[b].leaves[l].assigned.splice(a, 1);
                                         $scope.hidePopovers();
                                         $scope.$apply();
                                         break;
@@ -244,13 +244,13 @@
         function hideIfDoneAssigning() {
             //alert('checkhere b ' + selectAssignBranchID + " l " + selectAssignLeafID);
             if ($scope.leafDisplay.value == 2) {
-                for (var b = 0; b < $scope.branches.length; b++) {
-                    if ($scope.branches[b].id == selectAssignBranchID) {
-                        for (var l = 0; l < $scope.branches[b].leaves.length; l++) {
-                            if ($scope.branches[b].leaves[l].id == selectAssignLeafID) {
-                                if ($scope.branches[b].leaves[l].assigned.length > 0) {
+                for (var b = 0; b < $scope.parentBranch.branches.length; b++) {
+                    if ($scope.parentBranch.branches[b].id == selectAssignBranchID) {
+                        for (var l = 0; l < $scope.parentBranch.branches[b].leaves.length; l++) {
+                            if ($scope.parentBranch.branches[b].leaves[l].id == selectAssignLeafID) {
+                                if ($scope.parentBranch.branches[b].leaves[l].assigned.length > 0) {
                                     $scope.numLeaves[b]--;
-                                    $scope.branches[b].leaves[l].show = false;
+                                    $scope.parentBranch.branches[b].leaves[l].show = false;
                                 }
                                 break;
                             }
@@ -318,11 +318,11 @@
         });
 
         $scope.$on('leafRename', function(evt, leafID, name, branchID) {
-            for (var b = 0; b < $scope.branches.length; b++) {
-                if ($scope.branches[b].id == branchID) {
-                    for (var i = 0; i < $scope.branches[b].leaves.length; i++) {
-                        if ($scope.branches[b].leaves[i].id == leafID) {
-                            $scope.branches[b].leaves[i].name = name;
+            for (var b = 0; b < $scope.parentBranch.branches.length; b++) {
+                if ($scope.parentBranch.branches[b].id == branchID) {
+                    for (var i = 0; i < $scope.parentBranch.branches[b].leaves.length; i++) {
+                        if ($scope.parentBranch.branches[b].leaves[i].id == leafID) {
+                            $scope.parentBranch.branches[b].leaves[i].name = name;
                             break;
                         }
                     }
@@ -334,18 +334,18 @@
         $scope.$on('leafDelete', function(evt, leafID, branchID) {
             var dropPriority = false;
             var spliceIndex = 0;
-            for (var b = 0; b < $scope.branches.length; b++) {
-                if ($scope.branches[b].id == branchID) {
-                    for (var i = 0; i < $scope.branches[b].leaves.length; i++) {
+            for (var b = 0; b < $scope.parentBranch.branches.length; b++) {
+                if ($scope.parentBranch.branches[b].id == branchID) {
+                    for (var i = 0; i < $scope.parentBranch.branches[b].leaves.length; i++) {
                         if (dropPriority) {
-                            $scope.branches[b].leaves[i].priority--;
+                            $scope.parentBranch.branches[b].leaves[i].priority--;
                         }
-                        if ($scope.branches[b].leaves[i].id == leafID) {
+                        if ($scope.parentBranch.branches[b].leaves[i].id == leafID) {
                             spliceIndex = i;
                             dropPriority = true;
                         }
                     }
-                    $scope.branches[b].leaves.splice(spliceIndex, 1);
+                    $scope.parentBranch.branches[b].leaves.splice(spliceIndex, 1);
                     $scope.numLeaves[b]--;
                     break;
                 }
@@ -354,25 +354,25 @@
 
         function leafFilter(displayCode) {
             var user = dataService.getUser();
-            for (var b = 0; b < $scope.branches.length; b++) {
+            for (var b = 0; b < $scope.parentBranch.branches.length; b++) {
                 $scope.numLeaves[b] = 0;
-                for (var l = 0; l < $scope.branches[b].leaves.length; l++) {
+                for (var l = 0; l < $scope.parentBranch.branches[b].leaves.length; l++) {
                     if (displayCode == 0) {
-                        $scope.branches[b].leaves[l].show = true;
+                        $scope.parentBranch.branches[b].leaves[l].show = true;
                         $scope.numLeaves[b]++;
                     } else if (displayCode == 1){
-                        $scope.branches[b].leaves[l].show = false;
-                        for (var a = 0; a < $scope.branches[b].leaves[l].assigned.length; a++) {
-                            if ($scope.branches[b].leaves[l].assigned[a].id == user.id) {
-                                $scope.branches[b].leaves[l].show = true;
+                        $scope.parentBranch.branches[b].leaves[l].show = false;
+                        for (var a = 0; a < $scope.parentBranch.branches[b].leaves[l].assigned.length; a++) {
+                            if ($scope.parentBranch.branches[b].leaves[l].assigned[a].id == user.id) {
+                                $scope.parentBranch.branches[b].leaves[l].show = true;
                                 $scope.numLeaves[b]++;
                                 break;
                             }
                         }
                     } else if (displayCode == 2) {
-                        $scope.branches[b].leaves[l].show = false;
-                        if ($scope.branches[b].leaves[l].assigned.length == 0) {
-                            $scope.branches[b].leaves[l].show = true;
+                        $scope.parentBranch.branches[b].leaves[l].show = false;
+                        if ($scope.parentBranch.branches[b].leaves[l].assigned.length == 0) {
+                            $scope.parentBranch.branches[b].leaves[l].show = true;
                             $scope.numLeaves[b]++;
                         }
                     }

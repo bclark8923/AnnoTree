@@ -20,7 +20,8 @@
                 <div ng-switch-when="true" class="activeBranch">
                     <i ng-class="branch.icon" ng-show="branch.icon!=''"></i>{{branch.name}}
                 </div>
-                <div ng-switch-when="false" class="branch" data-jqyoui-options="{hoverClass:'branchHover'}" ng-click="changeBranch(branch.id)" data-drop="true" jqyoui-droppable="{multiple:true, onDrop:'leafDrop'}" ng-model="droppedLeaf">
+                <div ng-switch-when="false" class="branch" ng-click="changeBranch(branch.id)">
+                <!-- data-jqyoui-options="{hoverClass:'branchHover'}" data-drop="true" jqyoui-droppable="{multiple:true, onDrop:'leafDrop'}" ng-model="droppedLeaf"-->
 
                     <i ng-class="branch.icon" ng-show="branch.icon!=''"></i>{{branch.name}}
                 </div>

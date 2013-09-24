@@ -709,7 +709,8 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 }
 
 .branchColumnLeaves {
-    /*overflow-y: auto;*/
+    overflow-y: auto;
+    width: calc(100% - 5px);
     overflow-x: hidden;
     height: 100%;
     padding: 0;
@@ -729,6 +730,14 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 
 .ui-autocomplete {
     z-index: 99999;
+}
+
+.card-col-placeholder {
+    height: 90px;
+    background-color: #ddd;
+    margin: 10px;
+    border-radius: 10px;
+    list-style: none;
 }
 /* -----------------------
  * Leaves Settings

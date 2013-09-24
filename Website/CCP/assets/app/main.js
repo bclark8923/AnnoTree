@@ -1,4 +1,15 @@
-var AnnoTree = angular.module("AnnoTree", ['ngDragDrop']);
+var AnnoTree = angular.module("AnnoTree", ['ui.sortable']); //, ['ngDragDrop'] 
+
+angular.module('ui.sortable').value('uiSortableConfig', {
+    sortable: {
+        connectWith: '.branchColumnLeaves',
+        containment: 'document',
+        placeholder: "card-col-placeholder",
+        start: function(e, ui) {
+            ui.placeholder.height(ui.item.height());
+        }
+    }
+});
 
 AnnoTree.run(function($rootScope, $templateCache) {
     $rootScope.$on('$viewContentLoaded', function() {

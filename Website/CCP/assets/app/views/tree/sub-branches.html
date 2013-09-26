@@ -8,7 +8,7 @@
         </div>
         <hr class="branchTitleHr" />
         <div class="branchColumnLeaves" ui-multi-sortable ng-model="parentBranch" model-subset="branches[{{$index}}].leaves">
-            <div ng-repeat="leaf in branch.leaves | orderBy:'priority'" ng-show="leaf.show">
+            <div ng-repeat="leaf in branch.leaves" ng-show="leaf.show">
                 <div class="card-col col-xs-12" ng-click="showLeaf($event, leaf.id)">
                     <div class="card subBranchCard">
                         <div class="cardName leafCardName">

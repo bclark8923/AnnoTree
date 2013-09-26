@@ -5,9 +5,24 @@ angular.module('ui.sortable').value('uiSortableConfig', {
         connectWith: '.branchColumnLeaves',
         containment: 'document',
         placeholder: "card-col-placeholder",
-        start: function(e, ui) {
+        start: function(evt, ui) {
             ui.placeholder.height(ui.item.height());
-        }
+            evt.stopPropagation();
+        },
+        revert: 'true',
+        helper: function(evt, ui) {
+            console.log(ui);
+            var width = ui[0].clientWidth - 30;
+            console.log('width: ' + ui[0].clientWidth);
+            var item = ui[0].firstElementChild.innerHTML;
+            var container = $('<div style="width:' + width + 'px"></div>');
+            container.append(item);
+            console.log(container);
+            //var test = $('<div style="width:50px;height"')
+            return container;
+        },
+        appendTo: 'body',
+        opacity: 0.5
     }
 });
 

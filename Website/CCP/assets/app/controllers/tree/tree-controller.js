@@ -84,7 +84,12 @@
                             $scope.tree.branches[i].icon = "";
                         }
                     }
-                    $timeout(function() {$("#loadingScreen").hide();}, 0);
+                    $timeout(function() {
+                        $("#loadingScreen").hide();
+                        $('.branch').droppable({
+                            hoverClass: 'branchHover'
+                        });
+                    }, 0);
                 },
                 function( response ) {
                     $location.path("/forestFire"); //TODO: should redirect to app page and tell them why
@@ -503,5 +508,6 @@
         var nameTest = new RegExp('[A-Za-z0-9]');
         loadTreeData($routeParams.treeID) 
         console.log('tree');
+
     });
 })(angular, AnnoTree);

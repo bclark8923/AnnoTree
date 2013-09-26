@@ -22,7 +22,8 @@ angular.module('ui.sortable').value('uiSortableConfig', {
             return container;
         },
         appendTo: 'body',
-        opacity: 0.5
+        opacity: 0.5,
+        scroll: false
     }
 });
 

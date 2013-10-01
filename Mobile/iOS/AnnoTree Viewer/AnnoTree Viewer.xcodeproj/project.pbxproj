@@ -23,7 +23,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		06CA71D717B3CCB0005841C4 /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06CA71D417B3CCB0005841C4 /* AnnoTree.bundle */; };
 		06CA71DC17B3CD08005841C4 /* MoveableText.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CA71DB17B3CD08005841C4 /* MoveableText.m */; };
 		D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */; };
 		D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C688171B413400BA9B2F /* Default-Portrait@2x~ipad.png */; };
@@ -84,7 +83,8 @@
 		D3E0AF78178FC690009BEEDF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7659617810C6A0046C8D5 /* Icon.png */; };
 		D3E0AF79178FC690009BEEDF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7659717810C6A0046C8D5 /* Icon@2x.png */; };
 		D3E0AFA617903BAC009BEEDF /* AnnoTreeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658C17810A1F0046C8D5 /* AnnoTreeLogo.png */; };
-		D3EC208917EFB88A00A9D758 /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EC208817EFB88A00A9D758 /* AnnoTree.framework */; };
+		D3EC208D17EFB8C700A9D758 /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3EC208A17EFB89400A9D758 /* AnnoTree.bundle */; };
+		D3EC208E17EFB98E00A9D758 /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EC208817EFB88A00A9D758 /* AnnoTree.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +221,7 @@
 		D3D53FF1171A194500552253 /* ToolbarBg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarBg.h; sourceTree = "<group>"; };
 		D3D53FF2171A194500552253 /* ToolbarBg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarBg.m; sourceTree = "<group>"; };
 		D3EC208817EFB88A00A9D758 /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnnoTree.framework; path = ../AnnoTree.framework; sourceTree = "<group>"; };
+		D3EC208A17EFB89400A9D758 /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = ../../AnnoTree.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,8 +257,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3EC208E17EFB98E00A9D758 /* AnnoTree.framework in Frameworks */,
 				D3180C5C1765009C00A6B8E0 /* OpenGLES.framework in Frameworks */,
-				D3EC208917EFB88A00A9D758 /* AnnoTree.framework in Frameworks */,
 				D3AAA1A717000FC300954DDF /* UIKit.framework in Frameworks */,
 				D3AAA1A917000FC300954DDF /* Foundation.framework in Frameworks */,
 				D3AAA1AB17000FC300954DDF /* CoreGraphics.framework in Frameworks */,
@@ -466,6 +467,7 @@
 		D3AAA1AD17000FC300954DDF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D3EC208A17EFB89400A9D758 /* AnnoTree.bundle */,
 				D3A7658D17810B440046C8D5 /* Default-568h@2x.png */,
 				D3A7658E17810B440046C8D5 /* Default-Landscape.png */,
 				D3A7658F17810B440046C8D5 /* Default-Portrait.png */,
@@ -697,6 +699,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3EC208D17EFB8C700A9D758 /* AnnoTree.bundle in Resources */,
 				D3E0AF74178FC690009BEEDF /* Icon-72.png in Resources */,
 				D3E0AF75178FC690009BEEDF /* Icon-Small-50.png in Resources */,
 				D3E0AF76178FC690009BEEDF /* Icon-Small.png in Resources */,
@@ -711,7 +714,6 @@
 				D3AAA1C317000FC300954DDF /* MainStoryboard_iPad.storyboard in Resources */,
 				D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */,
 				D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */,
-				06CA71D717B3CCB0005841C4 /* AnnoTree.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

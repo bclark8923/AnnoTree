@@ -13,7 +13,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[AnnoTree sharedInstance] loadAnnoTree:@"4586741ad7527cc4e8d1a03b984324be1d3615a84956543b98fb130eebf7c64a"];
+    [[AnnoTree sharedInstance] loadAnnoTree:@"59b2e137da6b9723dab8ef7847aa7898f856283201baf42ee645011df8d9f512"];
     //[self.window addGestureRecognizer:[[AnnoTree sharedInstance] getOpen]];
     //[[[UIApplication sharedApplication] keyWindow] addSubview:[[AnnoTree sharedInstance] getAnnoTreeLauncher]];
     //[[AnnoTree sharedInstance] initializeTree];

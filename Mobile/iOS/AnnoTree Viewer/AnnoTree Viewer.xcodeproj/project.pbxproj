@@ -23,7 +23,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		06818B0117B21D3500E830B8 /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06818B0017B21D3500E830B8 /* AnnoTree.framework */; };
 		06CA71D717B3CCB0005841C4 /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06CA71D417B3CCB0005841C4 /* AnnoTree.bundle */; };
 		06CA71DC17B3CD08005841C4 /* MoveableText.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CA71DB17B3CD08005841C4 /* MoveableText.m */; };
 		D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */; };
@@ -85,6 +84,7 @@
 		D3E0AF78178FC690009BEEDF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7659617810C6A0046C8D5 /* Icon.png */; };
 		D3E0AF79178FC690009BEEDF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7659717810C6A0046C8D5 /* Icon@2x.png */; };
 		D3E0AFA617903BAC009BEEDF /* AnnoTreeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658C17810A1F0046C8D5 /* AnnoTreeLogo.png */; };
+		D3EC208917EFB88A00A9D758 /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EC208817EFB88A00A9D758 /* AnnoTree.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,7 +147,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		06818B0017B21D3500E830B8 /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnnoTree.framework; path = "../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos/AnnoTree.framework"; sourceTree = "<group>"; };
 		06CA71D417B3CCB0005841C4 /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = "../../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos/AnnoTree.bundle"; sourceTree = "<group>"; };
 		06CA71DA17B3CD08005841C4 /* MoveableText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveableText.h; sourceTree = "<group>"; };
 		06CA71DB17B3CD08005841C4 /* MoveableText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveableText.m; sourceTree = "<group>"; };
@@ -221,6 +220,7 @@
 		D3AAA1F517002C4400954DDF /* AnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationView.m; sourceTree = "<group>"; };
 		D3D53FF1171A194500552253 /* ToolbarBg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarBg.h; sourceTree = "<group>"; };
 		D3D53FF2171A194500552253 /* ToolbarBg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarBg.m; sourceTree = "<group>"; };
+		D3EC208817EFB88A00A9D758 /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnnoTree.framework; path = ../AnnoTree.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,10 +257,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3180C5C1765009C00A6B8E0 /* OpenGLES.framework in Frameworks */,
+				D3EC208917EFB88A00A9D758 /* AnnoTree.framework in Frameworks */,
 				D3AAA1A717000FC300954DDF /* UIKit.framework in Frameworks */,
 				D3AAA1A917000FC300954DDF /* Foundation.framework in Frameworks */,
 				D3AAA1AB17000FC300954DDF /* CoreGraphics.framework in Frameworks */,
-				06818B0117B21D3500E830B8 /* AnnoTree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +438,7 @@
 		D3AAA1A517000FC300954DDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				06818B0017B21D3500E830B8 /* AnnoTree.framework */,
+				D3EC208817EFB88A00A9D758 /* AnnoTree.framework */,
 				D3AAA1A617000FC300954DDF /* UIKit.framework */,
 				D3AAA1A817000FC300954DDF /* Foundation.framework */,
 				D3AAA1AA17000FC300954DDF /* CoreGraphics.framework */,
@@ -1122,10 +1122,12 @@
 					"$(SRCROOT)",
 					"$(SRCROOT)/../../../Website/anno_tree/public/SDK/AnnoTreeSDK",
 					"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-axltqtouvntwkybdbqstrebtskfl/Build/Products/Debug-iphoneos",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-amwqjvzfpjsmpaewhyubzhmzswiq/Build/Products/Debug-iphoneos\"",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\"",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\"",
-					"\"$(SRCROOT)/../../../Website/CCP/SDK\"",
+					"\\\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-amwqjvzfpjsmpaewhyubzhmzswiq/Build/Products/Debug-iphoneos\\\"",
+					"\\\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\\\"",
+					"\\\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\\\"",
+					"\\\"$(SRCROOT)/../../../Website/CCP/SDK\\\"",
+					"/Users/Brian/Documents/AnnoTree/Mobile/iOS/AnnoTree\\ Viewer",
+					/Users/Brian/Documents/AnnoTree/Mobile/iOS,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTree Viewer/AnnoTree Viewer-Prefix.pch";
@@ -1157,10 +1159,12 @@
 					"$(SRCROOT)",
 					"$(SRCROOT)/../../../Website/anno_tree/public/SDK/AnnoTreeSDK",
 					"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-axltqtouvntwkybdbqstrebtskfl/Build/Products/Debug-iphoneos",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-amwqjvzfpjsmpaewhyubzhmzswiq/Build/Products/Debug-iphoneos\"",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\"",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\"",
-					"\"$(SRCROOT)/../../../Website/CCP/SDK\"",
+					"\\\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-amwqjvzfpjsmpaewhyubzhmzswiq/Build/Products/Debug-iphoneos\\\"",
+					"\\\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\\\"",
+					"\\\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\\\"",
+					"\\\"$(SRCROOT)/../../../Website/CCP/SDK\\\"",
+					"/Users/Brian/Documents/AnnoTree/Mobile/iOS/AnnoTree\\ Viewer",
+					/Users/Brian/Documents/AnnoTree/Mobile/iOS,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTree Viewer/AnnoTree Viewer-Prefix.pch";

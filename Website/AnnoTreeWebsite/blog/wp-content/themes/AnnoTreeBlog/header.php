@@ -41,8 +41,8 @@
        However, there is a blank style.css in the css directory should you prefer -->
   <link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
 
-  <link rel="stylesheet" href="/wp-content/themes/AnnoTreeBlog/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/wp-content/themes/AnnoTreeBlog/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/annotestblog/wp-content/themes/AnnoTreeBlog/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/annotestblog/wp-content/themes/AnnoTreeBlog/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
 
   <script src="js/libs/modernizr-2.6.2.min.js"></script>
@@ -58,7 +58,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand navbar-annotree" href="./index.html"><img src="/wp-content/themes/AnnoTreeBlog/img/LogoNameWeb.png" /></a>
+        <a class="navbar-brand navbar-annotree" href="./index.html"><img src="/annotestblog/wp-content/themes/AnnoTreeBlog/img/LogoNameWeb.png" /></a>
       </div>
       <div class="navbar-collapse bs-navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-nav-annotree">

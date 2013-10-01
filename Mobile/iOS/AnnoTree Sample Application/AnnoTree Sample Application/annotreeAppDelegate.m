@@ -13,7 +13,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [AnnoTree sharedInstance];
+    [[AnnoTree sharedInstance] loadAnnoTree:@"SDK Key Here"];
     
     return YES;
 }

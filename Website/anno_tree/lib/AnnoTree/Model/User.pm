@@ -172,15 +172,15 @@ sub beta {
         
         AnnoTree::Model::Email->mail($email, $from, $subject, $message);
     } elsif ($num == 1) {
-        $json = {error => $num, txt => 'User already signed up for the beta and can sign in'};
+        $json = {error => $num, txt => 'You have already registered for the beta and have been granted access. Please go <a href="https://ccp.annotree.com/#/authenticate/signUp">here</a> to sign up for the collaboration platform.'};
     } elsif ($num == 2) {
-        $json = {error => $num, txt => 'User has already been invited'};
+        $json = {error => $num, txt => 'You have already registered for the beta and have been granted access. Please go <a href="https://ccp.annotree.com/#/authenticate/signUp">here</a> to sign up for the collaboration platform.'};
     } elsif ($num == 3) {
-        $json = {error => $num, txt => 'User is already active'};
+        $json = {error => $num, txt => 'You have already signed into the collaboration platform. Please go <a href="https://ccp.annotree.com/#/authenticate/login">here</a> to access the collaboration platform.'};
     } elsif ($num == 4) {
-        $json = {error => $num, txt => 'User is already signed up for beta'};
+        $json = {error => $num, txt => 'You have already signed into the collaboration platform. Please go <a href="https://ccp.annotree.com/#/authenticate/login">here</a> to access the collaboration platform.'};
     } elsif ($num == 5) {
-        $json = {error => $num, txt => 'Invalid email submitted'};
+        $json = {error => $num, txt => 'You have already signed into the collaboration platform. Please go <a href="https://ccp.annotree.com/#/authenticate/login">here</a> to access the collaboration platform.'};
     } 
 
     return $json;

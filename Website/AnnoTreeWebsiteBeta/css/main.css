@@ -1,309 +1,309 @@
 body {
-	height: 100%;
+    height: 100%;
 }
 
 .mainHeader {
-	background-image: url('../img/NewAnnoTreeBG8.jpg');
-	background-size: cover;
-	background-position: center;
-	min-height: 500px;
+    background-image: url('../img/NewAnnoTreeBG8.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
 
-	font-family: "Helvetica Neue", "Lato", helvetica, sans-serif;
-	font-size: 40px;
-	font-weight: 100;
-	color: #444;
+    font-family: "Helvetica Neue", "Lato", helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: 100;
+    color: #444;
 }
 
 .pricingHeader {
-	background-image: url('../img/NewAnnoTreeBG8.jpg');
-	background-size: cover;
-	background-position: center;
-	min-height: 300px;
+    background-image: url('../img/NewAnnoTreeBG8.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
 
-	font-family: "Helvetica Neue", "Lato", helvetica, sans-serif;
-	font-size: 40px;
-	font-weight: 100;
-	color: #444;
+    font-family: "Helvetica Neue", "Lato", helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: 100;
+    color: #444;
 }
 
 .featureHeader {
-	background-image: url('../img/NewAnnoTreeBG8.jpg');
-	background-size: cover;
-	background-position: center;
-	min-height: 300px;
+    background-image: url('../img/NewAnnoTreeBG8.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
 
-	font-family: "Helvetica Neue", "Lato", helvetica, sans-serif;
-	font-size: 40px;
-	font-weight: 100;
-	color: #444;
+    font-family: "Helvetica Neue", "Lato", helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: 100;
+    color: #444;
 }
 
 .thanksHeader {
-	background-image: url('../img/NewAnnoTreeBG8.jpg');
-	background-size: cover;
-	background-position: center;
-	min-height: 250px;
+    background-image: url('../img/NewAnnoTreeBG8.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 250px;
 
-	font-family: "Helvetica Neue", "Lato", helvetica, sans-serif;
-	font-size: 40px;
-	font-weight: 100;
-	color: #444;
+    font-family: "Helvetica Neue", "Lato", helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: 100;
+    color: #444;
 }
 
 .headerTitle {
-	padding-top: 75px;
-	text-align: center;
-	font-size: 60px;
-	padding-bottom: 20px;
-	text-shadow: 0 1px 2px rgba(179, 179, 179, 0.7);
+    padding-top: 75px;
+    text-align: center;
+    font-size: 60px;
+    padding-bottom: 20px;
+    text-shadow: 0 1px 2px rgba(179, 179, 179, 0.7);
 }
 
 .headerText {
-	text-align: center;
-	font-size: 30px;
-	font-weight: 100;
-	padding-bottom: 20px;
-	text-shadow: 0 1px 2px rgba(179, 179, 179, 0.7);
+    text-align: center;
+    font-size: 30px;
+    font-weight: 100;
+    padding-bottom: 20px;
+    text-shadow: 0 1px 2px rgba(179, 179, 179, 0.7);
 }
 
 .navbar, .navbar > .container, .navbar > .container > .navbar-header {
-	height: 100px;
-	background: white;
-	border-bottom: 1px solid #ddd;
+    height: 100px;
+    background: white;
+    border-bottom: 1px solid #ddd;
 }
 
 .navbar {
-	margin-bottom: 0;
-	box-shadow: none;
-	border-radius: 0;
+    margin-bottom: 0;
+    box-shadow: none;
+    border-radius: 0;
 }
 
 .navbar-annotree {
-	padding-top: 25px;
-	padding-bottom: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 .navbar-nav-annotree {
-	height: 100px;
-	float: right;
+    height: 100px;
+    float: right;
 }
 
 .navbar-nav-annotree > li {
-	height: 100px;
-	padding-top: 25px;
+    height: 100px;
+    padding-top: 25px;
 }
 
 .navbar > .container > .navbar-header {
-	height: 99px;
+    height: 99px;
 }
 
 .navbar-nav-annotree > li > a:hover {
-	background-color: white;
-	color: #888;
+    background-color: white;
+    color: #888;
 }
 
 .navbar-nav-annotree>li>a {
-	color: #bbb;
-	text-shadow: none;
-	font-weight: 200;
+    color: #bbb;
+    text-shadow: none;
+    font-weight: 200;
 }
 
 .navbar .navbar-nav-annotree > .active > a {
-	background-color: white;
-	color: #888;
-	font-weight: 400;
+    background-color: white;
+    color: #888;
+    font-weight: 400;
 }
 
 .btn-annotree, .navbar-toggle {
-	background: #38A35E;
-	color: white;
-	border-color: #38A35E;
+    background: #38A35E;
+    color: white;
+    border-color: #38A35E;
 }
 
 .icon-bar {
-	background-color: white;
+    background-color: white;
 }
 
 .btn-annotree:hover {
-	color: white;
-	background-color: #48C575;
+    color: white;
+    background-color: #48C575;
 }
 
 .btn-annotree-inverse {
-	background: white;
-	color: #38A35E;
-	border-color: white;	
+    background: white;
+    color: #38A35E;
+    border-color: white;    
 }
 
 .btn-annotree-inverse:hover {
-	color: #48C575;
-	background-color: white;
+    color: #48C575;
+    background-color: white;
 }
 
 .form-center {
-	text-align: center;
+    text-align: center;
 }
 
 .betaEmail {
-	height: 45px;
-	width: 300px;
-	font-size: 18pt;
-	font-weight: 100;
+    height: 45px;
+    width: 300px;
+    font-size: 18pt;
+    font-weight: 100;
 }
 
 textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {   
-	border-color: rgba(56, 163, 94, 0.8);
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(56, 163, 94, 0.6);
-	outline: 0 none;
+    border-color: rgba(56, 163, 94, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(56, 163, 94, 0.6);
+    outline: 0 none;
 }
 
 .errorField {
-	background: white;
-	border-radius: 5px;
-	color: rgb(233, 112, 112);
-	font-size: 11pt;
-	font-weight: 300;
-	width: 200px;
-	margin: 0 auto;
-	text-align: center;
-	height: 20px;
-	margin-bottom: 10px;
-	display: none;
+    background: white;
+    border-radius: 5px;
+    color: rgb(233, 112, 112);
+    font-size: 11pt;
+    font-weight: 300;
+    /*width: 200px;*/
+    margin: 0 auto;
+    text-align: center;
+    height: 20px;
+    margin-bottom: 10px;
+    display: none;
 }
 
 .row-center {
-	text-align: center;
+    text-align: center;
 }
 
 .col-annotree-row {
-	width: 70%;
-	margin-left: 15%;
+    width: 70%;
+    margin-left: 15%;
 }
 
 .row-annotree{
-	padding-bottom: 70px;
+    padding-bottom: 70px;
 }
 
 .row-video {
-	box-shadow: inset 0px 2px 5px #ccc;
-	border-bottom: 1px solid #bbb;
-	background: linear-gradient(#B3EEC8,#38A35E),#38A35E;
-	background: #f3f3f3;
-	margin: 0;
-	width: 100%;
+    box-shadow: inset 0px 2px 5px #ccc;
+    border-bottom: 1px solid #bbb;
+    background: linear-gradient(#B3EEC8,#38A35E),#38A35E;
+    background: #f3f3f3;
+    margin: 0;
+    width: 100%;
 }
 
 .row-pricing {
-	padding-top: 70px;
-	padding-bottom: 70px;
+    padding-top: 70px;
+    padding-bottom: 70px;
 }
 
 .priceBox {
-	background: white;
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
-	padding: 10px;
-	border-radius: 5px;
-	width: 220px;
-	margin: 0 auto;
-	margin-bottom: 20px;
+    background: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+    padding: 10px;
+    border-radius: 5px;
+    width: 220px;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 .priceTitle {
-	padding: 10px;
-	background: #38A35E;
-	color: white;
-	font-weight: 100;
-	font-size: 35pt;
+    padding: 10px;
+    background: #38A35E;
+    color: white;
+    font-weight: 100;
+    font-size: 35pt;
 }
 
 .priceCost {
-	font-size: 30pt;
-	padding-top: 5px;
-	font-weight: 100;
+    font-size: 30pt;
+    padding-top: 5px;
+    font-weight: 100;
 }
 
 .perMonth {
-	font-size: 20pt;
-	font-weight: 200;
+    font-size: 20pt;
+    font-weight: 200;
 }
 
 .priceFeatures {
-	text-align: left;
-	padding-left: 15px;
-	font-size: 25pt;
-	padding-top: 10px;
+    text-align: left;
+    padding-left: 15px;
+    font-size: 25pt;
+    padding-top: 10px;
 }
 
 .col-center {
-	text-align: center;
+    text-align: center;
 }
 
 .icon-annotree-color {
-	color: #38A35E;
+    color: #38A35E;
 }
 
 .annoTreeH2 {
-	font-weight: 500;
-	color: #38A35E;
-	font-size: 20pt;
-	padding-bottom: 10px;
+    font-weight: 500;
+    color: #38A35E;
+    font-size: 20pt;
+    padding-bottom: 10px;
 }
 
 .annotreeParagraph {
-	font-weight: 200;
-	font-size: 14px;
-	color: #7d838b;
+    font-weight: 200;
+    font-size: 14px;
+    color: #7d838b;
 }
 
 
 .col-annotree-3, .col-annotree-9 {
-	float: left;
+    float: left;
 }
 
 .col-annotree-3 {
-	width: 35%;
+    width: 35%;
 }
 
 .col-annotree-9 {
-	width: 65%;
+    width: 65%;
 }
 
 .col-annotree-icon {
-	text-align: center;
-	margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .icon-annotree-page {
-	font-size: 90pt;
-	color: #38A35E;
+    font-size: 90pt;
+    color: #38A35E;
 }
 
 .annotreeHomeImages {
-	border-radius:5px; 
-	width:180px;
-	box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.33);
+    border-radius:5px; 
+    width:180px;
+    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.33);
 }
 
 .teamRow {
-	box-shadow: inset 0px 2px 5px #444;
-	height: 400px;
-	background-color: #38A35E;
-	margin: 0;
+    box-shadow: inset 0px 2px 5px #444;
+    height: 400px;
+    background-color: #38A35E;
+    margin: 0;
 }
 
 .thanksParagraph {
-	font-weight: 100;
-	color: white;
-	font-size: 20pt;
-	padding-top: 40px;
-	max-width: 600px;
-	margin: 0 auto;
+    font-weight: 100;
+    color: white;
+    font-size: 20pt;
+    padding-top: 40px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .contactInfo {
-	text-align: center;
-	height: 40px;
-	padding-bottom: 200px;
+    text-align: center;
+    height: 40px;
+    padding-bottom: 200px;
 }
 
 .twitterIcon, .facebookIcon, .googleIcon {
@@ -316,11 +316,11 @@ text-decoration: none;
 }
 
 .inverse {
-	color: white;
+    color: white;
 }
 
 a:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .twitterIcon:hover {
@@ -336,169 +336,169 @@ a:hover {
 }
 
 footer {
-	border-top: 1px solid #ddd;
-	background-color: white;
-	color: #444;
-	height: 100px;
-	padding-top: 35px;
-	font-weight: 200;
-	font-size: 14pt;
+    border-top: 1px solid #ddd;
+    background-color: white;
+    color: #444;
+    height: 100px;
+    padding-top: 35px;
+    font-weight: 200;
+    font-size: 14pt;
 }
 
 .navbarSmall {
-	display: none;
+    display: none;
 }
 
 .videoColumn {
-	margin-top:-100px;
+    margin-top:-100px;
 }
 
 .navbar-nav-annotree > li.signInButton {
-	padding-top: 35px;
-	padding-left: 10px;
+    padding-top: 35px;
+    padding-left: 10px;
 }
 
 .featureHeadText {
-	text-align: center;
-	font-size: 40px;
-	padding-bottom: 20px;
-	font-weight: 100;
-	text-shadow: 0 1px 2px rgba(179, 179, 179, 0.7);
+    text-align: center;
+    font-size: 40px;
+    padding-bottom: 20px;
+    font-weight: 100;
+    text-shadow: 0 1px 2px rgba(179, 179, 179, 0.7);
 }
 
 .featureSubHeadText {
-	text-align: center;
-	font-size: 20px;
-	padding-bottom: 20px;
-	font-weight: 100;
-	text-shadow: 0 1px 2px rgba(179, 179, 179, 0.7);
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 20px;
+    font-weight: 100;
+    text-shadow: 0 1px 2px rgba(179, 179, 179, 0.7);
 }
 
 .white {
-	color: white;
+    color: white;
 }
 
 .AnnoTreeGreenBG {
-	box-shadow: inset 0px 2px 5px #444;
-	background: #38A35E;
+    box-shadow: inset 0px 2px 5px #444;
+    background: #38A35E;
 }
 
 .featureSplit {
-	padding-top: 50px;
+    padding-top: 50px;
 }
 
 .modal-clear {
-	box-shadow: none;
-	border: 0;
-	background: transparent;
+    box-shadow: none;
+    border: 0;
+    background: transparent;
 }
 @media screen and (min-width: 768px) {
-	.modal-dialog {
-		padding-top: 100px;
-	}
+    .modal-dialog {
+        padding-top: 100px;
+    }
 }
 
 @media (max-width: 1199px) {
-	.mainHeader {
-		min-height: 600px;
-	}
+    .mainHeader {
+        min-height: 600px;
+    }
 }
 
 @media (max-width: 991px) {
-	.col-annotree-row {
-		width: 100%;
-		margin-left: 0;
-	}
+    .col-annotree-row {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 
 @media (max-width: 767px) {
-	.navbarSmall {
-		display: block;
-		float: right;
-		width: 100px;
-	}
+    .navbarSmall {
+        display: block;
+        float: right;
+        width: 100px;
+    }
 
-	.betaEmail {
-		margin: 0 auto;
-	}
+    .betaEmail {
+        margin: 0 auto;
+    }
 
-	.headerTitle {
-		font-size: 40px;
-	}
+    .headerTitle {
+        font-size: 40px;
+    }
 
-	.headerText {
-		font-size: 20px;
-	}
+    .headerText {
+        font-size: 20px;
+    }
 
-	.navbar-nav-annotree {
-		height: inherit;
-		float: none;
-		background-color: white;
-		margin-top: 0px;
-	}
+    .navbar-nav-annotree {
+        height: inherit;
+        float: none;
+        background-color: white;
+        margin-top: 0px;
+    }
 
-	.navbar-nav-annotree > li {
-		height: inherit;
-		padding-top: inherit;
-	}
+    .navbar-nav-annotree > li {
+        height: inherit;
+        padding-top: inherit;
+    }
 
-	.navbar-nav-annotree > li.signInButton {
-		padding-top: 10px;
-		padding-left: 10px;
-		padding-bottom: 10px;
-	}
+    .navbar-nav-annotree > li.signInButton {
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+    }
 
-	footer {
-		height: 125px;
-		padding-top: 20px;
-	}
-	
-	.footerCol {
-		padding-bottom: 10px;
-	}
+    footer {
+        height: 125px;
+        padding-top: 20px;
+    }
+    
+    .footerCol {
+        padding-bottom: 10px;
+    }
 
-	.col-annotree-9, .col-annotree-3 {
-		width: 100%;
-		padding: 10px;
-		text-align: center;
-	}
+    .col-annotree-9, .col-annotree-3 {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
 
-	.row-annotree {
-		padding-bottom: 35px;
-	}
+    .row-annotree {
+        padding-bottom: 35px;
+    }
 }
 
 @media (max-width: 479px) {
 
-	.contactInfo {
-		text-align: center;
-		height: 40px;
-		padding-bottom: 150px;
-	}
+    .contactInfo {
+        text-align: center;
+        height: 40px;
+        padding-bottom: 150px;
+    }
 
-	.navbarSmall {
-		display: block;
-		float: right;
-		width: 100px;
-	}
+    .navbarSmall {
+        display: block;
+        float: right;
+        width: 100px;
+    }
 
-	.betaEmail {
-		margin: 0 auto;
-	}
+    .betaEmail {
+        margin: 0 auto;
+    }
 
-	.headerTitle {
-		font-size: 30px;
-	}
+    .headerTitle {
+        font-size: 30px;
+    }
 
-	.headerText {
-		font-size: 15px;
-	}
+    .headerText {
+        font-size: 15px;
+    }
 
-	.mainHeader {
-		min-height: 500px;
-	}
+    .mainHeader {
+        min-height: 500px;
+    }
 
-	.videoColumn {
-		margin-top:-25px;
-	}
+    .videoColumn {
+        margin-top:-25px;
+    }
 }

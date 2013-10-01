@@ -2,7 +2,7 @@ var AnnoTree = angular.module("AnnoTree", ['ui.sortable']); //, ['ngDragDrop']
 
 angular.module('ui.sortable').value('uiSortableConfig', {
     sortable: {
-        connectWith: '.branchColumnLeaves',
+        connectWith: '.branchColumnLeaves, .branch',
         containment: 'document',
         placeholder: "card-col-placeholder",
         start: function(evt, ui) {
@@ -24,7 +24,12 @@ angular.module('ui.sortable').value('uiSortableConfig', {
         appendTo: 'body',
         opacity: 0.5,
         scroll: false,
-        update: 'droppedLeaf'
+        update: 'droppedLeaf',
+        out: function(evt, ui) {
+        },
+        over: function(evt, ui) {
+            $('.card-col-placeholder').css('display', 'block');
+        }
     }
 });
 

@@ -86,9 +86,16 @@
                     }
                     $timeout(function() {
                         $("#loadingScreen").hide();
+                    /*
                         $('.branch').droppable({
-                            hoverClass: 'branchHover'
+                            hoverClass: 'branchHover',
+                            over: function(evt, ui) {
+                                $('.card-col-placeholder').css('display', 'none');
+                            },
+                            out: function(evt, ui) {
+                            }
                         });
+                    */
                     }, 0);
                 },
                 function( response ) {

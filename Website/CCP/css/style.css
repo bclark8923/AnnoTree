@@ -602,7 +602,7 @@ a.btn-annotree {
 
 #branchHolder {
     max-height: calc(100% - 90px);
-    width: 170px;
+    width: 20%;
     float: left;
     overflow-y: auto;
     overflow-x: hidden;
@@ -612,11 +612,14 @@ a.btn-annotree {
     padding-left: 25px;
     color: #92DF74;
 }
+#branchHolder div[ng-switch] {
+    display: table;
+}
 
 div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
     font-weight: 400;
     font-size: 11pt;
-    width: 170px;
+    width: 100%;
     height: 40px;
     display: table-cell;
     vertical-align: middle;
@@ -693,9 +696,9 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
  * ----------------------- */
 #branchColumnHolder {
     height: calc(100% - 90px);
-    width: calc(100% - 270px);
+    width: calc(80% - 100px);
     float: left;
-    margin-left: 170px;
+    margin-left: 20%;
     position: absolute;
     background-color: #f5f5f5;
     border-radius: 10px;

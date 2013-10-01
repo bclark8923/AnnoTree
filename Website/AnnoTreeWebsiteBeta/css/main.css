@@ -157,6 +157,20 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 	outline: 0 none;
 }
 
+.errorField {
+	background: white;
+	border-radius: 5px;
+	color: rgb(233, 112, 112);
+	font-size: 11pt;
+	font-weight: 300;
+	width: 200px;
+	margin: 0 auto;
+	text-align: center;
+	height: 20px;
+	margin-bottom: 10px;
+	display: none;
+}
+
 .row-center {
 	text-align: center;
 }

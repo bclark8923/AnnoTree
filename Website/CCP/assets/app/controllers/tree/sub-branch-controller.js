@@ -27,7 +27,12 @@
                 }
             );
         }
-        
+        $scope.droppedLeaf = function(evt, ui) {
+            console.log(evt);
+            console.log(ui);
+            
+        }
+
         $scope.subBranchDroppedLeaf = [];
         $scope.subBranchDrop = function(evt, ui) {
             var data = $scope.subBranchDroppedLeaf[0];
@@ -242,7 +247,6 @@
         }
 
         function hideIfDoneAssigning() {
-            //alert('checkhere b ' + selectAssignBranchID + " l " + selectAssignLeafID);
             if ($scope.leafDisplay.value == 2) {
                 for (var b = 0; b < $scope.parentBranch.branches.length; b++) {
                     if ($scope.parentBranch.branches[b].id == selectAssignBranchID) {
@@ -265,7 +269,6 @@
         }
 
         var assignPopover = null;
-        //var selectedAssign = "";
         var selectAssignLeafID = null, selectAssignBranchID = null;
         $scope.openAssign = function(evt, leafID, branchID) {
             if ("" + selectAssignLeafID + selectAssignBranchID != "" + leafID + branchID && assignPopover != null) {
@@ -287,7 +290,6 @@
                     assignedUserPopover = null; 
                 }
                 $(evt.target).popover('show');
-                //selectedAssign = "" + leafID + branchID;
                 selectAssignLeafID = leafID;
                 selectAssignBranchID = branchID;
             } else {

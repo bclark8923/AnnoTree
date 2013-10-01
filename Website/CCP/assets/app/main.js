@@ -11,9 +11,9 @@ angular.module('ui.sortable').value('uiSortableConfig', {
         },
         revert: 'true',
         helper: function(evt, ui) {
-            console.log(ui);
+            //console.log(ui);
             var width = ui[0].clientWidth - 30;
-            console.log('width: ' + ui[0].clientWidth);
+            //console.log('width: ' + ui[0].clientWidth);
             var item = ui[0].firstElementChild.innerHTML;
             var container = $('<div style="width:' + width + 'px"></div>');
             container.append(item);
@@ -23,7 +23,8 @@ angular.module('ui.sortable').value('uiSortableConfig', {
         },
         appendTo: 'body',
         opacity: 0.5,
-        scroll: false
+        scroll: false,
+        update: 'droppedLeaf'
     }
 });
 

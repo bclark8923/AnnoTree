@@ -1,13 +1,20 @@
-  <div id="footer">
-    <div class="row" style="height:100%;">
-      <div class="valign" style="height:100%;">
-        <div>
-          <a href="http://Silith.IO"><img class="grayScale" src="/wp-content/themes/AnnoTreeBlog/img/SilithIOLogoOnly.png" style="height:20px;"/></a>
-          <p class="footerText">&copy; Copyright 2013 Silith.IO</p>
+  <footer>
+    <div class="container" style="font-size:12px;text-align:center;">
+      <div class="row">
+        <div class="col-sm-4 footerCol">
+          <a href="http://silith.io" target="_blank">
+            <img src="/wp-content/themes/AnnoTreeBlog/img/SilithIO.png" style="height:10px;"/>
+          </a>
+        </div>
+        <div class="col-sm-4 footerCol">
+          Contact@AnnoTree.com
+        </div>
+        <div class="col-sm-4 footerCol">
+          &copy; 2013 Silith.IO, Inc.
         </div>
       </div>
     </div>
-  </div>
+  </footer>
   
   <!-- Grab Google CDN's jQuery, fall back to local if offline -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

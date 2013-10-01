@@ -41,59 +41,36 @@
        However, there is a blank style.css in the css directory should you prefer -->
   <link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
 
-  <link rel="stylesheet" href="/wp-content/themes/AnnoTreeBlog/css/gumby.css">
+  <link rel="stylesheet" href="/wp-content/themes/AnnoTreeBlog/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/wp-content/themes/AnnoTreeBlog/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
 
   <script src="js/libs/modernizr-2.6.2.min.js"></script>
 </head>
 
 <body>
-  <div class="navbar fixed responsiveHide" gumby-fixed="top" id="annoTreeNavbar">
-		<div class="row">
-			<div class="three columns valign">
-        <div class="navLinks"><a href="http://annotree.com"><img src="/wp-content/themes/AnnoTreeBlog/img/LogoNameWeb.png"/></a></div>
+  <div class="navbar">
+    <div class="container" style="height:99px;">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse" style="margin-top:35px;">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand navbar-annotree" href="./index.html"><img src="/wp-content/themes/AnnoTreeBlog/img/LogoNameWeb.png" /></a>
       </div>
-      <div class="one columns push_three valign">
-        <div class="navLinks"><a href="http://annotree.com" class="skip" gumby-goto="top">Home</a></div>
-      </div>
-      <div class="one columns valign">
-        <div class="navLinks"><a href="http://annotree.com/#about" class="skip" gumby-goto="#about">About</a></div>
-      </div>
-      <div class="one columns valign">
-        <div class="navLinks"><a href="http://annotree.com/#product" class="skip" gumby-goto="#product">Product</a></div>
-      </div>
-      <div class="one columns valign">
-        <div class="navLinks"><a href="#" class="skip" gumby-goto="#why">Why</a></div>
-      </div>
-      <div class="one columns valign">
-        <div class="navLinks"><a href="http://annotree.com/#contact" class="skip" gumby-goto="#contact">Contact</a></div>
-      </div>
-      <div class="one columns valign">
-        <div class="navLinks"><a href="http://blog.annotree.com" style="color:#58c026;">Blog</a></div>
-      </div>
-      <!--
-      <div class="one columns valign">
-        <div>
-          <div class="small oval btn success"><a href="http://ccp.annotree.com">Login</a></div>
-        </div>
-      </div>
-    -->
-		</div>
-	</div>
-  <div class="navbar fixed responsiveShow" gumby-fixed="top">
-		<div style="width: 130px; float:left;" class="navLinks">
-      <div style="padding:5px; padding-top: 10px;">
-        <a href="http://annotree.com"><img src="/wp-content/themes/AnnoTreeBlog/img/LogoNameWeb.png"/></a>
-      </div>
+      <div class="navbar-collapse bs-navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-nav-annotree">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./pricing.html">Pricing</a></li>
+          <li class="active"><a href="http://blog.annotree.com">Blog</a></li>
+          <li class="signInButton">
+            <a style="color:white;text-decoration:none;padding:0;" href="http://ccp.annotree.com">
+              <button href="http://ccp.annotree.com" class="btn btn-annotree">Sign in</button>
+            </a>
+          </li>
+        </ul>
+      </div><!--/.navbar-collapse -->
     </div>
-    <div style="width: 80px; float:right; padding-top:5px;" class="navLinks">
-      <div style="padding:5px;">
-        <div class="small oval btn success"><a href="http://ccp.annotree.com">Login</a></div>
-      </div>
-    </div>
-    <div style="width: 80px; float:right; padding-top:5px;" class="navLinks">
-      <div style="padding:5px;">
-        <a href="http://blog.annotree.com" style="color:#58c026;">Blog</a>
-      </div>
-    </div>
-	</div>
+  </div>

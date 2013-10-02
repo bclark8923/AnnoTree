@@ -83,19 +83,10 @@
                         } else {
                             $scope.tree.branches[i].icon = "";
                         }
+                        $scope.tree.branches[i].leaves = [];
                     }
                     $timeout(function() {
                         $("#loadingScreen").hide();
-                    /*
-                        $('.branch').droppable({
-                            hoverClass: 'branchHover',
-                            over: function(evt, ui) {
-                                $('.card-col-placeholder').css('display', 'none');
-                            },
-                            out: function(evt, ui) {
-                            }
-                        });
-                    */
                     }, 0);
                 },
                 function( response ) {

@@ -27,6 +27,14 @@
                 }
             );
         }
+        
+        $scope.testDrop = function() {
+            console.log('subbranch recieve');
+        }
+        $scope.$on('treeBranchDrop', function(evt) {
+            console.log('drop');
+        });
+
         $scope.droppedLeaf = function(evt, ui) {
             console.log(evt);
             console.log(ui);
@@ -389,8 +397,11 @@
         $scope.numLeaves = [];
         var assignTest = new RegExp('assign');
         $(window).resize(setScroll);
-        $scope.$watch('activeBranch', function(oldValue, newValue) {loadBranchData()}, true);
-        $scope.$watch('branches', function(oldValue, newValue) {setScroll()}, true);
+        $scope.$watch('activeBranch', function(newValue, oldValue) {loadBranchData()}, true);
+        $scope.$watch('parentBranch', function(newValue, oldValue) {
+            setScroll()
+            console.log('parentBranch change');
+        }, true);
         $scope.$evalAsync(loadBranchData());
         console.log('sub-branches');
     });

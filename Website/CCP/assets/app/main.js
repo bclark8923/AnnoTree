@@ -15,20 +15,19 @@ angular.module('ui.sortable').value('uiSortableConfig', {
             var width = ui[0].clientWidth - 30;
             //console.log('width: ' + ui[0].clientWidth);
             var item = ui[0].firstElementChild.innerHTML;
-            var container = $('<div style="width:' + width + 'px"></div>');
+            var container = $('<div id="droppedBranchLeaf" style="width:' + width + 'px"></div>');
             container.append(item);
-            console.log(container);
+            //console.log(container);
             //var test = $('<div style="width:50px;height"')
             return container;
         },
         appendTo: 'body',
         opacity: 0.5,
         scroll: false,
-        update: 'droppedLeaf',
+        receive: 'testDrop',
         out: function(evt, ui) {
         },
         over: function(evt, ui) {
-            $('.card-col-placeholder').css('display', 'block');
         }
     }
 });

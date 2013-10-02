@@ -43,6 +43,12 @@ var jqyoui = angular.module('ngDragDrop', []).service('ngDragDropService', ['$ti
     };
 
     this.invokeDrop = function ($draggable, $droppable, event, ui) {
+        console.log('tree recieve');
+        console.log(ui);
+        console.log($droppable);
+        console.log(ui.item.data('ui-sortable-start-pos'));
+        console.log(ui.item.data('ui-sortable-model-subset'));
+        /*
       var dragModel = '',
         dropModel = '',
         dragSettings = {},
@@ -100,6 +106,7 @@ var jqyoui = angular.module('ngDragDrop', []).service('ngDragDropService', ['$ti
           this.callEventCallback(droppableScope, dropSettings.onDrop, event, ui);
         }.bind(this));
       }
+      */
     };
 
     this.move = function($fromEl, $toEl, toPos, duration, dropSettings, callback) {
@@ -271,7 +278,8 @@ var jqyoui = angular.module('ngDragDrop', []).service('ngDragDropService', ['$ti
                   ngDragDropService.callEventCallback(scope, dropSettings.onOut, event, ui);
                 },
                 drop: function(event, ui) {
-                  if (angular.isDefined(angular.element(ui.draggable).attr('ng-model')) && angular.isDefined(angular.element(this).attr('ng-model'))) {
+                // angular.isDefined(angular.element(ui.draggable).attr('ng-model')) && 
+                  if (angular.isDefined(angular.element(this).attr('ng-model'))) {
                     ngDragDropService.invokeDrop(angular.element(ui.draggable), angular.element(this), event, ui);
                   }
                 }

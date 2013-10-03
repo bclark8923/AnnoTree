@@ -1104,15 +1104,6 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 }
 
 @media (max-width: 1024px) {
-    #branchHolder {
-        width: 150px;
-    }
-
-    #branchColumnHolder, #leaves {
-        width: calc(100% - 150px);
-        margin-left: 150px;
-    }
-
     #leafModal .modal-dialog {
         width: 100%;
     }
@@ -1123,11 +1114,6 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 }
 
 @media (max-width: 767px) {
-    /*
-    .card-col.col-sm-6 { 
-        width: 50%;
-    }
-    */
     #modifyTreeModal .modal-dialog {
         width: 100%;
     }

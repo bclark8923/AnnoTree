@@ -147,11 +147,11 @@ a.btn-annotree {
     border-radius: 15px;
     color: #fff;
     background-color: #bbb;
-    border: 1px solid #ddd;
+    border: 1px solid #bbb;
     cursor: pointer;
     padding: 4px;
     text-align: center;
-    font-weight: bold;
+    font-weight: 300;
 }
 
 .userIcon:hover {

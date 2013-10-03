@@ -95,9 +95,15 @@
                 $scope.userSettingsBox = false;
             });
             
+            function hideUserSettings() {
+            }
 
             $(document).on("click", function (evt) {
-                $scope.userSettingsBox = false;
+                var inModal = $(evt.target).closest('#userSettings').length > 0;
+                if (!inModal && $scope.userSettingsBox) {
+                    $scope.userSettingsBox = false;
+                    $scope.$apply();
+                }
             });
 
             $scope.userSettingsBox = false;

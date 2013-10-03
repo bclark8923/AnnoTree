@@ -17,7 +17,7 @@
                     <i class="icon-question-sign icon-xlarge icon-sidebar"></i>
                 </a>
             </div-->
-            <div style="position:fixed;bottom:70px;width:80px;" ng-click="userSettingsBox=!userSettingsBox">
+            <div style="position:fixed;bottom:70px;width:80px;" ng-click="userSettingsBox=!userSettingsBox;$event.stopPropagation()">
                 <div id="userSidebar" class="userIcon unselectable">
                     {{user.first_name.substr(0,1) + user.last_name.substr(0,1)}}
                 </div>

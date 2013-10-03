@@ -446,14 +446,27 @@ a.btn-annotree {
 
 .card.leafCard {
     height: 125px;
+    width: 400px;
     background-size: cover;
     background-position: center;
     overflow: hidden;
-    position: relative;
     cursor: pointer;
+    margin-right: 20px;
+    float: left;
+}
+
+.card-leaf-placeholder {
+    background-color: #ddd;
+    height: 125px;
+    width: 400px;
+    margin-right: 20px;
+    border-radius: 10px;
+    float: left;
+    margin-bottom: 30px;
 }
 
 .card.subBranchCard {
+    cursor: pointer;
     min-height: 50px;
     margin: 4px 0 10px 0;
     height: 100%;
@@ -784,7 +797,6 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
     background-color: #ddd;
     margin: 10px;
     border-radius: 10px;
-    list-style: none;
 }
 /* -----------------------
  * Leaves Settings
@@ -804,6 +816,9 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
     -webkit-transition: opacity .25s linear;
 }
 
+#leavesSortable {
+    list-style: none;
+}
 /* -----------------------
  * Leaf Settings
  * ----------------------- */

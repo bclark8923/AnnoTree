@@ -7,20 +7,29 @@ angular.module('ui.sortable').value('uiSortableConfig', {
         placeholder: "card-col-placeholder",
         start: function(evt, ui) {
             ui.placeholder.height(ui.item.height());
-            //ui.placeholder.width(ui.item.width());
+            if (ui.placeholder[0].localName == 'li') {
+                ui.placeholder[0].className = 'card-leaf-placeholder';
+                ui.placeholder.width(ui.item.width());
+            }
             evt.stopPropagation();
         },
         revert: 'true',
         helper: function(evt, ui) {
-            //console.log(ui);
-            var width = ui[0].clientWidth - 30;
-            //console.log('width: ' + ui[0].clientWidth);
-            var item = ui[0].firstElementChild.innerHTML;
-            var container = $('<div style="width:' + width + 'px"></div>');
-            container.append(item);
-            //console.log(container);
-            //var test = $('<div style="width:50px;height"')
-            return container;
+            if (ui[0].localName == 'li') {
+                var item = ui[0].innerHTML;
+                var width = ui[0].clientWidth;
+                var height = ui[0].clientHeight;
+                var backgroundImage = ui[0].style.backgroundImage;
+                var container = $('<div style="width:' + width + 'px;height:' + height + 'px;background-image:' + backgroundImage + ';background-size:cover;background-position:center;border-radius: 5px 5px 0 0;overflow:hidden"></div>');
+                container.append(item);
+                return container;
+            } else {
+                var width = ui[0].clientWidth - 30;
+                var item = ui[0].firstElementChild.innerHTML;
+                var container = $('<div style="width:' + width + 'px"></div>');
+                container.append(item);
+                return container;
+            }
         },
         appendTo: 'body',
         opacity: 0.5,

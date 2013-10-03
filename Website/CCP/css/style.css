@@ -8,7 +8,7 @@ html, body {
 }
 
 body, #containWrapper {
-    font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
     background-color: #fff;
     font-weight: 300;
     height: 100%;
@@ -43,7 +43,7 @@ body, #containWrapper {
 }
 
 .popover-title {
-    font-family:'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
 
 div[ng-switch], div[ng-switch-when], div[ng-controller] {
@@ -492,12 +492,16 @@ a.btn-annotree {
 .assignedUser {
     width: 30px;
     height: 30px;
-    border: 2px solid #fff;
     border-radius: 15px;
     cursor: pointer;
-    border: 1px solid #38a25e;
-    margin-bottom: 5px;
+    margin: 0 0 5px 3px;
 }
+
+.assignedUser > img {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    cursor: pointer;}
 
 .cardNameNew {
     background-color: transparent;
@@ -576,21 +580,21 @@ a.btn-annotree {
  * ----------------------- */
 .treePageHeader {
     height: 45px;
-    background-color: #fff;
+    background-color: #00aa6c;
 }
 
 .treePageHeaderText {
     font-size: 14pt;
     padding: 5px;
     padding-left: 20px;
-    color: #888;
+    color: #fff;
     height: 45px;
 }
 
 .icon-treeSettings {
     cursor: pointer;
     vertical-align: middle;
-    font-family: 'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
     font-weight: 400;
     height: 35px;
     display: table-cell;
@@ -697,12 +701,11 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
  * ----------------------- */
 #branchColumnHolder {
     height: calc(100% - 90px);
-    width: calc(80% - 100px);
+    width: calc(80% - 80px);
     float: left;
     margin-left: 20%;
     position: absolute;
     background-color: #f5f5f5;
-    border-radius: 10px;
     transition: opacity .25s linear;
     -moz-transition: opacity .25s linear;
     -webkit-transition: opacity .25s linear;
@@ -768,13 +771,10 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
  * ----------------------- */
 #leaves {
     height: calc(100% - 90px);
-    width: calc(80% - 100px);
+    width: calc(80% - 80px);
     float: left;
     margin-left: 20%;
     background-color: #f1f1f1;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
     padding: 20px;
     position: absolute;
     overflow-y: auto;
@@ -849,7 +849,6 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
     width: 30px;
     height: 30px;
     border-radius: 15px;
-    border: 1px solid #38a25e;
 }
 
 .userCommentName {
@@ -958,7 +957,7 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
     padding: 5px;
     padding-left: 20px;
     color: #888;
-    font-family: 'Lato',GeosansLightRegular, Helvetica, Arial, sans-serif !important;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
     font-weight: 400;
 }
 
@@ -1049,7 +1048,7 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 }
 
 .code {
-    color: #38a25e;
+    color: #ffff99;
     background-color: #444;
     font-weight: bold;
     padding: 4px 8px;

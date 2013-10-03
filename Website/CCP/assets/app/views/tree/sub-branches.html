@@ -21,7 +21,9 @@
                                 </button>
                             </div>
                             <div>
-                                <img id="assignedUser" ng-repeat="user in leaf.assigned" class="assignedUser" ng-src="{{user.profile_image_path}}" ng-click="openAssignedUser($event, leaf.id, user, branch.id)">
+                                <div id="assignedUser" ng-repeat="user in leaf.assigned" class="assignedUser"  ng-click="openAssignedUser($event, leaf.id, user, branch.id)">
+                                    <img ng-src="{{user.profile_image_path}}" />
+                                </div>
                             </div>
                         </div>
                     </div>

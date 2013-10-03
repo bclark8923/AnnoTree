@@ -2,11 +2,12 @@ var AnnoTree = angular.module("AnnoTree", ['ui.sortable']); //, ['ngDragDrop']
 
 angular.module('ui.sortable').value('uiSortableConfig', {
     sortable: {
-        connectWith: '.branchColumnLeaves, .branch',
+        connectWith: '.branchColumnLeaves, .branch, #leavesSortable',
         containment: 'document',
         placeholder: "card-col-placeholder",
         start: function(evt, ui) {
             ui.placeholder.height(ui.item.height());
+            //ui.placeholder.width(ui.item.width());
             evt.stopPropagation();
         },
         revert: 'true',
@@ -15,7 +16,7 @@ angular.module('ui.sortable').value('uiSortableConfig', {
             var width = ui[0].clientWidth - 30;
             //console.log('width: ' + ui[0].clientWidth);
             var item = ui[0].firstElementChild.innerHTML;
-            var container = $('<div id="droppedBranchLeaf" style="width:' + width + 'px"></div>');
+            var container = $('<div style="width:' + width + 'px"></div>');
             container.append(item);
             //console.log(container);
             //var test = $('<div style="width:50px;height"')
@@ -23,12 +24,7 @@ angular.module('ui.sortable').value('uiSortableConfig', {
         },
         appendTo: 'body',
         opacity: 0.5,
-        scroll: false,
-        receive: 'testDrop',
-        out: function(evt, ui) {
-        },
-        over: function(evt, ui) {
-        }
+        scroll: false
     }
 });
 

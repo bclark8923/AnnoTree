@@ -25,7 +25,7 @@ angular.module('ui.sortable').service('ngSortableDropService', [function() {
     this.getModel = function() {
         return model;
     }
-}]).directive('uiMultiSortable', ['uiSortableConfig', '$parse', 'ngSortableDropService', function(uiConfig, $parse, ngSortableDropService) {
+}]).directive('uiMultiSortable', ['uiSortableConfig', '$parse', 'ngSortableDropService', '$http', 'apiRoot', function(uiConfig, $parse, ngSortableDropService, $http, apiRoot) {
     var options = {};
     if (uiConfig.sortable !== null) {
       angular.extend(options, uiConfig.sortable);
@@ -78,15 +78,30 @@ angular.module('ui.sortable').service('ngSortableDropService', [function() {
 
       function _update(model) {
         if (model.token || self.data.destPosition == -1) {
-            //alert('it would go here!');
-            //($parse(self.data.origSubset)(model)).splice(self.data.origPosition, 1)[0];
-            //model.splice(self.data.origPosition, 1)[0];
-            //($parse(self.data.destSubset)(model)).splice(0, 0, ($parse(self.data.origSubset)($parse(self.data.origModel)())).splice(self.data.origPosition, 1)[0]); 
-            //{hello: 'world'});
+            // do nothing - droppable handles this
         } else if (attrs.modelSubset === undefined) {
           model.splice(self.data.destPosition, 0, model.splice(self.data.origPosition, 1)[0]);
         } else {
-          ($parse(self.data.destSubset)(model)).splice(self.data.destPosition, 0, ($parse(self.data.origSubset)(model)).splice(self.data.origPosition, 1)[0]);
+            var leafData = ($parse(self.data.origSubset)(model)).splice(self.data.origPosition, 1)[0];
+            if (self.data.destSubset.indexOf('leaves') != -1) {
+                var destBranch = ($parse(self.data.destSubset.substring(0, 11))(model));
+                $http.put(apiRoot.getRoot() + '/services/' + destBranch.tree_id + '/' + destBranch.id + '/subchange/' + leafData.id, {
+                    newPriority: self.data.destPosition + 1,
+                    oldPriority: leafData.priority,
+                    oldBranch: leafData.branch_id
+                });
+                var origBranch = ($parse(self.data.origSubset)(model));
+                for (var i = self.data.origPosition; i < origBranch.length; i++) {
+                    origBranch[i].priority--;
+                }
+                leafData.branch_id = destBranch.id;
+                leafData.priority = self.data.destPosition + 1;
+                var newSubBranch = ($parse(self.data.destSubset)(model));
+                for (var i = self.data.destPosition; i < newSubBranch.length; i++) {
+                    newSubBranch[i].priority++;
+                }
+                newSubBranch.splice(self.data.destPosition, 0, leafData);
+            }
         }
       }
     };
@@ -141,7 +156,7 @@ angular.module('ui.sortable').service('ngSortableDropService', [function() {
       }
     };
   }
-]).directive('jqyouiDroppable', ['ngSortableDropService', '$parse', '$http', function(ngSortableDropService, $parse, $http) {
+]).directive('jqyouiDroppable', ['ngSortableDropService', '$parse', '$http', 'apiRoot', function(ngSortableDropService, $parse, $http, apiRoot) {
     return {
       restrict: 'A',
       priority: 1,
@@ -165,22 +180,30 @@ angular.module('ui.sortable').service('ngSortableDropService', [function() {
                 },
                 drop: function(event, ui) {
                 // angular.isDefined(angular.element(ui.draggable).attr('ng-model')) && 
-                  if (angular.isDefined(angular.element(this).attr('ng-model'))) {
+                  if (angular.isDefined(angular.element(this).attr('data-drop-model'))) {
                     //ngDragDropService.invokeDrop(angular.element(ui.draggable), angular.element(this), event, ui);
-                        console.log(angular.element(this).attr('ng-model'));
+                        var branchModel = angular.element(this).attr('data-drop-model');
+                        //console.log(branchModel);
+                        var branchID = ($parse(branchModel)(scope)).id;
+                        //console.log(branchID);
                         var draggable = ngSortableDropService.getDraggable();
                         var originalModel = ngSortableDropService.getModel();
                         var subset = draggable.item.data('ui-sortable-model-subset');
                         var index = draggable.item.data('ui-sortable-start-pos');
-                        console.log('tree recieve');
-                        console.log(originalModel);
-                        console.log(draggable);
+                        //console.log('tree recieve');
+                        //console.log(originalModel);
+                        //console.log(draggable);
                         //console.log(attrs);
-                        console.log(index);
-                        console.log(subset);
-                        var leafData = ($parse(subset)(originalModel)).splice(index, 1);
-                        console.log(leafData);
-                        console.log(scope.tree.id);
+                        //console.log(index);
+                        //console.log(subset);
+                        var origBranch = ($parse(subset)(originalModel));
+                        var leafData = origBranch.splice(index, 1)[0];
+                        //console.log(leafData);
+                        //console.log(scope.tree.id);
+                        $http.put(apiRoot.getRoot() + '/services/' + scope.tree.id + '/' + branchID + '/leaf/' + leafData.id);
+                        for (var i = index; i < origBranch.length; i++) {
+                            origBranch[i].priority--;
+                        }
                   }
                 }
               });

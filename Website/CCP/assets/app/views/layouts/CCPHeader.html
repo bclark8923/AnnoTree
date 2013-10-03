@@ -17,8 +17,10 @@
                     <i class="icon-question-sign icon-xlarge icon-sidebar"></i>
                 </a>
             </div-->
-            <div style="position:fixed;bottom:70px;width:80px" ng-click="userSettingsBox=!userSettingsBox">
-                <img ng-src="{{user.profile_image_path}}" id="userIcon" />
+            <div style="position:fixed;bottom:70px;width:80px;" ng-click="userSettingsBox=!userSettingsBox">
+                <div id="userSidebar" class="userIcon unselectable">
+                    {{user.first_name.substr(0,1) + user.last_name.substr(0,1)}}
+                </div>
             </div>
             <div style="position:fixed;bottom:10px;width:80px">
                 <img src="img/AnnoTreeLogo.png" style="width:30px">

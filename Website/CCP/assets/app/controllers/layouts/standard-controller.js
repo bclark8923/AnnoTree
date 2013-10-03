@@ -94,7 +94,12 @@
                 $scope.subview = renderContext.getNextSection();
                 $scope.userSettingsBox = false;
             });
-    
+            
+
+            $(document).on("click", function (evt) {
+                $scope.userSettingsBox = false;
+            });
+
             $scope.userSettingsBox = false;
             $scope.user = dataService.getUser();
             if ($scope.user == null) {

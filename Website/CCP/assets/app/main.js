@@ -24,7 +24,8 @@ angular.module('ui.sortable').value('uiSortableConfig', {
         },
         appendTo: 'body',
         opacity: 0.5,
-        scroll: false
+        scroll: false,
+        cursor: 'move'
     }
 });
 

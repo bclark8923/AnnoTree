@@ -141,6 +141,31 @@ a.btn-annotree {
     /*width: 100%;*/
 }
 
+.userIcon {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    color: #fff;
+    background-color: #bbb;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    padding: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.userIcon:hover {
+    border: 1px solid #999;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 /* -----------------------
  * Modal Settings
  * ----------------------- */
@@ -215,20 +240,13 @@ a.btn-annotree {
     font-size: 20pt;
 }
 
-#userIcon, .icon-sidebar {
+#userSidebar, .icon-sidebar {
     cursor: pointer;
 }
 
-#userIcon {
-    border: 2px solid #fff;
-    height: 30px;
-    width: 30px;
+#userSidebar {
+    margin-left: 25px;
     margin-top: 3px;
-    border-radius: 15px;
-}
-
-#userIcon:hover {
-    border: 2px solid #38a25e;
 }
 
 .userSettingsBox {
@@ -489,19 +507,21 @@ a.btn-annotree {
     float: right;
 }
 
-.assignedUser {
+div[ng-switch].assignedUser {
     width: 30px;
     height: 30px;
     border-radius: 15px;
     cursor: pointer;
     margin: 0 0 5px 3px;
+    display: inline-block;
 }
 
 .assignedUser > img {
     width: 30px;
     height: 30px;
     border-radius: 15px;
-    cursor: pointer;}
+    cursor: pointer;
+}
 
 .cardNameNew {
     background-color: transparent;
@@ -843,12 +863,6 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 
 .userImageHolder {
     float: left;
-}
-
-.userCommentImage {
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
 }
 
 .userCommentName {

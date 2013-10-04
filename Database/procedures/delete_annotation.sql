@@ -11,6 +11,6 @@ CREATE Procedure `delete_annotation`(
   in id INT
   )
 BEGIN
-delete from annotation where annotation.id = id;
+update annotation set active = 0 where annotation.id = id;
 END $$
 delimiter ; $$

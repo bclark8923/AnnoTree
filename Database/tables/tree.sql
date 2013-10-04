@@ -17,6 +17,7 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`tree` (
   `token` VARCHAR(64) NULL,
   `owner_id` INT NOT NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `active` bool not null default 1,
   PRIMARY KEY (`id`) ,
   INDEX `fk_project_1` (`forest_id` ASC) ,
   CONSTRAINT `fk_project_1`

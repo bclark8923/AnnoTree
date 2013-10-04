@@ -14,6 +14,7 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`branch` (
   `tree_id` INT NULL,
   `description` VARCHAR(1024) NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `active` bool not null default 1,
   PRIMARY KEY (`id`) ,
   INDEX `fk_branch_1` (`tree_id` ASC) ,
   CONSTRAINT `fk_branch_1`

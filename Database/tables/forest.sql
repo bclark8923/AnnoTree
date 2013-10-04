@@ -12,7 +12,8 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`forest` (
   `name` VARCHAR(45) NULL ,
   `description` VARCHAR(1024) NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    `owner_id` INT NULL,
+  `owner_id` INT NULL,
+  `active` bool not null default 1,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 

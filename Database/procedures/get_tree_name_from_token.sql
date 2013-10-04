@@ -12,6 +12,6 @@ CREATE PROCEDURE `get_tree_name_from_token` (
 BEGIN
     SELECT name
         FROM tree
-        WHERE token = token_in;
+        WHERE token = token_in and active = 1;
 END $$
 DELIMITER ; $$;

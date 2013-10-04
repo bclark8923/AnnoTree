@@ -25,7 +25,8 @@ IF (select id from user_tree where user_id = req_user and tree_id = treeid) then
           a.leaf_id = l.id            
       where
           t.id = treeid and
-          ut.user_id = req_user;
+          ut.user_id = req_user and
+          l.active = 1;
 ELSE
     select '1';
 END IF;

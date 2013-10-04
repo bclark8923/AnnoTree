@@ -18,16 +18,20 @@ IF (select id from user_forest where user_id = req_user and forest_id = forestid
       from forest as f 
        left join user_forest as uf on
           uf.forest_id = f.id
-       left join tree as t on
+          and f.active = 1
+       inner join tree as t on
           t.forest_id = f.id
+          and t.active = 1
        left join user_tree as ut on
           ut.tree_id = t.id
-       left join branch as b on
+       inner join branch as b on
           b.tree_id = t.id
-       left join leaf as l on
-          l.branch_id = b.id
-       left join annotation as a on
-          a.leaf_id = l.id            
+       inner join leaf as l on
+          l.branch_id = b.id and
+          l.active = 1
+       inner join annotation as a on
+          a.leaf_id = l.id
+          and a.active = 1            
       where
           f.id = forestid and
           uf.user_id = req_user;

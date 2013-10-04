@@ -22,7 +22,7 @@ IF (select ut.id from user_tree as ut
     union
     select l.id, l.name, l.description, l.owner_user_id, l.branch_id, l.created_at 
     from leaf as l
-    where l.id = leafid;
+    where l.id = leafid and l.active = 1;
 ELSE
     select '1';
 END IF;

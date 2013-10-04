@@ -14,6 +14,7 @@ CREATE  TABLE IF NOT EXISTS `annotree`.`leaf_comment` (
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP null,
   `leaf_id` INT NULL,
+  `active` bool not null default 1,
   PRIMARY KEY (`id`) ,
   INDEX `fk_comment_1` (`leaf_id` ASC) ,
   INDEX `fk_comment_2` (`user_id` ASC) ,

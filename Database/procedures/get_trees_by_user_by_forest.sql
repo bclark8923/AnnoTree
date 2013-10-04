@@ -19,6 +19,7 @@ SELECT t.id, t.name, t.forest_id, t.description, t.created_at, t.token, t.logo, 
     JOIN branch AS b ON b.tree_id = t.id
     WHERE ut.user_id = user_id_in
     AND t.forest_id = forest_id_in
+    and t.active = 1
     AND b.name = 'User Feedback';
 END $$ 
 DELIMITER ; $$

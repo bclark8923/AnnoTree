@@ -81,7 +81,11 @@
                         } else if ($scope.tree.branches[i].name == 'Archive') {
                             $scope.tree.branches[i].icon = "icon-archive";
                         } else {
-                            $scope.tree.branches[i].icon = "";
+                            if ($scope.tree.branches[i].sub_branches.length > 0) {
+                                $scope.tree.branches[i].icon = "icon-tasks icon-rotate-90";
+                            } else {
+                                $scope.tree.branches[i].icon = "icon-th";
+                            }
                         }
                         $scope.tree.branches[i].leaves = [];
                     }
@@ -436,7 +440,11 @@
                 promise.then(
                     function(response) {
                         var branch = response.data;
-                        branch.icon = '';
+                        if (branch.sub_branches.length > 0) {
+                            branch.icon = "icon-tasks icon-rotate-90";
+                        } else {
+                            branch.icon = "icon-th";
+                        }
                         $scope.tree.branches.push(branch);
                         $scope.newBranchModalWorking = true;
                         $('#newBranchModal').modal('hide');

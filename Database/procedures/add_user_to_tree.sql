@@ -3,20 +3,19 @@
  -- On success - returns 2 if new user, 3 if existing user
  -- On failure - returns 1 (requsting user doesn't have permissions on that tree)
  -- --------------------------------------------------------------------------------
- use annotree;
- drop  procedure IF EXISTS `add_user_to_tree`;
- DELIMITER $$
+use annotree;
+drop  procedure IF EXISTS `add_user_to_tree`;
+DELIMITER $$
  
  
- CREATE Procedure `add_user_to_tree`(
-     in treeid int,
-     in email_in varchar(255),
--    in requesting_user INT,
--    IN new_user_img VARCHAR(45)
-+    in requesting_user INT
- )
+CREATE Procedure `add_user_to_tree`(
+    in treeid int,
+    in email_in varchar(255),
+    in requesting_user INT,
+    IN new_user_img VARCHAR(45)
+)
  BEGIN
- IF (select id from user_tree where tree_id = treeid and user_id = requesting_user) THEN
+IF (select id from user_tree where tree_id = treeid and user_id = requesting_user) THEN
    set @user_to_add = (select id from user where user.email = email_in);  
    IF @user_to_add THEN
          START TRANSACTION;
@@ -45,8 +44,8 @@
          COMMIT;
          END IF;
      ELSE
--        insert into user(email, status, profile_image_path) values (email_in, 2, new_user_img);
-+        insert into user(email, status) values (email_in, 2);
+       insert into user(email, status, profile_image_path) values (email_in, 2, new_user_img);
+       insert into user(email, status) values (email_in, 2);
          set @new_user_id = LAST_INSERT_ID();
          insert into user_tree (user_id, tree_id) values (@new_user_id, treeid);
           insert into user_forest(user_id, forest_id) 

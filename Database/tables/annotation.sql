@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS `annotree`.`annotation` (
     `meta_model` VARCHAR(128),
     `meta_vendor` VARCHAR(128),
     `meta_orientation` VARCHAR(128),
+    `active` bool not null default 1,
     PRIMARY KEY (`id`),
     INDEX `fk_annotation_1` (`leaf_id` ASC),
     CONSTRAINT `fk_annotation_1` FOREIGN KEY (`leaf_id`) REFERENCES `leaf` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION

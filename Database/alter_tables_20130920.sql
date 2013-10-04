@@ -22,4 +22,11 @@ DROP TABLE IF EXISTS uncategorized_annotation;
 DROP TABLE IF EXISTS task;
 DROP TABLE IF EXISTS task_statuses;
 
-UPDATE user SET profile_image_path = 'img/user.png';
+
+alter table annotation add column active bool not null default 1;
+alter table branch add column active bool not null default 1;
+alter table forest add column active bool not null default 1;
+alter table leaf add column active bool not null default 1;
+alter table leaf_comment add column active bool not null default 1;
+alter table tree add column active bool not null default 1;
+

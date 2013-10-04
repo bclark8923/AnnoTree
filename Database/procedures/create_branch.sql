@@ -1,7 +1,8 @@
 -- --------------------------------------------------------------------------------
 -- create_branch
--- returns  0 - success: returns branch info
---          1 - error: user does not have permissions on tree
+-- returns  0 - success
+--          1 - error: user does not have permissions
+--          2 - error: tree does not exist
 -- --------------------------------------------------------------------------------
 USE annotree;
 DROP PROCEDURE IF EXISTS `create_branch`;
@@ -13,14 +14,15 @@ CREATE PROCEDURE `create_branch` (
     IN name_in VARCHAR(45)
 )
 BEGIN
-IF (SELECT id FROM user_tree WHERE user_id = user_id_in AND tree_id = tree_id_in) THEN
-    INSERT INTO `annotree`.`branch` (tree_id, name) VALUES (tree_id_in, name_in);
-    SET @branch_id = LAST_INSERT_ID();
-    SELECT 'id', 'name', 'tree_id', 'description', 'created_at'
-        UNION
-        SELECT id, name, tree_id, description, created_at
-        FROM branch
-        WHERE id = @branch_id;
+IF (SELECT id FROM user WHERE id = user_id_in) THEN
+    IF (SELECT id FROM tree WHERE id = tree_id_in) THEN
+        INSERT INTO `annotree`.`branch`
+          (tree_id, name)
+          VALUES (tree_id_in, name_in);
+        SELECT '0';
+    ELSE
+        SELECT '2';
+    END IF;
 ELSE
     SELECT '1';
 END IF;

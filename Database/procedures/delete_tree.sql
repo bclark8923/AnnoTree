@@ -15,18 +15,10 @@ BEGIN
 IF (select id from user_tree where user_id = req_user and tree_id = treeid) then
   SET FOREIGN_KEY_CHECKS=0;
     SET @forestid = (SELECT forest_id FROM tree WHERE id = treeid);
-  delete t, ut, b, l, a, la from
-          tree as t
-           left join user_tree as ut on
-              ut.tree_id = t.id
-           left join branch as b on
-              b.tree_id = t.id
-           left join leaf as l on
-              l.branch_id = b.id
-           left join annotation as a on
-              a.leaf_id = l.id
-            LEFT JOIN leaf_assignments AS la ON
-            la.leaf_id = l.id
+  update tree as t
+    join user_tree as ut
+        on ut.tree_id = t.id
+    set t.active = 0
       where
           t.id = treeid and
           ut.user_id = req_user;

@@ -22,8 +22,8 @@ IF (SELECT id FROM user_tree WHERE user_id = user_id_in AND tree_id = tree_id_in
                     FROM annotation a4
                     GROUP BY a4.leaf_id
                 ) AS a3 ON a2.id = a3.id
-        ) AS a ON l.id = a.leaf_id
-        WHERE branch_id = branch_id_in
+        ) AS a ON l.id = a.leaf_id and l.active = 1
+        WHERE branch_id = branch_id_in and l.active = 1
         ORDER BY priority ASC;
 ELSE
     SELECT 'ERROR';

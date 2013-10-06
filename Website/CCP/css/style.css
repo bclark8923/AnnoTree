@@ -138,7 +138,7 @@ a.btn-annotree {
     overflow-y: hidden;
     overflow-x: hidden;
     height: 100%;
-    /*width: 100%;*/
+    background-color: #222;
 }
 
 .userIcon {
@@ -215,9 +215,9 @@ a.btn-annotree {
 .treeOptions {
     width: 80px;
     float: left;
-    background-color: #444;
+    background-color: #222;
     height: 100%;
-    color: white;
+    color: #fff;
     text-align: center;
     padding-top: 30px;
 }
@@ -446,7 +446,7 @@ a.btn-annotree {
 
 .card.leafCard {
     height: 125px;
-    width: 400px;
+    width: 30%;
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -613,15 +613,23 @@ div[ng-switch].assignedUser {
  * ----------------------- */
 .treePageHeader {
     height: 45px;
-    background-color: #00aa6c;
+    background-color: #fff;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid #ccc;
+    margin-left: 20%;
 }
 
 .treePageHeaderText {
     font-size: 14pt;
     padding: 5px;
     padding-left: 20px;
-    color: #fff;
+    color: #444;
     height: 45px;
+}
+
+#treeIndex {
+    background-color: #444;
+    border-radius: 5px 0 0 5px;
 }
 
 .icon-treeSettings {
@@ -693,7 +701,7 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 }
 
 .activeBranch {
-    color: #888;
+    color: #f1f1f1;
     padding-left: 25px;
     cursor: auto;
     font-weight: 400;
@@ -733,12 +741,12 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
  * Sub-branch Settings
  * ----------------------- */
 #branchColumnHolder {
-    height: calc(100% - 90px);
-    width: calc(80% - 80px);
-    float: left;
+    height: calc(100% - 45px);
+    width: 80%;
     margin-left: 20%;
-    position: absolute;
-    background-color: #f5f5f5;
+    position: relative;
+    background-color: #f1f1f1;
+    border-radius: 0 0 5px 5px;
     transition: opacity .25s linear;
     -moz-transition: opacity .25s linear;
     -webkit-transition: opacity .25s linear;
@@ -802,15 +810,15 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
  * Leaves Settings
  * ----------------------- */
 #leaves {
-    height: calc(100% - 90px);
-    width: calc(80% - 80px);
-    float: left;
+    height: calc(100% - 45px);
+    width: 80%;
     margin-left: 20%;
     background-color: #f1f1f1;
-    padding: 20px;
-    position: absolute;
+    padding: 20px 0 20px 20px;
+    position: relative;
     overflow-y: auto;
     overflow-x: hidden;
+    border-radius: 0 0 5px 5px;
     transition: opacity .25s linear;
     -moz-transition: opacity .25s linear;
     -webkit-transition: opacity .25s linear;
@@ -1179,6 +1187,10 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 
     .forest.row {
         margin: 30px 20px;
+    }
+
+    .treePageHeader {
+        margin-left: 0;
     }
 }
 

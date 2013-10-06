@@ -1,4 +1,4 @@
-var AnnoTree = angular.module("AnnoTree", ['ui.sortable']); //, ['ngDragDrop'] 
+var AnnoTree = angular.module("AnnoTree", ['ui.sortable']);
 
 angular.module('ui.sortable').value('uiSortableConfig', {
     sortable: {
@@ -9,7 +9,7 @@ angular.module('ui.sortable').value('uiSortableConfig', {
             ui.placeholder.height(ui.item.height());
             if (ui.placeholder[0].localName == 'li') {
                 ui.placeholder[0].className = 'card-leaf-placeholder';
-                ui.placeholder.width(ui.item.width());
+                ui.placeholder.width(ui.item.width() - 20);
             }
             evt.stopPropagation();
         },

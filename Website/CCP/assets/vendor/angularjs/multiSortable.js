@@ -170,36 +170,30 @@ angular.module('ui.sortable').service('ngSortableDropService', [function() {
                 over: function(event, ui) {
                   var dropSettings = scope.$eval(angular.element(this).attr('jqyoui-droppable')) || [];
                   $('.card-col-placeholder').hide();
-                  //ngDragDropService.callEventCallback(scope, dropSettings.onOver, event, ui);
+                  $('.card-leaf-placeholder').hide();
                 },
                 out: function(event, ui) {
                   var dropSettings = scope.$eval(angular.element(this).attr('jqyoui-droppable')) || [];
-                  // do some math here to figure out if they are on the left 25% of the screen
                   $('.card-col-placeholder').show();
-                  //ngDragDropService.callEventCallback(scope, dropSettings.onOut, event, ui);
+                  $('.card-leaf-placeholder').show();
                 },
                 drop: function(event, ui) {
-                // angular.isDefined(angular.element(ui.draggable).attr('ng-model')) && 
                   if (angular.isDefined(angular.element(this).attr('data-drop-model'))) {
-                    //ngDragDropService.invokeDrop(angular.element(ui.draggable), angular.element(this), event, ui);
                         var branchModel = angular.element(this).attr('data-drop-model');
-                        //console.log(branchModel);
                         var branchID = ($parse(branchModel)(scope)).id;
-                        //console.log(branchID);
                         var draggable = ngSortableDropService.getDraggable();
                         var originalModel = ngSortableDropService.getModel();
                         var subset = draggable.item.data('ui-sortable-model-subset');
                         var index = draggable.item.data('ui-sortable-start-pos');
-                        //console.log('tree recieve');
-                        //console.log(originalModel);
-                        //console.log(draggable);
-                        //console.log(attrs);
-                        //console.log(index);
-                        //console.log(subset);
-                        var origBranch = ($parse(subset)(originalModel));
+                        
+                        var origBranch = null;
+                        if (subset === undefined) {
+                            origBranch = originalModel;
+                        } else {
+                            origBranch = ($parse(subset)(originalModel));
+                        }
                         var leafData = origBranch.splice(index, 1)[0];
-                        //console.log(leafData);
-                        //console.log(scope.tree.id);
+                        
                         $http.put(apiRoot.getRoot() + '/services/' + scope.tree.id + '/' + branchID + '/leaf/' + leafData.id);
                         for (var i = index; i < origBranch.length; i++) {
                             origBranch[i].priority--;

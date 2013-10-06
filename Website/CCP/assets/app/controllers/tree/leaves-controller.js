@@ -18,6 +18,8 @@
                         }
                     }
                     $scope.leaves = leaves;
+                    $scope.leaves.branch_id = branchID;
+                    $scope.leaves.tree_id = $routeParams.treeID;
                     if ($routeParams.leafID) {
                         $scope.showLeaf($routeParams.leafID);
                     }

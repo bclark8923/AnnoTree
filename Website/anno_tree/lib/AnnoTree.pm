@@ -128,21 +128,21 @@ sub startup {
     $authr->get('/:treeid/parentbranch/:branchid' => [treeid => qr/\d+/, branchid => qr/\d+/])  ->to('controller-branch#parentInfo');
 
     # ===== LEAVES =====
-    $authr->post('/:branchid/leaf' => [branchid => qr/\d+/])        ->to('controller-leaf#create');
-    $authr->get('/leaf/:leafid' => [leafid => qr/\d+/])             ->to('controller-leaf#leafInfo');
-    $authr->put('/leaf/:leafid' => [leafid => qr/\d+/])             ->to('controller-leaf#rename');
-    $authr->put('/leaf/:leafid/assign' => [leafid => qr/\d+/])      ->to('controller-leaf#assign');
-    $authr->delete('/leaf/:leafid/assign/:remove' => [leafid => qr/\d+/, remove => qr/\d+/])   ->to('controller-leaf#assignRemove');
-    $authr->put('/:treeid/:branchid/leaf/:leafid' => [treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])         ->to('controller-leaf#changeBranch');
-    $authr->put('/:treeid/:branchid/subchange/:leafid' => [treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])         ->to('controller-leaf#changeSubBranch');
-    $authr->delete('/leaf/:leafid' => [leafid => qr/\d+/])      ->to('controller-leaf#deleteLeaf');
+    $authr->post('/:branchid/leaf' => [branchid => qr/\d+/])                                                            ->to('controller-leaf#create');
+    $authr->get('/leaf/:leafid' => [leafid => qr/\d+/])                                                                 ->to('controller-leaf#leafInfo');
+    $authr->put('/leaf/:leafid' => [leafid => qr/\d+/])                                                                 ->to('controller-leaf#rename');
+    $authr->put('/leaf/:leafid/assign' => [leafid => qr/\d+/])                                                          ->to('controller-leaf#assign');
+    $authr->delete('/leaf/:leafid/assign/:remove' => [leafid => qr/\d+/, remove => qr/\d+/])                            ->to('controller-leaf#assignRemove');
+    $authr->put('/:treeid/:branchid/leaf/:leafid' => [treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])       ->to('controller-leaf#changeBranch');
+    $authr->put('/:treeid/:branchid/subchange/:leafid' => [treeid => qr/\d+/, branchid => qr/\d+/, leafid => qr/\d+/])  ->to('controller-leaf#changeSubBranch');
+    $authr->delete('/leaf/:leafid' => [leafid => qr/\d+/])                                                              ->to('controller-leaf#deleteLeaf');
     $r->post('/ios/leaf')       ->to('controller-leaf#iosUpload');
     $r->post('/chrome/leaf')    ->to('controller-leaf#chromeUpload');
     $r->get('/ios/leaf')        ->to('controller-leaf#iosTestUpload');
 
     # ===== ANNOTATIONS =====
-    $authr->post('/:leafid/annotation' => [leafid => qr/\d+/])->to('controller-annotation#create');
-    $authr->get('/annotation/:annoid' => [annoid => qr/\d+/])->to('controller-annotation#getImage'); 
+    $authr->post('/:leafid/annotation' => [leafid => qr/\d+/])  ->to('controller-annotation#create');
+    $authr->get('/annotation/:annoid' => [annoid => qr/\d+/])   ->to('controller-annotation#getImage'); 
 }
 
 return 1;

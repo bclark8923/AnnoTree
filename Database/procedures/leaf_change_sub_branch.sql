@@ -20,15 +20,32 @@ CREATE PROCEDURE `leaf_change_sub_branch` (
 BEGIN
 IF (SELECT id FROM user_tree WHERE user_id = user_id_in AND tree_id = tree_id_in) THEN
     IF (SELECT id FROM branch WHERE id = new_branch AND tree_id = tree_id_in) THEN
-        UPDATE leaf SET priority = priority + 1 
-            WHERE priority >= new_priority
-            AND branch_id = new_branch;
-        UPDATE leaf SET priority = new_priority,
-            branch_id = new_branch
-            WHERE id = leaf_id_in;
-        UPDATE leaf SET priority = priority - 1
-            WHERE priority > old_priority
-            AND branch_id = old_branch;
+        IF (new_branch = old_branch) THEN
+            IF (new_priority > old_priority) THEN
+                UPDATE leaf SET priority = priority - 1
+                    WHERE priority >= old_priority
+                    AND priority <= new_priority
+                    AND branch_id = new_branch;
+            ELSE
+                UPDATE leaf SET priority = priority + 1
+                    WHERE priority <= old_priority
+                    AND priority >= new_priority
+                    AND branch_id = new_branch;
+            END IF;
+            UPDATE leaf SET priority = new_priority
+                WHERE id = leaf_id_in;
+            SELECT '0';
+        ELSE
+            UPDATE leaf SET priority = priority + 1 
+                WHERE priority >= new_priority
+                AND branch_id = new_branch;
+            UPDATE leaf SET priority = new_priority,
+                branch_id = new_branch
+                WHERE id = leaf_id_in;
+            UPDATE leaf SET priority = priority - 1
+                WHERE priority > old_priority
+                AND branch_id = old_branch;
+        END IF;
         SELECT '0';
     ELSE
         SELECT '2';

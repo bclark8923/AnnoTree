@@ -323,7 +323,7 @@ sub changeBranch {
 sub changeSubBranch {
     my ($class, $params) = @_;
 
-   my $result = AnnoTree::Model::MySQL->db->execute(
+    my $result = AnnoTree::Model::MySQL->db->execute(
         "call leaf_change_sub_branch(:user, :treeid, :newBranchid, :leafid, :oldBranchid, :newPriority, :oldPriority)",
         {
             user        => $params->{user},

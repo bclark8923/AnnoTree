@@ -80,7 +80,16 @@ angular.module('ui.sortable').service('ngSortableDropService', [function() {
         if (model.token || self.data.destPosition == -1) {
             // do nothing - droppable handles this
         } else if (attrs.modelSubset === undefined) {
-          model.splice(self.data.destPosition, 0, model.splice(self.data.origPosition, 1)[0]);
+            leafData = model.splice(self.data.origPosition, 1)[0];
+            model.splice(self.data.destPosition, 0, leafData);
+            $http.put(apiRoot.getRoot() + '/services/' + model.tree_id + '/' + model.branch_id + '/subchange/' + leafData.id, {
+                newPriority: self.data.destPosition + 1,
+                oldPriority: leafData.priority,
+                oldBranch: model.branch_id
+            });
+            for (var i = 0; i < model.length; i++) {
+                model[i].priority = i + 1;
+            }
         } else {
             var leafData = ($parse(self.data.origSubset)(model)).splice(self.data.origPosition, 1)[0];
             if (self.data.destSubset.indexOf('leaves') != -1) {
@@ -115,7 +124,6 @@ angular.module('ui.sortable').service('ngSortableDropService', [function() {
           opts.start = function(e, ui) {
             ngSortableDropService.setDraggable(ui);
             ngSortableDropService.setModel(ngModel.$modelValue);
-            //console.log(ngModel);
             new ModelSynchronizer(ui, attrs).appendDataOnStart();
             _callUserDefinedCallback(_start)(e, ui);
             return scope.$apply();

@@ -396,7 +396,7 @@ a.btn-annotree {
 }
 
 .forestName.new:hover {
-    background-color: #eee;
+    background-color: #fff;
     color: #888;
 }
 
@@ -408,6 +408,7 @@ a.btn-annotree {
     overflow-y: auto;
     overflow-x: hidden;
     opacity: 1;
+    background-color: #f1f1f1;
     transition: opacity .25s linear;
     -moz-transition: opacity .25s linear;
     -webkit-transition: opacity .25s linear;

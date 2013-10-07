@@ -28,6 +28,7 @@
             );
         }
         
+        /*
         $scope.testDrop = function() {
             console.log('subbranch recieve');
         }
@@ -85,7 +86,7 @@
                 }
             }
         }
-
+        */
         function setScroll() {
             if ($(window).outerWidth() > 767) {
                 $timeout(function() {
@@ -400,7 +401,6 @@
         $scope.$watch('activeBranch', function(newValue, oldValue) {loadBranchData()}, true);
         $scope.$watch('parentBranch', function(newValue, oldValue) {
             setScroll()
-            console.log('parentBranch change');
         }, true);
         $scope.$evalAsync(loadBranchData());
         console.log('sub-branches');

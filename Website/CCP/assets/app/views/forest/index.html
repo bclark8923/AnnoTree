@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                        Current owner: {{'(' + forestOwner + ')'}}
+                        Current owner: {{forestOwner}}
                         <div class="row" style="margin:10px 10px 0 10px">
                             <div class="col-12">
                                 <div class="error-text" ng-show="changeForestOwnerErrorMessage">{{changeForestOwnerErrorText}}</div>
@@ -111,7 +111,7 @@
                                         {{user.first_name}} {{user.last_name}} ({{user.email}})
                                     </option>
                                 </select>
-                                <span class="tipText">A forest owner has access to every tree within the forest and can't be removed from trees</span>
+                                <span class="tipText">A forest owner has access to every tree within the forest and can't be removed from trees.  In addition, only the forest owner can delete this forest.</span>
                             </div>
                         </div>
                 </div>
@@ -119,7 +119,7 @@
                     <button type="submit" class="btn btn-annotree" data-dismiss="modal">
                         <strong>Close</strong>
                     </button>
-                    <button type="button" class="btn btn-danger" ng-click="deleteForestCallback()">
+                    <button type="button" class="btn btn-danger" ng-click="deleteForestCallback()" ng-show="modifyForestRef.owner.email==user.email">
                         <strong>Delete</strong>
                     </button>
                 </div>

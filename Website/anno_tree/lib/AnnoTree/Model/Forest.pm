@@ -175,7 +175,9 @@ sub deleteForest {
         $json = {result => $num, txt => 'Forest deleted successfully'};
     } elsif ($num == 1) {
         $json = {error => $num, txt => 'Forest does not exist or you do not have permission to delete forest'};
-    }
+    } elsif ($num == 2) {
+        $json = {error => $num, txt => 'Only the forest owner may delete this forest'};
+    } 
 
     return $json;
 }
@@ -193,7 +195,7 @@ sub forestUsers {
 
     my $json = {};
     my $cols = $result->fetch;
-    return {error => $cols->[0], txt => 'User does not have permissions to access that forest or forest does not exist'} if (looks_like_number($cols->[0]));
+    return {error => $cols->[0], txt => 'You do not have permissions to access that forest'} if (looks_like_number($cols->[0]));
     
     my $userCount = 0;
     while (my $user = $result->fetch) {

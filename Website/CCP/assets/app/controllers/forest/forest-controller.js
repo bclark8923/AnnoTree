@@ -143,21 +143,20 @@
                 $scope.modifyForestErrorMessage = false;
                 $scope.modifyForestRef = forest;
                 $scope.modifyForestName = angular.copy(forest.name);
-                for (var i = 0; i < $scope.forests.length; i++) {
-                    if ($scope.forests[i].id == forest.id) {
-                        if ($scope.forests[i].owner.id == null) {
-                            $scope.forestOwner = 'No current owner';
-                        } else {
-                            $scope.forestOwner = '';
-                            if ($scope.forests[i].owner.first_name != null) {
-                                $scope.forestOwner += $scope.forests[i].owner.first_name + ' ';
-                            }
-                            if ($scope.forests[i].owner.last_name != null) {
-                                $scope.forestOwner += $scope.forests[i].owner.last_name + ' ';
-                            }
-                            $scope.forestOwner += $scope.forests[i].owner.email;
-                        }
-                        break;
+                if (forest.owner.id == null) {
+                    $scope.forestOwner = 'No current owner';
+                } else {
+                    $scope.forestOwner = '';
+                    if (forest.owner.first_name != null) {
+                        $scope.forestOwner += forest.owner.first_name + ' ';
+                    }
+                    if (forest.owner.last_name != null) {
+                        $scope.forestOwner += forest.owner.last_name + ' ';
+                    }
+                    if ($scope.forestOwner == '') {
+                        $scope.forestOwner += forest.owner.email;
+                    } else {
+                        $scope.forestOwner += '(' + forest.owner.email + ')';
                     }
                 }
                 $("#modifyForestModal").appendTo('body').modal('show'); //TODO:angular way

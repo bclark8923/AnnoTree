@@ -650,7 +650,7 @@ div[ng-switch].assignedUser {
 }
 
 #branchHolder {
-    height: 100%;
+    height: calc(100% - 90px);
     width: 20%;
     float: left;
     overflow-y: auto;
@@ -743,6 +743,16 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 .btn-add-branch:hover {
     background-color: #eee;
     color: #222;
+}
+
+#treeInvite {
+    float: left; width: 20%;
+    clear: left;
+    height: 45px;
+    box-shadow: -15px 0 15px -15px #000 inset;
+    text-align: center;
+    padding-top: 5px;
+    border-top: 1px solid #222; 
 }
 /* -----------------------
  * Sub-branch Settings

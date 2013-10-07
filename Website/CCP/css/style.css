@@ -659,7 +659,6 @@ div[ng-switch].assignedUser {
 }
 
 .branch {
-    padding-left: 25px;
     color: #5cc080;
 }
 #branchHolder div[ng-switch] {
@@ -673,7 +672,8 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
     height: 40px;
     display: table-cell;
     vertical-align: middle;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5)
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    padding: 10px 10px 10px 15px;
 }
 
 .branch > i {
@@ -708,7 +708,6 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 
 .activeBranch {
     color: #f1f1f1;
-    padding-left: 25px;
     cursor: auto;
     font-weight: 400;
     background-color: #5cc080;
@@ -729,7 +728,7 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 
 #modifyTreeModal .modal-dialog {
     width: 60%;
-    max-width: 750px;
+    max-width: 800px;
 }
 
 .btn-add-branch {
@@ -1093,7 +1092,7 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 }
 
 .code {
-    color: #ffff99;
+    color: #a5e492;
     background-color: #444;
     font-weight: bold;
     padding: 4px 8px;

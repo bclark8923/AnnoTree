@@ -132,8 +132,121 @@
           <div class="col-lg-12">
             <div class="featureSplit">
               <div class="featureHeadText">Collaborative Development</div>
-              <div class="featureSubHeadText">Create tasks and assign team members to a project</div>
-              <img src="img/Issues.png" style="border-radius:5px;margin-bottom:20px;margin-top:20px;box-shadow:1px 1px 3px 0 rgba(0, 0, 0, 0.33);max-width: 375px;width: 100%;"/>
+              <div class="featureSubHeadText">Create tasks, assign team members, and organize (test drag and drop below!)</div>
+              <!--<img src="img/Issues.png" style="border-radius:5px;margin-bottom:20px;margin-top:20px;box-shadow:1px 1px 3px 0 rgba(0, 0, 0, 0.33);max-width: 375px;width: 100%;"/>-->
+              <div style="width:100%;height:500px;display:block;">
+                <div class="branchColumn" style="margin:0 auto;">
+                  <div class="branchColumnTitle">
+                      New <div class="label statusLabel label-annotree-inverse"> 
+                              4
+                          </div>
+                  </div>
+                  <hr class="branchTitleHr">
+                  <ul id="newLeavesBranch" class="connectedSortable branchColumnLeaves scroll-pane ui-sortable">
+                      <li class="card-col col-12 " ng-repeat="leaf in leaves | reverse"> 
+                          <div ng-switch="leaf.id">
+                              <div ng-switch-default="" class="ng-scope">
+                                  <div class="card leafCard">
+                                      <div class="cardName leafCardName">
+                                          Change the icon to be dark blue
+                                      </div>
+                                      <div class="cardInformation">
+                                          <!--<div style="padding:0 0 5px 5px">
+                                              <button type="button" id="assign" class="btn btn-annotree btn-xs" ng-click="openAssign($event, leaf.id, branch.id)">
+                                                  + Assign
+                                              </button>
+                                          </div>-->
+                                          <div>
+                                              <div class="assignedUser" style="-webkit-user-select: text;">
+                                                  <div id="assignedUser" class="userIcon unselectable"style="-webkit-user-select: text;">
+                                                      BC
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li class="card-col col-12 " ng-repeat="leaf in leaves | reverse"> 
+                          <div ng-switch="leaf.id">
+                              <div ng-switch-default="" class="ng-scope">
+                                  <div class="card leafCard">
+                                      <div class="cardName leafCardName">
+                                          Remove the glow from the second login input
+                                      </div>
+                                      <div class="cardInformation">
+                                          <!--<div style="padding:0 0 5px 5px">
+                                              <button type="button" id="assign" class="btn btn-annotree btn-xs" ng-click="openAssign($event, leaf.id, branch.id)">
+                                                  + Assign
+                                              </button>
+                                          </div>-->
+                                          <div>
+                                              <div class="assignedUser" style="-webkit-user-select: text;">
+                                                  <div id="assignedUser" class="userIcon unselectable"style="-webkit-user-select: text;">
+                                                      MP
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li class="card-col col-12 " ng-repeat="leaf in leaves | reverse"> 
+                          <div ng-switch="leaf.id">
+                              <div ng-switch-default="" class="ng-scope">
+                                  <div class="card leafCard">
+                                      <div class="cardName leafCardName">
+                                          Design the new Annotation screen
+                                      </div>
+                                      <div class="cardInformation">
+                                          <!--<div style="padding:0 0 5px 5px">
+                                              <button type="button" id="assign" class="btn btn-annotree btn-xs" ng-click="openAssign($event, leaf.id, branch.id)">
+                                                  + Assign
+                                              </button>
+                                          </div>-->
+                                          <div>
+                                              <div class="assignedUser" style="-webkit-user-select: text;">
+                                                  <div id="assignedUser" class="userIcon unselectable"style="-webkit-user-select: text;">
+                                                      BC
+                                                  </div>
+                                              </div>
+                                              <div class="assignedUser" style="-webkit-user-select: text;">
+                                                  <div id="assignedUser" class="userIcon unselectable"style="-webkit-user-select: text;">
+                                                      MP
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li class="card-col col-12 " ng-repeat="leaf in leaves | reverse"> 
+                          <div ng-switch="leaf.id">
+                              <div ng-switch-default="" class="ng-scope">
+                                  <div class="card leafCard">
+                                      <div class="cardName leafCardName">
+                                          Save offline chats for later
+                                      </div>
+                                      <div class="cardInformation">
+                                          <!--<div style="padding:0 0 5px 5px">
+                                              <button type="button" id="assign" class="btn btn-annotree btn-xs" ng-click="openAssign($event, leaf.id, branch.id)">
+                                                  + Assign
+                                              </button>
+                                          </div>-->
+                                          <div>
+                                              
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -176,8 +289,13 @@
       <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
       <script src="js/vendor/bootstrap.min.js"></script>
+      <script src="js/vendor/jquery.ui.touch-punch.min.js"></script>
 
       <script src="js/main.js"></script>
+
+      <script type="text/javascript" src="js/vendor/jquery-ui-1.10.3.custom.min.js" style="-webkit-user-select: text;"></script>
+        <script type="text/javascript" src="js/vendor/functions.js" style="-webkit-user-select: text;"></script>
+
 
       <script>
           var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];

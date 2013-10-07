@@ -690,15 +690,8 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
     cursor: pointer;
 }
 
-#addBranch {
+#branchButtons {
     padding-left: 25px;
-    color: #bbb;
-    font-weight: 400;
-    font-size: 11pt;
-    width: 170px;
-    height: 40px;
-    display: table-cell;
-    vertical-align: middle;
 }
 
 #addBranch:hover {
@@ -730,7 +723,7 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
     width: 60%;
     max-width: 800px;
 }
-
+/*
 .btn-add-branch {
     height: 25px;
     line-height: 5px;
@@ -744,7 +737,7 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
     background-color: #eee;
     color: #222;
 }
-
+*/
 #treeInvite {
     float: left; width: 20%;
     clear: left;

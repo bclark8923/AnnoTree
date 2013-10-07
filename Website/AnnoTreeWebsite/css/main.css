@@ -361,6 +361,7 @@ footer {
 
 .videoColumn {
 	margin-top:-100px;
+	overflow: hidden;
 }
 
 .navbar-nav-annotree > li.signInButton {
@@ -402,6 +403,15 @@ footer {
 	border: 0;
 	background: transparent;
 }
+
+.annotreeiPadWrap {
+	width: 900px;
+	margin-bottom: -572px;	
+}
+.annotreeVid {
+	width: 720px;
+	height: 400px;
+}
 @media screen and (min-width: 768px) {
 	.modal-dialog {
 		padding-top: 100px;
@@ -419,6 +429,23 @@ footer {
 		width: 100%;
 		margin-left: 0;
 	}
+
+	.annotreeiPadWrap {
+		width: 700px;
+		margin-bottom: -446px;	
+	}
+
+	.annotreeVid {
+		width: 570px;
+		height: 320px;
+	}
+}
+@media (max-width: 600px) {
+
+	.annotreeiPadWrap {
+		display: none;
+	}
+
 }
 
 @media (max-width: 767px) {
@@ -426,6 +453,16 @@ footer {
 		display: block;
 		float: right;
 		width: 100px;
+	}
+
+	.annotreeVid {
+		width: 400px;
+		height: 225px;
+	}
+
+	.annotreeiPadWrap {
+		width: 500px;
+		margin-bottom: -320px;	
 	}
 
 	.betaEmail {
@@ -483,6 +520,17 @@ footer {
 	.priceTitle {
 		font-size: 20pt;
 	}
+
+	.annotreeVid {
+		width: 300px;
+		height: 169px;
+	}
+
+	.annotreeiPadWrap {
+		width: 300px;
+		margin-bottom: -572px;	
+	}
+
 
 	.priceCost {
 		font-size: 16pt;

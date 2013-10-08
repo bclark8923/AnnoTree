@@ -29,6 +29,14 @@
     return self;
 }
 
+-(void)setDrawColor:(UIColor *)color{
+    [drawScreen setDrawColor:color];
+}
+
+-(void)setTextColor:(UIColor *)color{
+    [drawScreen setTextColor:color];
+}
+
 -(void) setDrawingEnabled:(BOOL)enabled
 {
     [drawScreen setDrawingEnabled:enabled];

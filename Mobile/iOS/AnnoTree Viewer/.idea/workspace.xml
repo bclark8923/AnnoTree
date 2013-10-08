@@ -5,42 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ca5a3ccc-76c0-41a1-a357-70825d79a2d1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AnnoTree Viewer/Leaf.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AnnoTree Viewer/Leaf.m" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AnnoTree Viewer/SceenShotUtil.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AnnoTree Viewer/ScreenShotUtil.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AnnoTree Viewer/ScreenShotUtil.m" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AnnoTree Viewer/TextTool.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AnnoTree Viewer/TextTool.m" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AnnoTree.framework/AnnoTree" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AnnoTree.framework/Headers" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AnnoTree.framework/Versions/A/AnnoTree" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AnnoTree.framework/Versions/A/Headers/AnnoTree.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AnnoTree.framework/Versions/A/Headers/AnnotationView.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AnnoTree.framework/Versions/A/Headers/AnnotationViewController.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AnnoTree.framework/Versions/A/Headers/ShareViewController.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AnnoTree.framework/Versions/A/Headers/ToolbarBg.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AnnoTree.framework/Versions/A/Headers/UIWindowAnnoTree.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/AnnoTree.framework/Versions/Current" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AnnoTree Viewer/AnnotationViewController.h" afterPath="$PROJECT_DIR$/AnnoTree Viewer/DrawingViewController.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/AnnoTree Viewer/AnnotationViewController.m" afterPath="$PROJECT_DIR$/AnnoTree Viewer/DrawingViewController.m" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../Website/CCP/SDK/AnnoTreeSDK-0.1.1.zip" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnnoTree Viewer.xcodeproj/project.xcworkspace/xcuserdata/Brian.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/AnnoTree Viewer.xcodeproj/project.xcworkspace/xcuserdata/Brian.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnnoTree Viewer/AnnoTree.h" afterPath="$PROJECT_DIR$/AnnoTree Viewer/AnnoTree.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnnoTree Viewer/AnnoTree.m" afterPath="$PROJECT_DIR$/AnnoTree Viewer/AnnoTree.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnnoTree Viewer/AppDelegate.m" afterPath="$PROJECT_DIR$/AnnoTree Viewer/AppDelegate.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnnoTree Viewer.xcodeproj/xcuserdata/Brian.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist" afterPath="$PROJECT_DIR$/AnnoTree Viewer.xcodeproj/xcuserdata/Brian.xcuserdatad/xcdebugger/Breakpoints.xcbkptlist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnnoTree Viewer/MoveableText.m" afterPath="$PROJECT_DIR$/AnnoTree Viewer/MoveableText.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnnoTree Viewer/PencilTool.h" afterPath="$PROJECT_DIR$/AnnoTree Viewer/PencilTool.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnnoTree Viewer/PencilTool.m" afterPath="$PROJECT_DIR$/AnnoTree Viewer/PencilTool.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnnoTree Viewer/ToolbarButton.h" afterPath="$PROJECT_DIR$/AnnoTree Viewer/ToolbarButton.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnnoTree Viewer/ToolbarButton.m" afterPath="$PROJECT_DIR$/AnnoTree Viewer/ToolbarButton.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnnoTree Viewer/WebViewController.m" afterPath="$PROJECT_DIR$/AnnoTree Viewer/WebViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnnoTree Viewer.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/AnnoTree Viewer.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AnnoTree Viewer/Leaf.m" afterPath="$PROJECT_DIR$/AnnoTree Viewer/Leaf.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="AnnoTree Viewer.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/ToolbarButton.m" changelist="ca5a3ccc-76c0-41a1-a357-70825d79a2d1" time="1379127606123" ignored="false" />
-    <file path="/Dummy.txt" changelist="ca5a3ccc-76c0-41a1-a357-70825d79a2d1" time="1379273165175" ignored="false" />
+    <file path="/Dummy.txt" changelist="ca5a3ccc-76c0-41a1-a357-70825d79a2d1" time="1381108205547" ignored="false" />
     <file path="/Leaf.m" changelist="ca5a3ccc-76c0-41a1-a357-70825d79a2d1" time="1379483472179" ignored="false" />
     <file path="/ScreenShotUtil.m" changelist="ca5a3ccc-76c0-41a1-a357-70825d79a2d1" time="1379277731581" ignored="false" />
     <file path="/AnnoTree.h" changelist="ca5a3ccc-76c0-41a1-a357-70825d79a2d1" time="1379218719573" ignored="false" />
@@ -51,6 +24,9 @@
     <file path="/Leaf.h" changelist="ca5a3ccc-76c0-41a1-a357-70825d79a2d1" time="1379279923586" ignored="false" />
     <file path="/WebViewController.m" changelist="ca5a3ccc-76c0-41a1-a357-70825d79a2d1" time="1379278145163" ignored="false" />
     <file path="/a.dummy" changelist="ca5a3ccc-76c0-41a1-a357-70825d79a2d1" time="1379482593838" ignored="false" />
+    <file path="$USER_HOME$/Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos/AnnoTree.framework/Headers/Leaf.h" changelist="ca5a3ccc-76c0-41a1-a357-70825d79a2d1" time="1381110678497" ignored="false" />
+    <file path="$USER_HOME$/Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos/AnnoTree.framework/Headers/AnnotationViewController.h" changelist="ca5a3ccc-76c0-41a1-a357-70825d79a2d1" time="1381110678512" ignored="false" />
+    <file path="$USER_HOME$/Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos/AnnoTree.framework/Headers/AnnoTree.h" changelist="ca5a3ccc-76c0-41a1-a357-70825d79a2d1" time="1381110678513" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,8 +46,71 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AnnoTree.h" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/AnnoTree.h">
+      <file leaf-file-name="DrawingViewController.h" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/DrawingViewController.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Leaf.m" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/Leaf.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="175" column="0" selection-start="7187" selection-end="7187" vertical-scroll-proportion="0.03924915">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DrawingViewController.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/DrawingViewController.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScreenShotUtil.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/ScreenShotUtil.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Leaf.h" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/Leaf.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="17" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnnoTree.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/AnnoTree.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="336" column="69" selection-start="13776" selection-end="13783" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UIWindowAnnoTree.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/UIWindowAnnoTree.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebViewController.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/WebViewController.m">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -88,81 +127,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebViewController.m" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/WebViewController.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UIWindowAnnoTree.m" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/UIWindowAnnoTree.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnnoTree.m" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/AnnoTree.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="336" column="69" selection-start="13776" selection-end="13783" vertical-scroll-proportion="-172.2">
-              <folding>
-                <element signature="e#138#158#0" expanded="true" />
-                <element signature="e#537#564#0" expanded="true" />
-                <element signature="e#779#813#0" expanded="true" />
-                <element signature="e#964#995#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Leaf.h" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/Leaf.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="49" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#125#158#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScreenShotUtil.m" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/ScreenShotUtil.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="1.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DrawingViewController.m" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/DrawingViewController.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Leaf.m" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/Leaf.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="173" column="0" selection-start="7101" selection-end="7101" vertical-scroll-proportion="-0.046511628">
-              <folding>
-                <element signature="e#126#155#0" expanded="true" />
-                <element signature="e#274#295#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DrawingViewController.h" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/DrawingViewController.h">
+      <file leaf-file-name="AnnoTree.h" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/AnnoTree.h">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -208,8 +174,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1280" />
-    <option name="height" value="704" />
+    <option name="width" value="1920" />
+    <option name="height" value="708" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -237,7 +203,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="DirectoryView.Xcode" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -320,15 +285,16 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="DirectoryView.Xcode" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="vcs.Git" />
+    <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager" selected="Application.AnnoTreeResources">
     <configuration default="true" type="AppleRunConfiguration" factoryName="Application" PROJECT_NAME="AnnoTree Viewer" TARGET_NAME="AnnoTree Viewer" CONFIG_NAME="Debug" PASS_PARENT_ENVS="FALSE" RUN_TARGET_PROJECT_NAME="AnnoTree Viewer" RUN_TARGET_NAME="AnnoTree Viewer" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
@@ -396,14 +362,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="704" extended-state="0" />
+    <frame x="0" y="22" width="1920" height="708" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32786885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18615752" sideWeight="0.6721311" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18608329" sideWeight="0.6721311" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -412,6 +377,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32786885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -481,9 +447,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/MoveableText.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/ToolbarButton.h">
@@ -537,36 +501,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/Leaf.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="49" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#125#158#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/AnnoTree.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="20" column="17" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/ScreenShotUtil.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="1.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/AnnoTree.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="336" column="69" selection-start="13776" selection-end="13783" vertical-scroll-proportion="-172.2">
-          <folding>
-            <element signature="e#138#158#0" expanded="true" />
-            <element signature="e#537#564#0" expanded="true" />
-            <element signature="e#779#813#0" expanded="true" />
-            <element signature="e#964#995#0" expanded="true" />
-          </folding>
+        <state line="336" column="69" selection-start="13776" selection-end="13783" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -591,13 +541,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/AnnoTree.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AnnoTree Viewer/Leaf.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="0" selection-start="7101" selection-end="7101" vertical-scroll-proportion="-0.046511628">
-          <folding>
-            <element signature="e#126#155#0" expanded="true" />
-            <element signature="e#274#295#0" expanded="true" />
-          </folding>
+        <state line="175" column="0" selection-start="7187" selection-end="7187" vertical-scroll-proportion="0.03924915">
+          <folding />
         </state>
       </provider>
     </entry>

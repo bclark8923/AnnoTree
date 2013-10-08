@@ -12,6 +12,7 @@
 @interface ToolbarButton : UIButton
 
 @property AnnoTree *annoTree;
-- (id)initWithFrame:(CGRect)frame;
--(IBAction)setSelectedButton;
+- (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree;
+- (void)setUnselected;
+- (void)clearAll;
 @end

@@ -12,7 +12,8 @@
 @interface PencilTool : ToolbarButton
 
 @property (nonatomic, retain) DrawingViewController *drawScreen;
-
+@property (nonatomic, retain) NSMutableArray *toolbarButtons;
 - (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree;
-
+/*- (IBAction)setSelectedButton:(UIButton*)button;
+*/
 @end

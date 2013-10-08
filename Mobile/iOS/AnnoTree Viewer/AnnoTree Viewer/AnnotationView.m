@@ -1,9 +1,8 @@
 //
-//  MyLineDrawingView.m
+//  AnnotationView.m
 //  DrawLines
 //
-//  Created by Reetu Raj on 11/05/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+// Mike Max
 //
 
 #import "AnnotationView.h"
@@ -15,6 +14,8 @@
 
 @synthesize drawingEnabled;
 @synthesize textEnabled;
+@synthesize drawColor;
+@synthesize textColor;
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -25,11 +26,21 @@
         self.backgroundColor=[UIColor clearColor];
         drawings = [[NSMutableArray alloc] init];
         textBoxes = [[NSMutableArray alloc] init];
-        drawColor=[UIColor redColor];
-        textColor=[UIColor redColor];
+        drawingsColor = [[NSMutableArray alloc] init];
+        //drawColor=[UIColor redColor];
+        //textColor=[UIColor redColor];
     }
     return self;
 }
+
+/*
+- (void)setDrawColor:(UIColor)color{
+    drawColor = color;
+}
+
+- (void)setTextColor:(UIColor)color{
+    textColor = color;
+}*/
 
 - (BOOL)shouldAutorotate
 {
@@ -41,10 +52,13 @@
 - (void)drawRect:(CGRect)rect
 {
     //[brushPattern setStroke];
-    [[UIColor redColor] setStroke];
+    
     //NSLog(@"%i", [drawings count]);
-    for (UIBezierPath *_path in drawings) {
-         [_path strokeWithBlendMode:kCGBlendModeNormal alpha:1.0];
+    int i =0;
+    for (UIBezierPath* _path in drawings) {
+        [drawingsColor[i] setStroke];
+        i += 1;
+        [_path strokeWithBlendMode:kCGBlendModeNormal alpha:1.0];
     }
     // Drawing code
     //[myPath stroke];
@@ -61,9 +75,12 @@
         myPath.miterLimit=0;
         myPath.lineWidth=2;
         
+        UIColor* currentColor = self.drawColor;
+        
         UITouch *mytouch=[[touches allObjects] objectAtIndex:0];
         [myPath moveToPoint:[mytouch locationInView:self]];
         [drawings addObject:myPath];
+        [drawingsColor addObject:currentColor];
     }
     
     if(textEnabled) {
@@ -90,7 +107,9 @@
 
         
         //textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.textColor = textColor;
         textField.font = [UIFont systemFontOfSize:15];
+        
         //textField.borderStyle = UITextBorderStyleLine;
         //textField.autocorrectionType = UITextAutocorrectionTypeNo;
         textField.keyboardType = UIKeyboardTypeDefault;
@@ -103,7 +122,6 @@
         UIColor *bgColor = UIColorFromRGB(0xF7F8F5);
         textField.backgroundColor = [bgColor colorWithAlphaComponent:0.8];
         [textField setInputAccessoryView:[self getKeyboardAccessoryView]];
-        
                 
         [self addSubview:textField];
         [textBoxes addObject:textField];

@@ -47,6 +47,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 //@synthesize selectEnabled;
 @synthesize textViewHeightHold;
 @synthesize keyboardHeight;
+@synthesize space;
+@synthesize sizeIcon;
 
 
 @synthesize leaf;
@@ -72,7 +74,6 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 
         enabled = NO;
-        //drawEnabled = YES;
         textViewHeightHold = 0;
         keyboardHeight = 0;
         activeTree = @"-";
@@ -84,12 +85,10 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         annoTreeWindow.hidden = NO;
         annoTreeWindow.backgroundColor = [UIColor clearColor];
         
-        //supportedOrientation = UIInterfaceOrientationMaskAll;
-        
         /* Space between icons on toolbar */
-        int space = 35.0;
+        space = 45.0;
         /* Size of toolbar icons */
-        int sizeIcon = 30;
+        sizeIcon = 40;
         
         
         
@@ -109,7 +108,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         [annoTreeWindow addGestureRecognizer:addTextGesture];
         
         /* create the toolbar to be loaded */
-        annoTreeToolbar = [[UIView alloc]initWithFrame:CGRectMake(0, 0, sizeIcon, space*5+sizeIcon)];
+        annoTreeToolbar = [[UIView alloc]initWithFrame:CGRectMake(0, 0, sizeIcon*2, space*5+sizeIcon)];
         annoTreeToolbar.userInteractionEnabled = YES;
         
         /* rectangle background for toolbar */
@@ -120,29 +119,14 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         [toolbarObjects addObject:toolbarBg];
         
         /* Pencil Icon for toolbar */
-        PencilTool *pencilIconToolbarButton = [[PencilTool alloc] initWithFrame:CGRectMake(0,space*1, sizeIcon, sizeIcon) annotree:self];
+        UIButton *pencilIconToolbarButton = [[PencilTool alloc] initWithFrame:CGRectMake(0,space*1, sizeIcon, sizeIcon) annotree:self];
         [annoTreeToolbar addSubview:pencilIconToolbarButton];
         [toolbarButtons addObject:pencilIconToolbarButton];
         
         /* Text Icon for toolbar */
-        UIButton *textIconToolbarButton = [[TextTool alloc] initWithFrame:CGRectMake(0,space*2, sizeIcon, sizeIcon)];
+        UIButton *textIconToolbarButton = [[TextTool alloc] initWithFrame:CGRectMake(0,space*2, sizeIcon, sizeIcon) annotree:self];
         [annoTreeToolbar addSubview:textIconToolbarButton];
         [toolbarButtons addObject:textIconToolbarButton];
-        
-        /* Select Icon for toolbar */
-        /*UIButton *selectIconToolbarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [selectIconToolbarButton setFrame:CGRectMake(0,space*3, sizeIcon, sizeIcon)];
-        selectIconToolbarButton.userInteractionEnabled = YES;
-        UIImage *selectIconImage = [UIImage imageNamed:@"SelectIconToolbar.png"];
-        UIImage *selectIconImageSelected = [UIImage imageNamed:@"SelectIconToolbarSelected.png"];
-        [selectIconToolbarButton setBackgroundImage:selectIconImage forState:UIControlStateNormal];
-        [selectIconToolbarButton setBackgroundImage:selectIconImageSelected forState:UIControlStateHighlighted];
-        [selectIconToolbarButton setBackgroundImage:selectIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
-        [selectIconToolbarButton addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
-        [selectIconToolbarButton addTarget:self action:@selector(enableDisableSelect:) forControlEvents:UIControlEventTouchUpInside];
-        selectIconToolbarButton.hidden = YES;
-        [annoTreeToolbar addSubview:selectIconToolbarButton];
-        [toolbarButtons addObject:selectIconToolbarButton];*/
         
         /* Share Icon for toolbar */
         UIButton *shareIconToolbarButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -181,21 +165,13 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         shareView.view.hidden = YES;
         [self.view addSubview:shareView.view];
         
-        //drawScreen = [[DrawingViewController alloc] init];
-        //[annotations addObject:drawScreen.view];
-        //drawEnabled = YES;
-        //[drawScreen setDrawingEnabled:drawEnabled];
-        //[self.view insertSubview:drawScreen.view belowSubview:annoTreeToolbar];
-        //[self addChildViewController:drawScreen];
-        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-
 
 
         DDLogVerbose(@"Initialized AnnoTree");
         
         /* Stuff for AnnoTree Browser */
-        BOOL help = YES;
+        BOOL help = NO;
         if(help) {
             helpView = [[UIScrollViewPageViewController alloc] init];
             helpView.controlWindow = annoTreeWindow;
@@ -247,6 +223,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 -(IBAction)openShare:(UIButton*)button {
+    DDLogVerbose(@"openShare");
     
     UIAlertView *leafNameAlert = [[UIAlertView alloc] initWithTitle:@"Leaf Name"
                                                         message:@""
@@ -350,12 +327,24 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 
 
+-(void)unselectAll{
+    DDLogVerbose(@"Inside Annotree:unselectAll");
+    for (UIButton* toolbarButton in toolbarButtons) {
 
+        if([toolbarButton isKindOfClass:[ToolbarButton class]]){
+            [(ToolbarButton*)toolbarButton setUnselected];
+        }
+        toolbarButton.selected = NO;
+        toolbarButton.enabled = YES;
+    }
+}
 
 
 
 -(IBAction)setSelectedButton:(UIButton*)button {
     //loop all buttons and unselect/enable
+    DDLogVerbose(@"Inside Annotree:setSelectedButton");
+    
     for (UIButton* toolbarButton in toolbarButtons) {
         toolbarButton.selected = NO;
         toolbarButton.enabled = YES;
@@ -366,36 +355,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     button.highlighted = NO;
     button.enabled = NO;
 }
-/*
--(IBAction)enableDisableDrawing:(UIButton*) button {
-    drawEnabled = YES;
-    textEnabled = NO;
-    selectEnabled = NO;
-    [drawScreen setDrawingEnabled:drawEnabled];
-    [drawScreen setTextEnabled:textEnabled];
-    DDLogVerbose(@"Drawing enable disable");
-}
 
--(IBAction)enableDisableText:(UIButton*) button {
-    drawEnabled = NO;
-    textEnabled = YES;
-    selectEnabled = NO;
-    [drawScreen setDrawingEnabled:drawEnabled];
-    [drawScreen setTextEnabled:textEnabled];
-    
-    DDLogVerbose(@"Text enable disable");
-}
-
--(IBAction)enableDisableSelect:(UIButton*) button {
-    drawEnabled = NO;
-    textEnabled = NO;
-    selectEnabled = YES;
-    [drawScreen setDrawingEnabled:drawEnabled];
-    [drawScreen setTextEnabled:textEnabled];
-    
-    DDLogVerbose(@"Select enable disable");
-}
-*/
 
 - (void)viewDidLoad
 {
@@ -424,12 +384,23 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     DDLogVerbose(@"Loaded AnnoTree with key %@", tree);
 }
 
+-(void) clearAll{
+    for(UIButton* toolbarItem in toolbarButtons){
+        if([toolbarItem isKindOfClass:[ToolbarButton class]]){
+            ToolbarButton* toolBarButton = (ToolbarButton*)toolbarItem;
+            [toolBarButton clearAll];
+        }
+    }
+}
+
 /* Function to show AnnoTree window and place toolbar at correct location */
 #define CGRectSetPos( r, x, y ) CGRectMake( x, y, r.size.width, r.size.height )
 - (void) openCloseAnnoTree:(UIGestureRecognizer*)gr
 {
     if(enabled) {
+        //TODO:this
         //[drawScreen clearAll];
+        [self clearAll];
         [annoTreeWindow resignKeyWindow];
         [keyWindow makeKeyAndVisible];
         annoTreeImageOpenView.alpha = 0.7;

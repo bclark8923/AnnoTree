@@ -84,6 +84,7 @@ NSString* boundary = @"-";
     
     [annoTree.view endEditing:YES];
     [annoTree.shareView.view endEditing:YES];
+    [annoTree.annoTreeToolbar setAlpha:0];
     DDLogVerbose(@"PreScreenshot");
     UIImage *image = [ScreenShotUtil screenshot];
 
@@ -150,6 +151,7 @@ NSString* boundary = @"-";
         //TODO:some sort of error
     }
     
+    [annoTree.annoTreeToolbar setAlpha:1];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [leafUploading show];
         

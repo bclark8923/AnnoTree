@@ -10,25 +10,30 @@
 
 @implementation ToolbarButton
 
+@synthesize annoTree;
 
-- (id)initWithFrame:(CGRect)frame
+
+- (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.annoTree = annotree;
         self.userInteractionEnabled = YES;
         [self setSelected:NO];
-        [self setEnabled:NO];
-        [self addTarget:self action:@selector(setSelectedButton) forControlEvents:UIControlEventTouchUpInside];
+        //[self setEnabled:NO];
+        //[self addTarget:self action:@selector(setSelectedButton) forControlEvents:UIControlEventTouchUpInside];
         self.hidden = YES;
     }
     return self;
 }
 
--(IBAction)setSelectedButton{
-    [super setSelected:true];
-    //Select clicked button and disable it
-    self.selected = YES;
-    self.highlighted = NO;
-    self.enabled = NO;
+-(void)setUnselected{
+    [self setSelected:NO];
+    [self setEnabled:NO];
 }
+-(void)clearAll{
+
+}
+
+
 @end

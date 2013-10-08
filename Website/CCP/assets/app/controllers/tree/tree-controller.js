@@ -410,7 +410,7 @@
         }
         
         $scope.openNewBranchModal = function() {
-            $scope.selectedBranchType = 'grid';
+            $scope.selectedBranchType = 'tasks';
             $scope.newBranchName = '';
             $scope.newBranchErrorMessage = false;
             $scope.newBranchModalWorking = false;

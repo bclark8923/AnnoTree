@@ -96,7 +96,7 @@ a.btn-annotree {
     color: #fff;
 }
 
-.btn-annotree:hover {
+.btn-annotree:hover, .btn-annotree:focus  {
     background-color: #53ad73;
     color: #fff;
 }
@@ -108,11 +108,12 @@ a.btn-annotree {
     border-color: #53ad73;
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
-.btn-pressed:hover {
+
+.btn-pressed:hover, .btn-pressed:focus {
     color: #fff;
     cursor: auto;
 }
- 
+
 .label-annotree {
     background-color: #53ad73;
 }

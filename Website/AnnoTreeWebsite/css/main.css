@@ -2,6 +2,12 @@ body {
 	height: 100%;
 }
 
+button {
+	outline: 0 none;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
 .mainHeader {
 	background-image: url('../img/NewAnnoTreeBG8.jpg');
 	background-size: cover;
@@ -124,9 +130,9 @@ body {
 }
 
 .btn-annotree, .navbar-toggle {
-	background: #38A35E;
+	background: #5cc080;
 	color: white;
-	border-color: #38A35E;
+	border-color: #5cc080;
 }
 
 .icon-bar {
@@ -140,7 +146,7 @@ body {
 
 .btn-annotree-inverse {
 	background: white;
-	color: #38A35E;
+	color: #5cc080;
 	border-color: white;	
 }
 
@@ -391,7 +397,7 @@ footer {
 
 .AnnoTreeGreenBG {
 	box-shadow: inset 0px 2px 5px #444;
-	background: #38A35E;
+	background: #5cc080;
 }
 
 .featureSplit {

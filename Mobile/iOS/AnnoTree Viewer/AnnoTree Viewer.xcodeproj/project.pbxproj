@@ -23,15 +23,15 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		06CA71D717B3CCB0005841C4 /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06CA71D417B3CCB0005841C4 /* AnnoTree.bundle */; };
-		06CA71DC17B3CD08005841C4 /* MoveableText.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CA71DB17B3CD08005841C4 /* MoveableText.m */; };
+		D3024B0C17D54B1E0086102C /* ScreenShotUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D3024B0A17D54B1E0086102C /* ScreenShotUtil.h */; };
+		D3024B0D17D54B1E0086102C /* ScreenShotUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D3024B0B17D54B1E0086102C /* ScreenShotUtil.m */; };
 		D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */; };
 		D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C688171B413400BA9B2F /* Default-Portrait@2x~ipad.png */; };
 		D3180C27176184B300A6B8E0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C26176184B300A6B8E0 /* CoreFoundation.framework */; };
-		D3180C4A1761969900A6B8E0 /* AnnotationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3180C481761969800A6B8E0 /* AnnotationViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D3180C4C1761969900A6B8E0 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* AnnotationViewController.m */; };
-		D3180C4D1761969900A6B8E0 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* AnnotationViewController.m */; };
-		D3180C4E1761969900A6B8E0 /* AnnotationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* AnnotationViewController.m */; };
+		D3180C4A1761969900A6B8E0 /* DrawingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3180C481761969800A6B8E0 /* DrawingViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3180C4C1761969900A6B8E0 /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* DrawingViewController.m */; };
+		D3180C4D1761969900A6B8E0 /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* DrawingViewController.m */; };
+		D3180C4E1761969900A6B8E0 /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3180C491761969800A6B8E0 /* DrawingViewController.m */; };
 		D3180C5B1764FF5A00A6B8E0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C5A1764FF5A00A6B8E0 /* OpenGLES.framework */; };
 		D3180C5C1765009C00A6B8E0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C5A1764FF5A00A6B8E0 /* OpenGLES.framework */; };
 		D321648C172C18B500573823 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A817000FC300954DDF /* Foundation.framework */; };
@@ -52,6 +52,8 @@
 		D32164C6172C21BC00573823 /* ToolbarBg.h in Headers */ = {isa = PBXBuildFile; fileRef = D3D53FF1171A194500552253 /* ToolbarBg.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D36291041730465C00F08E8A /* UIWindowAnnoTree.m in Sources */ = {isa = PBXBuildFile; fileRef = D36291021730465C00F08E8A /* UIWindowAnnoTree.m */; };
 		D362912F173067B000F08E8A /* UIWindowAnnoTree.h in Headers */ = {isa = PBXBuildFile; fileRef = D36291011730465C00F08E8A /* UIWindowAnnoTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3790AD017B8622E009E1BF2 /* AnnoTreeBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3790ACF17B8622E009E1BF2 /* AnnoTreeBrowser.bundle */; };
+		D3790AD117B862B6009E1BF2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C26176184B300A6B8E0 /* CoreFoundation.framework */; };
 		D3AAA1A717000FC300954DDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A617000FC300954DDF /* UIKit.framework */; };
 		D3AAA1A917000FC300954DDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A817000FC300954DDF /* Foundation.framework */; };
 		D3AAA1AB17000FC300954DDF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1AA17000FC300954DDF /* CoreGraphics.framework */; };
@@ -84,8 +86,57 @@
 		D3E0AF78178FC690009BEEDF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7659617810C6A0046C8D5 /* Icon.png */; };
 		D3E0AF79178FC690009BEEDF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7659717810C6A0046C8D5 /* Icon@2x.png */; };
 		D3E0AFA617903BAC009BEEDF /* AnnoTreeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658C17810A1F0046C8D5 /* AnnoTreeLogo.png */; };
-		D3EC208917EFB88A00A9D758 /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EC208817EFB88A00A9D758 /* AnnoTree.framework */; };
+		D3E1267417B8100100DC1BE5 /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3E1267317B8100100DC1BE5 /* AnnoTree.bundle */; };
+		D3E1267E17B8196100DC1BE5 /* UIScrollViewPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1267917B814D500DC1BE5 /* UIScrollViewPageViewController.m */; };
+		D3E1267F17B8196C00DC1BE5 /* UIScrollViewPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E1267817B814D500DC1BE5 /* UIScrollViewPageViewController.h */; };
+		D3E1269217B82C0D00DC1BE5 /* Screen1.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1268D17B82C0D00DC1BE5 /* Screen1.png */; };
+		D3E1269317B82C0D00DC1BE5 /* Screen2.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1268E17B82C0D00DC1BE5 /* Screen2.png */; };
+		D3E1269417B82C0D00DC1BE5 /* Screen3.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1268F17B82C0D00DC1BE5 /* Screen3.png */; };
+		D3E1269517B82C0D00DC1BE5 /* Screen4.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1269017B82C0D00DC1BE5 /* Screen4.png */; };
+		D3E1269617B82C0D00DC1BE5 /* Screen5.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1269117B82C0D00DC1BE5 /* Screen5.png */; };
+		D3E126F617B8383E00DC1BE5 /* Screen1.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1268D17B82C0D00DC1BE5 /* Screen1.png */; };
+		D3E126F717B8383E00DC1BE5 /* Screen2.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1268E17B82C0D00DC1BE5 /* Screen2.png */; };
+		D3E126F817B8383E00DC1BE5 /* Screen3.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1268F17B82C0D00DC1BE5 /* Screen3.png */; };
+		D3E126F917B8383E00DC1BE5 /* Screen4.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1269017B82C0D00DC1BE5 /* Screen4.png */; };
+		D3E126FA17B8383E00DC1BE5 /* Screen5.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1269117B82C0D00DC1BE5 /* Screen5.png */; };
+		D3EF7DBB17D5562800D69ED2 /* Leaf.h in Headers */ = {isa = PBXBuildFile; fileRef = D3EF7DB917D5562800D69ED2 /* Leaf.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3EF7DBC17D5562800D69ED2 /* Leaf.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EF7DBA17D5562800D69ED2 /* Leaf.m */; };
+		D3F024C817E65032000F6D5B /* DDAbstractDatabaseLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024B817E65032000F6D5B /* DDAbstractDatabaseLogger.h */; };
+		D3F024C917E65032000F6D5B /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024B917E65032000F6D5B /* DDAbstractDatabaseLogger.m */; };
+		D3F024CA17E65032000F6D5B /* DDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024BA17E65032000F6D5B /* DDASLLogger.h */; };
+		D3F024CB17E65032000F6D5B /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024BB17E65032000F6D5B /* DDASLLogger.m */; };
+		D3F024CC17E65032000F6D5B /* DDFileLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024BC17E65032000F6D5B /* DDFileLogger.h */; };
+		D3F024CD17E65032000F6D5B /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024BD17E65032000F6D5B /* DDFileLogger.m */; };
+		D3F024CE17E65032000F6D5B /* DDLog.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024BE17E65032000F6D5B /* DDLog.h */; };
+		D3F024CF17E65032000F6D5B /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024BF17E65032000F6D5B /* DDLog.m */; };
+		D3F024D017E65032000F6D5B /* DDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024C017E65032000F6D5B /* DDTTYLogger.h */; };
+		D3F024D117E65032000F6D5B /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024C117E65032000F6D5B /* DDTTYLogger.m */; };
+		D3F024D217E65032000F6D5B /* ContextFilterLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024C317E65032000F6D5B /* ContextFilterLogFormatter.h */; };
+		D3F024D317E65032000F6D5B /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024C417E65032000F6D5B /* ContextFilterLogFormatter.m */; };
+		D3F024D417E65032000F6D5B /* DispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024C517E65032000F6D5B /* DispatchQueueLogFormatter.h */; };
+		D3F024D517E65032000F6D5B /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024C617E65032000F6D5B /* DispatchQueueLogFormatter.m */; };
+		D3F2BB5A17CDCA5B00A8B1FF /* ToolbarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2BB5217CDC4A400A8B1FF /* ToolbarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3F2BB5B17CDCA6700A8B1FF /* PencilTool.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2BB5617CDC5E100A8B1FF /* PencilTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3F2BB5C17CDCA7500A8B1FF /* MoveableText.h in Headers */ = {isa = PBXBuildFile; fileRef = 06800E4617B3C8F200EA650D /* MoveableText.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3F2BB5E17CDCA7B00A8B1FF /* MoveableText.m in Sources */ = {isa = PBXBuildFile; fileRef = 06800E4717B3C8F200EA650D /* MoveableText.m */; };
+		D3F2BB5F17CDCA9700A8B1FF /* ToolbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F2BB5317CDC4A400A8B1FF /* ToolbarButton.m */; };
+		D3F2BB6017CDCA9D00A8B1FF /* PencilTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F2BB5717CDC5E100A8B1FF /* PencilTool.m */; };
+		D3F2BB6C17D2982300A8B1FF /* TextTool.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2BB6A17D2982300A8B1FF /* TextTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3F2BB6D17D2982300A8B1FF /* TextTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F2BB6B17D2982300A8B1FF /* TextTool.m */; };
+		D3F2BB7217D29CD000A8B1FF /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F2BB7117D29CD000A8B1FF /* AnnoTree.framework */; };
+		D3F2BB7317D29CD000A8B1FF /* AnnoTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F2BB7117D29CD000A8B1FF /* AnnoTree.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		D3E1267D17B818A400DC1BE5 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+			);
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		D3180C13176182F100A6B8E0 /* PBXContainerItemProxy */ = {
@@ -147,9 +198,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		06CA71D417B3CCB0005841C4 /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = "../../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos/AnnoTree.bundle"; sourceTree = "<group>"; };
-		06CA71DA17B3CD08005841C4 /* MoveableText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveableText.h; sourceTree = "<group>"; };
-		06CA71DB17B3CD08005841C4 /* MoveableText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveableText.m; sourceTree = "<group>"; };
+		06800E4617B3C8F200EA650D /* MoveableText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveableText.h; sourceTree = "<group>"; };
+		06800E4717B3C8F200EA650D /* MoveableText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveableText.m; sourceTree = "<group>"; };
+		D3024B0A17D54B1E0086102C /* ScreenShotUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenShotUtil.h; sourceTree = "<group>"; };
+		D3024B0B17D54B1E0086102C /* ScreenShotUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenShotUtil.m; sourceTree = "<group>"; };
 		D314C668171B2D7700BA9B2F /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		D314C669171B2D7700BA9B2F /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
 		D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
@@ -159,8 +211,8 @@
 		D3180C2A176184B300A6B8E0 /* AnnoTreeResources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnnoTreeResources-Info.plist"; sourceTree = "<group>"; };
 		D3180C2C176184B300A6B8E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D3180C2E176184B300A6B8E0 /* AnnoTreeResources-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnnoTreeResources-Prefix.pch"; sourceTree = "<group>"; };
-		D3180C481761969800A6B8E0 /* AnnotationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationViewController.h; sourceTree = "<group>"; };
-		D3180C491761969800A6B8E0 /* AnnotationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationViewController.m; sourceTree = "<group>"; };
+		D3180C481761969800A6B8E0 /* DrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingViewController.h; sourceTree = "<group>"; };
+		D3180C491761969800A6B8E0 /* DrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingViewController.m; sourceTree = "<group>"; };
 		D3180C5A1764FF5A00A6B8E0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		D321648B172C18B500573823 /* libAnnoTree.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAnnoTree.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D321648F172C18B500573823 /* AnnoTreeLibrary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnnoTreeLibrary-Prefix.pch"; sourceTree = "<group>"; };
@@ -173,6 +225,7 @@
 		D32164A7172C18B600573823 /* AnnoTreeLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnoTreeLibraryTests.m; sourceTree = "<group>"; };
 		D36291011730465C00F08E8A /* UIWindowAnnoTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWindowAnnoTree.h; sourceTree = "<group>"; };
 		D36291021730465C00F08E8A /* UIWindowAnnoTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWindowAnnoTree.m; sourceTree = "<group>"; };
+		D3790ACF17B8622E009E1BF2 /* AnnoTreeBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTreeBrowser.bundle; path = ../../ActiveSDK/AnnoTreeBrowser.bundle; sourceTree = "<group>"; };
 		D3A7658417810A000046C8D5 /* PencilIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PencilIconToolbarSelected.png; path = AnnoTreeResources/PencilIconToolbarSelected.png; sourceTree = SOURCE_ROOT; };
 		D3A7658517810A000046C8D5 /* SelectIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SelectIconToolbarSelected.png; path = AnnoTreeResources/SelectIconToolbarSelected.png; sourceTree = SOURCE_ROOT; };
 		D3A7658617810A000046C8D5 /* ShareIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ShareIconToolbarSelected.png; path = AnnoTreeResources/ShareIconToolbarSelected.png; sourceTree = SOURCE_ROOT; };
@@ -220,7 +273,46 @@
 		D3AAA1F517002C4400954DDF /* AnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationView.m; sourceTree = "<group>"; };
 		D3D53FF1171A194500552253 /* ToolbarBg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarBg.h; sourceTree = "<group>"; };
 		D3D53FF2171A194500552253 /* ToolbarBg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarBg.m; sourceTree = "<group>"; };
-		D3EC208817EFB88A00A9D758 /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnnoTree.framework; path = ../AnnoTree.framework; sourceTree = "<group>"; };
+		D3E1267317B8100100DC1BE5 /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = ../../ActiveSDK/AnnoTree.bundle; sourceTree = "<group>"; };
+		D3E1267817B814D500DC1BE5 /* UIScrollViewPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIScrollViewPageViewController.h; path = HelpScreens/UIScrollViewPageViewController.h; sourceTree = "<group>"; };
+		D3E1267917B814D500DC1BE5 /* UIScrollViewPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIScrollViewPageViewController.m; path = HelpScreens/UIScrollViewPageViewController.m; sourceTree = "<group>"; };
+		D3E1268D17B82C0D00DC1BE5 /* Screen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screen1.png; path = HelpScreens/Screen1.png; sourceTree = "<group>"; };
+		D3E1268E17B82C0D00DC1BE5 /* Screen2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screen2.png; path = HelpScreens/Screen2.png; sourceTree = "<group>"; };
+		D3E1268F17B82C0D00DC1BE5 /* Screen3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screen3.png; path = HelpScreens/Screen3.png; sourceTree = "<group>"; };
+		D3E1269017B82C0D00DC1BE5 /* Screen4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screen4.png; path = HelpScreens/Screen4.png; sourceTree = "<group>"; };
+		D3E1269117B82C0D00DC1BE5 /* Screen5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screen5.png; path = HelpScreens/Screen5.png; sourceTree = "<group>"; };
+		D3E126E517B837EB00DC1BE5 /* AnnoTreeBrowser.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnnoTreeBrowser.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3E126E617B837EB00DC1BE5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		D3E126E917B837EB00DC1BE5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D3E126EA17B837EB00DC1BE5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D3E126EB17B837EB00DC1BE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D3E126EE17B837EB00DC1BE5 /* AnnoTreeBrowserResources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AnnoTreeBrowserResources-Info.plist"; sourceTree = "<group>"; };
+		D3E126F017B837EB00DC1BE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D3E126F217B837EB00DC1BE5 /* AnnoTreeBrowserResources-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnnoTreeBrowserResources-Prefix.pch"; sourceTree = "<group>"; };
+		D3EF7DB917D5562800D69ED2 /* Leaf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Leaf.h; sourceTree = "<group>"; };
+		D3EF7DBA17D5562800D69ED2 /* Leaf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Leaf.m; sourceTree = "<group>"; };
+		D3F024B817E65032000F6D5B /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		D3F024B917E65032000F6D5B /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		D3F024BA17E65032000F6D5B /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		D3F024BB17E65032000F6D5B /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		D3F024BC17E65032000F6D5B /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		D3F024BD17E65032000F6D5B /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		D3F024BE17E65032000F6D5B /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		D3F024BF17E65032000F6D5B /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		D3F024C017E65032000F6D5B /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		D3F024C117E65032000F6D5B /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		D3F024C317E65032000F6D5B /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		D3F024C417E65032000F6D5B /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		D3F024C517E65032000F6D5B /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		D3F024C617E65032000F6D5B /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		D3F024C717E65032000F6D5B /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		D3F2BB5217CDC4A400A8B1FF /* ToolbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarButton.h; sourceTree = "<group>"; };
+		D3F2BB5317CDC4A400A8B1FF /* ToolbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarButton.m; sourceTree = "<group>"; };
+		D3F2BB5617CDC5E100A8B1FF /* PencilTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PencilTool.h; sourceTree = "<group>"; };
+		D3F2BB5717CDC5E100A8B1FF /* PencilTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PencilTool.m; sourceTree = "<group>"; };
+		D3F2BB6A17D2982300A8B1FF /* TextTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextTool.h; sourceTree = "<group>"; };
+		D3F2BB6B17D2982300A8B1FF /* TextTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextTool.m; sourceTree = "<group>"; };
+		D3F2BB7117D29CD000A8B1FF /* AnnoTree.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnnoTree.framework; path = "../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos/AnnoTree.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +330,7 @@
 			files = (
 				D3180C5B1764FF5A00A6B8E0 /* OpenGLES.framework in Frameworks */,
 				D321648C172C18B500573823 /* Foundation.framework in Frameworks */,
+				D3F2BB7317D29CD000A8B1FF /* AnnoTree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,10 +350,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3180C5C1765009C00A6B8E0 /* OpenGLES.framework in Frameworks */,
-				D3EC208917EFB88A00A9D758 /* AnnoTree.framework in Frameworks */,
 				D3AAA1A717000FC300954DDF /* UIKit.framework in Frameworks */,
 				D3AAA1A917000FC300954DDF /* Foundation.framework in Frameworks */,
 				D3AAA1AB17000FC300954DDF /* CoreGraphics.framework in Frameworks */,
+				D3F2BB7217D29CD000A8B1FF /* AnnoTree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,9 +367,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D3E126E217B837EB00DC1BE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3790AD117B862B6009E1BF2 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3024B0517D5495E0086102C /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D3024B0A17D54B1E0086102C /* ScreenShotUtil.h */,
+				D3024B0B17D54B1E0086102C /* ScreenShotUtil.m */,
+				D3EF7DB917D5562800D69ED2 /* Leaf.h */,
+				D3EF7DBA17D5562800D69ED2 /* Leaf.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		D314C662171B282900BA9B2F /* ToolBarIcons */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +436,12 @@
 			children = (
 				D314C667171B2D5A00BA9B2F /* Annotations */,
 				D314C665171B2D2700BA9B2F /* SharePage */,
+				D3F2BB5217CDC4A400A8B1FF /* ToolbarButton.h */,
+				D3F2BB5317CDC4A400A8B1FF /* ToolbarButton.m */,
+				D3F2BB5617CDC5E100A8B1FF /* PencilTool.h */,
+				D3F2BB5717CDC5E100A8B1FF /* PencilTool.m */,
+				D3F2BB6A17D2982300A8B1FF /* TextTool.h */,
+				D3F2BB6B17D2982300A8B1FF /* TextTool.m */,
 			);
 			name = ToolbarActions;
 			sourceTree = "<group>";
@@ -331,12 +449,12 @@
 		D314C667171B2D5A00BA9B2F /* Annotations */ = {
 			isa = PBXGroup;
 			children = (
-				06CA71DA17B3CD08005841C4 /* MoveableText.h */,
-				06CA71DB17B3CD08005841C4 /* MoveableText.m */,
 				D3AAA1F417002C4400954DDF /* AnnotationView.h */,
 				D3AAA1F517002C4400954DDF /* AnnotationView.m */,
-				D3180C481761969800A6B8E0 /* AnnotationViewController.h */,
-				D3180C491761969800A6B8E0 /* AnnotationViewController.m */,
+				D3180C481761969800A6B8E0 /* DrawingViewController.h */,
+				D3180C491761969800A6B8E0 /* DrawingViewController.m */,
+				06800E4617B3C8F200EA650D /* MoveableText.h */,
+				06800E4717B3C8F200EA650D /* MoveableText.m */,
 			);
 			name = Annotations;
 			sourceTree = "<group>";
@@ -418,6 +536,7 @@
 				D321648D172C18B500573823 /* AnnoTreeLibrary */,
 				D32164A0172C18B600573823 /* AnnoTreeLibraryTests */,
 				D3180C28176184B300A6B8E0 /* AnnoTreeResources */,
+				D3E126EC17B837EB00DC1BE5 /* AnnoTreeBrowserResources */,
 				D3AAA1A517000FC300954DDF /* Frameworks */,
 				D3AAA1A417000FC300954DDF /* Products */,
 			);
@@ -431,6 +550,7 @@
 				D321648B172C18B500573823 /* libAnnoTree.a */,
 				D3216499172C18B600573823 /* AnnoTreeTests.octest */,
 				D3180C25176184B300A6B8E0 /* AnnoTree.bundle */,
+				D3E126E517B837EB00DC1BE5 /* AnnoTreeBrowser.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -438,12 +558,15 @@
 		D3AAA1A517000FC300954DDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D3EC208817EFB88A00A9D758 /* AnnoTree.framework */,
+				D3F024B717E65032000F6D5B /* Lumberjack */,
+				D3F2BB7117D29CD000A8B1FF /* AnnoTree.framework */,
 				D3AAA1A617000FC300954DDF /* UIKit.framework */,
 				D3AAA1A817000FC300954DDF /* Foundation.framework */,
 				D3AAA1AA17000FC300954DDF /* CoreGraphics.framework */,
 				D3AAA1CD17000FC400954DDF /* SenTestingKit.framework */,
 				D3180C26176184B300A6B8E0 /* CoreFoundation.framework */,
+				D3E126E617B837EB00DC1BE5 /* Cocoa.framework */,
+				D3E126E817B837EB00DC1BE5 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -451,6 +574,8 @@
 		D3AAA1AC17000FC300954DDF /* AnnoTree Viewer */ = {
 			isa = PBXGroup;
 			children = (
+				D3790ACF17B8622E009E1BF2 /* AnnoTreeBrowser.bundle */,
+				D3E1267317B8100100DC1BE5 /* AnnoTree.bundle */,
 				D3AAA1E71700186400954DDF /* AnnoTree */,
 				D3AAA1B517000FC300954DDF /* AppDelegate.h */,
 				D3AAA1B617000FC300954DDF /* AppDelegate.m */,
@@ -514,7 +639,8 @@
 		D3AAA1E71700186400954DDF /* AnnoTree */ = {
 			isa = PBXGroup;
 			children = (
-				06CA71D417B3CCB0005841C4 /* AnnoTree.bundle */,
+				D3024B0517D5495E0086102C /* Util */,
+				D3E1267517B813D200DC1BE5 /* HelpScreens */,
 				D314C666171B2D4200BA9B2F /* ToolbarActions */,
 				D3AAA1E41700182B00954DDF /* Images */,
 				D3AAA1ED170018EE00954DDF /* AnnoTree.h */,
@@ -523,6 +649,79 @@
 				D36291021730465C00F08E8A /* UIWindowAnnoTree.m */,
 			);
 			name = AnnoTree;
+			sourceTree = "<group>";
+		};
+		D3E1267517B813D200DC1BE5 /* HelpScreens */ = {
+			isa = PBXGroup;
+			children = (
+				D3E1268D17B82C0D00DC1BE5 /* Screen1.png */,
+				D3E1268E17B82C0D00DC1BE5 /* Screen2.png */,
+				D3E1268F17B82C0D00DC1BE5 /* Screen3.png */,
+				D3E1269017B82C0D00DC1BE5 /* Screen4.png */,
+				D3E1269117B82C0D00DC1BE5 /* Screen5.png */,
+				D3E1267817B814D500DC1BE5 /* UIScrollViewPageViewController.h */,
+				D3E1267917B814D500DC1BE5 /* UIScrollViewPageViewController.m */,
+			);
+			name = HelpScreens;
+			sourceTree = "<group>";
+		};
+		D3E126E817B837EB00DC1BE5 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3E126E917B837EB00DC1BE5 /* AppKit.framework */,
+				D3E126EA17B837EB00DC1BE5 /* CoreData.framework */,
+				D3E126EB17B837EB00DC1BE5 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D3E126EC17B837EB00DC1BE5 /* AnnoTreeBrowserResources */ = {
+			isa = PBXGroup;
+			children = (
+				D3E126ED17B837EB00DC1BE5 /* Supporting Files */,
+			);
+			path = AnnoTreeBrowserResources;
+			sourceTree = "<group>";
+		};
+		D3E126ED17B837EB00DC1BE5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D3E126EE17B837EB00DC1BE5 /* AnnoTreeBrowserResources-Info.plist */,
+				D3E126EF17B837EB00DC1BE5 /* InfoPlist.strings */,
+				D3E126F217B837EB00DC1BE5 /* AnnoTreeBrowserResources-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D3F024B717E65032000F6D5B /* Lumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				D3F024B817E65032000F6D5B /* DDAbstractDatabaseLogger.h */,
+				D3F024B917E65032000F6D5B /* DDAbstractDatabaseLogger.m */,
+				D3F024BA17E65032000F6D5B /* DDASLLogger.h */,
+				D3F024BB17E65032000F6D5B /* DDASLLogger.m */,
+				D3F024BC17E65032000F6D5B /* DDFileLogger.h */,
+				D3F024BD17E65032000F6D5B /* DDFileLogger.m */,
+				D3F024BE17E65032000F6D5B /* DDLog.h */,
+				D3F024BF17E65032000F6D5B /* DDLog.m */,
+				D3F024C017E65032000F6D5B /* DDTTYLogger.h */,
+				D3F024C117E65032000F6D5B /* DDTTYLogger.m */,
+				D3F024C217E65032000F6D5B /* Extensions */,
+			);
+			name = Lumberjack;
+			path = ../../../../CocaLumberjack/Lumberjack;
+			sourceTree = "<group>";
+		};
+		D3F024C217E65032000F6D5B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D3F024C317E65032000F6D5B /* ContextFilterLogFormatter.h */,
+				D3F024C417E65032000F6D5B /* ContextFilterLogFormatter.m */,
+				D3F024C517E65032000F6D5B /* DispatchQueueLogFormatter.h */,
+				D3F024C617E65032000F6D5B /* DispatchQueueLogFormatter.m */,
+				D3F024C717E65032000F6D5B /* README.txt */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -537,7 +736,21 @@
 				D32164C6172C21BC00573823 /* ToolbarBg.h in Headers */,
 				D362912F173067B000F08E8A /* UIWindowAnnoTree.h in Headers */,
 				D32164C5172C21BC00573823 /* ShareViewController.h in Headers */,
-				D3180C4A1761969900A6B8E0 /* AnnotationViewController.h in Headers */,
+				D3180C4A1761969900A6B8E0 /* DrawingViewController.h in Headers */,
+				D3E1267F17B8196C00DC1BE5 /* UIScrollViewPageViewController.h in Headers */,
+				D3F2BB5A17CDCA5B00A8B1FF /* ToolbarButton.h in Headers */,
+				D3F2BB5B17CDCA6700A8B1FF /* PencilTool.h in Headers */,
+				D3F2BB5C17CDCA7500A8B1FF /* MoveableText.h in Headers */,
+				D3F2BB6C17D2982300A8B1FF /* TextTool.h in Headers */,
+				D3024B0C17D54B1E0086102C /* ScreenShotUtil.h in Headers */,
+				D3EF7DBB17D5562800D69ED2 /* Leaf.h in Headers */,
+				D3F024C817E65032000F6D5B /* DDAbstractDatabaseLogger.h in Headers */,
+				D3F024CA17E65032000F6D5B /* DDASLLogger.h in Headers */,
+				D3F024CC17E65032000F6D5B /* DDFileLogger.h in Headers */,
+				D3F024CE17E65032000F6D5B /* DDLog.h in Headers */,
+				D3F024D017E65032000F6D5B /* DDTTYLogger.h in Headers */,
+				D3F024D217E65032000F6D5B /* ContextFilterLogFormatter.h in Headers */,
+				D3F024D417E65032000F6D5B /* DispatchQueueLogFormatter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +823,7 @@
 				D3AAA1A117000FC300954DDF /* Resources */,
 			);
 			buildRules = (
+				D3E1267D17B818A400DC1BE5 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -635,6 +849,23 @@
 			name = "AnnoTree ViewerTests";
 			productName = "AnnoTree ViewerTests";
 			productReference = D3AAA1CC17000FC400954DDF /* AnnoTree ViewerTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		D3E126E417B837EB00DC1BE5 /* AnnoTreeBrowserResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3E126F317B837EB00DC1BE5 /* Build configuration list for PBXNativeTarget "AnnoTreeBrowserResources" */;
+			buildPhases = (
+				D3E126E117B837EB00DC1BE5 /* Sources */,
+				D3E126E217B837EB00DC1BE5 /* Frameworks */,
+				D3E126E317B837EB00DC1BE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AnnoTreeBrowserResources;
+			productName = AnnoTreeBrowserResources;
+			productReference = D3E126E517B837EB00DC1BE5 /* AnnoTreeBrowser.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -664,6 +895,7 @@
 				D3216498172C18B600573823 /* AnnoTreeTests */,
 				D3180C0F176182E300A6B8E0 /* Framework */,
 				D3180C24176184B300A6B8E0 /* AnnoTreeResources */,
+				D3E126E417B837EB00DC1BE5 /* AnnoTreeBrowserResources */,
 			);
 		};
 /* End PBXProject section */
@@ -704,6 +936,7 @@
 				D3E0AF78178FC690009BEEDF /* Icon.png in Resources */,
 				D3E0AF79178FC690009BEEDF /* Icon@2x.png in Resources */,
 				D3E0AF71178FC45E009BEEDF /* Default-568h@2x.png in Resources */,
+				D3790AD017B8622E009E1BF2 /* AnnoTreeBrowser.bundle in Resources */,
 				D3E0AF72178FC45E009BEEDF /* Default.png in Resources */,
 				D3E0AF73178FC45E009BEEDF /* Default@2x.png in Resources */,
 				D3AAA1B117000FC300954DDF /* InfoPlist.strings in Resources */,
@@ -711,7 +944,12 @@
 				D3AAA1C317000FC300954DDF /* MainStoryboard_iPad.storyboard in Resources */,
 				D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */,
 				D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */,
-				06CA71D717B3CCB0005841C4 /* AnnoTree.bundle in Resources */,
+				D3E1267417B8100100DC1BE5 /* AnnoTree.bundle in Resources */,
+				D3E1269217B82C0D00DC1BE5 /* Screen1.png in Resources */,
+				D3E1269317B82C0D00DC1BE5 /* Screen2.png in Resources */,
+				D3E1269417B82C0D00DC1BE5 /* Screen3.png in Resources */,
+				D3E1269517B82C0D00DC1BE5 /* Screen4.png in Resources */,
+				D3E1269617B82C0D00DC1BE5 /* Screen5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,6 +958,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3AAA1D817000FC400954DDF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3E126E317B837EB00DC1BE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3E126F617B8383E00DC1BE5 /* Screen1.png in Resources */,
+				D3E126F717B8383E00DC1BE5 /* Screen2.png in Resources */,
+				D3E126F817B8383E00DC1BE5 /* Screen3.png in Resources */,
+				D3E126F917B8383E00DC1BE5 /* Screen4.png in Resources */,
+				D3E126FA17B8383E00DC1BE5 /* Screen5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,7 +1000,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\nset +u\n# Avoid recursively calling this script.\nif [[ $SF_MASTER_SCRIPT_RUNNING ]]\nthen\nexit 0\nfi\nset -u\nexport SF_MASTER_SCRIPT_RUNNING=1\n\nSF_TARGET_NAME=AnnoTree\nSF_EXECUTABLE_PATH=\"lib${SF_TARGET_NAME}.a\"\nSF_WRAPPER_NAME=\"${SF_TARGET_NAME}.framework\"\n\n# The following conditionals come from\n# https://github.com/kstenerud/iOS-Universal-Framework\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\nSF_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\nSF_SDK_VERSION=${BASH_REMATCH[1]}\necho \"$SF_SDK_VERSION\"\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SF_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\nSF_OTHER_PLATFORM=iphonesimulator\nelse\nSF_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$SF_SDK_PLATFORM$ ]]\nthen\nSF_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${SF_OTHER_PLATFORM}\"\nelse\necho \"Could not find platform name from build products directory: $BUILT_PRODUCTS_DIR\"\nexit 1\nfi\n\n# Build the other platform.\nxcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${SF_OTHER_PLATFORM}${SF_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" OBJROOT=\"${OBJROOT}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\" $ACTION\n\n# Smash the two static libraries into one fat binary and store it in the .framework\nlipo -create \"${BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" -output \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n\n# Copy the binary to the other architecture folder to have a complete framework in both.\ncp -a \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n";
+			shellScript = "set -e\nset +u\n# Avoid recursively calling this script.\nif [[ $SF_MASTER_SCRIPT_RUNNING ]]\nthen\nexit 0\nfi\nset -u\nexport SF_MASTER_SCRIPT_RUNNING=1\n\nSF_TARGET_NAME=AnnoTree\nSF_EXECUTABLE_PATH=\"lib${SF_TARGET_NAME}.a\"\nSF_WRAPPER_NAME=\"${SF_TARGET_NAME}.framework\"\n\n# The following conditionals come from\n# https://github.com/kstenerud/iOS-Universal-Framework\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\nSF_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\nSF_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SF_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\nSF_OTHER_PLATFORM=iphonesimulator\nelse\nSF_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$SF_SDK_PLATFORM$ ]]\nthen\nSF_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${SF_OTHER_PLATFORM}\"\nelse\necho \"Could not find platform name from build products directory: $BUILT_PRODUCTS_DIR\"\nexit 1\nfi\n\n# Build the other platform.\nxcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${SF_OTHER_PLATFORM}${SF_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" OBJROOT=\"${OBJROOT}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\" $ACTION\n\n# Smash the two static libraries into one fat binary and store it in the .framework\nlipo -create \"${BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" -output \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n\n# Copy the binary to the other architecture folder to have a complete framework in both.\ncp -a \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n";
 		};
 		D3216497172C18B600573823 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -792,13 +1042,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E1267E17B8196100DC1BE5 /* UIScrollViewPageViewController.m in Sources */,
 				D32164AF172C190300573823 /* AnnotationView.m in Sources */,
 				D32164B0172C190300573823 /* ShareViewController.m in Sources */,
 				D32164B1172C190300573823 /* ToolbarBg.m in Sources */,
 				D32164B2172C190300573823 /* AnnoTree.m in Sources */,
 				D3216493172C18B500573823 /* AnnoTreeLibrary.m in Sources */,
 				D36291041730465C00F08E8A /* UIWindowAnnoTree.m in Sources */,
-				D3180C4D1761969900A6B8E0 /* AnnotationViewController.m in Sources */,
+				D3180C4D1761969900A6B8E0 /* DrawingViewController.m in Sources */,
+				D3F2BB5E17CDCA7B00A8B1FF /* MoveableText.m in Sources */,
+				D3F2BB5F17CDCA9700A8B1FF /* ToolbarButton.m in Sources */,
+				D3F2BB6017CDCA9D00A8B1FF /* PencilTool.m in Sources */,
+				D3F2BB6D17D2982300A8B1FF /* TextTool.m in Sources */,
+				D3024B0D17D54B1E0086102C /* ScreenShotUtil.m in Sources */,
+				D3EF7DBC17D5562800D69ED2 /* Leaf.m in Sources */,
+				D3F024C917E65032000F6D5B /* DDAbstractDatabaseLogger.m in Sources */,
+				D3F024CB17E65032000F6D5B /* DDASLLogger.m in Sources */,
+				D3F024CD17E65032000F6D5B /* DDFileLogger.m in Sources */,
+				D3F024CF17E65032000F6D5B /* DDLog.m in Sources */,
+				D3F024D117E65032000F6D5B /* DDTTYLogger.m in Sources */,
+				D3F024D317E65032000F6D5B /* ContextFilterLogFormatter.m in Sources */,
+				D3F024D517E65032000F6D5B /* DispatchQueueLogFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,7 +1071,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D32164A8172C18B600573823 /* AnnoTreeLibraryTests.m in Sources */,
-				D3180C4E1761969900A6B8E0 /* AnnotationViewController.m in Sources */,
+				D3180C4E1761969900A6B8E0 /* DrawingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -818,7 +1082,6 @@
 				D3AAA1B317000FC300954DDF /* main.m in Sources */,
 				D3AAA1B717000FC300954DDF /* AppDelegate.m in Sources */,
 				D3AAA1C617000FC300954DDF /* WebViewController.m in Sources */,
-				06CA71DC17B3CD08005841C4 /* MoveableText.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -827,7 +1090,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3AAA1DB17000FC400954DDF /* AnnoTree_ViewerTests.m in Sources */,
-				D3180C4C1761969900A6B8E0 /* AnnotationViewController.m in Sources */,
+				D3180C4C1761969900A6B8E0 /* DrawingViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3E126E117B837EB00DC1BE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,16 +1180,21 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		D3E126EF17B837EB00DC1BE5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3E126F017B837EB00DC1BE5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D3180C11176182E400A6B8E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				DYLIB_COMPATIBILITY_VERSION = 0.1.1;
-				DYLIB_CURRENT_VERSION = 0.1.1;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -929,10 +1204,7 @@
 		D3180C12176182E400A6B8E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				DYLIB_COMPATIBILITY_VERSION = 0.1.1;
-				DYLIB_CURRENT_VERSION = 0.1.1;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -944,6 +1216,10 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COMBINE_HIDPI_IMAGES = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTreeResources/AnnoTreeResources-Prefix.pch";
@@ -966,6 +1242,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COMBINE_HIDPI_IMAGES = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTreeResources/AnnoTreeResources-Prefix.pch";
@@ -989,6 +1269,11 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/AnnoTreeLibrary.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTreeLibrary/AnnoTreeLibrary-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -1009,6 +1294,11 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/AnnoTreeLibrary.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTreeLibrary/AnnoTreeLibrary-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -1115,19 +1405,18 @@
 		D3AAA1DF17000FC400954DDF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: brian clark (ZCW8PU22EX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: brian clark (ZCW8PU22EX)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(SRCROOT)/../../../Website/anno_tree/public/SDK/AnnoTreeSDK",
 					"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-axltqtouvntwkybdbqstrebtskfl/Build/Products/Debug-iphoneos",
-					"\\\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-amwqjvzfpjsmpaewhyubzhmzswiq/Build/Products/Debug-iphoneos\\\"",
-					"\\\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\\\"",
-					"\\\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\\\"",
-					"\\\"$(SRCROOT)/../../../Website/CCP/SDK\\\"",
-					"/Users/Brian/Documents/AnnoTree/Mobile/iOS/AnnoTree\\ Viewer",
-					/Users/Brian/Documents/AnnoTree/Mobile/iOS,
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-amwqjvzfpjsmpaewhyubzhmzswiq/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/../ActiveSDK\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTree Viewer/AnnoTree Viewer-Prefix.pch";
@@ -1143,6 +1432,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5E6E5FC2-AF3F-40CE-BFAF-EF3B24A21690";
 				USER_HEADER_SEARCH_PATHS = "";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "";
 				WRAPPER_EXTENSION = app;
@@ -1152,19 +1442,18 @@
 		D3AAA1E017000FC400954DDF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: brian clark (ZCW8PU22EX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: brian clark (ZCW8PU22EX)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(SRCROOT)/../../../Website/anno_tree/public/SDK/AnnoTreeSDK",
 					"$(SRCROOT)/../../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-axltqtouvntwkybdbqstrebtskfl/Build/Products/Debug-iphoneos",
-					"\\\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-amwqjvzfpjsmpaewhyubzhmzswiq/Build/Products/Debug-iphoneos\\\"",
-					"\\\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\\\"",
-					"\\\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\\\"",
-					"\\\"$(SRCROOT)/../../../Website/CCP/SDK\\\"",
-					"/Users/Brian/Documents/AnnoTree/Mobile/iOS/AnnoTree\\ Viewer",
-					/Users/Brian/Documents/AnnoTree/Mobile/iOS,
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-amwqjvzfpjsmpaewhyubzhmzswiq/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/../ActiveSDK\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTree Viewer/AnnoTree Viewer-Prefix.pch";
@@ -1180,6 +1469,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5E6E5FC2-AF3F-40CE-BFAF-EF3B24A21690";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1218,6 +1508,58 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		D3E126F417B837EB00DC1BE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnnoTreeBrowserResources/AnnoTreeBrowserResources-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "AnnoTreeBrowserResources/AnnoTreeBrowserResources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = AnnoTreeBrowser;
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		D3E126F517B837EB00DC1BE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AnnoTreeBrowserResources/AnnoTreeBrowserResources-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "AnnoTreeBrowserResources/AnnoTreeBrowserResources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_NAME = AnnoTreeBrowser;
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -1283,6 +1625,15 @@
 			buildConfigurations = (
 				D3AAA1E217000FC400954DDF /* Debug */,
 				D3AAA1E317000FC400954DDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3E126F317B837EB00DC1BE5 /* Build configuration list for PBXNativeTarget "AnnoTreeBrowserResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3E126F417B837EB00DC1BE5 /* Debug */,
+				D3E126F517B837EB00DC1BE5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

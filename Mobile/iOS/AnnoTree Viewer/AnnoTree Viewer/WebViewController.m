@@ -7,6 +7,10 @@
 //
 
 #import "WebViewController.h"
+#import "UIScrollViewPageViewController.h"
+#import "DDLog.h"
+#import "DDTTYLogger.h"
+#import "DDASLLogger.h"
 
 static const CGFloat kNavBarHeight = 52.0f;
 static const CGFloat kLabelHeight = 14.0f;
@@ -84,7 +88,7 @@ static const CGFloat kAddressHeight = 26.0f;
     
     self.viewWeb.delegate = self;
     self.viewWeb.scalesPageToFit = YES;
-    NSURL* url = [NSURL URLWithString:@"http://www.google.com"];
+    NSURL* url = [NSURL URLWithString:@"http://www.annotree.com"];
     NSURLRequest* request = [NSURLRequest requestWithURL:url];
     [self.viewWeb loadRequest:request];
     [self updateButtons];
@@ -118,6 +122,9 @@ static const CGFloat kAddressHeight = 26.0f;
     [self updateTitle:webView];
     NSURLRequest* request = [webView request];
     [self updateAddress:request];
+        [DDLog addLogger:[DDASLLogger sharedInstance]];
+        [DDLog addLogger:[DDTTYLogger sharedInstance]];
+
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error

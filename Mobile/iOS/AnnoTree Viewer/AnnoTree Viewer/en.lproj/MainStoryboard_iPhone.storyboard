@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4457.6" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <development version="4600" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3682.6"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Web View Controller-->
@@ -15,12 +14,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uMP-uZ-GU4">
-                                <rect key="frame" x="0.0" y="44" width="320" height="460"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                             </webView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3r-Ll-Qtl">
-                                <rect key="frame" x="0.0" y="504" width="320" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="rewind" id="JB3-Pc-8HV">
                                         <connections>
@@ -48,7 +45,6 @@
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P28-Xb-gtj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items/>
                             </toolbar>
                         </subviews>
@@ -56,17 +52,16 @@
                         <constraints>
                             <constraint firstItem="f3r-Ll-Qtl" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="ACu-89-ShM"/>
                             <constraint firstItem="uMP-uZ-GU4" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="CI3-ZZ-dDw"/>
+                            <constraint firstItem="uMP-uZ-GU4" firstAttribute="top" secondItem="P28-Xb-gtj" secondAttribute="bottom" type="default" id="I7E-xa-cee"/>
                             <constraint firstItem="P28-Xb-gtj" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="POD-9t-kPd"/>
                             <constraint firstItem="P28-Xb-gtj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="RGb-cV-WrC"/>
                             <constraint firstItem="f3r-Ll-Qtl" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="RWK-Vo-zLH"/>
                             <constraint firstItem="uMP-uZ-GU4" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="TxC-76-rZo"/>
                             <constraint firstItem="f3r-Ll-Qtl" firstAttribute="top" secondItem="uMP-uZ-GU4" secondAttribute="bottom" type="default" id="aae-fx-FW8"/>
-                            <constraint firstItem="P28-Xb-gtj" firstAttribute="bottom" secondItem="uMP-uZ-GU4" secondAttribute="top" type="default" id="dv6-pZ-hZN"/>
                             <constraint firstItem="f3r-Ll-Qtl" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="fYn-F4-qRY"/>
                             <constraint firstItem="P28-Xb-gtj" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="soT-Tc-63p"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="back" destination="JB3-Pc-8HV" id="oy1-9S-uRD"/>
                         <outlet property="forward" destination="ueA-Rr-jd7" id="3A2-HW-l6W"/>
@@ -80,6 +75,24 @@
             </objects>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="WebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="back" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="forward" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="pageTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="refresh" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="stop" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="viewWeb" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

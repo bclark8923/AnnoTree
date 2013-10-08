@@ -70,7 +70,7 @@ button {
 	text-align: center;
 	font-size: 55px;
 	padding-bottom: 20px;
-	text-shadow: 0 1px 2px rgba(179, 179, 179, 0.7);
+	/*text-shadow: 0 1px 2px rgba(179, 179, 179, 0.7);*/
 }
 
 .headerText {
@@ -78,7 +78,7 @@ button {
 	font-size: 27px;
 	font-weight: 100;
 	padding-bottom: 20px;
-	text-shadow: 0 1px 2px rgba(179, 179, 179, 0.7);
+	/*text-shadow: 0 1px 2px rgba(179, 179, 179, 0.7);*/
 }
 
 .navbar, .navbar > .container, .navbar > .container > .navbar-header {
@@ -447,19 +447,12 @@ footer {
 	}
 
 	.headerTitle {
-		font-size: 45px;
+		font-size: 42px;
 	}
 
 	.headerText {
 		font-size: 23px;
 	}
-}
-@media (max-width: 600px) {
-
-	.annotreeiPadWrap {
-		display: none;
-	}
-
 }
 
 @media (max-width: 767px) {
@@ -529,12 +522,30 @@ footer {
 	}
 }
 
+@media (max-width: 600px) {
+
+	/*.annotreeiPadWrap {
+		display: none;
+	}*/
+
+	.annotreeiPadWrap {
+		width: 325px;
+		margin-bottom: -212px;	
+	}
+
+	.annotreeVid {
+		width: 270px;
+		height: 152px;
+	}
+
+}
+
 @media (max-width: 479px) {
 
 	.priceTitle {
 		font-size: 20pt;
 	}
-
+/*
 	.annotreeVid {
 		width: 300px;
 		height: 169px;
@@ -544,7 +555,7 @@ footer {
 		width: 300px;
 		margin-bottom: -572px;	
 	}
-
+*/
 
 	.priceCost {
 		font-size: 16pt;

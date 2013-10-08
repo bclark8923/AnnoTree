@@ -6,22 +6,21 @@
             function setError(msg) {
                 $scope.loginPassword = '';
                 $scope.errorText = msg;
-                $scope.errorMessage = true;
             } 
-            
+
+            function validateEmail(email) { 
+                var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
+
             $scope.validateLogin = function() {
                 var email = $scope.loginEmail;
                 var password = $scope.loginPassword;
-                var loginValid = $scope.loginForm.$valid;
 
-                if (!loginValid) {
-                    if (!email) {
-                        setError('Please enter a valid email');
-                    } else if (!password) {
-                        setError('Please enter a valid password');
-                    } else {
-                        setError('Please enter valid information');
-                    }
+                if (!validateEmail(email)) {
+                    setError('Please enter a valid email');
+                } else if (!password) {
+                    setError('Please enter a valid password');
                 } else {
                     $('#authenticateWorking').addClass('active');
                     var promise = $http.post(apiRoot.getRoot() + '/services/user/login', {
@@ -31,6 +30,7 @@
 
                     promise.then(
                         function(response) {
+                            $scope.errorText = '';
                             $('#authenticateWorking').removeClass('active'); // TODO: angular way
                             dataService.setUser(response.data);
                             var reqPath = dataService.getReqPath();
@@ -69,8 +69,8 @@
 
             //TODO:Move into main section
             $("#loadingScreen").hide(); // TODO: angular way
-            $scope.errorMessage = false;
             $scope.setWindowTitle("AnnoTree");
+            $scope.errorText = '';
         }
     );
 })(angular, AnnoTree);

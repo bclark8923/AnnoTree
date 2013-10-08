@@ -535,8 +535,8 @@ a.btn-annotree {
     border-radius: 5px 5px 0 0;
     padding: 3px;
     min-height: 25px;
-    background-color: #5cc080;
-    color: #fff;
+    background-color: #fff;
+    color: #444;
     text-decoration: none;
 }
 

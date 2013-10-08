@@ -14,10 +14,10 @@ button {
 	background-position: center;
 	min-height: 500px;
 
-	font-family: "Gotham SSm A", "Open Sans", helvetica, sans-serif;
+	font-family: "Helvetica Neue", "Open Sans", Helvetica, sans-serif;
 	font-size: 40px;
 	font-weight: 100;
-	color: #444;
+	color: #666;
 }
 
 .pricingHeader {
@@ -26,7 +26,7 @@ button {
 	background-position: center;
 	min-height: 300px;
 
-	font-family: "Gotham SSm A", "Open Sans", helvetica, sans-serif;
+	font-family: "Helvetica Neue", "Open Sans", Helvetica, sans-serif;
 	font-size: 40px;
 	font-weight: 100;
 	color: #444;
@@ -38,7 +38,7 @@ button {
 	background-position: center;
 	min-height: 300px;
 
-	font-family: "Gotham SSm A", "Open Sans", helvetica, sans-serif;
+	font-family: "Helvetica Neue", "Open Sans", Helvetica, sans-serif;
 	font-size: 40px;
 	font-weight: 100;
 	color: #444;
@@ -50,7 +50,7 @@ button {
 	background-position: center;
 	min-height: 500px;
 
-	font-family: "Gotham SSm A", "Open Sans", helvetica, sans-serif;
+	font-family: "Helvetica Neue", "Open Sans", Helvetica, sans-serif;
 	font-size: 40px;
 	font-weight: 100;
 	color: #444;
@@ -445,6 +445,14 @@ footer {
 		width: 570px;
 		height: 320px;
 	}
+
+	.headerTitle {
+		font-size: 45px;
+	}
+
+	.headerText {
+		font-size: 23px;
+	}
 }
 @media (max-width: 600px) {
 
@@ -476,11 +484,11 @@ footer {
 	}
 
 	.headerTitle {
-		font-size: 40px;
+		font-size: 28px;
 	}
 
 	.headerText {
-		font-size: 20px;
+		font-size: 14px;
 	}
 
 	.navbar-nav-annotree {

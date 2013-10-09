@@ -183,6 +183,20 @@ a.btn-annotree {
     -ms-user-select: none;
     user-select: none;
 }
+
+.working {
+    display: none;
+}
+
+.working.active {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(250, 250, 250, 0.7);
+    z-index: 9999;
+    position: absolute;
+    text-align: center;
+}
 /* -----------------------
  * Modal Settings
  * ----------------------- */
@@ -324,20 +338,6 @@ a.btn-annotree {
     top: 50%;
     position: relative;
     margin-top: -25pt !important;
-}
-
-.working {
-    display: none;
-}
-
-.working.active {
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(250,250,250, 0.7);
-    z-index: 9999;
-    position: absolute;
-    text-align: center;
 }
 
 #authenticateScreen {

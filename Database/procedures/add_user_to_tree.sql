@@ -31,7 +31,7 @@ IF (select id from user_tree where tree_id = treeid and user_id = requesting_use
                    select @user_to_add, tree.forest_id from tree where tree.id = treeid;
              END IF;
              SET @status = (SELECT status FROM user WHERE id = @user_to_add);
-             IF (@status = 0 OR @status = 1) THEN
+             IF (@status = 0 OR @status = 1 OR @status = 2) THEN
                  UPDATE user SET status = 2 WHERE id = @user_to_add;
                  SELECT 'status'
                      UNION
@@ -45,7 +45,6 @@ IF (select id from user_tree where tree_id = treeid and user_id = requesting_use
          END IF;
      ELSE
        insert into user(email, status, profile_image_path) values (email_in, 2, new_user_img);
-       insert into user(email, status) values (email_in, 2);
          set @new_user_id = LAST_INSERT_ID();
          insert into user_tree (user_id, tree_id) values (@new_user_id, treeid);
           insert into user_forest(user_id, forest_id) 

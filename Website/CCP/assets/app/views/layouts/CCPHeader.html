@@ -12,11 +12,11 @@
                     <i class="icon-code icon-xlarge icon-sdebar"></i>
                 </a>
             </div>
-            <!--div>
+            <div>
                 <a ng-click="openHelpModal()">
                     <i class="icon-question-sign icon-xlarge icon-sidebar"></i>
                 </a>
-            </div-->
+            </div>
             <div style="position:fixed;bottom:70px;width:80px;" ng-click="userSettingsBox=!userSettingsBox;$event.stopPropagation()">
                 <div id="userSidebar" class="userIcon unselectable">
                     {{user.first_name.substr(0,1) + user.last_name.substr(0,1)}}
@@ -107,40 +107,8 @@
                     <h3 class="modal-title">How To Use AnnoTree</h3>
                 </div>
                 <div class="modal-body">
-                    <h3>Collaboration On Application Development</h3>
-                    <div class="row" style="padding:0 16px">
-                        <div class="col-12">
-                            AnnoTree is a tool for organizing and collaborating on application creation. At a high level we organize things into Forests (your organization), Trees (your projects), and Leaves (parts of your projects).
-                        </div>
-                    </div>
-                    <h3>Forest</h3>
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                            At the top level AnnoTree has forests.  This represents your company or organization for organizing all of your projects, or as we call them trees, together.
-                        </div>
-                        <div class="col-12 col-lg-6">
-                            <img style="width: 100%;" src="img/help/forestHelp.png">
-                        </div>
-                    </div>
-                    <h3>Trees</h3>
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                            Inside forests you have your trees.  These represent applications or projects you are currently working on and hold all of the "leaves" that represent parts of your application.
-                        </div>
-                        <div class="col-12 col-lg-6">
-                            <img style="width: 100%;" src="img/help/treeHelp.png">
-                        </div>
-                    </div>
-                    <h3>Leaves</h3>
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                            At the lowest level you have the various leaves on a tree.  These leaves hold the screenshots and annotations on your applications to collaborate on as a team.
-                        </div>
-                        <div class="col-12 col-lg-6">
-                            <img style="width: 100%;" src="img/help/leafHelp.png">
-                        </div>
-                    </div>
                 </div>
+                    <iframe src="http://player.vimeo.com/video/76538201" id="helpVideo" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-annotree" data-dismiss="modal">
                         <strong>Got It!</strong>

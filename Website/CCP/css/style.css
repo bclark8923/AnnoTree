@@ -329,6 +329,11 @@ a.btn-annotree {
     z-index: 100;
 }
 
+#helpVideo {
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+}
 /* -----------------------
  * Authentication Settings
  * ----------------------- */

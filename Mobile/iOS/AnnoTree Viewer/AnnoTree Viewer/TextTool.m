@@ -115,9 +115,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     }
 }
 -(IBAction)setSelectedButton:(UIButton*)button {
-    NSLog(@"Log Fail");
     DDLogVerbose(@"TextTool: setSelectedButton Activated");
-    
     [super.annoTree unselectAll];
     
     for(UIButton* button in self.toolbarButtons){

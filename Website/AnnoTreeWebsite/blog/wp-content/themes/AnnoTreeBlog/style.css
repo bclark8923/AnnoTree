@@ -158,6 +158,14 @@ a:hover {
     color: #fff;
 }
 
+.comment-form-url > label, .comment-form-comment > label {
+  width: 70px;
+}
+
+.comment-form-email > label, .comment-form-author > label {
+  width: 65px;
+}
+
 button {
   box-shadow: none;
   -webkit-box-shadow: none;

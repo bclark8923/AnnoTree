@@ -63,7 +63,6 @@
       <div class="navbar-collapse bs-navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-nav-annotree">
           <li><a href="./index.html">Home</a></li>
-          <li><a href="./pricing.html">Pricing</a></li>
           <li class="active"><a href="http://blog.annotree.com">Blog</a></li>
           <li class="signInButton">
             <a style="color:white;text-decoration:none;padding:0;" href="http://ccp.annotree.com">

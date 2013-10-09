@@ -5,11 +5,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, a {
-  color: #38A35E;
+  color: #5cc080;
 }
 
 .success {
-  background: #38A35E;
+  background: #5cc080;
 }
 
 .form-allowed-tags {
@@ -129,9 +129,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, a {
 }
 
 .btn-annotree, .navbar-toggle {
-  background: #38A35E;
+  background: #5cc080;
   color: white;
-  border-color: #38A35E;
+  border-color: #5cc080;
 }
 
 .icon-bar {
@@ -145,7 +145,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, a {
 
 .btn-annotree-inverse {
   background: white;
-  color: #38A35E;
+  color: #5cc080;
   border-color: white;  
 }
 
@@ -201,7 +201,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 .row-video {
   box-shadow: inset 0px 2px 5px #ccc;
   border-bottom: 1px solid #bbb;
-  background: linear-gradient(#B3EEC8,#38A35E),#38A35E;
+  background: linear-gradient(#B3EEC8,#5cc080),#5cc080;
   background: #f3f3f3;
   margin: 0;
   width: 100%;
@@ -224,7 +224,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 .priceTitle {
   padding: 10px;
-  background: #38A35E;
+  background: #5cc080;
   color: white;
   font-weight: 100;
   font-size: 35pt;
@@ -253,12 +253,12 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 }
 
 .icon-annotree-color {
-  color: #38A35E;
+  color: #5cc080;
 }
 
 .annoTreeH2 {
   font-weight: 500;
-  color: #38A35E;
+  color: #5cc080;
   font-size: 20pt;
   padding-bottom: 10px;
 }
@@ -289,7 +289,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 
 .icon-annotree-page {
   font-size: 90pt;
-  color: #38A35E;
+  color: #5cc080;
 }
 
 .annotreeHomeImages {
@@ -301,7 +301,7 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 .teamRow {
   box-shadow: inset 0px 2px 5px #444;
   height: 400px;
-  background-color: #38A35E;
+  background-color: #5cc080;
   margin: 0;
 }
 
@@ -394,7 +394,7 @@ footer {
 
 .AnnoTreeGreenBG {
   box-shadow: inset 0px 2px 5px #444;
-  background: #38A35E;
+  background: #5cc080;
 }
 
 .featureSplit {

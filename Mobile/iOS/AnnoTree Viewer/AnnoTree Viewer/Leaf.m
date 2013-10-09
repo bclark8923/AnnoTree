@@ -10,7 +10,7 @@
 #import "ScreenShotUtil.h"
 #import "DDLog.h"
 
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 @implementation Leaf
 
@@ -136,7 +136,7 @@ NSString* boundary = @"-";
     
     // set URL
     //TODO:Move this
-    NSURL *requestURL = [NSURL URLWithString:@"https://dev.annotree.com/services/ios/leaf"];
+    NSURL *requestURL = [NSURL URLWithString:@"https://ccp.annotree.com/services/ios/leaf"];
     [request setURL:requestURL];
 
     DDLogVerbose(@"Connection");

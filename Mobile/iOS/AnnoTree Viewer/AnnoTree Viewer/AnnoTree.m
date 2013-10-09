@@ -27,7 +27,7 @@
 
 @implementation AnnoTree
 
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 @synthesize annoTreeWindow;
 @synthesize keyWindow;
@@ -108,7 +108,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         [annoTreeWindow addGestureRecognizer:addTextGesture];
         
         /* create the toolbar to be loaded */
-        annoTreeToolbar = [[UIView alloc]initWithFrame:CGRectMake(0, 0, sizeIcon*2, space*5+sizeIcon)];
+        annoTreeToolbar = [[UIView alloc]initWithFrame:CGRectMake(0, 0, sizeIcon*3, space*3+sizeIcon)];
         annoTreeToolbar.userInteractionEnabled = YES;
         
         /* rectangle background for toolbar */

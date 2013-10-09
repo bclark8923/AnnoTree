@@ -16,6 +16,8 @@
 @synthesize textEnabled;
 @synthesize drawColor;
 @synthesize textColor;
+@synthesize lineWidth;
+@synthesize textSize;
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -27,6 +29,7 @@
         drawings = [[NSMutableArray alloc] init];
         textBoxes = [[NSMutableArray alloc] init];
         drawingsColor = [[NSMutableArray alloc] init];
+        self.lineWidth = 2;
         //drawColor=[UIColor redColor];
         //textColor=[UIColor redColor];
     }
@@ -73,7 +76,7 @@
         myPath=[[UIBezierPath alloc]init];
         myPath.lineCapStyle=kCGLineCapRound;
         myPath.miterLimit=0;
-        myPath.lineWidth=2;
+        myPath.lineWidth=self.lineWidth;
         
         UIColor* currentColor = self.drawColor;
         
@@ -108,7 +111,7 @@
         
         //textField.borderStyle = UITextBorderStyleRoundedRect;
         textField.textColor = textColor;
-        textField.font = [UIFont systemFontOfSize:15];
+        textField.font = [UIFont systemFontOfSize:textSize];
         
         //textField.borderStyle = UITextBorderStyleLine;
         //textField.autocorrectionType = UITextAutocorrectionTypeNo;
@@ -161,7 +164,7 @@
             [view removeFromSuperview];
         } else {
             CGRect frame = view.frame;
-            frame.size.width = [view.text sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:CGSizeMake(265.0f, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping].width + 20;
+            frame.size.width = [view.text sizeWithFont:[UIFont systemFontOfSize:textSize] constrainedToSize:CGSizeMake(265.0f, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping].width + 20;	
             view.frame = frame;
         }
     }

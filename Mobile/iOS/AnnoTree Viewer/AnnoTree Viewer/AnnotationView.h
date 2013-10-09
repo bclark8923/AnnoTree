@@ -24,6 +24,8 @@
 
 @property BOOL drawingEnabled;
 @property BOOL textEnabled;
+@property int lineWidth;
+@property int textSize;
 
 -(void) clearAll;
 

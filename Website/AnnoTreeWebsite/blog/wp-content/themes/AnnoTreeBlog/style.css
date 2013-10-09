@@ -142,11 +142,6 @@ a:hover {
   background-color: white;
 }
 
-.btn-annotree:hover {
-  color: white;
-  background-color: #48C575;
-}
-
 .btn-annotree-inverse {
   background: white;
   color: #5cc080;
@@ -157,6 +152,17 @@ a:hover {
   color: #48C575;
   background-color: white;
 }
+
+.btn-annotree:hover, .btn-annotree:focus  {
+    background-color: #53ad73;
+    color: #fff;
+}
+
+button {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
 
 .form-center {
   text-align: center;

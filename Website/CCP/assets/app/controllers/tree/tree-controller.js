@@ -102,6 +102,7 @@
         $scope.openNewLeafModal = function() {
             resetNewLeafUpload();
             $scope.newLeafWorking = false;
+            $scope.newLeafErrorMessage = false;
             $scope.newLeafName = '';
             $("#newLeafModal").appendTo('body').modal('show');
         }
@@ -396,6 +397,7 @@
                         user.email = email;
                         $scope.tree.users.push(user);
                         $('#userList').val('');
+                        $scope.addUserErrorMessage = false;
                         $scope.modifyTreeModalWorking = false;
                     },
                     function(response) {
@@ -410,7 +412,7 @@
         }
         
         $scope.openNewBranchModal = function() {
-            $scope.selectedBranchType = 'grid';
+            $scope.selectedBranchType = 'tasks';
             $scope.newBranchName = '';
             $scope.newBranchErrorMessage = false;
             $scope.newBranchModalWorking = false;

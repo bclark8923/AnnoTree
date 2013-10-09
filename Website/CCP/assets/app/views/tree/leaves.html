@@ -1,10 +1,31 @@
 <div id="leaves" ng-controller="tree.LeavesController">
-    <ul ui-multi-sortable ng-model="leaves" id="leavesSortable" >
-        <li ng-repeat="leaf in leaves" class="card leafCard" ng-click="showLeaf(leaf.id)" back-img="{{leaf.annotation}}">
-            <div class="cardName leafCardName">
-                {{leaf.name}}
+    <div ng-switch="leaves.length==0">
+        <div ng-switch-when="false">
+            <ul ui-multi-sortable ng-model="leaves" id="leavesSortable" >
+                <li ng-repeat="leaf in leaves" class="card leafCard" ng-click="showLeaf(leaf.id)" back-img="{{leaf.annotation}}">
+                    <div class="cardName leafCardName">
+                        {{leaf.name}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div ng-switch-when="true">
+            <div class="valign" style="height:100%;text-align:center">
+                <div>
+                    <div style="font-size:80px">
+                        <i class="icon-leaf"></i>
+                    </div> 
+                    <div style="font-weight:500;margin-bottom:10px">
+                        There are currently no leaves here
+                    </div> 
+                    <div style="margin-bottom:70px">
+                        Click 
+                        <button class="btn btn-annotree" ng-click="openNewLeafModal()">+ Add Leaf </button>
+                        to create a leaf
+                    </div> 
+                </div> 
             </div>
-        </li>
-    </ul>
+        </div>
+    </div>
     <div ng-include="'assets/app/views/tree/leaf-modals.html'"></div>
 </div>

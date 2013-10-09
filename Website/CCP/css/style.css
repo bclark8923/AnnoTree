@@ -96,7 +96,7 @@ a.btn-annotree {
     color: #fff;
 }
 
-.btn-annotree:hover {
+.btn-annotree:hover, .btn-annotree:focus  {
     background-color: #53ad73;
     color: #fff;
 }
@@ -108,11 +108,12 @@ a.btn-annotree {
     border-color: #53ad73;
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
-.btn-pressed:hover {
+
+.btn-pressed:hover, .btn-pressed:focus {
     color: #fff;
     cursor: auto;
 }
- 
+
 .label-annotree {
     background-color: #53ad73;
 }
@@ -181,6 +182,20 @@ a.btn-annotree {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.working {
+    display: none;
+}
+
+.working.active {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(250, 250, 250, 0.7);
+    z-index: 9999;
+    position: absolute;
+    text-align: center;
 }
 /* -----------------------
  * Modal Settings
@@ -323,20 +338,6 @@ a.btn-annotree {
     top: 50%;
     position: relative;
     margin-top: -25pt !important;
-}
-
-.working {
-    display: none;
-}
-
-.working.active {
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(250,250,250, 0.7);
-    z-index: 9999;
-    position: absolute;
-    text-align: center;
 }
 
 #authenticateScreen {

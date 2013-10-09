@@ -1,8 +1,8 @@
 <div ng-controller="docs.MainController">
-    <div class="docsPageHeader">
-        <span>AnnoTree Documentation</span>
-    </div>
     <div id="docsHolder">
+        <div class="docsPageHeader">
+            <span>AnnoTree Documentation</span>
+        </div>
         <a href="#/app/docs">
             <div class="docs" ng-class="{activeDocs:subview=='home'}">
                 <i class="icon-code"></i>&nbsp;Home
@@ -15,8 +15,8 @@
         </a>
         <a href="#/app/docs/chrome">
             <div class="docs"  ng-class="{activeDocs:subview=='chrome'}" onmouseover="$('#chromeImg').attr('src', 'img/chrome_icon.png')" onmouseout="$('#chromeImg').attr('src', 'img/chrome_icon_green.png')">
-                <img src="img/chrome_icon_green.png" id="chromeImg" ng-hide="subview=='chrome'" style="width:14px;padding-bottom:3px;" />
-                <img src="img/chrome_icon.png" ng-show="subview=='chrome'" style="width:14px;padding-bottom:3px;" />
+                <img src="img/chrome_icon_green.png" id="chromeImg" ng-hide="subview=='chrome'" style="width:14px;padding-bottom:5px;" />
+                <img src="img/chrome_icon.png" ng-show="subview=='chrome'" style="width:14px;padding-bottom:5px;" />
 
                 Chrome
             </div>

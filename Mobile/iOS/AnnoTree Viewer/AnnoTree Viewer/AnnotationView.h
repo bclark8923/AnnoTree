@@ -12,11 +12,15 @@
 @interface AnnotationView : UIView {
  
     UIBezierPath *myPath;
-    UIColor *drawColor;
-    UIColor *textColor;
+
     NSMutableArray *drawings;
+    NSMutableArray *drawingsColor;
     NSMutableArray *textBoxes;
+    
 }
+
+@property UIColor *drawColor;
+@property UIColor *textColor;
 
 @property BOOL drawingEnabled;
 @property BOOL textEnabled;

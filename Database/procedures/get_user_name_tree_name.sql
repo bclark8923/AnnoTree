@@ -8,7 +8,7 @@ CREATE procedure `get_user_name_tree_name`(
     in treeid int
 )
 BEGIN
-select u.first_name, u.last_name, t.name from user as u
+select u.first_name, u.last_name, t.name, t.forest_id from user as u
     left join user_tree as ut
     on ut.user_id = u.id
     left join tree as t

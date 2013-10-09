@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>AnnoTreeBrowserResources.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>AnnoTreeLibrary.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -53,6 +58,26 @@
 			<true/>
 		</dict>
 		<key>D3AAA1CB17000FC400954DDF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3E1269F17B8363900DC1BE5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3E126B217B8368100DC1BE5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3E126CE17B8370500DC1BE5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3E126E417B837EB00DC1BE5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

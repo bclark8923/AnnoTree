@@ -9,7 +9,7 @@ html, body {
 
 body, #containWrapper {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-    background-color: #fff;
+    background-color: #444;
     font-weight: 300;
     height: 100%;
     width: 100%;
@@ -69,10 +69,14 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
 }
 
 .form-control:focus {
-    border-color: rgba(146,223,116,0.8);
+    border-color: rgba(92, 192, 128, 0.8);
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(146,223,116,0.6);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(146,223,116,0.6);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+button { 
+    outline: none !important; 
 }
 
 .btn-annotree {
@@ -92,9 +96,22 @@ a.btn-annotree {
     color: #fff;
 }
 
-.btn-annotree:hover {
+.btn-annotree:hover, .btn-annotree:focus  {
     background-color: #53ad73;
     color: #fff;
+}
+
+.btn-pressed {
+    color: #fff;
+    outline: 0px;
+    background-color: #53ad73;
+    border-color: #53ad73;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.btn-pressed:hover, .btn-pressed:focus {
+    color: #fff;
+    cursor: auto;
 }
 
 .label-annotree {
@@ -166,6 +183,20 @@ a.btn-annotree {
     -ms-user-select: none;
     user-select: none;
 }
+
+.working {
+    display: none;
+}
+
+.working.active {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(250, 250, 250, 0.7);
+    z-index: 9999;
+    position: absolute;
+    text-align: center;
+}
 /* -----------------------
  * Modal Settings
  * ----------------------- */
@@ -193,11 +224,15 @@ a.btn-annotree {
 }
 
 #treeModifyUsers {
-   max-height:200px;overflow-y:auto;margin-bottom:30px; 
+   max-height: 200px;
+   overflow-y: auto;
+   margin-bottom: 30px; 
 }
 
 #treeModifyUsers table {
-    width: 100%;margin-bottom:10px;font-size:12pt;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 12pt;
 }
 
 #treeModifyUsers table i {
@@ -305,29 +340,30 @@ a.btn-annotree {
     margin-top: -25pt !important;
 }
 
-.working {
-    display: none;
-}
-
-.working.active {
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(250,250,250, 0.7);
-    z-index: 9999;
-    position: absolute;
-    text-align: center;
-}
-
 #authenticateScreen {
     max-width: 400px;
     min-height: 200px;
     margin: 0 auto;
-    box-shadow: 0px 0px 10px #ddd;
-    margin-top: 10%;
-    background-color: #fff;
+    margin-top: 5%;
     position: relative;
-    color: #444;
+    color: #fff;
+}
+
+#authenticateScreen input {
+    border-radius: 0;
+    background-color: #fff;
+    border: 1px solid #eee;
+    height: 55px;
+}
+
+#authenticateScreen .form-group {
+    margin-bottom: 0;
+}
+
+#authenticateScreen .tipText {
+    text-align: center;
+    color: #f5f5f5;
+    margin: 10px 0;
 }
 
 #authenticateHeader {
@@ -346,10 +382,10 @@ a.btn-annotree {
 .authenticateFooter {
     padding: 0px;
     text-align: center;
+    margin-top: 10px;
 }
 
 .authenticateMessage {
-    color: #444;
     font-size: 12pt;
     text-align: center;
 }
@@ -360,6 +396,7 @@ a.btn-annotree {
 
 .authenticateLinkParagraph a {
     text-decoration: underline;
+    color: #fff;
 }
 
 /* -----------------------
@@ -410,6 +447,7 @@ a.btn-annotree {
     overflow-x: hidden;
     opacity: 1;
     background-color: #f1f1f1;
+    border-radius: 5px;
     transition: opacity .25s linear;
     -moz-transition: opacity .25s linear;
     -webkit-transition: opacity .25s linear;
@@ -498,8 +536,8 @@ a.btn-annotree {
     border-radius: 5px 5px 0 0;
     padding: 3px;
     min-height: 25px;
-    background-color: #5cc080;
-    color: #fff;
+    background-color: #fff;
+    color: #444;
     text-decoration: none;
 }
 
@@ -691,7 +729,7 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 }
 
 #branchButtons {
-    padding-left: 25px;
+    padding: 10px 0 25px 25px;
 }
 
 #addBranch:hover {
@@ -723,21 +761,7 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
     width: 60%;
     max-width: 800px;
 }
-/*
-.btn-add-branch {
-    height: 25px;
-    line-height: 5px;
-    background: white;
-    border: white;
-    color: #222;
-    margin-left: 10px;
-}
 
-.btn-add-branch:hover {
-    background-color: #eee;
-    color: #222;
-}
-*/
 #treeInvite {
     float: left; width: 20%;
     clear: left;
@@ -769,7 +793,7 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 
 .branchCountLabel {
     display: inline;
-    background-color: #0f9d58;
+    background-color: #5cc080;
     color: #fff;
     font-weight: 400;
     padding: .25em .6em;
@@ -999,19 +1023,23 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
     height: 45px;
     vertical-align: middle;
     display: table-cell;
-    background-color: #fff;
+    background-color: #444;
     font-size: 14pt;
     padding: 5px;
     padding-left: 20px;
-    color: #888;
+    color: #ccc;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
     font-weight: 400;
 }
 
 #docsHolder {
     height: 100%;
-    width: 170px;
+    width: 20%;
     float: left;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #444;
+    box-shadow: -15px 0 15px -15px #000 inset;
 }
 
 #docsHolder > a {
@@ -1019,25 +1047,26 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 }
 
 .docs {
-    background-color: #fff;
-    width: 170px;
+    box-shadow: -15px 0 15px -15px #000 inset;
+    background-color: #444;
     height: 40px;
     line-height: 40px;
     padding-left: 25px;
     color: #5cc080;
     font-weight: 400;
-    font-size: 10pt;
+    font-size: 11pt;
 }
 
 .docs:hover {
-    color: #888;
+    color: #fff;
     cursor: pointer;
 }
 
 .activeDocs {
-    color: #888;
+    color: #fff;
     cursor: auto;
     font-weight: 400;
+    background-color: #5cc080;
 }
 
 .activeDocs:hover {
@@ -1045,17 +1074,34 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
     cursor: auto;
 }
 
-#resources {
-    height: calc(100% - 90px);
-    width: calc(100% - 270px);
-    float: left;
-    margin-left: 170px;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
+.docsSubPageHeader {
+    height: 45px;
+    color: #444;
+    font-size: 14pt;
+    background-color: #fff;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid #ccc;
+    padding-left: 20px;
+    vertical-align: middle;
+}
+
+.docsSubPageContent {
     padding: 20px;
-    position: absolute;
+}
+
+.docsSubPageHeader > div {
+    display: table-cell;
+    vertical-align: middle;
+    height: 45px;
+}
+
+#resources {
+    background-color: #f1f1f1;
+    position: relative;
+    height: 100%;
+    width: 80%;
+    margin-left: 20%;
+    border-radius: 5px;
     overflow-y: auto;
     overflow-x: hidden;
     transition: opacity .25s linear;

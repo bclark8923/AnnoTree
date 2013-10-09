@@ -34,14 +34,14 @@
             <button ng-click="openNewBranchModal()" class="btn btn-default">
                 <i class="icon-plus"></i>&nbsp;Add
             </button>
-            <button class="btn btn-annotree">
+            <!--button class="btn btn-annotree">
                 <i class="icon-edit"></i>&nbsp;Edit
-            </button>
+            </button-->
         </div>
     </div>
     <div id="treeInvite"> 
         <button class="btn btn-annotree" ng-click="openModifyTreeModal()">
-            <i class="icon-user"></i>&nbsp;Invite Users
+            <i class="icon-user"></i>&nbsp;Manage Users
         </button>
     </div>
 
@@ -150,7 +150,7 @@
                     </div>
                     <p>
                         To learn how to integrate your app with AnnoTree and the SDK key head to the
-                        <a href="#/app/docs">Documentation</a>
+                        <a href="#/app/docs" data-dismiss="modal">Documentation</a>
                     </p>
                 </div>
                 <div class="modal-footer">
@@ -215,10 +215,10 @@
                             <span class="tipText">Tip: A branch helps you to group and organize leaves</span>
                         </div>
                         <div class="branchTypeSelect">
-                            <button type="button" class="btn btn-lg" style="width:100px;border-radius: 10px 0px 0px 10px;" ng-click="selectedBranchType='grid'" ng-class="{'btn-annotree':selectedBranchType=='grid','btn-default':selectedBranchType!='grid'}">
+                            <button type="button" class="btn btn-lg" style="width:100px;border-radius: 10px 0px 0px 10px;margin-right:-5px" ng-click="selectedBranchType='grid'" ng-class="{'btn-pressed':selectedBranchType=='grid','btn-default':selectedBranchType!='grid'}">
                                 <i class="icon-th"></i>&nbsp;Grid
                             </button>
-                            <button type="button" class="btn btn-default btn-lg" style="width:100px;border-radius: 0px 10px 10px 0px;" ng-click="selectedBranchType='tasks'" ng-class="{'btn-annotree':selectedBranchType=='tasks','btn-default':selectedBranchType!='tasks'}">
+                            <button type="button" class="btn btn-lg" style="width:100px;border-radius: 0px 10px 10px 0px;" ng-click="selectedBranchType='tasks'" ng-class="{'btn-pressed':selectedBranchType=='tasks','btn-default':selectedBranchType!='tasks'}">
                                 <i class="icon-tasks icon-rotate-90"></i>&nbsp;Tasks
                             </button>
                         </div>

@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS `annotree`.`leaf` ;
 
 CREATE  TABLE IF NOT EXISTS `annotree`.`leaf` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(60) NULL ,
+  `name` VARCHAR(512) NULL ,
   `description` VARCHAR(1024) NULL ,
   `owner_user_id` INT NULL ,
   `branch_id` INT NULL ,

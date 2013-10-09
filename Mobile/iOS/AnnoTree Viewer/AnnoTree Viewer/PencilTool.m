@@ -9,6 +9,7 @@
 #import "PencilTool.h"
 #import "DDLog.h"
 #import "ToolbarBg.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation PencilTool
 
@@ -43,7 +44,9 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self addLineButton:4 buttonLocation:0];
         [self addLineButton:10 buttonLocation:1];
         [self addLineButton:16 buttonLocation:2];
-        [self setDrawColor:[UIColor redColor]];
+        [self colorSelector:toolbarButtons[1]];
+        [self widthSelector:toolbarButtons[4]];
+        
         
     }
     return self;
@@ -83,6 +86,12 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 -(IBAction)widthSelector:(UIButton*)button {
     DDLogVerbose(@"Setting Color");
+    for(UIButton*b in toolbarButtons){
+        if([b tag]){
+            b.layer.borderWidth = 0.0f;
+        }
+    }
+    [[button layer] setBorderWidth:2.0f];
     [self setWidth:[button tag]];
 }
 
@@ -106,10 +115,17 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 -(IBAction)colorSelector:(UIButton*)button {
     DDLogVerbose(@"Setting Color");
+    for(UIButton*b in toolbarButtons){
+        if([b backgroundColor]){
+            b.layer.borderWidth = 0.0f;
+        }
+    }
+    [[button layer] setBorderWidth:2.0f];
     [self setDrawColor:[button backgroundColor]];
 }
 
 -(void)setDrawColor:(UIColor *)color{
+    
     [drawScreen setDrawColor:color];
 }
 

@@ -9,6 +9,7 @@
 #import "TextTool.h"
 #import "DDLog.h"
 #import "ToolbarBg.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation TextTool
 @synthesize drawScreen;
@@ -43,8 +44,8 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self addTextButton:18 buttonLocation:1];
         [self addTextButton:22 buttonLocation:2];
         
-        [self setTextSize:14];
-        [self setTextColor:[UIColor redColor]];
+        [self colorSelector:toolbarButtons[1]];
+        [self sizeSelector:toolbarButtons[4]];
         
         
     }
@@ -98,6 +99,13 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 }
 
 -(IBAction)sizeSelector:(UIButton*)button{
+    DDLogVerbose(@"Setting Color");
+    for(UIButton*b in toolbarButtons){
+        if([b tag]){
+            b.layer.borderWidth = 0.0f;
+        }
+    }
+    [[button layer] setBorderWidth:2.0f];
     [drawScreen setTextSize:button.tag];
 }
 
@@ -106,6 +114,12 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 }
 -(IBAction)colorSelector:(UIButton*)button {
     DDLogVerbose(@"Setting Color");
+    for(UIButton*b in toolbarButtons){
+        if([b backgroundColor]){
+            b.layer.borderWidth = 0.0f;
+        }
+    }
+    [[button layer] setBorderWidth:2.0f];
     [self setTextColor:[button backgroundColor]];
 }
 -(void)setUnselected{

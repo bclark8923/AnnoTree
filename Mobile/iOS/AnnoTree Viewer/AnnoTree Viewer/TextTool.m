@@ -41,6 +41,10 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self addTextButton:14 buttonLocation:0];
         [self addTextButton:18 buttonLocation:1];
         [self addTextButton:22 buttonLocation:2];
+        
+        [self setTextSize:14];
+        [self setTextColor:[UIColor redColor]];
+        
         drawScreen = [[DrawingViewController alloc] init];
     }
     return self;

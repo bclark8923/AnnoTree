@@ -138,7 +138,8 @@
                         $scope.changeForestOwnerWorking = false;
                     }
                 );
-
+                
+                $scope.forestRenameShow = false;
                 $scope.modifyForestWorking = false;
                 $scope.modifyForestErrorMessage = false;
                 $scope.modifyForestRef = forest;

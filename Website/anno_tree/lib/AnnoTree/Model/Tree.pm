@@ -274,7 +274,7 @@ sub addUserToTree {
             $body .= ' ' if $curUserInfo->[0];
             $body .= $curUserInfo->[1];
             $body .= ' has invited you to the ' . $curUserInfo->[2] . " tree.<br/><br/>";
-            $body .= 'Go to <a href="https://ccp.annotree.com">https://ccp.annotree.com</a> to view this tree.' . "<br/>";
+            $body .= 'Go to <a href="https://ccp.annotree.com/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '">https://ccp.annotree.com/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '</a> to view this tree.' . "<br/>";
         } else {
             $subject = "You've Been Invited To Join AnnoTree";
             $json->{first_name} = '';

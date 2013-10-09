@@ -27,6 +27,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self setBackgroundImage:textIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
         [self addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
         
+        drawScreen = [[DrawingViewController alloc] init];
         [self.drawScreen.view setAutoresizesSubviews:YES];
         [self.drawScreen.view setAutoresizingMask: UIViewAutoresizingFlexibleWidth |
          UIViewAutoresizingFlexibleHeight];
@@ -45,7 +46,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self setTextSize:14];
         [self setTextColor:[UIColor redColor]];
         
-        drawScreen = [[DrawingViewController alloc] init];
+        
     }
     return self;
 }

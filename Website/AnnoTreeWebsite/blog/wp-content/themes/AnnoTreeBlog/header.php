@@ -19,8 +19,8 @@
   <meta name="keywords" content="" />
   <meta name="author" content="humans.txt">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="http://annotree.com/favicon.ico" />
+  <link rel="icon" type="image/png" href="http://annotree.com/favicon.png" />
 
   <!-- Facebook Metadata /-->
   <meta property="fb:page_id" content="118364948355465" />

@@ -43,6 +43,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self addLineButton:4 buttonLocation:0];
         [self addLineButton:10 buttonLocation:1];
         [self addLineButton:16 buttonLocation:2];
+        [self setDrawColor:[UIColor redColor]];
         
     }
     return self;
@@ -119,7 +120,6 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 }
 
 -(IBAction)setSelectedButton:(UIButton*)button {
-    NSLog(@"Log Fail");
     DDLogVerbose(@"PencilTool: setSelectedButton Activated");
     [super.annoTree unselectAll];
     

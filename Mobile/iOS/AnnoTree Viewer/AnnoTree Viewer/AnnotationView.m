@@ -194,6 +194,7 @@
 
 -(void) clearAll {
     [drawings removeAllObjects];
+    [drawingsColor removeAllObjects];
     for(UITextView *view in textBoxes) {
         [view removeFromSuperview];
     }

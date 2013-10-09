@@ -58,11 +58,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand navbar-annotree" href="./index.html"><img src="/wp-content/themes/AnnoTreeBlog/img/LogoNameWeb.png" /></a>
+        <a class="navbar-brand navbar-annotree" href="http://annotree.com"><img src="/wp-content/themes/AnnoTreeBlog/img/LogoNameWeb.png" /></a>
       </div>
       <div class="navbar-collapse bs-navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-nav-annotree">
-          <li><a href="./index.html">Home</a></li>
+          <li><a href="http://annotree.com">Home</a></li>
           <li class="active"><a href="http://blog.annotree.com">Blog</a></li>
           <li class="signInButton">
             <a style="color:white;text-decoration:none;padding:0;" href="http://ccp.annotree.com">

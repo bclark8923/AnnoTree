@@ -1,6 +1,6 @@
   <div id="sidebarcontent">
     <h4 style="color:#555;">Categories</h4>
-     <ul>
+     <ul style="list-style:none;padding-left:0;">
       <?php
 		$args = array(
 		  'orderby' => 'name',
@@ -13,7 +13,7 @@
 		?>
      </ul>
     <h4 style="color:#555;">Archives</h4>
-     <ul>
+     <ul style="list-style:none;padding-left:0;">
       <?php wp_get_archives('type=monthly'); ?>
      </ul>
   </div>

@@ -241,7 +241,7 @@ $message .= '</table>';
 
 # Get number of leaves per tree - top 20 only
 $result = $db->execute(
-    "select count(leaf.id) as 'leaves', tree.name, concat(user.first_name, ' ', user.last_name) as 'username', user.email from leaf join branch on branch.id = leaf.branch_id join tree on branch.tree_id = tree.id join user on tree.owner_id = user.id group by leaf.branch_id order by count(leaf.id) desc limit 0, 20"
+    "select count(leaf.id) as 'leaves', tree.name, concat(user.first_name, ' ', user.last_name) as 'username', user.email from leaf join branch on branch.id = leaf.branch_id join tree on branch.tree_id = tree.id join user on tree.owner_id = user.id where tree.active = 1 and branch.active = 1 and leaf.active = 1 group by tree.id order by count(leaf.id) desc limit 0, 20"
 );
 
 $message .= createLabel('Top 20 trees based on number of leaves created') . '<br/>';
@@ -285,7 +285,7 @@ $result = $db->execute(
     "select email, created_at, status from user where signup_date is null and status != 0 order by created_at desc"
 );
 
-$message .= createLabel('Users that can access the CCP but have no logged in') . '<br/>';
+$message .= createLabel('Users that can access the CCP but have not logged in') . '<br/>';
 $message .= '<table style="border:1px solid #000;text-align:center;margin-bottom:15px">' . createTableHeaders([
         'Email',
         'Created',

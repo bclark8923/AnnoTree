@@ -461,6 +461,64 @@
                 ); 
             }
         }
+
+        $scope.editBranches = function(yes) {
+            $scope.edittingBranches = yes;
+            if (!yes) {
+                $scope.editBranchPencil.className = "icon-pencil icon-flip-horizontal";
+                $scope.editBranchSpan.style.display = 'inline';
+                $scope.parentElement.removeChild($scope.parentElement.lastChild);
+                $scope.parentElement.style.width = "93%";
+                $scope.editBranchDelete.style.display = "block"; 
+                $scope.branchEdited = null;
+            }
+        }
+
+        $scope.renameBranch = function(evt, branch) {
+            if ($scope.branchEdited) {
+                var name = "";
+                if (document.getElementById('renameBranchInput')) {
+                    name = document.getElementById('renameBranchInput').value;
+                }
+                $scope.editBranchPencil.className = "icon-pencil icon-flip-horizontal";
+                $scope.editBranchSpan.style.display = 'inline';
+                $scope.parentElement.removeChild($scope.parentElement.lastChild);
+                $scope.parentElement.style.width = "93%";
+                $scope.editBranchDelete.style.display = "block";
+                if ($scope.branchEdited.id !== branch.id) {
+                    displayBranchInput(evt, branch);
+                } else {
+                    alert('rename this to: ' + name);
+                    branch.name = name;
+                    $scope.branchEdited = null;
+                }
+            } else {
+                displayBranchInput(evt, branch);
+            }
+        }
+
+        function displayBranchInput(evt, branch) {
+            $scope.branchEdited = branch;
+            $scope.editBranchPencil = evt.target;
+            $scope.editBranchPencil.className = "icon-check";
+            $scope.editBranchSpan = evt.target.nextSibling;
+            $scope.editBranchSpan.style.display = 'none';
+            $scope.textInput = document.createElement("input");
+            $scope.textInput.className = "form-control";
+            $scope.textInput.id = "renameBranchInput";
+            $scope.textInput.style.display = "inline";
+            $scope.textInput.style.width = "calc(100% - 23px)";
+            $scope.textInput.value = branch.name;
+            $scope.parentElement = evt.target.parentElement;
+            $scope.parentElement.appendChild($scope.textInput);
+            $scope.parentElement.style.width = "100%";
+            $scope.editBranchDelete = $scope.parentElement.nextElementSibling;
+            $scope.editBranchDelete.style.display = "none";
+        }
+
+        $scope.deleteBranch = function(branch) {
+            alert('delete: ' + branch.name)
+        }
         /*
         $scope.mobileGoToHome = function() {
             if (settingsPane.isOpen) {

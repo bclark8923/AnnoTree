@@ -464,7 +464,7 @@
 
         $scope.editBranches = function(yes) {
             $scope.edittingBranches = yes;
-            if (!yes) {
+            if (!yes && $scope.branchEdited) {
                 $scope.editBranchPencil.className = "icon-pencil icon-flip-horizontal";
                 $scope.editBranchSpan.style.display = 'inline';
                 $scope.parentElement.removeChild($scope.parentElement.lastChild);

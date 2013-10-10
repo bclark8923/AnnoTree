@@ -487,9 +487,20 @@
                 $scope.editBranchDelete.style.display = "block";
                 if ($scope.branchEdited.id !== branch.id) {
                     displayBranchInput(evt, branch);
-                } else {
-                    alert('rename this to: ' + name);
+                } else if (nameTest.test(name) && name != branch.name) {
+                    var promise = $http.put(apiRoot.getRoot() + '/services/' + $scope.tree.id + '/branch/' + branch.id, {
+                        name: name
+                    });
+            
+                    //TODO: figure out what to do on success/failure
+                    promise.then(
+                        function(response) {},
+                        function(response) {}
+                    );
+
                     branch.name = name;
+                    $scope.branchEdited = null;
+                } else if (!nameTest.test(name)) {
                     $scope.branchEdited = null;
                 }
             } else {
@@ -516,8 +527,44 @@
             $scope.editBranchDelete.style.display = "none";
         }
 
-        $scope.deleteBranch = function(branch) {
-            alert('delete: ' + branch.name)
+        $scope.openDeleteBranch = function(branch) {
+            $scope.deleteBranch = branch;
+            $scope.deleteBranchErrorMessage = false;
+            $scope.deleteBranchModalWorking = false;
+            $('#deleteBranchModal').appendTo('body').modal('show');
+        }
+        
+        function setDeleteBranchError(msg) {
+            $scope.deleteBranchErrorText = msg;
+            $scope.deleteBranchErrorMessage = true;
+            $scope.deleteBranchModalWorking = false;
+        }
+
+        $scope.branchDelete = function() {
+            var promise = $http.delete(apiRoot.getRoot() + '/services/' + $scope.tree.id + '/branch/' + $scope.deleteBranch.id);
+            $scope.deleteBranchModalWorking = true;
+
+            promise.then(
+                function(response) {
+                    for (var i = 0; i < $scope.tree.branches.length; i++) {
+                        if ($scope.tree.branches[i].id == $scope.deleteBranch.id) {
+                            if ($scope.deleteBranch.id == $scope.activeBranch.id) {
+                                setActiveBranch($scope.tree.branches[0]);
+                            }
+                            $scope.tree.branches.splice(i, 1);
+                            break;
+                        }
+                    }
+                    $('#deleteBranchModal').modal('hide');
+                },
+                function(response) {
+                    if (response.status != 500 && response.status != 502) {
+                        setDeleteBranchError(response.data.txt);
+                    } else {
+                        setDeleteBranchError(constants.servicesDown());
+                    }
+                }
+            );
         }
         /*
         $scope.mobileGoToHome = function() {
@@ -550,6 +597,10 @@
         $('#deleteTreeModal').on('hidden.bs.modal', function() {
             $('#deleteTreeModal').appendTo('#treeIndex');
         });
+
+        $('#deleteBranchModal').on('hidden.bs.modal', function() {
+            $('#deleteBranchModal').appendTo('#treeIndex');
+        });
         
         $('#newLeafModal').on('hidden.bs.modal', function() {
             $('#newLeafModal').appendTo('#treeIndex');
@@ -567,13 +618,9 @@
         $scope.leafDisplay = $scope.leafDisplayOptions[0];
 
         $scope.$watch('leafDisplay', function() {
-            //alert($scope.leafDisplay.name);
             $scope.$broadcast('filterLeaves', $scope.leafDisplay.value); 
         });
-        //$scope.$evalAsync(loadTreeData());
         var nameTest = new RegExp('[A-Za-z0-9]');
         loadTreeData($routeParams.treeID) 
-        console.log('tree');
-
     });
 })(angular, AnnoTree);

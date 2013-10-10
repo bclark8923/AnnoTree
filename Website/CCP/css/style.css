@@ -333,6 +333,7 @@ a.btn-annotree {
     width: 100%;
     max-width: 800px;
     height: 500px;
+    margin: 0 auto;
 }
 /* -----------------------
  * Authentication Settings
@@ -735,13 +736,13 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 }
 
 .branch > .edit > i {
-    color: #ff9;
+    color: #fff;
     margin-right: 5px;
     cursor: pointer;
 }
 
 .branch > .edit > i:hover {
-    color: #ff0;
+    color: #ff5;
 }
 
 .branch > .delete {
@@ -750,7 +751,7 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 }
 
 .branch > .delete > i {
-    color: #900;
+    color: #8f3636;
 }
 
 .branch > .delete > i:hover {
@@ -815,7 +816,7 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 #branchEdit {
     position: absolute;
     height: 100%;
-    width: calc(80% - 60px);
+    width: calc(80% - 64px);
     background-color: rgba(0, 0, 0, 0.33);
     z-index: 1000;
     right: 0;

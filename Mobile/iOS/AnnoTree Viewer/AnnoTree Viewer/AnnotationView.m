@@ -14,6 +14,7 @@
 
 @synthesize drawingEnabled;
 @synthesize textEnabled;
+@synthesize deleteEnabled;
 @synthesize drawColor;
 @synthesize textColor;
 @synthesize lineWidth;
@@ -130,6 +131,10 @@
         [textBoxes addObject:textField];
         [textField becomeFirstResponder];
 
+    }
+    
+    if(deleteEnabled){
+    
     }
 }
 

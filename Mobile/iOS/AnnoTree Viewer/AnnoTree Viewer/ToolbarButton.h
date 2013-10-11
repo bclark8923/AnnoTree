@@ -12,6 +12,9 @@
 @interface ToolbarButton : UIButton
 
 @property AnnoTree *annoTree;
+@property (nonatomic, retain) DrawingViewController *drawScreen;
+@property (nonatomic, retain) NSMutableArray *toolbarButtons;
+
 - (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree;
 - (void)setUnselected;
 - (void)clearAll;

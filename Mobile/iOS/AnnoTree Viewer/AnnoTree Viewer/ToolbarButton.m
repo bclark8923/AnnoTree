@@ -12,8 +12,9 @@
 @implementation ToolbarButton
 
 @synthesize annoTree;
+@synthesize drawScreen;
 
-
+@synthesize toolbarButtons;
 - (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree
 {
     self = [super initWithFrame:frame];

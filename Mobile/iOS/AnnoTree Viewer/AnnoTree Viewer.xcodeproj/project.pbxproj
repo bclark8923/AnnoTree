@@ -121,6 +121,10 @@
 		D3F2A9451804D87300493DAC /* text_18px.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F2A9381804D6F400493DAC /* text_18px.png */; };
 		D3F2A9461804D87300493DAC /* text_22px.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F2A9391804D6F400493DAC /* text_22px.png */; };
 		D3F2A9581804D9C700493DAC /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3F2A9551804D9C700493DAC /* AnnoTree.bundle */; };
+		D3F2A96D1806415E00493DAC /* EraserTool.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2A96B1806415D00493DAC /* EraserTool.h */; };
+		D3F2A96E1806415E00493DAC /* EraserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F2A96C1806415E00493DAC /* EraserTool.m */; };
+		D3F2A9711806614B00493DAC /* ToolbarButtonWithColorSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2A96F1806614900493DAC /* ToolbarButtonWithColorSelector.h */; };
+		D3F2A9721806614B00493DAC /* ToolbarButtonWithColorSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F2A9701806614A00493DAC /* ToolbarButtonWithColorSelector.m */; };
 		D3F2BB5A17CDCA5B00A8B1FF /* ToolbarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2BB5217CDC4A400A8B1FF /* ToolbarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3F2BB5B17CDCA6700A8B1FF /* PencilTool.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2BB5617CDC5E100A8B1FF /* PencilTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3F2BB5C17CDCA7500A8B1FF /* MoveableText.h in Headers */ = {isa = PBXBuildFile; fileRef = 06800E4617B3C8F200EA650D /* MoveableText.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -318,6 +322,10 @@
 		D3F2A9381804D6F400493DAC /* text_18px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = text_18px.png; path = ../../../../Extensions/Chrome/images/text_18px.png; sourceTree = "<group>"; };
 		D3F2A9391804D6F400493DAC /* text_22px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = text_22px.png; path = ../../../../Extensions/Chrome/images/text_22px.png; sourceTree = "<group>"; };
 		D3F2A9551804D9C700493DAC /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = "../../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos/AnnoTree.bundle"; sourceTree = "<group>"; };
+		D3F2A96B1806415D00493DAC /* EraserTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EraserTool.h; sourceTree = "<group>"; };
+		D3F2A96C1806415E00493DAC /* EraserTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EraserTool.m; sourceTree = "<group>"; };
+		D3F2A96F1806614900493DAC /* ToolbarButtonWithColorSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarButtonWithColorSelector.h; sourceTree = "<group>"; };
+		D3F2A9701806614A00493DAC /* ToolbarButtonWithColorSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarButtonWithColorSelector.m; sourceTree = "<group>"; };
 		D3F2BB5217CDC4A400A8B1FF /* ToolbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarButton.h; sourceTree = "<group>"; };
 		D3F2BB5317CDC4A400A8B1FF /* ToolbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarButton.m; sourceTree = "<group>"; };
 		D3F2BB5617CDC5E100A8B1FF /* PencilTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PencilTool.h; sourceTree = "<group>"; };
@@ -455,6 +463,10 @@
 				D3F2BB5717CDC5E100A8B1FF /* PencilTool.m */,
 				D3F2BB6A17D2982300A8B1FF /* TextTool.h */,
 				D3F2BB6B17D2982300A8B1FF /* TextTool.m */,
+				D3F2A96B1806415D00493DAC /* EraserTool.h */,
+				D3F2A96C1806415E00493DAC /* EraserTool.m */,
+				D3F2A96F1806614900493DAC /* ToolbarButtonWithColorSelector.h */,
+				D3F2A9701806614A00493DAC /* ToolbarButtonWithColorSelector.m */,
 			);
 			name = ToolbarActions;
 			sourceTree = "<group>";
@@ -777,6 +789,8 @@
 				D3F024D017E65032000F6D5B /* DDTTYLogger.h in Headers */,
 				D3F024D217E65032000F6D5B /* ContextFilterLogFormatter.h in Headers */,
 				D3F024D417E65032000F6D5B /* DispatchQueueLogFormatter.h in Headers */,
+				D3F2A96D1806415E00493DAC /* EraserTool.h in Headers */,
+				D3F2A9711806614B00493DAC /* ToolbarButtonWithColorSelector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1095,6 +1109,8 @@
 				D3F024D117E65032000F6D5B /* DDTTYLogger.m in Sources */,
 				D3F024D317E65032000F6D5B /* ContextFilterLogFormatter.m in Sources */,
 				D3F024D517E65032000F6D5B /* DispatchQueueLogFormatter.m in Sources */,
+				D3F2A96E1806415E00493DAC /* EraserTool.m in Sources */,
+				D3F2A9721806614B00493DAC /* ToolbarButtonWithColorSelector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

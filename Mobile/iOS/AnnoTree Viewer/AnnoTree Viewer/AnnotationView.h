@@ -24,6 +24,7 @@
 
 @property BOOL drawingEnabled;
 @property BOOL textEnabled;
+@property BOOL deleteEnabled;
 @property int lineWidth;
 @property int textSize;
 

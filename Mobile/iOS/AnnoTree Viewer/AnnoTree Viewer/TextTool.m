@@ -12,15 +12,15 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation TextTool
-@synthesize drawScreen;
+
 static const int ddLogLevel = LOG_LEVEL_ERROR;
-@synthesize toolbarButtons;
+
 
 - (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree
 {
     self = [super initWithFrame:frame annotree:annotree];
     if (self) {
-        toolbarButtons = [[NSMutableArray alloc] init];
+        self.toolbarButtons = [[NSMutableArray alloc] init];
         UIImage *textIconImage = [UIImage imageNamed:@"AnnoTree.bundle/TextIconToolbar.png"];
         UIImage *textIconImageSelected = [UIImage imageNamed:@"AnnoTree.bundle/TextIconToolbarSelected.png"];
         [self setBackgroundImage:textIconImage forState:UIControlStateNormal];
@@ -28,7 +28,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self setBackgroundImage:textIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
         [self addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
         
-        drawScreen = [[DrawingViewController alloc] init];
+        self.drawScreen = [[DrawingViewController alloc] init];
         [self.drawScreen.view setAutoresizesSubviews:YES];
         [self.drawScreen.view setAutoresizingMask: UIViewAutoresizingFlexibleWidth |
          UIViewAutoresizingFlexibleHeight];
@@ -44,23 +44,22 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self addTextButton:18 buttonLocation:1];
         [self addTextButton:22 buttonLocation:2];
         
-        [self colorSelector:toolbarButtons[1]];
-        [self sizeSelector:toolbarButtons[4]];
+        [self colorSelector:self.toolbarButtons[1]];
+        [self sizeSelector:self.toolbarButtons[4]];
         
         
     }
     return self;
 }
 
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+-(IBAction)setSelectedButton:(UIButton*)button{
+    [super setSelectedButton:button];
+    [self.drawScreen setTextEnabled:YES];
+}
 
--(void)addRectangleForToolbar:(int)x1 y1:(int)y1 x2:(int)x2 y2:(int)y2{
-    ToolbarBg* toolbarBg = [[ToolbarBg alloc] initWithFrame:CGRectMake(x1,y1, x2, y2)];
-    toolbarBg.hidden = YES;
-    toolbarBg.backgroundColor = UIColorFromRGB(0x3F3F3F);
-    //[self.annoTree.annoTreeToolbar addSubview:toolbarBg];
-    [self.toolbarButtons addObject:toolbarBg];
-    [self.annoTree.toolbarObjects addObject:toolbarBg];
+
+-(void)setColor:(UIColor *)color{
+    [self setTextColor:color];
 }
 
 -(void)addTextButton:(int)size buttonLocation:(int)buttonLocation{
@@ -81,72 +80,28 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
 }
 
 
--(void)addColorButton:(UIColor *)color buttonLocation:(int)buttonLocation{
-    DDLogVerbose(@"Adding color button color:");
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setFrame:CGRectMake(self.annoTree.space*(1 + buttonLocation/2.0),self.annoTree.space, self.annoTree.sizeIcon/2, self.annoTree.sizeIcon/2)];
-    [button setBackgroundColor:color];
-    button.userInteractionEnabled = YES;
-    [button addTarget:self action:@selector(colorSelector:) forControlEvents:UIControlEventTouchUpInside];
-    button.hidden = YES;
-    [self.annoTree.toolbarButtons addObject:button];
-    [self.toolbarButtons addObject:button];
-    //[self.annoTree.annoTreeToolbar addSubview:button];
-}
-
 -(void)setTextSize:(int)size{
-    [drawScreen setTextSize:size];
+    [self.drawScreen setTextSize:size];
 }
 
 -(IBAction)sizeSelector:(UIButton*)button{
     DDLogVerbose(@"Setting Color");
-    for(UIButton*b in toolbarButtons){
+    for(UIButton*b in self.toolbarButtons){
         if([b tag]){
             b.layer.borderWidth = 0.0f;
         }
     }
     [[button layer] setBorderWidth:2.0f];
-    [drawScreen setTextSize:button.tag];
+    [self.drawScreen setTextSize:button.tag];
 }
 
 -(void)setTextColor:(UIColor *)color{
-    [drawScreen setTextColor:color];
-}
--(IBAction)colorSelector:(UIButton*)button {
-    DDLogVerbose(@"Setting Color");
-    for(UIButton*b in toolbarButtons){
-        if([b backgroundColor]){
-            b.layer.borderWidth = 0.0f;
-        }
-    }
-    [[button layer] setBorderWidth:2.0f];
-    [self setTextColor:[button backgroundColor]];
-}
--(void)setUnselected{
-    DDLogVerbose(@"In TextTool: setUnselected");
-    [drawScreen setTextEnabled:NO];
-    for(UIButton* button in self.toolbarButtons){
-        [button removeFromSuperview];
-    }
-}
--(IBAction)setSelectedButton:(UIButton*)button {
-    DDLogVerbose(@"TextTool: setSelectedButton Activated");
-    [super.annoTree unselectAll];
-    
-    for(UIButton* button in self.toolbarButtons){
-        button.userInteractionEnabled = YES;
-        [self.annoTree.annoTreeToolbar addSubview:button];
-    }
-    self.selected = YES;
-    self.highlighted = NO;
-    self.enabled = NO;
-    [drawScreen setTextEnabled:YES];
-    [super.annoTree.view insertSubview:drawScreen.view belowSubview:super.annoTree.annoTreeToolbar];
+    [self.drawScreen setTextColor:color];
 }
 
--(void)clearAll{
-    [drawScreen clearAll];
-}
+
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

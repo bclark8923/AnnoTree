@@ -125,6 +125,8 @@ sub startup {
     # ===== BRANCHES =====
     $authr->post('/:treeid/branch' => [treeid => qr/\d+/])                                      ->to('controller-branch#create');
     $authr->get('/:treeid/branch/:branchid' => [treeid => qr/\d+/, branchid => qr/\d+/])        ->to('controller-branch#info');
+    $authr->put('/:treeid/branch/:branchid' => [treeid => qr/\d+/, branchid => qr/\d+/])        ->to('controller-branch#rename');
+    $authr->delete('/:treeid/branch/:branchid' => [treeid => qr/\d+/, branchid => qr/\d+/])     ->to('controller-branch#delete');
     $authr->get('/:treeid/parentbranch/:branchid' => [treeid => qr/\d+/, branchid => qr/\d+/])  ->to('controller-branch#parentInfo');
 
     # ===== LEAVES =====

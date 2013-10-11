@@ -326,13 +326,14 @@ a.btn-annotree {
     position: absolute;
     bottom: 0px;
     right: 20px;
-    z-index: 100;
+    z-index: 10000;
 }
 
 #helpVideo {
     width: 100%;
     max-width: 800px;
     height: 500px;
+    margin: 0 auto;
 }
 /* -----------------------
  * Authentication Settings
@@ -704,6 +705,7 @@ div[ng-switch].assignedUser {
 .branch {
     color: #5cc080;
 }
+
 #branchHolder div[ng-switch] {
     display: table;
 }
@@ -721,6 +723,40 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
 
 .branch > i {
     margin-right: 5px;
+}
+
+.branch > .edit {
+    float: left;
+    width: 93%;
+}
+
+.branch.editMode:hover {
+    color: #5cc080;
+    cursor: auto;
+}
+
+.branch > .edit > i {
+    color: #fff;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.branch > .edit > i:hover {
+    color: #ff5;
+}
+
+.branch > .delete {
+    float: right;
+    width: 5%;
+}
+
+.branch > .delete > i {
+    color: #8f3636;
+}
+
+.branch > .delete > i:hover {
+    cursor: pointer;
+    color: #600;
 }
 
 .branchHover {
@@ -775,6 +811,16 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
     text-align: center;
     padding-top: 5px;
     border-top: 1px solid #222; 
+}
+
+#branchEdit {
+    position: absolute;
+    height: 100%;
+    width: calc(80% - 64px);
+    background-color: rgba(0, 0, 0, 0.33);
+    z-index: 1000;
+    right: 0;
+    top: 0;
 }
 /* -----------------------
  * Sub-branch Settings

@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-sm-4 footerCol">
           <a href="http://silith.io" target="_blank">
-            <img src="/annotestblog/wp-content/themes/AnnoTreeBlog/img/SilithIO.png" style="height:10px;"/>
+            <img src="/wp-content/themes/AnnoTreeBlog/img/SilithIO.png" style="height:10px;"/>
           </a>
         </div>
         <div class="col-sm-4 footerCol">

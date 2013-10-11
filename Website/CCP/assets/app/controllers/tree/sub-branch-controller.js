@@ -28,65 +28,6 @@
             );
         }
         
-        /*
-        $scope.testDrop = function() {
-            console.log('subbranch recieve');
-        }
-        $scope.$on('treeBranchDrop', function(evt) {
-            console.log('drop');
-        });
-
-        $scope.droppedLeaf = function(evt, ui) {
-            console.log(evt);
-            console.log(ui);
-            
-        }
-
-        $scope.subBranchDroppedLeaf = [];
-        $scope.subBranchDrop = function(evt, ui) {
-            var data = $scope.subBranchDroppedLeaf[0];
-            $scope.subBranchDroppedLeaf = [];
-            var regEx = /b(\d+)i(\d+)/;
-            var match = regEx.exec(evt.target.id);
-            var branchID = match[1];
-            var priority = parseInt(match[2]);
-            var oldBranchID = data.branch_id;
-            var oldPriority = data.priority;
-            var promise = $http.put(apiRoot.getRoot() + '/services/' + $routeParams.treeID + '/' + branchID + '/subchange/' + data.id, {
-                newPriority: priority + 1,
-                oldPriority: oldPriority,
-                oldBranch: oldBranchID
-            }); //TODO: check for success/failure
-            for (var i = 0; i < $scope.parentBranch.branches.length; i++) {
-                if ($scope.parentBranch.branches[i].id == branchID) {
-                    $scope.numLeaves[i]++;
-                    if (branchID == oldBranchID) {
-                        if (priority >= $scope.parentBranch.branches[i].leaves.length || priority == oldPriority) {
-                            priority--;
-                        }
-                        $scope.numLeaves[i]--;
-                    }
-                    data.branch_id = branchID;
-                    $scope.parentBranch.branches[i].leaves.splice(priority, 0, data);
-                    for (var l = 0; l < $scope.parentBranch.branches[i].leaves.length; l++) {
-                        $scope.parentBranch.branches[i].leaves[l].priority = l + 1;
-                    }
-                    break;
-                }
-            }
-            if (branchID != oldBranchID) {
-                for (var i = 0; i < $scope.parentBranch.branches.length; i++) {
-                    if ($scope.parentBranch.branches[i].id == oldBranchID) {
-                        $scope.numLeaves[i]--;
-                        for (var l = 0; l < $scope.parentBranch.branches[i].leaves.length; l++) {
-                            $scope.parentBranch.branches[i].leaves[l].priority = l + 1;
-                        }
-                        break;
-                    }
-                }
-            }
-        }
-        */
         function setScroll() {
             if ($(window).outerWidth() > 767) {
                 $timeout(function() {
@@ -130,6 +71,7 @@
         function createAssignPopoverBody(leafID, branchID) {
             var body = $('<select style="form-control" id="assignSelect"></select>');
             body.append($('<option value="0" selected>Choose who to assign</option>'));
+            var usersToAssign = false;
             for (var i = 0; i < $scope.tree.users.length; i++) {
                 var isAssigned = false;
                 for (var b = 0; b < $scope.parentBranch.branches.length; b++) {
@@ -150,32 +92,42 @@
                 }
                 if (!isAssigned) {
                     body.append($('<option value="' + $scope.tree.users[i].id + '">' + createName($scope.tree.users[i]) + '</option>'));
+                    usersToAssign = true;
                 }
             }
-            body.change(function(evt) {
-                var userID = $('#assignSelect').val();
-                $http.put(apiRoot.getRoot() + '/services/leaf/' + leafID + '/assign', {
-                    assign: userID
-                }); //TODO: check for success/failure
-                $("#assignSelect option[value='" + userID  + "']").remove();
-                for (var i = 0; i < $scope.tree.users.length; i++) {
-                    if ($scope.tree.users[i].id == userID) {
-                        for (var b = 0; b < $scope.parentBranch.branches.length; b++) {
-                            if ($scope.parentBranch.branches[b].id == branchID) {
-                                for (var l = 0; l < $scope.parentBranch.branches[b].leaves.length; l++) {
-                                    if ($scope.parentBranch.branches[b].leaves[l].id == leafID) {
-                                        $scope.parentBranch.branches[b].leaves[l].assigned.push($scope.tree.users[i]);
-                                        $scope.$apply();
-                                        break;
+            if (usersToAssign) {
+                body.change(function(evt) {
+                    var userID = $('#assignSelect').val();
+                    $http.put(apiRoot.getRoot() + '/services/leaf/' + leafID + '/assign', {
+                        assign: userID
+                    }); //TODO: check for success/failure
+                    $("#assignSelect option[value='" + userID  + "']").remove();
+                    for (var i = 0; i < $scope.tree.users.length; i++) {
+                        if ($scope.tree.users[i].id == userID) {
+                            for (var b = 0; b < $scope.parentBranch.branches.length; b++) {
+                                if ($scope.parentBranch.branches[b].id == branchID) {
+                                    for (var l = 0; l < $scope.parentBranch.branches[b].leaves.length; l++) {
+                                        if ($scope.parentBranch.branches[b].leaves[l].id == leafID) {
+                                            $scope.parentBranch.branches[b].leaves[l].assigned.push($scope.tree.users[i]);
+                                            $scope.$apply();
+                                            break;
+                                        }
                                     }
+                                    break;
                                 }
-                                break;
                             }
+                            break;
                         }
-                        break;
                     }
-                }
-            });
+                    if ($('#assignSelect option').length == 1) {
+                        $('#assignSelect').replaceWith(function() {
+                            return $('<span>All users have been assigned</span>');
+                        })
+                    }
+                });
+            } else {
+                body = "All users have been assigned";
+            }
             return body;
         }
         

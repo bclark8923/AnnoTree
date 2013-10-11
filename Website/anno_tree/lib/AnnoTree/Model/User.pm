@@ -6,12 +6,12 @@ use AnnoTree::Model::MySQL;
 use AnnoTree::Model::Email;
 use Scalar::Util qw(looks_like_number);
 use Data::Dumper;
-use Email::Sender::Simple qw(sendmail);
-use Email::Sender::Transport::SMTP ();
-use Email::Simple ();
-use Email::Simple::Creator ();
+#use Email::Sender::Simple qw(sendmail);
+#use Email::Sender::Transport::SMTP ();
+#use Email::Simple ();
+#use Email::Simple::Creator ();
 use Config::General;
-use Email::MIME;
+#use Email::MIME;
 use Digest::SHA qw(sha256_hex);
 use Time::Piece ();
 

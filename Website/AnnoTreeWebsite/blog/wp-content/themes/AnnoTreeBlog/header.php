@@ -45,7 +45,7 @@
   <link rel="stylesheet" href="/wp-content/themes/AnnoTreeBlog/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
 
-  <script src="js/libs/modernizr-2.6.2.min.js"></script>
+  <script src="/wp-content/themes/AnnoTreeBlog/js/libs/modernizr-2.6.2.min.js"></script>
 </head>
 
 <body>

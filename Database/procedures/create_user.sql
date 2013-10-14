@@ -40,9 +40,9 @@ If (@status and @status != 1) THEN
         user.profile_image_path = profile_image_path,
         user.signup_date = NOW()
         where user.email = email_in;
-    select 'id', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status' 
+    select 'id', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status', 'notf_tree_invite', 'notf_leaf_assign' 
     union
-     select id, first_name, last_name, email, created_at, lang, time_zone, profile_image_path, status from user where email_in = user.email;  
+     select id, first_name, last_name, email, created_at, lang, time_zone, profile_image_path, status, notf_tree_invite, notf_leaf_assign from user where email_in = user.email;  
   end if;
 ELSEIF (@status = 0) THEN
     SELECT '6';
@@ -66,9 +66,9 @@ ELSEIF email_in REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' then
             (password, first_name, last_name, email_in, lang, time_zone, profile_image_path, 3, NOW());
         set @user_id = LAST_INSERT_ID();
     END IF;
-    select 'id', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status' 
+    select 'id', 'first_name', 'last_name', 'email', 'created_at', 'lang', 'time_zone', 'profile_image_path', 'status', 'notf_tree_invite', 'notf_leaf_assign' 
     union
-    select id, first_name, last_name, email_in, created_at, lang, time_zone, profile_image_path, status from user where id = @user_id;
+    select id, first_name, last_name, email_in, created_at, lang, time_zone, profile_image_path, status, notf_tree_invite, notf_leaf_assign from user where id = @user_id;
         SET @name = concat(first_name, ' ', last_name);
         INSERT INTO forest (name, owner_id) VALUES (concat(@name, '\'s Sample Forest'), @user_id);
         SET @forest_id = LAST_INSERT_ID();

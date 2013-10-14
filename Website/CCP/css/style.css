@@ -517,7 +517,7 @@ a.btn-annotree {
 #settingsScroll {
     overflow-y: auto;
     overflow-x: hidden;
-    padding-bottom: 40px;
+    padding: 0 50px 40px 50px;
 }
 
 #settings .working {

@@ -26,9 +26,9 @@ ELSE
         last_name = lname,
         profile_image_path = profile_img
         WHERE id = user_id_in;
-    SELECT 'id', 'first_name', 'last_name', 'email', 'lang', 'time_zone', 'profile_image_path', 'created_at', 'status'
+    SELECT 'id', 'first_name', 'last_name', 'email', 'lang', 'time_zone', 'profile_image_path', 'created_at', 'status', 'notf_tree_invite', 'notf_leaf_assign'
     UNION
-    SELECT id, first_name,  last_name, email, lang, time_zone, profile_image_path, created_at, status
+    SELECT id, first_name,  last_name, email, lang, time_zone, profile_image_path, created_at, status, notf_tree_invite, notf_leaf_assign
         FROM user 
         WHERE id = user_id_in;
 END IF;

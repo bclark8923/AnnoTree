@@ -150,6 +150,8 @@
         $scope.updateNotifications = false;
         $scope.updateProfile = false;
         $scope.changePasswordSuccessMessage = false;
+        $scope.treeNotf = $scope.user && $scope.user.notf_tree_invite || '1';
+        $scope.leafAssignNotf = $scope.user && $scope.user.notf_leaf_assign || '1';
 
         setScroll();
         $("#loadingScreen").hide();

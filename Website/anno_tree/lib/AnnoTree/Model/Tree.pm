@@ -2,14 +2,19 @@ package AnnoTree::Model::Tree;
 
 use Mojo::Base -strict;
 use AnnoTree::Model::MySQL;
+use AnnoTree::Model::Email;
 use Scalar::Util qw(looks_like_number);
 use Data::Dumper;
 use Digest::SHA qw(sha256_hex);
-use Email::Sender::Simple qw(sendmail);
-use Email::Sender::Transport::SMTP ();
-use Email::Simple ();
-use Email::Simple::Creator ();
+use Config::General;
 use Time::Piece ();
+use Gravatar::URL;
+
+# Get the configuration settings
+my $conf = Config::General->new('/opt/config.txt');
+my %config = $conf->getall;
+my $confCCP = $config{server}->{base_url};
+my $confSplash = $config{server}->{splash_url};
 
 sub create {
     my ($class, $params) = @_;
@@ -219,16 +224,23 @@ sub treeUsers {
 
 sub addUserToTree {
     my ($class, $params) = @_;
-    
+   
+    my %options = (
+        default => 'identicon', 
+        rating  => 'pg',
+        https   => 1
+    );
+ 
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call add_user_to_tree(:treeid, :userToAdd, :requestingUser, :newUserImg)",
         {
             userToAdd       => $params->{userToAdd},
             treeid          => $params->{treeid},
             requestingUser  => $params->{requestingUser},
-            newUserImg      => 'img/user.png',
+            newUserImg      => gravatar_url(email => $params->{userToAdd}, %options),
         }
     ); 
+
     my $json = {};
     my $cols = $result->fetch;
     if (looks_like_number($cols->[0])) {
@@ -273,8 +285,8 @@ sub addUserToTree {
             $body .= $curUserInfo->[0] || '';
             $body .= ' ' if $curUserInfo->[0];
             $body .= $curUserInfo->[1];
-            $body .= ' has invited you to the ' . $curUserInfo->[2] . " tree.<br/><br/>";
-            $body .= 'Go to <a href="https://ccp.annotree.com/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '">https://ccp.annotree.com/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '</a> to view this tree.' . "<br/>";
+            $body .= ' has invited you to ' . $curUserInfo->[2] . ".<br/><br/>";
+            $body .= 'Go to <a href="' . $confCCP . '/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '">' . $confCCP . '/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '</a> to view this tree.' . "<br/>";
         } else {
             $subject = "You've Been Invited To Join AnnoTree";
             $json->{first_name} = '';
@@ -283,8 +295,8 @@ sub addUserToTree {
             $body .= $curUserInfo->[0] || '';
             $body .= ' ' if $curUserInfo->[0];
             $body .= $curUserInfo->[1];
-            $body .= ' has invited you to the ' . $curUserInfo->[2] . " tree.<br/><br/>";
-            $body .= 'Go to <a href="https://ccp.annotree.com/#/authenticate/signUp">https://ccp.annotree.com/#/authenticate/signUp</a> to get started.' . "<br/>";
+            $body .= ' has invited you to collaborate with them through AnnoTree - a visual, design-focused collaboration tool for application development.<br/><br/>';
+            $body .= 'To learn more about AnnoTree, visit <a href="' . $confSplash . '">' . $confSplash . '</a> or go to <a href="' . $confCCP . '/#/authenticate/signUp">' . $confCCP . '/#/authenticate/signUp</a> to create an account and beging collaborating and streamlining your development.' . "<br/><br/>";
         }
 
 

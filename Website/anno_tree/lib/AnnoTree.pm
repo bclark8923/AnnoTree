@@ -97,6 +97,8 @@ sub startup {
     $authr->post('/user/logout')                            ->to('controller-auth#logoutUser');
     $authr->get('/user/knownpeople')                        ->to('controller-user#knownPeople');
     $authr->get('/user')                                    ->to('controller-user#getUserInformation');
+    $authr->put('/user')                                    ->to('controller-user#update');
+    $authr->put('/user/password')                           ->to('controller-user#updatePassword');
     $authr->post('/user/feedback')                          ->to('controller-user#feedback');
     #$authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser');
     
@@ -125,6 +127,8 @@ sub startup {
     # ===== BRANCHES =====
     $authr->post('/:treeid/branch' => [treeid => qr/\d+/])                                      ->to('controller-branch#create');
     $authr->get('/:treeid/branch/:branchid' => [treeid => qr/\d+/, branchid => qr/\d+/])        ->to('controller-branch#info');
+    $authr->put('/:treeid/branch/:branchid' => [treeid => qr/\d+/, branchid => qr/\d+/])        ->to('controller-branch#rename');
+    $authr->delete('/:treeid/branch/:branchid' => [treeid => qr/\d+/, branchid => qr/\d+/])     ->to('controller-branch#delete');
     $authr->get('/:treeid/parentbranch/:branchid' => [treeid => qr/\d+/, branchid => qr/\d+/])  ->to('controller-branch#parentInfo');
 
     # ===== LEAVES =====

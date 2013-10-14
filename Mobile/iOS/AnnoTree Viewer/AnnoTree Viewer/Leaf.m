@@ -10,7 +10,7 @@
 #import "ScreenShotUtil.h"
 #import "DDLog.h"
 
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 @implementation Leaf
 
@@ -136,7 +136,7 @@ NSString* boundary = @"-";
     
     // set URL
     //TODO:Move this
-    NSURL *requestURL = [NSURL URLWithString:@"https://dev.annotree.com/services/ios/leaf"];
+    NSURL *requestURL = [NSURL URLWithString:@"https://ccp.annotree.com/services/ios/leaf"];
     [request setURL:requestURL];
 
     DDLogVerbose(@"Connection");
@@ -193,16 +193,6 @@ NSString* boundary = @"-";
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // Request performed.
     //NSLog(@"success");
-    [leafUploading dismissWithClickedButtonIndex:0 animated:YES];
-    UIAlertView *leafNameSuccess = [[UIAlertView alloc] initWithTitle:@"Leaf Uploaded"
-                                                              message:@""
-                                                             delegate:self
-                                                    cancelButtonTitle:NSLocalizedString(@"Ok",nil)
-                                                    otherButtonTitles: nil
-    ];
-
-
-    [leafNameSuccess show];
 }
 
 
@@ -211,7 +201,24 @@ NSString* boundary = @"-";
     // Request performed.
     //NSLog(@"response");
     //NSLog([response textEncodingName]);
+    NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+    int code = [httpResponse statusCode];
+    NSString* message = @"Leaf Uploaded";
+    
+    if(code < 200 || code > 300){
+        message = @"Leaf Upload Failed.  Please check your SDK key.";
+    }
+    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [leafUploading dismissWithClickedButtonIndex:0 animated:YES];
+    UIAlertView *leafNameSuccess = [[UIAlertView alloc] initWithTitle:message
+                                                              message:@""
+                                                             delegate:self
+                                                    cancelButtonTitle:NSLocalizedString(@"Ok",nil)
+                                                    otherButtonTitles: nil
+                                    ];
+    [leafNameSuccess show];
+
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data

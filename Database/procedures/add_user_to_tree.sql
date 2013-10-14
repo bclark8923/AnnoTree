@@ -12,7 +12,7 @@ CREATE Procedure `add_user_to_tree`(
     in treeid int,
     in email_in varchar(255),
     in requesting_user INT,
-    IN new_user_img VARCHAR(45)
+    IN new_user_img VARCHAR(256)
 )
  BEGIN
 IF (select id from user_tree where tree_id = treeid and user_id = requesting_user) THEN

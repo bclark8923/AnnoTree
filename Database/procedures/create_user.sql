@@ -19,7 +19,7 @@ CREATE PROCEDURE `create_user`(
     IN email_in VARCHAR(255),
     IN lang VARCHAR(3),
     IN time_zone VARCHAR(15),
-    IN profile_image_path VARCHAR(45),
+    IN profile_image_path VARCHAR(256),
     IN token_in VARCHAR(64),
     IN created_in TIMESTAMP,
     IN services VARCHAR(128)

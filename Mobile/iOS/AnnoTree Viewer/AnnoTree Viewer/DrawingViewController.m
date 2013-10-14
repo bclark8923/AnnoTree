@@ -29,6 +29,14 @@
     return self;
 }
 
+-(void)setTextSize:(int)size{
+    [drawScreen setTextSize:size];
+}
+
+-(void)setLineWidth:(int)width{
+    [drawScreen setLineWidth:width];
+}
+
 -(void)setDrawColor:(UIColor *)color{
     [drawScreen setDrawColor:color];
 }

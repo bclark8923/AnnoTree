@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `annotree`.`user` (
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `lang` VARCHAR(3) NULL ,
     `time_zone` VARCHAR(15) NULL ,
-    `profile_image_path` VARCHAR(45) NULL ,
+    `profile_image_path` VARCHAR(256) NULL ,
     `status` tinyint NOT NULL,
     `signup_date` TIMESTAMP NULL,
     `last_login` TIMESTAMP NULL,

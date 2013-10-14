@@ -89,12 +89,10 @@ AnnoTree.config(
             })
             .otherwise({
                 redirectTo: "/authenticate/login"
-            });
-            /*
-            .when("/app/:treeID/:leafID", {
-                action: "standard.tree.leaf"
             })
-            */
+            .when("/app/userSettings", {
+                action: "standard.settings.user"
+            });
         $httpProvider.responseInterceptors.push(interceptor);
     }
 );

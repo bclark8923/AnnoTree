@@ -22,7 +22,7 @@ IF (SELECT ut.id
         (user_id, `comment`, leaf_id, updated_at)
         VALUES (user_in, comment_in, leaf_id_in, NOW());
     set @id = LAST_INSERT_ID();
-    SELECT 'id', 'comment', 'created_at', 'updated_at', 'first_name', 'last_name', 'avatar'
+    SELECT 'id', 'comment', 'created_at', 'updated_at', 'first_name', 'last_name', 'profile_image_path'
         UNION
         SELECT lc.id, lc.`comment`, lc.created_at, lc.updated_at, u.first_name, u.last_name, u.profile_image_path
         FROM leaf_comment AS lc INNER JOIN `user` AS u ON lc.user_id = u.id

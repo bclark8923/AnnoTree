@@ -18,5 +18,7 @@
 -(void) setDrawColor:(UIColor *) color;
 -(void) setTextColor:(UIColor *) color;
 -(void) clearAll;
+-(void) setLineWidth:(int)width;
+-(void) setTextSize:(int)size;
 
 @end

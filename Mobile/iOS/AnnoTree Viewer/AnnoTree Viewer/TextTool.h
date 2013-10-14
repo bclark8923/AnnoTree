@@ -7,11 +7,9 @@
 //
 
 #import "ToolbarButton.h"
+#import "ToolbarButtonWithColorSelector.h"
 
-@interface TextTool : ToolbarButton
-
-@property (nonatomic, retain) DrawingViewController *drawScreen;
-@property (nonatomic, retain) NSMutableArray *toolbarButtons;
+@interface TextTool : ToolbarButtonWithColorSelector
 
 - (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree;
 - (IBAction)setSelectedButton:(UIButton*)button;

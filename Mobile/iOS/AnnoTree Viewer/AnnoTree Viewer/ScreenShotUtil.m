@@ -17,7 +17,7 @@
 #import "AnnoTree.h"
 #import "DDLog.h"
 
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 #import "UIScrollViewPageViewController.h"
 #import <QuartzCore/QuartzCore.h>

@@ -8,19 +8,20 @@
 
 #import "PencilTool.h"
 #import "DDLog.h"
+#import "ToolbarBg.h"
+#import <QuartzCore/QuartzCore.h>
+#import "AnnoTree.h"
 
 @implementation PencilTool
 
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
-@synthesize drawScreen;
-@synthesize toolbarButtons;
+static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 - (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree
 {
     self = [super initWithFrame:frame annotree:annotree];
     if (self) {
         DDLogVerbose(@"Creating Penil Icon");
-        toolbarButtons = [[NSMutableArray alloc] init];
+        self.toolbarButtons = [[NSMutableArray alloc] init];
         UIImage *pencilIconImage = [UIImage imageNamed:@"AnnoTree.bundle/PencilIconToolbar.png"];
         UIImage *pencilIconImageSelected = [UIImage imageNamed:@"AnnoTree.bundle/PencilIconToolbarSelected.png"];
         [self setBackgroundImage:pencilIconImage forState:UIControlStateNormal];
@@ -31,67 +32,73 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         [self.drawScreen.view setAutoresizingMask: UIViewAutoresizingFlexibleWidth |
                 UIViewAutoresizingFlexibleHeight];
         
-        drawScreen = [[DrawingViewController alloc] init];
-        [self setDrawColor:[UIColor redColor]];
-        /*Add Color Buttons
-        [self addColorButton:[UIColor redColor] buttonLocation:1];
-        [self addColorButto	n:[UIColor blueColor] buttonLocation:2];
-        [self addColorButton:[UIColor greenColor] buttonLocation:3];
-         */
+        self.drawScreen = [[DrawingViewController alloc] init];
+        [self setColor:[UIColor redColor]];
+        [self setWidth:4];
+        [self addRectangleForToolbar:self.annoTree.space*.9 y1:self.annoTree.space*.9 x2:self.annoTree.sizeIcon*1.8 y2:self.annoTree.sizeIcon*2.4];
+        /*Add Color Buttons*/
+        [self addColorButton:[UIColor redColor] buttonLocation:0];
+        [self addColorButton:[UIColor blueColor] buttonLocation:1];
+        [self addColorButton:[UIColor greenColor] buttonLocation:2];
+        [self addLineButton:4 buttonLocation:0];
+        [self addLineButton:10 buttonLocation:1];
+        [self addLineButton:16 buttonLocation:2];
+        [self colorSelector:self.toolbarButtons[1]];
+        [self widthSelector:self.toolbarButtons[4]];
+        
+        
     }
     return self;
 }
 
--(void)addColorButton:(UIColor *)color buttonLocation:(int)buttonLocation{
-    DDLogVerbose(@"Adding color button color:");
+-(void)addLineButton:(int)width buttonLocation:(int)buttonLocation{    
+    DDLogVerbose(@"Adding line button:%d", width);
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    //[button :button];
-    [button setFrame:CGRectMake(self.annoTree.space*1,self.annoTree.space*buttonLocation/2, self.annoTree.sizeIcon/2, self.annoTree.sizeIcon/2)];
-    [button setBackgroundColor:color];
+    int x1 = self.annoTree.space*(1);
+    int y1 = self.annoTree.space*(1.5 + buttonLocation/2.0);
+    int x2 = self.annoTree.sizeIcon*1.5;
+    int y2 = self.annoTree.sizeIcon/2;
+    [button setFrame:CGRectMake(x1, y1, x2, y2)];
+    //[self addRectangleForToolbar:x1 y1:y1 x2:x2 y2:y2];
+    [button setTag:width];
+    [button setBackgroundImage:[UIImage imageNamed:[NSMutableString stringWithFormat:@"AnnoTree.bundle/line_%dpx.png", width]] forState:UIControlStateNormal];
+    //[button setBackgroundColor:[UIColor blackColor]];
     button.userInteractionEnabled = YES;
-    //[button setSelected:NO];
-    [button addTarget:self action:@selector(colorSelector:) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(widthSelector:) forControlEvents:UIControlEventTouchUpInside];
     button.hidden = YES;
     [self.annoTree.toolbarButtons addObject:button];
-    [self.annoTree.annoTreeToolbar addSubview:button];
+    [self.toolbarButtons addObject:button];
+    //[self.annoTree.annoTreeToolbar addSubview:button];
 }
 
--(IBAction)colorSelector:(UIButton*)button {
+-(IBAction)setSelectedButton:(UIButton*)button{
+    [super setSelectedButton:button];
+    [self.drawScreen setDrawingEnabled:YES];
+}
+
+
+
+
+-(IBAction)widthSelector:(UIButton*)button {
     DDLogVerbose(@"Setting Color");
-    [self setDrawColor:[button backgroundColor]];
-}
-
--(void)setDrawColor:(UIColor *)color{
-    [drawScreen setDrawColor:color];
-}
-
--(void)setUnselected{
-    for(UIButton* button in self.toolbarButtons){
-        //[button removeFromSuperview];
+    for(UIButton*b in self.toolbarButtons){
+        if([b tag]){
+            b.layer.borderWidth = 0.0f;
+        }
     }
+    [[button layer] setBorderWidth:2.0f];
+    [self setWidth:[button tag]];
 }
 
--(IBAction)setSelectedButton:(UIButton*)button {
-    NSLog(@"Log Fail");
-    DDLogVerbose(@"PencilTool: setSelectedButton Activated");
-    [super.annoTree unselectAll];
-    
-    self.selected = YES;
-    self.highlighted = NO;
-    self.enabled = NO;
-    
-    for(UIButton* button in self.toolbarButtons){
-        //button.hidden = YES;
-        button.userInteractionEnabled = YES;
-        //[self.annoTree.annoTreeToolbar addSubview:button];
-    }
-    [drawScreen setDrawingEnabled:YES];
-    [super.annoTree.view insertSubview:drawScreen.view belowSubview:super.annoTree.annoTreeToolbar];
+
+-(void)setWidth:(int)width{
+    [self.drawScreen setLineWidth:width];
 }
 
--(void)clearAll{
-    [drawScreen clearAll];
+-(void)setColor:(UIColor *)color{    
+    [self.drawScreen setDrawColor:color];
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -23,7 +23,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		D3024B0C17D54B1E0086102C /* ScreenShotUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D3024B0A17D54B1E0086102C /* ScreenShotUtil.h */; };
+		D3024B0C17D54B1E0086102C /* ScreenShotUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = D3024B0A17D54B1E0086102C /* ScreenShotUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3024B0D17D54B1E0086102C /* ScreenShotUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D3024B0B17D54B1E0086102C /* ScreenShotUtil.m */; };
 		D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C686171B412800BA9B2F /* Default-Landscape@2x~ipad.png */; };
 		D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D314C688171B413400BA9B2F /* Default-Portrait@2x~ipad.png */; };
@@ -86,9 +86,8 @@
 		D3E0AF78178FC690009BEEDF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7659617810C6A0046C8D5 /* Icon.png */; };
 		D3E0AF79178FC690009BEEDF /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7659717810C6A0046C8D5 /* Icon@2x.png */; };
 		D3E0AFA617903BAC009BEEDF /* AnnoTreeLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D3A7658C17810A1F0046C8D5 /* AnnoTreeLogo.png */; };
-		D3E1267417B8100100DC1BE5 /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3E1267317B8100100DC1BE5 /* AnnoTree.bundle */; };
 		D3E1267E17B8196100DC1BE5 /* UIScrollViewPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E1267917B814D500DC1BE5 /* UIScrollViewPageViewController.m */; };
-		D3E1267F17B8196C00DC1BE5 /* UIScrollViewPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E1267817B814D500DC1BE5 /* UIScrollViewPageViewController.h */; };
+		D3E1267F17B8196C00DC1BE5 /* UIScrollViewPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D3E1267817B814D500DC1BE5 /* UIScrollViewPageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3E1269217B82C0D00DC1BE5 /* Screen1.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1268D17B82C0D00DC1BE5 /* Screen1.png */; };
 		D3E1269317B82C0D00DC1BE5 /* Screen2.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1268E17B82C0D00DC1BE5 /* Screen2.png */; };
 		D3E1269417B82C0D00DC1BE5 /* Screen3.png in Resources */ = {isa = PBXBuildFile; fileRef = D3E1268F17B82C0D00DC1BE5 /* Screen3.png */; };
@@ -115,6 +114,17 @@
 		D3F024D317E65032000F6D5B /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024C417E65032000F6D5B /* ContextFilterLogFormatter.m */; };
 		D3F024D417E65032000F6D5B /* DispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F024C517E65032000F6D5B /* DispatchQueueLogFormatter.h */; };
 		D3F024D517E65032000F6D5B /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F024C617E65032000F6D5B /* DispatchQueueLogFormatter.m */; };
+		D3F2A9411804D87300493DAC /* line_4px.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F2A9341804D6F300493DAC /* line_4px.png */; };
+		D3F2A9421804D87300493DAC /* line_10px.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F2A9351804D6F400493DAC /* line_10px.png */; };
+		D3F2A9431804D87300493DAC /* line_16px.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F2A9361804D6F400493DAC /* line_16px.png */; };
+		D3F2A9441804D87300493DAC /* text_14px.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F2A9371804D6F400493DAC /* text_14px.png */; };
+		D3F2A9451804D87300493DAC /* text_18px.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F2A9381804D6F400493DAC /* text_18px.png */; };
+		D3F2A9461804D87300493DAC /* text_22px.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F2A9391804D6F400493DAC /* text_22px.png */; };
+		D3F2A9581804D9C700493DAC /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3F2A9551804D9C700493DAC /* AnnoTree.bundle */; };
+		D3F2A96D1806415E00493DAC /* EraserTool.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2A96B1806415D00493DAC /* EraserTool.h */; };
+		D3F2A96E1806415E00493DAC /* EraserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F2A96C1806415E00493DAC /* EraserTool.m */; };
+		D3F2A9711806614B00493DAC /* ToolbarButtonWithColorSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2A96F1806614900493DAC /* ToolbarButtonWithColorSelector.h */; };
+		D3F2A9721806614B00493DAC /* ToolbarButtonWithColorSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F2A9701806614A00493DAC /* ToolbarButtonWithColorSelector.m */; };
 		D3F2BB5A17CDCA5B00A8B1FF /* ToolbarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2BB5217CDC4A400A8B1FF /* ToolbarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3F2BB5B17CDCA6700A8B1FF /* PencilTool.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2BB5617CDC5E100A8B1FF /* PencilTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3F2BB5C17CDCA7500A8B1FF /* MoveableText.h in Headers */ = {isa = PBXBuildFile; fileRef = 06800E4617B3C8F200EA650D /* MoveableText.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -273,7 +283,6 @@
 		D3AAA1F517002C4400954DDF /* AnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationView.m; sourceTree = "<group>"; };
 		D3D53FF1171A194500552253 /* ToolbarBg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarBg.h; sourceTree = "<group>"; };
 		D3D53FF2171A194500552253 /* ToolbarBg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarBg.m; sourceTree = "<group>"; };
-		D3E1267317B8100100DC1BE5 /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = ../../ActiveSDK/AnnoTree.bundle; sourceTree = "<group>"; };
 		D3E1267817B814D500DC1BE5 /* UIScrollViewPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIScrollViewPageViewController.h; path = HelpScreens/UIScrollViewPageViewController.h; sourceTree = "<group>"; };
 		D3E1267917B814D500DC1BE5 /* UIScrollViewPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIScrollViewPageViewController.m; path = HelpScreens/UIScrollViewPageViewController.m; sourceTree = "<group>"; };
 		D3E1268D17B82C0D00DC1BE5 /* Screen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Screen1.png; path = HelpScreens/Screen1.png; sourceTree = "<group>"; };
@@ -306,6 +315,17 @@
 		D3F024C517E65032000F6D5B /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
 		D3F024C617E65032000F6D5B /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		D3F024C717E65032000F6D5B /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		D3F2A9341804D6F300493DAC /* line_4px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line_4px.png; path = ../../../../Extensions/Chrome/images/line_4px.png; sourceTree = "<group>"; };
+		D3F2A9351804D6F400493DAC /* line_10px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line_10px.png; path = ../../../../Extensions/Chrome/images/line_10px.png; sourceTree = "<group>"; };
+		D3F2A9361804D6F400493DAC /* line_16px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = line_16px.png; path = ../../../../Extensions/Chrome/images/line_16px.png; sourceTree = "<group>"; };
+		D3F2A9371804D6F400493DAC /* text_14px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = text_14px.png; path = ../../../../Extensions/Chrome/images/text_14px.png; sourceTree = "<group>"; };
+		D3F2A9381804D6F400493DAC /* text_18px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = text_18px.png; path = ../../../../Extensions/Chrome/images/text_18px.png; sourceTree = "<group>"; };
+		D3F2A9391804D6F400493DAC /* text_22px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = text_22px.png; path = ../../../../Extensions/Chrome/images/text_22px.png; sourceTree = "<group>"; };
+		D3F2A9551804D9C700493DAC /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = "../../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos/AnnoTree.bundle"; sourceTree = "<group>"; };
+		D3F2A96B1806415D00493DAC /* EraserTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EraserTool.h; sourceTree = "<group>"; };
+		D3F2A96C1806415E00493DAC /* EraserTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EraserTool.m; sourceTree = "<group>"; };
+		D3F2A96F1806614900493DAC /* ToolbarButtonWithColorSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarButtonWithColorSelector.h; sourceTree = "<group>"; };
+		D3F2A9701806614A00493DAC /* ToolbarButtonWithColorSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarButtonWithColorSelector.m; sourceTree = "<group>"; };
 		D3F2BB5217CDC4A400A8B1FF /* ToolbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarButton.h; sourceTree = "<group>"; };
 		D3F2BB5317CDC4A400A8B1FF /* ToolbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolbarButton.m; sourceTree = "<group>"; };
 		D3F2BB5617CDC5E100A8B1FF /* PencilTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PencilTool.h; sourceTree = "<group>"; };
@@ -392,6 +412,7 @@
 		D314C662171B282900BA9B2F /* ToolBarIcons */ = {
 			isa = PBXGroup;
 			children = (
+				D3F2A9401804D79200493DAC /* SizeSelectors */,
 				D3A7658C17810A1F0046C8D5 /* AnnoTreeLogo.png */,
 				D314C664171B283700BA9B2F /* Selected */,
 				D314C663171B283100BA9B2F /* Default */,
@@ -442,6 +463,10 @@
 				D3F2BB5717CDC5E100A8B1FF /* PencilTool.m */,
 				D3F2BB6A17D2982300A8B1FF /* TextTool.h */,
 				D3F2BB6B17D2982300A8B1FF /* TextTool.m */,
+				D3F2A96B1806415D00493DAC /* EraserTool.h */,
+				D3F2A96C1806415E00493DAC /* EraserTool.m */,
+				D3F2A96F1806614900493DAC /* ToolbarButtonWithColorSelector.h */,
+				D3F2A9701806614A00493DAC /* ToolbarButtonWithColorSelector.m */,
 			);
 			name = ToolbarActions;
 			sourceTree = "<group>";
@@ -574,8 +599,8 @@
 		D3AAA1AC17000FC300954DDF /* AnnoTree Viewer */ = {
 			isa = PBXGroup;
 			children = (
+				D3F2A9551804D9C700493DAC /* AnnoTree.bundle */,
 				D3790ACF17B8622E009E1BF2 /* AnnoTreeBrowser.bundle */,
-				D3E1267317B8100100DC1BE5 /* AnnoTree.bundle */,
 				D3AAA1E71700186400954DDF /* AnnoTree */,
 				D3AAA1B517000FC300954DDF /* AppDelegate.h */,
 				D3AAA1B617000FC300954DDF /* AppDelegate.m */,
@@ -724,6 +749,19 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		D3F2A9401804D79200493DAC /* SizeSelectors */ = {
+			isa = PBXGroup;
+			children = (
+				D3F2A9341804D6F300493DAC /* line_4px.png */,
+				D3F2A9351804D6F400493DAC /* line_10px.png */,
+				D3F2A9361804D6F400493DAC /* line_16px.png */,
+				D3F2A9371804D6F400493DAC /* text_14px.png */,
+				D3F2A9381804D6F400493DAC /* text_18px.png */,
+				D3F2A9391804D6F400493DAC /* text_22px.png */,
+			);
+			name = SizeSelectors;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -751,6 +789,8 @@
 				D3F024D017E65032000F6D5B /* DDTTYLogger.h in Headers */,
 				D3F024D217E65032000F6D5B /* ContextFilterLogFormatter.h in Headers */,
 				D3F024D417E65032000F6D5B /* DispatchQueueLogFormatter.h in Headers */,
+				D3F2A96D1806415E00493DAC /* EraserTool.h in Headers */,
+				D3F2A9711806614B00493DAC /* ToolbarButtonWithColorSelector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,6 +954,12 @@
 				D3E0AF5C178F9026009BEEDF /* PencilIconToolbar.png in Resources */,
 				D3E0AF5D178F9026009BEEDF /* SelectIconToolbar.png in Resources */,
 				D3E0AF5E178F9026009BEEDF /* ShareIconToolbar.png in Resources */,
+				D3F2A9411804D87300493DAC /* line_4px.png in Resources */,
+				D3F2A9421804D87300493DAC /* line_10px.png in Resources */,
+				D3F2A9431804D87300493DAC /* line_16px.png in Resources */,
+				D3F2A9441804D87300493DAC /* text_14px.png in Resources */,
+				D3F2A9451804D87300493DAC /* text_18px.png in Resources */,
+				D3F2A9461804D87300493DAC /* text_22px.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,12 +990,12 @@
 				D3AAA1C317000FC300954DDF /* MainStoryboard_iPad.storyboard in Resources */,
 				D314C687171B412800BA9B2F /* Default-Landscape@2x~ipad.png in Resources */,
 				D314C689171B413400BA9B2F /* Default-Portrait@2x~ipad.png in Resources */,
-				D3E1267417B8100100DC1BE5 /* AnnoTree.bundle in Resources */,
 				D3E1269217B82C0D00DC1BE5 /* Screen1.png in Resources */,
 				D3E1269317B82C0D00DC1BE5 /* Screen2.png in Resources */,
 				D3E1269417B82C0D00DC1BE5 /* Screen3.png in Resources */,
 				D3E1269517B82C0D00DC1BE5 /* Screen4.png in Resources */,
 				D3E1269617B82C0D00DC1BE5 /* Screen5.png in Resources */,
+				D3F2A9581804D9C700493DAC /* AnnoTree.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1063,6 +1109,8 @@
 				D3F024D117E65032000F6D5B /* DDTTYLogger.m in Sources */,
 				D3F024D317E65032000F6D5B /* ContextFilterLogFormatter.m in Sources */,
 				D3F024D517E65032000F6D5B /* DispatchQueueLogFormatter.m in Sources */,
+				D3F2A96E1806415E00493DAC /* EraserTool.m in Sources */,
+				D3F2A9721806614B00493DAC /* ToolbarButtonWithColorSelector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1429,6 +1477,7 @@
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Intermediates/AnnoTree Viewer.build/Debug-iphoneos/AnnoTree.build/Objects-normal/armv7s\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1466,6 +1515,7 @@
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Intermediates/AnnoTree Viewer.build/Debug-iphoneos/AnnoTree.build/Objects-normal/armv7s\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";

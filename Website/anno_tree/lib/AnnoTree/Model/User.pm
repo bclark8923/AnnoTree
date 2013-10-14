@@ -5,15 +5,10 @@ use Crypt::SaltedHash;
 use AnnoTree::Model::MySQL;
 use AnnoTree::Model::Email;
 use Scalar::Util qw(looks_like_number);
-use Data::Dumper;
-use Email::Sender::Simple qw(sendmail);
-use Email::Sender::Transport::SMTP ();
-use Email::Simple ();
-use Email::Simple::Creator ();
 use Config::General;
-use Email::MIME;
 use Digest::SHA qw(sha256_hex);
 use Time::Piece ();
+use Gravatar::URL;
 
 # Get the configuration settings
 my $conf = Config::General->new('/opt/config.txt');
@@ -67,6 +62,12 @@ sub signup {
     my $created = Time::Piece::localtime->strftime('%F %T');  
     my $token = sha256_hex($params->{email}, $created);
     
+    my %options = (
+        default => 'identicon', 
+        rating  => 'pg',
+        https   => 1
+    );
+
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call create_user(:password, :firstName, :lastName, :email, :lang, :timezone, :profileImage, :token, :created, :services)", 
         {
@@ -76,7 +77,7 @@ sub signup {
             lastName        => $params->{lastName},
             lang            => 'ENG',
             timezone        => 'EST',
-            profileImage    => 'img/user.png',
+            profileImage    => gravatar_url(email => $params->{email}, %options),
             token           => $token,
             created         => $created,
             services        => $config{server}->{base_url} . '/services/annotation/'
@@ -261,9 +262,9 @@ sub reset {
 
     my $pass = $params->{password};
     #TODO - combine this code with signup into a function
-    return {error => '3', txt => 'Password must be at least six characters'} if (length($pass) < 6); # password must be at least 6 characters
-    return {error => '4', txt => 'Password must contain at least one number'} if ($pass !~ m/\d/);
-    return {error => '5', txt => 'Valid password characters are alphanumeric or !@#$%^&*()'} if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
+    return {error => '1', txt => 'Password must be at least six characters'} if (length($pass) < 6); # password must be at least 6 characters
+    return {error => '2', txt => 'Password must contain at least one number'} if ($pass !~ m/\d/);
+    return {error => '3', txt => 'Valid password characters are alphanumeric or !@#$%^&*()'} if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
     $pass = createSaltedHash($pass);
     
     my $result = AnnoTree::Model::MySQL->db->execute(
@@ -274,17 +275,7 @@ sub reset {
         }
     );
 
-    my $json = {};
-    my $num = $result->fetch->[0];
-    if ($num == 0) {
-        $json = {result => $num, txt => 'User password successfully reset'};
-    } elsif ($num == 1) {
-        $json = {error => $num, txt => 'We have no records of you wishing to reset your password.'};
-    } elsif ($num == 2) {
-        $json = {error => $num, txt => 'Time has expired to reset your password.'};
-    }
-    
-    return $json;
+    return {};
 }
 
 sub getUserInformation {
@@ -342,6 +333,71 @@ sub loginTrees {
         $index++;
     }
 
+    return $json;
+}
+
+sub update {
+    my ($class, $params) = @_;
+
+    my %options = (
+        default => 'identicon', 
+        rating  => 'pg',
+        https   => 1
+    );
+
+    my $json = {};
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        'call update_user(:userid, :email, :firstName, :lastName, :profileImg)',
+        {
+            userid      => $params->{userid},
+            email       => $params->{email},
+            firstName   => $params->{firstName},
+            lastName    => $params->{lastName},
+            profileImg  => gravatar_url(email => $params->{email}, %options),
+        }
+    );
+
+    my $cols = $result->fetch;
+    if (looks_like_number($cols->[0])) {
+        my $num = $cols->[0];
+        return {error => $num, txt => 'This email address already exists in our system'} if $num == 1;
+    }
+    my $user = $result->fetch;
+    for (my $i = 0; $i < @{$cols}; $i++) {
+        $json->{$cols->[$i]} = $user->[$i];
+    }
+
+    return $json;
+}
+
+sub updatePassword {
+    my ($class, $params) = @_;
+
+    my $pass = $params->{password};
+    #TODO - combine this code with signup into a function
+    return {error => '3', txt => 'Password must be at least six characters'} if (length($pass) < 6); # password must be at least 6 characters
+    return {error => '4', txt => 'Password must contain at least one number'} if ($pass !~ m/\d/);
+    return {error => '5', txt => 'Valid password characters are alphanumeric or !@#$%^&*()'} if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
+    $pass = createSaltedHash($pass);
+    
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call update_password(:pass, :userid)",
+        {
+            userid  => $params->{userid},
+            pass    => $pass
+        }
+    );
+
+    my $json = {};
+    my $num = $result->fetch->[0];
+    if ($num == 0) {
+        $json = {result => $num, txt => 'User password successfully reset'};
+    } elsif ($num == 1) {
+        $json = {error => $num, txt => 'We have no records of you wishing to reset your password.'};
+    } elsif ($num == 2) {
+        $json = {error => $num, txt => 'Time has expired to reset your password.'};
+    }
+    
     return $json;
 }
 

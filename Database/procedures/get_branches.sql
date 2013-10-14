@@ -19,7 +19,8 @@ IF (SELECT id FROM user_tree WHERE user_id = user AND tree_id = tree) THEN
         FROM branch AS b inner join user_tree AS ut 
             ON ut.tree_id = b.tree_id AND user = ut.user_id
             LEFT OUTER JOIN branch_link AS p ON b.id = p.destination_branch_id
-        WHERE b.tree_id = tree;
+        WHERE b.tree_id = tree
+        AND b.active = 1;
 ELSE
     SELECT '1';
 END IF;

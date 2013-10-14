@@ -13,8 +13,8 @@
 #import "UIScrollViewPageViewController.h"
 #import "Leaf.h"
 
-@interface AnnoTree : UIViewController
 
+@interface AnnoTree : UIViewController
 @property (nonatomic, retain) UIWindowAnnoTree *annoTreeWindow;
 @property (nonatomic, retain) UIWindow *keyWindow;
 @property (nonatomic, retain) UIButton *openAnnoTreeButton;

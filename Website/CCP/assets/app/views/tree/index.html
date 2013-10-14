@@ -19,24 +19,42 @@
         </div>
     </div>
     <div id="branchHolder" class="responsiveHide">
-        <div ng-repeat="branch in tree.branches">
+        <div ng-repeat="branch in tree.branches" ng-hide="edittingBranches">
             <div ng-switch="activeBranch.id==branch.id">
                 <div ng-switch-when="true" class="activeBranch">
                     <i ng-class="branch.icon" ng-show="branch.icon!=''"></i>{{branch.name}}
                 </div>
                 <div ng-switch-when="false" class="branch" ng-click="changeBranch(branch.id)" data-jqyoui-options="{hoverClass:'branchHover',tolerance:'pointer'}" data-drop="true" jqyoui-droppable="{multiple:true}" data-drop-model="tree.branches[{{$index}}]">
 
-                    <i ng-class="branch.icon" ng-show="branch.icon!=''"></i>{{branch.name}}
+                    <i ng-class="branch.icon"></i>{{branch.name}}
                 </div>
             </div>
         </div>
+        <div ng-repeat="branch in tree.branches" ng-show="edittingBranches">
+            <div ng-switch="branch.name=='User Feedback'">
+                <div ng-switch-when="true" class="branch editMode">
+                    <i ng-class="branch.icon"></i>{{branch.name}}
+                </div> 
+                <div ng-switch-when="false" class="branch editMode">
+                    <div class="edit">
+                        <i class="icon-pencil icon-flip-horizontal" ng-click="renameBranch($event, branch)"></i><span>{{branch.name}}</span>
+                    </div>
+                    <div class="delete">
+                        <i class="icon-minus-sign" ng-click="openDeleteBranch(branch)"></i>
+                    </div>
+                </div> 
+            </div>
+        </div>
         <div id="branchButtons">
-            <button ng-click="openNewBranchModal()" class="btn btn-default">
+            <button ng-click="openNewBranchModal()" class="btn btn-default" ng-hide="edittingBranches">
                 <i class="icon-plus"></i>&nbsp;Add
             </button>
-            <!--button class="btn btn-annotree">
+            <button class="btn btn-annotree" ng-hide="edittingBranches" ng-click="editBranches(true)">
                 <i class="icon-edit"></i>&nbsp;Edit
-            </button-->
+            </button>
+            <button class="btn btn-annotree" ng-show="edittingBranches" ng-click="editBranches(false)">
+                <i class="icon-check"></i>&nbsp;Done
+            </button>
         </div>
     </div>
     <div id="treeInvite"> 
@@ -236,6 +254,36 @@
         </div>
     </div>
 
+    <!-- Delete Branch Confirmation Modal-->
+    <div class="modal" id="deleteBranchModal" data-backdrop="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="working" ng-class="{active:deleteBranchModalWorking}">
+                    <i class="icon-working icon-cog icon-spin"></i>
+                </div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="icon-remove-circle"></i>
+                    </button>
+                    <h3 class="modal-title">Confirm Branch Deletion</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="error-text" ng-show="deleteBranchErrorMessage">{{deleteBranchErrorText}}</div>
+                    <p>Are you sure you want to delete this branch? This action can not be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" ng-click="branchDelete()">
+                        <strong>Yes</strong>
+                    </button>
+                    <button type="button" class="btn btn-annotree" data-dismiss="modal">
+                        <strong>No</strong>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="branchEdit" class="unselectable" ng-show="edittingBranches"></div>
     <div ng-switch="subview">
         <div ng-switch-when="looseLeaves" ng-include="'assets/app/views/tree/leaves.html'"></div>
         <div ng-switch-when="subBranches" ng-include="'assets/app/views/tree/sub-branches.html'"></div>

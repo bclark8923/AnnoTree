@@ -1,0 +1,84 @@
+<div ng-controller="settings.UserController">
+    <div class="pageHeader">
+        <div>
+            <span>User Settings</span>
+        </div>
+    </div>
+    <div id="settingsScroll">
+        <div class="container">
+            <div class="row">
+                <form role="form" ng-submit="modifyUser()">
+                    <legend style="padding-top:20px;">
+                        Profile
+                    </legend>
+                    <div class="userSettingsContainer">
+                        <div class="working" ng-class="{active:updateProfile}">
+                            <i class="icon-working icon-cog icon-spin"></i>
+                        </div> 
+                        <div class="form-group">
+                            <label>Name</label>
+                            <div class="error-text" style="text-align:left" ng-show="modifyUserNameErrorMessage">{{modifyUserNameErrorText}}</div>
+                            <input type="text" class="form-control input-annotree-settings" ng-model="name" />
+                        </div>
+                        <div class="form-group">
+                            <label>Email address</label>
+                            <div class="error-text" style="text-align:left" ng-show="modifyUserEmailErrorMessage">{{modifyUserEmailErrorText}}</div>
+                            <input type="email" class="form-control input-annotree-settings" ng-model="email" />
+                        </div>
+                        <a  href="http://gravatar.com/emails" target="_blank">
+                            <img data-toggle="tooltip" title="Change your avatar at gravatar.com" ng-src="{{user.profile_image_path + '&s=100'}}" style="width:100px;height:100px;padding-top:10px;"/>
+                        </a>
+
+                        <hr/>
+                        <button type="submit" class="btn btn-annotree">Save</button>
+                    </div>
+                </form>
+                <form class="form">
+                    <legend style="padding-top:20px;">
+                        Notification Preferences
+                    </legend>
+                    <div class="userSettingsContainer">
+                        <div class="working" ng-class="{active:updateNotifications}">
+                            <i class="icon-working icon-cog icon-spin"></i>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                              <input type="checkbox" checked="checked"> Email me when assigned to a leaf
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                              <input type="checkbox" checked="checked"> Email me when invited to a tree
+                            </label>
+                        </div>
+                        <hr/>
+                        <button type="submit" class="btn btn-annotree">Update</button>
+                    </div>
+                </form>
+                <form class="form" ng-submit="changePassword()">
+                    <legend style="padding-top:20px;">
+                        Change Password
+                    </legend>
+                    <div class="userSettingsContainer">
+                        <div class="working" ng-class="{active:updatePassword}">
+                            <i class="icon-working icon-cog icon-spin"></i>
+                        </div> 
+                        <div class="form-group">
+                            <div class="success-text" style="text-align:left" ng-show="changePasswordSuccessMessage">Password successfully updated</div>
+                            <label>New Password</label>
+                            <div class="error-text" style="text-align:left" ng-show="changePasswordErrorMessage">{{changePasswordErrorText}}</div>
+                            <div style="max-width:400px">
+                                <input type="password" class="form-control input-annotree-settings" ng-model="password" />
+                                <div class="tipText" style="text-align:center">
+                                    Tip: Password should contain at least six characters and one number
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <button type="submit" class="btn btn-annotree">Change Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

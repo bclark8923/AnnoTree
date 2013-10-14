@@ -21,11 +21,8 @@
                                 </button>
                             </div>
                             <div>
-                                <div ng-repeat="user in leaf.assigned" class="assignedUser"ng-switch="user.last_name">
-                                    <img id="assignedUser" ng-click="openAssignedUser($event, leaf.id, user, branch.id)" ng-switch-when="null" ng-src="{{user.profile_image_path}}" />
-                                    <div id="assignedUser" class="userIcon unselectable" ng-click="openAssignedUser($event, leaf.id, user, branch.id)" ng-switch-default>
-                                        {{user.first_name.substr(0,1) + user.last_name.substr(0,1)}}
-                                    </div>
+                                <div ng-repeat="user in leaf.assigned" class="assignedUser" ng-click="openAssignedUser($event, leaf.id, user, branch.id);$event.stopPropagation()">
+                                    <img class="userIcon"  ng-src="{{user.profile_image_path + '&s=30'}}" />
                                 </div>
                             </div>
                         </div>

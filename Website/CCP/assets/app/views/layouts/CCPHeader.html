@@ -18,9 +18,7 @@
                 </a>
             </div>
             <div style="position:fixed;bottom:70px;width:80px;" ng-click="userSettingsBox=!userSettingsBox;$event.stopPropagation()">
-                <div id="userSidebar" class="userIcon unselectable">
-                    {{user.first_name.substr(0,1) + user.last_name.substr(0,1)}}
-                </div>
+                <img id="userSidebar" class="userIcon unselectable" ng-src="{{user.profile_image_path && user.profile_image_path + '&s=30' || ''}}" />
             </div>
             <div style="position:fixed;bottom:10px;width:80px">
                 <img src="img/AnnoTreeLogo.png" style="width:30px">
@@ -30,13 +28,14 @@
         <!-- User Settings Display -->
         <div id="userSettings" class="userSettingsBox" ng-class="{active:userSettingsBox}">
             <div>
-                <img ng-src="{{user.profile_image_path}}">    
+                <img ng-src="{{user.profile_image_path && user.profile_image_path + '&s=60' || ''}}" />
                 <p class="userSettingsName" style="margin-left:80px;">{{user.first_name + " " + user.last_name}}</p>
             </div>
             <div id="footer">
-                <button type="button" id="logoutButton" class="btn btn-annotree btn-sm" ng-click="logout()">
+                <a href="#/app/userSettings" class="btn btn-annotree btn-sm" ng-click="userSettingsBox=false">Edit Settings</a>
+                <a style="float:right" class="btn btn-annotree btn-sm" ng-click="logout()">
                     <strong>Logout</strong>
-                </button>
+                </a>
             </div>
         </div>
 
@@ -50,6 +49,7 @@
                 <div ng-switch-when="tree" ng-include="'assets/app/views/tree/index.html'"></div>
                 <div ng-switch-when="forestFire" ng-include="'assets/app/views/layouts/404.html'"></div>
                 <div ng-switch-when="docs" ng-include="'assets/app/views/docs/index.html'"></div>
+                <div ng-switch-when="settings" ng-include="'assets/app/views/settings/index.html'"></div>
             </div>
         </div>
     </div>

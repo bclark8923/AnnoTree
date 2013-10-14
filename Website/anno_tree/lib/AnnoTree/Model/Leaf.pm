@@ -2,6 +2,7 @@ package AnnoTree::Model::Leaf;
 
 use Mojo::Base -strict;
 use AnnoTree::Model::MySQL;
+use AnnoTree::Model::Email;
 use Scalar::Util qw(looks_like_number);
 use Data::Dumper;
 use MIME::Base64;

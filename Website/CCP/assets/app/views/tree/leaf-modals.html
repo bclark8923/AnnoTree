@@ -52,9 +52,7 @@
                                 <div id="commentsWrapper">
                                     <div class="leafComment" ng-repeat="comment in leaf.comments | orderBy:'created_at' | date:'yyyy-MM-dd HH:mm:ss'">
                                         <div class="userImageHolder">
-                                            <div class="userIcon unselectable">
-                                                {{comment.first_name.substr(0,1) + comment.last_name.substr(0,1)}}
-                                            </div>
+                                            <img class="userIcon unselectable" style="cursor:auto" ng-src="{{comment.profile_image_path + '&s=30'}}" />
                                         </div>
                                         <div class="userCommentHolder"> 
                                             <p class="userCommentName">{{comment.first_name}} {{comment.last_name}}</p> 
@@ -66,9 +64,7 @@
                                 <div class="leafComment" id="commentArea">
                                     <div class="error-text" ng-show="leafCommentErrorMessage">{{leafCommentErrorText}}</div>
                                     <div class="userImageHolder">
-                                        <div class="userIcon unselectable">
-                                            {{user.first_name.substr(0,1) + user.last_name.substr(0,1)}}
-                                        </div>
+                                        <img class="userIcon unselectable" ng-src="{{user.profile_image_path + '&s=30'}}" style="cursor:auto" />
                                     </div>
                                     <div class="userCommentHolder">
                                         <form class="form-horizontal" ng-submit="addLeafComment()">

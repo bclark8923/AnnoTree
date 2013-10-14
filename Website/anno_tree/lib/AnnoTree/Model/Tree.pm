@@ -2,11 +2,13 @@ package AnnoTree::Model::Tree;
 
 use Mojo::Base -strict;
 use AnnoTree::Model::MySQL;
+use AnnoTree::Model::Email;
 use Scalar::Util qw(looks_like_number);
 use Data::Dumper;
 use Digest::SHA qw(sha256_hex);
 use Config::General;
 use Time::Piece ();
+use Gravatar::URL;
 
 # Get the configuration settings
 my $conf = Config::General->new('/opt/config.txt');
@@ -222,16 +224,23 @@ sub treeUsers {
 
 sub addUserToTree {
     my ($class, $params) = @_;
-    
+   
+    my %options = (
+        default => 'identicon', 
+        rating  => 'pg',
+        https   => 1
+    );
+ 
     my $result = AnnoTree::Model::MySQL->db->execute(
         "call add_user_to_tree(:treeid, :userToAdd, :requestingUser, :newUserImg)",
         {
             userToAdd       => $params->{userToAdd},
             treeid          => $params->{treeid},
             requestingUser  => $params->{requestingUser},
-            newUserImg      => 'img/user.png',
+            newUserImg      => gravatar_url(email => $params->{userToAdd}, %options),
         }
     ); 
+
     my $json = {};
     my $cols = $result->fetch;
     if (looks_like_number($cols->[0])) {

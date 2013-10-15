@@ -621,7 +621,12 @@
         $scope.$watch('leafDisplay', function() {
             $scope.$broadcast('filterLeaves', $scope.leafDisplay.value); 
         });
+
+        $scope.$on('branchLoaded', function() {
+            $scope.switchingBranches = false;
+        });
         $scope.switchingBranches = false;
+
         var nameTest = new RegExp('[A-Za-z0-9]');
         loadTreeData($routeParams.treeID) 
     });

@@ -284,6 +284,9 @@
     </div>
     
     <div id="branchEdit" class="unselectable" ng-show="edittingBranches"></div>
+    <div id="branchSwitch" class="unselectable" ng-show="swithingBranches">
+        <i class="icon-working icon-cog icon-spin"></i>
+    </div>
     <div ng-switch="subview">
         <div ng-switch-when="looseLeaves" ng-include="'assets/app/views/tree/leaves.html'"></div>
         <div ng-switch-when="subBranches" ng-include="'assets/app/views/tree/sub-branches.html'"></div>

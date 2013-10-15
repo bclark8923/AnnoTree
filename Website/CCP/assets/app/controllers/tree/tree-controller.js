@@ -48,6 +48,7 @@
         });
 
         $scope.changeBranch = function(branchID) {
+            $scope.switchingBranches = true;
             for (var i = 0; i < $scope.tree.branches.length; i++) {
                 if ($scope.tree.branches[i].id == branchID) {
                     setActiveBranch($scope.tree.branches[i]);
@@ -620,6 +621,7 @@
         $scope.$watch('leafDisplay', function() {
             $scope.$broadcast('filterLeaves', $scope.leafDisplay.value); 
         });
+        $scope.switchingBranches = false;
         var nameTest = new RegExp('[A-Za-z0-9]');
         loadTreeData($routeParams.treeID) 
     });

@@ -23,8 +23,10 @@
                     if ($routeParams.leafID) {
                         $scope.showLeaf($routeParams.leafID);
                     }
+                    $scope.switchingBranches = false;
                 },
                 function(response) {
+                    $scope.switchingBranches = false;
                     $location.path("/forestFire"); //TODO: should redirect to app page and tell them why
                 }
             );

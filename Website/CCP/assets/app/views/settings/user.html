@@ -41,6 +41,7 @@
                         <div class="working" ng-class="{active:updateNotifications}">
                             <i class="icon-working icon-cog icon-spin"></i>
                         </div>
+                            <div class="error-text" style="text-align:left" ng-show="notificationsErrorMessage">{{notificationsErrorText}}</div>
                         <div class="checkbox">
                             <label>
                               <input type="checkbox" ng-model="leafAssignNotf" ng-true-value="1" ng-false-value="0">&nbsp;Email me when assigned to a leaf

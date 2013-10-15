@@ -158,4 +158,23 @@ sub updatePassword {
     $self->render(status => $status, json => $json);
 }
 
+sub notifications {
+    my $self = shift;
+
+    my $jsonReq = $self->req->json;
+    $self->render(json => {error => '0', txt => 'Invalid submission'}, status => 406) and return unless ($jsonReq->{treeInvite} =~ m/[10]/ && $jsonReq->{leafAssign} =~ m/[10]/);
+
+    my $params = {};
+    $params->{treeInvite} = $jsonReq->{treeInvite};
+    $params->{leafAssign} = $jsonReq->{leafAssign};
+    $params->{userid} = $self->current_user->{userid};
+    
+    my $json = AnnoTree::Model::User->notifications($params);
+    
+    my $status = 204;
+    $status = 406 if (exists $json->{error});
+    
+    $self->render(status => $status, json => $json);
+}
+
 return 1;

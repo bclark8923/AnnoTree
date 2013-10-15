@@ -138,6 +138,38 @@
             }
         }
 
+        function setNotificationsError(msg) {
+            $scope.notificationsErrorText = msg;
+            $scope.notificationsErrorMessage = true;
+            $scope.updateNotifications = false;
+            $scope.treeNotf = $scope.user && $scope.user.notf_tree_invite || '1';
+            $scope.leafAssignNotf = $scope.user && $scope.user.notf_leaf_assign || '1';
+        }
+
+        $scope.changeNotifications = function() {
+            $scope.updateNotifications = true;
+            var promise = $http.put(apiRoot.getRoot() + '/services/user/notifications', {
+                    treeInvite: $scope.treeNotf,
+                    leafAssign: $scope.leafAssignNotf
+                });
+
+                promise.then(
+                    function(response) {
+                        $scope.updateNotifications = false;
+                        $scope.notificationsErrorMessage = false;
+                        $scope.user.notf_tree_invite = $scope.treeNotf;
+                        $scope.user.notf_leaf_assign = $scope.leafAssignNotf;
+                    },
+                    function(response) {
+                        if (response.status != 500 && response.status != 502) {
+                            setNotificationsError(response.data.txt);
+                        } else {
+                            setNotificationsError(constants.servicesDown());
+                        }
+                    }
+                ); 
+        }
+
         $scope.name = $scope.user && $scope.user.first_name + ' ' + $scope.user.last_name || 'Name';
         $scope.email = $scope.user && $scope.user.email || 'email';
         $scope.password = '';

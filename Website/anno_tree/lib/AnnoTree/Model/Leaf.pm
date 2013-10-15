@@ -4,6 +4,7 @@ use Mojo::Base -strict;
 use AnnoTree::Model::MySQL;
 use AnnoTree::Model::Email;
 use Scalar::Util qw(looks_like_number);
+use AnnoTree::Model::Email;
 use Data::Dumper;
 use MIME::Base64;
 
@@ -11,6 +12,8 @@ use MIME::Base64;
 my $conf = Config::General->new('/opt/config.txt');
 my %config = $conf->getall;
 my $path = $config{server}->{'annotationpath'};
+my $confCCP = $config{server}->{base_url};
+my $confSplash = $config{server}->{splash_url};
 
 sub create {
     my ($class, $params) = @_;
@@ -358,15 +361,48 @@ sub assign {
             assign      => $params->{assign},
         }
     );
+    
 
-    my $num = $result->fetch->[0];
-    if ($num == 1) {
-        return {error => '1', txt => 'You do not have permissions on that tree'};
-    } elsif ($num == 2) {
-        return {error => '2', txt => 'Assigned user does not have permissions on that tree'};
-    } elsif ($num == 3) {
-        return {error => '3', txt => 'User has already been assigned to that leaf'};
-    } 
+    my $cols = $result->fetch;
+    if (looks_like_number($cols->[0])) { 
+        my $num = $cols->[0];
+        if ($num == 1) {
+            return {error => '1', txt => 'You do not have permissions on that tree'};
+        } elsif ($num == 2) {
+            return {error => '2', txt => 'Assigned user does not have permissions on that tree'};
+        } elsif ($num == 3) {
+            return {error => '3', txt => 'User has already been assigned to that leaf'};
+        }
+    } elsif ($params->{reqUser} != $params->{assign}) {
+        # values: 'req_user_fname', 'req_user_lname', 'assign_fname', 'assign_lname', 'assign_status', 'assign_email', 'assign_notf_leaf_assign', 'forest_id', 'tree_id', 'branch_id', 'leaf_id', 'leaf_name'
+        my $values = $result->fetch;
+        my %info;
+        for (my $i = 0; $i < @{$cols}; $i++) {
+            $info{$cols->[$i]} = $values->[$i];
+        }
+        print Dumper(\%info);
+        if ($info{assign_notf_leaf_assign} == 1) {
+            my $to = $info{assign_email};
+            my $from = '"AnnoTree" <invite@annotree.com>';
+            my $subject = 'You Were Assigned To A Leaf';
+            my $body = 'Hi';
+            if ($info{assign_status} == 3) {
+                $body .= ' ';
+                $body .= $info{assign_fname} || $info{assign_lname};
+                $body .= ',<br/><br/>';
+                $info{req_user_fname} ? $body .= $info{req_user_fname} . ' ' : '';
+                $body .= $info{req_user_lname} . ' assigned you to "' . $info{leaf_name} . '".';
+                my $deepLink = $confCCP . '/#/app/' . $info{forest_id} . '/' . $info{tree_id} . '/' . $info{branch_id} . '/' . $info{leaf_id};
+                $body .= '<br/><br/>Go to <a href="' . $deepLink . '">' . $deepLink . '</a> to view this leaf.';
+            } else {
+                $body .= ',<br/><br/>';
+                $info{req_user_fname} ? $body .= $info{req_user_fname} . ' ' : '';
+                $body .= $info{req_user_lname} . ' assigned you to "' . $info{leaf_name} . '".<br/><br/>';
+                $body .= 'Sign up at <a href="' . $confCCP . '/#/authenticate/signUp">' . $confCCP . '/#/authenticate/signUp</a> to view this leaf.  You can always learn more AnnoTree by visiting <a href="' . $confSplash . '">' . $confSplash . '</a>.';
+            }
+            AnnoTree::Model::Email->mail($to, $from, $subject, $body);
+        }
+    }
 
     return {};
 }

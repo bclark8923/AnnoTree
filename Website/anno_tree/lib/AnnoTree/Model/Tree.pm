@@ -271,38 +271,42 @@ sub addUserToTree {
 
         my $cols = $addedUser->fetch; # get the columns (keys for json)
         my $userInfo = $addedUser->fetch;
-        $json->{id} = $userInfo->[0];
-        $json->{profile_image_path} = $userInfo->[6];
-        $json->{email} = $userInfo->[3];
-        my $subject = '';
-        if ($status == 3) {
-            $subject = "You've Been Invited To A Tree";
-            $json->{first_name} = $userInfo->[1];
-            $json->{last_name} = $userInfo->[2];
-            $body = 'Hi ';
-            $body .= $json->{firstName} || $json->{lastName};
-            $body .= ",<br/><br/>";
-            $body .= $curUserInfo->[0] || '';
-            $body .= ' ' if $curUserInfo->[0];
-            $body .= $curUserInfo->[1];
-            $body .= ' has invited you to ' . $curUserInfo->[2] . ".<br/><br/>";
-            $body .= 'Go to <a href="' . $confCCP . '/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '">' . $confCCP . '/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '</a> to view this tree.' . "<br/>";
-        } else {
-            $subject = "You've Been Invited To Join AnnoTree";
-            $json->{first_name} = '';
-            $json->{last_name} = '';
-            $body = 'Hi,' . "<br/><br/>";
-            $body .= $curUserInfo->[0] || '';
-            $body .= ' ' if $curUserInfo->[0];
-            $body .= $curUserInfo->[1];
-            $body .= ' has invited you to collaborate with them through AnnoTree - a visual, design-focused collaboration tool for application development.<br/><br/>';
-            $body .= 'To learn more about AnnoTree, visit <a href="' . $confSplash . '">' . $confSplash . '</a> or go to <a href="' . $confCCP . '/#/authenticate/signUp">' . $confCCP . '/#/authenticate/signUp</a> to create an account and beging collaborating and streamlining your development.' . "<br/><br/>";
+        for (my $i = 0; $i < @{$cols}; $i++) {
+            $json->{$cols->[$i]} = $userInfo->[$i];
         }
+        if ($userInfo->[9] == 1) {
+            #$json->{id} = $userInfo->[0];
+            #$json->{profile_image_path} = $userInfo->[6];
+            #$json->{email} = $userInfo->[3];
+            my $subject = '';
+            if ($status == 3) {
+                $subject = "You've Been Invited To A Tree";
+                #$json->{first_name} = $userInfo->[1];
+                #$json->{last_name} = $userInfo->[2];
+                $body = 'Hi ';
+                $body .= $json->{first_name} || $json->{last_name};
+                $body .= ",<br/><br/>";
+                $body .= $curUserInfo->[0] || '';
+                $body .= ' ' if $curUserInfo->[0];
+                $body .= $curUserInfo->[1];
+                $body .= ' has invited you to ' . $curUserInfo->[2] . ".<br/><br/>";
+                $body .= 'Go to <a href="' . $confCCP . '/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '">' . $confCCP . '/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '</a> to view this tree.';
+            } else {
+                $subject = "You've Been Invited To Join AnnoTree";
+                #$json->{first_name} = '';
+                #$json->{last_name} = '';
+                $body = 'Hi,' . "<br/><br/>";
+                $body .= $curUserInfo->[0] || '';
+                $body .= ' ' if $curUserInfo->[0];
+                $body .= $curUserInfo->[1];
+                $body .= ' has invited you to collaborate with them through AnnoTree - a visual, design-focused collaboration tool for application development.<br/><br/>';
+                $body .= 'To learn more about AnnoTree, visit <a href="' . $confSplash . '">' . $confSplash . '</a> or go to <a href="' . $confCCP . '/#/authenticate/signUp">' . $confCCP . '/#/authenticate/signUp</a> to create an account and beging collaborating and streamlining your development.';
+            }
 
-
-        my $to = $params->{userToAdd};
-        my $from = '"AnnoTree" <invite@annotree.com>';
-        AnnoTree::Model::Email->mail($to, $from, $subject, $body);
+            my $to = $params->{userToAdd};
+            my $from = '"AnnoTree" <invite@annotree.com>';
+            AnnoTree::Model::Email->mail($to, $from, $subject, $body);
+        }
     }
     
     return $json;

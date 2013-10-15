@@ -401,4 +401,19 @@ sub updatePassword {
     return $json;
 }
 
+sub notifications {
+    my ($class, $params) = @_;
+
+    my $result = AnnoTree::Model::MySQL->db->execute(
+        "call update_notifications(:userid, :treeInvite, :leafAssign)",
+        {
+            userid      => $params->{userid},
+            treeInvite  => $params->{treeInvite},
+            leafAssign  => $params->{leafAssign},
+        }
+    );
+    
+    return {};
+}
+
 return 1;

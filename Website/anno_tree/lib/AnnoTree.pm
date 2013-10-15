@@ -99,6 +99,7 @@ sub startup {
     $authr->get('/user')                                    ->to('controller-user#getUserInformation');
     $authr->put('/user')                                    ->to('controller-user#update');
     $authr->put('/user/password')                           ->to('controller-user#updatePassword');
+    $authr->put('/user/notifications')                      ->to('controller-user#notifications');
     $authr->post('/user/feedback')                          ->to('controller-user#feedback');
     #$authr->delete('/user/:userid' => [userid => qr/\d+/])  ->to('controller-user#deleteUser');
     

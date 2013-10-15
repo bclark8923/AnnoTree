@@ -275,14 +275,9 @@ sub addUserToTree {
             $json->{$cols->[$i]} = $userInfo->[$i];
         }
         if ($userInfo->[9] == 1) {
-            #$json->{id} = $userInfo->[0];
-            #$json->{profile_image_path} = $userInfo->[6];
-            #$json->{email} = $userInfo->[3];
             my $subject = '';
             if ($status == 3) {
                 $subject = "You've Been Invited To A Tree";
-                #$json->{first_name} = $userInfo->[1];
-                #$json->{last_name} = $userInfo->[2];
                 $body = 'Hi ';
                 $body .= $json->{first_name} || $json->{last_name};
                 $body .= ",<br/><br/>";
@@ -293,8 +288,6 @@ sub addUserToTree {
                 $body .= 'Go to <a href="' . $confCCP . '/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '">' . $confCCP . '/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '</a> to view this tree.';
             } else {
                 $subject = "You've Been Invited To Join AnnoTree";
-                #$json->{first_name} = '';
-                #$json->{last_name} = '';
                 $body = 'Hi,' . "<br/><br/>";
                 $body .= $curUserInfo->[0] || '';
                 $body .= ' ' if $curUserInfo->[0];

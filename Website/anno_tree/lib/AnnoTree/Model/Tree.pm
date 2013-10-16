@@ -226,7 +226,7 @@ sub addUserToTree {
     my ($class, $params) = @_;
    
     my %options = (
-        default => 'identicon', 
+        default => 'wavatar', 
         rating  => 'pg',
         https   => 1
     );

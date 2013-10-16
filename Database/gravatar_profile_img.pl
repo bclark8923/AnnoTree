@@ -29,7 +29,7 @@ my $users = $db->execute(
 
 while (my $user = $users->fetch) {
     my %options = (
-        default => 'identicon', 
+        default => 'wavatar', 
         rating  => 'pg',
         https   => 1
     );

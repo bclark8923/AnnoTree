@@ -63,7 +63,7 @@ sub signup {
     my $token = sha256_hex($params->{email}, $created);
     
     my %options = (
-        default => 'identicon', 
+        default => 'wavatar', 
         rating  => 'pg',
         https   => 1
     );
@@ -340,7 +340,7 @@ sub update {
     my ($class, $params) = @_;
 
     my %options = (
-        default => 'identicon', 
+        default => 'wavatar', 
         rating  => 'pg',
         https   => 1
     );

@@ -12,7 +12,7 @@ CREATE Procedure `add_user_to_tree`(
     in treeid int,
     in email_in varchar(255),
     in requesting_user INT,
-    IN new_user_img VARCHAR(45)
+    IN new_user_img VARCHAR(256)
 )
  BEGIN
 IF (select id from user_tree where tree_id = treeid and user_id = requesting_user) THEN
@@ -32,6 +32,9 @@ IF (select id from user_tree where tree_id = treeid and user_id = requesting_use
              END IF;
              SET @status = (SELECT status FROM user WHERE id = @user_to_add);
              IF (@status = 0 OR @status = 1 OR @status = 2) THEN
+                IF (@status = 0 OR @status = 1) THEN
+                    UPDATE user SET invited_by = requesting_user WHERE id = @user_to_add;
+                END IF;
                  UPDATE user SET status = 2 WHERE id = @user_to_add;
                  SELECT 'status'
                      UNION
@@ -44,7 +47,7 @@ IF (select id from user_tree where tree_id = treeid and user_id = requesting_use
          COMMIT;
          END IF;
      ELSE
-       insert into user(email, status, profile_image_path) values (email_in, 2, new_user_img);
+       insert into user(email, status, profile_image_path, invited_by) values (email_in, 2, new_user_img, requesting_user);
          set @new_user_id = LAST_INSERT_ID();
          insert into user_tree (user_id, tree_id) values (@new_user_id, treeid);
           insert into user_forest(user_id, forest_id) 

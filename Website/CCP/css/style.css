@@ -151,6 +151,13 @@ a.btn-annotree {
     color: #b94a48;
 }
 
+.success-text {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    color: #5cc080;
+}
+
 .wrapper {
     overflow-y: hidden;
     overflow-x: hidden;
@@ -162,17 +169,7 @@ a.btn-annotree {
     width: 30px;
     height: 30px;
     border-radius: 15px;
-    color: #fff;
-    background-color: #bbb;
-    border: 1px solid #bbb;
     cursor: pointer;
-    padding: 4px;
-    text-align: center;
-    font-weight: 300;
-}
-
-.userIcon:hover {
-    border: 1px solid #999;
 }
 
 .unselectable {
@@ -281,7 +278,6 @@ a.btn-annotree {
 }
 
 #userSidebar {
-    margin-left: 25px;
     margin-top: 3px;
 }
 
@@ -317,9 +313,8 @@ a.btn-annotree {
     display: block;
 }
 
-#logoutButton {
-    float: right;
-    margin: 5px 10px 0 0;
+#userSettings > #footer > a {
+    margin: 5px 10px 0 10px;
 }
 
 #feedback {
@@ -466,6 +461,51 @@ a.btn-annotree {
 }
 
 /* -----------------------
+ * Settings Screen Settings
+ * ----------------------- */
+#settings {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+#settings .pageHeader {
+    height: 45px;
+    color: #444;
+    font-size: 14pt;
+    background-color: #fff;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid #ccc;
+    padding-left: 20px;
+    vertical-align: middle;
+}
+
+#settings .pageHeader > div {
+    display: table-cell;
+    vertical-align: middle;
+    height: 45px;
+}
+
+.input-annotree-settings {
+    max-width: 400px;
+}
+
+.userSettingsContainer {
+    background-color: white;
+    padding: 20px;
+    position: relative;
+}
+
+#settingsScroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 50px 40px 50px;
+}
+
+#settings .working {
+    top: 0;
+    left: 0;
+}
+/* -----------------------
  * Card Settings
  * ----------------------- */
 .card {
@@ -567,7 +607,7 @@ a.btn-annotree {
     float: right;
 }
 
-div[ng-switch].assignedUser {
+.assignedUser {
     width: 30px;
     height: 30px;
     border-radius: 15px;
@@ -822,6 +862,22 @@ div[ng-switch-when].branch, div[ng-switch-when].activeBranch {
     right: 0;
     top: 0;
 }
+
+#branchSwitch {
+    position: absolute;
+    height: 100%;
+    width: calc(80% - 64px);
+    background-color: rgba(250, 250, 250, 0.7);
+    z-index: 1000;
+    right: 0;
+    top: 0;
+    text-align: center;
+}
+
+#branchSwitch > .icon-working {
+    font-size: 100pt;
+}
+
 /* -----------------------
  * Sub-branch Settings
  * ----------------------- */

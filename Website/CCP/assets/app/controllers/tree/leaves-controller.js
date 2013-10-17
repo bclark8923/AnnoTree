@@ -23,8 +23,10 @@
                     if ($routeParams.leafID) {
                         $scope.showLeaf($routeParams.leafID);
                     }
+                    $scope.$emit('branchLoaded');
                 },
                 function(response) {
+                    $scope.$emit('branchLoaded');
                     $location.path("/forestFire"); //TODO: should redirect to app page and tell them why
                 }
             );

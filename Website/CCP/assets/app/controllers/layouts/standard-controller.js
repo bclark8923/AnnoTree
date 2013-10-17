@@ -18,6 +18,11 @@
                     }
                 ); 
             }
+
+            $scope.$on('userProfileUpdate', function(evt, data) {
+                $scope.user = data;
+                dataService.setUser(data);
+            });
             
             function setFeedbackError(msg) {
                 $scope.feedbackErrorText = msg;

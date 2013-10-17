@@ -16,8 +16,7 @@
 static const int ddLogLevel = LOG_LEVEL_ERROR;
 
 
-- (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree
-{
+- (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree drawScreen:(DrawingViewController*)drawScreen{
     self = [super initWithFrame:frame annotree:annotree];
     if (self) {
         self.toolbarButtons = [[NSMutableArray alloc] init];
@@ -28,7 +27,7 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self setBackgroundImage:textIconImageSelected forState:(UIControlStateDisabled|UIControlStateSelected)];
         [self addTarget:self action:@selector(setSelectedButton:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.drawScreen = [[DrawingViewController alloc] init];
+        self.drawScreen = drawScreen;
         [self.drawScreen.view setAutoresizesSubviews:YES];
         [self.drawScreen.view setAutoresizingMask: UIViewAutoresizingFlexibleWidth |
          UIViewAutoresizingFlexibleHeight];

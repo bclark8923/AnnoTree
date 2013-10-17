@@ -16,8 +16,7 @@
 
 static const int ddLogLevel = LOG_LEVEL_ERROR;
 
-- (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree
-{
+- (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree drawScreen:(DrawingViewController*)drawScreen{
     self = [super initWithFrame:frame annotree:annotree];
     if (self) {
         DDLogVerbose(@"Creating Penil Icon");
@@ -32,10 +31,10 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self.drawScreen.view setAutoresizingMask: UIViewAutoresizingFlexibleWidth |
                 UIViewAutoresizingFlexibleHeight];
         
-        self.drawScreen = [[DrawingViewController alloc] init];
+        self.drawScreen = drawScreen;
         [self setColor:[UIColor redColor]];
         [self setWidth:4];
-        [self addRectangleForToolbar:self.annoTree.space*.9 y1:self.annoTree.space*.9 x2:self.annoTree.sizeIcon*1.8 y2:self.annoTree.sizeIcon*2.4];
+        [self addRectangleForToolbar:self.annoTree.space*.9 y1:self.annoTree.space*.9 x2:self.annoTree.sizeIcon*1.8 y2:self.annoTree.sizeIcon*2.9];
         /*Add Color Buttons*/
         [self addColorButton:[UIColor redColor] buttonLocation:0];
         [self addColorButton:[UIColor blueColor] buttonLocation:1];
@@ -45,13 +44,14 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [self addLineButton:16 buttonLocation:2];
         [self colorSelector:self.toolbarButtons[1]];
         [self widthSelector:self.toolbarButtons[4]];
-        
+        [self addUndoButton];
+        [self addRedoButton];
         
     }
     return self;
 }
 
--(void)addLineButton:(int)width buttonLocation:(int)buttonLocation{    
+-(void)addLineButton:(int)width buttonLocation:(int)buttonLocation{
     DDLogVerbose(@"Adding line button:%d", width);
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     int x1 = self.annoTree.space*(1);
@@ -62,21 +62,51 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
     //[self addRectangleForToolbar:x1 y1:y1 x2:x2 y2:y2];
     [button setTag:width];
     [button setBackgroundImage:[UIImage imageNamed:[NSMutableString stringWithFormat:@"AnnoTree.bundle/line_%dpx.png", width]] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(widthSelector:) forControlEvents:UIControlEventTouchUpInside];
     //[button setBackgroundColor:[UIColor blackColor]];
     button.userInteractionEnabled = YES;
-    [button addTarget:self action:@selector(widthSelector:) forControlEvents:UIControlEventTouchUpInside];
     button.hidden = YES;
     [self.annoTree.toolbarButtons addObject:button];
     [self.toolbarButtons addObject:button];
-    //[self.annoTree.annoTreeToolbar addSubview:button];
 }
+
+-(UIButton*)addUndoRedoButton:(int)buttonLocation imageLocation:(NSString*)imageLocation{
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    int x1 = self.annoTree.space*(1 + buttonLocation/2.0);
+    int y1 = self.annoTree.space*(3);
+    int x2 = self.annoTree.sizeIcon*.5;
+    int y2 = self.annoTree.sizeIcon/2;
+    [button setFrame:CGRectMake(x1, y1, x2, y2)];
+    [button setBackgroundImage:[UIImage imageNamed:imageLocation] forState:UIControlStateNormal];
+    button.userInteractionEnabled = YES;
+    button.hidden = YES;
+    [self.annoTree.toolbarButtons addObject:button];
+    [self.toolbarButtons addObject:button];
+    return button;
+}
+-(void) addUndoButton{
+    UIButton* undo = [self addUndoRedoButton:0 imageLocation:@"AnnoTree.bundle/UndoIconToolbar.png"];
+    [undo addTarget:self action:@selector(undo:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void) addRedoButton{
+    UIButton* redo = [self addUndoRedoButton:1 imageLocation:@"AnnoTree.bundle/RedoIconToolbar.png"];
+    [redo addTarget:self action:@selector(redo:) forControlEvents:UIControlEventTouchUpInside];
+}
+
 
 -(IBAction)setSelectedButton:(UIButton*)button{
     [super setSelectedButton:button];
     [self.drawScreen setDrawingEnabled:YES];
 }
 
+-(IBAction)undo:(UIButton*)button{
+    [self.drawScreen undo];
+}
 
+-(IBAction)redo:(UIButton*)button{
+    [self.drawScreen redo];
+}
 
 
 -(IBAction)widthSelector:(UIButton*)button {

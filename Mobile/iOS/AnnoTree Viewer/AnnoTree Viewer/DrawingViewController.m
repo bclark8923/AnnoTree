@@ -29,6 +29,14 @@
     return self;
 }
 
+-(void)undo{
+    [drawScreen undo];
+}
+
+-(void)redo{
+    [drawScreen redo];
+}
+
 -(void)setTextSize:(int)size{
     [drawScreen setTextSize:size];
 }
@@ -43,6 +51,10 @@
 
 -(void)setTextColor:(UIColor *)color{
     [drawScreen setTextColor:color];
+}
+
+-(void) setDeleteEnabled:(BOOL)enabled{
+    [drawScreen setDeleteEnabled:enabled];
 }
 
 -(void) setDrawingEnabled:(BOOL)enabled

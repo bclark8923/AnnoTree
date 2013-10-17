@@ -11,7 +11,7 @@
 
 @interface TextTool : ToolbarButtonWithColorSelector
 
-- (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree;
+- (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree drawScreen:(DrawingViewController*)drawScreen;
 - (IBAction)setSelectedButton:(UIButton*)button;
 
 @end

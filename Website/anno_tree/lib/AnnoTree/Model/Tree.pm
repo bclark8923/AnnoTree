@@ -293,7 +293,7 @@ sub addUserToTree {
                 $body .= ' ' if $curUserInfo->[0];
                 $body .= $curUserInfo->[1];
                 $body .= ' has invited you to collaborate with them through AnnoTree - a visual, design-focused collaboration tool for application development.<br/><br/>';
-                $body .= 'To learn more about AnnoTree, visit <a href="' . $confSplash . '">' . $confSplash . '</a> or go to <a href="' . $confCCP . '/#/authenticate/signUp">' . $confCCP . '/#/authenticate/signUp</a> to create an account and beging collaborating and streamlining your development.';
+                $body .= 'To learn more about AnnoTree, visit <a href="' . $confSplash . '">' . $confSplash . '</a> or go to <a href="' . $confCCP . '/#/authenticate/signUp?email=' . $params->{userToAdd} . '">' . $confCCP . '/#/authenticate/signUp?email=' . $params->{userToAdd} . '</a> to create an account and beging collaborating and streamlining your development.';
             }
 
             my $to = $params->{userToAdd};

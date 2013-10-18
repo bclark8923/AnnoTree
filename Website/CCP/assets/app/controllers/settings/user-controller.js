@@ -102,7 +102,6 @@
         $scope.changePassword = function() {
             var password = $scope.password;
             var numberTest = new RegExp('[0-9]');
-            var invalidCharTest = new RegExp('[^A-Za-z0-9!@#\$%\^7\*\(\)]');
             $scope.changePasswordSuccessMessage = false;
 
             if (!password) {
@@ -111,8 +110,6 @@
                 setChangePasswordError('Password should contain at least six characters');
             } else if (!numberTest.test(password)) {
                 setChangePasswordError('Password must contain at least one number');
-            } else if (invalidCharTest.test(password)) {
-                setChangePasswordError('Valid password characters are alphanumeric or !@#$%^&*()');
             } else {
                 $scope.changePasswordErrorMessage = false;
                 $scope.updatePassword = true;

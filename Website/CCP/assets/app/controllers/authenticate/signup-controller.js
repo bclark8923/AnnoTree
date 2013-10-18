@@ -18,7 +18,6 @@
                 var password = $scope.signUpPassword;
                 var formValid = $scope.signUpForm.$valid;
                 var numberTest = new RegExp('[0-9]');
-                var invalidCharTest = new RegExp('[^A-Za-z0-9!@#\$%\^7\*\(\)]');
 
                 if (!name) {
                     setError('Please fill out your name');
@@ -30,8 +29,6 @@
                     setError('Password should contain at least six characters');
                 } else if (!numberTest.test(password)) {
                     setError('Password must contain at least one number');
-                } else if (invalidCharTest.test(password)) {
-                    setError('Valid password characters are alphanumeric or !@#$%^&*()');
                 } else {
                     $('#authenticateWorking').addClass('active'); // TODO: angular way
                     var promise = $http.post(apiRoot.getRoot() + '/services/user/signup', {
@@ -67,6 +64,7 @@
                 $scope.subview = renderContext.getNextSection();
             });
             $scope.errorText = '';
+            $scope.signUpEmail = ($location.search()).email || '';
         }
     );
 })(angular, AnnoTree);

@@ -15,10 +15,14 @@
 
 -(void) setDrawingEnabled:(BOOL)enabled;
 -(void) setTextEnabled:(BOOL)enabled;
+-(void) setDeleteEnabled:(BOOL)enabled;
+
 -(void) setDrawColor:(UIColor *) color;
 -(void) setTextColor:(UIColor *) color;
 -(void) clearAll;
 -(void) setLineWidth:(int)width;
 -(void) setTextSize:(int)size;
+-(void)undo;
+-(void)redo;
 
 @end

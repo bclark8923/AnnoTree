@@ -7,10 +7,12 @@
 //
 
 #import "MoveableText.h"
+#import "DDLog.h"
 
 @implementation MoveableText
 
 CGPoint startLocation;
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -25,6 +27,7 @@ CGPoint startLocation;
     // Retrieve the touch point
     CGPoint pt = [[touches anyObject] locationInView:self];
     startLocation = pt;
+    
 }
 
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {

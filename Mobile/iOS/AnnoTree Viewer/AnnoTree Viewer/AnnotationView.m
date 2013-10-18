@@ -8,17 +8,22 @@
 #import "AnnotationView.h"
 #import "AnnoTree.h"
 #import "MoveableText.h"
+#import "DDLog.h"
 
 
 @implementation AnnotationView
 
-@synthesize drawingEnabled;
-@synthesize textEnabled;
-@synthesize deleteEnabled;
+@dynamic drawingEnabled;
+bool drawingEnabled;
+@dynamic  textEnabled;
+bool textEnabled;
 @synthesize drawColor;
 @synthesize textColor;
 @synthesize lineWidth;
 @synthesize textSize;
+@dynamic deleteEnabled;
+BOOL deleteEnabled = NO;
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -30,12 +35,33 @@
         drawings = [[NSMutableArray alloc] init];
         textBoxes = [[NSMutableArray alloc] init];
         drawingsColor = [[NSMutableArray alloc] init];
+        undoDrawings = [[NSMutableArray alloc] init];
+        undoDrawingsColor = [[NSMutableArray alloc] init];
+        deleteEnabled = NO;
         self.lineWidth = 2;
+        //self.deleteEnabled = NO;
         //drawColor=[UIColor redColor];
         //textColor=[UIColor redColor];
     }
     return self;
 }
+
+-(void)unEnableAll{
+    drawingEnabled = NO;
+    textEnabled = NO;
+    deleteEnabled = NO;
+}
+
+- (void)setDrawingEnabled:(BOOL)enabled{
+    [self unEnableAll];
+    drawingEnabled = enabled;
+}
+
+-(void)setTextEnabled:(BOOL)enabled{
+    [self unEnableAll];
+    textEnabled = enabled;
+}
+
 
 /*
 - (void)setDrawColor:(UIColor)color{
@@ -45,6 +71,64 @@
 - (void)setTextColor:(UIColor)color{
     textColor = color;
 }*/
+
+
+/*
+ TODO:Improve this
+ */
+-(BOOL)deleteText:(MoveableText*)deleted{
+    for(MoveableText* text in textBoxes){
+        if([text isEqual:deleted]){
+            [textBoxes removeObject:text];
+            return YES;
+        }
+    }
+    return NO;
+}
+
+-(BOOL)getDeleteEnabled{
+    return self.deleteEnabled;
+}
+
+-(void) setDeleteEnabled:(BOOL)delete {
+    DDLogVerbose(@"SETTING DELETE");
+    textEnabled= NO;
+    self.drawingEnabled = NO;
+    deleteEnabled = delete;
+    for(MoveableText* text in textBoxes){
+        [text resignFirstResponder];
+    }
+    [self becomeFirstResponder];
+}
+
+-(bool)undo{
+    if(drawingEnabled){
+        if(drawings.count > 0){
+            UIBezierPath *item = [drawings lastObject];
+            [drawings removeLastObject];
+            [undoDrawings insertObject:item atIndex:0];
+            item = [drawingsColor lastObject];
+            [drawingsColor removeLastObject];
+            [undoDrawingsColor insertObject:item atIndex:0];
+            [self setNeedsDisplay];
+            return YES;
+        }
+    }
+    return NO;
+}
+
+-(void)redo{
+    if(drawingEnabled){
+        if(undoDrawings.count > 0){
+            [drawings addObject:undoDrawings[0]];
+            [undoDrawings removeObjectAtIndex:0];
+            [drawingsColor addObject:undoDrawingsColor[0]];
+            [undoDrawingsColor removeObjectAtIndex:0];
+            [self setNeedsDisplay];
+        }
+    }
+}
+
 
 - (BOOL)shouldAutorotate
 {
@@ -85,9 +169,7 @@
         [myPath moveToPoint:[mytouch locationInView:self]];
         [drawings addObject:myPath];
         [drawingsColor addObject:currentColor];
-    }
-    
-    if(textEnabled) {
+    }else if(textEnabled) {
         UITouch *mytouch=[[touches allObjects] objectAtIndex:0];
 
         //NSLog(@"size is %f, %f", [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height);
@@ -123,19 +205,28 @@
         textField.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
 
         textField.delegate = [AnnoTree sharedInstance];
-        UIColor *bgColor = UIColorFromRGB(0xF7F8F5);
-        textField.backgroundColor = [bgColor colorWithAlphaComponent:0.8];
+        UIColor *bgColor = [UIColor clearColor];//UIColorFromRGB(0xF7F8F5);
+        textField.backgroundColor = [bgColor colorWithAlphaComponent:0.0];
         [textField setInputAccessoryView:[self getKeyboardAccessoryView]];
                 
         [self addSubview:textField];
         [textBoxes addObject:textField];
         [textField becomeFirstResponder];
 
+    }else if(deleteEnabled){
+        UITouch *touch = [[touches allObjects] objectAtIndex:0];
+        CGPoint touchLocation = [touch locationInView:self];
+        DDLogVerbose(@"Deleting");
+        DDLogVerbose(@"touchLocation:%f,%f", touchLocation.x, touchLocation.y);
+        for(MoveableText* text in textBoxes){
+            if(CGRectContainsPoint(text.frame, touchLocation)){
+                [textBoxes removeObject:text];
+                [text removeFromSuperview];
+            }
+        }
     }
     
-    if(deleteEnabled){
-    
-    }
+
 }
 
 
@@ -188,8 +279,17 @@
         UITouch *mytouch=[[touches allObjects] objectAtIndex:0];
         [myPath addLineToPoint:[mytouch locationInView:self]];
         [self setNeedsDisplay];
+    }else if(deleteEnabled){
+        UITouch *touch = [[touches allObjects] objectAtIndex:0];
+        CGPoint touchLocation = [touch locationInView:self];
+        DDLogVerbose(@"Deleting");
+        for(MoveableText* text in textBoxes){
+            if(CGRectContainsPoint(text.frame, touchLocation)){
+                [textBoxes removeObject:text];
+                [text removeFromSuperview];
+            }
+        }
     }
-    
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

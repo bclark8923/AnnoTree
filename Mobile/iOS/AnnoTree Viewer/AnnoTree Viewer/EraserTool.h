@@ -11,4 +11,5 @@
 
 @interface EraserTool : ToolbarButton
 
+- (id)initWithFrame:(CGRect)frame annotree:(AnnoTree*)annotree drawScreen:(DrawingViewController*)drawScreen;
 @end

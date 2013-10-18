@@ -50,8 +50,17 @@
 		D32164C4172C21BC00573823 /* AnnotationView.h in Headers */ = {isa = PBXBuildFile; fileRef = D3AAA1F417002C4400954DDF /* AnnotationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D32164C5172C21BC00573823 /* ShareViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D314C668171B2D7700BA9B2F /* ShareViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D32164C6172C21BC00573823 /* ToolbarBg.h in Headers */ = {isa = PBXBuildFile; fileRef = D3D53FF1171A194500552253 /* ToolbarBg.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D321F94B180E5D5F00A2F8D2 /* Stack.h in Headers */ = {isa = PBXBuildFile; fileRef = D321F949180E5D5F00A2F8D2 /* Stack.h */; };
+		D321F94C180E5D5F00A2F8D2 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = D321F94A180E5D5F00A2F8D2 /* Stack.m */; };
+		D321F94F180E5D8000A2F8D2 /* Queue.h in Headers */ = {isa = PBXBuildFile; fileRef = D321F94D180E5D8000A2F8D2 /* Queue.h */; };
+		D321F950180E5D8000A2F8D2 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = D321F94E180E5D8000A2F8D2 /* Queue.m */; };
+		D33DCBBF1808C91100345468 /* EraserIconToolbarSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = D33DCB951808C83E00345468 /* EraserIconToolbarSelected.png */; };
+		D33DCBC01808C91500345468 /* EraserIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D33DCB931808C82B00345468 /* EraserIconToolbar.png */; };
 		D36291041730465C00F08E8A /* UIWindowAnnoTree.m in Sources */ = {isa = PBXBuildFile; fileRef = D36291021730465C00F08E8A /* UIWindowAnnoTree.m */; };
 		D362912F173067B000F08E8A /* UIWindowAnnoTree.h in Headers */ = {isa = PBXBuildFile; fileRef = D36291011730465C00F08E8A /* UIWindowAnnoTree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D368D0D9180EEDE20036FE62 /* RedoIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D368D0D8180EEDE20036FE62 /* RedoIconToolbar.png */; };
+		D368D0F4180EF76C0036FE62 /* UndoIconToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D368D0DA180EEDF80036FE62 /* UndoIconToolbar.png */; };
+		D368D109180F976C0036FE62 /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D368D105180F976C0036FE62 /* AnnoTree.bundle */; };
 		D3790AD017B8622E009E1BF2 /* AnnoTreeBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3790ACF17B8622E009E1BF2 /* AnnoTreeBrowser.bundle */; };
 		D3790AD117B862B6009E1BF2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3180C26176184B300A6B8E0 /* CoreFoundation.framework */; };
 		D3AAA1A717000FC300954DDF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AAA1A617000FC300954DDF /* UIKit.framework */; };
@@ -120,7 +129,6 @@
 		D3F2A9441804D87300493DAC /* text_14px.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F2A9371804D6F400493DAC /* text_14px.png */; };
 		D3F2A9451804D87300493DAC /* text_18px.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F2A9381804D6F400493DAC /* text_18px.png */; };
 		D3F2A9461804D87300493DAC /* text_22px.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F2A9391804D6F400493DAC /* text_22px.png */; };
-		D3F2A9581804D9C700493DAC /* AnnoTree.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3F2A9551804D9C700493DAC /* AnnoTree.bundle */; };
 		D3F2A96D1806415E00493DAC /* EraserTool.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2A96B1806415D00493DAC /* EraserTool.h */; };
 		D3F2A96E1806415E00493DAC /* EraserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F2A96C1806415E00493DAC /* EraserTool.m */; };
 		D3F2A9711806614B00493DAC /* ToolbarButtonWithColorSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F2A96F1806614900493DAC /* ToolbarButtonWithColorSelector.h */; };
@@ -233,8 +241,17 @@
 		D32164A4172C18B600573823 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D32164A6172C18B600573823 /* AnnoTreeLibraryTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnnoTreeLibraryTests.h; sourceTree = "<group>"; };
 		D32164A7172C18B600573823 /* AnnoTreeLibraryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnnoTreeLibraryTests.m; sourceTree = "<group>"; };
+		D321F949180E5D5F00A2F8D2 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		D321F94A180E5D5F00A2F8D2 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		D321F94D180E5D8000A2F8D2 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
+		D321F94E180E5D8000A2F8D2 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
+		D33DCB931808C82B00345468 /* EraserIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EraserIconToolbar.png; sourceTree = "<group>"; };
+		D33DCB951808C83E00345468 /* EraserIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EraserIconToolbarSelected.png; sourceTree = "<group>"; };
 		D36291011730465C00F08E8A /* UIWindowAnnoTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWindowAnnoTree.h; sourceTree = "<group>"; };
 		D36291021730465C00F08E8A /* UIWindowAnnoTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWindowAnnoTree.m; sourceTree = "<group>"; };
+		D368D0D8180EEDE20036FE62 /* RedoIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedoIconToolbar.png; sourceTree = "<group>"; };
+		D368D0DA180EEDF80036FE62 /* UndoIconToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UndoIconToolbar.png; sourceTree = "<group>"; };
+		D368D105180F976C0036FE62 /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = "Debug-iphoneos/AnnoTree.bundle"; sourceTree = "<group>"; };
 		D3790ACF17B8622E009E1BF2 /* AnnoTreeBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTreeBrowser.bundle; path = ../../ActiveSDK/AnnoTreeBrowser.bundle; sourceTree = "<group>"; };
 		D3A7658417810A000046C8D5 /* PencilIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PencilIconToolbarSelected.png; path = AnnoTreeResources/PencilIconToolbarSelected.png; sourceTree = SOURCE_ROOT; };
 		D3A7658517810A000046C8D5 /* SelectIconToolbarSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SelectIconToolbarSelected.png; path = AnnoTreeResources/SelectIconToolbarSelected.png; sourceTree = SOURCE_ROOT; };
@@ -321,7 +338,6 @@
 		D3F2A9371804D6F400493DAC /* text_14px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = text_14px.png; path = ../../../../Extensions/Chrome/images/text_14px.png; sourceTree = "<group>"; };
 		D3F2A9381804D6F400493DAC /* text_18px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = text_18px.png; path = ../../../../Extensions/Chrome/images/text_18px.png; sourceTree = "<group>"; };
 		D3F2A9391804D6F400493DAC /* text_22px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = text_22px.png; path = ../../../../Extensions/Chrome/images/text_22px.png; sourceTree = "<group>"; };
-		D3F2A9551804D9C700493DAC /* AnnoTree.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = AnnoTree.bundle; path = "../../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos/AnnoTree.bundle"; sourceTree = "<group>"; };
 		D3F2A96B1806415D00493DAC /* EraserTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EraserTool.h; sourceTree = "<group>"; };
 		D3F2A96C1806415E00493DAC /* EraserTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EraserTool.m; sourceTree = "<group>"; };
 		D3F2A96F1806614900493DAC /* ToolbarButtonWithColorSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolbarButtonWithColorSelector.h; sourceTree = "<group>"; };
@@ -423,6 +439,9 @@
 		D314C663171B283100BA9B2F /* Default */ = {
 			isa = PBXGroup;
 			children = (
+				D368D0DA180EEDF80036FE62 /* UndoIconToolbar.png */,
+				D368D0D8180EEDE20036FE62 /* RedoIconToolbar.png */,
+				D33DCB931808C82B00345468 /* EraserIconToolbar.png */,
 				D3A8B7861788A892006BE5E2 /* TextIconToolbar.png */,
 				D3A7658817810A110046C8D5 /* PencilIconToolbar.png */,
 				D3A7658917810A110046C8D5 /* RecordIconToolbar.png */,
@@ -435,6 +454,7 @@
 		D314C664171B283700BA9B2F /* Selected */ = {
 			isa = PBXGroup;
 			children = (
+				D33DCB951808C83E00345468 /* EraserIconToolbarSelected.png */,
 				D3A7658417810A000046C8D5 /* PencilIconToolbarSelected.png */,
 				D3A7658517810A000046C8D5 /* SelectIconToolbarSelected.png */,
 				D3A7658617810A000046C8D5 /* ShareIconToolbarSelected.png */,
@@ -474,6 +494,7 @@
 		D314C667171B2D5A00BA9B2F /* Annotations */ = {
 			isa = PBXGroup;
 			children = (
+				D321F948180E5D3700A2F8D2 /* ListUtil */,
 				D3AAA1F417002C4400954DDF /* AnnotationView.h */,
 				D3AAA1F517002C4400954DDF /* AnnotationView.m */,
 				D3180C481761969800A6B8E0 /* DrawingViewController.h */,
@@ -552,6 +573,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D321F948180E5D3700A2F8D2 /* ListUtil */ = {
+			isa = PBXGroup;
+			children = (
+				D321F949180E5D5F00A2F8D2 /* Stack.h */,
+				D321F94A180E5D5F00A2F8D2 /* Stack.m */,
+				D321F94D180E5D8000A2F8D2 /* Queue.h */,
+				D321F94E180E5D8000A2F8D2 /* Queue.m */,
+			);
+			name = ListUtil;
+			sourceTree = "<group>";
+		};
 		D3AAA19A17000FC300954DDF = {
 			isa = PBXGroup;
 			children = (
@@ -599,7 +631,7 @@
 		D3AAA1AC17000FC300954DDF /* AnnoTree Viewer */ = {
 			isa = PBXGroup;
 			children = (
-				D3F2A9551804D9C700493DAC /* AnnoTree.bundle */,
+				D368D105180F976C0036FE62 /* AnnoTree.bundle */,
 				D3790ACF17B8622E009E1BF2 /* AnnoTreeBrowser.bundle */,
 				D3AAA1E71700186400954DDF /* AnnoTree */,
 				D3AAA1B517000FC300954DDF /* AppDelegate.h */,
@@ -791,6 +823,8 @@
 				D3F024D417E65032000F6D5B /* DispatchQueueLogFormatter.h in Headers */,
 				D3F2A96D1806415E00493DAC /* EraserTool.h in Headers */,
 				D3F2A9711806614B00493DAC /* ToolbarButtonWithColorSelector.h in Headers */,
+				D321F94B180E5D5F00A2F8D2 /* Stack.h in Headers */,
+				D321F94F180E5D8000A2F8D2 /* Queue.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -960,6 +994,10 @@
 				D3F2A9441804D87300493DAC /* text_14px.png in Resources */,
 				D3F2A9451804D87300493DAC /* text_18px.png in Resources */,
 				D3F2A9461804D87300493DAC /* text_22px.png in Resources */,
+				D33DCBBF1808C91100345468 /* EraserIconToolbarSelected.png in Resources */,
+				D33DCBC01808C91500345468 /* EraserIconToolbar.png in Resources */,
+				D368D0D9180EEDE20036FE62 /* RedoIconToolbar.png in Resources */,
+				D368D0F4180EF76C0036FE62 /* UndoIconToolbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -995,7 +1033,7 @@
 				D3E1269417B82C0D00DC1BE5 /* Screen3.png in Resources */,
 				D3E1269517B82C0D00DC1BE5 /* Screen4.png in Resources */,
 				D3E1269617B82C0D00DC1BE5 /* Screen5.png in Resources */,
-				D3F2A9581804D9C700493DAC /* AnnoTree.bundle in Resources */,
+				D368D109180F976C0036FE62 /* AnnoTree.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1111,6 +1149,8 @@
 				D3F024D517E65032000F6D5B /* DispatchQueueLogFormatter.m in Sources */,
 				D3F2A96E1806415E00493DAC /* EraserTool.m in Sources */,
 				D3F2A9721806614B00493DAC /* ToolbarButtonWithColorSelector.m in Sources */,
+				D321F94C180E5D5F00A2F8D2 /* Stack.m in Sources */,
+				D321F950180E5D8000A2F8D2 /* Queue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1321,10 +1361,15 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/AnnoTree Viewer/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTreeLibrary/AnnoTreeLibrary-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AnnoTree Viewer/Debug-iphoneos\"",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1346,10 +1391,15 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/AnnoTree Viewer/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTreeLibrary/AnnoTreeLibrary-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/AnnoTree Viewer/Debug-iphoneos\"",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1465,6 +1515,7 @@
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\"",
 					"\"$(SRCROOT)/../ActiveSDK\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/AnnoTree Viewer/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTree Viewer/AnnoTree Viewer-Prefix.pch";
@@ -1478,6 +1529,7 @@
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/AnnoTree Viewer/Debug-iphoneos\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1503,6 +1555,7 @@
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\"",
 					"\"$(SRCROOT)/../ActiveSDK\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/AnnoTree Viewer/Debug-iphoneos\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AnnoTree Viewer/AnnoTree Viewer-Prefix.pch";
@@ -1516,6 +1569,7 @@
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphoneos\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-bxyopmiaofmdudgpdmgjmnxbveip/Build/Products/Debug-iphonesimulator\"",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/AnnoTree_Viewer-cpwgxxebgiiuaddzsgmzfgjjnlyp/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/AnnoTree Viewer/Debug-iphoneos\"",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";

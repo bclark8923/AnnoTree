@@ -16,9 +16,11 @@
 #import "DDTTYLogger.h"
 
 
+#import "EraserTool.h"
 #import "PencilTool.h"
 #import "TextTool.h"
 #import "ScreenShotUtil.h"
+#import "ToolbarButton.h"
 
 
 @interface AnnoTree ()
@@ -108,29 +110,38 @@ static const int ddLogLevel = LOG_LEVEL_ERROR;
         [annoTreeWindow addGestureRecognizer:addTextGesture];
         
         /* create the toolbar to be loaded */
-        annoTreeToolbar = [[UIView alloc]initWithFrame:CGRectMake(0, 0, sizeIcon*3, space*3+sizeIcon)];
+        annoTreeToolbar = [[UIView alloc]initWithFrame:CGRectMake(0, 0, sizeIcon*3, space*4+sizeIcon)];
         annoTreeToolbar.userInteractionEnabled = YES;
         
         /* rectangle background for toolbar */
-        ToolbarBg *toolbarBg = [[ToolbarBg alloc] initWithFrame:CGRectMake(0,sizeIcon/2, sizeIcon, space*4)];
+        ToolbarBg *toolbarBg = [[ToolbarBg alloc] initWithFrame:CGRectMake(0,sizeIcon/2, sizeIcon, space*5)];
         toolbarBg.hidden = YES;
         toolbarBg.backgroundColor = [UIColor clearColor];
         [annoTreeToolbar addSubview:toolbarBg];
         [toolbarObjects addObject:toolbarBg];
         
+        DrawingViewController *drawScreen = [[DrawingViewController alloc] init];
+        
         /* Pencil Icon for toolbar */
-        UIButton *pencilIconToolbarButton = [[PencilTool alloc] initWithFrame:CGRectMake(0,space*1, sizeIcon, sizeIcon) annotree:self];
+        UIButton *pencilIconToolbarButton = [[PencilTool alloc] initWithFrame:CGRectMake(0,space*1, sizeIcon, sizeIcon) annotree:self drawScreen:drawScreen];
         [annoTreeToolbar addSubview:pencilIconToolbarButton];
         [toolbarButtons addObject:pencilIconToolbarButton];
         
         /* Text Icon for toolbar */
-        UIButton *textIconToolbarButton = [[TextTool alloc] initWithFrame:CGRectMake(0,space*2, sizeIcon, sizeIcon) annotree:self];
+        TextTool *textIconToolbarButton = [[TextTool alloc] initWithFrame:CGRectMake(0,space*2, sizeIcon, sizeIcon) annotree:self drawScreen:drawScreen];
         [annoTreeToolbar addSubview:textIconToolbarButton];
         [toolbarButtons addObject:textIconToolbarButton];
         
+        /*Eraser*/
+        UIButton *eraserTool = [[EraserTool alloc] initWithFrame:CGRectMake(0,space*3, sizeIcon, sizeIcon) annotree:self drawScreen:textIconToolbarButton.drawScreen];
+        [annoTreeToolbar addSubview:eraserTool];
+        [toolbarButtons addObject:eraserTool];
+        
+        
+        
         /* Share Icon for toolbar */
         UIButton *shareIconToolbarButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [shareIconToolbarButton setFrame:CGRectMake(0,space*3, sizeIcon, sizeIcon)];
+        [shareIconToolbarButton setFrame:CGRectMake(0,space*4, sizeIcon, sizeIcon)];
         shareIconToolbarButton.userInteractionEnabled = YES;
         UIImage *shareIconImage = [UIImage imageNamed:@"AnnoTree.bundle/ShareIconToolbar.png"];
         UIImage *shareIconImageSelected = [UIImage imageNamed:@"AnnoTree.bundle/ShareIconToolbarSelected.png"];

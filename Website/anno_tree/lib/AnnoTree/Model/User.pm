@@ -57,7 +57,7 @@ sub signup {
     
     return {error => '3', txt => 'Password must be at least six characters'} if (length($pass) < 6); # password must be at least 6 characters
     return {error => '4', txt => 'Password must contain at least one number'} if ($pass !~ m/\d/);
-    return {error => '5', txt => 'Valid password characters are alphanumeric and !@#$%^&*()'} if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
+    
     $pass = createSaltedHash($pass);
     my $created = Time::Piece::localtime->strftime('%F %T');  
     my $token = sha256_hex($params->{email}, $created);
@@ -173,9 +173,9 @@ sub beta {
         
         AnnoTree::Model::Email->mail($email, $from, $subject, $message);
     } elsif ($num == 1) {
-        $json = {error => $num, txt => 'You have already registered for the beta and have been granted access. Please go <a href="https://ccp.annotree.com/#/authenticate/signUp">here</a> to sign up for the collaboration platform.'};
+        $json = {error => $num, txt => 'You have already registered for the beta and have been granted access. Please go <a href="https://ccp.annotree.com/#/authenticate/signUp?email=' . $email . '">here</a> to sign up for the collaboration platform.'};
     } elsif ($num == 2) {
-        $json = {error => $num, txt => 'You have already registered for the beta and have been granted access. Please go <a href="https://ccp.annotree.com/#/authenticate/signUp">here</a> to sign up for the collaboration platform.'};
+        $json = {error => $num, txt => 'You have already registered for the beta and have been granted access. Please go <a href="https://ccp.annotree.com/#/authenticate/signUp?email=' . $email . '">here</a> to sign up for the collaboration platform.'};
     } elsif ($num == 3) {
         $json = {error => $num, txt => 'You have already signed into the collaboration platform. Please go <a href="https://ccp.annotree.com/#/authenticate/login">here</a> to access the collaboration platform.'};
     } elsif ($num == 4) {
@@ -377,7 +377,7 @@ sub updatePassword {
     #TODO - combine this code with signup into a function
     return {error => '3', txt => 'Password must be at least six characters'} if (length($pass) < 6); # password must be at least 6 characters
     return {error => '4', txt => 'Password must contain at least one number'} if ($pass !~ m/\d/);
-    return {error => '5', txt => 'Valid password characters are alphanumeric or !@#$%^&*()'} if ($pass =~ m/[^A-Za-z0-9!@#\$%\^&\*\(\)]/); # limit character set to alphanumeric and !@#$%^&*()
+    
     $pass = createSaltedHash($pass);
     
     my $result = AnnoTree::Model::MySQL->db->execute(

@@ -8,7 +8,6 @@ use Email::Sender::Transport::SMTP ();
 use Time::Piece ();
 use Data::Dumper;
 
-
 use strict;
 use warnings;
 
@@ -31,7 +30,7 @@ my $db = DBIx::Custom->connect(
 ) or die 'Could not connect to DB';
 $db->{mysql_auto_reconnect} = 1;
 
-open(INVITEES, '<', 'invite.txt') or die;
+open(INVITEES, '<', $config{email}->{inviteUsers}) or die;
 
 my $transport = Email::Sender::Transport::SMTP->new({
     host          => $smtpserver,

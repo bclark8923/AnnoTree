@@ -117,10 +117,15 @@
                 $scope.$evalAsync(loadUserData());
             }
 
-            console.log('standard');
             if ($location.path() == "/app/ft") {
                 $("#helpModal").modal('show'); // TODO: angular way
             }
+
+
+            $('#helpModal').on('hidden.bs.modal', function() {
+                var player = $f(document.getElementById('helpPlayer'));
+                player.api("pause");
+            });
         }
     );
 })(angular, AnnoTree);

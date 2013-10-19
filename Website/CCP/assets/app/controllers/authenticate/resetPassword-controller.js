@@ -29,7 +29,7 @@
                     $('#authenticateWorking').addClass('active');
                     var promise = $http.post(apiRoot.getRoot() + '/services/user/reset/' + token, {
                         password: password
-                    });//authenticateService.resetPassword(password, token);
+                    });
                     
                     promise.then(
                         function(response) {

@@ -10,5 +10,7 @@
 
 @interface MoveableText : UITextField
 
+@property BOOL deleteEnabled;
+
 
 @end

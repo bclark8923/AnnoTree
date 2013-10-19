@@ -13,12 +13,14 @@
 
 CGPoint startLocation;
 static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+@synthesize deleteEnabled;
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.deleteEnabled = NO;
     }
     return self;
 }
@@ -27,6 +29,10 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     // Retrieve the touch point
     CGPoint pt = [[touches anyObject] locationInView:self];
     startLocation = pt;
+    if(deleteEnabled){
+        DDLogVerbose(@"Remove This Object!");
+        [self removeFromSuperview];
+    }
     
 }
 

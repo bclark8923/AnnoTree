@@ -97,6 +97,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     deleteEnabled = delete;
     for(MoveableText* text in textBoxes){
         [text resignFirstResponder];
+        [text setDeleteEnabled:YES];
     }
     [self becomeFirstResponder];
 }
@@ -224,6 +225,16 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
                 [text removeFromSuperview];
             }
         }
+        for(UIBezierPath* path in drawings){
+            if(CGRectContainsPoint(path.bounds, touchLocation)){
+                int j = [drawings indexOfObject:path];
+                [drawings removeObject:path];
+                //[path ];
+                [drawingsColor removeObjectAtIndex:j];
+                [self setNeedsDisplay];
+            }
+        }
+        
     }
     
 
@@ -287,6 +298,15 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
             if(CGRectContainsPoint(text.frame, touchLocation)){
                 [textBoxes removeObject:text];
                 [text removeFromSuperview];
+            }
+        }
+        for(UIBezierPath* path in drawings){
+            if(CGRectContainsPoint(path.bounds, touchLocation)){
+                int j = [drawings indexOfObject:path];
+                [drawings removeObject:path];
+                //[path ];
+                [drawingsColor removeObjectAtIndex:j];
+                [self setNeedsDisplay];
             }
         }
     }

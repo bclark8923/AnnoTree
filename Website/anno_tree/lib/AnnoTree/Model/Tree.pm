@@ -269,7 +269,7 @@ sub addUserToTree {
             }
         );
 
-        my $cols = $addedUser->fetch; # get the columns (keys for json)
+        my $cols = $addedUser->fetch;
         my $userInfo = $addedUser->fetch;
         for (my $i = 0; $i < @{$cols}; $i++) {
             $json->{$cols->[$i]} = $userInfo->[$i];
@@ -280,12 +280,19 @@ sub addUserToTree {
                 $subject = "You've Been Invited To A Tree";
                 $body = 'Hi ';
                 $body .= $json->{first_name} || $json->{last_name};
-                $body .= ",<br/><br/>";
+                $body .= ",<p>";
                 $body .= $curUserInfo->[0] || '';
                 $body .= ' ' if $curUserInfo->[0];
                 $body .= $curUserInfo->[1];
-                $body .= ' has invited you to ' . $curUserInfo->[2] . ".<br/><br/>";
-                $body .= 'Go to <a href="' . $confCCP . '/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '">' . $confCCP . '/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '</a> to view this tree.';
+                $body .= ' has invited you to "' . $curUserInfo->[2] . '".</p>';
+                $body .= '<p>You can view this tree via the button below:</p>';
+                $body .= '<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse">';
+                $body .= '<tbody><tr><td style="padding-top:0;padding-right:18px;padding-bottom:18px;padding-left:18px" valign="top" align="center">';
+                $body .= '<table border="0" cellpadding="0" cellspacing="0" style="border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-right-radius:5px;border-bottom-left-radius:5px;background-color:#5cc080;border-collapse:collapse">';
+                $body .= '<tbody><tr>';
+                $body .= '<td align="center" valign="middle" style="font-family:Arial;font-size:18px;padding:20px">';
+                $body .= '<a title="View Tree" href="' . $confCCP . '/#/app/' . $curUserInfo->[3] . '/' . $params->{treeid} . '" style="font-weight:bold;letter-spacing:-0.5px;line-height:100%;text-align:center;text-decoration:none;color:#ffffff;word-wrap:break-word" target="_blank">View Tree</a>';
+                $body .= '</td></tr></tbody></table></td></tr></tbody></table>';
             } else {
                 $subject = "You've Been Invited To Join AnnoTree";
                 $body = 'Hi,' . "<br/><br/>";
@@ -293,7 +300,14 @@ sub addUserToTree {
                 $body .= ' ' if $curUserInfo->[0];
                 $body .= $curUserInfo->[1];
                 $body .= ' has invited you to collaborate with them through AnnoTree - a visual, design-focused collaboration tool for application development.<br/><br/>';
-                $body .= 'To learn more about AnnoTree, visit <a href="' . $confSplash . '">' . $confSplash . '</a> or go to <a href="' . $confCCP . '/#/authenticate/signUp?email=' . $params->{userToAdd} . '">' . $confCCP . '/#/authenticate/signUp?email=' . $params->{userToAdd} . '</a> to create an account and beging collaborating and streamlining your development.';
+                $body .= 'To learn more about AnnoTree, visit <a href="' . $confSplash . '">' . $confSplash . '</a> or click on the button below to create an account and begin collaborating and streamlining your development.';
+                $body .= '<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse">';
+                $body .= '<tbody><tr><td style="padding-top:0;padding-right:18px;padding-bottom:18px;padding-left:18px" valign="top" align="center">';
+                $body .= '<table border="0" cellpadding="0" cellspacing="0" style="border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-right-radius:5px;border-bottom-left-radius:5px;background-color:#5cc080;border-collapse:collapse">';
+                $body .= '<tbody><tr>';
+                $body .= '<td align="center" valign="middle" style="font-family:Arial;font-size:18px;padding:20px">';
+                $body .= '<a title="Signup Now!" href="' . $confCCP . '/#/authenticate/signUp?email=' . $params->{userToAdd} . '" style="font-weight:bold;letter-spacing:-0.5px;line-height:100%;text-align:center;text-decoration:none;color:#ffffff;word-wrap:break-word" target="_blank">Signup Now!</a>';
+                $body .= '</td></tr></tbody></table></td></tr></tbody></table>';
             }
 
             my $to = $params->{userToAdd};

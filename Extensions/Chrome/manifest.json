@@ -9,9 +9,7 @@
 
     "permissions": [
         "tabs",
-        "https://*/*", 
-        "http://*/*",
-        "file://*"
+        "<all_urls>"
     ],
     "background": {
         "scripts": ["background.js"]

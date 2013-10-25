@@ -154,11 +154,18 @@ sub knownPeople {
 # beta signup service
 sub beta {
     my ($class, $email) = @_;
+   
+    my %options = (
+        default => 'wavatar', 
+        rating  => 'pg',
+        https   => 1
+    );
 
     my $result = AnnoTree::Model::MySQL->db->execute(
-        "call create_beta_user(:email)",
+        "call create_beta_user(:email, :newUserImg)",
         {
-            email => $email
+            email       => $email,
+            newUserImg  => gravatar_url(email => $email, %options),
         }
     );
 
@@ -169,7 +176,7 @@ sub beta {
         # TODO: this should use the email module
         my $from = '"AnnoTree" <invite@annotree.com>';
         my $subject = "Thanks for Signing Up for AnnoTree";
-        my $message = "Thanks for signing up for the AnnoTree beta. We are currently rolling in users to test our platform and will reach out to you soon when we're ready to bring you on board.<br/><br/>In the meantime, we invite you to follow us on social media and at <a href=\"http://blog.annotree.com\">http://blog.annotree.com</a> to stay up-to-date on our product, our vision, and how AnnoTree will reshape the mobile development space.<br/><br/>If you have any questions, please feel free to reply to this email and we'll get back to you as soon as possible!";
+        my $message = "Thanks for signing up for the AnnoTree beta. We are currently rolling in users to test our platform and will reach out to you soon when we're ready to bring you on board.<br/><br/>In the meantime, we invite you to follow us on social media and view our blog at <a href=\"http://blog.annotree.com\">http://blog.annotree.com</a> to stay up-to-date on our product, our vision, and how AnnoTree will reshape the mobile development space.<br/><br/>If you have any questions, please feel free to reply to this email and we'll get back to you as soon as possible!<br/><br/>";
         
         AnnoTree::Model::Email->mail($email, $from, $subject, $message);
     } elsif ($num == 1) {

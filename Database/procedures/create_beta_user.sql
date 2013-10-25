@@ -8,15 +8,15 @@
 -- 4 - already signed up for the beta
 -- 5 - invalid email
 -- --------------------------------------------------------------------------------
-drop procedure IF EXISTS `create_beta_user`;
+DROP PROCEDURE IF EXISTS `create_beta_user`;
 DELIMITER $$
 
-
-CREATE procedure `create_beta_user`(
-  emailin VARCHAR(255)
+CREATE PROCEDURE `create_beta_user`(
+    IN email_in VARCHAR(255),
+    IN new_user_img VARCHAR(256)
 )
 BEGIN
-set @status = (select status from user where email = emailin);
+SET @status = (SELECT status FROM user WHERE email = email_in);
 If (@status = 3) THEN
     select '3';
 ELSEIF (@status = 2) THEN
@@ -26,12 +26,12 @@ ELSEIF (@status = 1) THEN
 ELSEIF (@status = 0) THEN
     select '4';
 ELSE
-    IF emailin REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' THEN
-        insert into user (email, status) values (emailin, 0);
-        select '0';
+    IF email_in REGEXP '[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}' THEN
+        INSERT INTO user (email, status, profile_image_path) VALUES (email_in, 0, new_user_img);
+        SELECT '0';
     ELSE 
-        select '5';
+        SELECT '5';
     END IF;
 END IF;
 END $$
-delimiter ; $$
+DELIMITER ; $$

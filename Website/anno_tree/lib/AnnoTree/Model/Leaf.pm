@@ -389,16 +389,29 @@ sub assign {
             if ($info{assign_status} == 3) {
                 $body .= ' ';
                 $body .= $info{assign_fname} || $info{assign_lname};
-                $body .= ',<br/><br/>';
+                $body .= ',<p>';
                 $info{req_user_fname} ? $body .= $info{req_user_fname} . ' ' : '';
-                $body .= $info{req_user_lname} . ' assigned you to "' . $info{leaf_name} . '".';
-                my $deepLink = $confCCP . '/#/app/' . $info{forest_id} . '/' . $info{tree_id} . '/' . $info{branch_id} . '/' . $info{leaf_id};
-                $body .= '<br/><br/>Go to <a href="' . $deepLink . '">' . $deepLink . '</a> to view this leaf.';
+                $body .= $info{req_user_lname} . ' assigned you to "' . $info{leaf_name} . '".</p>';
+                $body .= 'You can view this leaf via the button below:<p>';
+                $body .= '<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse">';
+                $body .= '<tbody><tr><td style="padding-top:0;padding-right:18px;padding-bottom:18px;padding-left:18px" valign="top" align="center">';
+                $body .= '<table border="0" cellpadding="0" cellspacing="0" style="border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-right-radius:5px;border-bottom-left-radius:5px;background-color:#5cc080;border-collapse:collapse">';
+                $body .= '<tbody><tr>';
+                $body .= '<td align="center" valign="middle" style="font-family:Arial;font-size:18px;padding:20px">';
+                $body .= '<a title="View Leaf" href="' . $confCCP . '/#/app/' . $info{forest_id} . '/' . $info{tree_id} . '/' . $info{branch_id} . '/' . $info{leaf_id} . '" style="font-weight:bold;letter-spacing:-0.5px;line-height:100%;text-align:center;text-decoration:none;color:#ffffff;word-wrap:break-word" target="_blank">View Leaf</a>';
+                $body .= '</td></tr></tbody></table></td></tr></tbody></table>';
             } else {
-                $body .= ',<br/><br/>';
+                $body .= ',<p>';
                 $info{req_user_fname} ? $body .= $info{req_user_fname} . ' ' : '';
-                $body .= $info{req_user_lname} . ' assigned you to "' . $info{leaf_name} . '".<br/><br/>';
-                $body .= 'Sign up at <a href="' . $confCCP . '/#/authenticate/signUp">' . $confCCP . '/#/authenticate/signUp</a> to view this leaf.  You can always learn more AnnoTree by visiting <a href="' . $confSplash . '">' . $confSplash . '</a>.';
+                $body .= $info{req_user_lname} . ' assigned you to "' . $info{leaf_name} . '".</p>';
+                $body .= '<p>Sign up and view this leaf by clicking the button below.  You can always learn more AnnoTree by visiting <a href="' . $confSplash . '">' . $confSplash . '</a>.</p>';
+                $body .= '<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse">';
+                $body .= '<tbody><tr><td style="padding-top:0;padding-right:18px;padding-bottom:18px;padding-left:18px" valign="top" align="center">';
+                $body .= '<table border="0" cellpadding="0" cellspacing="0" style="border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-right-radius:5px;border-bottom-left-radius:5px;background-color:#5cc080;border-collapse:collapse">';
+                $body .= '<tbody><tr>';
+                $body .= '<td align="center" valign="middle" style="font-family:Arial;font-size:18px;padding:20px">';
+                $body .= '<a title="Signup Now!" href="' . $confCCP . '/#/authenticate/signUp?email=' . $info{assign_email} . '" style="font-weight:bold;letter-spacing:-0.5px;line-height:100%;text-align:center;text-decoration:none;color:#ffffff;word-wrap:break-word" target="_blank">Signup Now!</a>';
+                $body .= '</td></tr></tbody></table></td></tr></tbody></table>';
             }
             AnnoTree::Model::Email->mail($to, $from, $subject, $body);
         }

@@ -6905,7 +6905,7 @@ $('#AnnoTree_send').click(function() {
                     $('#AnnoTree_contain').hide(10, function() {
                         var sendTo = $('#AnnoTree_treesSelection option:selected').val();
                         if (typeof(sendTo) === 'undefined') {
-                            alert('You have no trees to send screenshots to.  Log into https://ccp.annotree.com to create a tree.');
+                            alert('You have no trees to send screenshots to.  Log into https://app.annotree.com to create a tree.');
                                 $('#AnnoTree_widget').show();
                                 $('#AnnoTree_toolbarToggle').show();
                                 $('#AnnoTree_contain').show();
@@ -6977,7 +6977,7 @@ $('#AnnoTree_treeBtn').click(function() {
         chrome.runtime.sendMessage({action: 'trees'}, function(response) {
             var t = response.treesArray;
             if (typeof(t) === 'undefined') {
-                alert('You have no trees to send screenshots to.  Log into https://ccp.annotree.com to create a tree.');
+                alert('You have no trees to send screenshots to.  Log into https://app.annotree.com to create a tree.');
                 $('#AnnoTree_treeBtn img').attr('src', constants.img.tree);
             } else {
                 resetToolbar();

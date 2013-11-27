@@ -65,8 +65,8 @@
           <li><a href="http://annotree.com">Home</a></li>
           <li class="active"><a href="http://blog.annotree.com">Blog</a></li>
           <li class="signInButton">
-            <a style="color:white;text-decoration:none;padding:0;" href="http://ccp.annotree.com">
-              <button href="http://ccp.annotree.com" class="btn btn-annotree">Sign in</button>
+            <a style="color:white;text-decoration:none;padding:0;" href="http://app.annotree.com">
+              <button href="http://app.annotree.com" class="btn btn-annotree">Sign in</button>
             </a>
           </li>
         </ul>
